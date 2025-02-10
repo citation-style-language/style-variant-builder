@@ -1,0 +1,84 @@
+--- chicago-fullnote-bibliography.csl	2025-02-07 10:41:27
++++ chicago-annotated-bibliography.csl	2025-02-07 10:41:27
+@@ -1,10 +1,11 @@
+ <?xml version="1.0" encoding="utf-8"?>
+ <style xmlns="http://purl.org/net/xbiblio/csl" and="text" class="note" demote-non-dropping-particle="display-and-sort" names-delimiter=", " page-range-format="chicago" version="1.0">
+   <info>
+-    <title>Chicago Manual of Style, 18th edition (full note)</title>
++    <title>Chicago Manual of Style, 18th edition (note with annotated bibliography)</title>
+     <title-short>CMOS</title-short>
+-    <id>http://www.zotero.org/styles/chicago-fullnote-bibliography</id>
+-    <link href="http://www.zotero.org/styles/chicago-fullnote-bibliography" rel="self"/>
++    <id>http://www.zotero.org/styles/chicago-annotated-bibliography</id>
++    <link href="http://www.zotero.org/styles/chicago-annotated-bibliography" rel="self"/>
++    <link href="http://www.zotero.org/styles/chicago-fullnote-bibliography" rel="template"/>
+     <link href="http://www.chicagomanualofstyle.org/tools_citationguide.html" rel="documentation"/>
+     <author>
+       <name>Julian Onions</name>
+@@ -36,7 +37,7 @@
+     </contributor>
+     <category citation-format="note"/>
+     <category field="generic-base"/>
+-    <summary>Chicago Manual of Style full notes and bibliography</summary>
++    <summary>Chicago Manual of Style short notes and annotated bibliography</summary>
+     <updated>2025-02-04T00:00:00+00:00</updated>
+     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
+   </info>
+@@ -1365,7 +1366,7 @@
+             </choose>
+           </group>
+         </if>
+-        <else-if position="subsequent">
++        <else>
+           <group delimiter=", ">
+             <text macro="contributors-short"/>
+             <group delimiter=" ">
+@@ -1381,40 +1382,6 @@
+                 <text macro="point-locators-subsequent"/>
+               </if>
+             </choose>
+-          </group>
+-        </else-if>
+-        <else>
+-          <group delimiter=", ">
+-            <group delimiter=": ">
+-              <group delimiter=", ">
+-                <group delimiter=" ">
+-                  <group delimiter=", ">
+-                    <group delimiter=" ">
+-                      <group delimiter=", ">
+-                        <group delimiter=", ">
+-                          <text macro="contributors-note"/>
+-                          <text macro="title-note"/>
+-                          <text macro="issue-map-graphic"/>
+-                        </group>
+-                        <text macro="description-note"/>
+-                        <text macro="secondary-contributors-note"/>
+-                        <text macro="container-title-note"/>
+-                        <text macro="container-contributors-note"/>
+-                      </group>
+-                      <text macro="locators-note-join-with-space"/>
+-                    </group>
+-                    <text macro="locators-note-join-with-comma"/>
+-                    <text macro="collection-title"/>
+-                    <text macro="issue-note-join-with-comma"/>
+-                  </group>
+-                  <text macro="issue-note-join-with-space"/>
+-                </group>
+-                <text macro="point-locators-newspaper"/>
+-                <text macro="point-locators-join-with-comma"/>
+-              </group>
+-              <text macro="point-locators-join-with-colon"/>
+-            </group>
+-            <text macro="access-note"/>
+           </group>
+         </else>
+       </choose>
+@@ -1466,6 +1433,7 @@
+         </group>
+         <text macro="access"/>
+       </group>
++      <text display="block" variable="note"/>
+     </layout>
+   </bibliography>
+ </style>
