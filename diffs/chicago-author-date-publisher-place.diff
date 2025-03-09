@@ -1,25 +1,25 @@
---- chicago-fullnote-bibliography.csl	2025-03-08 00:18:46
-+++ chicago-author-date.raw.csl	2025-03-08 00:35:41
+--- chicago-fullnote-bibliography.csl	2025-03-08 00:40:49
++++ chicago-author-date-publisher-place.raw.csl	2025-03-08 00:43:22
 @@ -1,11 +1,11 @@
  <?xml version="1.0" encoding="utf-8"?>
 -<style xmlns="http://purl.org/net/xbiblio/csl" and="text" class="note" demote-non-dropping-particle="display-and-sort" names-delimiter=", " page-range-format="chicago" version="1.0">
 +<style xmlns="http://purl.org/net/xbiblio/csl" and="text" class="in-text" demote-non-dropping-particle="display-and-sort" names-delimiter=", " page-range-format="chicago" version="1.0">
    <info>
 -    <title>Chicago Manual of Style 18th edition (full note)</title>
-+    <title>Chicago Manual of Style 18th edition (author-date)</title>
++    <title>Chicago Manual of Style 18th edition (author-date with place of publication)</title>
      <title-short>CMOS</title-short>
 -    <id>http://www.zotero.org/styles/chicago-fullnote-bibliography</id>
 -    <link href="http://www.zotero.org/styles/chicago-fullnote-bibliography" rel="self"/>
 -    <link href="http://www.zotero.org/styles/chicago-fullnote-bibliography-17th-edition" rel="template"/>
-+    <id>http://www.zotero.org/styles/chicago-author-date</id>
-+    <link href="http://www.zotero.org/styles/chicago-author-date" rel="self"/>
++    <id>http://www.zotero.org/styles/chicago-author-date-publisher-place</id>
++    <link href="http://www.zotero.org/styles/chicago-author-date-publisher-place" rel="self"/>
 +    <link href="http://www.zotero.org/styles/chicago-fullnote-bibliography" rel="template"/>
      <link href="http://www.chicagomanualofstyle.org/tools_citationguide.html" rel="documentation"/>
      <author>
        <name>Andrew Dunning</name>
-@@ -47,11 +47,11 @@
-       <name>Brenton M. Wiernik</name>
-       <uri>https://orcid.org/0000-0001-9560-6336</uri>
+@@ -51,11 +51,11 @@
+       <name>Zeping Lee</name>
+       <uri>https://github.com/zepinglee</uri>
      </contributor>
 -    <category citation-format="note"/>
 +    <category citation-format="author-date"/>
@@ -27,11 +27,11 @@
      <category field="social_science"/>
      <category field="generic-base"/>
 -    <summary>Chicago Manual of Style full notes and bibliography</summary>
-+    <summary>Chicago Manual of Style author-date system</summary>
++    <summary>Chicago Manual of Style author-date system (with place of publication)</summary>
      <updated>2025-03-01T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -89,7 +89,6 @@
+@@ -93,7 +93,6 @@
          </if>
        </choose>
        <text variable="event-place"/>
@@ -39,7 +39,7 @@
      </group>
    </macro>
    <macro name="personal-communication-note">
-@@ -150,7 +149,7 @@
+@@ -154,7 +153,7 @@
    <macro name="author-short">
      <group delimiter=" ">
        <names variable="composer">
@@ -48,7 +48,7 @@
          <substitute>
            <names variable="author"/>
            <names variable="editor-translator"/>
-@@ -218,6 +217,64 @@
+@@ -222,6 +221,64 @@
        <text macro="personal-communication"/>
      </group>
    </macro>
@@ -113,7 +113,7 @@
    <macro name="reviewed-author">
      <names variable="reviewed-author">
        <label form="verb-short" suffix=" "/>
-@@ -814,13 +871,20 @@
+@@ -818,13 +875,20 @@
      </choose>
    </macro>
    <macro name="volume-journal">
@@ -141,7 +141,7 @@
      </group>
    </macro>
    <macro name="volume-legal">
-@@ -1209,6 +1273,12 @@
+@@ -1213,6 +1277,12 @@
        </else>
      </choose>
    </macro>
@@ -154,7 +154,7 @@
    <macro name="issued-date">
      <choose>
        <if variable="issued">
-@@ -1218,11 +1288,8 @@
+@@ -1222,11 +1292,8 @@
                <text variable="authority"/>
                <choose>
                  <if match="none" variable="container-title">
@@ -167,7 +167,7 @@
                </choose>
              </group>
            </if>
-@@ -1231,30 +1298,22 @@
+@@ -1235,30 +1302,22 @@
                <if variable="status">
                  <group delimiter=", ">
                    <text variable="status"/>
@@ -206,7 +206,7 @@
            <else-if type="patent">
              <group delimiter=", ">
                <group delimiter=" ">
-@@ -1272,20 +1331,14 @@
+@@ -1276,20 +1335,14 @@
                </group>
              </group>
            </else-if>
@@ -231,7 +231,13 @@
      </choose>
    </macro>
    <macro name="event-note">
-@@ -1320,7 +1373,6 @@
+@@ -1319,12 +1372,11 @@
+         </if>
+         <else>
+           <group delimiter=": ">
+-            <!-- <text variable="original-publisher-place"/> -->
++            <text variable="original-publisher-place"/>
+             <text variable="original-publisher"/>
            </group>
          </else>
        </choose>
@@ -239,7 +245,16 @@
      </group>
    </macro>
    <macro name="publisher">
-@@ -1360,7 +1412,7 @@
+@@ -1342,7 +1394,7 @@
+           </if>
+           <else>
+             <group delimiter=": ">
+-              <!-- <text variable="publisher-place"/> -->
++              <text variable="publisher-place"/>
+               <text variable="publisher"/>
+             </group>
+           </else>
+@@ -1364,7 +1416,7 @@
      <choose>
        <if match="any" type="graphic map">
          <choose>
@@ -248,7 +263,7 @@
              <text macro="issued-date"/>
            </if>
          </choose>
-@@ -1511,7 +1563,7 @@
+@@ -1515,7 +1567,7 @@
    </macro>
    <macro name="publication-info-note-join-with-comma">
      <choose>
@@ -257,7 +272,7 @@
          <text macro="publication-info-note"/>
        </if>
        <else-if match="any" type="article article-newspaper interview speech">
-@@ -1539,7 +1591,7 @@
+@@ -1543,7 +1595,7 @@
                    </if>
                  </choose>
                </if>
@@ -266,7 +281,7 @@
                  <text macro="publication-info"/>
                </else-if>
              </choose>
-@@ -1562,7 +1614,7 @@
+@@ -1566,7 +1618,7 @@
                </if>
              </choose>
            </if>
@@ -275,7 +290,7 @@
              <text macro="publication-info"/>
            </else-if>
          </choose>
-@@ -1571,7 +1623,7 @@
+@@ -1575,7 +1627,7 @@
    </macro>
    <macro name="publication-info-note-join-with-space">
      <choose>
@@ -284,7 +299,7 @@
          <choose>
            <if match="none" type="article article-newspaper interview speech">
              <choose>
-@@ -1585,13 +1637,6 @@
+@@ -1589,13 +1641,6 @@
            </if>
          </choose>
        </if>
@@ -298,7 +313,7 @@
      </choose>
    </macro>
    <macro name="publication-info-join-with-space">
-@@ -1606,13 +1651,6 @@
+@@ -1610,13 +1655,6 @@
        <else-if match="any" type="bill legal_case legislation">
          <text macro="publication-info"/>
        </else-if>
@@ -312,7 +327,7 @@
      </choose>
    </macro>
    <macro name="locators-case-subsequent">
-@@ -1848,70 +1886,34 @@
+@@ -1852,70 +1890,34 @@
        </choose>
      </group>
    </macro>
@@ -322,18 +337,19 @@
 -        <if position="subsequent">
 -          <group delimiter=", ">
 -            <text macro="author-short"/>
-+  <citation after-collapse-delimiter="; " collapse="year" disambiguate-add-givenname="true" disambiguate-add-names="true" disambiguate-add-year-suffix="true" et-al-min="3" et-al-use-first="1" givenname-disambiguation-rule="primary-name">
-+    <layout delimiter="; " prefix="(" suffix=")">
-+      <group delimiter=", ">
-+        <choose>
-+          <if variable="issued">
-             <group delimiter=" ">
+-            <group delimiter=" ">
 -              <group delimiter=", ">
 -                <text macro="title-short"/>
 -                <text macro="date-disambiguate"/>
 -                <text macro="volume-case-subsequent"/>
 -              </group>
 -              <text macro="locators-case-subsequent"/>
++  <citation after-collapse-delimiter="; " collapse="year" disambiguate-add-givenname="true" disambiguate-add-names="true" disambiguate-add-year-suffix="true" et-al-min="3" et-al-use-first="1" givenname-disambiguation-rule="primary-name">
++    <layout delimiter="; " prefix="(" suffix=")">
++      <group delimiter=", ">
++        <choose>
++          <if variable="issued">
++            <group delimiter=" ">
 +              <text macro="author-short"/>
 +              <text macro="date-in-text"/>
              </group>
@@ -403,7 +419,7 @@
      </sort>
      <layout suffix=".">
        <group delimiter=". ">
-@@ -1924,6 +1926,7 @@
+@@ -1928,6 +1930,7 @@
                      <group delimiter=". ">
                        <group delimiter=". ">
                          <text macro="author"/>

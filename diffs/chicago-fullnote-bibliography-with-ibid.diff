@@ -1,60 +1,54 @@
---- chicago-fullnote-bibliography.csl	2025-02-07 10:41:27
-+++ chicago-fullnote-bibliography-with-ibid.csl	2025-02-07 10:41:27
-@@ -1,10 +1,11 @@
+--- chicago-fullnote-bibliography.csl	2025-03-02 22:03:11
++++ chicago-fullnote-bibliography-with-ibid.csl	2025-03-03 09:29:45
+@@ -1,11 +1,11 @@
  <?xml version="1.0" encoding="utf-8"?>
  <style xmlns="http://purl.org/net/xbiblio/csl" and="text" class="note" demote-non-dropping-particle="display-and-sort" names-delimiter=", " page-range-format="chicago" version="1.0">
    <info>
--    <title>Chicago Manual of Style, 18th edition (full note)</title>
-+    <title>Chicago Manual of Style, 18th edition (full note, with Ibid.)</title>
+-    <title>Chicago Manual of Style 18th edition (full note)</title>
++    <title>Chicago Manual of Style 18th edition (full note with Ibid.)</title>
      <title-short>CMOS</title-short>
 -    <id>http://www.zotero.org/styles/chicago-fullnote-bibliography</id>
 -    <link href="http://www.zotero.org/styles/chicago-fullnote-bibliography" rel="self"/>
+-    <link href="http://www.zotero.org/styles/chicago-fullnote-bibliography-17th-edition" rel="template"/>
 +    <id>http://www.zotero.org/styles/chicago-fullnote-bibliography-with-ibid</id>
 +    <link href="http://www.zotero.org/styles/chicago-fullnote-bibliography-with-ibid" rel="self"/>
 +    <link href="http://www.zotero.org/styles/chicago-fullnote-bibliography" rel="template"/>
      <link href="http://www.chicagomanualofstyle.org/tools_citationguide.html" rel="documentation"/>
      <author>
-       <name>Julian Onions</name>
-@@ -36,7 +37,7 @@
+       <name>Andrew Dunning</name>
+@@ -48,7 +49,7 @@
      </contributor>
      <category citation-format="note"/>
      <category field="generic-base"/>
 -    <summary>Chicago Manual of Style full notes and bibliography</summary>
 +    <summary>Chicago Manual of Style full notes and bibliography, abbreviating subsequent references with Ibid.</summary>
-     <updated>2025-02-04T00:00:00+00:00</updated>
+     <updated>2025-03-01T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -1344,27 +1345,15 @@
+@@ -1578,7 +1579,16 @@
    <citation disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
      <layout delimiter="; " suffix=".">
        <choose>
--        <if match="any" position="ibid ibid-with-locator">
+-        <if position="subsequent">
 +        <if position="ibid-with-locator">
-           <group delimiter=", ">
--            <text macro="contributors-short"/>
--            <group delimiter=" ">
--              <group delimiter=", ">
--                <choose>
--                  <if match="none" variable="author editor translator">
--                    <text macro="title-short"/>
--                  </if>
--                </choose>
--                <text macro="locator-case-subsequent"/>
--              </group>
--              <text macro="point-locator-case-subsequent"/>
--            </group>
--            <choose>
--              <if match="none" type="legal_case">
--                <text macro="point-locators-subsequent"/>
--              </if>
--            </choose>
++          <group delimiter=", ">
 +            <text term="ibid"/>
-+            <text macro="point-locators-subsequent"/>
-           </group>
-         </if>
++            <text macro="locators-subsequent"/>
++          </group>
++        </if>
 +        <else-if position="ibid">
 +          <text term="ibid"/>
 +        </else-if>
-         <else-if position="subsequent">
++        <else-if position="subsequent">
            <group delimiter=", ">
-             <text macro="contributors-short"/>
+             <text macro="author-short"/>
+             <group delimiter=" ">
+@@ -1595,7 +1605,7 @@
+               </if>
+             </choose>
+           </group>
+-        </if>
++        </else-if>
+         <else>
+           <group delimiter=", ">
+             <group delimiter=": ">

@@ -1,35 +1,36 @@
---- chicago-fullnote-bibliography.csl	2025-02-07 10:41:27
-+++ chicago-annotated-bibliography.csl	2025-02-07 10:41:27
+--- chicago-fullnote-bibliography.csl	2025-03-09 06:09:50
++++ chicago-fullnote-bibliography-with-3-em-dash.csl	2025-03-09 06:34:59
 @@ -1,11 +1,11 @@
  <?xml version="1.0" encoding="utf-8"?>
  <style xmlns="http://purl.org/net/xbiblio/csl" and="text" class="note" demote-non-dropping-particle="display-and-sort" names-delimiter=", " page-range-format="chicago" version="1.0">
    <info>
 -    <title>Chicago Manual of Style 18th edition (full note)</title>
-+    <title>Chicago Manual of Style 18th edition (full note with annotated bibliography)</title>
++    <title>Chicago Manual of Style 18th edition (full note with 3-em dash)</title>
      <title-short>CMOS</title-short>
 -    <id>http://www.zotero.org/styles/chicago-fullnote-bibliography</id>
 -    <link href="http://www.zotero.org/styles/chicago-fullnote-bibliography" rel="self"/>
 -    <link href="http://www.zotero.org/styles/chicago-fullnote-bibliography-17th-edition" rel="template"/>
-+    <id>http://www.zotero.org/styles/chicago-annotated-bibliography</id>
-+    <link href="http://www.zotero.org/styles/chicago-annotated-bibliography" rel="self"/>
++    <id>http://www.zotero.org/styles/chicago-fullnote-bibliography-with-3-em-dash</id>
++    <link href="http://www.zotero.org/styles/chicago-fullnote-bibliography-with-3-em-dash" rel="self"/>
 +    <link href="http://www.zotero.org/styles/chicago-fullnote-bibliography" rel="template"/>
      <link href="http://www.chicagomanualofstyle.org/tools_citationguide.html" rel="documentation"/>
      <author>
        <name>Andrew Dunning</name>
-@@ -36,7 +37,7 @@
+@@ -55,7 +55,7 @@
      <category field="humanities"/>
      <category field="social_science"/>
      <category field="generic-base"/>
 -    <summary>Chicago Manual of Style full notes and bibliography</summary>
-+    <summary>Chicago Manual of Style full notes and annotated bibliography</summary>
++    <summary>Chicago Manual of Style full notes and bibliography, using a 3-em dash in consecutive bibliography entries</summary>
      <updated>2025-03-01T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -1466,6 +1433,7 @@
-         </group>
-         <text macro="access"/>
-       </group>
-+      <text display="block" variable="note"/>
+@@ -1888,7 +1888,7 @@
+       </choose>
      </layout>
-   </bibliography>
- </style>
+   </citation>
+-  <bibliography et-al-min="7" et-al-use-first="3" hanging-indent="true">
++  <bibliography et-al-min="7" et-al-use-first="3" hanging-indent="true" subsequent-author-substitute="&#8212;&#8212;&#8212;">
+     <sort>
+       <key macro="author"/>
+       <key variable="title"/>

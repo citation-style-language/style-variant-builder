@@ -1,43 +1,59 @@
---- chicago-fullnote-bibliography.csl	2025-02-07 10:41:27
-+++ chicago-note-bibliography.csl	2025-02-07 10:41:27
-@@ -1,10 +1,11 @@
+--- chicago-fullnote-bibliography.csl	2025-03-02 22:03:11
++++ chicago-note-bibliography.raw.csl	2025-03-03 09:24:25
+@@ -1,11 +1,11 @@
  <?xml version="1.0" encoding="utf-8"?>
  <style xmlns="http://purl.org/net/xbiblio/csl" and="text" class="note" demote-non-dropping-particle="display-and-sort" names-delimiter=", " page-range-format="chicago" version="1.0">
    <info>
--    <title>Chicago Manual of Style, 18th edition (full note)</title>
-+    <title>Chicago Manual of Style, 18th edition (note)</title>
+-    <title>Chicago Manual of Style 18th edition (full note)</title>
++    <title>Chicago Manual of Style 18th edition (note)</title>
      <title-short>CMOS</title-short>
 -    <id>http://www.zotero.org/styles/chicago-fullnote-bibliography</id>
 -    <link href="http://www.zotero.org/styles/chicago-fullnote-bibliography" rel="self"/>
+-    <link href="http://www.zotero.org/styles/chicago-fullnote-bibliography-17th-edition" rel="template"/>
 +    <id>http://www.zotero.org/styles/chicago-note-bibliography</id>
 +    <link href="http://www.zotero.org/styles/chicago-note-bibliography" rel="self"/>
 +    <link href="http://www.zotero.org/styles/chicago-fullnote-bibliography" rel="template"/>
      <link href="http://www.chicagomanualofstyle.org/tools_citationguide.html" rel="documentation"/>
      <author>
-       <name>Julian Onions</name>
-@@ -36,7 +37,7 @@
-     </contributor>
-     <category citation-format="note"/>
+       <name>Andrew Dunning</name>
+@@ -48,7 +49,7 @@
+     <category field="humanities"/>
+     <category field="social_science"/>
      <category field="generic-base"/>
 -    <summary>Chicago Manual of Style full notes and bibliography</summary>
 +    <summary>Chicago Manual of Style short notes and bibliography</summary>
-     <updated>2025-02-04T00:00:00+00:00</updated>
+     <updated>2025-03-01T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -1365,7 +1366,7 @@
-             </choose>
-           </group>
-         </if>
--        <else-if position="subsequent">
-+        <else>
+@@ -1577,60 +1578,22 @@
+   </macro>
+   <citation disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
+     <layout delimiter="; " suffix=".">
+-      <choose>
+-        <if position="subsequent">
++      <group delimiter=", ">
++        <text macro="author-short"/>
++        <group delimiter=" ">
            <group delimiter=", ">
-             <text macro="contributors-short"/>
-             <group delimiter=" ">
-@@ -1382,40 +1383,6 @@
-               </if>
-             </choose>
+-            <text macro="author-short"/>
+-            <group delimiter=" ">
+-              <group delimiter=", ">
+-                <text macro="title-short"/>
+-                <text macro="date-disambiguate"/>
+-                <text macro="volume-case-subsequent"/>
+-              </group>
+-              <text macro="locators-case-subsequent"/>
+-            </group>
+-            <choose>
+-              <if match="none" type="legal_case">
+-                <text macro="locators-subsequent"/>
+-              </if>
+-            </choose>
++            <text macro="title-short"/>
++            <text macro="date-disambiguate"/>
++            <text macro="volume-case-subsequent"/>
            </group>
--        </else-if>
+-        </if>
 -        <else>
 -          <group delimiter=", ">
 -            <group delimiter=": ">
@@ -47,30 +63,40 @@
 -                    <group delimiter=" ">
 -                      <group delimiter=", ">
 -                        <group delimiter=", ">
--                          <text macro="contributors-note"/>
+-                          <text macro="author-note"/>
 -                          <text macro="title-note"/>
--                          <text macro="issue-map-graphic"/>
+-                          <text macro="publication-info-map-graphic"/>
 -                        </group>
 -                        <text macro="description-note"/>
 -                        <text macro="secondary-contributors-note"/>
 -                        <text macro="container-title-note"/>
 -                        <text macro="container-contributors-note"/>
 -                      </group>
--                      <text macro="locators-note-join-with-space"/>
+-                      <text macro="volume-note-join-with-space"/>
 -                    </group>
--                    <text macro="locators-note-join-with-comma"/>
--                    <text macro="collection-title"/>
--                    <text macro="issue-note-join-with-comma"/>
+-                    <text macro="volume-note-join-with-comma"/>
+-                    <text macro="series-note"/>
+-                    <text macro="publication-info-note-join-with-comma"/>
 -                  </group>
--                  <text macro="issue-note-join-with-space"/>
+-                  <text macro="publication-info-note-join-with-space"/>
 -                </group>
--                <text macro="point-locators-newspaper"/>
--                <text macro="point-locators-join-with-comma"/>
+-                <text macro="locators-newspaper"/>
+-                <text macro="locators-join-with-comma"/>
 -              </group>
--              <text macro="point-locators-join-with-colon"/>
+-              <text macro="locators-join-with-colon"/>
 -            </group>
 -            <text macro="access-note"/>
 -          </group>
-         </else>
-       </choose>
+-        </else>
+-      </choose>
++          <text macro="locators-case-subsequent"/>
++        </group>
++        <choose>
++          <if match="none" type="legal_case">
++            <text macro="locators-subsequent"/>
++          </if>
++        </choose>
++      </group>
      </layout>
+   </citation>
+   <bibliography et-al-min="7" et-al-use-first="3" hanging-indent="true">
