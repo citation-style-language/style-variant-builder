@@ -48,7 +48,7 @@
          <substitute>
            <names variable="author"/>
            <choose>
-@@ -635,7 +634,7 @@
+@@ -636,7 +635,7 @@
    <macro name="date-disambiguate">
      <choose>
        <if disambiguate="true">
@@ -57,7 +57,7 @@
        </if>
        <else-if type="personal_communication">
          <choose>
-@@ -643,7 +642,7 @@
+@@ -644,7 +643,7 @@
              <date form="text" variable="event-date"/>
            </if>
            <else>
@@ -66,7 +66,7 @@
            </else>
          </choose>
        </else-if>
-@@ -654,7 +653,7 @@
+@@ -655,7 +654,7 @@
        <if type="graphic map">
          <choose>
            <if match="none" variable="original-publisher original-publisher-place publisher publisher-place">
@@ -75,7 +75,7 @@
            </if>
          </choose>
        </if>
-@@ -1704,7 +1703,7 @@
+@@ -1705,7 +1704,7 @@
      <group delimiter=", ">
        <choose>
          <if type="article-journal periodical">
@@ -84,7 +84,7 @@
          </if>
          <else-if match="any" variable="volume volume-title">
            <choose>
-@@ -2113,7 +2112,6 @@
+@@ -2114,7 +2113,6 @@
            </group>
          </else>
        </choose>
@@ -92,7 +92,7 @@
      </group>
    </macro>
    <macro name="publisher">
-@@ -2142,17 +2140,17 @@
+@@ -2143,17 +2141,17 @@
    <macro name="publication-facts-journal">
      <choose>
        <if match="any" variable="volume issue">
@@ -113,7 +113,7 @@
        </if>
        <else-if type="article-journal periodical">
          <text macro="publication-facts-journal"/>
-@@ -2189,7 +2187,7 @@
+@@ -2190,7 +2188,7 @@
                  <text value="released"/>
                </if>
              </choose>
@@ -122,7 +122,7 @@
            </group>
          </group>
        </else-if>
-@@ -2205,7 +2203,7 @@
+@@ -2206,7 +2204,7 @@
                <group delimiter="; ">
                  <group delimiter=", ">
                    <text macro="publisher"/>
@@ -131,7 +131,7 @@
                  </group>
                  <group delimiter=" ">
                    <text term="original-work-published"/>
-@@ -2234,20 +2232,20 @@
+@@ -2235,20 +2233,20 @@
                    <text macro="publisher"/>
                  </group>
                </group>
@@ -155,7 +155,7 @@
        </if>
        <else-if type="article-journal periodical">
          <text macro="publication-facts-journal"/>
-@@ -2284,7 +2282,7 @@
+@@ -2285,7 +2283,7 @@
                  <text text-case="capitalize-first" value="released"/>
                </if>
              </choose>
@@ -164,7 +164,7 @@
            </group>
          </group>
        </else-if>
-@@ -2300,7 +2298,7 @@
+@@ -2301,7 +2299,7 @@
                <group delimiter=". ">
                  <group delimiter=", ">
                    <text macro="publisher"/>
@@ -173,7 +173,7 @@
                  </group>
                  <group delimiter=" ">
                    <text term="original-work-published" text-case="capitalize-first"/>
-@@ -2329,13 +2327,13 @@
+@@ -2330,13 +2328,13 @@
                    <text macro="publisher"/>
                  </group>
                </group>
@@ -189,7 +189,7 @@
        </else-if>
      </choose>
    </macro>
-@@ -2868,9 +2866,9 @@
+@@ -2869,9 +2867,9 @@
        </choose>
      </group>
    </macro>
@@ -202,7 +202,7 @@
      </layout>
    </citation>
    <macro name="bibliography">
-@@ -2883,6 +2881,7 @@
+@@ -2884,6 +2882,7 @@
                  <group delimiter=", ">
                    <group delimiter=". ">
                      <text macro="author"/>
@@ -210,7 +210,7 @@
                      <text macro="title"/>
                      <text macro="description"/>
                      <text macro="secondary-contributors"/>
-@@ -2945,9 +2944,9 @@
+@@ -2946,9 +2945,9 @@
    <bibliography et-al-min="7" et-al-use-first="3" hanging-indent="true">
      <sort>
        <key macro="author"/>

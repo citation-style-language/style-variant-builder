@@ -25,16 +25,7 @@
      <updated>2025-03-01T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -2708,7 +2708,7 @@
-       </choose>
-       <choose>
-         <if match="any" variable="DOI URL">
--          <text macro="URI"/>
-+          <!-- <text macro="URI"/> -->
-         </if>
-         <else-if match="none" variable="archive_location archive-place">
-           <text macro="archive"/>
-@@ -2741,7 +2741,7 @@
+@@ -2742,7 +2742,7 @@
        </choose>
        <choose>
          <if match="any" variable="DOI URL">
@@ -43,7 +34,7 @@
          </if>
          <else-if match="none" variable="archive_location archive-place">
            <text macro="archive" text-case="capitalize-first"/>
-@@ -2870,7 +2870,7 @@
+@@ -2871,7 +2871,7 @@
    </macro>
    <citation disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
      <layout delimiter="; " suffix=".">

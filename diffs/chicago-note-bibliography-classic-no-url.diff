@@ -25,7 +25,7 @@
      <updated>2025-03-01T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -1639,9 +1639,6 @@
+@@ -1640,9 +1640,6 @@
          <text macro="volume-label-number-note"/>
        </if>
        <else-if match="any" variable="chair compiler container-author contributor curator director editor translator editor-translator editorial-director executive-producer guest host illustrator interviewer narrator organizer original-author performer producer script-writer series-creator volume-title">
@@ -35,7 +35,7 @@
          <text macro="volume-label-number-note"/>
        </else-if>
      </choose>
-@@ -2108,7 +2105,7 @@
+@@ -2109,7 +2106,7 @@
          </if>
          <else>
            <group delimiter=": ">
@@ -44,7 +44,7 @@
              <text variable="original-publisher"/>
            </group>
          </else>
-@@ -2131,7 +2128,7 @@
+@@ -2132,7 +2129,7 @@
            </if>
            <else>
              <group delimiter=": ">
@@ -53,7 +53,7 @@
                <text variable="publisher"/>
              </group>
            </else>
-@@ -2473,7 +2470,7 @@
+@@ -2474,7 +2471,7 @@
    </macro>
    <macro name="locators">
      <choose>
@@ -62,16 +62,7 @@
          <choose>
            <if is-numeric="page">
              <choose>
-@@ -2708,7 +2705,7 @@
-       </choose>
-       <choose>
-         <if match="any" variable="DOI URL">
--          <text macro="URI"/>
-+          <!-- <text macro="URI"/> -->
-         </if>
-         <else-if match="none" variable="archive_location archive-place">
-           <text macro="archive"/>
-@@ -2741,7 +2738,7 @@
+@@ -2742,7 +2739,7 @@
        </choose>
        <choose>
          <if match="any" variable="DOI URL">
@@ -80,7 +71,7 @@
          </if>
          <else-if match="none" variable="archive_location archive-place">
            <text macro="archive" text-case="capitalize-first"/>
-@@ -2870,7 +2867,7 @@
+@@ -2871,7 +2868,7 @@
    </macro>
    <citation disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
      <layout delimiter="; " suffix=".">
@@ -89,7 +80,7 @@
      </layout>
    </citation>
    <macro name="bibliography">
-@@ -2942,7 +2939,7 @@
+@@ -2943,7 +2940,7 @@
        </else>
      </choose>
    </macro>

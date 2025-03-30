@@ -1,17 +1,17 @@
 --- templates/chicago-template.csl
-+++ development/chicago-fullnote-bibliography-no-url.csl
++++ development/chicago-fullnote-no-url.csl
 @@ -1,11 +1,11 @@
  <?xml version="1.0" encoding="utf-8"?>
  <style and="text" class="note" demote-non-dropping-particle="display-and-sort" names-delimiter=", " page-range-format="chicago" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>Chicago Manual of Style 18th edition (template)</title>
-+    <title>Chicago Manual of Style 18th edition (full note without URL)</title>
++    <title>Chicago Manual of Style 18th edition (full note without bibliography or URL)</title>
      <title-short>CMOS</title-short>
 -    <id>http://www.zotero.org/styles/chicago-fullnote-bibliography</id>
 -    <link href="http://www.zotero.org/styles/chicago-fullnote-bibliography" rel="self"/>
 -    <link href="http://www.zotero.org/styles/chicago-fullnote-bibliography-17th-edition" rel="template"/>
-+    <id>http://www.zotero.org/styles/chicago-fullnote-bibliography-no-url</id>
-+    <link href="http://www.zotero.org/styles/chicago-fullnote-bibliography-no-url" rel="self"/>
++    <id>http://www.zotero.org/styles/chicago-fullnote-no-url</id>
++    <link href="http://www.zotero.org/styles/chicago-fullnote-no-url" rel="self"/>
 +    <link href="http://www.zotero.org/styles/chicago-fullnote-bibliography" rel="template"/>
      <link href="http://www.chicagomanualofstyle.org/tools_citationguide.html" rel="documentation"/>
      <author>
@@ -21,7 +21,7 @@
      <category field="social_science"/>
      <category field="generic-base"/>
 -    <summary>Chicago Manual of Style full notes and bibliography</summary>
-+    <summary>Chicago Manual of Style full notes and bibliography, without URL</summary>
++    <summary>Chicago Manual of Style full notes without bibliography or URL</summary>
      <updated>2025-03-01T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
@@ -34,12 +34,28 @@
          </if>
          <else-if match="none" variable="archive_location archive-place">
            <text macro="archive"/>
-@@ -2742,7 +2742,7 @@
+@@ -2869,7 +2869,7 @@
        </choose>
-       <choose>
-         <if match="any" variable="DOI URL">
--          <text macro="URI"/>
-+          <!-- <text macro="URI"/> -->
-         </if>
-         <else-if match="none" variable="archive_location archive-place">
-           <text macro="archive" text-case="capitalize-first"/>
+     </group>
+   </macro>
+-  <citation disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
++  <citation disambiguate-add-names="true" et-al-min="7" et-al-use-first="3">
+     <layout delimiter="; " suffix=".">
+       <text macro="citation-fullnote"/>
+     </layout>
+@@ -2943,15 +2943,4 @@
+       </else>
+     </choose>
+   </macro>
+-  <bibliography et-al-min="7" et-al-use-first="3" hanging-indent="true">
+-    <sort>
+-      <key macro="author"/>
+-      <key variable="title"/>
+-      <key variable="genre"/>
+-      <key variable="issued"/>
+-    </sort>
+-    <layout suffix=".">
+-      <text macro="bibliography-filtered"/>
+-    </layout>
+-  </bibliography>
+ </style>

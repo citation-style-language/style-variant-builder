@@ -48,7 +48,7 @@
          <substitute>
            <names variable="author"/>
            <choose>
-@@ -635,7 +634,7 @@
+@@ -636,7 +635,7 @@
    <macro name="date-disambiguate">
      <choose>
        <if disambiguate="true">
@@ -57,7 +57,7 @@
        </if>
        <else-if type="personal_communication">
          <choose>
-@@ -643,7 +642,7 @@
+@@ -644,7 +643,7 @@
              <date form="text" variable="event-date"/>
            </if>
            <else>
@@ -66,7 +66,7 @@
            </else>
          </choose>
        </else-if>
-@@ -654,7 +653,7 @@
+@@ -655,7 +654,7 @@
        <if type="graphic map">
          <choose>
            <if match="none" variable="original-publisher original-publisher-place publisher publisher-place">
@@ -75,7 +75,7 @@
            </if>
          </choose>
        </if>
-@@ -1641,9 +1640,6 @@
+@@ -1642,9 +1641,6 @@
        <else-if match="any" variable="chair compiler container-author contributor curator director editor translator editor-translator editorial-director executive-producer guest host illustrator interviewer narrator organizer original-author performer producer script-writer series-creator volume-title">
          <text macro="volume-label-number-note"/>
        </else-if>
@@ -85,7 +85,7 @@
      </choose>
    </macro>
    <macro name="volume-label-number-note">
-@@ -1704,7 +1700,7 @@
+@@ -1705,7 +1701,7 @@
      <group delimiter=", ">
        <choose>
          <if type="article-journal periodical">
@@ -94,7 +94,7 @@
          </if>
          <else-if match="any" variable="volume volume-title">
            <choose>
-@@ -2108,12 +2104,11 @@
+@@ -2109,12 +2105,11 @@
          </if>
          <else>
            <group delimiter=": ">
@@ -108,7 +108,7 @@
      </group>
    </macro>
    <macro name="publisher">
-@@ -2131,7 +2126,7 @@
+@@ -2132,7 +2127,7 @@
            </if>
            <else>
              <group delimiter=": ">
@@ -117,7 +117,7 @@
                <text variable="publisher"/>
              </group>
            </else>
-@@ -2142,17 +2137,17 @@
+@@ -2143,17 +2138,17 @@
    <macro name="publication-facts-journal">
      <choose>
        <if match="any" variable="volume issue">
@@ -138,7 +138,7 @@
        </if>
        <else-if type="article-journal periodical">
          <text macro="publication-facts-journal"/>
-@@ -2189,7 +2184,7 @@
+@@ -2190,7 +2185,7 @@
                  <text value="released"/>
                </if>
              </choose>
@@ -147,7 +147,7 @@
            </group>
          </group>
        </else-if>
-@@ -2205,7 +2200,7 @@
+@@ -2206,7 +2201,7 @@
                <group delimiter="; ">
                  <group delimiter=", ">
                    <text macro="publisher"/>
@@ -156,7 +156,7 @@
                  </group>
                  <group delimiter=" ">
                    <text term="original-work-published"/>
-@@ -2234,20 +2229,20 @@
+@@ -2235,20 +2230,20 @@
                    <text macro="publisher"/>
                  </group>
                </group>
@@ -180,7 +180,7 @@
        </if>
        <else-if type="article-journal periodical">
          <text macro="publication-facts-journal"/>
-@@ -2284,7 +2279,7 @@
+@@ -2285,7 +2280,7 @@
                  <text text-case="capitalize-first" value="released"/>
                </if>
              </choose>
@@ -189,7 +189,7 @@
            </group>
          </group>
        </else-if>
-@@ -2300,7 +2295,7 @@
+@@ -2301,7 +2296,7 @@
                <group delimiter=". ">
                  <group delimiter=", ">
                    <text macro="publisher"/>
@@ -198,7 +198,7 @@
                  </group>
                  <group delimiter=" ">
                    <text term="original-work-published" text-case="capitalize-first"/>
-@@ -2329,13 +2324,13 @@
+@@ -2330,13 +2325,13 @@
                    <text macro="publisher"/>
                  </group>
                </group>
@@ -214,7 +214,7 @@
        </else-if>
      </choose>
    </macro>
-@@ -2473,7 +2468,7 @@
+@@ -2474,7 +2469,7 @@
    </macro>
    <macro name="locators">
      <choose>
@@ -223,7 +223,7 @@
          <choose>
            <if is-numeric="page">
              <choose>
-@@ -2868,9 +2863,9 @@
+@@ -2869,9 +2864,9 @@
        </choose>
      </group>
    </macro>
@@ -236,7 +236,7 @@
      </layout>
    </citation>
    <macro name="bibliography">
-@@ -2883,6 +2878,7 @@
+@@ -2884,6 +2879,7 @@
                  <group delimiter=", ">
                    <group delimiter=". ">
                      <text macro="author"/>
@@ -244,7 +244,7 @@
                      <text macro="title"/>
                      <text macro="description"/>
                      <text macro="secondary-contributors"/>
-@@ -2942,12 +2938,12 @@
+@@ -2943,12 +2939,12 @@
        </else>
      </choose>
    </macro>
