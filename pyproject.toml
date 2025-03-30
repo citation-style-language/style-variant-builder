@@ -1,18 +1,7 @@
 [project]
 name = "csl-builder"
 version = "0.1.0"
-description = ""
-authors = [
-    {name = "Andrew Dunning",email = "adunning@users.noreply.github.com"}
-]
+description = "Create variant Citation Style Language (CSL) styles"
 readme = "README.md"
 requires-python = ">=3.13"
-dependencies = [
-    "lxml (>=5.3.0,<6.0.0)",
-    "lxml-stubs (>=0.5.1,<0.6.0)"
-]
-
-
-[build-system]
-requires = ["poetry-core>=2.0.0,<3.0.0"]
-build-backend = "poetry.core.masonry.api"
+dependencies = ["lxml>=5.3.1", "lxml-stubs>=0.5.1"]

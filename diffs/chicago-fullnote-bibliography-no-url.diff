@@ -1,10 +1,10 @@
---- chicago-fullnote-bibliography.csl	2025-02-26 01:05:05
-+++ chicago-fullnote-bibliography-no-url.csl	2025-02-26 01:30:03
+--- templates/chicago-template.csl
++++ development/chicago-fullnote-bibliography-no-url.csl
 @@ -1,11 +1,11 @@
  <?xml version="1.0" encoding="utf-8"?>
- <style xmlns="http://purl.org/net/xbiblio/csl" and="text" class="note" demote-non-dropping-particle="display-and-sort" names-delimiter=", " page-range-format="chicago" version="1.0">
+ <style and="text" class="note" demote-non-dropping-particle="display-and-sort" names-delimiter=", " page-range-format="chicago" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
--    <title>Chicago Manual of Style 18th edition (full note)</title>
+-    <title>Chicago Manual of Style 18th edition (template)</title>
 +    <title>Chicago Manual of Style 18th edition (full note without URL)</title>
      <title-short>CMOS</title-short>
 -    <id>http://www.zotero.org/styles/chicago-fullnote-bibliography</id>
@@ -16,16 +16,16 @@
      <link href="http://www.chicagomanualofstyle.org/tools_citationguide.html" rel="documentation"/>
      <author>
        <name>Andrew Dunning</name>
-@@ -48,7 +48,7 @@
-     </contributor>
-     <category citation-format="note"/>
+@@ -55,7 +55,7 @@
+     <category field="humanities"/>
+     <category field="social_science"/>
      <category field="generic-base"/>
 -    <summary>Chicago Manual of Style full notes and bibliography</summary>
-+    <summary>Chicago Manual of Style full notes and bibliography (without URL)</summary>
++    <summary>Chicago Manual of Style full notes and bibliography, without URL</summary>
      <updated>2025-03-01T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -1443,7 +1443,7 @@
+@@ -2708,7 +2708,7 @@
        </choose>
        <choose>
          <if match="any" variable="DOI URL">
@@ -34,7 +34,7 @@
          </if>
          <else-if match="none" variable="archive_location archive-place">
            <text macro="archive"/>
-@@ -1476,7 +1476,7 @@
+@@ -2741,7 +2741,7 @@
        </choose>
        <choose>
          <if match="any" variable="DOI URL">

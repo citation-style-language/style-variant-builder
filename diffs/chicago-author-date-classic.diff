@@ -1,18 +1,18 @@
 --- templates/chicago-template.csl
-+++ development/chicago-author-date.csl
++++ development/chicago-author-date-classic.csl
 @@ -1,11 +1,11 @@
  <?xml version="1.0" encoding="utf-8"?>
 -<style and="text" class="note" demote-non-dropping-particle="display-and-sort" names-delimiter=", " page-range-format="chicago" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
 +<style and="text" class="in-text" demote-non-dropping-particle="display-and-sort" names-delimiter=", " page-range-format="chicago" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>Chicago Manual of Style 18th edition (template)</title>
-+    <title>Chicago Manual of Style 18th edition (author-date)</title>
++    <title>Chicago Manual of Style 18th edition (author-date with classic variants)</title>
      <title-short>CMOS</title-short>
 -    <id>http://www.zotero.org/styles/chicago-fullnote-bibliography</id>
 -    <link href="http://www.zotero.org/styles/chicago-fullnote-bibliography" rel="self"/>
 -    <link href="http://www.zotero.org/styles/chicago-fullnote-bibliography-17th-edition" rel="template"/>
-+    <id>http://www.zotero.org/styles/chicago-author-date</id>
-+    <link href="http://www.zotero.org/styles/chicago-author-date" rel="self"/>
++    <id>http://www.zotero.org/styles/chicago-author-date-classic</id>
++    <link href="http://www.zotero.org/styles/chicago-author-date-classic" rel="self"/>
 +    <link href="http://www.zotero.org/styles/chicago-fullnote-bibliography" rel="template"/>
      <link href="http://www.chicagomanualofstyle.org/tools_citationguide.html" rel="documentation"/>
      <author>
@@ -27,7 +27,7 @@
      <category field="social_science"/>
      <category field="generic-base"/>
 -    <summary>Chicago Manual of Style full notes and bibliography</summary>
-+    <summary>Chicago Manual of Style author-date system</summary>
++    <summary>Chicago Manual of Style author-date system, with classic variants (chapter page numbers, place of publication, and 3-em dash)</summary>
      <updated>2025-03-01T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
@@ -75,7 +75,17 @@
            </if>
          </choose>
        </if>
-@@ -1704,7 +1703,7 @@
+@@ -1641,9 +1640,6 @@
+       <else-if match="any" variable="chair compiler container-author contributor curator director editor translator editor-translator editorial-director executive-producer guest host illustrator interviewer narrator organizer original-author performer producer script-writer series-creator volume-title">
+         <text macro="volume-label-number-note"/>
+       </else-if>
+-      <else-if type="chapter">
+-        <text macro="volume-label-number-note"/>
+-      </else-if>
+     </choose>
+   </macro>
+   <macro name="volume-label-number-note">
+@@ -1704,7 +1700,7 @@
      <group delimiter=", ">
        <choose>
          <if type="article-journal periodical">
@@ -84,7 +94,13 @@
          </if>
          <else-if match="any" variable="volume volume-title">
            <choose>
-@@ -2113,7 +2112,6 @@
+@@ -2108,12 +2104,11 @@
+         </if>
+         <else>
+           <group delimiter=": ">
+-            <!-- <text variable="original-publisher-place"/> -->
++            <text variable="original-publisher-place"/>
+             <text variable="original-publisher"/>
            </group>
          </else>
        </choose>
@@ -92,7 +108,16 @@
      </group>
    </macro>
    <macro name="publisher">
-@@ -2142,17 +2140,17 @@
+@@ -2131,7 +2126,7 @@
+           </if>
+           <else>
+             <group delimiter=": ">
+-              <!-- <text variable="publisher-place"/> -->
++              <text variable="publisher-place"/>
+               <text variable="publisher"/>
+             </group>
+           </else>
+@@ -2142,17 +2137,17 @@
    <macro name="publication-facts-journal">
      <choose>
        <if match="any" variable="volume issue">
@@ -113,7 +138,7 @@
        </if>
        <else-if type="article-journal periodical">
          <text macro="publication-facts-journal"/>
-@@ -2189,7 +2187,7 @@
+@@ -2189,7 +2184,7 @@
                  <text value="released"/>
                </if>
              </choose>
@@ -122,7 +147,7 @@
            </group>
          </group>
        </else-if>
-@@ -2205,7 +2203,7 @@
+@@ -2205,7 +2200,7 @@
                <group delimiter="; ">
                  <group delimiter=", ">
                    <text macro="publisher"/>
@@ -131,7 +156,7 @@
                  </group>
                  <group delimiter=" ">
                    <text term="original-work-published"/>
-@@ -2234,20 +2232,20 @@
+@@ -2234,20 +2229,20 @@
                    <text macro="publisher"/>
                  </group>
                </group>
@@ -155,7 +180,7 @@
        </if>
        <else-if type="article-journal periodical">
          <text macro="publication-facts-journal"/>
-@@ -2284,7 +2282,7 @@
+@@ -2284,7 +2279,7 @@
                  <text text-case="capitalize-first" value="released"/>
                </if>
              </choose>
@@ -164,7 +189,7 @@
            </group>
          </group>
        </else-if>
-@@ -2300,7 +2298,7 @@
+@@ -2300,7 +2295,7 @@
                <group delimiter=". ">
                  <group delimiter=", ">
                    <text macro="publisher"/>
@@ -173,7 +198,7 @@
                  </group>
                  <group delimiter=" ">
                    <text term="original-work-published" text-case="capitalize-first"/>
-@@ -2329,13 +2327,13 @@
+@@ -2329,13 +2324,13 @@
                    <text macro="publisher"/>
                  </group>
                </group>
@@ -189,7 +214,16 @@
        </else-if>
      </choose>
    </macro>
-@@ -2868,9 +2866,9 @@
+@@ -2473,7 +2468,7 @@
+   </macro>
+   <macro name="locators">
+     <choose>
+-      <if match="none" type="chapter" variable="locator">
++      <if match="none" variable="locator">
+         <choose>
+           <if is-numeric="page">
+             <choose>
+@@ -2868,9 +2863,9 @@
        </choose>
      </group>
    </macro>
@@ -202,7 +236,7 @@
      </layout>
    </citation>
    <macro name="bibliography">
-@@ -2883,6 +2881,7 @@
+@@ -2883,6 +2878,7 @@
                  <group delimiter=", ">
                    <group delimiter=". ">
                      <text macro="author"/>
@@ -210,8 +244,12 @@
                      <text macro="title"/>
                      <text macro="description"/>
                      <text macro="secondary-contributors"/>
-@@ -2945,9 +2944,9 @@
-   <bibliography et-al-min="7" et-al-use-first="3" hanging-indent="true">
+@@ -2942,12 +2938,12 @@
+       </else>
+     </choose>
+   </macro>
+-  <bibliography et-al-min="7" et-al-use-first="3" hanging-indent="true">
++  <bibliography et-al-min="7" et-al-use-first="3" hanging-indent="true" subsequent-author-substitute="&#8212;&#8212;&#8212;">
      <sort>
        <key macro="author"/>
 +      <key macro="date"/>

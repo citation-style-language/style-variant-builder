@@ -1,17 +1,17 @@
 --- templates/chicago-template.csl
-+++ development/chicago-fullnote-bibliography-with-ibid.csl
++++ development/chicago-fullnote-bibliography-classic.csl
 @@ -1,11 +1,11 @@
  <?xml version="1.0" encoding="utf-8"?>
  <style and="text" class="note" demote-non-dropping-particle="display-and-sort" names-delimiter=", " page-range-format="chicago" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>Chicago Manual of Style 18th edition (template)</title>
-+    <title>Chicago Manual of Style 18th edition (full note with classic variants and Ibid.)</title>
++    <title>Chicago Manual of Style 18th edition (full note with classic variants)</title>
      <title-short>CMOS</title-short>
 -    <id>http://www.zotero.org/styles/chicago-fullnote-bibliography</id>
 -    <link href="http://www.zotero.org/styles/chicago-fullnote-bibliography" rel="self"/>
 -    <link href="http://www.zotero.org/styles/chicago-fullnote-bibliography-17th-edition" rel="template"/>
-+    <id>http://www.zotero.org/styles/chicago-fullnote-bibliography-with-ibid</id>
-+    <link href="http://www.zotero.org/styles/chicago-fullnote-bibliography-with-ibid" rel="self"/>
++    <id>http://www.zotero.org/styles/chicago-fullnote-bibliography-classic</id>
++    <link href="http://www.zotero.org/styles/chicago-fullnote-bibliography-classic" rel="self"/>
 +    <link href="http://www.zotero.org/styles/chicago-fullnote-bibliography" rel="template"/>
      <link href="http://www.chicagomanualofstyle.org/tools_citationguide.html" rel="documentation"/>
      <author>
@@ -21,7 +21,7 @@
      <category field="social_science"/>
      <category field="generic-base"/>
 -    <summary>Chicago Manual of Style full notes and bibliography</summary>
-+    <summary>Chicago Manual of Style full notes and bibliography, with classic variants (chapter page numbers, place of publication, and 3-em dash), abbreviating subsequent references with Ibid.</summary>
++    <summary>Chicago Manual of Style full notes and bibliography, with classic variants (chapter page numbers, place of publication, and 3-em dash)</summary>
      <updated>2025-03-01T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
@@ -62,15 +62,6 @@
          <choose>
            <if is-numeric="page">
              <choose>
-@@ -2870,7 +2867,7 @@
-   </macro>
-   <citation disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
-     <layout delimiter="; " suffix=".">
--      <text macro="citation-fullnote"/>
-+      <text macro="citation-fullnote-ibid"/>
-     </layout>
-   </citation>
-   <macro name="bibliography">
 @@ -2942,7 +2939,7 @@
        </else>
      </choose>

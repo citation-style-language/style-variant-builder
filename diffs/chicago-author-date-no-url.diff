@@ -1,11 +1,11 @@
---- chicago-fullnote-bibliography.csl	2025-03-08 00:40:49
-+++ chicago-author-date-no-url.raw.csl	2025-03-08 00:42:36
+--- templates/chicago-template.csl
++++ development/chicago-author-date-no-url.csl
 @@ -1,11 +1,11 @@
  <?xml version="1.0" encoding="utf-8"?>
--<style xmlns="http://purl.org/net/xbiblio/csl" and="text" class="note" demote-non-dropping-particle="display-and-sort" names-delimiter=", " page-range-format="chicago" version="1.0">
-+<style xmlns="http://purl.org/net/xbiblio/csl" and="text" class="in-text" demote-non-dropping-particle="display-and-sort" names-delimiter=", " page-range-format="chicago" version="1.0">
+-<style and="text" class="note" demote-non-dropping-particle="display-and-sort" names-delimiter=", " page-range-format="chicago" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
++<style and="text" class="in-text" demote-non-dropping-particle="display-and-sort" names-delimiter=", " page-range-format="chicago" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
--    <title>Chicago Manual of Style 18th edition (full note)</title>
+-    <title>Chicago Manual of Style 18th edition (template)</title>
 +    <title>Chicago Manual of Style 18th edition (author-date without URL)</title>
      <title-short>CMOS</title-short>
 -    <id>http://www.zotero.org/styles/chicago-fullnote-bibliography</id>
@@ -27,11 +27,11 @@
      <category field="social_science"/>
      <category field="generic-base"/>
 -    <summary>Chicago Manual of Style full notes and bibliography</summary>
-+    <summary>Chicago Manual of Style author-date system (without URL)</summary>
++    <summary>Chicago Manual of Style author-date system, without URL</summary>
      <updated>2025-03-01T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -93,7 +93,6 @@
+@@ -98,7 +98,6 @@
          </if>
        </choose>
        <text variable="event-place"/>
@@ -39,7 +39,7 @@
      </group>
    </macro>
    <macro name="personal-communication-note">
-@@ -154,7 +153,7 @@
+@@ -159,7 +158,7 @@
    <macro name="author-short">
      <group delimiter=" ">
        <names variable="composer">
@@ -47,191 +47,44 @@
 +        <name form="short" initialize-with=". "/>
          <substitute>
            <names variable="author"/>
-           <names variable="editor-translator"/>
-@@ -222,6 +221,64 @@
-       <text macro="personal-communication"/>
-     </group>
-   </macro>
-+  <macro name="date-in-text">
-+    <choose>
-+      <if type="personal_communication" variable="event-date issued">
-+        <date date-parts="year" form="numeric" variable="event-date"/>
-+      </if>
-+      <else-if variable="issued">
-+        <group delimiter=" ">
-+          <choose>
-+            <if is-uncertain-date="original-date">
-+              <text macro="date-original-year"/>
-+            </if>
-+            <else>
-+              <text macro="date-original-year" prefix="[" suffix="]"/>
-+            </else>
-+          </choose>
-+          <text macro="date-issued-year"/>
-+        </group>
-+        <text variable="year-suffix"/>
-+      </else-if>
-+      <else-if variable="status">
-+        <text variable="status"/>
-+        <text prefix="-" variable="year-suffix"/>
-+      </else-if>
-+      <else>
-+        <text form="short" term="no date"/>
-+        <text prefix="-" variable="year-suffix"/>
-+      </else>
-+    </choose>
-+  </macro>
-+  <macro name="date">
-+    <choose>
-+      <if type="personal_communication" variable="event-date">
-+        <date form="text" variable="event-date"/>
-+      </if>
-+      <else-if variable="issued">
-+        <group delimiter=" ">
-+          <text macro="date-original-year" prefix="(" suffix=")"/>
-+          <choose>
-+            <if type="personal_communication">
-+              <date form="text" variable="issued"/>
-+            </if>
-+            <else>
-+              <text macro="date-issued-year"/>
-+            </else>
-+          </choose>
-+        </group>
-+        <text variable="year-suffix"/>
-+      </else-if>
-+      <else-if variable="status">
-+        <text text-case="capitalize-first" variable="status"/>
-+        <text prefix="-" variable="year-suffix"/>
-+      </else-if>
-+      <else>
-+        <text form="short" term="no date"/>
-+        <text prefix="-" variable="year-suffix"/>
-+      </else>
-+    </choose>
-+  </macro>
-   <macro name="reviewed-author">
-     <names variable="reviewed-author">
-       <label form="verb-short" suffix=" "/>
-@@ -818,13 +875,20 @@
-     </choose>
-   </macro>
-   <macro name="volume-journal">
--    <group delimiter=", ">
--      <text variable="collection-title"/>
--      <text variable="volume"/>
--      <group delimiter=" ">
--        <text form="short" term="issue"/>
--        <text variable="issue"/>
--      </group>
-+    <group delimiter=" ">
-+      <choose>
-+        <if variable="volume">
-+          <group delimiter=", ">
-+            <text variable="collection-title"/>
-+            <text variable="volume"/>
-+          </group>
-+          <text prefix="(" suffix=")" variable="issue"/>
-+        </if>
-+        <else-if variable="issue">
-+          <text form="short" term="issue"/>
-+          <text variable="issue"/>
-+        </else-if>
-+      </choose>
-     </group>
-   </macro>
-   <macro name="volume-legal">
-@@ -1213,6 +1277,12 @@
-       </else>
-     </choose>
-   </macro>
-+  <macro name="date-issued-month-day">
-+    <date delimiter=" " variable="issued">
-+      <date-part name="month"/>
-+      <date-part name="day"/>
-+    </date>
-+  </macro>
-   <macro name="issued-date">
+           <choose>
+@@ -635,7 +634,7 @@
+   <macro name="date-disambiguate">
      <choose>
-       <if variable="issued">
-@@ -1222,11 +1292,8 @@
-               <text variable="authority"/>
-               <choose>
-                 <if match="none" variable="container-title">
--                  <text macro="date-issued-full"/>
-+                  <text macro="date-issued-month-day"/>
-                 </if>
--                <else>
--                  <text macro="date-issued-year"/>
--                </else>
-               </choose>
-             </group>
+       <if disambiguate="true">
+-        <text macro="issued-date"/>
++        <text macro="issued-date-filtered-year"/>
+       </if>
+       <else-if type="personal_communication">
+         <choose>
+@@ -643,7 +642,7 @@
+             <date form="text" variable="event-date"/>
            </if>
-@@ -1235,30 +1302,22 @@
-               <if variable="status">
-                 <group delimiter=", ">
-                   <text variable="status"/>
--                  <text macro="date-issued-full"/>
-+                  <text macro="date-issued-month-day"/>
-                 </group>
-               </if>
-               <else-if match="none" variable="volume">
--                <date date-parts="year-month" form="text" variable="issued"/>
-+                <date variable="issued">
-+                  <date-part name="month"/>
-+                </date>
-               </else-if>
-               <else-if match="none" variable="issue">
--                <date date-parts="year-month" form="text" variable="issued"/>
-+                <date variable="issued">
-+                  <date-part name="month"/>
-+                </date>
-               </else-if>
--              <else>
--                <text macro="date-issued-year"/>
--              </else>
-             </choose>
-           </else-if>
--          <else-if match="any" type="book bill chapter entry-dictionary entry-encyclopedia legislation motion_picture pamphlet paper-conference song thesis">
--            <group delimiter=" ">
--              <choose>
--                <if match="none" variable="original-publisher original-publisher-place publisher publisher-place">
--                  <text macro="date-original-year" prefix="(" suffix=")"/>
--                </if>
--              </choose>
--              <text macro="date-issued-year"/>
--            </group>
--          </else-if>
-+          <else-if match="any" type="book bill chapter entry-dictionary entry-encyclopedia legislation motion_picture pamphlet paper-conference song thesis"/>
-           <else-if type="patent">
-             <group delimiter=", ">
-               <group delimiter=" ">
-@@ -1276,20 +1335,14 @@
-               </group>
-             </group>
-           </else-if>
-+          <else-if type="personal_communication" variable="container-title event-date">
-+            <text macro="date-issued-year"/>
-+          </else-if>
            <else>
--            <group delimiter=" ">
--              <text macro="date-original-full" prefix="(" suffix=")"/>
--              <text macro="date-issued-full"/>
--            </group>
-+            <text macro="date-issued-month-day"/>
+-            <text macro="issued-date"/>
++            <text macro="issued-date-filtered-year"/>
            </else>
          </choose>
+       </else-if>
+@@ -654,7 +653,7 @@
+       <if type="graphic map">
+         <choose>
+           <if match="none" variable="original-publisher original-publisher-place publisher publisher-place">
+-            <text macro="issued-date"/>
++            <text macro="issued-date-filtered-year"/>
+           </if>
+         </choose>
        </if>
--      <else-if variable="status">
--        <text variable="status"/>
--      </else-if>
--      <else-if match="none" variable="accessed URL">
--        <text form="short" term="no date"/>
--      </else-if>
-     </choose>
-   </macro>
-   <macro name="event-note">
-@@ -1324,7 +1377,6 @@
+@@ -1704,7 +1703,7 @@
+     <group delimiter=", ">
+       <choose>
+         <if type="article-journal periodical">
+-          <text macro="volume-journal"/>
++          <text macro="volume-journal-issue-bracketed"/>
+         </if>
+         <else-if match="any" variable="volume volume-title">
+           <choose>
+@@ -2113,7 +2112,6 @@
            </group>
          </else>
        </choose>
@@ -239,80 +92,104 @@
      </group>
    </macro>
    <macro name="publisher">
-@@ -1364,7 +1416,7 @@
+@@ -2142,17 +2140,17 @@
+   <macro name="publication-facts-journal">
      <choose>
-       <if match="any" type="graphic map">
-         <choose>
--          <if match="none" variable="original-publisher original-publisher-place publisher publisher-place">
-+          <if match="none" variable="publisher publisher-place">
-             <text macro="issued-date"/>
-           </if>
-         </choose>
-@@ -1515,7 +1567,7 @@
-   </macro>
-   <macro name="publication-info-note-join-with-comma">
-     <choose>
--      <if is-uncertain-date="issued original-date" match="none" type="article-journal bill legal_case legislation manuscript speech thesis" variable="event-place original-publisher original-publisher-place publisher publisher-place">
-+      <if match="none" type="article-journal bill legal_case legislation manuscript speech thesis" variable="event-place publisher publisher-place">
-         <text macro="publication-info-note"/>
+       <if match="any" variable="volume issue">
+-        <text macro="issued-date" prefix="(" suffix=")"/>
++        <text macro="issued-date-filtered-year" prefix="(" suffix=")"/>
        </if>
-       <else-if match="any" type="article article-newspaper interview speech">
-@@ -1543,7 +1595,7 @@
-                   </if>
-                 </choose>
-               </if>
--              <else-if is-uncertain-date="issued original-date" match="none" type="speech" variable="original-publisher original-publisher-place publisher publisher-place">
-+              <else-if match="none" type="speech" variable="publisher publisher-place">
-                 <text macro="publication-info"/>
-               </else-if>
-             </choose>
-@@ -1566,7 +1618,7 @@
-               </if>
-             </choose>
-           </if>
--          <else-if match="any" type="speech" variable="original-publisher original-publisher-place publisher publisher-place">
-+          <else-if match="any" type="speech" variable="publisher publisher-place">
-             <text macro="publication-info"/>
-           </else-if>
-         </choose>
-@@ -1575,7 +1627,7 @@
-   </macro>
-   <macro name="publication-info-note-join-with-space">
-     <choose>
--      <if match="any" type="article-journal bill legal_case legislation manuscript thesis" variable="event-place original-publisher original-publisher-place publisher publisher-place">
-+      <if match="any" type="article-journal bill legal_case legislation manuscript thesis" variable="event-place publisher publisher-place">
-         <choose>
-           <if match="none" type="article article-newspaper interview speech">
-             <choose>
-@@ -1589,13 +1641,6 @@
-           </if>
-         </choose>
-       </if>
--      <else-if match="none" variable="event-place original-publisher original-publisher-place publisher publisher-place">
--        <choose>
--          <if is-uncertain-date="issued original-date" match="any">
--            <text macro="publication-info"/>
--          </if>
--        </choose>
--      </else-if>
+       <else>
+-        <text macro="issued-date"/>
++        <text macro="issued-date-filtered-year"/>
+       </else>
      </choose>
    </macro>
-   <macro name="publication-info-join-with-space">
-@@ -1610,13 +1655,6 @@
-       <else-if match="any" type="bill legal_case legislation">
-         <text macro="publication-info"/>
+   <macro name="publication-facts-note">
+     <choose>
+       <if type="bill hearing legal_case legislation regulation treaty">
+-        <text macro="issued-date" prefix="(" suffix=")"/>
++        <text macro="issued-date-filtered-year" prefix="(" suffix=")"/>
+       </if>
+       <else-if type="article-journal periodical">
+         <text macro="publication-facts-journal"/>
+@@ -2189,7 +2187,7 @@
+                 <text value="released"/>
+               </if>
+             </choose>
+-            <text macro="issued-date"/>
++            <text macro="issued-date-filtered-year"/>
+           </group>
+         </group>
        </else-if>
--      <else-if match="none" variable="event-place original-publisher original-publisher-place publisher publisher-place">
--        <choose>
--          <if is-uncertain-date="issued original-date" match="any">
--            <text macro="publication-info"/>
--          </if>
--        </choose>
--      </else-if>
+@@ -2205,7 +2203,7 @@
+               <group delimiter="; ">
+                 <group delimiter=", ">
+                   <text macro="publisher"/>
+-                  <text macro="issued-date"/>
++                  <text macro="issued-date-filtered-year"/>
+                 </group>
+                 <group delimiter=" ">
+                   <text term="original-work-published"/>
+@@ -2234,20 +2232,20 @@
+                   <text macro="publisher"/>
+                 </group>
+               </group>
+-              <text macro="issued-date"/>
++              <text macro="issued-date-filtered-year"/>
+             </else>
+           </choose>
+         </group>
+       </else-if>
+       <else-if match="none" type="graphic map">
+-        <text macro="issued-date"/>
++        <text macro="issued-date-filtered-year"/>
+       </else-if>
      </choose>
    </macro>
-   <macro name="locators-case-subsequent">
-@@ -1811,7 +1849,7 @@
+   <macro name="publication-facts">
+     <choose>
+       <if type="bill hearing legal_case legislation regulation treaty">
+-        <text macro="issued-date" prefix="(" suffix=")"/>
++        <text macro="issued-date-filtered-year" prefix="(" suffix=")"/>
+       </if>
+       <else-if type="article-journal periodical">
+         <text macro="publication-facts-journal"/>
+@@ -2284,7 +2282,7 @@
+                 <text text-case="capitalize-first" value="released"/>
+               </if>
+             </choose>
+-            <text macro="issued-date"/>
++            <text macro="issued-date-filtered-year"/>
+           </group>
+         </group>
+       </else-if>
+@@ -2300,7 +2298,7 @@
+               <group delimiter=". ">
+                 <group delimiter=", ">
+                   <text macro="publisher"/>
+-                  <text macro="issued-date"/>
++                  <text macro="issued-date-filtered-year"/>
+                 </group>
+                 <group delimiter=" ">
+                   <text term="original-work-published" text-case="capitalize-first"/>
+@@ -2329,13 +2327,13 @@
+                   <text macro="publisher"/>
+                 </group>
+               </group>
+-              <text macro="issued-date"/>
++              <text macro="issued-date-filtered-year"/>
+             </else>
+           </choose>
+         </group>
+       </else-if>
+       <else-if match="none" type="graphic map">
+-        <text macro="issued-date"/>
++        <text macro="issued-date-filtered-year"/>
+       </else-if>
+     </choose>
+   </macro>
+@@ -2708,7 +2706,7 @@
        </choose>
        <choose>
          <if match="any" variable="DOI URL">
@@ -321,7 +198,7 @@
          </if>
          <else-if match="none" variable="archive_location archive-place">
            <text macro="archive"/>
-@@ -1844,7 +1882,7 @@
+@@ -2741,7 +2739,7 @@
        </choose>
        <choose>
          <if match="any" variable="DOI URL">
@@ -330,103 +207,35 @@
          </if>
          <else-if match="none" variable="archive_location archive-place">
            <text macro="archive" text-case="capitalize-first"/>
-@@ -1852,70 +1890,34 @@
+@@ -2868,9 +2866,9 @@
        </choose>
      </group>
    </macro>
 -  <citation disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
 -    <layout delimiter="; " suffix=".">
--      <choose>
--        <if position="subsequent">
--          <group delimiter=", ">
--            <text macro="author-short"/>
--            <group delimiter=" ">
--              <group delimiter=", ">
--                <text macro="title-short"/>
--                <text macro="date-disambiguate"/>
--                <text macro="volume-case-subsequent"/>
--              </group>
--              <text macro="locators-case-subsequent"/>
+-      <text macro="citation-fullnote"/>
 +  <citation after-collapse-delimiter="; " collapse="year" disambiguate-add-givenname="true" disambiguate-add-names="true" disambiguate-add-year-suffix="true" et-al-min="3" et-al-use-first="1" givenname-disambiguation-rule="primary-name">
 +    <layout delimiter="; " prefix="(" suffix=")">
-+      <group delimiter=", ">
-+        <choose>
-+          <if variable="issued">
-+            <group delimiter=" ">
-+              <text macro="author-short"/>
-+              <text macro="date-in-text"/>
-             </group>
--            <choose>
--              <if match="none" type="legal_case">
--                <text macro="locators-subsequent"/>
--              </if>
--            </choose>
--          </group>
--        </if>
--        <else>
--          <group delimiter=", ">
--            <group delimiter=": ">
--              <group delimiter=", ">
--                <group delimiter=" ">
--                  <group delimiter=", ">
--                    <group delimiter=" ">
--                      <group delimiter=", ">
--                        <group delimiter=", ">
--                          <text macro="author-note"/>
--                          <text macro="title-note"/>
--                          <text macro="publication-info-map-graphic"/>
--                        </group>
--                        <text macro="description-note"/>
--                        <text macro="secondary-contributors-note"/>
--                        <text macro="container-title-note"/>
--                        <text macro="container-contributors-note"/>
--                      </group>
--                      <text macro="volume-note-join-with-space"/>
--                    </group>
--                    <text macro="volume-note-join-with-comma"/>
--                    <text macro="series-note"/>
--                    <text macro="publication-info-note-join-with-comma"/>
--                  </group>
--                  <text macro="publication-info-note-join-with-space"/>
--                </group>
--                <text macro="locators-newspaper"/>
--                <text macro="locators-join-with-comma"/>
--              </group>
--              <text macro="locators-join-with-colon"/>
--            </group>
--            <text macro="access-note"/>
--          </group>
--        </else>
--      </choose>
-+          </if>
-+          <else>
-+            <text macro="author-short"/>
-+            <text macro="date-in-text"/>
-+          </else>
-+        </choose>
-+        <choose>
-+          <if variable="locator">
-+            <text macro="locators"/>
-+          </if>
-+        </choose>
-+      </group>
++      <text macro="citation-inline"/>
      </layout>
    </citation>
+   <macro name="bibliography">
+@@ -2883,6 +2881,7 @@
+                 <group delimiter=", ">
+                   <group delimiter=". ">
+                     <text macro="author"/>
++                    <text macro="date"/>
+                     <text macro="title"/>
+                     <text macro="description"/>
+                     <text macro="secondary-contributors"/>
+@@ -2945,9 +2944,9 @@
    <bibliography et-al-min="7" et-al-use-first="3" hanging-indent="true">
      <sort>
        <key macro="author"/>
 +      <key macro="date"/>
        <key variable="title"/>
--      <key variable="genre"/>
+       <key variable="genre"/>
 -      <key variable="issued"/>
      </sort>
      <layout suffix=".">
-       <group delimiter=". ">
-@@ -1928,6 +1930,7 @@
-                     <group delimiter=". ">
-                       <group delimiter=". ">
-                         <text macro="author"/>
-+                        <text macro="date"/>
-                         <text macro="title"/>
-                         <text macro="publication-info-map-graphic"/>
-                       </group>
+       <text macro="bibliography-filtered"/>

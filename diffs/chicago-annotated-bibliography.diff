@@ -1,10 +1,10 @@
---- chicago-fullnote-bibliography.csl	2025-02-07 10:41:27
-+++ chicago-annotated-bibliography.csl	2025-02-07 10:41:27
+--- templates/chicago-template.csl
++++ development/chicago-annotated-bibliography.csl
 @@ -1,11 +1,11 @@
  <?xml version="1.0" encoding="utf-8"?>
- <style xmlns="http://purl.org/net/xbiblio/csl" and="text" class="note" demote-non-dropping-particle="display-and-sort" names-delimiter=", " page-range-format="chicago" version="1.0">
+ <style and="text" class="note" demote-non-dropping-particle="display-and-sort" names-delimiter=", " page-range-format="chicago" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
--    <title>Chicago Manual of Style 18th edition (full note)</title>
+-    <title>Chicago Manual of Style 18th edition (template)</title>
 +    <title>Chicago Manual of Style 18th edition (full note with annotated bibliography)</title>
      <title-short>CMOS</title-short>
 -    <id>http://www.zotero.org/styles/chicago-fullnote-bibliography</id>
@@ -16,7 +16,7 @@
      <link href="http://www.chicagomanualofstyle.org/tools_citationguide.html" rel="documentation"/>
      <author>
        <name>Andrew Dunning</name>
-@@ -36,7 +37,7 @@
+@@ -55,7 +55,7 @@
      <category field="humanities"/>
      <category field="social_science"/>
      <category field="generic-base"/>
@@ -25,11 +25,11 @@
      <updated>2025-03-01T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -1466,6 +1433,7 @@
-         </group>
-         <text macro="access"/>
-       </group>
-+      <text display="block" variable="note"/>
-     </layout>
-   </bibliography>
- </style>
+@@ -2912,6 +2912,7 @@
+       <text macro="access"/>
+       <text variable="references"/>
+     </group>
++    <text display="block" variable="note"/>
+   </macro>
+   <macro name="bibliography-filtered">
+     <choose>

@@ -1,29 +1,41 @@
+"""
+Remove unused macros from a CSL file.
+"""
+
 import argparse
 import logging
 import re
 import sys
+from dataclasses import dataclass, field
 from pathlib import Path
 
 from lxml import etree
 
 logging.basicConfig(level=logging.INFO, format="%(message)s")
-
 NS = "{http://purl.org/net/xbiblio/csl}"
 
 
+@dataclass(slots=True)
 class CSLPruner:
-    def __init__(self, input_path: Path, output_path: Path):
-        self.input_path: Path = input_path
-        self.output_path: Path = output_path
-        self.tree = None
-        self.root = None
-        self.macro_defs: dict[str, etree._Element] = {}
-        self.parent_map: dict[etree._Element, etree._Element] = {}
-        self.modified: bool = False  # Track whether changes have been made
+    input_path: Path
+    output_path: Path
+    tree: etree._ElementTree | None = field(default=None, init=False)
+    root: etree._Element | None = field(default=None, init=False)
+    macro_defs: dict[str, etree._Element] = field(
+        default_factory=dict, init=False
+    )
+    parent_map: dict[etree._Element, etree._Element] = field(
+        default_factory=dict, init=False
+    )
+    modified: bool = field(
+        default=False, init=False
+    )  # Track whether changes have been made
 
-    def parse_xml(self):
+    def parse_xml(self) -> None:
         try:
             self.tree = etree.parse(self.input_path)
+            if self.tree is None:
+                raise ValueError("Parsed XML tree is None.")
             self.root = self.tree.getroot()
         except Exception as e:
             logging.error(
@@ -31,7 +43,6 @@ class CSLPruner:
                 exc_info=True,
             )
             raise e
-
         if self.root is None:
             msg = "The XML file appears to be empty or malformed. Please verify its contents."
             logging.error(msg)
@@ -114,17 +125,19 @@ class CSLPruner:
                         removed.append(name)
                         logging.debug(f"Removed macro: {name}")
             if removed:
-                self.modified = (
-                    True  # Flag as modified if any macros were removed
-                )
+                self.modified = True
                 total_removed.extend(removed)
-                logging.info(f"Removed {len(removed)} unused macros.")
-                # Rebuild the definitions and parent map since the tree has changed
                 self.collect_macro_definitions()
                 self.build_parent_map()
             else:
                 logging.debug("No unused macros found.")
                 break
+        if total_removed:
+            logging.info(
+                f"Removed a total of {len(total_removed)} unused macros."
+            )
+        else:
+            logging.info("No macros pruned.")
 
     def normalize_xml_content(self, xml_data: bytes) -> bytes:
         """Revert Python changes to XML content."""
@@ -134,7 +147,6 @@ class CSLPruner:
             '<?xml version="1.0" encoding="utf-8"?>',
             text,
         )
-        # Revert em-dash transformation, which the CSL repository will not accept
         text = text.replace("———", "&#8212;&#8212;&#8212;")
         return text.encode("utf-8")
 
@@ -147,7 +159,6 @@ class CSLPruner:
                     xml_declaration=True,
                     pretty_print=True,
                 )
-                # Apply normalization to fix XML declaration and revert undesired em-dash transformation
                 xml_data = self.normalize_xml_content(xml_data)
                 self.output_path.write_bytes(xml_data)
             except Exception as e:
@@ -157,14 +168,17 @@ class CSLPruner:
                 )
                 raise e
         else:
-            msg = "Cannot save file because the XML data was not successfully loaded. Verify your input file and try again."
+            msg = (
+                "Cannot save file because the XML was not successfully loaded."
+            )
             logging.error(msg)
             raise ValueError(msg)
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(
-        description="Remove unused macros from a CSL file."
+        description=__doc__,
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter,
     )
     parser.add_argument(
         "input_path", type=Path, help="Path to the input CSL file."
