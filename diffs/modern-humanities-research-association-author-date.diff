@@ -1,0 +1,31 @@
+--- templates/modern-humanities-research-association-template.csl
++++ development/modern-humanities-research-association-author-date.csl
+@@ -1,10 +1,11 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<style and="text" class="note" default-locale="en-GB" demote-non-dropping-particle="sort-only" et-al-min="4" et-al-use-first="1" page-range-format="minimal-two" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
++<style and="text" class="in-text" default-locale="en-GB" demote-non-dropping-particle="sort-only" et-al-min="4" et-al-use-first="1" page-range-format="minimal-two" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
+   <info>
+-    <title>Modern Humanities Research Association 4th edition (template)</title>
++    <title>Modern Humanities Research Association 4th edition (author–date)</title>
+     <title-short>MHRA Style Guide</title-short>
+-    <id>http://www.zotero.org/styles/modern-humanities-research-association</id>
+-    <link href="http://www.zotero.org/styles/modern-humanities-research-association" rel="self"/>
++    <id>http://www.zotero.org/styles/modern-humanities-research-association-author-date</id>
++    <link href="http://www.zotero.org/styles/modern-humanities-research-association-author-date" rel="self"/>
++    <link href="http://www.zotero.org/styles/modern-humanities-research-association" rel="template"/>
+     <link href="https://www.mhra.org.uk/style/" rel="documentation"/>
+     <author>
+       <name>Rintze Zelle</name>
+@@ -21,10 +22,10 @@
+     <contributor>
+       <name>Patrick O'Brien</name>
+     </contributor>
+-    <category citation-format="note"/>
++    <category citation-format="author-date"/>
+     <category field="generic-base"/>
+     <category field="humanities"/>
+-    <summary>MHRA Style Guide full notes and bibliography</summary>
++    <summary>MHRA Style Guide author–date system</summary>
+     <updated>2025-02-03T14:44:03+00:00</updated>
+     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
+   </info>

@@ -25,7 +25,7 @@
      <updated>2025-03-01T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -2709,7 +2709,7 @@
+@@ -2719,7 +2719,7 @@
        </choose>
        <choose>
          <if match="any" variable="DOI URL">
@@ -34,7 +34,7 @@
          </if>
          <else-if match="none" variable="archive_location archive-place">
            <text macro="archive"/>
-@@ -2869,7 +2869,7 @@
+@@ -2879,7 +2879,7 @@
        </choose>
      </group>
    </macro>
@@ -43,13 +43,13 @@
      <layout delimiter="; " suffix=".">
        <text macro="citation-fullnote"/>
      </layout>
-@@ -2943,15 +2943,4 @@
+@@ -2953,15 +2953,4 @@
        </else>
      </choose>
    </macro>
 -  <bibliography et-al-min="7" et-al-use-first="3" hanging-indent="true">
 -    <sort>
--      <key macro="author"/>
+-      <key macro="author-bib"/>
 -      <key variable="title"/>
 -      <key variable="genre"/>
 -      <key variable="issued"/>
