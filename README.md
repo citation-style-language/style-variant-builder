@@ -22,8 +22,8 @@ Follow these steps to create and maintain a new family of CSL styles:
 
 1. **Create a template in `templates`**
    - Add a new template file in the `templates` directory.
-   - Name the file in the format `<style-name>-template.csl`. The `<style-name>` will be used to match the template with the variant files; the template and variant files must begin with the same prefix.
-   - The template can include macros for all variants (e.g., macros for both notes and author–date styles). The build script will automatically prune unused macros in the final files.
+   - Name the file in the format `<style-name>-template.csl`. The `<style-name>` can be used to match the template with the variant files, if the template and variant files begin with the same prefix. If the script cannot match a variant with its template by file name, it will check for a linked `template` within the file itself.
+   - The template should include all macros to which any variant in the family refers (such as macros for both notes and author–date styles). The build script will automatically prune unused macros in the final files.
 
 2. **Run `make dev` to create development styles**
    - Use the command:

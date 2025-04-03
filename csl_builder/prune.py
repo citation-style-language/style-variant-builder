@@ -140,14 +140,33 @@ class CSLPruner:
             logging.info("No macros pruned.")
 
     def normalize_xml_content(self, xml_data: bytes) -> bytes:
-        """Revert Python changes to XML content."""
+        """Revert Python changes to XML content and reorder the default-locale attribute in <style> tags."""
         text = xml_data.decode("utf-8")
         text = re.sub(
             r"<\?xml version='1\.0' encoding='utf-8'\?>",
             '<?xml version="1.0" encoding="utf-8"?>',
             text,
         )
-        text = text.replace("———", "&#8212;&#8212;&#8212;")
+        text = re.sub(r"—+", lambda m: "&#8212;" * len(m.group(0)), text)
+
+        # Reorder the default-locale attribute to the end in <style ...> tags.
+        def reorder_default_locale(match: re.Match) -> str:
+            attribs = match.group(1)
+            # Find all attributes in the tag.
+            attrs = re.findall(r'(\S+="[^"]*")', attribs)
+            new_attrs: list[str] = []
+            default_locale_attr: str | None = None
+            for attr in attrs:
+                if attr.startswith("default-locale="):
+                    default_locale_attr = attr
+                else:
+                    new_attrs.append(attr)
+            if default_locale_attr is not None:
+                new_attrs.append(default_locale_attr)
+            new_attribs = " ".join(new_attrs)
+            return f"<style {new_attribs}>"
+
+        text = re.sub(r"<style\s+([^>]+)>", reorder_default_locale, text)
         return text.encode("utf-8")
 
     def save(self) -> None:
