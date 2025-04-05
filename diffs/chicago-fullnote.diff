@@ -25,7 +25,7 @@
      <updated>2025-03-01T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -2879,7 +2879,7 @@
+@@ -2947,7 +2947,7 @@
        </choose>
      </group>
    </macro>
@@ -34,16 +34,17 @@
      <layout delimiter="; " suffix=".">
        <text macro="citation-fullnote"/>
      </layout>
-@@ -2953,15 +2953,4 @@
+@@ -3021,16 +3021,4 @@
        </else>
      </choose>
    </macro>
 -  <bibliography et-al-min="7" et-al-use-first="3" hanging-indent="true">
 -    <sort>
--      <key macro="author-bib"/>
--      <key variable="title"/>
--      <key variable="genre"/>
--      <key variable="issued"/>
+-      <key macro="author-sort"/>
+-      <key macro="title-bib"/>
+-      <key macro="date-sort-group" sort="ascending"/>
+-      <key macro="date-sort" sort="ascending"/>
+-      <key variable="status"/>
 -    </sort>
 -    <layout suffix=".">
 -      <text macro="bibliography-filtered"/>

@@ -25,7 +25,7 @@
      <updated>2025-03-01T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -1638,9 +1638,6 @@
+@@ -1715,9 +1715,6 @@
          <text macro="volume-label-number-note"/>
        </if>
        <else-if match="any" variable="chair compiler container-author contributor curator director editor translator editor-translator editorial-director executive-producer guest host illustrator interviewer narrator organizer original-author performer producer script-writer series-creator volume-title">
@@ -35,7 +35,7 @@
          <text macro="volume-label-number-note"/>
        </else-if>
      </choose>
-@@ -2126,7 +2123,7 @@
+@@ -2203,7 +2200,7 @@
          </if>
          <else>
            <group delimiter=": ">
@@ -44,7 +44,7 @@
              <text variable="original-publisher"/>
            </group>
          </else>
-@@ -2149,7 +2146,7 @@
+@@ -2226,7 +2223,7 @@
            </if>
            <else>
              <group delimiter=": ">
@@ -53,7 +53,7 @@
                <text variable="publisher"/>
              </group>
            </else>
-@@ -2491,7 +2488,7 @@
+@@ -2565,7 +2562,7 @@
    </macro>
    <macro name="locators">
      <choose>
@@ -62,7 +62,7 @@
          <choose>
            <if is-numeric="page">
              <choose>
-@@ -2752,7 +2749,7 @@
+@@ -2820,7 +2817,7 @@
        </choose>
        <choose>
          <if match="any" variable="DOI URL">
@@ -71,7 +71,7 @@
          </if>
          <else-if match="none" variable="archive_location archive-place">
            <text macro="archive" text-case="capitalize-first"/>
-@@ -2881,7 +2878,7 @@
+@@ -2949,7 +2946,7 @@
    </macro>
    <citation disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
      <layout delimiter="; " suffix=".">
@@ -80,12 +80,12 @@
      </layout>
    </citation>
    <macro name="bibliography">
-@@ -2953,7 +2950,7 @@
+@@ -3021,7 +3018,7 @@
        </else>
      </choose>
    </macro>
 -  <bibliography et-al-min="7" et-al-use-first="3" hanging-indent="true">
 +  <bibliography et-al-min="7" et-al-use-first="3" hanging-indent="true" subsequent-author-substitute="&#8212;&#8212;&#8212;">
      <sort>
-       <key macro="author-bib"/>
-       <key variable="title"/>
+       <key macro="author-sort"/>
+       <key macro="title-bib"/>

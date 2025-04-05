@@ -48,7 +48,7 @@
          <substitute>
            <names variable="author"/>
            <choose>
-@@ -645,7 +644,7 @@
+@@ -760,7 +759,7 @@
    <macro name="date-disambiguate">
      <choose>
        <if disambiguate="true">
@@ -57,7 +57,7 @@
        </if>
        <else-if type="personal_communication">
          <choose>
-@@ -653,7 +652,7 @@
+@@ -768,7 +767,7 @@
              <date form="text" variable="event-date"/>
            </if>
            <else>
@@ -66,25 +66,7 @@
            </else>
          </choose>
        </else-if>
-@@ -781,7 +780,7 @@
-         <group delimiter=". ">
-           <choose>
-             <if match="none" variable="original-publisher original-publisher-place publisher publisher-place">
--              <text macro="issued-date"/>
-+              <text macro="issued-date-filtered-year"/>
-             </if>
-           </choose>
-           <text text-case="capitalize-first" variable="scale"/>
-@@ -799,7 +798,7 @@
-         <group delimiter=", ">
-           <choose>
-             <if match="none" variable="original-publisher original-publisher-place publisher publisher-place">
--              <text macro="issued-date"/>
-+              <text macro="issued-date-filtered-year"/>
-             </if>
-           </choose>
-           <text variable="scale"/>
-@@ -1640,9 +1639,6 @@
+@@ -1717,9 +1716,6 @@
        <else-if match="any" variable="chair compiler container-author contributor curator director editor translator editor-translator editorial-director executive-producer guest host illustrator interviewer narrator organizer original-author performer producer script-writer series-creator volume-title">
          <text macro="volume-label-number-note"/>
        </else-if>
@@ -94,7 +76,7 @@
      </choose>
    </macro>
    <macro name="volume-label-number-note">
-@@ -1703,7 +1699,7 @@
+@@ -1756,7 +1752,7 @@
      <group delimiter=", ">
        <choose>
          <if match="any" type="article-journal periodical">
@@ -103,7 +85,7 @@
          </if>
          <else-if match="any" variable="volume volume-title">
            <choose>
-@@ -2126,12 +2122,11 @@
+@@ -2203,12 +2199,11 @@
          </if>
          <else>
            <group delimiter=": ">
@@ -117,7 +99,7 @@
      </group>
    </macro>
    <macro name="publisher">
-@@ -2149,7 +2144,7 @@
+@@ -2226,7 +2221,7 @@
            </if>
            <else>
              <group delimiter=": ">
@@ -126,7 +108,7 @@
                <text variable="publisher"/>
              </group>
            </else>
-@@ -2160,17 +2155,17 @@
+@@ -2237,17 +2232,17 @@
    <macro name="publication-facts-journal">
      <choose>
        <if match="any" variable="volume issue">
@@ -147,7 +129,7 @@
        </if>
        <else-if match="any" type="article-journal periodical">
          <text macro="publication-facts-journal"/>
-@@ -2207,7 +2202,7 @@
+@@ -2284,7 +2279,7 @@
                  <text value="released"/>
                </if>
              </choose>
@@ -156,7 +138,7 @@
            </group>
          </group>
        </else-if>
-@@ -2223,7 +2218,7 @@
+@@ -2300,7 +2295,7 @@
                <group delimiter="; ">
                  <group delimiter=", ">
                    <text macro="publisher"/>
@@ -165,7 +147,7 @@
                  </group>
                  <group delimiter=" ">
                    <text term="original-work-published"/>
-@@ -2252,20 +2247,20 @@
+@@ -2329,20 +2324,20 @@
                    <text macro="publisher"/>
                  </group>
                </group>
@@ -175,10 +157,10 @@
            </choose>
          </group>
        </else-if>
-       <else-if match="none" type="graphic map">
+       <else>
 -        <text macro="issued-date"/>
 +        <text macro="issued-date-filtered-year"/>
-       </else-if>
+       </else>
      </choose>
    </macro>
    <macro name="publication-facts-bib">
@@ -189,7 +171,7 @@
        </if>
        <else-if match="any" type="article-journal periodical">
          <text macro="publication-facts-journal"/>
-@@ -2302,7 +2297,7 @@
+@@ -2379,7 +2374,7 @@
                  <text text-case="capitalize-first" value="released"/>
                </if>
              </choose>
@@ -198,7 +180,7 @@
            </group>
          </group>
        </else-if>
-@@ -2318,7 +2313,7 @@
+@@ -2395,7 +2390,7 @@
                <group delimiter=". ">
                  <group delimiter=", ">
                    <text macro="publisher"/>
@@ -207,7 +189,7 @@
                  </group>
                  <group delimiter=" ">
                    <text term="original-work-published" text-case="capitalize-first"/>
-@@ -2347,13 +2342,13 @@
+@@ -2424,13 +2419,13 @@
                    <text macro="publisher"/>
                  </group>
                </group>
@@ -217,13 +199,13 @@
            </choose>
          </group>
        </else-if>
-       <else-if match="none" type="graphic map">
+       <else>
 -        <text macro="issued-date"/>
 +        <text macro="issued-date-filtered-year"/>
-       </else-if>
+       </else>
      </choose>
    </macro>
-@@ -2491,7 +2486,7 @@
+@@ -2565,7 +2560,7 @@
    </macro>
    <macro name="locators">
      <choose>
@@ -232,7 +214,7 @@
          <choose>
            <if is-numeric="page">
              <choose>
-@@ -2879,9 +2874,9 @@
+@@ -2947,9 +2942,9 @@
        </choose>
      </group>
    </macro>
@@ -241,11 +223,11 @@
 -      <text macro="citation-fullnote"/>
 +  <citation after-collapse-delimiter="; " collapse="year" disambiguate-add-givenname="true" disambiguate-add-names="true" disambiguate-add-year-suffix="true" et-al-min="3" et-al-use-first="1" givenname-disambiguation-rule="primary-name">
 +    <layout delimiter="; " prefix="(" suffix=")">
-+      <text macro="citation-inline"/>
++      <text macro="citation-intext"/>
      </layout>
    </citation>
    <macro name="bibliography">
-@@ -2894,6 +2889,7 @@
+@@ -2962,6 +2957,7 @@
                  <group delimiter=", ">
                    <group delimiter=". ">
                      <text macro="author-bib"/>
@@ -253,18 +235,19 @@
                      <text macro="title-bib"/>
                      <text macro="description-bib"/>
                      <text macro="secondary-contributors-bib"/>
-@@ -2953,12 +2949,12 @@
+@@ -3021,13 +3017,13 @@
        </else>
      </choose>
    </macro>
 -  <bibliography et-al-min="7" et-al-use-first="3" hanging-indent="true">
 +  <bibliography et-al-min="7" et-al-use-first="3" hanging-indent="true" subsequent-author-substitute="&#8212;&#8212;&#8212;">
      <sort>
-       <key macro="author-bib"/>
-+      <key macro="date"/>
-       <key variable="title"/>
-       <key variable="genre"/>
--      <key variable="issued"/>
+       <key macro="author-sort"/>
+-      <key macro="title-bib"/>
+       <key macro="date-sort-group" sort="ascending"/>
+       <key macro="date-sort" sort="ascending"/>
+       <key variable="status"/>
++      <key macro="title-bib"/>
      </sort>
      <layout suffix=".">
        <text macro="bibliography-filtered"/>
