@@ -17,7 +17,7 @@
      <link href="https://apastyle.apa.org/style-grammar-guidelines/references/examples" rel="documentation"/>
      <author>
        <name>Brenton M. Wiernik</name>
-@@ -2297,7 +2297,7 @@
+@@ -2302,7 +2302,7 @@
        </else>
      </choose>
    </macro>
