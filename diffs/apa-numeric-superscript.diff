@@ -1,0 +1,77 @@
+--- templates/apa-template.csl
++++ development/apa-numeric-superscript.csl
+@@ -5,11 +5,11 @@
+   type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+ <style and="symbol" class="in-text" demote-non-dropping-particle="never" initialize-with=". " names-delimiter=", " page-range-format="expanded" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
+   <info>
+-    <title>American Psychological Association 7th edition (template)</title>
+-    <title-short>APA Style</title-short>
+-    <id>http://www.zotero.org/styles/apa</id>
+-    <link href="http://www.zotero.org/styles/apa" rel="self"/>
+-    <link href="http://www.zotero.org/styles/apa-6th-edition" rel="template"/>
++    <title>American Psychological Association 7th edition (numeric, superscript)</title>
++    <title-short>APA Style (numeric, superscript)</title-short>
++    <id>http://www.zotero.org/styles/apa-numeric-superscript</id>
++    <link href="http://www.zotero.org/styles/apa-numeric-superscript" rel="self"/>
++    <link href="http://www.zotero.org/styles/apa" rel="template"/>
+     <link href="https://apastyle.apa.org/style-grammar-guidelines/references/examples" rel="documentation"/>
+     <author>
+       <name>Brenton M. Wiernik</name>
+@@ -20,10 +20,10 @@
+       <name>Andrew Dunning</name>
+       <uri>https://orcid.org/0000-0003-0464-5036</uri>
+     </contributor>
+-    <category citation-format="author-date"/>
++    <category citation-format="numeric"/>
+     <category field="psychology"/>
+     <category field="generic-base"/>
+-    <summary>Author–date system of the Publication manual of the American Psychological Association: The official guide to APA style (2020)</summary>
++    <summary>APA style, with superscript numeric in-text citations</summary>
+     <updated>2024-07-09T20:08:41+00:00</updated>
+     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
+   </info>
+@@ -2250,18 +2250,14 @@
+     </choose>
+   </macro>
+   <!-- Main logic -->
+-  <citation collapse="year" disambiguate-add-givenname="true" disambiguate-add-names="true" disambiguate-add-year-suffix="true" et-al-min="3" et-al-use-first="1" givenname-disambiguation-rule="primary-name-with-initials">
++  <citation collapse="citation-number">
+     <sort>
+-      <key macro="author-sort" names-min="3" names-use-first="1"/>
+-      <key macro="date-sort-group" sort="ascending"/>
+-      <key macro="date-sort" sort="ascending"/>
+-      <key variable="status"/>
++      <key variable="citation-number"/>
+     </sort>
+-    <layout delimiter="; " prefix="(" suffix=")">
+-      <group delimiter=", ">
+-        <text macro="author-intext"/>
+-        <text macro="date-intext"/>
+-        <text macro="locator-labelled"/>
++    <layout delimiter="," vertical-align="sup">
++      <group>
++        <text variable="citation-number"/>
++        <text macro="locator-labelled" prefix="(" suffix=")"/>
+       </group>
+     </layout>
+   </citation>
+@@ -2298,15 +2294,11 @@
+     </choose>
+   </macro>
+   <bibliography entry-spacing="0" et-al-min="21" et-al-use-first="19" et-al-use-last="true" hanging-indent="true" line-spacing="2">
+-    <sort>
+-      <key macro="author-sort"/>
+-      <key macro="date-sort-group" sort="ascending"/>
+-      <key macro="date-sort" sort="ascending"/>
+-      <key variable="status"/>
+-      <key macro="title-bib"/>
+-    </sort>
+     <layout>
+-      <text macro="bibliography-filtered"/>
++      <group delimiter=". ">
++        <text variable="citation-number"/>
++        <text macro="bibliography-filtered"/>
++      </group>
+     </layout>
+   </bibliography>
+ </style>

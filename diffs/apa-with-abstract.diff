@@ -1,0 +1,27 @@
+--- templates/apa-template.csl
++++ development/apa-with-abstract.csl
+@@ -5,11 +5,11 @@
+   type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+ <style and="symbol" class="in-text" demote-non-dropping-particle="never" initialize-with=". " names-delimiter=", " page-range-format="expanded" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
+   <info>
+-    <title>American Psychological Association 7th edition (template)</title>
+-    <title-short>APA Style</title-short>
+-    <id>http://www.zotero.org/styles/apa</id>
+-    <link href="http://www.zotero.org/styles/apa" rel="self"/>
+-    <link href="http://www.zotero.org/styles/apa-6th-edition" rel="template"/>
++    <title>American Psychological Association 7th edition (with abstract)</title>
++    <title-short>APA Style (with abstract)</title-short>
++    <id>http://www.zotero.org/styles/apa-with-abstract</id>
++    <link href="http://www.zotero.org/styles/apa-with-abstract" rel="self"/>
++    <link href="http://www.zotero.org/styles/apa" rel="template"/>
+     <link href="https://apastyle.apa.org/style-grammar-guidelines/references/examples" rel="documentation"/>
+     <author>
+       <name>Brenton M. Wiernik</name>
+@@ -2307,6 +2307,7 @@
+     </sort>
+     <layout>
+       <text macro="bibliography-filtered"/>
++      <text display="block" variable="abstract"/>
+     </layout>
+   </bibliography>
+ </style>

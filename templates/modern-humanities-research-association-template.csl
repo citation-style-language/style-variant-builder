@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl.rnc"
+  type="application/relax-ng-compact-syntax" schematypens="http://relaxng.org/ns/compatibility/annotations/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl.rnc"
+  type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <style and="text" class="note" default-locale="en-GB" demote-non-dropping-particle="sort-only" et-al-min="4" et-al-use-first="1" page-range-format="minimal-two" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
   <info>
     <title>Modern Humanities Research Association 4th edition (template)</title>
@@ -436,7 +440,7 @@
     <choose>
       <if type="article-journal">
         <choose>
-          <if match="any" variable="volume issue">
+          <if match="any" variable="issue supplement-number volume">
             <text macro="issued" prefix="(" suffix=")"/>
           </if>
           <else>

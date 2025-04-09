@@ -1,7 +1,7 @@
 --- templates/chicago-template.csl
 +++ development/chicago-fullnote.csl
-@@ -1,11 +1,11 @@
- <?xml version="1.0" encoding="utf-8"?>
+@@ -5,11 +5,11 @@
+   type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
  <style and="text" class="note" demote-non-dropping-particle="display-and-sort" names-delimiter=", " page-range-format="chicago" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>Chicago Manual of Style 18th edition (template)</title>
@@ -16,7 +16,7 @@
      <link href="http://www.chicagomanualofstyle.org/tools_citationguide.html" rel="documentation"/>
      <author>
        <name>Andrew Dunning</name>
-@@ -55,7 +55,7 @@
+@@ -59,7 +59,7 @@
      <category field="humanities"/>
      <category field="social_science"/>
      <category field="generic-base"/>
@@ -25,16 +25,16 @@
      <updated>2025-03-01T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -2947,7 +2947,7 @@
-       </choose>
-     </group>
+@@ -3070,7 +3070,7 @@
+       </else>
+     </choose>
    </macro>
 -  <citation disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
 +  <citation disambiguate-add-names="true" et-al-min="7" et-al-use-first="3">
      <layout delimiter="; " suffix=".">
        <text macro="citation-fullnote"/>
      </layout>
-@@ -3021,16 +3021,4 @@
+@@ -3145,16 +3145,4 @@
        </else>
      </choose>
    </macro>

@@ -139,9 +139,14 @@ class CSLPruner:
         else:
             logging.info("No macros pruned.")
 
+    def remove_xml_model_declarations(self, xml_data: str) -> str:
+        """Remove any xml-model declarations from the XML content."""
+        return re.sub(r"<\?xml-model [^>]+>\n?", "", xml_data)
+
     def normalize_xml_content(self, xml_data: bytes) -> bytes:
         """Revert Python changes to XML content and reorder the default-locale attribute in <style> tags."""
         text = xml_data.decode("utf-8")
+        text = self.remove_xml_model_declarations(text)
         text = re.sub(
             r"<\?xml version='1\.0' encoding='utf-8'\?>",
             '<?xml version="1.0" encoding="utf-8"?>',

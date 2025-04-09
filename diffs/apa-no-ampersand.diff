@@ -1,0 +1,48 @@
+--- templates/apa-template.csl
++++ development/apa-no-ampersand.csl
+@@ -3,13 +3,13 @@
+   type="application/relax-ng-compact-syntax" schematypens="http://relaxng.org/ns/compatibility/annotations/1.0"?>
+ <?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl.rnc"
+   type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+-<style and="symbol" class="in-text" demote-non-dropping-particle="never" initialize-with=". " names-delimiter=", " page-range-format="expanded" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
++<style and="text" class="in-text" demote-non-dropping-particle="never" initialize-with=". " names-delimiter=", " page-range-format="expanded" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
+   <info>
+-    <title>American Psychological Association 7th edition (template)</title>
+-    <title-short>APA Style</title-short>
+-    <id>http://www.zotero.org/styles/apa</id>
+-    <link href="http://www.zotero.org/styles/apa" rel="self"/>
+-    <link href="http://www.zotero.org/styles/apa-6th-edition" rel="template"/>
++    <title>American Psychological Association 7th edition (no ampersand)</title>
++    <title-short>APA Style (no ampersand)</title-short>
++    <id>http://www.zotero.org/styles/apa-no-ampersand</id>
++    <link href="http://www.zotero.org/styles/apa-no-ampersand" rel="self"/>
++    <link href="http://www.zotero.org/styles/apa" rel="template"/>
+     <link href="https://apastyle.apa.org/style-grammar-guidelines/references/examples" rel="documentation"/>
+     <author>
+       <name>Brenton M. Wiernik</name>
+@@ -39,12 +39,12 @@
+         <multiple>eds.</multiple>
+       </term>
+       <term form="short" name="editor-translator">
+-        <single>ed. &amp; trans.</single>
+-        <multiple>eds. &amp; trans.</multiple>
++        <single>ed. and trans.</single>
++        <multiple>eds. and trans.</multiple>
+       </term>
+       <term form="short" name="editortranslator">
+-        <single>ed. &amp; trans.</single>
+-        <multiple>eds. &amp; trans.</multiple>
++        <single>ed. and trans.</single>
++        <multiple>eds. and trans.</multiple>
+       </term>
+       <term form="verb" name="hearing">testimony of</term>
+       <term form="short" name="interviewer">
+@@ -2027,7 +2027,7 @@
+         <group delimiter=" " prefix="(" suffix=")">
+           <group delimiter=" ">
+             <text macro="original-date-year"/>
+-            <text form="symbol" term="and"/>
++            <text term="and"/>
+           </group>
+           <choose>
+             <if variable="issued">
