@@ -149,7 +149,7 @@
        `article-journal`, `article-magazine`, `article-newspaper`,
        `post-weblog`, or `webpage`.
   -->
-  <!-- Indigeneous Knowledge:
+  <!-- Indigeneous knowledge:
 
        Assume the item is stored as `document` or `speech`
        and that Nation/Community, treaty territory,
@@ -1972,12 +1972,25 @@
   </macro>
   <!-- Parallel rules for legal citations -->
   <macro name="legal-bib">
-    <!-- `treaty`: for treaties -->
-    <!-- `legal_case`: for all legal and court cases -->
-    <!-- `bill`: for bills, resolutions, federal reports -->
-    <!-- `hearing`: for hearings and testimony -->
-    <!-- `legislation`: for statutes, constitutional items, and charters -->
-    <!-- `regulation`: codified regulations, uncodified regulations, executive orders -->
+    <!-- Type usage:
+
+         `treaty`
+         : treaties
+
+         `legal_case`
+         : all legal and court cases
+
+         `bill`
+         : bills, resolutions, federal reports
+
+         `hearing`
+         : hearings and testimony
+
+         `legislation`
+         : statutes, constitutional items, and charters
+
+         `regulation`
+         : codified regulations, uncodified regulations, executive orders -->
     <group delimiter=" ">
       <choose>
         <if type="treaty">
