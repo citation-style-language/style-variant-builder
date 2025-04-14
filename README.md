@@ -77,7 +77,3 @@ Suppose you want to create a new style family called `example-style`:
 3. Copy `example-style-template.csl` to `development/example-style-note.csl` and modify it for the "note" variant.
 4. Run `make diffs` to generate `diffs/example-style-note.diff`.
 5. Run `make` to generate the final pruned style in `output/example-style-note.csl`.
-
-## Notes
-
-- Ensure that the `patch` command is installed and available in your PATH.
