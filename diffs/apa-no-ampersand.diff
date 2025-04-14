@@ -36,11 +36,11 @@
 +        <multiple>eds. and trans.</multiple>
        </term>
        <term form="verb" name="hearing">testimony of</term>
-       <term form="short" name="interviewer">
-@@ -2032,7 +2032,7 @@
+       <term name="illustrator" form="short">
+@@ -2018,7 +2018,7 @@
          <group delimiter=" " prefix="(" suffix=")">
            <group delimiter=" ">
-             <text macro="original-date-year"/>
+             <text macro="date-original-year"/>
 -            <text form="symbol" term="and"/>
 +            <text term="and"/>
            </group>

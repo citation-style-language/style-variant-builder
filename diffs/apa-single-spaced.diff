@@ -17,7 +17,7 @@
      <link href="https://apastyle.apa.org/style-grammar-guidelines/references/examples" rel="documentation"/>
      <author>
        <name>Brenton M. Wiernik</name>
-@@ -2302,7 +2302,7 @@
+@@ -2292,7 +2292,7 @@
        </else>
      </choose>
    </macro>
@@ -25,4 +25,4 @@
 +  <bibliography entry-spacing="0" et-al-min="21" et-al-use-first="19" et-al-use-last="true" hanging-indent="true" line-spacing="1">
      <sort>
        <key macro="author-sort"/>
-       <key macro="date-sort-group" sort="ascending"/>
+       <key macro="date-sort-group"/>

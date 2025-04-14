@@ -17,7 +17,7 @@
      <link href="https://apastyle.apa.org/style-grammar-guidelines/references/examples" rel="documentation"/>
      <author>
        <name>Brenton M. Wiernik</name>
-@@ -2255,19 +2255,17 @@
+@@ -2241,19 +2241,17 @@
      </choose>
    </macro>
    <!-- Main logic -->
@@ -25,10 +25,10 @@
 +  <citation et-al-min="21" et-al-use-first="19" et-al-use-last="true">
      <sort>
 -      <key macro="author-sort" names-min="3" names-use-first="1"/>
--      <key macro="date-sort-group" sort="ascending"/>
+-      <key macro="date-sort-group"/>
 +      <key macro="date-sort-group" sort="descending"/>
 +      <key macro="date-issued-year" sort="descending"/>
-       <key macro="date-sort" sort="ascending"/>
+       <key macro="date-sort"/>
        <key variable="status"/>
 +      <key macro="author-sort"/>
 +      <key macro="title-bib"/>
@@ -44,15 +44,15 @@
      </layout>
    </citation>
    <macro name="bibliography">
-@@ -2304,10 +2302,11 @@
+@@ -2294,10 +2292,11 @@
    </macro>
    <bibliography entry-spacing="0" et-al-min="21" et-al-use-first="19" et-al-use-last="true" hanging-indent="true" line-spacing="2">
      <sort>
 -      <key macro="author-sort"/>
--      <key macro="date-sort-group" sort="ascending"/>
+-      <key macro="date-sort-group"/>
 +      <key macro="date-sort-group" sort="descending"/>
 +      <key macro="date-issued-year" sort="descending"/>
-       <key macro="date-sort" sort="ascending"/>
+       <key macro="date-sort"/>
        <key variable="status"/>
 +      <key macro="author-sort"/>
        <key macro="title-bib"/>
