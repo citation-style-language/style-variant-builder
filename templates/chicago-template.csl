@@ -474,7 +474,7 @@
           </if>
           <else>
             <date variable="issued">
-              <date-part form="long" name="year"/>
+              <date-part name="year"/>
               <date-part form="numeric-leading-zeros" name="month"/>
               <date-part form="numeric-leading-zeros" name="day"/>
             </date>
@@ -483,7 +483,7 @@
       </else-if>
       <else>
         <date variable="issued">
-          <date-part form="long" name="year"/>
+          <date-part name="year"/>
           <date-part form="numeric-leading-zeros" name="month"/>
           <date-part form="numeric-leading-zeros" name="day"/>
         </date>
@@ -832,7 +832,7 @@
         <group delimiter=": " font-style="italic">
           <text text-case="capitalize-first" variable="title"/>
           <group delimiter=" ">
-            <text form="long" term="hearing" text-case="capitalize-first"/>
+            <text term="hearing" text-case="capitalize-first"/>
             <group delimiter=" ">
               <group delimiter=" ">
                 <text term="on"/>
@@ -840,7 +840,7 @@
               </group>
               <group delimiter=" ">
                 <!-- Use the `at` term to hold "before the" -->
-                <text form="long" term="at"/>
+                <text term="at"/>
                 <text variable="section"/>
               </group>
             </group>
@@ -875,7 +875,7 @@
         </if>
         <else-if type="article-newspaper">
           <text variable="edition"/>
-          <label form="long" variable="edition"/>
+          <label variable="edition"/>
         </else-if>
         <else>
           <text variable="edition"/>
@@ -3149,8 +3149,8 @@
     <sort>
       <key macro="author-sort"/>
       <key macro="title-bib"/>
-      <key macro="date-sort-group" sort="ascending"/>
-      <key macro="date-sort" sort="ascending"/>
+      <key macro="date-sort-group"/>
+      <key macro="date-sort"/>
       <key variable="status"/>
     </sort>
     <layout suffix=".">

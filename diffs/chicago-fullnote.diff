@@ -42,8 +42,8 @@
 -    <sort>
 -      <key macro="author-sort"/>
 -      <key macro="title-bib"/>
--      <key macro="date-sort-group" sort="ascending"/>
--      <key macro="date-sort" sort="ascending"/>
+-      <key macro="date-sort-group"/>
+-      <key macro="date-sort"/>
 -      <key variable="status"/>
 -    </sort>
 -    <layout suffix=".">
