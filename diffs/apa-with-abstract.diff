@@ -17,7 +17,7 @@
      <link href="https://apastyle.apa.org/style-grammar-guidelines/references/examples" rel="documentation"/>
      <author>
        <name>Brenton M. Wiernik</name>
-@@ -2302,6 +2302,7 @@
+@@ -2317,6 +2317,7 @@
      </sort>
      <layout>
        <text macro="bibliography-filtered"/>
