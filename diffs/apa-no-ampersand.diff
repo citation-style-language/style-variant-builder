@@ -20,7 +20,16 @@
      <link href="https://apastyle.apa.org/style-grammar-guidelines/references/examples" rel="documentation"/>
      <author>
        <name>Brenton M. Wiernik</name>
-@@ -39,12 +39,12 @@
+@@ -29,7 +29,7 @@
+     <category field="psychology"/>
+     <category field="social_science"/>
+     <category field="sociology"/>
+-    <summary>Author-date system of the Publication Manual of the American Psychological Association (2020)</summary>
++    <summary>APA Style, unofficial variant without ampersand</summary>
+     <updated>2025-04-14T00:00:00+00:00</updated>
+     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
+   </info>
+@@ -45,12 +45,12 @@
          <multiple>eds.</multiple>
        </term>
        <term form="short" name="editor-translator">

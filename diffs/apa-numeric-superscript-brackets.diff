@@ -17,20 +17,25 @@
      <link href="https://apastyle.apa.org/style-grammar-guidelines/references/examples" rel="documentation"/>
      <author>
        <name>Brenton M. Wiernik</name>
-@@ -20,10 +20,10 @@
+@@ -20,7 +20,7 @@
        <name>Andrew Dunning</name>
        <uri>https://orcid.org/0000-0003-0464-5036</uri>
-     </contributor>
+     </author>
 -    <category citation-format="author-date"/>
 +    <category citation-format="numeric"/>
-     <category field="psychology"/>
+     <category field="anthropology"/>
+     <category field="communications"/>
      <category field="generic-base"/>
+@@ -29,7 +29,7 @@
+     <category field="psychology"/>
+     <category field="social_science"/>
+     <category field="sociology"/>
 -    <summary>Author-date system of the Publication Manual of the American Psychological Association (2020)</summary>
-+    <summary>APA style, with numeric in-text citations in brackets</summary>
++    <summary>APA Style, unofficial variant with superscript numeric in-text citations in brackets</summary>
      <updated>2025-04-14T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -2257,18 +2257,14 @@
+@@ -2317,18 +2317,14 @@
      </group>
    </macro>
    <!-- Citation -->
@@ -47,15 +52,15 @@
 -      <group delimiter=", ">
 -        <text macro="author-short"/>
 -        <text macro="date-short"/>
--        <text macro="label-locator"/>
+-        <text macro="label-locator-capitalized"/>
 +    <layout delimiter="," prefix="[" suffix="]" vertical-align="sup">
 +      <group>
 +        <text variable="citation-number"/>
-+        <text macro="label-locator" prefix="(" suffix=")"/>
++        <text macro="label-locator-capitalized" prefix="(" suffix=")"/>
        </group>
      </layout>
    </citation>
-@@ -2308,15 +2304,11 @@
+@@ -2368,15 +2364,11 @@
      </choose>
    </macro>
    <bibliography entry-spacing="0" et-al-min="21" et-al-use-first="19" et-al-use-last="true" hanging-indent="true" line-spacing="2">

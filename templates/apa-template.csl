@@ -16,13 +16,19 @@
       <email>zotero@wiernik.org</email>
       <uri>https://orcid.org/0000-0001-9560-6336</uri>
     </author>
-    <contributor>
+    <author>
       <name>Andrew Dunning</name>
       <uri>https://orcid.org/0000-0003-0464-5036</uri>
-    </contributor>
+    </author>
     <category citation-format="author-date"/>
-    <category field="psychology"/>
+    <category field="anthropology"/>
+    <category field="communications"/>
     <category field="generic-base"/>
+    <category field="law"/>
+    <category field="medicine"/>
+    <category field="psychology"/>
+    <category field="social_science"/>
+    <category field="sociology"/>
     <summary>Author-date system of the Publication Manual of the American Psychological Association (2020)</summary>
     <updated>2025-04-14T00:00:00+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
@@ -153,14 +159,15 @@
        : article-journal article-magazine article-newspaper periodical post-weblog review review-book
 
        Periodical or Book-like
-       : paper-conference
+       : interview paper-conference
 
-       Considered book-like with any of `collection-editor compiler editor editorial-director` (and unpublished if it also lacks `issue page volume`).
+         Considered book-like with any of `collection-editor compiler editor editorial-director`
+         (and unpublished if it also lacks `issue page volume`).
 
        Book-like
        : article book broadcast chapter classic collection dataset document
          entry entry-dictionary entry-encyclopedia event figure
-         graphic interview manuscript map motion_picture musical_score
+         graphic manuscript map motion_picture musical_score
          pamphlet patent performance personal_communication post report
          software song speech standard thesis webpage
 
@@ -210,7 +217,14 @@
     <group delimiter=" ">
       <choose>
         <if is-numeric="chapter-number">
-          <label form="short" variable="chapter-number"/>
+          <choose>
+            <if type="song">
+              <text value="track"/>
+            </if>
+            <else>
+              <label form="short" variable="chapter-number"/>
+            </else>
+          </choose>
         </if>
       </choose>
       <text variable="chapter-number"/>
@@ -229,13 +243,13 @@
       </else>
     </choose>
   </macro>
-  <macro name="label-issue">
+  <macro name="label-issue-capitalized">
     <group delimiter=" ">
       <label text-case="capitalize-first" variable="issue"/>
       <text variable="issue"/>
     </group>
   </macro>
-  <macro name="label-locator">
+  <macro name="label-locator-capitalized">
     <!-- Abbreviate page and paragraph; leave other locator labels in long form (APA 8.13) -->
     <group delimiter=" ">
       <choose>
@@ -249,27 +263,24 @@
       <text variable="locator"/>
     </group>
   </macro>
-  <macro name="label-number">
+  <macro name="label-number-capitalized">
     <group delimiter=" ">
       <choose>
         <if is-numeric="number">
           <label form="short" text-case="capitalize-first" variable="number"/>
         </if>
-        <else-if match="none" type="broadcast standard">
-          <label form="short" text-case="capitalize-first" variable="number"/>
-        </else-if>
       </choose>
       <text text-case="capitalize-first" variable="number"/>
     </group>
   </macro>
-  <macro name="label-number-article">
+  <macro name="label-number-article-capitalized">
     <!-- APA example 6: Journal article with article number or eLocator -->
     <group delimiter=" ">
       <text term="article-locator" text-case="capitalize-first"/>
       <text variable="number"/>
     </group>
   </macro>
-  <macro name="label-number-of-volumes">
+  <macro name="label-number-of-volumes-capitalized">
     <group delimiter=" ">
       <choose>
         <if is-numeric="number-of-volumes">
@@ -291,15 +302,15 @@
       <text variable="page"/>
     </group>
   </macro>
-  <macro name="label-part-number">
+  <macro name="label-part-number-capitalized">
     <group delimiter=" ">
       <choose>
-        <if variable="part-number">
+        <if is-numeric="part-number">
           <!-- TODO: Replace with `part-number` label when CSL provides one -->
           <text form="short" term="part" text-case="capitalize-first"/>
-          <text variable="part-number"/>
         </if>
       </choose>
+      <text text-case="capitalize-first" variable="part-number"/>
     </group>
   </macro>
   <macro name="label-section-symbol">
@@ -308,27 +319,27 @@
       <text variable="section"/>
     </group>
   </macro>
-  <macro name="label-supplement-number">
+  <macro name="label-supplement-number-capitalized">
     <group delimiter=" ">
       <choose>
-        <if variable="supplement-number">
+        <if is-numeric="supplement-number">
           <!-- TODO: Replace with `supplement-number` label when CSL provides one -->
           <text form="short" term="supplement" text-case="capitalize-first"/>
-          <text variable="supplement-number"/>
         </if>
       </choose>
+      <text text-case="capitalize-first" variable="supplement-number"/>
     </group>
   </macro>
-  <macro name="label-version">
+  <macro name="label-version-capitalized">
     <group delimiter=" ">
       <label text-case="capitalize-first" variable="version"/>
       <text variable="version"/>
     </group>
   </macro>
-  <macro name="label-volume">
+  <macro name="label-volume-capitalized">
     <group delimiter=" ">
       <label form="short" text-case="capitalize-first" variable="volume"/>
-      <text variable="volume"/>
+      <text text-case="capitalize-first" variable="volume"/>
     </group>
   </macro>
   <!-- 1. Author (APA 9.7-12) -->
@@ -374,7 +385,7 @@
     <choose>
       <!-- These variables indicate that the letter is retrievable by the reader.
            If not, then use the APA in-text-only personal communication format -->
-      <if match="none" variable="archive archive-place container-title DOI number publisher URL">
+      <if match="none" variable="archive archive-place container-title DOI number publisher references URL">
         <group delimiter=", ">
           <names variable="author">
             <substitute>
@@ -395,8 +406,8 @@
     </choose>
   </macro>
   <macro name="author-substitute">
+    <!-- Substitutes for missing authors: order prioritizes primary creators (e.g., composer, author) over secondary roles (e.g., editor, curator), with title as the final fallback. -->
     <names variable="composer">
-      <!-- Substitutes for missing authors; order prioritizes primary creators (e.g., composer, author) over secondary roles (e.g., editor, curator), with title as the final fallback. -->
       <name delimiter-precedes-last="always" name-as-sort-order="all"/>
       <label form="short" prefix=" (" suffix=")" text-case="title"/>
       <substitute>
@@ -515,6 +526,7 @@
           </if>
         </choose>
         <names variable="curator"/>
+        <names variable="collection-editor"/>
         <text macro="title-and-descriptions-short"/>
       </substitute>
     </names>
@@ -522,12 +534,15 @@
   <macro name="author-title-substitute">
     <choose>
       <if match="any" type="review review-book" variable="reviewed-author reviewed-genre reviewed-title">
-        <!-- If a review has no `reviewed-title`, assume that `title` contains
+        <!-- If a review has no `reviewed-genre` or `reviewed-title`, assume that `title` contains
              the title of the reviewed work; the description provides it. -->
         <choose>
-          <if variable="reviewed-title title">
+          <if variable="reviewed-genre title">
             <text macro="title"/>
           </if>
+          <else-if variable="reviewed-title title">
+            <text macro="title"/>
+          </else-if>
           <else>
             <text macro="title-and-descriptions"/>
           </else>
@@ -558,12 +573,12 @@
               <text variable="year-suffix"/>
             </group>
             <choose>
-              <if match="any" type="article-magazine article-newspaper broadcast collection document event interview motion_picture pamphlet performance personal_communication post post-weblog song speech webpage">
+              <if match="any" type="article-magazine article-newspaper broadcast collection document event motion_picture pamphlet performance personal_communication post post-weblog song speech webpage">
                 <!-- Many video and audio examples in manual give full dates. Err on the side of too much information. -->
                 <text macro="date-issued-month-day"/>
               </if>
-              <else-if type="paper-conference">
-                <!-- Capture `speech` stored as `paper-conference` -->
+              <else-if match="any" type="interview paper-conference">
+                <!-- Determine whether published and periodical- or book-like -->
                 <choose>
                   <if match="none" variable="collection-editor compiler editor editorial-director issue page volume">
                     <text macro="date-issued-month-day"/>
@@ -600,7 +615,7 @@
             <choose>
               <if match="any" type="interview personal_communication">
                 <choose>
-                  <if match="none" variable="archive archive-place container-title DOI number publisher URL">
+                  <if match="none" variable="archive archive-place container-title DOI number publisher references URL">
                     <!-- These variables indicate that the communication is retrievable by the reader.
                          If not, then use the in-text-only personal communication format -->
                     <text macro="date-issued-full"/>
@@ -716,32 +731,30 @@
   </macro>
   <!-- 3. Title and descriptions (APA 9.18-22) -->
   <macro name="title-and-descriptions">
-    <choose>
-      <if variable="title">
-        <group delimiter=" ">
+    <group delimiter=" ">
+      <choose>
+        <if variable="title">
           <text macro="title"/>
           <text macro="identifier"/>
           <text macro="description"/>
-        </group>
-      </if>
-      <else>
-        <choose>
-          <if match="any" type="bill report">
-            <!-- Bills, resolutions, and congressional reports substitute bill number if no title. -->
-            <!-- Congressional reports are indistinguishable from other reports -->
-            <text macro="identifier-number"/>
-            <text macro="description"/>
-            <text macro="identifier"/>
-          </if>
-          <else>
-            <group delimiter=" ">
+        </if>
+        <else>
+          <choose>
+            <if match="any" type="bill report">
+              <!-- Bills, resolutions, and congressional reports substitute bill number if no title. -->
+              <!-- Congressional reports are indistinguishable from other reports -->
+              <text macro="identifier-number"/>
               <text macro="description"/>
               <text macro="identifier"/>
-            </group>
-          </else>
-        </choose>
-      </else>
-    </choose>
+            </if>
+            <else>
+              <text macro="description"/>
+              <text macro="identifier"/>
+            </else>
+          </choose>
+        </else>
+      </choose>
+    </group>
   </macro>
   <macro name="title-and-descriptions-short">
     <choose>
@@ -752,7 +765,7 @@
         <choose>
           <if match="any" type="bill report">
             <!-- Bills, resolutions, and congressional reports substitute bill number if no title. -->
-            <text macro="identifier-short"/>
+            <text macro="legal-identifier-bill-report"/>
           </if>
           <else>
             <text macro="description-short"/>
@@ -774,8 +787,8 @@
       <else-if match="any" type="article-journal article-magazine article-newspaper periodical post-weblog review review-book">
         <text macro="title-periodical"/>
       </else-if>
-      <else-if type="paper-conference">
-        <!-- Treat `paper-conference` as book-like if it has an editor, otherwise as periodical-like -->
+      <else-if match="any" type="interview paper-conference">
+        <!-- Treat as book-like with an editor, otherwise as periodical-like -->
         <choose>
           <if match="any" variable="collection-editor compiler editor editorial-director">
             <text macro="title-booklike"/>
@@ -793,13 +806,17 @@
   <macro name="title-short">
     <choose>
       <if match="any" type="review review-book" variable="reviewed-author reviewed-genre reviewed-title">
-        <!-- If a review has no `reviewed-title`, assume that `title` contains
+        <!-- If a review has no `reviewed-genre` or `reviewed-title`, assume that `title` contains
              the title of the reviewed work; the description provides it. -->
         <choose>
-          <if variable="reviewed-title title">
+          <if variable="reviewed-genre title">
             <!-- Quotes, title case -->
             <text form="short" quotes="true" text-case="title" variable="title"/>
           </if>
+          <else-if variable="reviewed-title title">
+            <!-- Quotes, title case -->
+            <text form="short" quotes="true" text-case="title" variable="title"/>
+          </else-if>
           <else>
             <text macro="description-short"/>
           </else>
@@ -843,7 +860,7 @@
   </macro>
   <macro name="title-part">
     <group delimiter=". ">
-      <text macro="label-part-number"/>
+      <text macro="label-part-number-capitalized"/>
       <text text-case="capitalize-first" variable="part-title"/>
     </group>
   </macro>
@@ -862,12 +879,15 @@
   <macro name="title-plus-part-filter-review">
     <choose>
       <if match="any" type="review review-book" variable="reviewed-author reviewed-genre reviewed-title">
-        <!-- If a review has no `reviewed-title`, assume that `title` contains
+        <!-- If a review has no `reviewed-genre` or `reviewed-title`, assume that `title` contains
              the title of the reviewed work; the description provides it. -->
         <choose>
-          <if variable="reviewed-title title">
+          <if variable="reviewed-genre title">
             <text macro="title-plus-part-title"/>
           </if>
+          <else-if variable="reviewed-title title">
+            <text macro="title-plus-part-title"/>
+          </else-if>
         </choose>
       </if>
       <else>
@@ -892,22 +912,22 @@
       <choose>
         <if variable="volume-title">
           <group delimiter=". ">
-            <text macro="label-volume"/>
+            <text macro="label-volume-capitalized"/>
             <text variable="volume-title"/>
           </group>
         </if>
         <else-if is-numeric="volume" match="none">
-          <text macro="label-volume"/>
+          <text macro="label-volume-capitalized"/>
         </else-if>
       </choose>
-      <!-- `part-number` and `part-title` of book-like items refer to the source book/volume -->
+      <!-- Assume that `part-number` and `part-title` of book-like items refer to the source book/volume -->
       <text macro="title-part"/>
     </group>
   </macro>
   <!-- 3.2. Identifier (in parentheses) (APA 9.19) -->
   <macro name="identifier">
+    <!-- (Secondary contributors; Database location; Genre no. 123; Report Series 123, Version, Edition, Volume, Page) -->
     <group delimiter="; " prefix="(" suffix=")">
-      <!-- (Secondary contributors; Database location; Genre no. 123; Report Series 123, Version, Edition, Volume, Page) -->
       <choose>
         <if type="patent">
           <text macro="identifier-patent"/>
@@ -947,8 +967,8 @@
           <group delimiter="; ">
             <text macro="identifier-contributors"/>
             <choose>
-              <if match="any" type="broadcast graphic map motion_picture song">
-                <!-- For audiovisual media, `number` information comes after title, not `container-title` (APA example 94) -->
+              <if match="any" type="broadcast graphic map motion_picture">
+                <!-- For some audiovisual media, `number` information comes after title, not `container-title` (APA example 94); but an album track number is `chapter-number` -->
                 <text macro="identifier-number"/>
               </if>
             </choose>
@@ -965,30 +985,15 @@
       </choose>
     </group>
   </macro>
-  <macro name="identifier-short">
-    <group delimiter=" ">
-      <text variable="genre"/>
-      <group delimiter=" ">
-        <choose>
-          <if match="none" variable="chapter-number container-title">
-            <text macro="label-number"/>
-          </if>
-          <else>
-            <text variable="number"/>
-          </else>
-        </choose>
-      </group>
-    </group>
-  </macro>
   <!-- Identifier elements -->
   <macro name="identifier-booklike">
     <choose>
-      <if match="any" type="article-journal article-magazine article-newspaper broadcast event interview patent performance periodical post post-weblog review review-book speech webpage"/>
-      <else-if type="paper-conference">
+      <if match="any" type="article-journal article-magazine article-newspaper broadcast event patent performance periodical post post-weblog review review-book speech webpage"/>
+      <else-if match="any" type="interview paper-conference">
         <choose>
           <if match="any" variable="collection-editor compiler editor editorial-director">
             <group delimiter=", ">
-              <text macro="label-version"/>
+              <text macro="label-version-capitalized"/>
               <text macro="label-edition"/>
               <text macro="identifier-volume"/>
             </group>
@@ -997,7 +1002,7 @@
       </else-if>
       <else>
         <group delimiter=", ">
-          <text macro="label-version"/>
+          <text macro="label-version-capitalized"/>
           <text macro="label-edition"/>
           <text macro="identifier-volume"/>
         </group>
@@ -1009,7 +1014,7 @@
       <if match="any" type="article-journal article-magazine article-newspaper periodical post-weblog review review-book">
         <text macro="identifier-contributors-periodical"/>
       </if>
-      <else-if type="paper-conference">
+      <else-if match="any" type="interview paper-conference">
         <choose>
           <if match="any" variable="collection-editor compiler editor editorial-director">
             <text macro="identifier-contributors-booklike"/>
@@ -1144,15 +1149,15 @@
                 <text text-case="title" variable="genre"/>
               </else>
             </choose>
-            <text macro="label-number"/>
+            <text macro="label-number-capitalized"/>
           </group>
         </group>
       </if>
     </choose>
   </macro>
   <macro name="identifier-patent">
+    <!-- `authority`: U.S. ; `genre`: patent ; `number`: 123,445 -->
     <group delimiter=" ">
-      <!-- `authority`: U.S. ; `genre`: patent ; `number`: 123,445 -->
       <text form="short" variable="authority"/>
       <choose>
         <if variable="genre">
@@ -1162,7 +1167,7 @@
           <text term="patent" text-case="capitalize-first"/>
         </else>
       </choose>
-      <text macro="label-number"/>
+      <text macro="label-number-capitalized"/>
     </group>
   </macro>
   <macro name="identifier-series">
@@ -1179,22 +1184,22 @@
   <macro name="identifier-volume">
     <group delimiter=", ">
       <text macro="identifier-series"/>
-      <text macro="label-supplement-number"/>
+      <text macro="label-supplement-number-capitalized"/>
       <choose>
         <if variable="volume">
           <choose>
             <!-- Non-numeric volumes are already printed as part of the book title -->
             <if variable="volume-title"/>
             <else-if is-numeric="volume">
-              <text macro="label-volume"/>
+              <text macro="label-volume-capitalized"/>
             </else-if>
           </choose>
         </if>
         <else>
-          <text macro="label-number-of-volumes"/>
+          <text macro="label-number-of-volumes-capitalized"/>
         </else>
       </choose>
-      <text macro="label-issue"/>
+      <text macro="label-issue-capitalized"/>
       <text macro="identifier-locators"/>
     </group>
   </macro>
@@ -1210,6 +1215,9 @@
         </else-if>
         <else-if type="personal_communication">
           <text macro="description-letter"/>
+        </else-if>
+        <else-if match="any" type="article-journal article-magazine article-newspaper periodical post-weblog review review-book">
+          <text macro="description-periodical"/>
         </else-if>
         <else-if type="song" variable="composer">
           <text macro="description-song"/>
@@ -1238,6 +1246,9 @@
         </else-if>
         <else-if type="personal_communication">
           <text macro="description-letter-short"/>
+        </else-if>
+        <else-if match="any" type="article-journal article-magazine article-newspaper periodical post-weblog review review-book">
+          <text macro="description-periodical-short"/>
         </else-if>
         <else>
           <text macro="description-format-short"/>
@@ -1296,7 +1307,7 @@
       </else-if>
       <else-if match="any" type="interview personal_communication">
         <choose>
-          <if match="none" variable="archive archive-place container-title DOI number publisher URL">
+          <if match="none" variable="archive archive-place container-title DOI number publisher references URL">
             <text term="personal-communication" text-case="capitalize-first"/>
           </if>
           <else-if type="interview">
@@ -1312,6 +1323,9 @@
       </else-if>
       <else-if type="motion_picture">
         <text term="motion_picture" text-case="capitalize-first"/>
+      </else-if>
+      <else-if type="periodical" variable="supplement-number">
+        <text term="supplement" text-case="capitalize-first"/>
       </else-if>
       <else-if type="song">
         <text term="song" text-case="capitalize-first"/>
@@ -1348,17 +1362,17 @@
   <macro name="description-interview">
     <choose>
       <if variable="title">
-        <text macro="description-format"/>
+        <choose>
+          <if match="none" variable="interviewer">
+            <text macro="description-format"/>
+          </if>
+        </choose>
       </if>
       <else-if variable="genre">
-        <group delimiter="; ">
-          <group delimiter=" ">
-            <text text-case="capitalize-first" variable="genre"/>
-            <group delimiter=" ">
-              <text form="verb" term="container-author"/>
-              <names variable="interviewer"/>
-            </group>
-          </group>
+        <group delimiter=" ">
+          <text text-case="capitalize-first" variable="genre"/>
+          <text form="verb" term="container-author"/>
+          <names variable="interviewer"/>
         </group>
       </else-if>
       <else-if variable="interviewer">
@@ -1430,8 +1444,39 @@
       </if>
     </choose>
   </macro>
+  <macro name="description-periodical">
+    <group delimiter="; ">
+      <choose>
+        <if match="none" variable="title">
+          <text variable="section"/>
+        </if>
+      </choose>
+      <choose>
+        <if variable="volume-title">
+          <choose>
+            <if type="periodical">
+              <text macro="description-format"/>
+            </if>
+            <else>
+              <!-- Assume `genre` (special issue or similar) applies to volume, not individual article -->
+              <text text-case="capitalize-first" variable="medium"/>
+            </else>
+          </choose>
+        </if>
+        <else>
+          <text macro="description-format"/>
+        </else>
+      </choose>
+    </group>
+  </macro>
+  <macro name="description-periodical-short">
+    <choose>
+      <if match="none" variable="title">
+        <text variable="section"/>
+      </if>
+    </choose>
+  </macro>
   <macro name="description-review">
-    <!-- Reviewed item -->
     <group delimiter="; ">
       <group delimiter=", ">
         <group delimiter=" ">
@@ -1484,28 +1529,28 @@
   </macro>
   <macro name="description-review-title">
     <choose>
-      <if variable="reviewed-title">
+      <if match="any" variable="reviewed-genre reviewed-title">
         <!-- Not possible to distinguish TV series episode from other reviewed
              works without a reviewed source title (APA example 69) -->
-        <!-- Adapt for `reviewed-container-title` or similar if it becomes available -->
+        <!-- TODO: Adapt for `reviewed-container-title` or similar if it becomes available -->
         <text font-style="italic" variable="reviewed-title"/>
       </if>
       <else>
-        <!-- Assume title is title of reviewed work -->
+        <!-- Assume `title` is the title of the reviewed work -->
         <text font-style="italic" variable="title"/>
       </else>
     </choose>
   </macro>
   <macro name="description-review-title-short">
     <choose>
-      <if variable="reviewed-title">
+      <if match="any" variable="reviewed-genre reviewed-title">
         <!-- Not possible to distinguish TV series episode from other reviewed
              works without a reviewed source title (APA example 69) -->
-        <!-- Adapt for `reviewed-container-title` or similar if it becomes available -->
+        <!-- TODO: Adapt for `reviewed-container-title` or similar if it becomes available -->
         <text font-style="italic" form="short" text-case="title" variable="reviewed-title"/>
       </if>
       <else>
-        <!-- Assume title is title of reviewed work -->
+        <!-- Assume `title` is the title of the reviewed work -->
         <text font-style="italic" form="short" text-case="title" variable="title"/>
       </else>
     </choose>
@@ -1539,7 +1584,6 @@
     </group>
   </macro>
   <macro name="description-thesis">
-    <!-- Thesis type and institution -->
     <group delimiter="; ">
       <group delimiter=", ">
         <text text-case="capitalize-first" variable="genre"/>
@@ -1558,11 +1602,10 @@
     <group delimiter=". ">
       <choose>
         <if match="any" type="article-journal article-magazine article-newspaper periodical post-weblog review review-book">
-          <!-- Periodical items -->
           <text macro="source-periodical"/>
         </if>
-        <else-if type="paper-conference">
-          <!-- Determine if paper-conference is a periodical- or book-like -->
+        <else-if match="any" type="interview paper-conference">
+          <!-- Determine whether periodical- or book-like -->
           <choose>
             <if match="any" variable="collection-editor container-author editor editorial-director">
               <text macro="source-booklike"/>
@@ -1605,6 +1648,9 @@
   <macro name="source-periodical-title">
     <group delimiter=", " font-style="italic">
       <text text-case="title" variable="container-title"/>
+      <!-- `collection-title` is for any periodical with multiple series of volumes,
+           i.e. multiple runs (e.g. 'second series') or separately numbered supplements (e.g. Sonderband or subsidia) -->
+      <!-- `genre` is used for a special issue or similar within a standard journal run; in APA, only needed with `periodical` type -->
       <text text-case="title" variable="collection-title"/>
     </group>
   </macro>
@@ -1618,7 +1664,7 @@
   <macro name="source-periodical-identifier-locators">
     <choose>
       <if variable="number">
-        <text macro="label-number-article"/>
+        <text macro="label-number-article-capitalized"/>
       </if>
       <else>
         <text variable="page"/>
@@ -1629,10 +1675,23 @@
     <choose>
       <if variable="volume">
         <text font-style="italic" variable="volume"/>
-        <text prefix="(" suffix=")" variable="issue"/>
+        <group delimiter=", " prefix="(" suffix=")">
+          <text variable="issue"/>
+          <text macro="label-supplement-number-capitalized"/>
+        </group>
       </if>
       <else>
-        <text font-style="italic" variable="issue"/>
+        <group delimiter=", " font-style="italic">
+          <text variable="issue"/>
+          <choose>
+            <if variable="collection-title">
+              <text variable="supplement-number"/>
+            </if>
+            <else>
+              <text macro="label-supplement-number-capitalized"/>
+            </else>
+          </choose>
+        </group>
       </else>
     </choose>
   </macro>
@@ -1712,8 +1771,8 @@
           <group delimiter="; ">
             <text macro="identifier-database"/>
             <choose>
-              <if match="none" type="broadcast graphic map motion_picture song">
-                <!-- For audiovisual media, number information comes after `title`, not `container-title` (APA example 94) -->
+              <if match="none" type="broadcast graphic map motion_picture">
+                <!-- For some audiovisual media, number information comes after `title`, not `container-title` (APA example 94); but an album track number is `chapter-number` -->
                 <text macro="identifier-number"/>
               </if>
             </choose>
@@ -1757,8 +1816,8 @@
           </if>
         </choose>
       </if>
-      <else-if type="paper-conference">
-        <!-- For paper-conference, don't print publisher if in a journal-like proceedings -->
+      <else-if match="any" type="interview paper-conference">
+        <!-- Only print publisher if book-like -->
         <choose>
           <if match="any" variable="collection-editor compiler editor editorial-director">
             <text variable="publisher"/>
@@ -1887,12 +1946,12 @@
   <!-- 5. Publication history (APA 9.39-41) -->
   <macro name="publication-history">
     <!-- Notes on source element: original publication, reprint info, retraction info -->
-    <choose>
-      <if type="patent">
-        <text prefix="(" suffix=")" variable="references"/>
-      </if>
-      <else>
-        <group delimiter="; " prefix="(" suffix=")">
+    <group delimiter="; " prefix="(" suffix=")">
+      <choose>
+        <if type="patent">
+          <text variable="references"/>
+        </if>
+        <else>
           <!-- Print `status` here for "retracted" etc. if it's not printed elsewhere. -->
           <choose>
             <if variable="issued">
@@ -1914,9 +1973,9 @@
               <text macro="publication-history-structured"/>
             </else>
           </choose>
-        </group>
-      </else>
-    </choose>
+        </else>
+      </choose>
+    </group>
   </macro>
   <macro name="publication-history-structured">
     <group delimiter=" ">
@@ -2104,9 +2163,25 @@
       </else-if>
     </choose>
   </macro>
+  <macro name="legal-identifier-bill-report">
+    <group delimiter=" ">
+      <text variable="genre"/>
+      <choose>
+        <!-- If there is no legislative body, session number, or code/record title, assume
+               the item is a congressional report and include 'No.' label. -->
+        <if match="none" variable="authority chapter-number container-title">
+          <!-- The item is a congressional report rather than a bill or resolution. -->
+          <text macro="label-number-capitalized"/>
+        </if>
+        <else>
+          <text variable="number"/>
+        </else>
+      </choose>
+    </group>
+  </macro>
   <!-- 6.4. Legal source -->
   <macro name="legal-source">
-    <!-- Expect legal item container-titles to be stored in short form -->
+    <!-- Expect legal item `container-title` to be stored in short form -->
     <choose>
       <if type="bill">
         <text macro="legal-source-bill"/>
@@ -2131,22 +2206,7 @@
   <!-- Legal source types -->
   <macro name="legal-source-bill">
     <group delimiter=", ">
-      <group delimiter=" ">
-        <text variable="genre"/>
-        <group delimiter=" ">
-          <choose>
-            <!-- If there is no session number or code/record title, assume
-                 the item is a congressional report and include 'No.' term. -->
-            <if match="none" variable="chapter-number container-title">
-              <!-- The item is a congressional report, rather than a bill or resultion. -->
-              <text macro="label-number"/>
-            </if>
-            <else>
-              <text variable="number"/>
-            </else>
-          </choose>
-        </group>
-      </group>
+      <text macro="legal-identifier-bill-report"/>
       <group delimiter=" ">
         <text variable="authority"/>
         <!-- 'session' is `chapter-number` -->
@@ -2178,7 +2238,7 @@
           </group>
         </if>
         <else>
-          <text macro="label-number"/>
+          <text macro="label-number-capitalized"/>
         </else>
       </choose>
     </group>
@@ -2226,7 +2286,7 @@
     <group delimiter=", ">
       <group delimiter=" ">
         <text variable="genre"/>
-        <text macro="label-number"/>
+        <text macro="label-number-capitalized"/>
       </group>
       <group delimiter=" ">
         <text variable="volume"/>
@@ -2251,7 +2311,7 @@
           <text variable="page-first"/>
         </if>
         <else>
-          <text macro="label-number"/>
+          <text macro="label-number-capitalized"/>
         </else>
       </choose>
     </group>
@@ -2268,7 +2328,7 @@
       <group delimiter=", ">
         <text macro="author-short"/>
         <text macro="date-short"/>
-        <text macro="label-locator"/>
+        <text macro="label-locator-capitalized"/>
       </group>
     </layout>
   </citation>
@@ -2297,7 +2357,7 @@
     <choose>
       <if type="personal_communication">
         <choose>
-          <if match="any" variable="archive archive-place container-title DOI number publisher URL">
+          <if match="any" variable="archive archive-place container-title DOI number publisher references URL">
             <text macro="bibliography"/>
           </if>
         </choose>

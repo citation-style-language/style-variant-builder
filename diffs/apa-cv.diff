@@ -17,7 +17,16 @@
      <link href="https://apastyle.apa.org/style-grammar-guidelines/references/examples" rel="documentation"/>
      <author>
        <name>Brenton M. Wiernik</name>
-@@ -2257,19 +2257,17 @@
+@@ -29,7 +29,7 @@
+     <category field="psychology"/>
+     <category field="social_science"/>
+     <category field="sociology"/>
+-    <summary>Author-date system of the Publication Manual of the American Psychological Association (2020)</summary>
++    <summary>APA Style, unofficial variant for use in a CV</summary>
+     <updated>2025-04-14T00:00:00+00:00</updated>
+     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
+   </info>
+@@ -2317,19 +2317,17 @@
      </group>
    </macro>
    <!-- Citation -->
@@ -37,14 +46,14 @@
 -      <group delimiter=", ">
 -        <text macro="author-short"/>
 -        <text macro="date-short"/>
--        <text macro="label-locator"/>
+-        <text macro="label-locator-capitalized"/>
 -      </group>
 +    <layout delimiter="&#13;&#10;">
 +      <text macro="bibliography"/>
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -2309,10 +2307,11 @@
+@@ -2369,10 +2367,11 @@
    </macro>
    <bibliography entry-spacing="0" et-al-min="21" et-al-use-first="19" et-al-use-last="true" hanging-indent="true" line-spacing="2">
      <sort>
