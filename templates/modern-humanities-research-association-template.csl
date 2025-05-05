@@ -46,6 +46,119 @@
       </term>
     </terms>
   </locale>
+  <!-- Variable labelling macros -->
+  <macro name="label-chapter-number">
+    <group delimiter=" ">
+      <choose>
+        <if is-numeric="chapter-number">
+          <label form="short" variable="chapter-number"/>
+        </if>
+      </choose>
+      <text variable="chapter-number"/>
+    </group>
+  </macro>
+  <macro name="label-edition">
+    <choose>
+      <if is-numeric="edition">
+        <group delimiter=" ">
+          <number form="ordinal" variable="edition"/>
+          <label form="short" variable="edition"/>
+        </group>
+      </if>
+      <else>
+        <text variable="edition"/>
+      </else>
+    </choose>
+  </macro>
+  <macro name="label-issue">
+    <group delimiter=" ">
+      <label variable="issue"/>
+      <text variable="issue"/>
+    </group>
+  </macro>
+  <macro name="label-locator">
+    <group delimiter=" ">
+      <label form="short" variable="locator"/>
+      <text variable="locator"/>
+    </group>
+  </macro>
+  <macro name="label-number">
+    <group delimiter=" ">
+      <choose>
+        <if is-numeric="number">
+          <label form="short" variable="number"/>
+        </if>
+        <else-if match="none" type="broadcast">
+          <label form="short" variable="number"/>
+        </else-if>
+      </choose>
+      <text variable="number"/>
+    </group>
+  </macro>
+  <macro name="label-number-article">
+    <!-- APA example 6: Journal article with article number or eLocator -->
+    <group delimiter=" ">
+      <text term="article-locator" text-case="capitalize-first"/>
+      <text variable="number"/>
+    </group>
+  </macro>
+  <macro name="label-number-of-volumes">
+    <group delimiter=" ">
+      <text variable="number-of-volumes"/>
+      <label form="short" variable="number-of-volumes"/>
+    </group>
+  </macro>
+  <macro name="label-page">
+    <group delimiter=" ">
+      <label form="short" variable="page"/>
+      <text variable="page"/>
+    </group>
+  </macro>
+  <macro name="label-part-number">
+    <group delimiter=" ">
+      <choose>
+        <if variable="part-number">
+          <!-- TODO: Replace with `part-number` label when CSL provides one -->
+          <text form="short" term="part" text-case="capitalize-first"/>
+          <text variable="part-number"/>
+        </if>
+      </choose>
+    </group>
+  </macro>
+  <macro name="label-supplement-number">
+    <group delimiter=" ">
+      <choose>
+        <if variable="supplement-number">
+          <!-- TODO: Replace with `supplement-number` label when CSL provides one -->
+          <text form="short" term="supplement" text-case="capitalize-first"/>
+          <text variable="supplement-number"/>
+        </if>
+      </choose>
+    </group>
+  </macro>
+  <macro name="label-version">
+    <group delimiter=" ">
+      <label variable="version"/>
+      <text variable="version"/>
+    </group>
+  </macro>
+  <macro name="label-volume">
+    <group delimiter=" ">
+      <label form="short" variable="volume"/>
+      <text variable="volume"/>
+    </group>
+  </macro>
+  <macro name="volume-number-roman">
+    <choose>
+      <if is-numeric="volume">
+        <number font-variant="small-caps" form="roman" variable="volume"/>
+      </if>
+      <else>
+        <text font-variant="small-caps" variable="volume"/>
+      </else>
+    </choose>
+  </macro>
+  <!-- Author -->
   <macro name="recipient">
     <names variable="recipient">
       <label form="verb" suffix=" "/>
@@ -306,17 +419,7 @@
   <macro name="edition">
     <choose>
       <if match="any" type="bill book chapter classic entry-dictionary entry-encyclopedia graphic legal_case legislation motion_picture pamphlet paper-conference report song">
-        <choose>
-          <if is-numeric="edition">
-            <group delimiter=" ">
-              <number form="ordinal" variable="edition"/>
-              <text form="short" term="edition"/>
-            </group>
-          </if>
-          <else>
-            <text variable="edition"/>
-          </else>
-        </choose>
+        <text macro="label-edition"/>
       </if>
     </choose>
   </macro>
@@ -333,10 +436,7 @@
               </group>
             </if>
             <else>
-              <group delimiter=" ">
-                <text form="short" term="issue"/>
-                <text variable="issue"/>
-              </group>
+              <text macro="label-issue"/>
             </else>
           </choose>
         </group>
@@ -348,10 +448,7 @@
             <text variable="collection-number"/>
           </group>
           <text macro="edition"/>
-          <group delimiter=" ">
-            <number form="numeric" variable="number-of-volumes"/>
-            <text form="short" plural="true" term="volume"/>
-          </group>
+          <text macro="label-number-of-volumes"/>
         </group>
       </else-if>
     </choose>
@@ -494,22 +591,6 @@
       </if>
     </choose>
   </macro>
-  <macro name="pages">
-    <group delimiter=" ">
-      <label form="short" variable="page"/>
-      <text variable="page"/>
-    </group>
-  </macro>
-  <macro name="volume-number-roman">
-    <choose>
-      <if is-numeric="volume">
-        <number font-variant="small-caps" form="roman" variable="volume"/>
-      </if>
-      <else>
-        <text font-variant="small-caps" variable="volume"/>
-      </else>
-    </choose>
-  </macro>
   <macro name="point-locators-volume-note">
     <choose>
       <if position="first" type="chapter entry-dictionary entry-encyclopedia paper-conference">
@@ -540,15 +621,9 @@
       </if>
     </choose>
   </macro>
-  <macro name="point-locators-subsequent">
-    <group delimiter=" ">
-      <label form="short" variable="locator"/>
-      <text variable="locator"/>
-    </group>
-  </macro>
   <macro name="point-locators">
     <group delimiter=" ">
-      <text macro="pages"/>
+      <text macro="label-page"/>
       <choose>
         <if variable="page">
           <group delimiter=" " prefix="(" suffix=")">
@@ -615,7 +690,7 @@
             <text macro="author-short"/>
             <text macro="title-subsequent"/>
             <text macro="point-locators-volume-note"/>
-            <text macro="point-locators-subsequent"/>
+            <text macro="label-locator"/>
           </group>
         </if>
         <else>
@@ -667,7 +742,7 @@
           <text macro="point-locators-volume"/>
           <text macro="artwork"/>
           <text macro="locators-newspaper"/>
-          <text macro="pages"/>
+          <text macro="label-page"/>
           <text macro="access"/>
         </group>
         <text macro="URL"/>
