@@ -8,7 +8,7 @@
 +<style and="text" class="in-text" default-locale="en-GB" demote-non-dropping-particle="sort-only" et-al-min="4" et-al-use-first="1" page-range-format="minimal-two" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>Modern Humanities Research Association 4th edition (template)</title>
-+    <title>Modern Humanities Research Association 4th edition (author–date)</title>
++    <title>Modern Humanities Research Association 4th edition (author-date)</title>
      <title-short>MHRA Style Guide</title-short>
 -    <id>http://www.zotero.org/styles/modern-humanities-research-association</id>
 -    <link href="http://www.zotero.org/styles/modern-humanities-research-association" rel="self"/>
@@ -18,16 +18,71 @@
      <link href="https://www.mhra.org.uk/style/" rel="documentation"/>
      <author>
        <name>Rintze Zelle</name>
-@@ -25,10 +26,10 @@
+@@ -25,7 +26,7 @@
      <contributor>
        <name>Patrick O'Brien</name>
      </contributor>
 -    <category citation-format="note"/>
 +    <category citation-format="author-date"/>
      <category field="generic-base"/>
+     <category field="history"/>
      <category field="humanities"/>
--    <summary>MHRA Style Guide full notes and bibliography</summary>
-+    <summary>MHRA Style Guide author–date system</summary>
-     <updated>2025-02-03T14:44:03+00:00</updated>
+@@ -33,7 +34,7 @@
+     <category field="linguistics"/>
+     <category field="philosophy"/>
+     <category field="theology"/>
+-    <summary>MHRA Style Guide, notes system</summary>
++    <summary>MHRA Style Guide, author-date system</summary>
+     <updated>2025-05-25T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
+@@ -109,7 +110,11 @@
+   <macro name="label-number-of-volumes">
+     <group delimiter=" ">
+       <text variable="number-of-volumes"/>
+-      <label form="short" variable="number-of-volumes"/>
++      <choose>
++        <if is-numeric="number-of-volumes">
++          <label form="short" variable="number-of-volumes"/>
++        </if>
++      </choose>
+     </group>
+   </macro>
+   <macro name="label-page">
+@@ -213,10 +218,7 @@
+   <macro name="author-short">
+     <group delimiter=" ">
+       <names variable="composer">
+-        <name form="short"/>
+-        <!-- for author-date:
+         <name form="short" initialize-with=". "/>
+-        -->
+         <substitute>
+           <names variable="author"/>
+           <choose>
+@@ -749,9 +751,9 @@
+       </else>
+     </choose>
+   </macro>
+-  <citation disambiguate-add-givenname="true" disambiguate-add-names="true">
++  <citation collapse="year" disambiguate-add-givenname="true" disambiguate-add-year-suffix="true">
+     <layout delimiter="; " suffix=".">
+-      <text macro="citation-notes"/>
++      <text macro="citation-author-date"/>
+     </layout>
+   </citation>
+   <macro name="bibliography-author-date">
+@@ -808,11 +810,11 @@
+   <bibliography delimiter-precedes-et-al="after-inverted-name" hanging-indent="true" subsequent-author-substitute="&#8212;&#8212;">
+     <sort>
+       <key macro="author-bib"/>
++      <key variable="issued"/>
+       <key variable="title"/>
+-      <key variable="issued"/>
+     </sort>
+     <layout>
+-      <text macro="bibliography-notes"/>
++      <text macro="bibliography-author-date"/>
+     </layout>
+   </bibliography>
+ </style>

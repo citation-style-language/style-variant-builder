@@ -1,0 +1,160 @@
+--- templates/chicago-template.csl
++++ development/chicago-notes-publisher-place-archive-place-first-no-url.csl
+@@ -5,10 +5,11 @@
+   type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+ <style and="text" class="note" demote-non-dropping-particle="display-and-sort" names-delimiter=", " page-range-format="chicago" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
+   <info>
+-    <title>Chicago Manual of Style 18th edition (template)</title>
++    <title>Chicago Manual of Style 18th edition (notes without bibliography, place of publication substituted for publisher, archival references with place first, without URLs)</title>
+     <title-short>CMOS</title-short>
+-    <id>http://www.zotero.org/styles/chicago-notes-bibliography</id>
+-    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="self"/>
++    <id>http://www.zotero.org/styles/chicago-notes-publisher-place-archive-place-first-no-url</id>
++    <link href="http://www.zotero.org/styles/chicago-notes-publisher-place-archive-place-first-no-url" rel="self"/>
++    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="template"/>
+     <link href="http://www.chicagomanualofstyle.org/tools_citationguide.html" rel="documentation"/>
+     <author>
+       <name>Andrew Dunning</name>
+@@ -22,21 +23,7 @@
+     <category field="literature"/>
+     <category field="philosophy"/>
+     <category field="theology"/>
+-    <!-- Categories for author-date:
+-    <category citation-format="author-date"/>
+-    <category field="anthropology"/>
+-    <category field="communications"/>
+-    <category field="generic-base"/>
+-    <category field="geography"/>
+-    <category field="history"/>
+-    <category field="humanities"/>
+-    <category field="linguistics"/>
+-    <category field="political_science"/>
+-    <category field="science"/>
+-    <category field="social_science"/>
+-    <category field="sociology"/>
+-    -->
+-    <summary>Chicago-style source citations, template</summary>
++    <summary>Chicago-style source citations, notes system without bibliography, listing up to six authors in a full citation (CMOS 13.23), substituting place of publication for publisher name (CMOS 14.31), archival references with place first (CMOS 14.205), without URLs (CMOS 13.6)</summary>
+     <updated>2025-05-19T00:00:00+00:00</updated>
+     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
+   </info>
+@@ -1061,7 +1048,7 @@
+         </if>
+       </choose>
+       <text macro="source-archive-bib"/>
+-      <text macro="source-DOI-URL-bib"/>
++      <!-- <text macro="source-DOI-URL-bib"/> -->
+     </group>
+   </macro>
+   <macro name="title-and-source-note">
+@@ -1168,7 +1155,7 @@
+         </if>
+       </choose>
+       <text macro="source-archive-note"/>
+-      <text macro="source-DOI-URL-note"/>
++      <!-- <text macro="source-DOI-URL-note"/> -->
+     </group>
+   </macro>
+   <!-- 3.1. Title -->
+@@ -2426,7 +2413,7 @@
+     </group>
+   </macro>
+   <macro name="identifier-contributors-monographic-note">
+-    <group delimiter=", ">
++    <group delimiter=". ">
+       <choose>
+         <if variable="title">
+           <names variable="interviewer">
+@@ -2438,7 +2425,7 @@
+       <choose>
+         <if match="none" type="post webpage">
+           <!-- Handle `container-title` on `post` or `webpage` as `publisher` -->
+-          <group delimiter=", ">
++          <group delimiter=". ">
+             <choose>
+               <if match="none" variable="container-title">
+                 <names variable="container-author">
+@@ -2515,7 +2502,7 @@
+           </group>
+         </if>
+         <else>
+-          <group delimiter=", ">
++          <group delimiter=". ">
+             <names variable="container-author">
+               <label form="verb-short" suffix=" "/>
+               <name/>
+@@ -4330,8 +4317,8 @@
+         </if>
+         <else-if variable="publisher">
+           <group delimiter=": ">
+-            <!-- <text variable="publisher-place"/> -->
+-            <text variable="publisher"/>
++            <text variable="publisher-place"/>
++            <!-- <text variable="publisher"/> -->
+           </group>
+         </else-if>
+         <else>
+@@ -4355,8 +4342,8 @@
+     <choose>
+       <if variable="original-publisher">
+         <group delimiter=": ">
+-          <!-- <text variable="original-publisher-place"/> -->
+-          <text variable="original-publisher"/>
++          <text variable="original-publisher-place"/>
++          <!-- <text variable="original-publisher"/> -->
+         </group>
+       </if>
+       <else>
+@@ -4740,7 +4727,7 @@
+         <text macro="source-archive-name-first"/>
+       </if>
+       <else-if match="any" variable="archive_collection archive-place">
+-        <text macro="source-archive-location-first-bib"/>
++        <text macro="source-archive-place-first"/>
+       </else-if>
+       <else>
+         <text macro="source-archive-identifier"/>
+@@ -4754,7 +4741,7 @@
+         <text macro="source-archive-name-first"/>
+       </if>
+       <else-if match="any" variable="archive_collection archive-place">
+-        <text macro="source-archive-location-first-note"/>
++        <text macro="source-archive-place-first"/>
+       </else-if>
+       <else>
+         <text macro="source-archive-identifier"/>
+@@ -4918,7 +4905,7 @@
+         </else>
+       </choose>
+       <text variable="references"/>
+-      <text macro="source-DOI-URL"/>
++      <!-- <text macro="source-DOI-URL"/> -->
+     </group>
+   </macro>
+   <!-- 6.1. Legal author -->
+@@ -5430,7 +5417,7 @@
+       </else>
+     </choose>
+   </macro>
+-  <citation disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
++  <citation disambiguate-add-names="true" et-al-min="7" et-al-subsequent-min="3" et-al-subsequent-use-first="1" et-al-use-first="3">
+     <layout delimiter="; " suffix=".">
+       <text macro="citation-notes-full-subsequent-author-title"/>
+     </layout>
+@@ -5555,16 +5542,4 @@
+       </else>
+     </choose>
+   </macro>
+-  <bibliography et-al-min="7" et-al-use-first="3" hanging-indent="true">
+-    <sort>
+-      <key macro="author-sort"/>
+-      <key macro="title-bib"/>
+-      <key macro="date-sort-group"/>
+-      <key macro="date-sort"/>
+-      <key variable="status"/>
+-    </sort>
+-    <layout suffix=".">
+-      <text macro="bibliography-filtered-notes"/>
+-    </layout>
+-  </bibliography>
+ </style>

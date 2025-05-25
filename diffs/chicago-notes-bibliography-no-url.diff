@@ -1,0 +1,66 @@
+--- templates/chicago-template.csl
++++ development/chicago-notes-bibliography-no-url.csl
+@@ -5,10 +5,10 @@
+   type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+ <style and="text" class="note" demote-non-dropping-particle="display-and-sort" names-delimiter=", " page-range-format="chicago" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
+   <info>
+-    <title>Chicago Manual of Style 18th edition (template)</title>
++    <title>Chicago Manual of Style 18th edition (notes and bibliography, without URLs)</title>
+     <title-short>CMOS</title-short>
+-    <id>http://www.zotero.org/styles/chicago-notes-bibliography</id>
+-    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="self"/>
++    <id>http://www.zotero.org/styles/chicago-notes-bibliography-no-url</id>
++    <link href="http://www.zotero.org/styles/chicago-notes-bibliography-no-url" rel="self"/>
+     <link href="http://www.chicagomanualofstyle.org/tools_citationguide.html" rel="documentation"/>
+     <author>
+       <name>Andrew Dunning</name>
+@@ -22,21 +22,7 @@
+     <category field="literature"/>
+     <category field="philosophy"/>
+     <category field="theology"/>
+-    <!-- Categories for author-date:
+-    <category citation-format="author-date"/>
+-    <category field="anthropology"/>
+-    <category field="communications"/>
+-    <category field="generic-base"/>
+-    <category field="geography"/>
+-    <category field="history"/>
+-    <category field="humanities"/>
+-    <category field="linguistics"/>
+-    <category field="political_science"/>
+-    <category field="science"/>
+-    <category field="social_science"/>
+-    <category field="sociology"/>
+-    -->
+-    <summary>Chicago-style source citations, template</summary>
++    <summary>Chicago-style source citations, notes and bibliography system, without URLs (CMOS 13.6)</summary>
+     <updated>2025-05-19T00:00:00+00:00</updated>
+     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
+   </info>
+@@ -1061,7 +1047,7 @@
+         </if>
+       </choose>
+       <text macro="source-archive-bib"/>
+-      <text macro="source-DOI-URL-bib"/>
++      <!-- <text macro="source-DOI-URL-bib"/> -->
+     </group>
+   </macro>
+   <macro name="title-and-source-note">
+@@ -1168,7 +1154,7 @@
+         </if>
+       </choose>
+       <text macro="source-archive-note"/>
+-      <text macro="source-DOI-URL-note"/>
++      <!-- <text macro="source-DOI-URL-note"/> -->
+     </group>
+   </macro>
+   <!-- 3.1. Title -->
+@@ -4918,7 +4904,7 @@
+         </else>
+       </choose>
+       <text variable="references"/>
+-      <text macro="source-DOI-URL"/>
++      <!-- <text macro="source-DOI-URL"/> -->
+     </group>
+   </macro>
+   <!-- 6.1. Legal author -->

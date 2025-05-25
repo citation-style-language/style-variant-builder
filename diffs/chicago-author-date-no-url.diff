@@ -1,6 +1,6 @@
 --- templates/chicago-template.csl
 +++ development/chicago-author-date-no-url.csl
-@@ -3,13 +3,13 @@
+@@ -3,26 +3,18 @@
    type="application/relax-ng-compact-syntax" schematypens="http://relaxng.org/ns/compatibility/annotations/1.0"?>
  <?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl.rnc"
    type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
@@ -8,198 +8,158 @@
 +<style and="text" class="in-text" demote-non-dropping-particle="display-and-sort" names-delimiter=", " page-range-format="chicago" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>Chicago Manual of Style 18th edition (template)</title>
-+    <title>Chicago Manual of Style 18th edition (author-date without URL)</title>
++    <title>Chicago Manual of Style 18th edition (author-date, without URLs)</title>
      <title-short>CMOS</title-short>
--    <id>http://www.zotero.org/styles/chicago-fullnote-bibliography</id>
--    <link href="http://www.zotero.org/styles/chicago-fullnote-bibliography" rel="self"/>
--    <link href="http://www.zotero.org/styles/chicago-fullnote-bibliography-17th-edition" rel="template"/>
+-    <id>http://www.zotero.org/styles/chicago-notes-bibliography</id>
+-    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="self"/>
 +    <id>http://www.zotero.org/styles/chicago-author-date-no-url</id>
 +    <link href="http://www.zotero.org/styles/chicago-author-date-no-url" rel="self"/>
-+    <link href="http://www.zotero.org/styles/chicago-fullnote-bibliography" rel="template"/>
++    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="template"/>
      <link href="http://www.chicagomanualofstyle.org/tools_citationguide.html" rel="documentation"/>
      <author>
        <name>Andrew Dunning</name>
-@@ -55,11 +55,11 @@
-       <name>Zeping Lee</name>
-       <uri>https://github.com/zepinglee</uri>
-     </contributor>
+       <uri>https://orcid.org/0000-0003-0464-5036</uri>
+     </author>
 -    <category citation-format="note"/>
-+    <category citation-format="author-date"/>
-     <category field="humanities"/>
+-    <category field="generic-base"/>
+-    <category field="history"/>
+-    <category field="humanities"/>
+-    <category field="law"/>
+-    <category field="literature"/>
+-    <category field="philosophy"/>
+-    <category field="theology"/>
+-    <!-- Categories for author-date:
+     <category citation-format="author-date"/>
+     <category field="anthropology"/>
+     <category field="communications"/>
+@@ -35,8 +27,7 @@
+     <category field="science"/>
      <category field="social_science"/>
-     <category field="generic-base"/>
--    <summary>Chicago Manual of Style full notes and bibliography</summary>
-+    <summary>Chicago Manual of Style author-date system, without URL</summary>
-     <updated>2025-03-01T00:00:00+00:00</updated>
+     <category field="sociology"/>
+-    -->
+-    <summary>Chicago-style source citations, template</summary>
++    <summary>Chicago-style source citations, author-date system, without URLs (CMOS 13.6)</summary>
+     <updated>2025-05-19T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -140,7 +140,6 @@
-         </if>
-       </choose>
-       <text variable="event-place"/>
--      <date form="text" variable="event-date"/>
-     </group>
+@@ -557,9 +548,7 @@
    </macro>
-   <macro name="personal-communication-bib">
-@@ -288,7 +287,7 @@
-   <macro name="author-short">
-     <group delimiter=" ">
-       <names variable="composer">
--        <name form="short"/>
-+        <name form="short" initialize-with=". "/>
-         <substitute>
-           <names variable="author"/>
-           <choose>
-@@ -401,7 +400,7 @@
-   <macro name="date-disambiguate">
-     <choose>
-       <if disambiguate="true">
--        <text macro="issued-date"/>
-+        <text macro="issued-date-filtered-year"/>
-       </if>
-       <else-if type="personal_communication">
+   <macro name="author-substitute-short">
+     <names variable="composer">
+-      <name form="short"/>
+-      <!-- for author-date:
+-      <name form="short" initialize-with=". "/> -->
++      <name form="short" initialize-with=". "/>
+       <substitute>
+         <names variable="author"/>
          <choose>
-@@ -409,7 +408,7 @@
-             <date form="text" variable="event-date"/>
-           </if>
-           <else>
--            <text macro="issued-date"/>
-+            <text macro="issued-date-filtered-year"/>
-           </else>
-         </choose>
-       </else-if>
-@@ -1862,7 +1861,7 @@
-     <group delimiter=", ">
-       <choose>
-         <if match="any" type="article-journal periodical">
--          <text macro="volume-periodical"/>
-+          <text macro="volume-periodical-issue-bracketed"/>
+@@ -1061,7 +1050,7 @@
          </if>
-         <else-if match="any" variable="volume volume-title">
-           <choose>
-@@ -2277,14 +2276,13 @@
-           </group>
-         </else>
        </choose>
--      <text macro="date-original-year"/>
+       <text macro="source-archive-bib"/>
+-      <text macro="source-DOI-URL-bib"/>
++      <!-- <text macro="source-DOI-URL-bib"/> -->
      </group>
    </macro>
-   <macro name="publisher-original-title-bib">
-     <group delimiter=". ">
-       <group delimiter=", ">
-         <text macro="publisher"/>
--        <text macro="issued-date"/>
-+        <text macro="issued-date-filtered-year"/>
-       </group>
-       <group delimiter=" ">
-         <text term="original-work-published" text-case="capitalize-first"/>
-@@ -2298,7 +2296,7 @@
-     <group delimiter="; ">
-       <group delimiter=", ">
-         <text macro="publisher"/>
--        <text macro="issued-date"/>
-+        <text macro="issued-date-filtered-year"/>
-       </group>
-       <group delimiter=" ">
-         <text term="original-work-published"/>
-@@ -2355,7 +2353,7 @@
-               <text macro="publisher"/>
-             </group>
-           </group>
--          <text macro="issued-date"/>
-+          <text macro="issued-date-filtered-year"/>
-         </else>
+   <macro name="title-and-source-note">
+@@ -1168,7 +1157,7 @@
+         </if>
        </choose>
+       <text macro="source-archive-note"/>
+-      <text macro="source-DOI-URL-note"/>
++      <!-- <text macro="source-DOI-URL-note"/> -->
      </group>
-@@ -2425,7 +2423,7 @@
-               <text macro="publisher"/>
-             </group>
+   </macro>
+   <!-- 3.1. Title -->
+@@ -2426,7 +2415,7 @@
+     </group>
+   </macro>
+   <macro name="identifier-contributors-monographic-note">
+-    <group delimiter=", ">
++    <group delimiter=". ">
+       <choose>
+         <if variable="title">
+           <names variable="interviewer">
+@@ -2438,7 +2427,7 @@
+       <choose>
+         <if match="none" type="post webpage">
+           <!-- Handle `container-title` on `post` or `webpage` as `publisher` -->
+-          <group delimiter=", ">
++          <group delimiter=". ">
+             <choose>
+               <if match="none" variable="container-title">
+                 <names variable="container-author">
+@@ -2515,7 +2504,7 @@
            </group>
--          <text macro="issued-date"/>
-+          <text macro="issued-date-filtered-year"/>
-         </else>
-       </choose>
-     </group>
-@@ -2433,10 +2431,10 @@
-   <macro name="publication-facts-periodical">
+         </if>
+         <else>
+-          <group delimiter=", ">
++          <group delimiter=". ">
+             <names variable="container-author">
+               <label form="verb-short" suffix=" "/>
+               <name/>
+@@ -3067,14 +3056,14 @@
      <choose>
        <if match="any" variable="issue supplement-number volume">
--        <text macro="issued-date" prefix="(" suffix=")"/>
-+        <text macro="issued-date-filtered-year" prefix="(" suffix=")"/>
+         <group delimiter=": ">
+-          <text macro="source-serial-identifier-volume-bib"/>
++          <text macro="source-serial-identifier-volume-author-date"/>
+           <text macro="source-serial-locators"/>
+         </group>
        </if>
        <else>
--        <text macro="issued-date"/>
-+        <text macro="issued-date-filtered-year"/>
-       </else>
-     </choose>
-   </macro>
-@@ -2462,7 +2460,7 @@
-                 <text text-case="capitalize-first" value="released"/>
-               </if>
-             </choose>
--            <text macro="issued-date"/>
-+            <text macro="issued-date-filtered-year"/>
+         <group delimiter=", ">
+           <group delimiter=". ">
+-            <text macro="source-serial-identifier-volume-bib"/>
++            <text macro="source-serial-identifier-volume-author-date"/>
+             <!-- periodical edition always capitalized (CMOS 14.89) -->
+             <text macro="label-edition-capitalized"/>
            </group>
-         </group>
-       </else-if>
-@@ -2470,7 +2468,7 @@
-         <text macro="publication-facts-book-bib"/>
-       </else-if>
-       <else>
--        <text macro="issued-date"/>
-+        <text macro="issued-date-filtered-year"/>
-       </else>
-     </choose>
-   </macro>
-@@ -2496,7 +2494,7 @@
-                 <text value="released"/>
-               </if>
-             </choose>
--            <text macro="issued-date"/>
-+            <text macro="issued-date-filtered-year"/>
-           </group>
-         </group>
-       </else-if>
-@@ -2504,7 +2502,7 @@
-         <text macro="publication-facts-book-note"/>
-       </else-if>
-       <else>
--        <text macro="issued-date"/>
-+        <text macro="issued-date-filtered-year"/>
-       </else>
-     </choose>
-   </macro>
-@@ -2905,7 +2903,7 @@
-       <if match="any" variable="DOI URL">
-         <choose>
-           <if match="none" type="bill hearing legal_case legislation regulation treaty">
--            <text macro="URI"/>
-+            <!-- <text macro="URI"/> -->
-           </if>
-         </choose>
+@@ -4372,9 +4361,7 @@
+         <date date-parts="year" form="text" variable="available-date"/>
        </if>
-@@ -3070,9 +3068,9 @@
+       <else>
+-        <text macro="source-date-issued-full"/>
+-        <!-- form for author-date from 18th edition: -->
+-        <!-- <text macro="source-date-issued-month-day"/> -->
++        <text macro="source-date-issued-month-day"/>
+       </else>
+     </choose>
+   </macro>
+@@ -4472,9 +4459,7 @@
+     </choose>
+   </macro>
+   <macro name="source-date-original">
+-    <text macro="source-date-original-full"/>
+-    <!-- form for author-date from 18th edition: -->
+-    <!-- <text macro="source-date-original-month-day"/> -->
++    <text macro="source-date-original-month-day"/>
+   </macro>
+   <macro name="source-date-original-full">
+     <!-- Give full date for more ephemeral types; reflected in `date-sort` -->
+@@ -4918,7 +4903,7 @@
+         </else>
+       </choose>
+       <text variable="references"/>
+-      <text macro="source-DOI-URL"/>
++      <!-- <text macro="source-DOI-URL"/> -->
+     </group>
+   </macro>
+   <!-- 6.1. Legal author -->
+@@ -5430,9 +5415,9 @@
        </else>
      </choose>
    </macro>
 -  <citation disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
 -    <layout delimiter="; " suffix=".">
--      <text macro="citation-fullnote"/>
-+  <citation after-collapse-delimiter="; " collapse="year" disambiguate-add-givenname="true" disambiguate-add-names="true" disambiguate-add-year-suffix="true" et-al-min="3" et-al-use-first="1" givenname-disambiguation-rule="primary-name">
+-      <text macro="citation-notes-full-subsequent-author-title"/>
++  <citation after-collapse-delimiter="; " collapse="year" disambiguate-add-givenname="true" disambiguate-add-names="true" disambiguate-add-year-suffix="true" et-al-min="3" et-al-use-first="1" givenname-disambiguation-rule="primary-name-with-initials">
 +    <layout delimiter="; " prefix="(" suffix=")">
-+      <text macro="citation-intext"/>
++      <text macro="citation-author-date"/>
      </layout>
    </citation>
-   <macro name="bibliography">
-@@ -3085,6 +3083,7 @@
-                 <group delimiter=", ">
-                   <group delimiter=". ">
-                     <text macro="author-bib"/>
-+                    <text macro="date-bib"/>
-                     <text macro="title-bib"/>
-                     <text macro="description-bib"/>
-                     <text macro="secondary-contributors-bib"/>
-@@ -3148,10 +3147,10 @@
+   <!-- Bibliography -->
+@@ -5558,13 +5543,13 @@
    <bibliography et-al-min="7" et-al-use-first="3" hanging-indent="true">
      <sort>
        <key macro="author-sort"/>
@@ -210,4 +170,8 @@
 +      <key macro="title-bib"/>
      </sort>
      <layout suffix=".">
-       <text macro="bibliography-filtered"/>
+-      <text macro="bibliography-filtered-notes"/>
++      <text macro="bibliography-filtered-author-date"/>
+     </layout>
+   </bibliography>
+ </style>

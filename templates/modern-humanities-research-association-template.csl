@@ -27,9 +27,14 @@
     </contributor>
     <category citation-format="note"/>
     <category field="generic-base"/>
+    <category field="history"/>
     <category field="humanities"/>
-    <summary>MHRA Style Guide full notes and bibliography</summary>
-    <updated>2025-02-03T14:44:03+00:00</updated>
+    <category field="literature"/>
+    <category field="linguistics"/>
+    <category field="philosophy"/>
+    <category field="theology"/>
+    <summary>MHRA Style Guide, notes system</summary>
+    <updated>2025-05-25T00:00:00+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <locale xml:lang="en">
@@ -46,7 +51,6 @@
       </term>
     </terms>
   </locale>
-  <!-- Variable labelling macros -->
   <macro name="label-chapter-number">
     <group delimiter=" ">
       <choose>
@@ -96,7 +100,6 @@
     </group>
   </macro>
   <macro name="label-number-article">
-    <!-- APA example 6: Journal article with article number or eLocator -->
     <group delimiter=" ">
       <text term="article-locator" text-case="capitalize-first"/>
       <text variable="number"/>
@@ -158,7 +161,6 @@
       </else>
     </choose>
   </macro>
-  <!-- Author -->
   <macro name="recipient">
     <names variable="recipient">
       <label form="verb" suffix=" "/>
@@ -211,6 +213,9 @@
     <group delimiter=" ">
       <names variable="composer">
         <name form="short"/>
+        <!-- for author-date:
+        <name form="short" initialize-with=". "/>
+        -->
         <substitute>
           <names variable="author"/>
           <choose>
@@ -297,6 +302,22 @@
       </names>
       <text macro="personal-communication-bib"/>
     </group>
+  </macro>
+  <macro name="year-date">
+    <choose>
+      <if variable="issued">
+        <date variable="issued">
+          <date-part name="year"/>
+        </date>
+        <text variable="year-suffix"/>
+      </if>
+      <else>
+        <group prefix="[" suffix="]">
+          <text form="short" term="no date"/>
+          <text prefix="-" variable="year-suffix"/>
+        </group>
+      </else>
+    </choose>
   </macro>
   <macro name="title-subsequent">
     <choose>
@@ -682,71 +703,115 @@
       </if>
     </choose>
   </macro>
+  <macro name="citation-author-date">
+    <!-- usage:
+    <citation collapse="year" disambiguate-add-givenname="true" disambiguate-add-year-suffix="true">
+    -->
+    <group delimiter=" ">
+      <text macro="author-short"/>
+      <text macro="year-date"/>
+    </group>
+    <text prefix=": " variable="locator"/>
+  </macro>
+  <macro name="citation-notes">
+    <choose>
+      <if position="subsequent">
+        <group delimiter=", ">
+          <text macro="author-short"/>
+          <text macro="title-subsequent"/>
+          <text macro="point-locators-volume-note"/>
+          <text macro="label-locator"/>
+        </group>
+      </if>
+      <else>
+        <group delimiter=" ">
+          <group delimiter=", ">
+            <group delimiter=" ">
+              <group delimiter=", ">
+                <text macro="author-note"/>
+                <text macro="title"/>
+                <text macro="secondary-contributors"/>
+                <text macro="container-title"/>
+                <text macro="container-contributors"/>
+                <text macro="locators"/>
+              </group>
+              <text macro="issue-join-with-space"/>
+            </group>
+            <text macro="issue-join-with-comma"/>
+            <text macro="point-locators-volume-note"/>
+            <text macro="locators-newspaper"/>
+            <text macro="point-locators"/>
+            <text macro="access"/>
+          </group>
+          <text macro="URL"/>
+        </group>
+      </else>
+    </choose>
+  </macro>
   <citation disambiguate-add-givenname="true" disambiguate-add-names="true">
     <layout delimiter="; " suffix=".">
-      <choose>
-        <if position="subsequent">
-          <group delimiter=", ">
-            <text macro="author-short"/>
-            <text macro="title-subsequent"/>
-            <text macro="point-locators-volume-note"/>
-            <text macro="label-locator"/>
-          </group>
-        </if>
-        <else>
-          <group delimiter=" ">
-            <group delimiter=", ">
-              <group delimiter=" ">
-                <group delimiter=", ">
-                  <text macro="author-note"/>
-                  <text macro="title"/>
-                  <text macro="secondary-contributors"/>
-                  <text macro="container-title"/>
-                  <text macro="container-contributors"/>
-                  <text macro="locators"/>
-                </group>
-                <text macro="issue-join-with-space"/>
-              </group>
-              <text macro="issue-join-with-comma"/>
-              <text macro="point-locators-volume-note"/>
-              <text macro="locators-newspaper"/>
-              <text macro="point-locators"/>
-              <text macro="access"/>
-            </group>
-            <text macro="URL"/>
-          </group>
-        </else>
-      </choose>
+      <text macro="citation-notes"/>
     </layout>
   </citation>
-  <bibliography delimiter-precedes-et-al="after-inverted-name" hanging-indent="true" subsequent-author-substitute="&#8212;&#8212;">
-    <sort>
-      <key macro="author-bib"/>
-      <key variable="title"/>
-    </sort>
-    <layout>
-      <group delimiter=" ">
-        <group delimiter=", ">
-          <group delimiter=" ">
+  <macro name="bibliography-author-date">
+    <group delimiter=" ">
+      <group delimiter=", ">
+        <group delimiter=" ">
+          <group delimiter=". ">
+            <text macro="author-bib"/>
+            <text macro="year-date"/>
             <group delimiter=", ">
-              <text macro="author-bib"/>
               <text macro="title"/>
               <text macro="secondary-contributors"/>
               <text macro="container-title"/>
               <text macro="container-contributors"/>
               <text macro="locators"/>
             </group>
-            <text macro="issue-join-with-space"/>
           </group>
-          <text macro="issue-join-with-comma"/>
-          <text macro="point-locators-volume"/>
-          <text macro="artwork"/>
-          <text macro="locators-newspaper"/>
-          <text macro="label-page"/>
-          <text macro="access"/>
+          <text macro="issue-join-with-space"/>
         </group>
-        <text macro="URL"/>
+        <text macro="issue-join-with-comma"/>
+        <text macro="point-locators-volume"/>
+        <text macro="artwork"/>
+        <text macro="locators-newspaper"/>
+        <text macro="label-page"/>
+        <text macro="access"/>
       </group>
+      <text macro="URL"/>
+    </group>
+  </macro>
+  <macro name="bibliography-notes">
+    <group delimiter=" ">
+      <group delimiter=", ">
+        <group delimiter=" ">
+          <group delimiter=", ">
+            <text macro="author-bib"/>
+            <text macro="title"/>
+            <text macro="secondary-contributors"/>
+            <text macro="container-title"/>
+            <text macro="container-contributors"/>
+            <text macro="locators"/>
+          </group>
+          <text macro="issue-join-with-space"/>
+        </group>
+        <text macro="issue-join-with-comma"/>
+        <text macro="point-locators-volume"/>
+        <text macro="artwork"/>
+        <text macro="locators-newspaper"/>
+        <text macro="label-page"/>
+        <text macro="access"/>
+      </group>
+      <text macro="URL"/>
+    </group>
+  </macro>
+  <bibliography delimiter-precedes-et-al="after-inverted-name" hanging-indent="true" subsequent-author-substitute="&#8212;&#8212;">
+    <sort>
+      <key macro="author-bib"/>
+      <key variable="title"/>
+      <key variable="issued"/>
+    </sort>
+    <layout>
+      <text macro="bibliography-notes"/>
     </layout>
   </bibliography>
 </style>

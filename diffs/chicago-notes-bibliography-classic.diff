@@ -1,0 +1,157 @@
+--- templates/chicago-template.csl
++++ development/chicago-notes-bibliography-classic.csl
+@@ -5,10 +5,11 @@
+   type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+ <style and="text" class="note" demote-non-dropping-particle="display-and-sort" names-delimiter=", " page-range-format="chicago" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
+   <info>
+-    <title>Chicago Manual of Style 18th edition (template)</title>
++    <title>Chicago Manual of Style 18th edition (notes and bibliography, with classic variants)</title>
+     <title-short>CMOS</title-short>
+-    <id>http://www.zotero.org/styles/chicago-notes-bibliography</id>
+-    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="self"/>
++    <id>http://www.zotero.org/styles/chicago-notes-bibliography-classic</id>
++    <link href="http://www.zotero.org/styles/chicago-notes-bibliography-classic" rel="self"/>
++    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="template"/>
+     <link href="http://www.chicagomanualofstyle.org/tools_citationguide.html" rel="documentation"/>
+     <author>
+       <name>Andrew Dunning</name>
+@@ -22,21 +23,7 @@
+     <category field="literature"/>
+     <category field="philosophy"/>
+     <category field="theology"/>
+-    <!-- Categories for author-date:
+-    <category citation-format="author-date"/>
+-    <category field="anthropology"/>
+-    <category field="communications"/>
+-    <category field="generic-base"/>
+-    <category field="geography"/>
+-    <category field="history"/>
+-    <category field="humanities"/>
+-    <category field="linguistics"/>
+-    <category field="political_science"/>
+-    <category field="science"/>
+-    <category field="social_science"/>
+-    <category field="sociology"/>
+-    -->
+-    <summary>Chicago-style source citations, template</summary>
++    <summary>Chicago-style source citations, notes and bibliography system, with classic variants: chapter page numbers (CMOS 14.8), place of publication (CMOS 14.30), and 3-em dash (CMOS 13.113)</summary>
+     <updated>2025-05-19T00:00:00+00:00</updated>
+     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
+   </info>
+@@ -2426,7 +2413,7 @@
+     </group>
+   </macro>
+   <macro name="identifier-contributors-monographic-note">
+-    <group delimiter=", ">
++    <group delimiter=". ">
+       <choose>
+         <if variable="title">
+           <names variable="interviewer">
+@@ -2438,7 +2425,7 @@
+       <choose>
+         <if match="none" type="post webpage">
+           <!-- Handle `container-title` on `post` or `webpage` as `publisher` -->
+-          <group delimiter=", ">
++          <group delimiter=". ">
+             <choose>
+               <if match="none" variable="container-title">
+                 <names variable="container-author">
+@@ -2515,7 +2502,7 @@
+           </group>
+         </if>
+         <else>
+-          <group delimiter=", ">
++          <group delimiter=". ">
+             <names variable="container-author">
+               <label form="verb-short" suffix=" "/>
+               <name/>
+@@ -3345,11 +3332,9 @@
+           </if>
+         </choose>
+       </else-if>
+-      <!-- if printing chapter page numbers:
+       <else-if variable="chapter-number page">
+         <text term="in" text-case="capitalize-first"/>
+       </else-if>
+-      -->
+       <else-if variable="chapter-number">
+         <group delimiter=" ">
+           <text macro="label-chapter-number-capitalized"/>
+@@ -3385,11 +3370,9 @@
+           </if>
+         </choose>
+       </else-if>
+-      <!-- if printing chapter page numbers:
+       <else-if variable="chapter-number page">
+         <text term="in"/>
+       </else-if>
+-      -->
+       <else-if variable="chapter-number">
+         <group delimiter=" ">
+           <text macro="label-chapter-number"/>
+@@ -3732,10 +3715,6 @@
+             <if is-numeric="volume" match="none">
+               <text macro="label-volume"/>
+             </if>
+-            <else-if type="chapter">
+-              <!-- remove condition in styles that print chapter page numbers -->
+-              <text macro="label-volume"/>
+-            </else-if>
+             <else-if is-numeric="volume" variable="page">
+               <choose>
+                 <if match="any" variable="collection-editor part-number part-title volume-title">
+@@ -3763,8 +3742,7 @@
+   <!-- Monographic source locators -->
+   <macro name="source-monographic-locators-bib">
+     <choose>
+-      <if type="chapter"/>
+-      <else-if is-numeric="volume" variable="page">
++      <if is-numeric="volume" variable="page">
+         <!-- collapse the volume and page number if adjacent -->
+         <group delimiter=":">
+           <choose>
+@@ -3775,7 +3753,7 @@
+           </choose>
+           <text variable="page"/>
+         </group>
+-      </else-if>
++      </if>
+       <else>
+         <text variable="page"/>
+       </else>
+@@ -3800,7 +3778,7 @@
+   </macro>
+   <macro name="source-monographic-locators-note-item">
+     <choose>
+-      <if match="none" type="chapter" variable="locator">
++      <if match="none" variable="locator">
+         <text variable="page"/>
+       </if>
+       <else>
+@@ -4330,7 +4308,7 @@
+         </if>
+         <else-if variable="publisher">
+           <group delimiter=": ">
+-            <!-- <text variable="publisher-place"/> -->
++            <text variable="publisher-place"/>
+             <text variable="publisher"/>
+           </group>
+         </else-if>
+@@ -4355,7 +4333,7 @@
+     <choose>
+       <if variable="original-publisher">
+         <group delimiter=": ">
+-          <!-- <text variable="original-publisher-place"/> -->
++          <text variable="original-publisher-place"/>
+           <text variable="original-publisher"/>
+         </group>
+       </if>
+@@ -5555,7 +5533,7 @@
+       </else>
+     </choose>
+   </macro>
+-  <bibliography et-al-min="7" et-al-use-first="3" hanging-indent="true">
++  <bibliography et-al-min="7" et-al-use-first="3" hanging-indent="true" subsequent-author-substitute="&#8212;&#8212;&#8212;">
+     <sort>
+       <key macro="author-sort"/>
+       <key macro="title-bib"/>

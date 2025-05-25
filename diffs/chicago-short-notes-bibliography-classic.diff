@@ -1,59 +1,44 @@
 --- templates/chicago-template.csl
-+++ development/chicago-author-date-classic.csl
-@@ -3,26 +3,18 @@
-   type="application/relax-ng-compact-syntax" schematypens="http://relaxng.org/ns/compatibility/annotations/1.0"?>
- <?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl.rnc"
++++ development/chicago-short-notes-bibliography-classic.csl
+@@ -5,10 +5,11 @@
    type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
--<style and="text" class="note" demote-non-dropping-particle="display-and-sort" names-delimiter=", " page-range-format="chicago" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
-+<style and="text" class="in-text" demote-non-dropping-particle="display-and-sort" names-delimiter=", " page-range-format="chicago" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
+ <style and="text" class="note" demote-non-dropping-particle="display-and-sort" names-delimiter=", " page-range-format="chicago" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>Chicago Manual of Style 18th edition (template)</title>
-+    <title>Chicago Manual of Style 18th edition (author-date, with classic variants)</title>
++    <title>Chicago Manual of Style 18th edition (shortened author-title notes and bibliography, with classic variants)</title>
      <title-short>CMOS</title-short>
 -    <id>http://www.zotero.org/styles/chicago-notes-bibliography</id>
 -    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="self"/>
-+    <id>http://www.zotero.org/styles/chicago-author-date-classic</id>
-+    <link href="http://www.zotero.org/styles/chicago-author-date-classic" rel="self"/>
++    <id>http://www.zotero.org/styles/chicago-short-notes-bibliography-classic</id>
++    <link href="http://www.zotero.org/styles/chicago-short-notes-bibliography-classic" rel="self"/>
 +    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="template"/>
      <link href="http://www.chicagomanualofstyle.org/tools_citationguide.html" rel="documentation"/>
      <author>
        <name>Andrew Dunning</name>
-       <uri>https://orcid.org/0000-0003-0464-5036</uri>
-     </author>
--    <category citation-format="note"/>
+@@ -22,21 +23,7 @@
+     <category field="literature"/>
+     <category field="philosophy"/>
+     <category field="theology"/>
+-    <!-- Categories for author-date:
+-    <category citation-format="author-date"/>
+-    <category field="anthropology"/>
+-    <category field="communications"/>
 -    <category field="generic-base"/>
+-    <category field="geography"/>
 -    <category field="history"/>
 -    <category field="humanities"/>
--    <category field="law"/>
--    <category field="literature"/>
--    <category field="philosophy"/>
--    <category field="theology"/>
--    <!-- Categories for author-date:
-     <category citation-format="author-date"/>
-     <category field="anthropology"/>
-     <category field="communications"/>
-@@ -35,8 +27,7 @@
-     <category field="science"/>
-     <category field="social_science"/>
-     <category field="sociology"/>
+-    <category field="linguistics"/>
+-    <category field="political_science"/>
+-    <category field="science"/>
+-    <category field="social_science"/>
+-    <category field="sociology"/>
 -    -->
 -    <summary>Chicago-style source citations, template</summary>
-+    <summary>Chicago-style source citations, author-date system, with classic variants: chapter page numbers (CMOS 14.8), place of publication (CMOS 14.30), and 3-em dash (CMOS 13.113)</summary>
++    <summary>Chicago-style source citations, shortened author-title notes and bibliography system, with classic variants: chapter page numbers (CMOS 14.8), place of publication (CMOS 14.30), and 3-em dash (CMOS 13.113)</summary>
      <updated>2025-05-19T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -557,9 +548,7 @@
-   </macro>
-   <macro name="author-substitute-short">
-     <names variable="composer">
--      <name form="short"/>
--      <!-- for author-date:
--      <name form="short" initialize-with=". "/> -->
-+      <name form="short" initialize-with=". "/>
-       <substitute>
-         <names variable="author"/>
-         <choose>
-@@ -2426,7 +2415,7 @@
+@@ -2426,7 +2413,7 @@
      </group>
    </macro>
    <macro name="identifier-contributors-monographic-note">
@@ -62,7 +47,7 @@
        <choose>
          <if variable="title">
            <names variable="interviewer">
-@@ -2438,7 +2427,7 @@
+@@ -2438,7 +2425,7 @@
        <choose>
          <if match="none" type="post webpage">
            <!-- Handle `container-title` on `post` or `webpage` as `publisher` -->
@@ -71,7 +56,7 @@
              <choose>
                <if match="none" variable="container-title">
                  <names variable="container-author">
-@@ -2515,7 +2504,7 @@
+@@ -2515,7 +2502,7 @@
            </group>
          </if>
          <else>
@@ -80,24 +65,7 @@
              <names variable="container-author">
                <label form="verb-short" suffix=" "/>
                <name/>
-@@ -3067,14 +3056,14 @@
-     <choose>
-       <if match="any" variable="issue supplement-number volume">
-         <group delimiter=": ">
--          <text macro="source-serial-identifier-volume-bib"/>
-+          <text macro="source-serial-identifier-volume-author-date"/>
-           <text macro="source-serial-locators"/>
-         </group>
-       </if>
-       <else>
-         <group delimiter=", ">
-           <group delimiter=". ">
--            <text macro="source-serial-identifier-volume-bib"/>
-+            <text macro="source-serial-identifier-volume-author-date"/>
-             <!-- periodical edition always capitalized (CMOS 14.89) -->
-             <text macro="label-edition-capitalized"/>
-           </group>
-@@ -3345,11 +3334,9 @@
+@@ -3345,11 +3332,9 @@
            </if>
          </choose>
        </else-if>
@@ -109,7 +77,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number-capitalized"/>
-@@ -3385,11 +3372,9 @@
+@@ -3385,11 +3370,9 @@
            </if>
          </choose>
        </else-if>
@@ -121,7 +89,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number"/>
-@@ -3732,10 +3717,6 @@
+@@ -3732,10 +3715,6 @@
              <if is-numeric="volume" match="none">
                <text macro="label-volume"/>
              </if>
@@ -132,7 +100,7 @@
              <else-if is-numeric="volume" variable="page">
                <choose>
                  <if match="any" variable="collection-editor part-number part-title volume-title">
-@@ -3763,8 +3744,7 @@
+@@ -3763,8 +3742,7 @@
    <!-- Monographic source locators -->
    <macro name="source-monographic-locators-bib">
      <choose>
@@ -142,7 +110,7 @@
          <!-- collapse the volume and page number if adjacent -->
          <group delimiter=":">
            <choose>
-@@ -3775,7 +3755,7 @@
+@@ -3775,7 +3753,7 @@
            </choose>
            <text variable="page"/>
          </group>
@@ -151,7 +119,7 @@
        <else>
          <text variable="page"/>
        </else>
-@@ -3800,7 +3780,7 @@
+@@ -3800,7 +3778,7 @@
    </macro>
    <macro name="source-monographic-locators-note-item">
      <choose>
@@ -160,7 +128,7 @@
          <text variable="page"/>
        </if>
        <else>
-@@ -4330,7 +4310,7 @@
+@@ -4330,7 +4308,7 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -169,7 +137,7 @@
              <text variable="publisher"/>
            </group>
          </else-if>
-@@ -4355,7 +4335,7 @@
+@@ -4355,7 +4333,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -178,42 +146,16 @@
            <text variable="original-publisher"/>
          </group>
        </if>
-@@ -4372,9 +4352,7 @@
-         <date date-parts="year" form="text" variable="available-date"/>
-       </if>
-       <else>
--        <text macro="source-date-issued-full"/>
--        <!-- form for author-date from 18th edition: -->
--        <!-- <text macro="source-date-issued-month-day"/> -->
-+        <text macro="source-date-issued-month-day"/>
-       </else>
-     </choose>
+@@ -5432,7 +5410,7 @@
    </macro>
-@@ -4472,9 +4450,7 @@
-     </choose>
-   </macro>
-   <macro name="source-date-original">
--    <text macro="source-date-original-full"/>
--    <!-- form for author-date from 18th edition: -->
--    <!-- <text macro="source-date-original-month-day"/> -->
-+    <text macro="source-date-original-month-day"/>
-   </macro>
-   <macro name="source-date-original-full">
-     <!-- Give full date for more ephemeral types; reflected in `date-sort` -->
-@@ -5430,9 +5406,9 @@
-       </else>
-     </choose>
-   </macro>
--  <citation disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
--    <layout delimiter="; " suffix=".">
+   <citation disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
+     <layout delimiter="; " suffix=".">
 -      <text macro="citation-notes-full-subsequent-author-title"/>
-+  <citation after-collapse-delimiter="; " collapse="year" disambiguate-add-givenname="true" disambiguate-add-names="true" disambiguate-add-year-suffix="true" et-al-min="3" et-al-use-first="1" givenname-disambiguation-rule="primary-name-with-initials">
-+    <layout delimiter="; " prefix="(" suffix=")">
-+      <text macro="citation-author-date"/>
++      <text macro="citation-notes-shortened-author-title"/>
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -5555,16 +5531,16 @@
+@@ -5555,7 +5533,7 @@
        </else>
      </choose>
    </macro>
@@ -221,15 +163,4 @@
 +  <bibliography et-al-min="7" et-al-use-first="3" hanging-indent="true" subsequent-author-substitute="&#8212;&#8212;&#8212;">
      <sort>
        <key macro="author-sort"/>
--      <key macro="title-bib"/>
-       <key macro="date-sort-group"/>
-       <key macro="date-sort"/>
-       <key variable="status"/>
-+      <key macro="title-bib"/>
-     </sort>
-     <layout suffix=".">
--      <text macro="bibliography-filtered-notes"/>
-+      <text macro="bibliography-filtered-author-date"/>
-     </layout>
-   </bibliography>
- </style>
+       <key macro="title-bib"/>

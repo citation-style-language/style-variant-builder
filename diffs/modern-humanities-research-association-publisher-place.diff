@@ -5,7 +5,7 @@
  <style and="text" class="note" default-locale="en-GB" demote-non-dropping-particle="sort-only" et-al-min="4" et-al-use-first="1" page-range-format="minimal-two" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>Modern Humanities Research Association 4th edition (template)</title>
-+    <title>Modern Humanities Research Association 4th edition (note with bibliography, with place of publication)</title>
++    <title>Modern Humanities Research Association 4th edition (notes with place of publication)</title>
      <title-short>MHRA Style Guide</title-short>
 -    <id>http://www.zotero.org/styles/modern-humanities-research-association</id>
 -    <link href="http://www.zotero.org/styles/modern-humanities-research-association" rel="self"/>
@@ -15,16 +15,7 @@
      <link href="https://www.mhra.org.uk/style/" rel="documentation"/>
      <author>
        <name>Rintze Zelle</name>
-@@ -28,7 +29,7 @@
-     <category citation-format="note"/>
-     <category field="generic-base"/>
-     <category field="humanities"/>
--    <summary>MHRA Style Guide full notes and bibliography</summary>
-+    <summary>MHRA Style Guide full notes and bibliography, with place of publication</summary>
-     <updated>2025-02-03T14:44:03+00:00</updated>
-     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
-   </info>
-@@ -471,7 +472,7 @@
+@@ -493,7 +494,7 @@
            </if>
            <else>
              <group delimiter=": ">
