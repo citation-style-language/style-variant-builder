@@ -36,7 +36,7 @@
      <updated>2025-05-25T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -109,7 +110,11 @@
+@@ -108,7 +109,11 @@
    <macro name="label-number-of-volumes">
      <group delimiter=" ">
        <text variable="number-of-volumes"/>
@@ -49,30 +49,49 @@
      </group>
    </macro>
    <macro name="label-page">
-@@ -213,10 +218,7 @@
+@@ -228,10 +233,7 @@
    <macro name="author-short">
      <group delimiter=" ">
-       <names variable="composer">
+       <names variable="author">
 -        <name form="short"/>
 -        <!-- for author-date:
          <name form="short" initialize-with=". "/>
 -        -->
          <substitute>
-           <names variable="author"/>
-           <choose>
-@@ -749,9 +751,9 @@
+           <names variable="editor"/>
+           <names variable="translator"/>
+@@ -443,16 +445,7 @@
+       <if match="any" type="report article-newspaper article-magazine personal_communication">
+         <date form="text" variable="issued"/>
+       </if>
+-      <else-if match="any" type="article-journal book bill chapter classic legislation motion_picture pamphlet paper-conference song thesis">
+-        <choose>
+-          <if is-uncertain-date="issued">
+-            <date date-parts="year" form="numeric" prefix="[" suffix="?]" variable="issued"/>
+-          </if>
+-          <else>
+-            <date date-parts="year" form="numeric" variable="issued"/>
+-          </else>
+-        </choose>
+-      </else-if>
++      <else-if match="any" type="article-journal book bill chapter classic legislation motion_picture pamphlet paper-conference song thesis"/>
+       <else>
+         <choose>
+           <if is-uncertain-date="issued">
+@@ -686,9 +679,9 @@
        </else>
      </choose>
    </macro>
 -  <citation disambiguate-add-givenname="true" disambiguate-add-names="true">
-+  <citation collapse="year" disambiguate-add-givenname="true" disambiguate-add-year-suffix="true">
-     <layout delimiter="; " suffix=".">
+-    <layout delimiter="; " suffix=".">
 -      <text macro="citation-notes"/>
++  <citation collapse="year" disambiguate-add-givenname="true" disambiguate-add-year-suffix="true">
++    <layout delimiter="; " prefix="(" suffix=")">
 +      <text macro="citation-author-date"/>
      </layout>
    </citation>
    <macro name="bibliography-author-date">
-@@ -808,11 +810,11 @@
+@@ -745,11 +738,11 @@
    <bibliography delimiter-precedes-et-al="after-inverted-name" hanging-indent="true" subsequent-author-substitute="&#8212;&#8212;">
      <sort>
        <key macro="author-bib"/>
