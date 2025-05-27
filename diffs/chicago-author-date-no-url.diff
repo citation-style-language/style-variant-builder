@@ -42,7 +42,7 @@
      <updated>2025-05-19T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -557,9 +548,7 @@
+@@ -561,9 +552,7 @@
    </macro>
    <macro name="author-substitute-short">
      <names variable="composer">
@@ -53,7 +53,7 @@
        <substitute>
          <names variable="author"/>
          <choose>
-@@ -1061,7 +1050,7 @@
+@@ -1057,7 +1046,7 @@
          </if>
        </choose>
        <text macro="source-archive-bib"/>
@@ -62,7 +62,7 @@
      </group>
    </macro>
    <macro name="title-and-source-note">
-@@ -1168,7 +1157,7 @@
+@@ -1182,7 +1171,7 @@
          </if>
        </choose>
        <text macro="source-archive-note"/>
@@ -71,7 +71,7 @@
      </group>
    </macro>
    <!-- 3.1. Title -->
-@@ -2426,7 +2415,7 @@
+@@ -2497,7 +2486,7 @@
      </group>
    </macro>
    <macro name="identifier-contributors-monographic-note">
@@ -80,7 +80,7 @@
        <choose>
          <if variable="title">
            <names variable="interviewer">
-@@ -2438,7 +2427,7 @@
+@@ -2509,7 +2498,7 @@
        <choose>
          <if match="none" type="post webpage">
            <!-- Handle `container-title` on `post` or `webpage` as `publisher` -->
@@ -89,7 +89,7 @@
              <choose>
                <if match="none" variable="container-title">
                  <names variable="container-author">
-@@ -2515,7 +2504,7 @@
+@@ -2586,7 +2575,7 @@
            </group>
          </if>
          <else>
@@ -98,13 +98,13 @@
              <names variable="container-author">
                <label form="verb-short" suffix=" "/>
                <name/>
-@@ -3067,14 +3056,14 @@
+@@ -3161,14 +3150,14 @@
      <choose>
        <if match="any" variable="issue supplement-number volume">
          <group delimiter=": ">
 -          <text macro="source-serial-identifier-volume-bib"/>
 +          <text macro="source-serial-identifier-volume-author-date"/>
-           <text macro="source-serial-locators"/>
+           <text macro="source-serial-locator"/>
          </group>
        </if>
        <else>
@@ -115,18 +115,20 @@
              <!-- periodical edition always capitalized (CMOS 14.89) -->
              <text macro="label-edition-capitalized"/>
            </group>
-@@ -4372,9 +4361,7 @@
+@@ -4460,11 +4449,7 @@
          <date date-parts="year" form="text" variable="available-date"/>
        </if>
        <else>
--        <text macro="source-date-issued-full"/>
--        <!-- form for author-date from 18th edition: -->
+-        <text macro="source-date-issued-or-status"/>
+-        <!-- author-date form up to 17th edition: -->
+-        <!-- <text macro="source-date-issued-full"/> -->
+-        <!-- author-date form from 18th edition: -->
 -        <!-- <text macro="source-date-issued-month-day"/> -->
 +        <text macro="source-date-issued-month-day"/>
        </else>
      </choose>
    </macro>
-@@ -4472,9 +4459,7 @@
+@@ -4578,9 +4563,7 @@
      </choose>
    </macro>
    <macro name="source-date-original">
@@ -137,7 +139,7 @@
    </macro>
    <macro name="source-date-original-full">
      <!-- Give full date for more ephemeral types; reflected in `date-sort` -->
-@@ -4918,7 +4903,7 @@
+@@ -5031,7 +5014,7 @@
          </else>
        </choose>
        <text variable="references"/>
@@ -146,7 +148,7 @@
      </group>
    </macro>
    <!-- 6.1. Legal author -->
-@@ -5430,9 +5415,9 @@
+@@ -5572,9 +5555,9 @@
        </else>
      </choose>
    </macro>
@@ -159,7 +161,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -5558,13 +5543,13 @@
+@@ -5735,13 +5718,13 @@
    <bibliography et-al-min="7" et-al-use-first="3" hanging-indent="true">
      <sort>
        <key macro="author-sort"/>

@@ -15,7 +15,7 @@
      <link href="https://www.mhra.org.uk/style/" rel="documentation"/>
      <author>
        <name>Rintze Zelle</name>
-@@ -430,7 +431,7 @@
+@@ -438,7 +439,7 @@
            </if>
            <else>
              <group delimiter=": ">

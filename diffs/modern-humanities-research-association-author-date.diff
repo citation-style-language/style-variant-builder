@@ -28,7 +28,7 @@
      <category field="history"/>
      <category field="humanities"/>
 @@ -33,7 +34,7 @@
-     <category field="linguistics"/>
+     <category field="literature"/>
      <category field="philosophy"/>
      <category field="theology"/>
 -    <summary>MHRA Style Guide, notes system</summary>
@@ -60,7 +60,7 @@
          <substitute>
            <names variable="editor"/>
            <names variable="translator"/>
-@@ -443,16 +445,7 @@
+@@ -451,16 +453,7 @@
        <if match="any" type="report article-newspaper article-magazine personal_communication">
          <date form="text" variable="issued"/>
        </if>
@@ -78,7 +78,7 @@
        <else>
          <choose>
            <if is-uncertain-date="issued">
-@@ -686,9 +679,9 @@
+@@ -699,9 +692,9 @@
        </else>
      </choose>
    </macro>
@@ -91,7 +91,7 @@
      </layout>
    </citation>
    <macro name="bibliography-author-date">
-@@ -745,11 +738,11 @@
+@@ -758,11 +751,11 @@
    <bibliography delimiter-precedes-et-al="after-inverted-name" hanging-indent="true" subsequent-author-substitute="&#8212;&#8212;">
      <sort>
        <key macro="author-bib"/>

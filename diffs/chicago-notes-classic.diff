@@ -38,7 +38,7 @@
      <updated>2025-05-19T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -2426,7 +2413,7 @@
+@@ -2497,7 +2484,7 @@
      </group>
    </macro>
    <macro name="identifier-contributors-monographic-note">
@@ -47,7 +47,7 @@
        <choose>
          <if variable="title">
            <names variable="interviewer">
-@@ -2438,7 +2425,7 @@
+@@ -2509,7 +2496,7 @@
        <choose>
          <if match="none" type="post webpage">
            <!-- Handle `container-title` on `post` or `webpage` as `publisher` -->
@@ -56,7 +56,7 @@
              <choose>
                <if match="none" variable="container-title">
                  <names variable="container-author">
-@@ -2515,7 +2502,7 @@
+@@ -2586,7 +2573,7 @@
            </group>
          </if>
          <else>
@@ -65,7 +65,18 @@
              <names variable="container-author">
                <label form="verb-short" suffix=" "/>
                <name/>
-@@ -3345,11 +3332,9 @@
+@@ -2922,10 +2909,6 @@
+           <if match="any" variable="collection-editor part-number part-title volume-title">
+             <text macro="label-volume"/>
+           </if>
+-          <else-if type="chapter">
+-            <!-- remove condition in styles that provide chapter page numbers -->
+-            <text macro="label-volume"/>
+-          </else-if>
+         </choose>
+       </else-if>
+       <else-if variable="volume">
+@@ -3435,11 +3418,9 @@
            </if>
          </choose>
        </else-if>
@@ -77,7 +88,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number-capitalized"/>
-@@ -3385,11 +3370,9 @@
+@@ -3471,11 +3452,9 @@
            </if>
          </choose>
        </else-if>
@@ -89,7 +100,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number"/>
-@@ -3732,10 +3715,6 @@
+@@ -3818,10 +3797,6 @@
              <if is-numeric="volume" match="none">
                <text macro="label-volume"/>
              </if>
@@ -99,17 +110,18 @@
 -            </else-if>
              <else-if is-numeric="volume" variable="page">
                <choose>
-                 <if match="any" variable="collection-editor part-number part-title volume-title">
-@@ -3800,7 +3779,7 @@
+                 <!-- check for variables that might come between the volume and page number -->
+@@ -3869,8 +3844,7 @@
    </macro>
-   <macro name="source-monographic-locators-note-item">
+   <macro name="source-monographic-locator-note">
      <choose>
 -      <if match="none" type="chapter" variable="locator">
+-        <!-- Remove `type="chapter"` in styles that provide chapter page numbers -->
 +      <if match="none" variable="locator">
-         <text variable="page"/>
-       </if>
-       <else>
-@@ -4330,7 +4309,7 @@
+         <group delimiter=":">
+           <choose>
+             <!-- check for variables that might come between the volume and page number -->
+@@ -4418,7 +4392,7 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -118,7 +130,7 @@
              <text variable="publisher"/>
            </group>
          </else-if>
-@@ -4355,7 +4334,7 @@
+@@ -4443,7 +4417,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -127,7 +139,7 @@
            <text variable="original-publisher"/>
          </group>
        </if>
-@@ -5430,7 +5409,7 @@
+@@ -5572,7 +5546,7 @@
        </else>
      </choose>
    </macro>
@@ -136,7 +148,7 @@
      <layout delimiter="; " suffix=".">
        <text macro="citation-notes-full-subsequent-author-title"/>
      </layout>
-@@ -5555,16 +5534,4 @@
+@@ -5732,16 +5706,4 @@
        </else>
      </choose>
    </macro>

@@ -37,7 +37,7 @@
      <updated>2025-05-19T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -1061,7 +1047,7 @@
+@@ -1057,7 +1043,7 @@
          </if>
        </choose>
        <text macro="source-archive-bib"/>
@@ -46,7 +46,7 @@
      </group>
    </macro>
    <macro name="title-and-source-note">
-@@ -1168,7 +1154,7 @@
+@@ -1182,7 +1168,7 @@
          </if>
        </choose>
        <text macro="source-archive-note"/>
@@ -55,7 +55,7 @@
      </group>
    </macro>
    <!-- 3.1. Title -->
-@@ -4740,7 +4726,7 @@
+@@ -4853,7 +4839,7 @@
          <text macro="source-archive-name-first"/>
        </if>
        <else-if match="any" variable="archive_collection archive-place">
@@ -64,7 +64,7 @@
        </else-if>
        <else>
          <text macro="source-archive-identifier"/>
-@@ -4754,7 +4740,7 @@
+@@ -4867,7 +4853,7 @@
          <text macro="source-archive-name-first"/>
        </if>
        <else-if match="any" variable="archive_collection archive-place">
@@ -73,7 +73,7 @@
        </else-if>
        <else>
          <text macro="source-archive-identifier"/>
-@@ -4918,7 +4904,7 @@
+@@ -5031,7 +5017,7 @@
          </else>
        </choose>
        <text variable="references"/>
