@@ -4,8 +4,8 @@
    type="application/relax-ng-compact-syntax" schematypens="http://relaxng.org/ns/compatibility/annotations/1.0"?>
  <?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl.rnc"
    type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
--<style and="text" class="note" demote-non-dropping-particle="display-and-sort" names-delimiter=", " page-range-format="chicago" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
-+<style and="text" class="in-text" demote-non-dropping-particle="display-and-sort" names-delimiter=", " page-range-format="chicago" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
+-<style and="text" class="note" demote-non-dropping-particle="display-and-sort" page-range-format="chicago" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
++<style and="text" class="in-text" demote-non-dropping-particle="display-and-sort" page-range-format="chicago" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>Chicago Manual of Style 18th edition (template)</title>
 +    <title>Chicago Manual of Style 18th edition (author-date, without URLs)</title>
@@ -42,18 +42,7 @@
      <updated>2025-05-19T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -561,9 +552,7 @@
-   </macro>
-   <macro name="author-substitute-short">
-     <names variable="composer">
--      <name form="short"/>
--      <!-- for author-date:
--      <name form="short" initialize-with=". "/> -->
-+      <name form="short" initialize-with=". "/>
-       <substitute>
-         <names variable="author"/>
-         <choose>
-@@ -1057,7 +1046,7 @@
+@@ -1159,7 +1150,7 @@
          </if>
        </choose>
        <text macro="source-archive-bib"/>
@@ -62,7 +51,7 @@
      </group>
    </macro>
    <macro name="title-and-source-note">
-@@ -1182,7 +1171,7 @@
+@@ -1253,7 +1244,7 @@
          </if>
        </choose>
        <text macro="source-archive-note"/>
@@ -71,34 +60,7 @@
      </group>
    </macro>
    <!-- 3.1. Title -->
-@@ -2497,7 +2486,7 @@
-     </group>
-   </macro>
-   <macro name="identifier-contributors-monographic-note">
--    <group delimiter=", ">
-+    <group delimiter=". ">
-       <choose>
-         <if variable="title">
-           <names variable="interviewer">
-@@ -2509,7 +2498,7 @@
-       <choose>
-         <if match="none" type="post webpage">
-           <!-- Handle `container-title` on `post` or `webpage` as `publisher` -->
--          <group delimiter=", ">
-+          <group delimiter=". ">
-             <choose>
-               <if match="none" variable="container-title">
-                 <names variable="container-author">
-@@ -2586,7 +2575,7 @@
-           </group>
-         </if>
-         <else>
--          <group delimiter=", ">
-+          <group delimiter=". ">
-             <names variable="container-author">
-               <label form="verb-short" suffix=" "/>
-               <name/>
-@@ -3161,14 +3150,14 @@
+@@ -3266,14 +3257,14 @@
      <choose>
        <if match="any" variable="issue supplement-number volume">
          <group delimiter=": ">
@@ -115,9 +77,9 @@
              <!-- periodical edition always capitalized (CMOS 14.89) -->
              <text macro="label-edition-capitalized"/>
            </group>
-@@ -4460,11 +4449,7 @@
+@@ -4664,11 +4655,7 @@
          <date date-parts="year" form="text" variable="available-date"/>
-       </if>
+       </else-if>
        <else>
 -        <text macro="source-date-issued-or-status"/>
 -        <!-- author-date form up to 17th edition: -->
@@ -128,7 +90,7 @@
        </else>
      </choose>
    </macro>
-@@ -4578,9 +4563,7 @@
+@@ -4803,9 +4790,7 @@
      </choose>
    </macro>
    <macro name="source-date-original">
@@ -139,7 +101,7 @@
    </macro>
    <macro name="source-date-original-full">
      <!-- Give full date for more ephemeral types; reflected in `date-sort` -->
-@@ -5031,7 +5014,7 @@
+@@ -5270,7 +5255,7 @@
          </else>
        </choose>
        <text variable="references"/>
@@ -148,11 +110,11 @@
      </group>
    </macro>
    <!-- 6.1. Legal author -->
-@@ -5572,9 +5555,9 @@
+@@ -5811,9 +5796,9 @@
        </else>
      </choose>
    </macro>
--  <citation disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
+-  <citation disambiguate-add-givenname="true" disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
 -    <layout delimiter="; " suffix=".">
 -      <text macro="citation-notes-full-subsequent-author-title"/>
 +  <citation after-collapse-delimiter="; " collapse="year" disambiguate-add-givenname="true" disambiguate-add-names="true" disambiguate-add-year-suffix="true" et-al-min="3" et-al-use-first="1" givenname-disambiguation-rule="primary-name-with-initials">
@@ -161,15 +123,19 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -5735,13 +5718,13 @@
+@@ -5976,15 +5961,15 @@
    <bibliography et-al-min="7" et-al-use-first="3" hanging-indent="true">
      <sort>
        <key macro="author-sort"/>
--      <key macro="title-bib"/>
-       <key macro="date-sort-group"/>
-       <key macro="date-sort"/>
-       <key variable="status"/>
-+      <key macro="title-bib"/>
++      <key macro="date-sort-group"/>
++      <key macro="date-sort"/>
++      <key variable="status"/>
+       <key macro="title-bib"/>
+       <key variable="part-number"/>
+       <key variable="volume"/>
+-      <key macro="date-sort-group"/>
+-      <key macro="date-sort"/>
+-      <key variable="status"/>
      </sort>
      <layout suffix=".">
 -      <text macro="bibliography-filtered-notes"/>

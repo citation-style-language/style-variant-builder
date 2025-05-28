@@ -2,7 +2,7 @@
 +++ development/chicago-notes-bibliography-classic.csl
 @@ -5,10 +5,11 @@
    type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
- <style and="text" class="note" demote-non-dropping-particle="display-and-sort" names-delimiter=", " page-range-format="chicago" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
+ <style and="text" class="note" demote-non-dropping-particle="display-and-sort" page-range-format="chicago" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>Chicago Manual of Style 18th edition (template)</title>
 +    <title>Chicago Manual of Style 18th edition (notes and bibliography, with classic variants)</title>
@@ -38,7 +38,7 @@
      <updated>2025-05-19T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -2497,7 +2484,7 @@
+@@ -2609,7 +2596,7 @@
      </group>
    </macro>
    <macro name="identifier-contributors-monographic-note">
@@ -47,25 +47,7 @@
        <choose>
          <if variable="title">
            <names variable="interviewer">
-@@ -2509,7 +2496,7 @@
-       <choose>
-         <if match="none" type="post webpage">
-           <!-- Handle `container-title` on `post` or `webpage` as `publisher` -->
--          <group delimiter=", ">
-+          <group delimiter=". ">
-             <choose>
-               <if match="none" variable="container-title">
-                 <names variable="container-author">
-@@ -2586,7 +2573,7 @@
-           </group>
-         </if>
-         <else>
--          <group delimiter=", ">
-+          <group delimiter=". ">
-             <names variable="container-author">
-               <label form="verb-short" suffix=" "/>
-               <name/>
-@@ -2922,10 +2909,6 @@
+@@ -3027,10 +3014,6 @@
            <if match="any" variable="collection-editor part-number part-title volume-title">
              <text macro="label-volume"/>
            </if>
@@ -76,7 +58,7 @@
          </choose>
        </else-if>
        <else-if variable="volume">
-@@ -3435,11 +3418,9 @@
+@@ -3525,11 +3508,9 @@
            </if>
          </choose>
        </else-if>
@@ -88,7 +70,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number-capitalized"/>
-@@ -3471,11 +3452,9 @@
+@@ -3561,11 +3542,9 @@
            </if>
          </choose>
        </else-if>
@@ -100,7 +82,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number"/>
-@@ -3818,10 +3797,6 @@
+@@ -3928,10 +3907,6 @@
              <if is-numeric="volume" match="none">
                <text macro="label-volume"/>
              </if>
@@ -111,36 +93,36 @@
              <else-if is-numeric="volume" variable="page">
                <choose>
                  <!-- check for variables that might come between the volume and page number -->
-@@ -3849,8 +3824,7 @@
+@@ -3959,8 +3934,7 @@
    <!-- Monographic source locator -->
    <macro name="source-monographic-locator-bib">
      <choose>
--      <if type="chapter"/>
--      <else-if is-numeric="volume" variable="page">
-+      <if is-numeric="volume" variable="page">
+-      <if match="none" type="chapter" variable="page"/>
+-      <!-- Remove `type="chapter"` in styles that provide chapter page numbers -->
++      <if match="none" variable="page"/>
+       <else-if is-numeric="volume" variable="page">
          <!-- collapse the volume and page number if adjacent -->
          <group delimiter=":">
-           <choose>
-@@ -3861,7 +3835,7 @@
-           </choose>
-           <text variable="page"/>
-         </group>
--      </else-if>
-+      </if>
-       <else>
-         <text variable="page"/>
-       </else>
-@@ -3869,8 +3843,7 @@
+@@ -3980,8 +3954,7 @@
    </macro>
    <macro name="source-monographic-locator-note">
      <choose>
 -      <if match="none" type="chapter" variable="locator">
 -        <!-- Remove `type="chapter"` in styles that provide chapter page numbers -->
 +      <if match="none" variable="locator">
-         <group delimiter=":">
-           <choose>
-             <!-- check for variables that might come between the volume and page number -->
-@@ -4418,7 +4391,7 @@
+         <choose>
+           <if variable="page">
+             <group delimiter=":">
+@@ -4577,7 +4550,7 @@
+         </if>
+         <else-if variable="publisher">
+           <group delimiter=": ">
+-            <!-- <text text-case="capitalize-first" variable="publisher-place"/> -->
++            <text text-case="capitalize-first" variable="publisher-place"/>
+             <text text-case="capitalize-first" variable="publisher"/>
+           </group>
+         </else-if>
+@@ -4606,7 +4579,7 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -149,7 +131,16 @@
              <text variable="publisher"/>
            </group>
          </else-if>
-@@ -4443,7 +4416,7 @@
+@@ -4631,7 +4604,7 @@
+     <choose>
+       <if variable="original-publisher">
+         <group delimiter=": ">
+-          <!-- <text text-case="capitalize-first" variable="original-publisher-place"/> -->
++          <text text-case="capitalize-first" variable="original-publisher-place"/>
+           <text text-case="capitalize-first" variable="original-publisher"/>
+         </group>
+       </if>
+@@ -4644,7 +4617,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -158,7 +149,7 @@
            <text variable="original-publisher"/>
          </group>
        </if>
-@@ -5732,7 +5705,7 @@
+@@ -5973,7 +5946,7 @@
        </else>
      </choose>
    </macro>

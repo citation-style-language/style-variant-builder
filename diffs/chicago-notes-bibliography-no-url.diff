@@ -2,7 +2,7 @@
 +++ development/chicago-notes-bibliography-no-url.csl
 @@ -5,10 +5,10 @@
    type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
- <style and="text" class="note" demote-non-dropping-particle="display-and-sort" names-delimiter=", " page-range-format="chicago" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
+ <style and="text" class="note" demote-non-dropping-particle="display-and-sort" page-range-format="chicago" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>Chicago Manual of Style 18th edition (template)</title>
 +    <title>Chicago Manual of Style 18th edition (notes and bibliography, without URLs)</title>
@@ -37,7 +37,7 @@
      <updated>2025-05-19T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -1057,7 +1043,7 @@
+@@ -1159,7 +1145,7 @@
          </if>
        </choose>
        <text macro="source-archive-bib"/>
@@ -46,7 +46,7 @@
      </group>
    </macro>
    <macro name="title-and-source-note">
-@@ -1182,7 +1168,7 @@
+@@ -1253,7 +1239,7 @@
          </if>
        </choose>
        <text macro="source-archive-note"/>
@@ -55,7 +55,7 @@
      </group>
    </macro>
    <!-- 3.1. Title -->
-@@ -5031,7 +5017,7 @@
+@@ -5270,7 +5256,7 @@
          </else>
        </choose>
        <text variable="references"/>

@@ -4,8 +4,8 @@
    type="application/relax-ng-compact-syntax" schematypens="http://relaxng.org/ns/compatibility/annotations/1.0"?>
  <?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl.rnc"
    type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
--<style and="text" class="note" demote-non-dropping-particle="display-and-sort" names-delimiter=", " page-range-format="chicago" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
-+<style and="text" class="in-text" demote-non-dropping-particle="display-and-sort" names-delimiter=", " page-range-format="chicago" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
+-<style and="text" class="note" demote-non-dropping-particle="display-and-sort" page-range-format="chicago" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
++<style and="text" class="in-text" demote-non-dropping-particle="display-and-sort" page-range-format="chicago" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>Chicago Manual of Style 18th edition (template)</title>
 +    <title>Chicago Manual of Style 17th edition (author-date)</title>
@@ -43,18 +43,25 @@
      <updated>2025-05-19T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -561,9 +552,7 @@
-   </macro>
-   <macro name="author-substitute-short">
-     <names variable="composer">
--      <name form="short"/>
--      <!-- for author-date:
--      <name form="short" initialize-with=". "/> -->
-+      <name form="short" initialize-with=". "/>
-       <substitute>
-         <names variable="author"/>
-         <choose>
-@@ -2922,10 +2911,6 @@
+@@ -1193,7 +1184,7 @@
+           </choose>
+           <choose>
+             <!-- Facts of publication without brackets -->
+-            <if match="any" type="book chapter classic entry entry-dictionary entry-encyclopedia interview musical_score pamphlet paper-conference report thesis"/>
++            <if match="any" type="book chapter classic entry entry-dictionary entry-encyclopedia interview musical_score pamphlet paper-conference report standard thesis"/>
+             <else-if type="motion_picture">
+               <choose>
+                 <if match="none" variable="publisher">
+@@ -1216,7 +1207,7 @@
+         <group prefix="(" suffix=")">
+           <choose>
+             <!-- Facts of publication with brackets for print monographic formats -->
+-            <if match="any" type="book chapter classic entry entry-dictionary entry-encyclopedia interview musical_score pamphlet paper-conference report thesis">
++            <if match="any" type="book chapter classic entry entry-dictionary entry-encyclopedia interview musical_score pamphlet paper-conference report standard thesis">
+               <text macro="source-monographic-publication-note"/>
+             </if>
+             <else-if type="motion_picture" variable="publisher">
+@@ -3027,10 +3018,6 @@
            <if match="any" variable="collection-editor part-number part-title volume-title">
              <text macro="label-volume"/>
            </if>
@@ -65,7 +72,7 @@
          </choose>
        </else-if>
        <else-if variable="volume">
-@@ -3161,14 +3146,14 @@
+@@ -3266,14 +3253,14 @@
      <choose>
        <if match="any" variable="issue supplement-number volume">
          <group delimiter=": ">
@@ -82,7 +89,7 @@
              <!-- periodical edition always capitalized (CMOS 14.89) -->
              <text macro="label-edition-capitalized"/>
            </group>
-@@ -3435,11 +3420,9 @@
+@@ -3525,11 +3512,9 @@
            </if>
          </choose>
        </else-if>
@@ -94,7 +101,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number-capitalized"/>
-@@ -3471,11 +3454,9 @@
+@@ -3561,11 +3546,9 @@
            </if>
          </choose>
        </else-if>
@@ -106,7 +113,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number"/>
-@@ -3818,10 +3799,6 @@
+@@ -3928,10 +3911,6 @@
              <if is-numeric="volume" match="none">
                <text macro="label-volume"/>
              </if>
@@ -117,36 +124,36 @@
              <else-if is-numeric="volume" variable="page">
                <choose>
                  <!-- check for variables that might come between the volume and page number -->
-@@ -3849,8 +3826,7 @@
+@@ -3959,8 +3938,7 @@
    <!-- Monographic source locator -->
    <macro name="source-monographic-locator-bib">
      <choose>
--      <if type="chapter"/>
--      <else-if is-numeric="volume" variable="page">
-+      <if is-numeric="volume" variable="page">
+-      <if match="none" type="chapter" variable="page"/>
+-      <!-- Remove `type="chapter"` in styles that provide chapter page numbers -->
++      <if match="none" variable="page"/>
+       <else-if is-numeric="volume" variable="page">
          <!-- collapse the volume and page number if adjacent -->
          <group delimiter=":">
-           <choose>
-@@ -3861,7 +3837,7 @@
-           </choose>
-           <text variable="page"/>
-         </group>
--      </else-if>
-+      </if>
-       <else>
-         <text variable="page"/>
-       </else>
-@@ -3869,8 +3845,7 @@
+@@ -3980,8 +3958,7 @@
    </macro>
    <macro name="source-monographic-locator-note">
      <choose>
 -      <if match="none" type="chapter" variable="locator">
 -        <!-- Remove `type="chapter"` in styles that provide chapter page numbers -->
 +      <if match="none" variable="locator">
-         <group delimiter=":">
-           <choose>
-             <!-- check for variables that might come between the volume and page number -->
-@@ -4418,7 +4393,7 @@
+         <choose>
+           <if variable="page">
+             <group delimiter=":">
+@@ -4577,7 +4554,7 @@
+         </if>
+         <else-if variable="publisher">
+           <group delimiter=": ">
+-            <!-- <text text-case="capitalize-first" variable="publisher-place"/> -->
++            <text text-case="capitalize-first" variable="publisher-place"/>
+             <text text-case="capitalize-first" variable="publisher"/>
+           </group>
+         </else-if>
+@@ -4606,7 +4583,7 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -155,7 +162,16 @@
              <text variable="publisher"/>
            </group>
          </else-if>
-@@ -4443,7 +4418,7 @@
+@@ -4631,7 +4608,7 @@
+     <choose>
+       <if variable="original-publisher">
+         <group delimiter=": ">
+-          <!-- <text text-case="capitalize-first" variable="original-publisher-place"/> -->
++          <text text-case="capitalize-first" variable="original-publisher-place"/>
+           <text text-case="capitalize-first" variable="original-publisher"/>
+         </group>
+       </if>
+@@ -4644,7 +4621,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -164,9 +180,9 @@
            <text variable="original-publisher"/>
          </group>
        </if>
-@@ -4460,11 +4435,7 @@
+@@ -4664,11 +4641,7 @@
          <date date-parts="year" form="text" variable="available-date"/>
-       </if>
+       </else-if>
        <else>
 -        <text macro="source-date-issued-or-status"/>
 -        <!-- author-date form up to 17th edition: -->
@@ -177,29 +193,45 @@
        </else>
      </choose>
    </macro>
-@@ -4479,15 +4450,9 @@
+@@ -4728,14 +4701,10 @@
+   <macro name="source-date-issued-full-serial">
+     <choose>
+       <if variable="issue volume">
+-        <date date-parts="year" form="text" variable="issued"/>
+-        <!-- 17th edition: -->
+-        <!-- <date date-parts="year-month" form="text" variable="issued"/> -->
++        <date date-parts="year-month" form="text" variable="issued"/>
        </if>
-       <else-if match="any" type="article-journal article-magazine article-newspaper periodical post-weblog review review-book">
-         <choose>
--          <if variable="issue volume">
--            <date date-parts="year" form="text" variable="issued"/>
--          </if>
--          <else-if variable="supplement-number volume">
--            <date date-parts="year" form="text" variable="issued"/>
--          </else-if>
--          <else-if variable="volume">
-+          <if variable="volume">
-             <date date-parts="year-month" form="text" variable="issued"/>
--          </else-if>
-+          </if>
-           <else>
-             <text macro="date-issued-full"/>
-           </else>
-@@ -5572,9 +5537,9 @@
+       <else-if variable="supplement-number volume">
+-        <date date-parts="year" form="text" variable="issued"/>
+-        <!-- 17th edition: -->
+-        <!-- <date date-parts="year-month" form="text" variable="issued"/> -->
++        <date date-parts="year-month" form="text" variable="issued"/>
+       </else-if>
+       <else-if match="any" variable="issue supplement-number volume">
+         <date date-parts="year-month" form="text" variable="issued"/>
+@@ -4851,14 +4820,10 @@
+   <macro name="source-date-original-full-serial">
+     <choose>
+       <if variable="issue volume">
+-        <date date-parts="year" form="text" variable="original-date"/>
+-        <!-- 17th edition: -->
+-        <!-- <date date-parts="year-month" form="text" variable="original-date"/> -->
++        <date date-parts="year-month" form="text" variable="original-date"/>
+       </if>
+       <else-if variable="supplement-number volume">
+-        <date date-parts="year" form="text" variable="original-date"/>
+-        <!-- 17th edition: -->
+-        <!-- <date date-parts="year-month" form="text" variable="original-date"/> -->
++        <date date-parts="year-month" form="text" variable="original-date"/>
+       </else-if>
+       <else-if match="any" variable="issue supplement-number volume">
+         <date date-parts="year-month" form="text" variable="original-date"/>
+@@ -5811,9 +5776,9 @@
        </else>
      </choose>
    </macro>
--  <citation disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
+-  <citation disambiguate-add-givenname="true" disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
 -    <layout delimiter="; " suffix=".">
 -      <text macro="citation-notes-full-subsequent-author-title"/>
 +  <citation after-collapse-delimiter="; " collapse="year" disambiguate-add-givenname="true" disambiguate-add-names="true" disambiguate-add-year-suffix="true" et-al-min="4" et-al-use-first="1" givenname-disambiguation-rule="primary-name-with-initials">
@@ -208,7 +240,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -5732,16 +5697,16 @@
+@@ -5973,18 +5938,18 @@
        </else>
      </choose>
    </macro>
@@ -216,11 +248,15 @@
 +  <bibliography et-al-min="11" et-al-use-first="7" hanging-indent="true" subsequent-author-substitute="&#8212;&#8212;&#8212;">
      <sort>
        <key macro="author-sort"/>
--      <key macro="title-bib"/>
-       <key macro="date-sort-group"/>
-       <key macro="date-sort"/>
-       <key variable="status"/>
-+      <key macro="title-bib"/>
++      <key macro="date-sort-group"/>
++      <key macro="date-sort"/>
++      <key variable="status"/>
+       <key macro="title-bib"/>
+       <key variable="part-number"/>
+       <key variable="volume"/>
+-      <key macro="date-sort-group"/>
+-      <key macro="date-sort"/>
+-      <key variable="status"/>
      </sort>
      <layout suffix=".">
 -      <text macro="bibliography-filtered-notes"/>

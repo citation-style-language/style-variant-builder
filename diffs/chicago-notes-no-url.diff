@@ -2,7 +2,7 @@
 +++ development/chicago-notes-no-url.csl
 @@ -5,10 +5,11 @@
    type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
- <style and="text" class="note" demote-non-dropping-particle="display-and-sort" names-delimiter=", " page-range-format="chicago" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
+ <style and="text" class="note" demote-non-dropping-particle="display-and-sort" page-range-format="chicago" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>Chicago Manual of Style 18th edition (template)</title>
 +    <title>Chicago Manual of Style 18th edition (notes without bibliography, without URLs)</title>
@@ -38,7 +38,7 @@
      <updated>2025-05-19T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -1057,7 +1044,7 @@
+@@ -1159,7 +1146,7 @@
          </if>
        </choose>
        <text macro="source-archive-bib"/>
@@ -47,7 +47,7 @@
      </group>
    </macro>
    <macro name="title-and-source-note">
-@@ -1182,7 +1169,7 @@
+@@ -1253,7 +1240,7 @@
          </if>
        </choose>
        <text macro="source-archive-note"/>
@@ -56,34 +56,7 @@
      </group>
    </macro>
    <!-- 3.1. Title -->
-@@ -2497,7 +2484,7 @@
-     </group>
-   </macro>
-   <macro name="identifier-contributors-monographic-note">
--    <group delimiter=", ">
-+    <group delimiter=". ">
-       <choose>
-         <if variable="title">
-           <names variable="interviewer">
-@@ -2509,7 +2496,7 @@
-       <choose>
-         <if match="none" type="post webpage">
-           <!-- Handle `container-title` on `post` or `webpage` as `publisher` -->
--          <group delimiter=", ">
-+          <group delimiter=". ">
-             <choose>
-               <if match="none" variable="container-title">
-                 <names variable="container-author">
-@@ -2586,7 +2573,7 @@
-           </group>
-         </if>
-         <else>
--          <group delimiter=", ">
-+          <group delimiter=". ">
-             <names variable="container-author">
-               <label form="verb-short" suffix=" "/>
-               <name/>
-@@ -5031,7 +5018,7 @@
+@@ -5270,7 +5257,7 @@
          </else>
        </choose>
        <text variable="references"/>
@@ -92,16 +65,16 @@
      </group>
    </macro>
    <!-- 6.1. Legal author -->
-@@ -5572,7 +5559,7 @@
+@@ -5811,7 +5798,7 @@
        </else>
      </choose>
    </macro>
--  <citation disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
-+  <citation disambiguate-add-names="true" et-al-min="7" et-al-subsequent-min="3" et-al-subsequent-use-first="1" et-al-use-first="3">
+-  <citation disambiguate-add-givenname="true" disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
++  <citation disambiguate-add-givenname="true" disambiguate-add-names="true" et-al-min="7" et-al-subsequent-min="3" et-al-subsequent-use-first="1" et-al-use-first="3">
      <layout delimiter="; " suffix=".">
        <text macro="citation-notes-full-subsequent-author-title"/>
      </layout>
-@@ -5732,16 +5719,4 @@
+@@ -5973,18 +5960,4 @@
        </else>
      </choose>
    </macro>
@@ -109,6 +82,8 @@
 -    <sort>
 -      <key macro="author-sort"/>
 -      <key macro="title-bib"/>
+-      <key variable="part-number"/>
+-      <key variable="volume"/>
 -      <key macro="date-sort-group"/>
 -      <key macro="date-sort"/>
 -      <key variable="status"/>

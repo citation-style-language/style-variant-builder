@@ -2,7 +2,7 @@
 +++ development/chicago-notes-classic-no-url.csl
 @@ -5,10 +5,11 @@
    type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
- <style and="text" class="note" demote-non-dropping-particle="display-and-sort" names-delimiter=", " page-range-format="chicago" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
+ <style and="text" class="note" demote-non-dropping-particle="display-and-sort" page-range-format="chicago" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>Chicago Manual of Style 18th edition (template)</title>
 +    <title>Chicago Manual of Style 18th edition (notes without bibliography, with place of publication, without URLs)</title>
@@ -38,7 +38,7 @@
      <updated>2025-05-19T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -1057,7 +1044,7 @@
+@@ -1159,7 +1146,7 @@
          </if>
        </choose>
        <text macro="source-archive-bib"/>
@@ -47,7 +47,7 @@
      </group>
    </macro>
    <macro name="title-and-source-note">
-@@ -1182,7 +1169,7 @@
+@@ -1253,7 +1240,7 @@
          </if>
        </choose>
        <text macro="source-archive-note"/>
@@ -56,34 +56,7 @@
      </group>
    </macro>
    <!-- 3.1. Title -->
-@@ -2497,7 +2484,7 @@
-     </group>
-   </macro>
-   <macro name="identifier-contributors-monographic-note">
--    <group delimiter=", ">
-+    <group delimiter=". ">
-       <choose>
-         <if variable="title">
-           <names variable="interviewer">
-@@ -2509,7 +2496,7 @@
-       <choose>
-         <if match="none" type="post webpage">
-           <!-- Handle `container-title` on `post` or `webpage` as `publisher` -->
--          <group delimiter=", ">
-+          <group delimiter=". ">
-             <choose>
-               <if match="none" variable="container-title">
-                 <names variable="container-author">
-@@ -2586,7 +2573,7 @@
-           </group>
-         </if>
-         <else>
--          <group delimiter=", ">
-+          <group delimiter=". ">
-             <names variable="container-author">
-               <label form="verb-short" suffix=" "/>
-               <name/>
-@@ -3435,11 +3422,9 @@
+@@ -3525,11 +3512,9 @@
            </if>
          </choose>
        </else-if>
@@ -95,7 +68,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number-capitalized"/>
-@@ -3471,11 +3456,9 @@
+@@ -3561,11 +3546,9 @@
            </if>
          </choose>
        </else-if>
@@ -107,7 +80,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number"/>
-@@ -3818,10 +3801,6 @@
+@@ -3928,10 +3911,6 @@
              <if is-numeric="volume" match="none">
                <text macro="label-volume"/>
              </if>
@@ -118,7 +91,16 @@
              <else-if is-numeric="volume" variable="page">
                <choose>
                  <!-- check for variables that might come between the volume and page number -->
-@@ -4418,7 +4397,7 @@
+@@ -4577,7 +4556,7 @@
+         </if>
+         <else-if variable="publisher">
+           <group delimiter=": ">
+-            <!-- <text text-case="capitalize-first" variable="publisher-place"/> -->
++            <text text-case="capitalize-first" variable="publisher-place"/>
+             <text text-case="capitalize-first" variable="publisher"/>
+           </group>
+         </else-if>
+@@ -4606,7 +4585,7 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -127,7 +109,16 @@
              <text variable="publisher"/>
            </group>
          </else-if>
-@@ -4443,7 +4422,7 @@
+@@ -4631,7 +4610,7 @@
+     <choose>
+       <if variable="original-publisher">
+         <group delimiter=": ">
+-          <!-- <text text-case="capitalize-first" variable="original-publisher-place"/> -->
++          <text text-case="capitalize-first" variable="original-publisher-place"/>
+           <text text-case="capitalize-first" variable="original-publisher"/>
+         </group>
+       </if>
+@@ -4644,7 +4623,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -136,7 +127,7 @@
            <text variable="original-publisher"/>
          </group>
        </if>
-@@ -5031,7 +5010,7 @@
+@@ -5270,7 +5249,7 @@
          </else>
        </choose>
        <text variable="references"/>
@@ -145,16 +136,16 @@
      </group>
    </macro>
    <!-- 6.1. Legal author -->
-@@ -5572,7 +5551,7 @@
+@@ -5811,7 +5790,7 @@
        </else>
      </choose>
    </macro>
--  <citation disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
-+  <citation disambiguate-add-names="true" et-al-min="7" et-al-subsequent-min="3" et-al-subsequent-use-first="1" et-al-use-first="3">
+-  <citation disambiguate-add-givenname="true" disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
++  <citation disambiguate-add-givenname="true" disambiguate-add-names="true" et-al-min="7" et-al-subsequent-min="3" et-al-subsequent-use-first="1" et-al-use-first="3">
      <layout delimiter="; " suffix=".">
        <text macro="citation-notes-full-subsequent-author-title"/>
      </layout>
-@@ -5732,16 +5711,4 @@
+@@ -5973,18 +5952,4 @@
        </else>
      </choose>
    </macro>
@@ -162,6 +153,8 @@
 -    <sort>
 -      <key macro="author-sort"/>
 -      <key macro="title-bib"/>
+-      <key variable="part-number"/>
+-      <key variable="volume"/>
 -      <key macro="date-sort-group"/>
 -      <key macro="date-sort"/>
 -      <key variable="status"/>

@@ -2,7 +2,7 @@
 +++ development/chicago-short-notes-bibliography-subsequent-ibid.csl
 @@ -5,10 +5,11 @@
    type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
- <style and="text" class="note" demote-non-dropping-particle="display-and-sort" names-delimiter=", " page-range-format="chicago" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
+ <style and="text" class="note" demote-non-dropping-particle="display-and-sort" page-range-format="chicago" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>Chicago Manual of Style 18th edition (template)</title>
 +    <title>Chicago Manual of Style 18th edition (shortened author-title notes and bibliography, with Ibid. subsequent)</title>
@@ -38,43 +38,16 @@
      <updated>2025-05-19T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -2497,7 +2484,7 @@
-     </group>
+@@ -5813,7 +5800,7 @@
    </macro>
-   <macro name="identifier-contributors-monographic-note">
--    <group delimiter=", ">
-+    <group delimiter=". ">
-       <choose>
-         <if variable="title">
-           <names variable="interviewer">
-@@ -2509,7 +2496,7 @@
-       <choose>
-         <if match="none" type="post webpage">
-           <!-- Handle `container-title` on `post` or `webpage` as `publisher` -->
--          <group delimiter=", ">
-+          <group delimiter=". ">
-             <choose>
-               <if match="none" variable="container-title">
-                 <names variable="container-author">
-@@ -2586,7 +2573,7 @@
-           </group>
-         </if>
-         <else>
--          <group delimiter=", ">
-+          <group delimiter=". ">
-             <names variable="container-author">
-               <label form="verb-short" suffix=" "/>
-               <name/>
-@@ -5574,7 +5561,7 @@
-   </macro>
-   <citation disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
+   <citation disambiguate-add-givenname="true" disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
      <layout delimiter="; " suffix=".">
 -      <text macro="citation-notes-full-subsequent-author-title"/>
 +      <text macro="citation-notes-shortened-subsequent-ibid"/>
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -5741,7 +5728,7 @@
+@@ -5984,7 +5971,7 @@
        <key variable="status"/>
      </sort>
      <layout suffix=".">

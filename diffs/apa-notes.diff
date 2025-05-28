@@ -1,5 +1,5 @@
 --- templates/apa-template.csl
-+++ development/apa-note.csl
++++ development/apa-notes.csl
 @@ -3,13 +3,13 @@
    type="application/relax-ng-compact-syntax" schematypens="http://relaxng.org/ns/compatibility/annotations/1.0"?>
  <?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl.rnc"
