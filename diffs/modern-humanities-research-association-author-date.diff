@@ -36,7 +36,7 @@
      <updated>2025-05-25T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -108,7 +109,11 @@
+@@ -109,7 +110,11 @@
    <macro name="label-number-of-volumes">
      <group delimiter=" ">
        <text variable="number-of-volumes"/>
@@ -49,7 +49,7 @@
      </group>
    </macro>
    <macro name="label-page">
-@@ -228,10 +233,7 @@
+@@ -225,10 +230,7 @@
    <macro name="author-short">
      <group delimiter=" ">
        <names variable="author">
@@ -60,7 +60,7 @@
          <substitute>
            <names variable="editor"/>
            <names variable="translator"/>
-@@ -451,16 +453,7 @@
+@@ -444,16 +446,7 @@
        <if match="any" type="report article-newspaper article-magazine personal_communication">
          <date form="text" variable="issued"/>
        </if>
@@ -75,10 +75,10 @@
 -        </choose>
 -      </else-if>
 +      <else-if match="any" type="article-journal book bill chapter classic legislation motion_picture pamphlet paper-conference song thesis"/>
-       <else>
-         <choose>
-           <if is-uncertain-date="issued">
-@@ -699,9 +692,9 @@
+       <else-if is-uncertain-date="issued">
+         <date form="text" prefix="[" suffix="?]" variable="issued"/>
+       </else-if>
+@@ -688,9 +681,9 @@
        </else>
      </choose>
    </macro>
@@ -91,7 +91,7 @@
      </layout>
    </citation>
    <macro name="bibliography-author-date">
-@@ -758,11 +751,11 @@
+@@ -747,11 +740,11 @@
    <bibliography delimiter-precedes-et-al="after-inverted-name" hanging-indent="true" subsequent-author-substitute="&#8212;&#8212;">
      <sort>
        <key macro="author-bib"/>

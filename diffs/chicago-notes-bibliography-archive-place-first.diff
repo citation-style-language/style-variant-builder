@@ -32,26 +32,26 @@
 -    <category field="social_science"/>
 -    <category field="sociology"/>
 -    -->
--    <summary>Chicago-style source citations, template</summary>
-+    <summary>Chicago-style source citations, notes and bibliography system, archival references with place first (CMOS 14.205)</summary>
+-    <summary>Chicago-style source citations (with Bluebook for legal citations), template</summary>
++    <summary>Chicago-style source citations (with Bluebook for legal citations), notes and bibliography system, archival references with place first (CMOS 14.205)</summary>
      <updated>2025-05-19T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -5092,7 +5078,7 @@
+@@ -5263,7 +5249,7 @@
          <text macro="source-archive-name-first"/>
        </if>
-       <else-if match="any" variable="archive_collection archive-place">
+       <else-if match="any" type="collection document manuscript" variable="archive_collection archive-place">
 -        <text macro="source-archive-location-first-bib"/>
 +        <text macro="source-archive-place-first"/>
        </else-if>
        <else>
          <text macro="source-archive-identifier"/>
-@@ -5106,7 +5092,7 @@
+@@ -5277,7 +5263,7 @@
          <text macro="source-archive-name-first"/>
        </if>
-       <else-if match="any" variable="archive_collection archive-place">
+       <else-if match="any" type="collection document manuscript" variable="archive_collection archive-place">
 -        <text macro="source-archive-location-first-note"/>
 +        <text macro="source-archive-place-first"/>
        </else-if>
+       <!-- Without `archive_collection` or `archive-place`: digital archives (database and identifier) -->
        <else>
-         <text macro="source-archive-identifier"/>

@@ -37,30 +37,30 @@
      <category field="social_science"/>
      <category field="sociology"/>
 -    -->
--    <summary>Chicago-style source citations, template</summary>
-+    <summary>Chicago-style source citations, author-date system, without URLs (CMOS 13.6)</summary>
+-    <summary>Chicago-style source citations (with Bluebook for legal citations), template</summary>
++    <summary>Chicago-style source citations (with Bluebook for legal citations), author-date system, without URLs (CMOS 13.6)</summary>
      <updated>2025-05-19T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -1159,7 +1150,7 @@
-         </if>
-       </choose>
+@@ -1186,7 +1177,7 @@
+       <text macro="source-monographic-publication-bib"/>
+       <text macro="source-medium-bib"/>
        <text macro="source-archive-bib"/>
 -      <text macro="source-DOI-URL-bib"/>
 +      <!-- <text macro="source-DOI-URL-bib"/> -->
      </group>
    </macro>
    <macro name="title-and-source-note">
-@@ -1253,7 +1244,7 @@
-         </if>
+@@ -1239,7 +1230,7 @@
        </choose>
+       <text macro="source-medium-note"/>
        <text macro="source-archive-note"/>
 -      <text macro="source-DOI-URL-note"/>
 +      <!-- <text macro="source-DOI-URL-note"/> -->
      </group>
    </macro>
    <!-- 3.1. Title -->
-@@ -3266,14 +3257,14 @@
+@@ -3240,14 +3231,14 @@
      <choose>
        <if match="any" variable="issue supplement-number volume">
          <group delimiter=": ">
@@ -77,20 +77,20 @@
              <!-- periodical edition always capitalized (CMOS 14.89) -->
              <text macro="label-edition-capitalized"/>
            </group>
-@@ -4664,11 +4655,7 @@
+@@ -4839,11 +4828,7 @@
          <date date-parts="year" form="text" variable="available-date"/>
        </else-if>
        <else>
 -        <text macro="source-date-issued-or-status"/>
--        <!-- author-date form up to 17th edition: -->
+-        <!-- for author-date 17th edition: -->
 -        <!-- <text macro="source-date-issued-full"/> -->
--        <!-- author-date form from 18th edition: -->
+-        <!-- for author-date 18th edition: -->
 -        <!-- <text macro="source-date-issued-month-day"/> -->
 +        <text macro="source-date-issued-month-day"/>
        </else>
      </choose>
    </macro>
-@@ -4803,9 +4790,7 @@
+@@ -4987,9 +4972,7 @@
      </choose>
    </macro>
    <macro name="source-date-original">
@@ -101,7 +101,7 @@
    </macro>
    <macro name="source-date-original-full">
      <!-- Give full date for more ephemeral types; reflected in `date-sort` -->
-@@ -5270,7 +5255,7 @@
+@@ -5446,7 +5429,7 @@
          </else>
        </choose>
        <text variable="references"/>
@@ -110,7 +110,7 @@
      </group>
    </macro>
    <!-- 6.1. Legal author -->
-@@ -5811,9 +5796,9 @@
+@@ -6014,9 +5997,9 @@
        </else>
      </choose>
    </macro>
@@ -123,7 +123,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -5976,15 +5961,15 @@
+@@ -6177,15 +6160,15 @@
    <bibliography et-al-min="7" et-al-use-first="3" hanging-indent="true">
      <sort>
        <key macro="author-sort"/>

@@ -33,12 +33,12 @@
 -    <category field="social_science"/>
 -    <category field="sociology"/>
 -    -->
--    <summary>Chicago-style source citations, template</summary>
-+    <summary>Chicago-style source citations, notes and bibliography system, with annotated bibliography (CMOS 13.68)</summary>
+-    <summary>Chicago-style source citations (with Bluebook for legal citations), template</summary>
++    <summary>Chicago-style source citations (with Bluebook for legal citations), notes and bibliography system, with annotated bibliography (CMOS 13.68)</summary>
      <updated>2025-05-19T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -5830,6 +5817,7 @@
+@@ -6033,6 +6020,7 @@
            <text macro="title-and-source-bib"/>
            <text macro="notes"/>
          </group>

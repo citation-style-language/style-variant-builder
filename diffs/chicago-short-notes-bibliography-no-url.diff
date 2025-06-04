@@ -5,7 +5,7 @@
  <style and="text" class="note" demote-non-dropping-particle="display-and-sort" page-range-format="chicago" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>Chicago Manual of Style 18th edition (template)</title>
-+    <title>Chicago Manual of Style 18th edition (shortened author-title notes and bibliography, without URLs)</title>
++    <title>Chicago Manual of Style 18th edition (shortened notes and bibliography, without URLs)</title>
      <title-short>CMOS</title-short>
 -    <id>http://www.zotero.org/styles/chicago-notes-bibliography</id>
 -    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="self"/>
@@ -33,30 +33,30 @@
 -    <category field="social_science"/>
 -    <category field="sociology"/>
 -    -->
--    <summary>Chicago-style source citations, template</summary>
-+    <summary>Chicago-style source citations, shortened author-title notes and bibliography system, without URLs (CMOS 13.6)</summary>
+-    <summary>Chicago-style source citations (with Bluebook for legal citations), template</summary>
++    <summary>Chicago-style source citations (with Bluebook for legal citations), shortened author-title notes and bibliography system, without URLs (CMOS 13.6)</summary>
      <updated>2025-05-19T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -1159,7 +1146,7 @@
-         </if>
-       </choose>
+@@ -1186,7 +1173,7 @@
+       <text macro="source-monographic-publication-bib"/>
+       <text macro="source-medium-bib"/>
        <text macro="source-archive-bib"/>
 -      <text macro="source-DOI-URL-bib"/>
 +      <!-- <text macro="source-DOI-URL-bib"/> -->
      </group>
    </macro>
    <macro name="title-and-source-note">
-@@ -1253,7 +1240,7 @@
-         </if>
+@@ -1239,7 +1226,7 @@
        </choose>
+       <text macro="source-medium-note"/>
        <text macro="source-archive-note"/>
 -      <text macro="source-DOI-URL-note"/>
 +      <!-- <text macro="source-DOI-URL-note"/> -->
      </group>
    </macro>
    <!-- 3.1. Title -->
-@@ -5270,7 +5257,7 @@
+@@ -5446,7 +5433,7 @@
          </else>
        </choose>
        <text variable="references"/>
@@ -65,7 +65,7 @@
      </group>
    </macro>
    <!-- 6.1. Legal author -->
-@@ -5813,7 +5800,7 @@
+@@ -6016,7 +6003,7 @@
    </macro>
    <citation disambiguate-add-givenname="true" disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
      <layout delimiter="; " suffix=".">
@@ -74,7 +74,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -5984,7 +5971,7 @@
+@@ -6185,7 +6172,7 @@
        <key variable="status"/>
      </sort>
      <layout suffix=".">

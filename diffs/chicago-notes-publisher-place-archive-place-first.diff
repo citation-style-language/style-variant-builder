@@ -33,12 +33,12 @@
 -    <category field="social_science"/>
 -    <category field="sociology"/>
 -    -->
--    <summary>Chicago-style source citations, template</summary>
-+    <summary>Chicago-style source citations, notes system without bibliography, listing up to six authors in a full citation (CMOS 13.23), substituting place of publication for publisher name (CMOS 14.31), archival references with place first (CMOS 14.205)</summary>
+-    <summary>Chicago-style source citations (with Bluebook for legal citations), template</summary>
++    <summary>Chicago-style source citations (with Bluebook for legal citations), notes system without bibliography, listing up to six authors in a full citation (CMOS 13.23), substituting place of publication for publisher name (CMOS 14.31), archival references with place first (CMOS 14.205)</summary>
      <updated>2025-05-19T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -4577,8 +4564,8 @@
+@@ -4758,8 +4745,8 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -48,8 +48,8 @@
 +            <!-- <text text-case="capitalize-first" variable="publisher"/> -->
            </group>
          </else-if>
-         <else>
-@@ -4606,8 +4593,8 @@
+         <!-- TODO: remove conditional when Zotero fixes double-mapping of `event-place` -->
+@@ -4784,8 +4771,8 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -59,8 +59,8 @@
 +            <!-- <text variable="publisher"/> -->
            </group>
          </else-if>
-         <else>
-@@ -4631,8 +4618,8 @@
+         <!-- TODO: remove conditional when Zotero fixes double-mapping of `event-place` -->
+@@ -4806,8 +4793,8 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -71,7 +71,7 @@
          </group>
        </if>
        <else>
-@@ -4644,8 +4631,8 @@
+@@ -4819,8 +4806,8 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -82,25 +82,25 @@
          </group>
        </if>
        <else>
-@@ -5092,7 +5079,7 @@
+@@ -5263,7 +5250,7 @@
          <text macro="source-archive-name-first"/>
        </if>
-       <else-if match="any" variable="archive_collection archive-place">
+       <else-if match="any" type="collection document manuscript" variable="archive_collection archive-place">
 -        <text macro="source-archive-location-first-bib"/>
 +        <text macro="source-archive-place-first"/>
        </else-if>
        <else>
          <text macro="source-archive-identifier"/>
-@@ -5106,7 +5093,7 @@
+@@ -5277,7 +5264,7 @@
          <text macro="source-archive-name-first"/>
        </if>
-       <else-if match="any" variable="archive_collection archive-place">
+       <else-if match="any" type="collection document manuscript" variable="archive_collection archive-place">
 -        <text macro="source-archive-location-first-note"/>
 +        <text macro="source-archive-place-first"/>
        </else-if>
+       <!-- Without `archive_collection` or `archive-place`: digital archives (database and identifier) -->
        <else>
-         <text macro="source-archive-identifier"/>
-@@ -5811,7 +5798,7 @@
+@@ -6014,7 +6001,7 @@
        </else>
      </choose>
    </macro>
@@ -109,7 +109,7 @@
      <layout delimiter="; " suffix=".">
        <text macro="citation-notes-full-subsequent-author-title"/>
      </layout>
-@@ -5973,18 +5960,4 @@
+@@ -6174,18 +6161,4 @@
        </else>
      </choose>
    </macro>

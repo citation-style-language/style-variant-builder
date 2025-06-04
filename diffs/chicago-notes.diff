@@ -33,12 +33,12 @@
 -    <category field="social_science"/>
 -    <category field="sociology"/>
 -    -->
--    <summary>Chicago-style source citations, template</summary>
-+    <summary>Chicago-style source citations, notes system without bibliography, listing up to six authors in a full citation (CMOS 13.23)</summary>
+-    <summary>Chicago-style source citations (with Bluebook for legal citations), template</summary>
++    <summary>Chicago-style source citations (with Bluebook for legal citations), notes system without bibliography, listing up to six authors in a full citation (CMOS 13.23)</summary>
      <updated>2025-05-19T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -5811,7 +5798,7 @@
+@@ -6014,7 +6001,7 @@
        </else>
      </choose>
    </macro>
@@ -47,7 +47,7 @@
      <layout delimiter="; " suffix=".">
        <text macro="citation-notes-full-subsequent-author-title"/>
      </layout>
-@@ -5973,18 +5960,4 @@
+@@ -6174,18 +6161,4 @@
        </else>
      </choose>
    </macro>

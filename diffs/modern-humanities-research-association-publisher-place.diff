@@ -15,12 +15,12 @@
      <link href="https://www.mhra.org.uk/style/" rel="documentation"/>
      <author>
        <name>Rintze Zelle</name>
-@@ -438,7 +439,7 @@
-           </if>
-           <else>
-             <group delimiter=": ">
--              <!-- <text variable="publisher-place"/> -->
-+              <text variable="publisher-place"/>
-               <text variable="publisher"/>
-             </group>
-           </else>
+@@ -430,7 +431,7 @@
+       </if>
+       <else-if variable="publisher">
+         <group delimiter=": ">
+-          <!-- <text variable="publisher-place"/> -->
++          <text variable="publisher-place"/>
+           <text variable="publisher"/>
+         </group>
+       </else-if>

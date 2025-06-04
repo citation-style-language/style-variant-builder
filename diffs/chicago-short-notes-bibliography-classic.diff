@@ -5,7 +5,7 @@
  <style and="text" class="note" demote-non-dropping-particle="display-and-sort" page-range-format="chicago" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>Chicago Manual of Style 18th edition (template)</title>
-+    <title>Chicago Manual of Style 18th edition (shortened author-title notes and bibliography, with classic variants)</title>
++    <title>Chicago Manual of Style 18th edition (shortened notes and bibliography, with classic variants)</title>
      <title-short>CMOS</title-short>
 -    <id>http://www.zotero.org/styles/chicago-notes-bibliography</id>
 -    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="self"/>
@@ -33,21 +33,12 @@
 -    <category field="social_science"/>
 -    <category field="sociology"/>
 -    -->
--    <summary>Chicago-style source citations, template</summary>
-+    <summary>Chicago-style source citations, shortened author-title notes and bibliography system, with classic variants: chapter page numbers (CMOS 14.8), place of publication (CMOS 14.30), and 3-em dash (CMOS 13.113)</summary>
+-    <summary>Chicago-style source citations (with Bluebook for legal citations), template</summary>
++    <summary>Chicago-style source citations (with Bluebook for legal citations), shortened author-title notes and bibliography system, with classic variants: chapter page numbers (CMOS 14.8), place of publication (CMOS 14.30), and 3-em dash (CMOS 13.113)</summary>
      <updated>2025-05-19T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -2609,7 +2596,7 @@
-     </group>
-   </macro>
-   <macro name="identifier-contributors-monographic-note">
--    <group delimiter=", ">
-+    <group delimiter=". ">
-       <choose>
-         <if variable="title">
-           <names variable="interviewer">
-@@ -3027,10 +3014,6 @@
+@@ -3017,10 +3004,6 @@
            <if match="any" variable="collection-editor part-number part-title volume-title">
              <text macro="label-volume"/>
            </if>
@@ -58,7 +49,7 @@
          </choose>
        </else-if>
        <else-if variable="volume">
-@@ -3525,11 +3508,9 @@
+@@ -3596,11 +3579,9 @@
            </if>
          </choose>
        </else-if>
@@ -70,7 +61,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number-capitalized"/>
-@@ -3561,11 +3542,9 @@
+@@ -3632,11 +3613,9 @@
            </if>
          </choose>
        </else-if>
@@ -82,7 +73,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number"/>
-@@ -3928,10 +3907,6 @@
+@@ -4015,10 +3994,6 @@
              <if is-numeric="volume" match="none">
                <text macro="label-volume"/>
              </if>
@@ -93,27 +84,16 @@
              <else-if is-numeric="volume" variable="page">
                <choose>
                  <!-- check for variables that might come between the volume and page number -->
-@@ -3959,8 +3934,7 @@
-   <!-- Monographic source locator -->
-   <macro name="source-monographic-locator-bib">
-     <choose>
--      <if match="none" type="chapter" variable="page"/>
--      <!-- Remove `type="chapter"` in styles that provide chapter page numbers -->
-+      <if match="none" variable="page"/>
+@@ -4059,8 +4034,6 @@
+       <else-if variable="locator">
+         <text macro="label-locator"/>
+       </else-if>
+-      <!-- Remove `type="chapter"` condition in styles that provide chapter page numbers -->
+-      <else-if type="chapter"/>
        <else-if is-numeric="volume" variable="page">
          <!-- collapse the volume and page number if adjacent -->
          <group delimiter=":">
-@@ -3980,8 +3954,7 @@
-   </macro>
-   <macro name="source-monographic-locator-note">
-     <choose>
--      <if match="none" type="chapter" variable="locator">
--        <!-- Remove `type="chapter"` in styles that provide chapter page numbers -->
-+      <if match="none" variable="locator">
-         <choose>
-           <if variable="page">
-             <group delimiter=":">
-@@ -4577,7 +4550,7 @@
+@@ -4758,7 +4731,7 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -122,7 +102,7 @@
              <text text-case="capitalize-first" variable="publisher"/>
            </group>
          </else-if>
-@@ -4606,7 +4579,7 @@
+@@ -4784,7 +4757,7 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -131,7 +111,7 @@
              <text variable="publisher"/>
            </group>
          </else-if>
-@@ -4631,7 +4604,7 @@
+@@ -4806,7 +4779,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -140,7 +120,7 @@
            <text text-case="capitalize-first" variable="original-publisher"/>
          </group>
        </if>
-@@ -4644,7 +4617,7 @@
+@@ -4819,7 +4792,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -149,7 +129,7 @@
            <text variable="original-publisher"/>
          </group>
        </if>
-@@ -5813,7 +5786,7 @@
+@@ -6016,7 +5989,7 @@
    </macro>
    <citation disambiguate-add-givenname="true" disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
      <layout delimiter="; " suffix=".">
@@ -158,7 +138,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -5973,7 +5946,7 @@
+@@ -6174,7 +6147,7 @@
        </else>
      </choose>
    </macro>
@@ -167,7 +147,7 @@
      <sort>
        <key macro="author-sort"/>
        <key macro="title-bib"/>
-@@ -5984,7 +5957,7 @@
+@@ -6185,7 +6158,7 @@
        <key variable="status"/>
      </sort>
      <layout suffix=".">

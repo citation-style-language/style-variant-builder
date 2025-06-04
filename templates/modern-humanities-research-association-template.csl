@@ -89,12 +89,13 @@
   <macro name="label-number">
     <group delimiter=" ">
       <choose>
-        <if is-numeric="number">
-          <label form="short" variable="number"/>
-        </if>
-        <else-if match="none" type="broadcast">
+        <if type="standard"/>
+        <else-if is-numeric="number">
           <label form="short" variable="number"/>
         </else-if>
+        <else>
+          <label form="short" variable="number"/>
+        </else>
       </choose>
       <text variable="number"/>
     </group>
@@ -186,16 +187,12 @@
   <macro name="communication-recipient">
     <group delimiter=" ">
       <choose>
-        <if type="personal_communication">
-          <choose>
-            <if variable="genre">
-              <text text-case="capitalize-first" variable="genre"/>
-            </if>
-            <else>
-              <text term="letter" text-case="capitalize-first"/>
-            </else>
-          </choose>
+        <if type="personal_communication" variable="genre">
+          <text text-case="capitalize-first" variable="genre"/>
         </if>
+        <else-if type="personal_communication">
+          <text term="letter" text-case="capitalize-first"/>
+        </else-if>
       </choose>
       <text macro="recipient"/>
     </group>
@@ -312,11 +309,11 @@
         <label form="verb-short" suffix=" "/>
         <name/>
       </names>
-      <names delimiter=", " variable="director">
+      <names variable="director">
         <label form="verb-short" suffix=" "/>
         <name/>
       </names>
-      <names delimiter=", " variable="contributor">
+      <names variable="contributor">
         <label form="verb-short" suffix=" "/>
         <name/>
       </names>
@@ -428,21 +425,17 @@
   </macro>
   <macro name="publisher">
     <choose>
-      <if type="thesis">
+      <if type="thesis" variable="publisher">
         <text variable="publisher"/>
       </if>
+      <else-if variable="publisher">
+        <group delimiter=": ">
+          <!-- <text variable="publisher-place"/> -->
+          <text variable="publisher"/>
+        </group>
+      </else-if>
       <else>
-        <choose>
-          <if match="none" variable="publisher">
-            <text variable="publisher-place"/>
-          </if>
-          <else>
-            <group delimiter=": ">
-              <!-- <text variable="publisher-place"/> -->
-              <text variable="publisher"/>
-            </group>
-          </else>
-        </choose>
+        <text variable="publisher-place"/>
       </else>
     </choose>
   </macro>
@@ -461,15 +454,11 @@
           </else>
         </choose>
       </else-if>
+      <else-if is-uncertain-date="issued">
+        <date form="text" prefix="[" suffix="?]" variable="issued"/>
+      </else-if>
       <else>
-        <choose>
-          <if is-uncertain-date="issued">
-            <date form="text" prefix="[" suffix="?]" variable="issued"/>
-          </if>
-          <else>
-            <date form="text" variable="issued"/>
-          </else>
-        </choose>
+        <date form="text" variable="issued"/>
       </else>
     </choose>
   </macro>
@@ -488,13 +477,11 @@
   </macro>
   <macro name="issue-join-with-comma">
     <choose>
-      <if type="article-journal">
-        <choose>
-          <if match="none" variable="volume issue">
-            <text macro="issue"/>
-          </if>
-        </choose>
-      </if>
+      <if type="article-journal" variable="issue"/>
+      <else-if type="article-journal" variable="volume"/>
+      <else-if type="article-journal">
+        <text macro="issue"/>
+      </else-if>
       <else-if match="none" variable="publisher-place publisher">
         <text macro="issue"/>
       </else-if>
@@ -537,7 +524,7 @@
   </macro>
   <macro name="artwork">
     <choose>
-      <if match="any" type="graphic">
+      <if type="graphic">
         <group delimiter=", ">
           <text variable="medium"/>
           <text variable="dimensions"/>
@@ -562,24 +549,26 @@
     </choose>
   </macro>
   <macro name="point-locators-volume-note">
-    <choose>
-      <if position="first" type="chapter entry-dictionary entry-encyclopedia paper-conference">
-        <group delimiter=", ">
-          <text macro="volume-number-roman"/>
-          <text font-style="italic" text-case="title" variable="volume-title"/>
-        </group>
-      </if>
-      <else-if type="book classic legislation motion_picture pamphlet report">
-        <group delimiter=", ">
+    <group delimiter=", ">
+      <choose>
+        <if position="first">
+          <choose>
+            <if match="any" type="chapter entry-dictionary entry-encyclopedia paper-conference">
+              <text macro="volume-number-roman"/>
+              <text font-style="italic" text-case="title" variable="volume-title"/>
+            </if>
+          </choose>
+        </if>
+        <else-if match="any" type="book classic legislation motion_picture pamphlet report">
           <text macro="volume-number-roman"/>
           <choose>
             <if position="first">
               <text font-style="italic" text-case="title" variable="volume-title"/>
             </if>
           </choose>
-        </group>
-      </else-if>
-    </choose>
+        </else-if>
+      </choose>
+    </group>
   </macro>
   <macro name="point-locators-volume">
     <choose>

@@ -33,39 +33,30 @@
 -    <category field="social_science"/>
 -    <category field="sociology"/>
 -    -->
--    <summary>Chicago-style source citations, template</summary>
-+    <summary>Chicago-style source citations, notes and bibliography system, with classic variants: chapter page numbers (CMOS 14.8), place of publication (CMOS 14.30), and 3-em dash (CMOS 13.113); archival references with place first (CMOS 14.205), without URLs (CMOS 13.6)</summary>
+-    <summary>Chicago-style source citations (with Bluebook for legal citations), template</summary>
++    <summary>Chicago-style source citations (with Bluebook for legal citations), notes and bibliography system, with classic variants: chapter page numbers (CMOS 14.8), place of publication (CMOS 14.30), and 3-em dash (CMOS 13.113); archival references with place first (CMOS 14.205), without URLs (CMOS 13.6)</summary>
      <updated>2025-05-19T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -1159,7 +1146,7 @@
-         </if>
-       </choose>
+@@ -1186,7 +1173,7 @@
+       <text macro="source-monographic-publication-bib"/>
+       <text macro="source-medium-bib"/>
        <text macro="source-archive-bib"/>
 -      <text macro="source-DOI-URL-bib"/>
 +      <!-- <text macro="source-DOI-URL-bib"/> -->
      </group>
    </macro>
    <macro name="title-and-source-note">
-@@ -1253,7 +1240,7 @@
-         </if>
+@@ -1239,7 +1226,7 @@
        </choose>
+       <text macro="source-medium-note"/>
        <text macro="source-archive-note"/>
 -      <text macro="source-DOI-URL-note"/>
 +      <!-- <text macro="source-DOI-URL-note"/> -->
      </group>
    </macro>
    <!-- 3.1. Title -->
-@@ -2609,7 +2596,7 @@
-     </group>
-   </macro>
-   <macro name="identifier-contributors-monographic-note">
--    <group delimiter=", ">
-+    <group delimiter=". ">
-       <choose>
-         <if variable="title">
-           <names variable="interviewer">
-@@ -3027,10 +3014,6 @@
+@@ -3017,10 +3004,6 @@
            <if match="any" variable="collection-editor part-number part-title volume-title">
              <text macro="label-volume"/>
            </if>
@@ -76,7 +67,7 @@
          </choose>
        </else-if>
        <else-if variable="volume">
-@@ -3525,11 +3508,9 @@
+@@ -3596,11 +3579,9 @@
            </if>
          </choose>
        </else-if>
@@ -88,7 +79,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number-capitalized"/>
-@@ -3561,11 +3542,9 @@
+@@ -3632,11 +3613,9 @@
            </if>
          </choose>
        </else-if>
@@ -100,7 +91,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number"/>
-@@ -3928,10 +3907,6 @@
+@@ -4015,10 +3994,6 @@
              <if is-numeric="volume" match="none">
                <text macro="label-volume"/>
              </if>
@@ -111,27 +102,16 @@
              <else-if is-numeric="volume" variable="page">
                <choose>
                  <!-- check for variables that might come between the volume and page number -->
-@@ -3959,8 +3934,7 @@
-   <!-- Monographic source locator -->
-   <macro name="source-monographic-locator-bib">
-     <choose>
--      <if match="none" type="chapter" variable="page"/>
--      <!-- Remove `type="chapter"` in styles that provide chapter page numbers -->
-+      <if match="none" variable="page"/>
+@@ -4059,8 +4034,6 @@
+       <else-if variable="locator">
+         <text macro="label-locator"/>
+       </else-if>
+-      <!-- Remove `type="chapter"` condition in styles that provide chapter page numbers -->
+-      <else-if type="chapter"/>
        <else-if is-numeric="volume" variable="page">
          <!-- collapse the volume and page number if adjacent -->
          <group delimiter=":">
-@@ -3980,8 +3954,7 @@
-   </macro>
-   <macro name="source-monographic-locator-note">
-     <choose>
--      <if match="none" type="chapter" variable="locator">
--        <!-- Remove `type="chapter"` in styles that provide chapter page numbers -->
-+      <if match="none" variable="locator">
-         <choose>
-           <if variable="page">
-             <group delimiter=":">
-@@ -4577,7 +4550,7 @@
+@@ -4758,7 +4731,7 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -140,7 +120,7 @@
              <text text-case="capitalize-first" variable="publisher"/>
            </group>
          </else-if>
-@@ -4606,7 +4579,7 @@
+@@ -4784,7 +4757,7 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -149,7 +129,7 @@
              <text variable="publisher"/>
            </group>
          </else-if>
-@@ -4631,7 +4604,7 @@
+@@ -4806,7 +4779,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -158,7 +138,7 @@
            <text text-case="capitalize-first" variable="original-publisher"/>
          </group>
        </if>
-@@ -4644,7 +4617,7 @@
+@@ -4819,7 +4792,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -167,25 +147,25 @@
            <text variable="original-publisher"/>
          </group>
        </if>
-@@ -5092,7 +5065,7 @@
+@@ -5263,7 +5236,7 @@
          <text macro="source-archive-name-first"/>
        </if>
-       <else-if match="any" variable="archive_collection archive-place">
+       <else-if match="any" type="collection document manuscript" variable="archive_collection archive-place">
 -        <text macro="source-archive-location-first-bib"/>
 +        <text macro="source-archive-place-first"/>
        </else-if>
        <else>
          <text macro="source-archive-identifier"/>
-@@ -5106,7 +5079,7 @@
+@@ -5277,7 +5250,7 @@
          <text macro="source-archive-name-first"/>
        </if>
-       <else-if match="any" variable="archive_collection archive-place">
+       <else-if match="any" type="collection document manuscript" variable="archive_collection archive-place">
 -        <text macro="source-archive-location-first-note"/>
 +        <text macro="source-archive-place-first"/>
        </else-if>
+       <!-- Without `archive_collection` or `archive-place`: digital archives (database and identifier) -->
        <else>
-         <text macro="source-archive-identifier"/>
-@@ -5270,7 +5243,7 @@
+@@ -5446,7 +5419,7 @@
          </else>
        </choose>
        <text variable="references"/>
@@ -194,7 +174,7 @@
      </group>
    </macro>
    <!-- 6.1. Legal author -->
-@@ -5973,7 +5946,7 @@
+@@ -6174,7 +6147,7 @@
        </else>
      </choose>
    </macro>
