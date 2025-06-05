@@ -106,9 +106,9 @@
        <key macro="title-bib"/>
        <key variable="part-number"/>
        <key variable="volume"/>
--      <key macro="date-sort-group"/>
 -      <key macro="date-sort"/>
 -      <key variable="status"/>
+-      <key macro="source-archive-bib"/>
      </sort>
      <layout suffix=".">
 -      <text macro="bibliography-filtered-notes"/>

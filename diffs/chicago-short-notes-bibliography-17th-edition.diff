@@ -173,7 +173,7 @@
 +  <citation disambiguate-add-givenname="true" disambiguate-add-names="true" et-al-min="4" et-al-use-first="1">
      <layout delimiter="; " suffix=".">
 -      <text macro="citation-notes-full-subsequent-author-title"/>
-+      <text macro="citation-notes-shortened-author-only"/>
++      <text macro="citation-notes-shortened-subsequent-author-only"/>
      </layout>
    </citation>
    <!-- Bibliography -->

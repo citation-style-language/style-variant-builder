@@ -532,7 +532,7 @@
   <macro name="author-title-substitute">
     <choose>
       <if match="any" type="review review-book" variable="reviewed-author reviewed-genre reviewed-title">
-        <!-- If a review has no `reviewed-genre` or `reviewed-title`, assume that `title` contains the title of the reviewed work; the description provides it. -->
+        <!-- `title` is only the review title if there is a separate `reviewed-genre` or `reviewed-title`; otherwise, it is the title of the reviewed work, printed in the description -->
         <choose>
           <if variable="reviewed-genre title">
             <text macro="title"/>
@@ -792,7 +792,7 @@
   <macro name="title-short">
     <choose>
       <if match="any" type="review review-book" variable="reviewed-author reviewed-genre reviewed-title">
-        <!-- If a review has no `reviewed-genre` or `reviewed-title`, assume that `title` contains the title of the reviewed work; the description provides it. -->
+        <!-- `title` is only the review title if there is a separate `reviewed-genre` or `reviewed-title`; otherwise, it is the title of the reviewed work, printed in the description -->
         <choose>
           <if variable="reviewed-genre title">
             <!-- Quotes, title case -->
