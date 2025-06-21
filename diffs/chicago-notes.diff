@@ -38,7 +38,7 @@
      <updated>2025-05-19T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -6014,7 +6001,7 @@
+@@ -6445,7 +6432,7 @@
        </else>
      </choose>
    </macro>
@@ -47,7 +47,7 @@
      <layout delimiter="; " suffix=".">
        <text macro="citation-notes-full-subsequent-author-title"/>
      </layout>
-@@ -6174,18 +6161,4 @@
+@@ -6605,18 +6592,4 @@
        </else>
      </choose>
    </macro>

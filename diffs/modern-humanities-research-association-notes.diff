@@ -1,0 +1,29 @@
+--- templates/modern-humanities-research-association-template.csl
++++ development/modern-humanities-research-association-notes.csl
+@@ -5,7 +5,7 @@
+   type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+ <style and="text" class="note" default-locale="en-GB" demote-non-dropping-particle="display-and-sort" et-al-min="4" et-al-use-first="1" page-range-format="minimal-two" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
+   <info>
+-    <title>Modern Humanities Research Association 4th edition (template)</title>
++    <title>Modern Humanities Research Association 4th edition (notes)</title>
+     <title-short>MHRA Style Guide</title-short>
+     <id>http://www.zotero.org/styles/modern-humanities-research-association-notes</id>
+     <link href="http://www.zotero.org/styles/modern-humanities-research-association-notes" rel="self"/>
+@@ -15,8 +15,6 @@
+       <uri>https://orcid.org/0000-0003-0464-5036</uri>
+     </author>
+     <category citation-format="note"/>
+-    <!-- for author-date: -->
+-    <!-- <category citation-format="author-date"/> -->
+     <category field="generic-base"/>
+     <category field="history"/>
+     <category field="humanities"/>
+@@ -24,7 +22,7 @@
+     <category field="literature"/>
+     <category field="philosophy"/>
+     <category field="theology"/>
+-    <summary>MHRA source citations, template</summary>
++    <summary>MHRA source citations, notes system</summary>
+     <updated>2025-05-19T00:00:00+00:00</updated>
+     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
+   </info>
