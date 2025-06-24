@@ -39,9 +39,9 @@
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
 @@ -213,6 +209,7 @@
-       <choose>
-         <!-- with `classic`, a `section` locator provides a classical reference -->
-         <if locator="section" type="classic"/>
+         <if locator="section" type="book"/>
+         <else-if locator="section" type="chapter"/>
+         <else-if locator="section" type="classic"/>
 +        <else-if locator="page"/>
          <else>
            <label form="short" variable="locator"/>
