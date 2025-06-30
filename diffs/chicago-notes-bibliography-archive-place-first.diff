@@ -14,30 +14,16 @@
      <link href="http://www.chicagomanualofstyle.org/tools_citationguide.html" rel="documentation"/>
      <author>
        <name>Andrew Dunning</name>
-@@ -22,21 +22,7 @@
-     <category field="literature"/>
-     <category field="philosophy"/>
+@@ -30,7 +30,7 @@
+     <category field="social_science"/>
+     <category field="sociology"/>
      <category field="theology"/>
--    <!-- Categories for author-date:
--    <category citation-format="author-date"/>
--    <category field="anthropology"/>
--    <category field="communications"/>
--    <category field="generic-base"/>
--    <category field="geography"/>
--    <category field="history"/>
--    <category field="humanities"/>
--    <category field="linguistics"/>
--    <category field="political_science"/>
--    <category field="science"/>
--    <category field="social_science"/>
--    <category field="sociology"/>
--    -->
 -    <summary>Chicago-style source citations (with Bluebook for legal citations), template</summary>
 +    <summary>Chicago-style source citations (with Bluebook for legal citations), notes and bibliography system, archival references with place first (CMOS 14.205)</summary>
      <updated>2025-05-19T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -5690,7 +5676,7 @@
+@@ -5684,7 +5684,7 @@
          <text macro="source-archive-name-first"/>
        </if>
        <else-if match="any" type="collection document manuscript" variable="archive_collection archive-place">
@@ -46,7 +32,7 @@
        </else-if>
        <else>
          <text macro="source-archive-identifier"/>
-@@ -5704,7 +5690,7 @@
+@@ -5698,7 +5698,7 @@
          <text macro="source-archive-name-first"/>
        </if>
        <else-if match="any" type="collection document manuscript" variable="archive_collection archive-place">

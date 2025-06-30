@@ -15,30 +15,16 @@
      <link href="http://www.chicagomanualofstyle.org/tools_citationguide.html" rel="documentation"/>
      <author>
        <name>Andrew Dunning</name>
-@@ -22,21 +23,7 @@
-     <category field="literature"/>
-     <category field="philosophy"/>
+@@ -30,7 +31,7 @@
+     <category field="social_science"/>
+     <category field="sociology"/>
      <category field="theology"/>
--    <!-- Categories for author-date:
--    <category citation-format="author-date"/>
--    <category field="anthropology"/>
--    <category field="communications"/>
--    <category field="generic-base"/>
--    <category field="geography"/>
--    <category field="history"/>
--    <category field="humanities"/>
--    <category field="linguistics"/>
--    <category field="political_science"/>
--    <category field="science"/>
--    <category field="social_science"/>
--    <category field="sociology"/>
--    -->
 -    <summary>Chicago-style source citations (with Bluebook for legal citations), template</summary>
 +    <summary>Chicago-style source citations (with Bluebook for legal citations), shortened author-title notes and bibliography system, without URLs (CMOS 13.6)</summary>
      <updated>2025-05-19T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -1423,7 +1410,7 @@
+@@ -1417,7 +1418,7 @@
        </group>
        <text macro="source-medium-bib"/>
        <text macro="source-archive-bib"/>
@@ -47,7 +33,7 @@
      </group>
    </macro>
    <macro name="title-and-source-note">
-@@ -1476,7 +1463,7 @@
+@@ -1470,7 +1471,7 @@
        </choose>
        <text macro="source-medium-note"/>
        <text macro="source-archive-note"/>
@@ -56,7 +42,7 @@
      </group>
    </macro>
    <!-- 3.1. Title -->
-@@ -5873,7 +5860,7 @@
+@@ -5867,7 +5868,7 @@
          </else>
        </choose>
        <text variable="references"/>
@@ -65,7 +51,7 @@
      </group>
    </macro>
    <!-- 6.1. Legal author -->
-@@ -6447,7 +6434,7 @@
+@@ -6441,7 +6442,7 @@
    </macro>
    <citation disambiguate-add-givenname="true" disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
      <layout delimiter="; " suffix=".">
@@ -74,7 +60,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -6616,7 +6603,7 @@
+@@ -6610,7 +6611,7 @@
        <key macro="source-archive-bib"/>
      </sort>
      <layout suffix=".">

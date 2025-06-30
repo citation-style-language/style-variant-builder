@@ -15,30 +15,16 @@
      <link href="http://www.chicagomanualofstyle.org/tools_citationguide.html" rel="documentation"/>
      <author>
        <name>Andrew Dunning</name>
-@@ -22,21 +23,7 @@
-     <category field="literature"/>
-     <category field="philosophy"/>
+@@ -30,7 +31,7 @@
+     <category field="social_science"/>
+     <category field="sociology"/>
      <category field="theology"/>
--    <!-- Categories for author-date:
--    <category citation-format="author-date"/>
--    <category field="anthropology"/>
--    <category field="communications"/>
--    <category field="generic-base"/>
--    <category field="geography"/>
--    <category field="history"/>
--    <category field="humanities"/>
--    <category field="linguistics"/>
--    <category field="political_science"/>
--    <category field="science"/>
--    <category field="social_science"/>
--    <category field="sociology"/>
--    -->
 -    <summary>Chicago-style source citations (with Bluebook for legal citations), template</summary>
 +    <summary>Chicago-style source citations (with Bluebook for legal citations), shortened author-title notes and bibliography system, with title-only subsequent shortened citations (CMOS 13.37)</summary>
      <updated>2025-05-19T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -6447,7 +6434,7 @@
+@@ -6441,7 +6442,7 @@
    </macro>
    <citation disambiguate-add-givenname="true" disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
      <layout delimiter="; " suffix=".">
@@ -47,7 +33,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -6616,7 +6603,7 @@
+@@ -6610,7 +6611,7 @@
        <key macro="source-archive-bib"/>
      </sort>
      <layout suffix=".">

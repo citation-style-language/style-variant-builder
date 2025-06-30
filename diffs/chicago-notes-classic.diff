@@ -15,30 +15,16 @@
      <link href="http://www.chicagomanualofstyle.org/tools_citationguide.html" rel="documentation"/>
      <author>
        <name>Andrew Dunning</name>
-@@ -22,21 +23,7 @@
-     <category field="literature"/>
-     <category field="philosophy"/>
+@@ -30,7 +31,7 @@
+     <category field="social_science"/>
+     <category field="sociology"/>
      <category field="theology"/>
--    <!-- Categories for author-date:
--    <category citation-format="author-date"/>
--    <category field="anthropology"/>
--    <category field="communications"/>
--    <category field="generic-base"/>
--    <category field="geography"/>
--    <category field="history"/>
--    <category field="humanities"/>
--    <category field="linguistics"/>
--    <category field="political_science"/>
--    <category field="science"/>
--    <category field="social_science"/>
--    <category field="sociology"/>
--    -->
 -    <summary>Chicago-style source citations (with Bluebook for legal citations), template</summary>
 +    <summary>Chicago-style source citations (with Bluebook for legal citations), notes system without bibliography, listing up to six authors in a full citation (CMOS 13.23), with classic variants: chapter page numbers (CMOS 14.8), place of publication (CMOS 14.30)</summary>
      <updated>2025-05-19T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -3323,10 +3310,6 @@
+@@ -3317,10 +3318,6 @@
            <if match="any" variable="collection-editor part-number part-title volume-title">
              <text macro="label-volume"/>
            </if>
@@ -49,7 +35,7 @@
          </choose>
        </else-if>
        <else-if variable="volume">
-@@ -3975,11 +3958,9 @@
+@@ -3969,11 +3966,9 @@
            </if>
          </choose>
        </else-if>
@@ -61,7 +47,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number-capitalized"/>
-@@ -4011,11 +3992,9 @@
+@@ -4005,11 +4000,9 @@
            </if>
          </choose>
        </else-if>
@@ -73,7 +59,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number"/>
-@@ -4396,10 +4375,6 @@
+@@ -4390,10 +4383,6 @@
              <if is-numeric="volume" match="none">
                <text macro="label-volume"/>
              </if>
@@ -84,7 +70,7 @@
              <else-if is-numeric="volume" variable="page">
                <choose>
                  <!-- check for variables that might come between the volume and page number -->
-@@ -5152,7 +5127,7 @@
+@@ -5146,7 +5135,7 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -93,7 +79,7 @@
              <text text-case="capitalize-first" variable="publisher"/>
            </group>
          </else-if>
-@@ -5178,7 +5153,7 @@
+@@ -5172,7 +5161,7 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -102,7 +88,7 @@
              <text variable="publisher"/>
            </group>
          </else-if>
-@@ -5200,7 +5175,7 @@
+@@ -5194,7 +5183,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -111,7 +97,7 @@
            <text text-case="capitalize-first" variable="original-publisher"/>
          </group>
        </if>
-@@ -5213,7 +5188,7 @@
+@@ -5207,7 +5196,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -120,7 +106,7 @@
            <text variable="original-publisher"/>
          </group>
        </if>
-@@ -6445,7 +6420,7 @@
+@@ -6439,7 +6428,7 @@
        </else>
      </choose>
    </macro>
@@ -129,7 +115,7 @@
      <layout delimiter="; " suffix=".">
        <text macro="citation-notes-full-subsequent-author-title"/>
      </layout>
-@@ -6605,18 +6580,4 @@
+@@ -6599,18 +6588,4 @@
        </else>
      </choose>
    </macro>

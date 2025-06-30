@@ -14,30 +14,16 @@
      <link href="http://www.chicagomanualofstyle.org/tools_citationguide.html" rel="documentation"/>
      <author>
        <name>Andrew Dunning</name>
-@@ -22,21 +22,7 @@
-     <category field="literature"/>
-     <category field="philosophy"/>
+@@ -30,7 +30,7 @@
+     <category field="social_science"/>
+     <category field="sociology"/>
      <category field="theology"/>
--    <!-- Categories for author-date:
--    <category citation-format="author-date"/>
--    <category field="anthropology"/>
--    <category field="communications"/>
--    <category field="generic-base"/>
--    <category field="geography"/>
--    <category field="history"/>
--    <category field="humanities"/>
--    <category field="linguistics"/>
--    <category field="political_science"/>
--    <category field="science"/>
--    <category field="social_science"/>
--    <category field="sociology"/>
--    -->
 -    <summary>Chicago-style source citations (with Bluebook for legal citations), template</summary>
 +    <summary>Chicago-style source citations (with Bluebook for legal citations), notes and bibliography system, archival references with place first (CMOS 14.205), without URLs (CMOS 13.6)</summary>
      <updated>2025-05-19T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -1423,7 +1409,7 @@
+@@ -1417,7 +1417,7 @@
        </group>
        <text macro="source-medium-bib"/>
        <text macro="source-archive-bib"/>
@@ -46,7 +32,7 @@
      </group>
    </macro>
    <macro name="title-and-source-note">
-@@ -1476,7 +1462,7 @@
+@@ -1470,7 +1470,7 @@
        </choose>
        <text macro="source-medium-note"/>
        <text macro="source-archive-note"/>
@@ -55,7 +41,7 @@
      </group>
    </macro>
    <!-- 3.1. Title -->
-@@ -5690,7 +5676,7 @@
+@@ -5684,7 +5684,7 @@
          <text macro="source-archive-name-first"/>
        </if>
        <else-if match="any" type="collection document manuscript" variable="archive_collection archive-place">
@@ -64,7 +50,7 @@
        </else-if>
        <else>
          <text macro="source-archive-identifier"/>
-@@ -5704,7 +5690,7 @@
+@@ -5698,7 +5698,7 @@
          <text macro="source-archive-name-first"/>
        </if>
        <else-if match="any" type="collection document manuscript" variable="archive_collection archive-place">
@@ -73,7 +59,7 @@
        </else-if>
        <!-- Without `archive_collection` or `archive-place`: digital archives (database and identifier) -->
        <else>
-@@ -5873,7 +5859,7 @@
+@@ -5867,7 +5867,7 @@
          </else>
        </choose>
        <text variable="references"/>

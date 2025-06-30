@@ -1,6 +1,6 @@
 --- templates/modern-humanities-research-association-template.csl
 +++ development/transactions-of-the-cambridge-bibliographical-society.csl
-@@ -3,28 +3,24 @@
+@@ -3,26 +3,24 @@
    type="application/relax-ng-compact-syntax" schematypens="http://relaxng.org/ns/compatibility/annotations/1.0"?>
  <?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl.rnc"
    type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
@@ -23,8 +23,6 @@
        <uri>https://orcid.org/0000-0003-0464-5036</uri>
      </author>
      <category citation-format="note"/>
--    <!-- for author-date: -->
--    <!-- <category citation-format="author-date"/> -->
 -    <category field="generic-base"/>
      <category field="history"/>
      <category field="humanities"/>
@@ -38,7 +36,7 @@
      <updated>2025-05-19T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -213,6 +209,7 @@
+@@ -217,6 +215,7 @@
          <if locator="section" type="book"/>
          <else-if locator="section" type="chapter"/>
          <else-if locator="section" type="classic"/>
@@ -46,7 +44,7 @@
          <else>
            <label form="short" variable="locator"/>
          </else>
-@@ -266,7 +263,7 @@
+@@ -273,7 +272,7 @@
    </macro>
    <macro name="label-page">
      <group delimiter=" ">
@@ -55,7 +53,7 @@
        <text variable="page"/>
      </group>
    </macro>
-@@ -1227,9 +1224,9 @@
+@@ -1240,9 +1239,9 @@
          </choose>
          <text macro="source-medium"/>
          <text macro="source-archive"/>
@@ -67,7 +65,7 @@
      </group>
    </macro>
    <!-- 3.1. Title -->
-@@ -3016,8 +3013,8 @@
+@@ -3040,8 +3039,8 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -78,7 +76,7 @@
            </group>
          </else-if>
          <!-- TODO: remove conditional when Zotero fixes double-mapping of `event-place` -->
-@@ -3038,8 +3035,8 @@
+@@ -3062,8 +3061,8 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">

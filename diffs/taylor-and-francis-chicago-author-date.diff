@@ -1,6 +1,6 @@
 --- templates/chicago-template.csl
 +++ development/taylor-and-francis-chicago-author-date.csl
-@@ -3,40 +3,20 @@
+@@ -3,34 +3,20 @@
    type="application/relax-ng-compact-syntax" schematypens="http://relaxng.org/ns/compatibility/annotations/1.0"?>
  <?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl.rnc"
    type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
@@ -23,33 +23,28 @@
        <uri>https://orcid.org/0000-0003-0464-5036</uri>
      </author>
 -    <category citation-format="note"/>
--    <category field="generic-base"/>
--    <category field="history"/>
--    <category field="humanities"/>
--    <category field="law"/>
--    <category field="literature"/>
--    <category field="philosophy"/>
--    <category field="theology"/>
--    <!-- Categories for author-date:
-     <category citation-format="author-date"/>
 -    <category field="anthropology"/>
 -    <category field="communications"/>
 -    <category field="generic-base"/>
 -    <category field="geography"/>
 -    <category field="history"/>
 -    <category field="humanities"/>
+-    <category field="law"/>
 -    <category field="linguistics"/>
+-    <category field="literature"/>
+-    <category field="philosophy"/>
 -    <category field="political_science"/>
 -    <category field="science"/>
 -    <category field="social_science"/>
 -    <category field="sociology"/>
--    -->
+-    <category field="theology"/>
 -    <summary>Chicago-style source citations (with Bluebook for legal citations), template</summary>
++    <category citation-format="author-date"/>
 +    <summary>Taylor &amp; Francis Journals adaptation of Chicago-style source citations (with Bluebook for legal citations), author-date system, 17th edition: with expanded page ranges, no substitution of repeated authors with em dashes</summary>
      <updated>2025-05-19T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -3323,10 +3303,6 @@
+@@ -3317,10 +3303,6 @@
            <if match="any" variable="collection-editor part-number part-title volume-title">
              <text macro="label-volume"/>
            </if>
@@ -60,7 +55,7 @@
          </choose>
        </else-if>
        <else-if variable="volume">
-@@ -3594,14 +3570,14 @@
+@@ -3588,14 +3570,14 @@
      <choose>
        <if match="any" variable="issue supplement-number volume">
          <group delimiter=": ">
@@ -77,7 +72,7 @@
              <!-- periodical edition always capitalized (CMOS 14.89) -->
              <text macro="label-edition-capitalized"/>
            </group>
-@@ -3650,9 +3626,7 @@
+@@ -3644,9 +3626,7 @@
                  <!-- nothing to substitute if there is no issue/supplement/volume -->
                  <else-if match="none" variable="issue volume"/>
                  <else>
@@ -88,7 +83,7 @@
                  </else>
                </choose>
              </if>
-@@ -3685,9 +3659,7 @@
+@@ -3679,9 +3659,7 @@
                        <text macro="label-supplement-number"/>
                      </if>
                      <else-if match="any" variable="author chair collection-editor compiler composer curator director editor editor-translator editorial-director executive-producer guest host illustrator organizer producer series-creator translator">
@@ -99,7 +94,7 @@
                      </else-if>
                    </choose>
                  </group>
-@@ -3700,9 +3672,7 @@
+@@ -3694,9 +3672,7 @@
                    </group>
                    <choose>
                      <if match="any" variable="author chair collection-editor compiler composer curator director editor editor-translator editorial-director executive-producer guest host illustrator organizer producer series-creator translator">
@@ -110,7 +105,7 @@
                      </if>
                    </choose>
                  </group>
-@@ -3735,9 +3705,7 @@
+@@ -3729,9 +3705,7 @@
            <choose>
              <if match="none" variable="author chair collection-editor compiler composer curator director editor editor-translator editorial-director executive-producer guest host illustrator organizer producer series-creator translator">
                <!-- date appears first if the serial title has been substituted for a missing author (CMOS 14.102) -->
@@ -121,7 +116,7 @@
              </if>
            </choose>
            <!-- `collection-title` is for any serial with multiple series (e.g. 'second series') -->
-@@ -3791,9 +3759,7 @@
+@@ -3785,9 +3759,7 @@
              <else-if match="any" variable="reviewed-genre reviewed-title title"/>
              <else-if match="none" variable="genre section"/>
              <else>
@@ -132,7 +127,7 @@
              </else>
            </choose>
            <!-- `collection-title` is for any serial with multiple series (e.g. 'second series') -->
-@@ -3828,19 +3794,13 @@
+@@ -3822,19 +3794,13 @@
              <choose>
                <if match="any" variable="author chair collection-editor compiler composer curator director editor editor-translator editorial-director executive-producer guest host illustrator organizer producer series-creator translator">
                  <!-- date appears first if the serial title has been substituted for a missing author (CMOS 14.89) -->
@@ -154,7 +149,7 @@
                </else-if>
              </choose>
            </group>
-@@ -3975,11 +3935,9 @@
+@@ -3969,11 +3935,9 @@
            </if>
          </choose>
        </else-if>
@@ -166,7 +161,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number-capitalized"/>
-@@ -4011,11 +3969,9 @@
+@@ -4005,11 +3969,9 @@
            </if>
          </choose>
        </else-if>
@@ -178,7 +173,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number"/>
-@@ -4396,10 +4352,6 @@
+@@ -4390,10 +4352,6 @@
              <if is-numeric="volume" match="none">
                <text macro="label-volume"/>
              </if>
@@ -189,7 +184,7 @@
              <else-if is-numeric="volume" variable="page">
                <choose>
                  <!-- check for variables that might come between the volume and page number -->
-@@ -4436,8 +4388,6 @@
+@@ -4430,8 +4388,6 @@
        <else-if variable="locator">
          <text macro="label-locator"/>
        </else-if>
@@ -198,7 +193,7 @@
        <else-if is-numeric="volume" variable="page">
          <!-- collapse the volume and page number if adjacent -->
          <group delimiter=":">
-@@ -5152,7 +5102,7 @@
+@@ -5146,7 +5102,7 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -207,7 +202,7 @@
              <text text-case="capitalize-first" variable="publisher"/>
            </group>
          </else-if>
-@@ -5178,7 +5128,7 @@
+@@ -5172,7 +5128,7 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -216,7 +211,7 @@
              <text variable="publisher"/>
            </group>
          </else-if>
-@@ -5200,7 +5150,7 @@
+@@ -5194,7 +5150,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -225,7 +220,7 @@
            <text text-case="capitalize-first" variable="original-publisher"/>
          </group>
        </if>
-@@ -5213,7 +5163,7 @@
+@@ -5207,7 +5163,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -234,7 +229,7 @@
            <text variable="original-publisher"/>
          </group>
        </if>
-@@ -5234,8 +5184,7 @@
+@@ -5228,8 +5184,7 @@
        </else-if>
        <else>
          <text macro="source-date-issued-or-status"/>
@@ -244,7 +239,7 @@
          <!-- for author-date 18th edition: -->
          <!-- <text macro="source-date-issued-month-day"/> -->
        </else>
-@@ -5301,14 +5250,10 @@
+@@ -5295,14 +5250,10 @@
          <text macro="date-issued-full"/>
        </if>
        <else-if variable="issue volume">
@@ -261,7 +256,7 @@
        </else-if>
        <else-if match="any" variable="issue volume">
          <date date-parts="year-month" form="text" variable="issued"/>
-@@ -5461,14 +5406,10 @@
+@@ -5455,14 +5406,10 @@
    <macro name="source-date-original-full-serial">
      <choose>
        <if variable="issue volume">
@@ -278,7 +273,7 @@
        </else-if>
        <else-if match="any" variable="issue volume">
          <date date-parts="year-month" form="text" variable="original-date"/>
-@@ -6445,9 +6386,9 @@
+@@ -6439,9 +6386,9 @@
        </else>
      </choose>
    </macro>
@@ -291,7 +286,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -6605,18 +6546,18 @@
+@@ -6599,18 +6546,18 @@
        </else>
      </choose>
    </macro>

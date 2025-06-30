@@ -15,30 +15,16 @@
      <link href="http://www.chicagomanualofstyle.org/tools_citationguide.html" rel="documentation"/>
      <author>
        <name>Andrew Dunning</name>
-@@ -22,21 +23,7 @@
-     <category field="literature"/>
-     <category field="philosophy"/>
+@@ -30,7 +31,7 @@
+     <category field="social_science"/>
+     <category field="sociology"/>
      <category field="theology"/>
--    <!-- Categories for author-date:
--    <category citation-format="author-date"/>
--    <category field="anthropology"/>
--    <category field="communications"/>
--    <category field="generic-base"/>
--    <category field="geography"/>
--    <category field="history"/>
--    <category field="humanities"/>
--    <category field="linguistics"/>
--    <category field="political_science"/>
--    <category field="science"/>
--    <category field="social_science"/>
--    <category field="sociology"/>
--    -->
 -    <summary>Chicago-style source citations (with Bluebook for legal citations), template</summary>
 +    <summary>Chicago-style source citations (with Bluebook for legal citations), notes system without bibliography, listing up to six authors in a full citation (CMOS 13.23), substituting place of publication for publisher name (CMOS 14.31), archival references with place first (CMOS 14.205)</summary>
      <updated>2025-05-19T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -5152,8 +5139,8 @@
+@@ -5146,8 +5147,8 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -49,7 +35,7 @@
            </group>
          </else-if>
          <!-- TODO: remove conditional when Zotero fixes double-mapping of `event-place` -->
-@@ -5178,8 +5165,8 @@
+@@ -5172,8 +5173,8 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -60,7 +46,7 @@
            </group>
          </else-if>
          <!-- TODO: remove conditional when Zotero fixes double-mapping of `event-place` -->
-@@ -5200,8 +5187,8 @@
+@@ -5194,8 +5195,8 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -71,7 +57,7 @@
          </group>
        </if>
        <else>
-@@ -5213,8 +5200,8 @@
+@@ -5207,8 +5208,8 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -82,7 +68,7 @@
          </group>
        </if>
        <else>
-@@ -5690,7 +5677,7 @@
+@@ -5684,7 +5685,7 @@
          <text macro="source-archive-name-first"/>
        </if>
        <else-if match="any" type="collection document manuscript" variable="archive_collection archive-place">
@@ -91,7 +77,7 @@
        </else-if>
        <else>
          <text macro="source-archive-identifier"/>
-@@ -5704,7 +5691,7 @@
+@@ -5698,7 +5699,7 @@
          <text macro="source-archive-name-first"/>
        </if>
        <else-if match="any" type="collection document manuscript" variable="archive_collection archive-place">
@@ -100,7 +86,7 @@
        </else-if>
        <!-- Without `archive_collection` or `archive-place`: digital archives (database and identifier) -->
        <else>
-@@ -6445,7 +6432,7 @@
+@@ -6439,7 +6440,7 @@
        </else>
      </choose>
    </macro>
@@ -109,7 +95,7 @@
      <layout delimiter="; " suffix=".">
        <text macro="citation-notes-full-subsequent-author-title"/>
      </layout>
-@@ -6605,18 +6592,4 @@
+@@ -6599,18 +6600,4 @@
        </else>
      </choose>
    </macro>
