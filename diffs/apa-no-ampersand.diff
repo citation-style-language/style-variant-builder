@@ -29,20 +29,18 @@
      <updated>2025-04-14T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -45,12 +45,12 @@
-         <multiple>eds.</multiple>
-       </term>
-       <term form="short" name="editor-translator">
--        <single>ed. &amp; trans.</single>
--        <multiple>eds. &amp; trans.</multiple>
+@@ -39,6 +39,14 @@
+       <term name="at">before the</term>
+       <term name="bc"> B.C.E.</term>
+       <term form="short" name="circa">ca.</term>
++      <term form="short" name="editor-translator">
 +        <single>ed. and trans.</single>
 +        <multiple>eds. and trans.</multiple>
-       </term>
-       <term form="short" name="editortranslator">
--        <single>ed. &amp; trans.</single>
--        <multiple>eds. &amp; trans.</multiple>
++      </term>
++      <term form="short" name="editortranslator">
 +        <single>ed. and trans.</single>
 +        <multiple>eds. and trans.</multiple>
-       </term>
-       <term form="verb" name="hearing">testimony of</term>
-       <term form="short" name="illustrator">
++      </term>
+       <term form="short" name="illustrator">illus.</term>
+       <term form="short" name="interviewer">
+         <single>interviewer</single>

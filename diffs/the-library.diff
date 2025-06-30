@@ -36,8 +36,8 @@
      <updated>2025-05-19T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -49,6 +47,10 @@
-       <term form="verb" name="editortranslator">edited and translated by</term>
+@@ -44,6 +42,10 @@
+       <term form="verb-short" name="editor-translator">ed. and trans. by</term>
        <term form="verb-short" name="editortranslator">ed. and trans. by</term>
        <term name="et-al">and others</term>
 +      <term form="short" name="folio">
@@ -45,9 +45,9 @@
 +        <multiple>fols.</multiple>
 +      </term>
        <term name="manuscript">unpublished manuscript</term>
-       <term form="verb" name="narrator">read by</term>
-       <term form="verb-short" name="narrator">read by</term>
-@@ -1240,9 +1242,9 @@
+       <term name="original-work-published">originally published as</term>
+       <term form="short" name="paper-conference">paper</term>
+@@ -1229,9 +1231,9 @@
          </choose>
          <text macro="source-medium"/>
          <text macro="source-archive"/>
@@ -59,7 +59,7 @@
      </group>
    </macro>
    <!-- 3.1. Title -->
-@@ -3040,7 +3042,7 @@
+@@ -3029,7 +3031,7 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -68,7 +68,7 @@
              <text variable="publisher"/>
            </group>
          </else-if>
-@@ -3062,7 +3064,7 @@
+@@ -3051,7 +3053,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">

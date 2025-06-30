@@ -34,7 +34,7 @@
      <updated>2025-05-19T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -1417,7 +1418,7 @@
+@@ -1416,7 +1417,7 @@
        </group>
        <text macro="source-medium-bib"/>
        <text macro="source-archive-bib"/>
@@ -43,7 +43,7 @@
      </group>
    </macro>
    <macro name="title-and-source-note">
-@@ -1470,7 +1471,7 @@
+@@ -1469,7 +1470,7 @@
        </choose>
        <text macro="source-medium-note"/>
        <text macro="source-archive-note"/>
@@ -52,7 +52,7 @@
      </group>
    </macro>
    <!-- 3.1. Title -->
-@@ -3588,14 +3589,14 @@
+@@ -3603,14 +3604,14 @@
      <choose>
        <if match="any" variable="issue supplement-number volume">
          <group delimiter=": ">
@@ -69,7 +69,7 @@
              <!-- periodical edition always capitalized (CMOS 14.89) -->
              <text macro="label-edition-capitalized"/>
            </group>
-@@ -5227,11 +5228,7 @@
+@@ -5254,11 +5255,7 @@
          <date date-parts="year" form="text" variable="available-date"/>
        </else-if>
        <else>
@@ -82,7 +82,7 @@
        </else>
      </choose>
    </macro>
-@@ -5406,9 +5403,7 @@
+@@ -5433,9 +5430,7 @@
      </choose>
    </macro>
    <macro name="source-date-original">
@@ -93,7 +93,7 @@
    </macro>
    <macro name="source-date-original-full">
      <!-- Give full date for more ephemeral types; reflected in `date-sort` -->
-@@ -5867,7 +5862,7 @@
+@@ -5894,7 +5889,7 @@
          </else>
        </choose>
        <text variable="references"/>
@@ -102,7 +102,7 @@
      </group>
    </macro>
    <!-- 6.1. Legal author -->
-@@ -6439,9 +6434,9 @@
+@@ -6466,9 +6461,9 @@
        </else>
      </choose>
    </macro>
@@ -115,7 +115,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -6602,15 +6597,15 @@
+@@ -6629,15 +6624,15 @@
    <bibliography et-al-min="7" et-al-use-first="3" hanging-indent="true">
      <sort>
        <key macro="author-sort"/>
