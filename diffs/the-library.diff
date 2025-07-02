@@ -2,7 +2,7 @@
 +++ development/the-library.csl
 @@ -3,26 +3,24 @@
    type="application/relax-ng-compact-syntax" schematypens="http://relaxng.org/ns/compatibility/annotations/1.0"?>
- <?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl.rnc"
+ <?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl-repository.rnc"
    type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 -<style and="text" class="note" default-locale="en-GB" demote-non-dropping-particle="display-and-sort" et-al-min="4" et-al-use-first="1" page-range-format="minimal-two" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
 +<style and="text" class="note" default-locale="en-GB" demote-non-dropping-particle="display-and-sort" et-al-min="4" et-al-use-first="1" page-range-format="minimal" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
@@ -47,7 +47,7 @@
        <term name="manuscript">unpublished manuscript</term>
        <term name="original-work-published">originally published as</term>
        <term form="short" name="paper-conference">paper</term>
-@@ -1229,9 +1231,9 @@
+@@ -1238,9 +1240,9 @@
          </choose>
          <text macro="source-medium"/>
          <text macro="source-archive"/>
@@ -59,7 +59,7 @@
      </group>
    </macro>
    <!-- 3.1. Title -->
-@@ -3029,7 +3031,7 @@
+@@ -3042,7 +3044,7 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -68,7 +68,7 @@
              <text variable="publisher"/>
            </group>
          </else-if>
-@@ -3051,7 +3053,7 @@
+@@ -3064,7 +3066,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">

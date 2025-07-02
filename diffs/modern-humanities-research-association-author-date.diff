@@ -2,7 +2,7 @@
 +++ development/modern-humanities-research-association-author-date.csl
 @@ -3,18 +3,19 @@
    type="application/relax-ng-compact-syntax" schematypens="http://relaxng.org/ns/compatibility/annotations/1.0"?>
- <?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl.rnc"
+ <?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl-repository.rnc"
    type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 -<style and="text" class="note" default-locale="en-GB" demote-non-dropping-particle="display-and-sort" et-al-min="4" et-al-use-first="1" page-range-format="minimal-two" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
 +<style and="text" class="in-text" default-locale="en-GB" demote-non-dropping-particle="display-and-sort" et-al-min="4" et-al-use-first="1" page-range-format="minimal-two" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
@@ -34,7 +34,7 @@
      <updated>2025-05-19T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -3067,9 +3068,7 @@
+@@ -3080,9 +3081,7 @@
          <date date-parts="year" form="text" variable="available-date"/>
        </if>
        <else>
@@ -45,7 +45,7 @@
        </else>
      </choose>
    </macro>
-@@ -3218,9 +3217,7 @@
+@@ -3231,9 +3230,7 @@
      </choose>
    </macro>
    <macro name="source-date-original">
@@ -56,7 +56,7 @@
    </macro>
    <macro name="source-date-original-full">
      <!-- Give full date for more ephemeral types; reflected in `date-sort` -->
-@@ -3545,9 +3542,9 @@
+@@ -3558,9 +3555,9 @@
        </choose>
      </group>
    </macro>
@@ -69,7 +69,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -3571,15 +3568,15 @@
+@@ -3584,15 +3581,15 @@
    <bibliography hanging-indent="true" subsequent-author-substitute="&#8212;&#8212;" subsequent-author-substitute-rule="partial-first">
      <sort>
        <key macro="author-bib"/>

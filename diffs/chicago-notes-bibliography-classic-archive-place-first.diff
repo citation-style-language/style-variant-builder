@@ -20,11 +20,11 @@
      <category field="sociology"/>
      <category field="theology"/>
 -    <summary>Chicago-style source citations (with Bluebook for legal citations), template</summary>
-+    <summary>Chicago-style source citations (with Bluebook for legal citations), notes and bibliography system, with classic variants: chapter page numbers (CMOS 14.8), place of publication (CMOS 14.30), and 3-em dash (CMOS 13.113); archival references with place first (CMOS 14.205)</summary>
++    <summary>Chicago-style source citations (with Bluebook for legal citations), notes and bibliography system, with classic variants: chapter page numbers (CMOS18 14.8), place of publication (CMOS18 14.30), and 3-em dash (CMOS18 13.113); archival references with place first (CMOS18 14.205)</summary>
      <updated>2025-05-19T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -3332,10 +3333,6 @@
+@@ -3339,10 +3340,6 @@
            <if match="any" variable="collection-editor part-number part-title volume-title">
              <text macro="label-volume"/>
            </if>
@@ -35,7 +35,7 @@
          </choose>
        </else-if>
        <else-if variable="volume">
-@@ -3984,11 +3981,9 @@
+@@ -3997,11 +3994,9 @@
            </if>
          </choose>
        </else-if>
@@ -47,7 +47,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number-capitalized"/>
-@@ -4020,11 +4015,9 @@
+@@ -4033,11 +4028,9 @@
            </if>
          </choose>
        </else-if>
@@ -59,7 +59,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number"/>
-@@ -4417,10 +4410,6 @@
+@@ -4430,10 +4423,6 @@
              <if is-numeric="volume" match="none">
                <text macro="label-volume"/>
              </if>
@@ -70,7 +70,7 @@
              <else-if is-numeric="volume" variable="page">
                <choose>
                  <!-- check for variables that might come between the volume and page number -->
-@@ -4457,8 +4446,6 @@
+@@ -4470,8 +4459,6 @@
        <else-if variable="locator">
          <text macro="label-locator"/>
        </else-if>
@@ -79,7 +79,7 @@
        <else-if is-numeric="volume" variable="page">
          <!-- collapse the volume and page number if adjacent -->
          <group delimiter=":">
-@@ -5173,7 +5160,7 @@
+@@ -5186,7 +5173,7 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -88,7 +88,7 @@
              <text text-case="capitalize-first" variable="publisher"/>
            </group>
          </else-if>
-@@ -5199,7 +5186,7 @@
+@@ -5212,7 +5199,7 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -97,7 +97,7 @@
              <text variable="publisher"/>
            </group>
          </else-if>
-@@ -5221,7 +5208,7 @@
+@@ -5234,7 +5221,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -106,7 +106,7 @@
            <text text-case="capitalize-first" variable="original-publisher"/>
          </group>
        </if>
-@@ -5234,7 +5221,7 @@
+@@ -5247,7 +5234,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -115,7 +115,7 @@
            <text variable="original-publisher"/>
          </group>
        </if>
-@@ -5711,7 +5698,7 @@
+@@ -5724,7 +5711,7 @@
          <text macro="source-archive-name-first"/>
        </if>
        <else-if match="any" type="collection document manuscript" variable="archive_collection archive-place">
@@ -124,7 +124,7 @@
        </else-if>
        <else>
          <text macro="source-archive-identifier"/>
-@@ -5725,7 +5712,7 @@
+@@ -5738,7 +5725,7 @@
          <text macro="source-archive-name-first"/>
        </if>
        <else-if match="any" type="collection document manuscript" variable="archive_collection archive-place">
@@ -133,7 +133,7 @@
        </else-if>
        <!-- Without `archive_collection` or `archive-place`: digital archives (database and identifier) -->
        <else>
-@@ -6626,7 +6613,7 @@
+@@ -6716,7 +6703,7 @@
        </else>
      </choose>
    </macro>

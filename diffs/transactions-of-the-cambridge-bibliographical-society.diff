@@ -2,7 +2,7 @@
 +++ development/transactions-of-the-cambridge-bibliographical-society.csl
 @@ -3,26 +3,24 @@
    type="application/relax-ng-compact-syntax" schematypens="http://relaxng.org/ns/compatibility/annotations/1.0"?>
- <?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl.rnc"
+ <?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl-repository.rnc"
    type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 -<style and="text" class="note" default-locale="en-GB" demote-non-dropping-particle="display-and-sort" et-al-min="4" et-al-use-first="1" page-range-format="minimal-two" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
 +<style and="text" class="note" default-locale="en-GB" demote-non-dropping-particle="display-and-sort" et-al-min="4" et-al-use-first="1" initialize-with=". " page-range-format="minimal-two" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
@@ -36,15 +36,20 @@
      <updated>2025-05-19T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -206,6 +204,7 @@
-         <if locator="section" type="book"/>
-         <else-if locator="section" type="chapter"/>
-         <else-if locator="section" type="classic"/>
-+        <else-if locator="page"/>
-         <else>
+@@ -202,9 +200,10 @@
+   <macro name="label-locator">
+     <group delimiter=" ">
+       <choose>
+-        <if is-numeric="locator">
++        <if locator="page"/>
++        <else-if is-numeric="locator">
            <label form="short" variable="locator"/>
-         </else>
-@@ -262,7 +261,7 @@
+-        </if>
++        </else-if>
+         <!-- a non-numeric canonical reference is described by its formatting and does not need a label, similar to a timestamp (MHRA 7.3c) -->
+         <else-if locator="book chapter line verse" match="any"/>
+         <else>
+@@ -264,7 +263,7 @@
    </macro>
    <macro name="label-page">
      <group delimiter=" ">
@@ -53,7 +58,7 @@
        <text variable="page"/>
      </group>
    </macro>
-@@ -1229,9 +1228,9 @@
+@@ -1238,9 +1237,9 @@
          </choose>
          <text macro="source-medium"/>
          <text macro="source-archive"/>
@@ -65,7 +70,7 @@
      </group>
    </macro>
    <!-- 3.1. Title -->
-@@ -3029,8 +3028,8 @@
+@@ -3042,8 +3041,8 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -76,7 +81,7 @@
            </group>
          </else-if>
          <!-- TODO: remove conditional when Zotero fixes double-mapping of `event-place` -->
-@@ -3051,8 +3050,8 @@
+@@ -3064,8 +3063,8 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
