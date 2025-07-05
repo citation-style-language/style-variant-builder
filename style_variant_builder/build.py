@@ -12,7 +12,7 @@ import tempfile
 from dataclasses import dataclass
 from pathlib import Path
 
-from csl_builder.prune import CSLPruner
+from style_variant_builder.prune import CSLPruner
 
 logging.basicConfig(level=logging.INFO, format="%(message)s")
 

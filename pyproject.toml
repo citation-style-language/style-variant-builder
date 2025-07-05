@@ -1,5 +1,5 @@
 [project]
-name = "csl-builder"
+name = "style-variant-builder"
 version = "0.1.0"
 description = "Create variant Citation Style Language (CSL) styles"
 readme = "README.md"

@@ -2,13 +2,13 @@
 .PHONY: final unpruned diffs clean help
 
 final: ## Build CSL variants with default style families
-	@uv run python3 -m csl_builder.build
+	@uv run python3 -m style_variant_builder.build
 
 dev: ## Build unpruned CSL variants for development
-	@uv run python3 -m csl_builder.build --development
+	@uv run python3 -m style_variant_builder.build --development
 
 diffs: ## Regenerate diff patches from development
-	@uv run python3 -m csl_builder.build --diffs
+	@uv run python3 -m style_variant_builder.build --diffs
 
 clean: ## Remove output directories
 	@rm -rf output development

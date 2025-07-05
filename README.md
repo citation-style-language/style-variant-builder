@@ -1,10 +1,10 @@
 # CSL Builder
 
-`csl-builder` is a tool designed to help maintain a family of Citation Style Language (CSL) styles. It allows you to define a single template for a style family and generate multiple variants by applying modifications (diffs). The tool also prunes unused macros from the final styles to ensure they are clean and efficient.
+`style-variant-builder` is a tool designed to help maintain a family of Citation Style Language (CSL) styles. It allows you to define a single template for a style family and generate multiple variants by applying modifications (diffs). The tool also prunes unused macros from the final styles to ensure they are clean and efficient.
 
 ## System Requirements
 
-Before using `csl-builder`, ensure your system has available:
+Before using `style-variant-builder`, ensure your system has available:
 
 - [**`uv`**](https://docs.astral.sh/uv/): A package manager for Python that executes commands in a virtual environment.
 - **`make`**: A build automation tool that is typically pre-installed on Unix-like systems. It runs the provided `Makefile`.
