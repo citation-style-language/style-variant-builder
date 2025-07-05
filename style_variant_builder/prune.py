@@ -106,7 +106,6 @@ class CSLPruner:
         for tag in entry_tags:
             for entry in self.root.iter(tag):
                 entry_macro_refs.update(self.gather_macro_refs(entry))
-        # Also, check the whole document
         entry_macro_refs.update(self.gather_macro_refs(self.root))
         for ref in entry_macro_refs:
             add_macro_and_deps(ref)

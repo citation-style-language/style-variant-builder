@@ -171,12 +171,12 @@ class CSLBuilder:
             )
             return
 
-        # First, collect development files that match the expected naming convention.
+        # Collect development files that match the expected naming convention.
         expected_dev_files = set(
             self.development_dir.glob(f"{self.style_family}*.csl")
         )
         additional_dev_files = []
-        # Also, examine all .csl files for an internal reference to the template.
+        # Examine .csl files for internal references to the template.
         for dev_file in self.development_dir.glob("*.csl"):
             if dev_file in expected_dev_files:
                 continue
@@ -237,8 +237,6 @@ def main() -> int:
         description=__doc__,
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
     )
-    # Removed --style-families argument; style families are now determined automatically.
-    # Group all directory options together.
     directories_group = parser.add_argument_group("Directory Options")
     directories_group.add_argument(
         "--templates-path",
