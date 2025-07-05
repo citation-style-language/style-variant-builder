@@ -1,16 +1,16 @@
 --- templates/chicago-template.csl
-+++ development/chicago-short-notes-bibliography-classic.csl
++++ development/chicago-shortened-notes-bibliography-classic-no-url.csl
 @@ -5,10 +5,11 @@
    type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
  <style and="text" class="note" demote-non-dropping-particle="display-and-sort" page-range-format="chicago" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>Chicago Manual of Style 18th edition (template)</title>
-+    <title>Chicago Manual of Style 18th edition (shortened notes and bibliography, with classic variants)</title>
++    <title>Chicago Manual of Style 18th edition (shortened notes and bibliography, with classic variants, without URLs)</title>
      <title-short>CMOS</title-short>
 -    <id>http://www.zotero.org/styles/chicago-notes-bibliography</id>
 -    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="self"/>
-+    <id>http://www.zotero.org/styles/chicago-short-notes-bibliography-classic</id>
-+    <link href="http://www.zotero.org/styles/chicago-short-notes-bibliography-classic" rel="self"/>
++    <id>http://www.zotero.org/styles/chicago-shortened-notes-bibliography-classic-no-url</id>
++    <link href="http://www.zotero.org/styles/chicago-shortened-notes-bibliography-classic-no-url" rel="self"/>
 +    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="template"/>
      <link href="http://www.chicagomanualofstyle.org/tools_citationguide.html" rel="documentation"/>
      <author>
@@ -20,10 +20,28 @@
      <category field="sociology"/>
      <category field="theology"/>
 -    <summary>Chicago-style source citations (with Bluebook for legal citations), template</summary>
-+    <summary>Chicago-style source citations (with Bluebook for legal citations), shortened author-title notes and bibliography system, with classic variants: chapter page numbers (CMOS18 14.8), place of publication (CMOS18 14.30), and 3-em dash (CMOS18 13.113)</summary>
++    <summary>Chicago-style source citations (with Bluebook for legal citations), shortened author-title notes and bibliography system, with classic variants: chapter page numbers (CMOS18 14.8), place of publication (CMOS18 14.30), and 3-em dash (CMOS18 13.113), without URLs (CMOS18 13.6)</summary>
      <updated>2025-05-19T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
+@@ -1432,7 +1433,7 @@
+       </group>
+       <text macro="source-medium-bib"/>
+       <text macro="source-archive-bib"/>
+-      <text macro="source-DOI-URL-bib"/>
++      <!-- <text macro="source-DOI-URL-bib"/> -->
+     </group>
+   </macro>
+   <macro name="title-and-source-note">
+@@ -1485,7 +1486,7 @@
+       </choose>
+       <text macro="source-medium-note"/>
+       <text macro="source-archive-note"/>
+-      <text macro="source-DOI-URL-note"/>
++      <!-- <text macro="source-DOI-URL-note"/> -->
+     </group>
+   </macro>
+   <!-- 3.1. Title -->
 @@ -3348,10 +3349,6 @@
            <if match="any" variable="collection-editor part-number part-title volume-title">
              <text macro="label-volume"/>
@@ -115,6 +133,15 @@
            <text variable="original-publisher"/>
          </group>
        </if>
+@@ -5973,7 +5960,7 @@
+         </else>
+       </choose>
+       <text variable="references"/>
+-      <text macro="source-DOI-URL"/>
++      <!-- <text macro="source-DOI-URL"/> -->
+     </group>
+   </macro>
+   <!-- 6.1. Legal author -->
 @@ -6624,7 +6611,7 @@
    </macro>
    <citation disambiguate-add-givenname="true" disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
