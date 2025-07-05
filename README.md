@@ -1,6 +1,6 @@
-# CSL Builder
+# Style Variant Builder
 
-`style-variant-builder` is a tool designed to help maintain a family of Citation Style Language (CSL) styles. It allows you to define a single template for a style family and generate multiple variants by applying modifications (diffs). The tool also prunes unused macros from the final styles to ensure they are clean and efficient.
+This tool assists in maintaining a family of Citation Style Language (CSL) styles. It allows you to define a single template for a style family and generate multiple variants by applying predefined modifications (diffs). The tool removes unused macros from the final styles. 
 
 ## System Requirements
 
@@ -24,6 +24,7 @@ Follow these steps to create and maintain a new family of CSL styles:
    - Add a new template file in the `templates` directory.
    - Name the file in the format `<style-name>-template.csl`. The `<style-name>` can be used to match the template with the variant files, if the template and variant files begin with the same prefix. If the script cannot match a variant with its template by file name, it will check for a linked `template` within the file itself.
    - The template should include all macros to which any variant in the family refers (such as macros for both notes and author–date styles). The build script will automatically prune unused macros in the final files.
+   - The large style families in this repository are constructed by encoding illustrative examples from style manuals in the [Zotero Test Items Library](https://www.zotero.org/groups/2205533/test_items_library/), comparing the rendered output with the official examples, working systematically through each chapter and adjusting the logic to match the published guides.
 
 2. **Run `make dev` to create development styles**
    - Use the command:
