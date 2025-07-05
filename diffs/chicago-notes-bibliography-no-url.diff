@@ -23,7 +23,7 @@
      <updated>2025-05-19T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -1423,7 +1423,7 @@
+@@ -1432,7 +1432,7 @@
        </group>
        <text macro="source-medium-bib"/>
        <text macro="source-archive-bib"/>
@@ -32,7 +32,7 @@
      </group>
    </macro>
    <macro name="title-and-source-note">
-@@ -1476,7 +1476,7 @@
+@@ -1485,7 +1485,7 @@
        </choose>
        <text macro="source-medium-note"/>
        <text macro="source-archive-note"/>
@@ -41,7 +41,7 @@
      </group>
    </macro>
    <!-- 3.1. Title -->
-@@ -5907,7 +5907,7 @@
+@@ -5973,7 +5973,7 @@
          </else>
        </choose>
        <text variable="references"/>
