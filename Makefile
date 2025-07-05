@@ -1,5 +1,5 @@
 # Phony targets ensure commands always run
-.PHONY: final unpruned diffs clean help
+.PHONY: final dev diffs clean help
 
 final: ## Build CSL variants with default style families
 	@uv run python3 -m style_variant_builder.build
