@@ -32,7 +32,7 @@
 -    <category field="theology"/>
 -    <summary>MHRA source citations, template</summary>
 +    <issn>0068-6611</issn>
-+    <summary>MHRA source citations, notes system, substituting place of publication for publisher names; without URLs; unlabelled page locator</summary>
++    <summary>MHRA source citations, notes system, substituting places of publication for publisher names; without URLs; unlabelled page locators</summary>
      <updated>2025-05-19T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
@@ -47,7 +47,7 @@
 -        </if>
 +        </else-if>
          <!-- a non-numeric canonical reference is described by its formatting and does not need a label, similar to a timestamp (MHRA 7.3c) -->
-         <else-if locator="book chapter line verse" match="any"/>
+         <else-if locator="chapter line verse" match="any"/>
          <else>
 @@ -264,7 +263,7 @@
    </macro>
@@ -70,7 +70,7 @@
      </group>
    </macro>
    <!-- 3.1. Title -->
-@@ -3042,8 +3041,8 @@
+@@ -3039,8 +3038,8 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -81,7 +81,7 @@
            </group>
          </else-if>
          <!-- TODO: remove conditional when Zotero fixes double-mapping of `event-place` -->
-@@ -3064,8 +3063,8 @@
+@@ -3061,8 +3060,8 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
