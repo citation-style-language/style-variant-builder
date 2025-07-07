@@ -5,13 +5,14 @@
  <style and="text" class="note" demote-non-dropping-particle="display-and-sort" page-range-format="chicago" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>Chicago Manual of Style 18th edition (template)</title>
-+    <title>Chicago Manual of Style 18th edition (notes and bibliography, archival references with place first)</title>
-     <title-short>CMOS</title-short>
+-    <title-short>CMOS</title-short>
 -    <id>http://www.zotero.org/styles/chicago-notes-bibliography</id>
 -    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="self"/>
++    <title>Chicago Manual of Style 18th edition (notes and bibliography, archival references with place first)</title>
++    <title-short>CMOS (notes and bibliography, archive place first)</title-short>
 +    <id>http://www.zotero.org/styles/chicago-notes-bibliography-archive-place-first</id>
 +    <link href="http://www.zotero.org/styles/chicago-notes-bibliography-archive-place-first" rel="self"/>
-     <link href="http://www.chicagomanualofstyle.org/tools_citationguide.html" rel="documentation"/>
+     <link href="https://www.chicagomanualofstyle.org/" rel="documentation"/>
      <author>
        <name>Andrew Dunning</name>
 @@ -30,7 +30,7 @@

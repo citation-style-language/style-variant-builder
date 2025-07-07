@@ -8,15 +8,15 @@
 +<style and="text" class="in-text" demote-non-dropping-particle="display-and-sort" page-range-format="chicago" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>Chicago Manual of Style 18th edition (template)</title>
-+    <title>Chicago Manual of Style 17th edition (author-date)</title>
-     <title-short>CMOS</title-short>
+-    <title-short>CMOS</title-short>
 -    <id>http://www.zotero.org/styles/chicago-notes-bibliography</id>
 -    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="self"/>
--    <link href="http://www.chicagomanualofstyle.org/tools_citationguide.html" rel="documentation"/>
++    <title>Chicago Manual of Style 17th edition (author-date)</title>
++    <title-short>CMOS 17e (author-date)</title-short>
 +    <id>http://www.zotero.org/styles/chicago-author-date-17th-edition</id>
 +    <link href="http://www.zotero.org/styles/chicago-author-date-17th-edition" rel="self"/>
 +    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="template"/>
-+    <link href="https://web.archive.org/web/20240801040138/https://www.chicagomanualofstyle.org/tools_citationguide.html" rel="documentation"/>
+     <link href="https://www.chicagomanualofstyle.org/" rel="documentation"/>
      <author>
        <name>Andrew Dunning</name>
        <uri>https://orcid.org/0000-0003-0464-5036</uri>
