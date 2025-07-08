@@ -25,7 +25,7 @@
      <updated>2025-05-19T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -1432,7 +1433,7 @@
+@@ -1442,7 +1443,7 @@
        </group>
        <text macro="source-medium-bib"/>
        <text macro="source-archive-bib"/>
@@ -34,7 +34,7 @@
      </group>
    </macro>
    <macro name="title-and-source-note">
-@@ -1485,7 +1486,7 @@
+@@ -1495,7 +1496,7 @@
        </choose>
        <text macro="source-medium-note"/>
        <text macro="source-archive-note"/>
@@ -43,7 +43,7 @@
      </group>
    </macro>
    <!-- 3.1. Title -->
-@@ -5973,7 +5974,7 @@
+@@ -6035,7 +6036,7 @@
          </else>
        </choose>
        <text variable="references"/>
@@ -52,7 +52,7 @@
      </group>
    </macro>
    <!-- 6.1. Legal author -->
-@@ -6622,7 +6623,7 @@
+@@ -6684,7 +6685,7 @@
        </else>
      </choose>
    </macro>
@@ -61,7 +61,7 @@
      <layout delimiter="; " suffix=".">
        <text macro="citation-notes-full-subsequent-author-title"/>
      </layout>
-@@ -6782,18 +6783,4 @@
+@@ -6844,18 +6845,4 @@
        </else>
      </choose>
    </macro>

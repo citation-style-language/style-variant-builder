@@ -8,7 +8,7 @@
 -    <title-short>CMOS</title-short>
 -    <id>http://www.zotero.org/styles/chicago-notes-bibliography</id>
 -    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="self"/>
-+    <title>Chicago Manual of Style 18th edition (notes without bibliography, with place of publication, without URLs)</title>
++    <title>Chicago Manual of Style 18th edition (notes without bibliography, with classic variants, without URLs)</title>
 +    <title-short>CMOS (notes only, publisher place, no URLs)</title-short>
 +    <id>http://www.zotero.org/styles/chicago-notes-classic-no-url</id>
 +    <link href="http://www.zotero.org/styles/chicago-notes-classic-no-url" rel="self"/>
@@ -25,7 +25,7 @@
      <updated>2025-05-19T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -1432,7 +1433,7 @@
+@@ -1442,7 +1443,7 @@
        </group>
        <text macro="source-medium-bib"/>
        <text macro="source-archive-bib"/>
@@ -34,7 +34,7 @@
      </group>
    </macro>
    <macro name="title-and-source-note">
-@@ -1485,7 +1486,7 @@
+@@ -1495,7 +1496,7 @@
        </choose>
        <text macro="source-medium-note"/>
        <text macro="source-archive-note"/>
@@ -43,7 +43,18 @@
      </group>
    </macro>
    <!-- 3.1. Title -->
-@@ -4063,11 +4064,9 @@
+@@ -3358,10 +3359,6 @@
+           <if match="any" variable="collection-editor part-number part-title volume-title">
+             <text macro="label-volume"/>
+           </if>
+-          <else-if variable="container-title title">
+-            <!-- remove condition in styles that provide chapter page numbers -->
+-            <text macro="label-volume"/>
+-          </else-if>
+         </choose>
+       </else-if>
+       <else-if variable="volume">
+@@ -4073,11 +4070,9 @@
            </if>
          </choose>
        </else-if>
@@ -55,7 +66,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number-capitalized"/>
-@@ -4099,11 +4098,9 @@
+@@ -4109,11 +4104,9 @@
            </if>
          </choose>
        </else-if>
@@ -67,18 +78,27 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number"/>
-@@ -4496,10 +4493,6 @@
+@@ -4506,10 +4499,6 @@
              <if is-numeric="volume" match="none">
                <text macro="label-volume"/>
              </if>
--            <else-if type="chapter">
+-            <else-if variable="container-title title">
 -              <!-- remove condition in styles that print chapter page numbers -->
 -              <text macro="label-volume"/>
 -            </else-if>
              <else-if is-numeric="volume" variable="page">
                <choose>
                  <!-- check for variables that might come between the volume and page number -->
-@@ -5252,7 +5245,7 @@
+@@ -4546,8 +4535,6 @@
+       <else-if variable="locator">
+         <text macro="label-locator"/>
+       </else-if>
+-      <!-- Remove `container-title` condition in styles that provide chapter page numbers -->
+-      <else-if variable="container-title title"/>
+       <else-if is-numeric="volume" variable="page">
+         <!-- collapse the volume and page number if adjacent -->
+         <group delimiter=":">
+@@ -5314,7 +5301,7 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -87,7 +107,7 @@
              <text text-case="capitalize-first" variable="publisher"/>
            </group>
          </else-if>
-@@ -5278,7 +5271,7 @@
+@@ -5340,7 +5327,7 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -96,7 +116,7 @@
              <text variable="publisher"/>
            </group>
          </else-if>
-@@ -5300,7 +5293,7 @@
+@@ -5362,7 +5349,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -105,7 +125,7 @@
            <text text-case="capitalize-first" variable="original-publisher"/>
          </group>
        </if>
-@@ -5313,7 +5306,7 @@
+@@ -5375,7 +5362,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -114,7 +134,7 @@
            <text variable="original-publisher"/>
          </group>
        </if>
-@@ -5973,7 +5966,7 @@
+@@ -6035,7 +6022,7 @@
          </else>
        </choose>
        <text variable="references"/>
@@ -123,7 +143,7 @@
      </group>
    </macro>
    <!-- 6.1. Legal author -->
-@@ -6622,7 +6615,7 @@
+@@ -6684,7 +6671,7 @@
        </else>
      </choose>
    </macro>
@@ -132,7 +152,7 @@
      <layout delimiter="; " suffix=".">
        <text macro="citation-notes-full-subsequent-author-title"/>
      </layout>
-@@ -6782,18 +6775,4 @@
+@@ -6844,18 +6831,4 @@
        </else>
      </choose>
    </macro>

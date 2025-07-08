@@ -25,18 +25,18 @@
      <updated>2025-05-19T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -3348,10 +3349,6 @@
+@@ -3358,10 +3359,6 @@
            <if match="any" variable="collection-editor part-number part-title volume-title">
              <text macro="label-volume"/>
            </if>
--          <else-if type="chapter">
+-          <else-if variable="container-title title">
 -            <!-- remove condition in styles that provide chapter page numbers -->
 -            <text macro="label-volume"/>
 -          </else-if>
          </choose>
        </else-if>
        <else-if variable="volume">
-@@ -4063,11 +4060,9 @@
+@@ -4073,11 +4070,9 @@
            </if>
          </choose>
        </else-if>
@@ -48,7 +48,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number-capitalized"/>
-@@ -4099,11 +4094,9 @@
+@@ -4109,11 +4104,9 @@
            </if>
          </choose>
        </else-if>
@@ -60,27 +60,27 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number"/>
-@@ -4496,10 +4489,6 @@
+@@ -4506,10 +4499,6 @@
              <if is-numeric="volume" match="none">
                <text macro="label-volume"/>
              </if>
--            <else-if type="chapter">
+-            <else-if variable="container-title title">
 -              <!-- remove condition in styles that print chapter page numbers -->
 -              <text macro="label-volume"/>
 -            </else-if>
              <else-if is-numeric="volume" variable="page">
                <choose>
                  <!-- check for variables that might come between the volume and page number -->
-@@ -4536,8 +4525,6 @@
+@@ -4546,8 +4535,6 @@
        <else-if variable="locator">
          <text macro="label-locator"/>
        </else-if>
--      <!-- Remove `type="chapter"` condition in styles that provide chapter page numbers -->
--      <else-if type="chapter"/>
+-      <!-- Remove `container-title` condition in styles that provide chapter page numbers -->
+-      <else-if variable="container-title title"/>
        <else-if is-numeric="volume" variable="page">
          <!-- collapse the volume and page number if adjacent -->
          <group delimiter=":">
-@@ -5252,7 +5239,7 @@
+@@ -5314,7 +5301,7 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -89,7 +89,7 @@
              <text text-case="capitalize-first" variable="publisher"/>
            </group>
          </else-if>
-@@ -5278,7 +5265,7 @@
+@@ -5340,7 +5327,7 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -98,7 +98,7 @@
              <text variable="publisher"/>
            </group>
          </else-if>
-@@ -5300,7 +5287,7 @@
+@@ -5362,7 +5349,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -107,7 +107,7 @@
            <text text-case="capitalize-first" variable="original-publisher"/>
          </group>
        </if>
-@@ -5313,7 +5300,7 @@
+@@ -5375,7 +5362,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -116,7 +116,7 @@
            <text variable="original-publisher"/>
          </group>
        </if>
-@@ -5401,14 +5388,10 @@
+@@ -5463,14 +5450,10 @@
          <text macro="date-issued-full"/>
        </if>
        <else-if variable="issue volume">
@@ -133,7 +133,7 @@
        </else-if>
        <else-if match="any" variable="issue volume">
          <date date-parts="year-month" form="text" variable="issued"/>
-@@ -5561,14 +5544,10 @@
+@@ -5623,14 +5606,10 @@
    <macro name="source-date-original-full-serial">
      <choose>
        <if variable="issue volume">
@@ -150,7 +150,7 @@
        </else-if>
        <else-if match="any" variable="issue volume">
          <date date-parts="year-month" form="text" variable="original-date"/>
-@@ -6622,9 +6601,9 @@
+@@ -6684,9 +6663,9 @@
        </else>
      </choose>
    </macro>
@@ -162,7 +162,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -6782,7 +6761,7 @@
+@@ -6844,7 +6823,7 @@
        </else>
      </choose>
    </macro>
