@@ -29,7 +29,6 @@
   <locale xml:lang="en">
     <terms>
       <term name="advance-online-publication">published online</term>
-      <term form="short" name="collection-number">vol.</term>
       <term form="short" name="editor-translator">
         <single>ed. and trans.</single>
         <multiple>eds and trans.</multiple>
@@ -118,16 +117,6 @@
         </else-if>
       </choose>
       <text text-case="capitalize-first" variable="chapter-number"/>
-    </group>
-  </macro>
-  <macro name="label-collection-number">
-    <group delimiter=" ">
-      <choose>
-        <if is-numeric="collection-number">
-          <label form="short" variable="collection-number"/>
-        </if>
-      </choose>
-      <text variable="collection-number"/>
     </group>
   </macro>
   <macro name="label-edition">
