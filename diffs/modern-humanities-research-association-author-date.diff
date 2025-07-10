@@ -35,7 +35,7 @@
      <updated>2025-05-19T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -3077,9 +3078,7 @@
+@@ -3082,9 +3083,7 @@
          <date date-parts="year" form="text" variable="available-date"/>
        </if>
        <else>
@@ -46,7 +46,7 @@
        </else>
      </choose>
    </macro>
-@@ -3228,9 +3227,7 @@
+@@ -3233,9 +3232,7 @@
      </choose>
    </macro>
    <macro name="source-date-original">
@@ -57,7 +57,7 @@
    </macro>
    <macro name="source-date-original-full">
      <!-- Give full date for more ephemeral types; reflected in `date-sort` -->
-@@ -3555,9 +3552,9 @@
+@@ -3601,9 +3598,9 @@
        </choose>
      </group>
    </macro>
@@ -70,7 +70,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -3581,15 +3578,15 @@
+@@ -3717,15 +3714,15 @@
    <bibliography hanging-indent="true" subsequent-author-substitute="&#8212;&#8212;" subsequent-author-substitute-rule="partial-first">
      <sort>
        <key macro="author-bib"/>
@@ -84,8 +84,8 @@
        <key macro="source-archive"/>
      </sort>
      <layout>
--      <text macro="bibliography-notes"/>
-+      <text macro="bibliography-author-date"/>
+-      <text macro="bibliography-filtered-notes"/>
++      <text macro="bibliography-filtered-author-date"/>
      </layout>
    </bibliography>
  </style>

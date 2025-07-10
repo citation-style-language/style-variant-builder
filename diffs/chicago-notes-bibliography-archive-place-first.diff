@@ -24,7 +24,7 @@
      <updated>2025-05-19T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -5852,7 +5852,7 @@
+@@ -5855,7 +5855,7 @@
          <text macro="source-archive-name-first"/>
        </if>
        <else-if match="any" type="collection document manuscript" variable="archive_collection archive-place">
@@ -33,7 +33,7 @@
        </else-if>
        <else>
          <text macro="source-archive-identifier"/>
-@@ -5866,7 +5866,7 @@
+@@ -5869,7 +5869,7 @@
          <text macro="source-archive-name-first"/>
        </if>
        <else-if match="any" type="collection document manuscript" variable="archive_collection archive-place">
