@@ -6616,37 +6616,33 @@
     </group>
   </macro>
   <macro name="citation-notes-shortened-title-only">
-    <choose>
-      <if type="classic">
-        <!-- with `classic`, a non-numeric canonical reference or identifying number is separated by a space rather than a comma (CMOS18 14.145) -->
-        <choose>
-          <if is-numeric="locator">
-            <group delimiter=", ">
+    <group delimiter=", ">
+      <choose>
+        <if type="classic">
+          <!-- with `classic`, a non-numeric canonical reference or identifying number is separated by a space rather than a comma (CMOS18 14.145) -->
+          <choose>
+            <if is-numeric="locator">
               <text macro="title-and-descriptions-short"/>
               <text macro="source-locator-subsequent"/>
-            </group>
-          </if>
-          <else-if locator="chapter line verse" match="any">
-            <group delimiter=" ">
+            </if>
+            <else-if locator="chapter line verse" match="any">
+              <group delimiter=" ">
+                <text macro="title-and-descriptions-short"/>
+                <text macro="source-locator-subsequent"/>
+              </group>
+            </else-if>
+            <else>
               <text macro="title-and-descriptions-short"/>
               <text macro="source-locator-subsequent"/>
-            </group>
-          </else-if>
-          <else>
-            <group delimiter=", ">
-              <text macro="title-and-descriptions-short"/>
-              <text macro="source-locator-subsequent"/>
-            </group>
-          </else>
-        </choose>
-      </if>
-      <else>
-        <group delimiter=", ">
+            </else>
+          </choose>
+        </if>
+        <else>
           <text macro="title-and-descriptions-short"/>
           <text macro="source-locator-subsequent"/>
-        </group>
-      </else>
-    </choose>
+        </else>
+      </choose>
+    </group>
   </macro>
   <macro name="citation-notes-shortened-subsequent-author-only">
     <choose>
