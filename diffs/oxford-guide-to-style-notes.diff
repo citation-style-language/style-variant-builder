@@ -1,0 +1,79 @@
+--- templates/new-harts-rules-template.csl
++++ development/oxford-guide-to-style-notes.csl
+@@ -5,10 +5,11 @@
+   type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+ <style and="text" class="note" default-locale="en-GB" demote-non-dropping-particle="display-and-sort" et-al-min="4" et-al-use-first="1" page-range-format="chicago" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
+   <info>
+-    <title>New Hart's Rules: The Oxford Style Guide 2nd edition (template)</title>
+-    <title-short>NHR (template)</title-short>
+-    <id>http://www.zotero.org/styles/new-harts-rules-notes</id>
+-    <link href="http://www.zotero.org/styles/new-harts-rules-notes" rel="self"/>
++    <title>Oxford Guide to Style (notes)</title>
++    <title-short>OGS (notes)</title-short>
++    <id>http://www.zotero.org/styles/oxford-guide-to-style-notes</id>
++    <link href="http://www.zotero.org/styles/oxford-guide-to-style-notes" rel="self"/>
++    <link href="http://www.zotero.org/styles/new-harts-rules-notes" rel="template"/>
+     <link href="https://en.wikipedia.org/wiki/Hart's_Rules" rel="documentation"/>
+     <author>
+       <name>Andrew Dunning</name>
+@@ -30,7 +31,7 @@
+     <category field="social_science"/>
+     <category field="sociology"/>
+     <category field="theology"/>
+-    <summary>Oxford source citations, template</summary>
++    <summary>Oxford source citations, notes system</summary>
+     <updated>2025-07-15T00:00:00+00:00</updated>
+     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
+   </info>
+@@ -395,11 +396,8 @@
+   <macro name="author-bib">
+     <group delimiter=", ">
+       <names variable="composer">
+-        <name delimiter-precedes-et-al="after-inverted-name" delimiter-precedes-last="always" name-as-sort-order="first"/>
+-        <!-- for OGS:
+         <name delimiter-precedes-et-al="after-inverted-name" delimiter-precedes-last="always" font-variant="small-caps" name-as-sort-order="first"/>
+         <et-al font-variant="normal"/>
+-        -->
+         <label form="short" prefix=", "/>
+         <substitute>
+           <names variable="author"/>
+@@ -2434,8 +2432,6 @@
+           </group>
+         </if>
+       </choose>
+-      <!-- move `source-series` for OGS: -->
+-      <text macro="source-series"/>
+       <text macro="source-event"/>
+     </group>
+   </macro>
+@@ -2595,9 +2591,7 @@
+   <macro name="source-monographic-locator">
+     <choose>
+       <if is-numeric="volume" locator="page">
+-        <group delimiter=", ">
+-          <!-- for OGS: -->
+-          <!-- <group delimiter=". " -->
++        <group delimiter=". ">
+           <choose>
+             <if match="none" variable="collection-editor part-number part-title volume-title">
+               <text variable="volume"/>
+@@ -2806,8 +2800,7 @@
+           <choose>
+             <if match="any" variable="collection-editor container-author editor editorial-director">
+               <!-- monographic usage -->
+-              <!-- for OGS: -->
+-              <!-- <text macro="source-series"/> -->
++              <text macro="source-series"/>
+               <text macro="source-publication-and-date"/>
+             </if>
+           </choose>
+@@ -2815,8 +2808,7 @@
+         <!-- `patent` date in identification (cf. CMOS18 14.158) -->
+         <else-if type="patent"/>
+         <else>
+-          <!-- for OGS: -->
+-          <!-- <text macro="source-series"/> -->
++          <text macro="source-series"/>
+           <text macro="source-publication-and-date"/>
+         </else>
+       </choose>
