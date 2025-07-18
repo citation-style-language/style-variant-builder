@@ -291,7 +291,7 @@
        </else-if>
        <else-if match="any" variable="issue volume">
          <date date-parts="year-month" form="text" variable="original-date"/>
-@@ -6687,9 +6629,9 @@
+@@ -6677,9 +6619,9 @@
        </else>
      </choose>
    </macro>
@@ -304,7 +304,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -6847,18 +6789,18 @@
+@@ -6837,18 +6777,18 @@
        </else>
      </choose>
    </macro>

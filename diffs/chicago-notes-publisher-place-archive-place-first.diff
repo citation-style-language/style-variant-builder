@@ -87,7 +87,7 @@
        </else-if>
        <!-- Without `archive_collection` or `archive-place`: digital archives (database and identifier) -->
        <else>
-@@ -6687,7 +6688,7 @@
+@@ -6677,7 +6678,7 @@
        </else>
      </choose>
    </macro>
@@ -96,7 +96,7 @@
      <layout delimiter="; " suffix=".">
        <text macro="citation-notes-full-subsequent-author-title"/>
      </layout>
-@@ -6847,18 +6848,4 @@
+@@ -6837,18 +6838,4 @@
        </else>
      </choose>
    </macro>

@@ -103,7 +103,7 @@
      </group>
    </macro>
    <!-- 6.1. Legal author -->
-@@ -6687,9 +6682,9 @@
+@@ -6677,9 +6672,9 @@
        </else>
      </choose>
    </macro>
@@ -116,7 +116,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -6850,15 +6845,15 @@
+@@ -6840,15 +6835,15 @@
    <bibliography et-al-min="7" et-al-use-first="3" hanging-indent="true">
      <sort>
        <key macro="author-sort"/>

@@ -167,7 +167,7 @@
    </macro>
    <macro name="source-date-original-full">
      <!-- Give full date for more ephemeral types; reflected in `date-sort` -->
-@@ -6687,9 +6668,9 @@
+@@ -6677,9 +6658,9 @@
        </else>
      </choose>
    </macro>
@@ -180,7 +180,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -6847,18 +6828,18 @@
+@@ -6837,18 +6818,18 @@
        </else>
      </choose>
    </macro>

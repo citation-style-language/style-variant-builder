@@ -194,7 +194,7 @@
      </group>
    </macro>
    <!-- 6.1. Legal author -->
-@@ -6687,9 +6668,9 @@
+@@ -6677,9 +6658,9 @@
        </else>
      </choose>
    </macro>
@@ -207,7 +207,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -6847,18 +6828,18 @@
+@@ -6837,18 +6818,18 @@
        </else>
      </choose>
    </macro>

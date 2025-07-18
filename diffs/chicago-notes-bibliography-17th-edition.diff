@@ -150,7 +150,7 @@
        </else-if>
        <else-if match="any" variable="issue volume">
          <date date-parts="year-month" form="text" variable="original-date"/>
-@@ -6687,9 +6666,9 @@
+@@ -6677,9 +6656,9 @@
        </else>
      </choose>
    </macro>
@@ -162,7 +162,16 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -6847,7 +6826,7 @@
+@@ -6795,8 +6774,6 @@
+           </if>
+         </choose>
+       </else-if>
+-      <!-- social media content now omitted from the bibliography (CMOS18 14.106), but included in earlier editions (CMOS17 14.209) -->
+-      <else-if type="post"/>
+       <else>
+         <text macro="bibliography-notes"/>
+       </else>
+@@ -6837,7 +6814,7 @@
        </else>
      </choose>
    </macro>

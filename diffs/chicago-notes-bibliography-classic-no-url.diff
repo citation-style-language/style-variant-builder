@@ -143,7 +143,7 @@
      </group>
    </macro>
    <!-- 6.1. Legal author -->
-@@ -6847,7 +6834,7 @@
+@@ -6837,7 +6824,7 @@
        </else>
      </choose>
    </macro>

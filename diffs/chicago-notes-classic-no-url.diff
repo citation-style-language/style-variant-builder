@@ -143,7 +143,7 @@
      </group>
    </macro>
    <!-- 6.1. Legal author -->
-@@ -6687,7 +6674,7 @@
+@@ -6677,7 +6664,7 @@
        </else>
      </choose>
    </macro>
@@ -152,7 +152,7 @@
      <layout delimiter="; " suffix=".">
        <text macro="citation-notes-full-subsequent-author-title"/>
      </layout>
-@@ -6847,18 +6834,4 @@
+@@ -6837,18 +6824,4 @@
        </else>
      </choose>
    </macro>
