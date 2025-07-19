@@ -57,20 +57,20 @@
    </macro>
    <macro name="source-date-original-full">
      <!-- Give full date for more ephemeral types; reflected in `date-sort` -->
-@@ -3601,9 +3598,9 @@
+@@ -3617,9 +3614,9 @@
        </choose>
      </group>
    </macro>
 -  <citation disambiguate-add-givenname="true" disambiguate-add-names="true">
 -    <layout delimiter="; " suffix=".">
--      <text macro="citation-notes-full-subsequent-ibid"/>
+-      <text macro="citation-notes-full-subsequent-author-title"/>
 +  <citation after-collapse-delimiter="; " collapse="year" disambiguate-add-givenname="true" disambiguate-add-names="true" disambiguate-add-year-suffix="true" givenname-disambiguation-rule="primary-name-with-initials">
 +    <layout delimiter="; " prefix="(" suffix=")">
 +      <text macro="citation-author-date"/>
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -3717,15 +3714,15 @@
+@@ -3733,15 +3730,15 @@
    <bibliography hanging-indent="true" subsequent-author-substitute="&#8212;&#8212;" subsequent-author-substitute-rule="partial-first">
      <sort>
        <key macro="author-bib"/>
