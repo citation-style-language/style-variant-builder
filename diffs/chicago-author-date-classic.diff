@@ -8,11 +8,11 @@
 +<style and="text" class="in-text" demote-non-dropping-particle="display-and-sort" page-range-format="chicago-16" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>Chicago Manual of Style 18th edition (template)</title>
--    <title-short>CMOS</title-short>
+-    <title-short>CMOS with Bluebook</title-short>
 -    <id>http://www.zotero.org/styles/chicago-notes-bibliography</id>
 -    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="self"/>
-+    <title>Chicago Manual of Style 18th edition (author-date, with classic variants)</title>
-+    <title-short>CMOS (author-date, classic variants)</title-short>
++    <title>Chicago Manual of Style 18th edition (author-date, classic variants)</title>
++    <title-short>CMOS with Bluebook (author-date, classic variants)</title-short>
 +    <id>http://www.zotero.org/styles/chicago-author-date-classic</id>
 +    <link href="http://www.zotero.org/styles/chicago-author-date-classic" rel="self"/>
 +    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="template"/>
@@ -31,22 +31,22 @@
      <category field="sociology"/>
      <category field="theology"/>
 -    <summary>Chicago-style source citations (with Bluebook for legal citations), template</summary>
-+    <summary>Chicago-style source citations (with Bluebook for legal citations), author-date system, with classic variants: chapter page numbers (CMOS18 14.8), place of publication (CMOS18 14.30), and 3-em dash (CMOS18 13.113)</summary>
++    <summary>Chicago-style source citations (with Bluebook for legal citations), author-date system, with classic variants: 3-em dash for repeated names (CMOS18 13.113), chapter page numbers (CMOS18 14.8), and place of publication (CMOS18 14.30)</summary>
      <updated>2025-05-19T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -3361,10 +3362,6 @@
+@@ -3354,10 +3355,6 @@
            <if match="any" variable="collection-editor part-number part-title volume-title">
              <text macro="label-volume"/>
            </if>
--          <else-if variable="container-title title">
--            <!-- remove condition in styles that provide chapter page numbers -->
+-          <else-if variable="container-title">
+-            <!-- remove condition in styles that print chapter page numbers (CMOS17/classic) -->
 -            <text macro="label-volume"/>
 -          </else-if>
          </choose>
        </else-if>
        <else-if variable="volume">
-@@ -3638,14 +3635,14 @@
+@@ -3631,14 +3628,14 @@
      <choose>
        <if match="any" variable="issue supplement-number volume">
          <group delimiter=": ">
@@ -63,51 +63,51 @@
              <!-- periodical edition always capitalized (CMOS18 14.89) -->
              <text macro="label-edition-capitalized"/>
            </group>
-@@ -4076,11 +4073,9 @@
+@@ -4071,11 +4068,9 @@
            </if>
          </choose>
        </else-if>
--      <!-- if printing chapter page numbers:
-       <else-if variable="chapter-number page">
+-      <!-- if printing chapter page numbers (CMOS17/classic):
+       <else-if variable="chapter-number page title">
          <text term="in" text-case="capitalize-first"/>
        </else-if>
 -      -->
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number-capitalized"/>
-@@ -4112,11 +4107,9 @@
+@@ -4107,11 +4102,9 @@
            </if>
          </choose>
        </else-if>
--      <!-- if printing chapter page numbers:
-       <else-if variable="chapter-number page">
+-      <!-- if printing chapter page numbers (CMOS17/classic):
+       <else-if variable="chapter-number page title">
          <text term="in"/>
        </else-if>
 -      -->
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number"/>
-@@ -4509,10 +4502,6 @@
+@@ -4504,10 +4497,6 @@
              <if is-numeric="volume" match="none">
                <text macro="label-volume"/>
              </if>
--            <else-if variable="container-title title">
--              <!-- remove condition in styles that print chapter page numbers -->
+-            <else-if variable="container-title">
+-              <!-- remove condition in styles that print chapter page numbers (CMOS17/classic) -->
 -              <text macro="label-volume"/>
 -            </else-if>
              <else-if is-numeric="volume" variable="page">
                <choose>
                  <!-- check for variables that might come between the volume and page number -->
-@@ -4549,8 +4538,6 @@
+@@ -4544,8 +4533,6 @@
        <else-if variable="locator">
          <text macro="label-locator"/>
        </else-if>
--      <!-- Remove `container-title` condition in styles that provide chapter page numbers -->
--      <else-if variable="container-title title"/>
+-      <!-- remove `container-title` condition in styles that print chapter page numbers (CMOS17/classic) -->
+-      <else-if variable="container-title"/>
        <else-if is-numeric="volume" variable="page">
          <!-- collapse the volume and page number if adjacent -->
          <group delimiter=":">
-@@ -5317,7 +5304,7 @@
+@@ -5312,7 +5299,7 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -116,7 +116,7 @@
              <text text-case="capitalize-first" variable="publisher"/>
            </group>
          </else-if>
-@@ -5343,7 +5330,7 @@
+@@ -5338,7 +5325,7 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -125,7 +125,7 @@
              <text variable="publisher"/>
            </group>
          </else-if>
-@@ -5365,7 +5352,7 @@
+@@ -5360,7 +5347,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -134,7 +134,7 @@
            <text text-case="capitalize-first" variable="original-publisher"/>
          </group>
        </if>
-@@ -5378,7 +5365,7 @@
+@@ -5373,7 +5360,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -143,44 +143,42 @@
            <text variable="original-publisher"/>
          </group>
        </if>
-@@ -5398,11 +5385,7 @@
+@@ -5395,9 +5382,7 @@
          <date date-parts="year" form="text" variable="available-date"/>
        </else-if>
        <else>
 -        <text macro="source-date-issued-or-status"/>
--        <!-- for author-date 17th edition: -->
--        <!-- <text macro="source-date-issued-full"/> -->
--        <!-- for author-date 18th edition: -->
+-        <!-- for author-date: -->
 -        <!-- <text macro="source-date-issued-month-day"/> -->
 +        <text macro="source-date-issued-month-day"/>
        </else>
      </choose>
    </macro>
-@@ -5577,9 +5560,7 @@
+@@ -5568,9 +5553,7 @@
      </choose>
    </macro>
    <macro name="source-date-original">
 -    <text macro="source-date-original-full"/>
--    <!-- form for author-date from 18th edition: -->
+-    <!-- for author-date 18th edition: -->
 -    <!-- <text macro="source-date-original-month-day"/> -->
 +    <text macro="source-date-original-month-day"/>
    </macro>
    <macro name="source-date-original-full">
-     <!-- Give full date for more ephemeral types; reflected in `date-sort` -->
-@@ -6677,9 +6658,9 @@
+     <!-- Give full date for more ephemeral types -->
+@@ -6690,9 +6673,9 @@
        </else>
      </choose>
    </macro>
 -  <citation disambiguate-add-givenname="true" disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
 -    <layout delimiter="; " suffix=".">
 -      <text macro="citation-notes-full-subsequent-author-title"/>
-+  <citation after-collapse-delimiter="; " collapse="year" disambiguate-add-givenname="true" disambiguate-add-names="true" disambiguate-add-year-suffix="true" et-al-min="3" et-al-use-first="1" givenname-disambiguation-rule="primary-name-with-initials">
++  <citation after-collapse-delimiter="; " collapse="year" disambiguate-add-givenname="true" disambiguate-add-names="true" disambiguate-add-year-suffix="true" et-al-min="3" et-al-use-first="1">
 +    <layout delimiter="; " prefix="(" suffix=")">
 +      <text macro="citation-author-date"/>
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -6837,18 +6818,18 @@
+@@ -6853,19 +6836,21 @@
        </else>
      </choose>
    </macro>
@@ -189,14 +187,15 @@
      <sort>
        <key macro="author-sort"/>
 +      <key macro="date-sort-group"/>
-+      <key macro="date-sort"/>
++      <key macro="date-sort-year"/>
 +      <key variable="status"/>
-       <key macro="title-bib"/>
-       <key variable="part-number"/>
+       <key macro="title-and-descriptions-bib"/>
        <key variable="volume"/>
--      <key macro="date-sort"/>
+       <key variable="part-number"/>
+       <key variable="event-date"/>
+       <key variable="issued"/>
 -      <key variable="status"/>
--      <key macro="source-archive-bib"/>
+       <key macro="source-archive-bib"/>
      </sort>
      <layout suffix=".">
 -      <text macro="bibliography-filtered-notes"/>

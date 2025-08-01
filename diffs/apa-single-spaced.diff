@@ -5,12 +5,12 @@
  <style and="symbol" class="in-text" demote-non-dropping-particle="never" initialize-with=". " names-delimiter=", " page-range-format="expanded" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>American Psychological Association 7th edition (template)</title>
--    <title-short>APA Style</title-short>
+-    <title-short>APA Style with Bluebook</title-short>
 -    <id>http://www.zotero.org/styles/apa</id>
 -    <link href="http://www.zotero.org/styles/apa" rel="self"/>
 -    <link href="http://www.zotero.org/styles/apa-6th-edition" rel="template"/>
 +    <title>American Psychological Association 7th edition (single-spaced bibliography)</title>
-+    <title-short>APA Style (single-spaced bibliography)</title-short>
++    <title-short>APA Style with Bluebook (single-spaced bibliography)</title-short>
 +    <id>http://www.zotero.org/styles/apa-single-spaced</id>
 +    <link href="http://www.zotero.org/styles/apa-single-spaced" rel="self"/>
 +    <link href="http://www.zotero.org/styles/apa" rel="template"/>
@@ -26,7 +26,7 @@
      <updated>2025-04-14T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -2362,7 +2362,7 @@
+@@ -2386,7 +2386,7 @@
        </else>
      </choose>
    </macro>

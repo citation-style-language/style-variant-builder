@@ -35,7 +35,26 @@
      <updated>2025-05-19T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -3082,9 +3083,7 @@
+@@ -2528,18 +2529,6 @@
+           </else-if>
+         </choose>
+       </group>
+-      <!-- remove volume `issued` date from this position in author-date -->
+-      <choose>
+-        <if variable="available-date issued volume">
+-          <date date-parts="year" form="text" prefix="(" suffix=")" variable="issued"/>
+-        </if>
+-        <else-if variable="available-date issued part-number">
+-          <date date-parts="year" form="text" prefix="(" suffix=")" variable="issued"/>
+-        </else-if>
+-        <else-if type="broadcast" variable="available-date issued number">
+-          <date date-parts="year" form="text" prefix="(" suffix=")" variable="issued"/>
+-        </else-if>
+-      </choose>
+     </group>
+   </macro>
+   <!-- 4.3. Series -->
+@@ -2965,9 +2954,7 @@
          <date date-parts="year" form="text" variable="available-date"/>
        </if>
        <else>
@@ -46,7 +65,7 @@
        </else>
      </choose>
    </macro>
-@@ -3233,9 +3232,7 @@
+@@ -3116,9 +3103,7 @@
      </choose>
    </macro>
    <macro name="source-date-original">
@@ -57,29 +76,32 @@
    </macro>
    <macro name="source-date-original-full">
      <!-- Give full date for more ephemeral types; reflected in `date-sort` -->
-@@ -3617,9 +3614,9 @@
+@@ -3500,9 +3485,9 @@
        </choose>
      </group>
    </macro>
 -  <citation disambiguate-add-givenname="true" disambiguate-add-names="true">
 -    <layout delimiter="; " suffix=".">
 -      <text macro="citation-notes-full-subsequent-author-title"/>
-+  <citation after-collapse-delimiter="; " collapse="year" disambiguate-add-givenname="true" disambiguate-add-names="true" disambiguate-add-year-suffix="true" givenname-disambiguation-rule="primary-name-with-initials">
++  <citation after-collapse-delimiter="; " collapse="year" disambiguate-add-givenname="true" disambiguate-add-names="true" disambiguate-add-year-suffix="true">
 +    <layout delimiter="; " prefix="(" suffix=")">
 +      <text macro="citation-author-date"/>
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -3733,15 +3730,15 @@
+@@ -3620,17 +3605,19 @@
    <bibliography hanging-indent="true" subsequent-author-substitute="&#8212;&#8212;" subsequent-author-substitute-rule="partial-first">
      <sort>
        <key macro="author-bib"/>
-+      <key macro="date-sort"/>
++      <key macro="date-sort-group"/>
++      <key macro="date-sort-year"/>
 +      <key variable="status"/>
-       <key macro="title"/>
+       <key macro="title-and-descriptions"/>
        <key variable="volume"/>
        <key variable="part-number"/>
--      <key macro="date-sort"/>
+       <key variable="event-date"/>
+       <key variable="original-date"/>
+       <key variable="issued"/>
 -      <key variable="status"/>
        <key macro="source-archive"/>
      </sort>

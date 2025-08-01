@@ -8,11 +8,11 @@
 +<style and="text" class="in-text" demote-non-dropping-particle="display-and-sort" page-range-format="chicago-16" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>Chicago Manual of Style 18th edition (template)</title>
--    <title-short>CMOS</title-short>
+-    <title-short>CMOS with Bluebook</title-short>
 -    <id>http://www.zotero.org/styles/chicago-notes-bibliography</id>
 -    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="self"/>
 +    <title>Chicago Manual of Style 18th edition (author-date, without URLs)</title>
-+    <title-short>CMOS (author-date, no URLs)</title-short>
++    <title-short>CMOS with Bluebook (author-date, no URLs)</title-short>
 +    <id>http://www.zotero.org/styles/chicago-author-date-no-url</id>
 +    <link href="http://www.zotero.org/styles/chicago-author-date-no-url" rel="self"/>
 +    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="template"/>
@@ -35,7 +35,7 @@
      <updated>2025-05-19T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -1445,7 +1446,7 @@
+@@ -1464,7 +1465,7 @@
        </group>
        <text macro="source-medium-bib"/>
        <text macro="source-archive-bib"/>
@@ -44,7 +44,7 @@
      </group>
    </macro>
    <macro name="title-and-source-note">
-@@ -1498,7 +1499,7 @@
+@@ -1517,7 +1518,7 @@
        </choose>
        <text macro="source-medium-note"/>
        <text macro="source-archive-note"/>
@@ -53,7 +53,7 @@
      </group>
    </macro>
    <!-- 3.1. Title -->
-@@ -3638,14 +3639,14 @@
+@@ -3631,14 +3632,14 @@
      <choose>
        <if match="any" variable="issue supplement-number volume">
          <group delimiter=": ">
@@ -70,65 +70,64 @@
              <!-- periodical edition always capitalized (CMOS18 14.89) -->
              <text macro="label-edition-capitalized"/>
            </group>
-@@ -5398,11 +5399,7 @@
+@@ -5395,9 +5396,7 @@
          <date date-parts="year" form="text" variable="available-date"/>
        </else-if>
        <else>
 -        <text macro="source-date-issued-or-status"/>
--        <!-- for author-date 17th edition: -->
--        <!-- <text macro="source-date-issued-full"/> -->
--        <!-- for author-date 18th edition: -->
+-        <!-- for author-date: -->
 -        <!-- <text macro="source-date-issued-month-day"/> -->
 +        <text macro="source-date-issued-month-day"/>
        </else>
      </choose>
    </macro>
-@@ -5577,9 +5574,7 @@
+@@ -5568,9 +5567,7 @@
      </choose>
    </macro>
    <macro name="source-date-original">
 -    <text macro="source-date-original-full"/>
--    <!-- form for author-date from 18th edition: -->
+-    <!-- for author-date 18th edition: -->
 -    <!-- <text macro="source-date-original-month-day"/> -->
 +    <text macro="source-date-original-month-day"/>
    </macro>
    <macro name="source-date-original-full">
-     <!-- Give full date for more ephemeral types; reflected in `date-sort` -->
-@@ -6038,7 +6033,7 @@
-         </else>
-       </choose>
+     <!-- Give full date for more ephemeral types -->
+@@ -6039,7 +6036,7 @@
+         </group>
+       </group>
        <text variable="references"/>
 -      <text macro="source-DOI-URL"/>
 +      <!-- <text macro="source-DOI-URL"/> -->
      </group>
    </macro>
    <!-- 6.1. Legal author -->
-@@ -6677,9 +6672,9 @@
+@@ -6690,9 +6687,9 @@
        </else>
      </choose>
    </macro>
 -  <citation disambiguate-add-givenname="true" disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
 -    <layout delimiter="; " suffix=".">
 -      <text macro="citation-notes-full-subsequent-author-title"/>
-+  <citation after-collapse-delimiter="; " collapse="year" disambiguate-add-givenname="true" disambiguate-add-names="true" disambiguate-add-year-suffix="true" et-al-min="3" et-al-use-first="1" givenname-disambiguation-rule="primary-name-with-initials">
++  <citation after-collapse-delimiter="; " collapse="year" disambiguate-add-givenname="true" disambiguate-add-names="true" disambiguate-add-year-suffix="true" et-al-min="3" et-al-use-first="1">
 +    <layout delimiter="; " prefix="(" suffix=")">
 +      <text macro="citation-author-date"/>
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -6840,15 +6835,15 @@
+@@ -6856,16 +6853,18 @@
    <bibliography et-al-min="7" et-al-use-first="3" hanging-indent="true">
      <sort>
        <key macro="author-sort"/>
 +      <key macro="date-sort-group"/>
-+      <key macro="date-sort"/>
++      <key macro="date-sort-year"/>
 +      <key variable="status"/>
-       <key macro="title-bib"/>
-       <key variable="part-number"/>
+       <key macro="title-and-descriptions-bib"/>
        <key variable="volume"/>
--      <key macro="date-sort"/>
+       <key variable="part-number"/>
+       <key variable="event-date"/>
+       <key variable="issued"/>
 -      <key variable="status"/>
--      <key macro="source-archive-bib"/>
+       <key macro="source-archive-bib"/>
      </sort>
      <layout suffix=".">
 -      <text macro="bibliography-filtered-notes"/>

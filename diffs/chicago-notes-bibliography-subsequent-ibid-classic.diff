@@ -1,5 +1,5 @@
 --- templates/chicago-template.csl
-+++ development/chicago-notes-bibliography-classic-archive-place-first-no-url.csl
++++ development/chicago-notes-bibliography-subsequent-ibid-classic.csl
 @@ -5,10 +5,11 @@
    type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
  <style and="text" class="note" demote-non-dropping-particle="display-and-sort" page-range-format="chicago-16" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
@@ -8,10 +8,10 @@
 -    <title-short>CMOS with Bluebook</title-short>
 -    <id>http://www.zotero.org/styles/chicago-notes-bibliography</id>
 -    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="self"/>
-+    <title>Chicago Manual of Style 18th edition (notes and bibliography, classic variants, archival references with place first, without URLs)</title>
-+    <title-short>CMOS with Bluebook (notes and bibliography, classic variants, archive place first, no URLs)</title-short>
-+    <id>http://www.zotero.org/styles/chicago-notes-bibliography-classic-archive-place-first-no-url</id>
-+    <link href="http://www.zotero.org/styles/chicago-notes-bibliography-classic-archive-place-first-no-url" rel="self"/>
++    <title>Chicago Manual of Style 18th edition (notes and bibliography, subsequent ibid., classic variants)</title>
++    <title-short>CMOS with Bluebook (notes and bibliography, subsequent ibid., classic variants)</title-short>
++    <id>http://www.zotero.org/styles/chicago-notes-bibliography-subsequent-ibid-classic</id>
++    <link href="http://www.zotero.org/styles/chicago-notes-bibliography-subsequent-ibid-classic" rel="self"/>
 +    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="template"/>
      <link href="https://www.chicagomanualofstyle.org/" rel="documentation"/>
      <author>
@@ -21,28 +21,10 @@
      <category field="sociology"/>
      <category field="theology"/>
 -    <summary>Chicago-style source citations (with Bluebook for legal citations), template</summary>
-+    <summary>Chicago-style source citations (with Bluebook for legal citations), notes and bibliography system, with classic variants: 3-em dash for repeated names (CMOS18 13.113), chapter page numbers (CMOS18 14.8), and place of publication (CMOS18 14.30); archival references with place first (CMOS18 14.205), without URLs (CMOS18 13.6)</summary>
++    <summary>Chicago-style source citations (with Bluebook for legal citations), notes and bibliography system, abbreviating subsequent references with ibid. (CMOS18 13.37); classic variants: 3-em dash for repeated names (CMOS18 13.113), chapter page numbers (CMOS18 14.8), and place of publication (CMOS18 14.30)</summary>
      <updated>2025-05-19T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -1464,7 +1465,7 @@
-       </group>
-       <text macro="source-medium-bib"/>
-       <text macro="source-archive-bib"/>
--      <text macro="source-DOI-URL-bib"/>
-+      <!-- <text macro="source-DOI-URL-bib"/> -->
-     </group>
-   </macro>
-   <macro name="title-and-source-note">
-@@ -1517,7 +1518,7 @@
-       </choose>
-       <text macro="source-medium-note"/>
-       <text macro="source-archive-note"/>
--      <text macro="source-DOI-URL-note"/>
-+      <!-- <text macro="source-DOI-URL-note"/> -->
-     </group>
-   </macro>
-   <!-- 3.1. Title -->
 @@ -3354,10 +3355,6 @@
            <if match="any" variable="collection-editor part-number part-title volume-title">
              <text macro="label-volume"/>
@@ -134,33 +116,15 @@
            <text variable="original-publisher"/>
          </group>
        </if>
-@@ -5846,7 +5833,7 @@
-         <text macro="source-archive-name-first"/>
-       </if>
-       <else-if match="any" type="collection document manuscript personal_communication" variable="archive_collection archive-place">
--        <text macro="source-archive-location-first-bib"/>
-+        <text macro="source-archive-place-first"/>
-       </else-if>
-       <!-- Without `archive_collection` or `archive-place`: digital archives (database and identifier) -->
-       <else>
-@@ -5861,7 +5848,7 @@
-         <text macro="source-archive-name-first"/>
-       </if>
-       <else-if match="any" type="collection document manuscript personal_communication" variable="archive_collection archive-place">
--        <text macro="source-archive-location-first-note"/>
-+        <text macro="source-archive-place-first"/>
-       </else-if>
-       <!-- Without `archive_collection` or `archive-place`: digital archives (database and identifier) -->
-       <else>
-@@ -6039,7 +6026,7 @@
-         </group>
-       </group>
-       <text variable="references"/>
--      <text macro="source-DOI-URL"/>
-+      <!-- <text macro="source-DOI-URL"/> -->
-     </group>
+@@ -6692,7 +6679,7 @@
    </macro>
-   <!-- 6.1. Legal author -->
+   <citation disambiguate-add-givenname="true" disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
+     <layout delimiter="; " suffix=".">
+-      <text macro="citation-notes-full-subsequent-author-title"/>
++      <text macro="citation-notes-full-subsequent-ibid"/>
+     </layout>
+   </citation>
+   <!-- Bibliography -->
 @@ -6853,7 +6840,7 @@
        </else>
      </choose>

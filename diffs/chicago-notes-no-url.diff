@@ -5,11 +5,11 @@
  <style and="text" class="note" demote-non-dropping-particle="display-and-sort" page-range-format="chicago-16" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>Chicago Manual of Style 18th edition (template)</title>
--    <title-short>CMOS</title-short>
+-    <title-short>CMOS with Bluebook</title-short>
 -    <id>http://www.zotero.org/styles/chicago-notes-bibliography</id>
 -    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="self"/>
 +    <title>Chicago Manual of Style 18th edition (notes without bibliography, without URLs)</title>
-+    <title-short>CMOS (notes only, no URLs)</title-short>
++    <title-short>CMOS with Bluebook (notes only, no URLs)</title-short>
 +    <id>http://www.zotero.org/styles/chicago-notes-no-url</id>
 +    <link href="http://www.zotero.org/styles/chicago-notes-no-url" rel="self"/>
 +    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="template"/>
@@ -25,7 +25,7 @@
      <updated>2025-05-19T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -1445,7 +1446,7 @@
+@@ -1464,7 +1465,7 @@
        </group>
        <text macro="source-medium-bib"/>
        <text macro="source-archive-bib"/>
@@ -34,7 +34,7 @@
      </group>
    </macro>
    <macro name="title-and-source-note">
-@@ -1498,7 +1499,7 @@
+@@ -1517,7 +1518,7 @@
        </choose>
        <text macro="source-medium-note"/>
        <text macro="source-archive-note"/>
@@ -43,16 +43,16 @@
      </group>
    </macro>
    <!-- 3.1. Title -->
-@@ -6038,7 +6039,7 @@
-         </else>
-       </choose>
+@@ -6039,7 +6040,7 @@
+         </group>
+       </group>
        <text variable="references"/>
 -      <text macro="source-DOI-URL"/>
 +      <!-- <text macro="source-DOI-URL"/> -->
      </group>
    </macro>
    <!-- 6.1. Legal author -->
-@@ -6677,7 +6678,7 @@
+@@ -6690,7 +6691,7 @@
        </else>
      </choose>
    </macro>
@@ -61,17 +61,18 @@
      <layout delimiter="; " suffix=".">
        <text macro="citation-notes-full-subsequent-author-title"/>
      </layout>
-@@ -6837,18 +6838,4 @@
+@@ -6853,19 +6854,4 @@
        </else>
      </choose>
    </macro>
 -  <bibliography et-al-min="7" et-al-use-first="3" hanging-indent="true">
 -    <sort>
 -      <key macro="author-sort"/>
--      <key macro="title-bib"/>
--      <key variable="part-number"/>
+-      <key macro="title-and-descriptions-bib"/>
 -      <key variable="volume"/>
--      <key macro="date-sort"/>
+-      <key variable="part-number"/>
+-      <key variable="event-date"/>
+-      <key variable="issued"/>
 -      <key variable="status"/>
 -      <key macro="source-archive-bib"/>
 -    </sort>

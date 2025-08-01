@@ -5,11 +5,11 @@
  <style and="text" class="note" demote-non-dropping-particle="display-and-sort" page-range-format="chicago-16" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>Chicago Manual of Style 18th edition (template)</title>
--    <title-short>CMOS</title-short>
+-    <title-short>CMOS with Bluebook</title-short>
 -    <id>http://www.zotero.org/styles/chicago-notes-bibliography</id>
 -    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="self"/>
 +    <title>Chicago Manual of Style 18th edition (notes without bibliography, place of publication substituted for publisher, archival references with place first)</title>
-+    <title-short>CMOS (notes without bibliography, publisher place for name, archive place first)</title-short>
++    <title-short>CMOS with Bluebook (notes without bibliography, publisher place for name, archive place first)</title-short>
 +    <id>http://www.zotero.org/styles/chicago-notes-publisher-place-archive-place-first</id>
 +    <link href="http://www.zotero.org/styles/chicago-notes-publisher-place-archive-place-first" rel="self"/>
 +    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="template"/>
@@ -25,7 +25,7 @@
      <updated>2025-05-19T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -5317,8 +5318,8 @@
+@@ -5312,8 +5313,8 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -36,7 +36,7 @@
            </group>
          </else-if>
          <!-- TODO: remove conditional when Zotero fixes double-mapping of `event-place` -->
-@@ -5343,8 +5344,8 @@
+@@ -5338,8 +5339,8 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -47,7 +47,7 @@
            </group>
          </else-if>
          <!-- TODO: remove conditional when Zotero fixes double-mapping of `event-place` -->
-@@ -5365,8 +5366,8 @@
+@@ -5360,8 +5361,8 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -58,7 +58,7 @@
          </group>
        </if>
        <else>
-@@ -5378,8 +5379,8 @@
+@@ -5373,8 +5374,8 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -69,25 +69,25 @@
          </group>
        </if>
        <else>
-@@ -5855,7 +5856,7 @@
+@@ -5846,7 +5847,7 @@
          <text macro="source-archive-name-first"/>
        </if>
-       <else-if match="any" type="collection document manuscript" variable="archive_collection archive-place">
+       <else-if match="any" type="collection document manuscript personal_communication" variable="archive_collection archive-place">
 -        <text macro="source-archive-location-first-bib"/>
 +        <text macro="source-archive-place-first"/>
        </else-if>
+       <!-- Without `archive_collection` or `archive-place`: digital archives (database and identifier) -->
        <else>
-         <text macro="source-archive-identifier"/>
-@@ -5869,7 +5870,7 @@
+@@ -5861,7 +5862,7 @@
          <text macro="source-archive-name-first"/>
        </if>
-       <else-if match="any" type="collection document manuscript" variable="archive_collection archive-place">
+       <else-if match="any" type="collection document manuscript personal_communication" variable="archive_collection archive-place">
 -        <text macro="source-archive-location-first-note"/>
 +        <text macro="source-archive-place-first"/>
        </else-if>
        <!-- Without `archive_collection` or `archive-place`: digital archives (database and identifier) -->
        <else>
-@@ -6677,7 +6678,7 @@
+@@ -6690,7 +6691,7 @@
        </else>
      </choose>
    </macro>
@@ -96,17 +96,18 @@
      <layout delimiter="; " suffix=".">
        <text macro="citation-notes-full-subsequent-author-title"/>
      </layout>
-@@ -6837,18 +6838,4 @@
+@@ -6853,19 +6854,4 @@
        </else>
      </choose>
    </macro>
 -  <bibliography et-al-min="7" et-al-use-first="3" hanging-indent="true">
 -    <sort>
 -      <key macro="author-sort"/>
--      <key macro="title-bib"/>
--      <key variable="part-number"/>
+-      <key macro="title-and-descriptions-bib"/>
 -      <key variable="volume"/>
--      <key macro="date-sort"/>
+-      <key variable="part-number"/>
+-      <key variable="event-date"/>
+-      <key variable="issued"/>
 -      <key variable="status"/>
 -      <key macro="source-archive-bib"/>
 -    </sort>

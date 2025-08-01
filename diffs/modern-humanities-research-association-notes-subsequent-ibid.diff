@@ -8,8 +8,8 @@
 -    <title-short>MHRA Style Guide</title-short>
 -    <id>http://www.zotero.org/styles/modern-humanities-research-association-notes</id>
 -    <link href="http://www.zotero.org/styles/modern-humanities-research-association-notes" rel="self"/>
-+    <title>Modern Humanities Research Association 4th edition (notes with ibid. subsequent)</title>
-+    <title-short>MHRA Style Guide (notes with Ibid. subsequent)</title-short>
++    <title>Modern Humanities Research Association 4th edition (notes with subsequent ibid.)</title>
++    <title-short>MHRA Style Guide (notes with subsequent ibid.)</title-short>
 +    <id>http://www.zotero.org/styles/modern-humanities-research-association-notes-subsequent-ibid</id>
 +    <link href="http://www.zotero.org/styles/modern-humanities-research-association-notes-subsequent-ibid" rel="self"/>
 +    <link href="http://www.zotero.org/styles/modern-humanities-research-association-notes" rel="template"/>
@@ -21,11 +21,11 @@
      <category field="philosophy"/>
      <category field="theology"/>
 -    <summary>MHRA source citations, template</summary>
-+    <summary>MHRA source citations, notes system, using Ibid. in subsequent citations (MHRA 7.12)</summary>
++    <summary>MHRA source citations, notes system, using ibid. in subsequent citations (MHRA 7.12)</summary>
      <updated>2025-05-19T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -3619,7 +3620,7 @@
+@@ -3502,7 +3503,7 @@
    </macro>
    <citation disambiguate-add-givenname="true" disambiguate-add-names="true">
      <layout delimiter="; " suffix=".">

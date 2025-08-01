@@ -1,35 +1,47 @@
 --- templates/chicago-template.csl
-+++ development/chicago-shortened-notes-bibliography.csl
-@@ -5,10 +5,11 @@
++++ development/chicago-in-text-shortened-author-title.csl
+@@ -3,18 +3,19 @@
+   type="application/relax-ng-compact-syntax" schematypens="http://relaxng.org/ns/compatibility/annotations/1.0"?>
+ <?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl-repository.rnc"
    type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
- <style and="text" class="note" demote-non-dropping-particle="display-and-sort" page-range-format="chicago-16" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
+-<style and="text" class="note" demote-non-dropping-particle="display-and-sort" page-range-format="chicago-16" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
++<style and="text" class="in-text" demote-non-dropping-particle="display-and-sort" page-range-format="chicago-16" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>Chicago Manual of Style 18th edition (template)</title>
 -    <title-short>CMOS with Bluebook</title-short>
 -    <id>http://www.zotero.org/styles/chicago-notes-bibliography</id>
 -    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="self"/>
-+    <title>Chicago Manual of Style 18th edition (shortened notes and bibliography)</title>
-+    <title-short>CMOS with Bluebook (shortened author-title notes)</title-short>
-+    <id>http://www.zotero.org/styles/chicago-shortened-notes-bibliography</id>
-+    <link href="http://www.zotero.org/styles/chicago-shortened-notes-bibliography" rel="self"/>
++    <title>Chicago Manual of Style 18th edition (in-text shortened author-title citations)</title>
++    <title-short>CMOS with Bluebook (parenthetical author-title)</title-short>
++    <id>http://www.zotero.org/styles/chicago-in-text-shortened-author-title</id>
++    <link href="http://www.zotero.org/styles/chicago-in-text-shortened-author-title" rel="self"/>
 +    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="template"/>
      <link href="https://www.chicagomanualofstyle.org/" rel="documentation"/>
      <author>
        <name>Andrew Dunning</name>
+       <uri>https://orcid.org/0000-0003-0464-5036</uri>
+     </author>
+-    <category citation-format="note"/>
++    <category citation-format="author"/>
+     <category field="anthropology"/>
+     <category field="communications"/>
+     <category field="generic-base"/>
 @@ -30,7 +31,7 @@
      <category field="social_science"/>
      <category field="sociology"/>
      <category field="theology"/>
 -    <summary>Chicago-style source citations (with Bluebook for legal citations), template</summary>
-+    <summary>Chicago-style source citations (with Bluebook for legal citations), shortened author-title notes and bibliography system</summary>
++    <summary>Chicago-style source citations (with Bluebook for legal citations), shortened author-title in-text citations (CMOS18 12.77)</summary>
      <updated>2025-05-19T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -6692,7 +6693,7 @@
+@@ -6691,8 +6692,8 @@
+     </choose>
    </macro>
    <citation disambiguate-add-givenname="true" disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
-     <layout delimiter="; " suffix=".">
+-    <layout delimiter="; " suffix=".">
 -      <text macro="citation-notes-full-subsequent-author-title"/>
++    <layout delimiter="; " prefix="(" suffix=")">
 +      <text macro="citation-notes-shortened-author-title"/>
      </layout>
    </citation>

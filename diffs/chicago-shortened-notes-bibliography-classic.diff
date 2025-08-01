@@ -5,11 +5,11 @@
  <style and="text" class="note" demote-non-dropping-particle="display-and-sort" page-range-format="chicago-16" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>Chicago Manual of Style 18th edition (template)</title>
--    <title-short>CMOS</title-short>
+-    <title-short>CMOS with Bluebook</title-short>
 -    <id>http://www.zotero.org/styles/chicago-notes-bibliography</id>
 -    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="self"/>
-+    <title>Chicago Manual of Style 18th edition (shortened notes and bibliography, with classic variants)</title>
-+    <title-short>CMOS (shortened author-title notes, classic variants)</title-short>
++    <title>Chicago Manual of Style 18th edition (shortened notes and bibliography, classic variants)</title>
++    <title-short>CMOS with Bluebook (shortened author-title notes, classic variants)</title-short>
 +    <id>http://www.zotero.org/styles/chicago-shortened-notes-bibliography-classic</id>
 +    <link href="http://www.zotero.org/styles/chicago-shortened-notes-bibliography-classic" rel="self"/>
 +    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="template"/>
@@ -21,66 +21,66 @@
      <category field="sociology"/>
      <category field="theology"/>
 -    <summary>Chicago-style source citations (with Bluebook for legal citations), template</summary>
-+    <summary>Chicago-style source citations (with Bluebook for legal citations), shortened author-title notes and bibliography system, with classic variants: chapter page numbers (CMOS18 14.8), place of publication (CMOS18 14.30), and 3-em dash (CMOS18 13.113)</summary>
++    <summary>Chicago-style source citations (with Bluebook for legal citations), shortened author-title notes and bibliography system, with classic variants: 3-em dash for repeated names (CMOS18 13.113), chapter page numbers (CMOS18 14.8), and place of publication (CMOS18 14.30)</summary>
      <updated>2025-05-19T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -3361,10 +3362,6 @@
+@@ -3354,10 +3355,6 @@
            <if match="any" variable="collection-editor part-number part-title volume-title">
              <text macro="label-volume"/>
            </if>
--          <else-if variable="container-title title">
--            <!-- remove condition in styles that provide chapter page numbers -->
+-          <else-if variable="container-title">
+-            <!-- remove condition in styles that print chapter page numbers (CMOS17/classic) -->
 -            <text macro="label-volume"/>
 -          </else-if>
          </choose>
        </else-if>
        <else-if variable="volume">
-@@ -4076,11 +4073,9 @@
+@@ -4071,11 +4068,9 @@
            </if>
          </choose>
        </else-if>
--      <!-- if printing chapter page numbers:
-       <else-if variable="chapter-number page">
+-      <!-- if printing chapter page numbers (CMOS17/classic):
+       <else-if variable="chapter-number page title">
          <text term="in" text-case="capitalize-first"/>
        </else-if>
 -      -->
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number-capitalized"/>
-@@ -4112,11 +4107,9 @@
+@@ -4107,11 +4102,9 @@
            </if>
          </choose>
        </else-if>
--      <!-- if printing chapter page numbers:
-       <else-if variable="chapter-number page">
+-      <!-- if printing chapter page numbers (CMOS17/classic):
+       <else-if variable="chapter-number page title">
          <text term="in"/>
        </else-if>
 -      -->
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number"/>
-@@ -4509,10 +4502,6 @@
+@@ -4504,10 +4497,6 @@
              <if is-numeric="volume" match="none">
                <text macro="label-volume"/>
              </if>
--            <else-if variable="container-title title">
--              <!-- remove condition in styles that print chapter page numbers -->
+-            <else-if variable="container-title">
+-              <!-- remove condition in styles that print chapter page numbers (CMOS17/classic) -->
 -              <text macro="label-volume"/>
 -            </else-if>
              <else-if is-numeric="volume" variable="page">
                <choose>
                  <!-- check for variables that might come between the volume and page number -->
-@@ -4549,8 +4538,6 @@
+@@ -4544,8 +4533,6 @@
        <else-if variable="locator">
          <text macro="label-locator"/>
        </else-if>
--      <!-- Remove `container-title` condition in styles that provide chapter page numbers -->
--      <else-if variable="container-title title"/>
+-      <!-- remove `container-title` condition in styles that print chapter page numbers (CMOS17/classic) -->
+-      <else-if variable="container-title"/>
        <else-if is-numeric="volume" variable="page">
          <!-- collapse the volume and page number if adjacent -->
          <group delimiter=":">
-@@ -5317,7 +5304,7 @@
+@@ -5312,7 +5299,7 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -89,7 +89,7 @@
              <text text-case="capitalize-first" variable="publisher"/>
            </group>
          </else-if>
-@@ -5343,7 +5330,7 @@
+@@ -5338,7 +5325,7 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -98,7 +98,7 @@
              <text variable="publisher"/>
            </group>
          </else-if>
-@@ -5365,7 +5352,7 @@
+@@ -5360,7 +5347,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -107,7 +107,7 @@
            <text text-case="capitalize-first" variable="original-publisher"/>
          </group>
        </if>
-@@ -5378,7 +5365,7 @@
+@@ -5373,7 +5360,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -116,7 +116,7 @@
            <text variable="original-publisher"/>
          </group>
        </if>
-@@ -6679,7 +6666,7 @@
+@@ -6692,7 +6679,7 @@
    </macro>
    <citation disambiguate-add-givenname="true" disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
      <layout delimiter="; " suffix=".">
@@ -125,7 +125,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -6837,7 +6824,7 @@
+@@ -6853,7 +6840,7 @@
        </else>
      </choose>
    </macro>
@@ -133,8 +133,8 @@
 +  <bibliography et-al-min="7" et-al-use-first="3" hanging-indent="true" subsequent-author-substitute="&#8212;&#8212;&#8212;">
      <sort>
        <key macro="author-sort"/>
-       <key macro="title-bib"/>
-@@ -6848,7 +6835,7 @@
+       <key macro="title-and-descriptions-bib"/>
+@@ -6865,7 +6852,7 @@
        <key macro="source-archive-bib"/>
      </sort>
      <layout suffix=".">

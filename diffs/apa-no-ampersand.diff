@@ -8,12 +8,12 @@
 +<style and="text" class="in-text" demote-non-dropping-particle="never" initialize-with=". " names-delimiter=", " page-range-format="expanded" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>American Psychological Association 7th edition (template)</title>
--    <title-short>APA Style</title-short>
+-    <title-short>APA Style with Bluebook</title-short>
 -    <id>http://www.zotero.org/styles/apa</id>
 -    <link href="http://www.zotero.org/styles/apa" rel="self"/>
 -    <link href="http://www.zotero.org/styles/apa-6th-edition" rel="template"/>
 +    <title>American Psychological Association 7th edition (no ampersand)</title>
-+    <title-short>APA Style (no ampersand)</title-short>
++    <title-short>APA Style with Bluebook (no ampersand)</title-short>
 +    <id>http://www.zotero.org/styles/apa-no-ampersand</id>
 +    <link href="http://www.zotero.org/styles/apa-no-ampersand" rel="self"/>
 +    <link href="http://www.zotero.org/styles/apa" rel="template"/>

@@ -5,11 +5,11 @@
  <style and="text" class="note" demote-non-dropping-particle="display-and-sort" page-range-format="chicago-16" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>Chicago Manual of Style 18th edition (template)</title>
--    <title-short>CMOS</title-short>
+-    <title-short>CMOS with Bluebook</title-short>
 -    <id>http://www.zotero.org/styles/chicago-notes-bibliography</id>
 -    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="self"/>
-+    <title>Chicago Manual of Style 18th edition (shortened notes and bibliography, with title-only subsequent citations)</title>
-+    <title-short>CMOS (shortened author-title notes, title-only subsequent)</title-short>
++    <title>Chicago Manual of Style 18th edition (shortened notes and bibliography, subsequent title-only citations)</title>
++    <title-short>CMOS with Bluebook (shortened author-title notes, subsequent title-only)</title-short>
 +    <id>http://www.zotero.org/styles/chicago-shortened-notes-bibliography-subsequent-title</id>
 +    <link href="http://www.zotero.org/styles/chicago-shortened-notes-bibliography-subsequent-title" rel="self"/>
 +    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="template"/>
@@ -25,7 +25,7 @@
      <updated>2025-05-19T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -6679,7 +6680,7 @@
+@@ -6692,7 +6693,7 @@
    </macro>
    <citation disambiguate-add-givenname="true" disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
      <layout delimiter="; " suffix=".">
@@ -34,7 +34,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -6848,7 +6849,7 @@
+@@ -6865,7 +6866,7 @@
        <key macro="source-archive-bib"/>
      </sort>
      <layout suffix=".">

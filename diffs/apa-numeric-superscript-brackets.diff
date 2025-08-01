@@ -5,12 +5,12 @@
  <style and="symbol" class="in-text" demote-non-dropping-particle="never" initialize-with=". " names-delimiter=", " page-range-format="expanded" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>American Psychological Association 7th edition (template)</title>
--    <title-short>APA Style</title-short>
+-    <title-short>APA Style with Bluebook</title-short>
 -    <id>http://www.zotero.org/styles/apa</id>
 -    <link href="http://www.zotero.org/styles/apa" rel="self"/>
 -    <link href="http://www.zotero.org/styles/apa-6th-edition" rel="template"/>
 +    <title>American Psychological Association 7th edition (numeric, superscript, brackets)</title>
-+    <title-short>APA Style (numeric, superscript, brackets)</title-short>
++    <title-short>APA Style with Bluebook (numeric, superscript, brackets)</title-short>
 +    <id>http://www.zotero.org/styles/apa-numeric-superscript-brackets</id>
 +    <link href="http://www.zotero.org/styles/apa-numeric-superscript-brackets" rel="self"/>
 +    <link href="http://www.zotero.org/styles/apa" rel="template"/>
@@ -35,11 +35,11 @@
      <updated>2025-04-14T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -2312,18 +2312,14 @@
+@@ -2336,18 +2336,14 @@
      </group>
    </macro>
    <!-- Citation -->
--  <citation collapse="year" disambiguate-add-givenname="true" disambiguate-add-names="true" disambiguate-add-year-suffix="true" et-al-min="3" et-al-use-first="1" givenname-disambiguation-rule="primary-name-with-initials">
+-  <citation collapse="year" disambiguate-add-givenname="true" disambiguate-add-names="true" disambiguate-add-year-suffix="true" et-al-min="3" et-al-use-first="1">
 +  <citation collapse="citation-number">
      <sort>
 -      <key macro="author-sort" names-min="3" names-use-first="1"/>
@@ -52,15 +52,15 @@
 -      <group delimiter=", ">
 -        <text macro="author-short"/>
 -        <text macro="date-short"/>
--        <text macro="label-locator-capitalized"/>
+-        <text macro="label-locator"/>
 +    <layout delimiter="," prefix="[" suffix="]" vertical-align="sup">
 +      <group>
 +        <text variable="citation-number"/>
-+        <text macro="label-locator-capitalized" prefix="(" suffix=")"/>
++        <text macro="label-locator" prefix="(" suffix=")"/>
        </group>
      </layout>
    </citation>
-@@ -2363,15 +2359,11 @@
+@@ -2387,20 +2383,11 @@
      </choose>
    </macro>
    <bibliography entry-spacing="0" et-al-min="21" et-al-use-first="19" et-al-use-last="true" hanging-indent="true" line-spacing="2">
@@ -70,6 +70,11 @@
 -      <key macro="date-sort"/>
 -      <key variable="status"/>
 -      <key macro="title"/>
+-      <key variable="volume"/>
+-      <key variable="part-number"/>
+-      <key variable="event-date"/>
+-      <key variable="original-date"/>
+-      <key macro="source-archive"/>
 -    </sort>
      <layout>
 -      <text macro="bibliography-filtered"/>
