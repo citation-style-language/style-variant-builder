@@ -36,7 +36,7 @@
      <updated>2025-05-19T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -191,9 +189,10 @@
+@@ -217,9 +215,10 @@
    <macro name="label-locator">
      <group delimiter=" ">
        <choose>
@@ -49,7 +49,7 @@
          <!-- a non-numeric canonical reference is described by its formatting and does not need a label, similar to a timestamp (MHRA 7.3c) -->
          <else-if locator="chapter line verse" match="any"/>
          <else>
-@@ -253,7 +252,7 @@
+@@ -279,7 +278,7 @@
    </macro>
    <macro name="label-page">
      <group delimiter=" ">
@@ -58,7 +58,16 @@
        <text variable="page"/>
      </group>
    </macro>
-@@ -1111,9 +1110,9 @@
+@@ -1147,6 +1146,8 @@
+         <if variable="title">
+           <text macro="title"/>
+           <text macro="description"/>
++          <!-- for author-date: -->
++          <!-- <text macro="description-capitalized"/> -->
+           <text macro="identifier"/>
+         </if>
+         <else>
+@@ -1216,9 +1217,9 @@
          </choose>
          <text macro="source-medium"/>
          <text macro="source-archive"/>
@@ -70,7 +79,7 @@
      </group>
    </macro>
    <!-- 3.1. Title -->
-@@ -2927,8 +2926,8 @@
+@@ -3329,8 +3330,8 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -81,7 +90,7 @@
            </group>
          </else-if>
          <!-- TODO: remove conditional when Zotero fixes double-mapping of `event-place` -->
-@@ -2949,8 +2948,8 @@
+@@ -3351,8 +3352,8 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">

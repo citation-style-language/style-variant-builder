@@ -25,7 +25,7 @@
      <updated>2025-05-19T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -1464,7 +1465,7 @@
+@@ -1490,7 +1491,7 @@
        </group>
        <text macro="source-medium-bib"/>
        <text macro="source-archive-bib"/>
@@ -34,7 +34,7 @@
      </group>
    </macro>
    <macro name="title-and-source-note">
-@@ -1517,7 +1518,7 @@
+@@ -1543,7 +1544,7 @@
        </choose>
        <text macro="source-medium-note"/>
        <text macro="source-archive-note"/>
@@ -43,7 +43,7 @@
      </group>
    </macro>
    <!-- 3.1. Title -->
-@@ -3354,10 +3355,6 @@
+@@ -3383,10 +3384,6 @@
            <if match="any" variable="collection-editor part-number part-title volume-title">
              <text macro="label-volume"/>
            </if>
@@ -54,7 +54,7 @@
          </choose>
        </else-if>
        <else-if variable="volume">
-@@ -4071,11 +4068,9 @@
+@@ -4100,11 +4097,9 @@
            </if>
          </choose>
        </else-if>
@@ -66,7 +66,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number-capitalized"/>
-@@ -4107,11 +4102,9 @@
+@@ -4136,11 +4131,9 @@
            </if>
          </choose>
        </else-if>
@@ -78,7 +78,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number"/>
-@@ -4504,10 +4497,6 @@
+@@ -4533,10 +4526,6 @@
              <if is-numeric="volume" match="none">
                <text macro="label-volume"/>
              </if>
@@ -89,7 +89,7 @@
              <else-if is-numeric="volume" variable="page">
                <choose>
                  <!-- check for variables that might come between the volume and page number -->
-@@ -4544,8 +4533,6 @@
+@@ -4573,8 +4562,6 @@
        <else-if variable="locator">
          <text macro="label-locator"/>
        </else-if>
@@ -98,7 +98,7 @@
        <else-if is-numeric="volume" variable="page">
          <!-- collapse the volume and page number if adjacent -->
          <group delimiter=":">
-@@ -5312,7 +5299,7 @@
+@@ -5341,7 +5328,7 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -107,7 +107,7 @@
              <text text-case="capitalize-first" variable="publisher"/>
            </group>
          </else-if>
-@@ -5338,7 +5325,7 @@
+@@ -5367,7 +5354,7 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -116,7 +116,7 @@
              <text variable="publisher"/>
            </group>
          </else-if>
-@@ -5360,7 +5347,7 @@
+@@ -5389,7 +5376,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -125,7 +125,7 @@
            <text text-case="capitalize-first" variable="original-publisher"/>
          </group>
        </if>
-@@ -5373,7 +5360,7 @@
+@@ -5402,7 +5389,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -134,7 +134,7 @@
            <text variable="original-publisher"/>
          </group>
        </if>
-@@ -6039,7 +6026,7 @@
+@@ -6067,7 +6054,7 @@
          </group>
        </group>
        <text variable="references"/>
@@ -143,7 +143,7 @@
      </group>
    </macro>
    <!-- 6.1. Legal author -->
-@@ -6692,7 +6679,7 @@
+@@ -6720,7 +6707,7 @@
    </macro>
    <citation disambiguate-add-givenname="true" disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
      <layout delimiter="; " suffix=".">
@@ -152,7 +152,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -6853,7 +6840,7 @@
+@@ -6881,7 +6868,7 @@
        </else>
      </choose>
    </macro>

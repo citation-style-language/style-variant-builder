@@ -25,7 +25,7 @@
      <updated>2025-07-15T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -395,11 +396,8 @@
+@@ -408,11 +409,8 @@
    <macro name="author-bib">
      <group delimiter=", ">
        <names variable="composer">
@@ -37,7 +37,7 @@
          <label form="short" prefix=", "/>
          <substitute>
            <names variable="author"/>
-@@ -2399,8 +2397,6 @@
+@@ -2423,8 +2421,6 @@
            </group>
          </if>
        </choose>
@@ -46,7 +46,7 @@
        <text macro="source-event"/>
      </group>
    </macro>
-@@ -2560,9 +2556,7 @@
+@@ -2596,9 +2592,7 @@
    <macro name="source-monographic-locator">
      <choose>
        <if is-numeric="volume" locator="page">
@@ -57,7 +57,7 @@
            <choose>
              <if match="none" variable="collection-editor part-number part-title volume-title">
                <text variable="volume"/>
-@@ -2771,8 +2765,7 @@
+@@ -2796,8 +2790,7 @@
            <choose>
              <if match="any" variable="collection-editor container-author editor editorial-director">
                <!-- monographic usage -->
@@ -67,7 +67,7 @@
                <text macro="source-publication-and-date"/>
              </if>
            </choose>
-@@ -2780,8 +2773,7 @@
+@@ -2805,8 +2798,7 @@
          <!-- `patent` date in identification (cf. CMOS18 14.158) -->
          <else-if type="patent"/>
          <else>
