@@ -43,7 +43,7 @@
      </group>
    </macro>
    <!-- 3.1. Title -->
-@@ -6067,7 +6068,7 @@
+@@ -6041,7 +6042,7 @@
          </group>
        </group>
        <text variable="references"/>
@@ -52,7 +52,7 @@
      </group>
    </macro>
    <!-- 6.1. Legal author -->
-@@ -6718,7 +6719,7 @@
+@@ -6692,7 +6693,7 @@
        </else>
      </choose>
    </macro>
@@ -61,7 +61,7 @@
      <layout delimiter="; " suffix=".">
        <text macro="citation-notes-full-subsequent-author-title"/>
      </layout>
-@@ -6881,19 +6882,4 @@
+@@ -6855,19 +6856,4 @@
        </else>
      </choose>
    </macro>

@@ -42,7 +42,7 @@
      </group>
    </macro>
    <!-- 3.1. Title -->
-@@ -6067,7 +6067,7 @@
+@@ -6041,7 +6041,7 @@
          </group>
        </group>
        <text variable="references"/>

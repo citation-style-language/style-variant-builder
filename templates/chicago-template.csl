@@ -1814,32 +1814,6 @@
       </else>
     </choose>
   </macro>
-  <macro name="title-volume-bib">
-    <group delimiter=". ">
-      <group delimiter=", ">
-        <text macro="label-volume-capitalized"/>
-        <text font-style="italic" text-case="title" variable="volume-title"/>
-      </group>
-      <!-- `part-number` and `part-title` of monographic items refer to the source book/volume -->
-      <group delimiter=", ">
-        <text macro="label-part-number-capitalized"/>
-        <text macro="title-part"/>
-      </group>
-    </group>
-  </macro>
-  <macro name="title-volume-note">
-    <group delimiter=", ">
-      <group delimiter=", ">
-        <text macro="label-volume"/>
-        <text font-style="italic" text-case="title" variable="volume-title"/>
-      </group>
-      <!-- `part-number` and `part-title` of monographic items refer to the source book/volume -->
-      <group delimiter=", ">
-        <text macro="label-part-number"/>
-        <text macro="title-part"/>
-      </group>
-    </group>
-  </macro>
   <!-- 3.2. Description -->
   <macro name="description-bib">
     <choose>
