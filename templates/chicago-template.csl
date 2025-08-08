@@ -5944,7 +5944,7 @@
       <else-if variable="URL">
         <group delimiter=". ">
           <choose>
-            <if match="none" variable="event-date issued status">
+            <if match="none" variable="available-date event-date issued status">
               <group delimiter=" ">
                 <text term="accessed" text-case="capitalize-first"/>
                 <date form="text" variable="accessed"/>
@@ -5964,7 +5964,7 @@
       <else-if variable="URL">
         <group delimiter=", ">
           <choose>
-            <if match="none" variable="event-date issued status">
+            <if match="none" variable="available-date event-date issued status">
               <group delimiter=" ">
                 <text term="accessed"/>
                 <date form="text" variable="accessed"/>
