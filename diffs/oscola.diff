@@ -1,0 +1,11 @@
+--- templates/oscola-template.csl
++++ development/oscola.csl
+@@ -1,7 +1,7 @@
+ <?xml version="1.0" encoding="utf-8"?>
+ <style class="note" default-locale="en-GB" demote-non-dropping-particle="never" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
+   <info>
+-    <title>Oxford University Standard for Citation of Legal Authorities 4th edition (template)</title>
++    <title>Oxford University Standard for Citation of Legal Authorities 4th edition</title>
+     <title-short>OSCOLA</title-short>
+     <id>http://www.zotero.org/styles/oscola</id>
+     <link href="http://www.zotero.org/styles/oscola" rel="self"/>
