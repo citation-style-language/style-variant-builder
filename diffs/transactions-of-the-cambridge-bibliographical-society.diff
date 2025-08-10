@@ -33,7 +33,7 @@
 -    <summary>MHRA source citations, template</summary>
 +    <issn>0068-6611</issn>
 +    <summary>MHRA source citations, notes system, substituting places of publication for publisher names; without URLs; unlabelled page locators</summary>
-     <updated>2025-05-19T00:00:00+00:00</updated>
+     <updated>2025-08-07T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
 @@ -217,9 +215,10 @@
@@ -58,7 +58,7 @@
        <text variable="page"/>
      </group>
    </macro>
-@@ -1147,6 +1146,8 @@
+@@ -1131,6 +1130,8 @@
          <if variable="title">
            <text macro="title"/>
            <text macro="description"/>
@@ -67,7 +67,7 @@
            <text macro="identifier"/>
          </if>
          <else>
-@@ -1216,9 +1217,9 @@
+@@ -1200,9 +1201,9 @@
          </choose>
          <text macro="source-medium"/>
          <text macro="source-archive"/>
@@ -79,7 +79,7 @@
      </group>
    </macro>
    <!-- 3.1. Title -->
-@@ -3329,8 +3330,8 @@
+@@ -3294,8 +3295,8 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -90,7 +90,7 @@
            </group>
          </else-if>
          <!-- TODO: remove conditional when Zotero fixes double-mapping of `event-place` -->
-@@ -3351,8 +3352,8 @@
+@@ -3316,8 +3317,8 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
