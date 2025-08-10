@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl-repository.rnc"
+  type="application/relax-ng-compact-syntax" schematypens="http://relaxng.org/ns/compatibility/annotations/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl-repository.rnc"
+  type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <style class="note" default-locale="en-GB" demote-non-dropping-particle="never" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
   <info>
     <title>Oxford University Standard for Citation of Legal Authorities 4th edition (template)</title>
@@ -8,33 +12,34 @@
     <link href="https://www.law.ox.ac.uk/oscola" rel="documentation"/>
     <author>
       <name>Sebastian Karcher</name>
+      <uri>https://orcid.org/0000-0001-8249-7388</uri>
+    </author>
+    <author>
+      <name>Andrew Dunning</name>
+      <uri>https://orcid.org/0000-0003-0464-5036</uri>
     </author>
     <category citation-format="note"/>
     <category field="law"/>
     <summary>The OSCOLA Standards. For a Zotero Group showing data-entry in Zotero see: https://www.zotero.org/groups/oscola_samples/items/order/itemType</summary>
-    <updated>2013-11-15T01:14:57+00:00</updated>
+    <updated>2025-08-07T00:00:00+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <locale>
     <terms>
-      <term form="short" name="chapter">
-        <single>ch.</single>
-        <multiple>chs.</multiple>
+      <!-- remove full stops from all abbreviations using `strip-periods` (OSCOLA 4.2.5) -->
+      <term name="et-al">and others</term>
+      <term form="short" name="supplement">
+        <single>supp</single>
+        <multiple>supps</multiple>
       </term>
       <term form="short" name="section">
         <single>s</single>
         <multiple>ss</multiple>
       </term>
-      <term form="short" name="paragraph">
-        <single>para</single>
-        <multiple>paras</multiple>
-      </term>
       <term form="short" name="translator">
-        <single>tr.</single>
-        <multiple>trs.</multiple>
+        <single>tr</single>
+        <multiple>trs</multiple>
       </term>
-      <term form="short" name="edition">edn.</term>
-      <term name="et-al">and others</term>
     </terms>
   </locale>
   <!--Authors and Persons-->
@@ -46,20 +51,30 @@
           <names variable="interviewer">
             <name and="text" delimiter=", " delimiter-precedes-last="never" initialize="false" initialize-with=""/>
           </names>
-          <names prefix="Interview with " variable="author">
-            <name and="text" delimiter=", " delimiter-precedes-last="never" initialize="false" initialize-with=""/>
-          </names>
+          <choose>
+            <if variable="author">
+              <group delimiter=" ">
+                <text term="interview"/>
+                <text form="verb" term="contributor"/>
+                <names variable="author">
+                  <name and="text" delimiter=", " delimiter-precedes-last="never" initialize="false" initialize-with=""/>
+                </names>
+              </group>
+            </if>
+          </choose>
         </group>
       </if>
       <else-if type="personal_communication">
         <group delimiter=" ">
-          <group delimiter=" from ">
+          <group delimiter=" ">
             <text variable="genre"/>
+            <text term="from"/>
             <names variable="author">
               <name and="text" delimiter=", " delimiter-precedes-last="never" initialize="false" initialize-with=""/>
             </names>
           </group>
-          <names prefix="to " variable="recipient">
+          <names variable="recipient">
+            <label form="verb-short" suffix=" "/>
             <name and="text" delimiter=", " delimiter-precedes-last="never" initialize="false" initialize-with=""/>
           </names>
         </group>
@@ -88,20 +103,30 @@
           <names variable="interviewer">
             <name and="text" delimiter=", " delimiter-precedes-last="never" form="short" initialize="false" initialize-with=""/>
           </names>
-          <names prefix="Interview with " variable="author">
-            <name and="text" delimiter=", " delimiter-precedes-last="never" form="short" initialize="false" initialize-with=""/>
-          </names>
+          <choose>
+            <if variable="author">
+              <group delimiter=" ">
+                <text term="interview" text-case="capitalize-first"/>
+                <text form="verb" term="contributor"/>
+                <names variable="author">
+                  <name and="text" delimiter=", " delimiter-precedes-last="never" form="short" initialize="false" initialize-with=""/>
+                </names>
+              </group>
+            </if>
+          </choose>
         </group>
       </if>
       <else-if type="personal_communication">
         <group delimiter=" ">
-          <group delimiter=" from ">
+          <group delimiter=" ">
             <text variable="genre"/>
+            <text term="from"/>
             <names variable="author">
               <name and="text" delimiter=", " delimiter-precedes-last="never" form="short" initialize="false" initialize-with=""/>
             </names>
           </group>
-          <names prefix="to " variable="recipient">
+          <names variable="recipient">
+            <label form="verb-short" suffix=" "/>
             <name and="text" delimiter=", " delimiter-precedes-last="never" form="short" initialize="false" initialize-with=""/>
           </names>
         </group>
@@ -129,9 +154,17 @@
           <names variable="interviewer">
             <name and="text" delimiter=", " delimiter-precedes-last="never" initialize-with="" name-as-sort-order="all" sort-separator=" "/>
           </names>
-          <names prefix="Interview with " variable="author">
-            <name and="text" delimiter=", " delimiter-precedes-last="never" initialize="false" initialize-with=""/>
-          </names>
+          <choose>
+            <if variable="author">
+              <group delimiter=" ">
+                <text term="interview" text-case="capitalize-first"/>
+                <text form="verb" term="contributor"/>
+                <names variable="author">
+                  <name and="text" delimiter=", " delimiter-precedes-last="never" initialize="false" initialize-with=""/>
+                </names>
+              </group>
+            </if>
+          </choose>
         </group>
       </if>
       <else-if type="personal_communication">
@@ -142,7 +175,8 @@
             </names>
             <text variable="genre"/>
           </group>
-          <names prefix="to " variable="recipient">
+          <names variable="recipient">
+            <label form="verb-short" suffix=" "/>
             <name and="text" delimiter=", " delimiter-precedes-last="never" initialize="false" initialize-with=""/>
           </names>
         </group>
@@ -175,8 +209,8 @@
     </choose>
   </macro>
   <macro name="editor-chapter">
-    <group>
-      <text suffix=" " term="in"/>
+    <group delimiter=" ">
+      <text term="in"/>
       <names delimiter=", " variable="editor translator container-author">
         <name and="text" delimiter=", " delimiter-precedes-last="never" initialize="false" initialize-with=""/>
         <label form="short" prefix=" (" strip-periods="true" suffix=")"/>
@@ -373,9 +407,9 @@
   <macro name="book-container">
     <choose>
       <if match="any" type="chapter paper-conference entry-encyclopedia">
-        <group>
-          <text macro="editor-chapter" prefix=" "/>
-          <text font-style="italic" prefix=", " variable="container-title"/>
+        <group delimiter=", ">
+          <text macro="editor-chapter"/>
+          <text font-style="italic" variable="container-title"/>
         </group>
       </if>
     </choose>
@@ -583,9 +617,13 @@
                 <text macro="title-short"/>
                 <text macro="looseleaf-note"/>
                 <choose>
-                  <if match="none" type="legislation">
-                    <text prefix="(n " suffix=")" variable="first-reference-note-number"/>
-                  </if>
+                  <if type="legislation"/>
+                  <else-if variable="first-reference-note-number">
+                    <group delimiter=" " prefix="(" suffix=")">
+                      <text form="short" strip-periods="true" term="note"/>
+                      <text variable="first-reference-note-number"/>
+                    </group>
+                  </else-if>
                 </choose>
                 <text macro="locator-basic"/>
               </group>
@@ -600,7 +638,14 @@
                     </if>
                   </choose>
                 </group>
-                <text prefix="(n " suffix=")" variable="first-reference-note-number"/>
+                <choose>
+                  <if variable="first-reference-note-number">
+                    <group delimiter=" " prefix="(" suffix=")">
+                      <text form="short" strip-periods="true" term="note"/>
+                      <text variable="first-reference-note-number"/>
+                    </group>
+                  </if>
+                </choose>
                 <text macro="locator-basic"/>
               </group>
             </else>
@@ -613,7 +658,7 @@
               <group delimiter=" ">
                 <group delimiter=", ">
                   <text macro="author-note"/>
-                  <group>
+                  <group delimiter=" ">
                     <text macro="title"/>
                     <text macro="book-container"/>
                   </group>
@@ -659,7 +704,7 @@
           <group delimiter=" ">
             <group delimiter=", ">
               <text macro="author"/>
-              <group>
+              <group delimiter=" ">
                 <text macro="title"/>
                 <text macro="book-container"/>
               </group>

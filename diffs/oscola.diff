@@ -1,7 +1,7 @@
 --- templates/oscola-template.csl
 +++ development/oscola.csl
-@@ -1,7 +1,7 @@
- <?xml version="1.0" encoding="utf-8"?>
+@@ -5,7 +5,7 @@
+   type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
  <style class="note" default-locale="en-GB" demote-non-dropping-particle="never" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>Oxford University Standard for Citation of Legal Authorities 4th edition (template)</title>

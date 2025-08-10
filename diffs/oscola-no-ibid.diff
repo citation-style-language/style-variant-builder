@@ -1,7 +1,7 @@
 --- templates/oscola-template.csl
 +++ development/oscola-no-ibid.csl
-@@ -1,17 +1,17 @@
- <?xml version="1.0" encoding="utf-8"?>
+@@ -5,10 +5,10 @@
+   type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
  <style class="note" default-locale="en-GB" demote-non-dropping-particle="never" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>Oxford University Standard for Citation of Legal Authorities 4th edition (template)</title>
@@ -14,15 +14,16 @@
      <link href="https://www.law.ox.ac.uk/oscola" rel="documentation"/>
      <author>
        <name>Sebastian Karcher</name>
+@@ -20,7 +20,7 @@
      </author>
      <category citation-format="note"/>
      <category field="law"/>
 -    <summary>The OSCOLA Standards. For a Zotero Group showing data-entry in Zotero see: https://www.zotero.org/groups/oscola_samples/items/order/itemType</summary>
 +    <summary>The OSCOLA Standards with no ibid. For a Zotero Group showing data-entry in Zotero see: https://www.zotero.org/groups/oscola_samples/items/order/itemType</summary>
-     <updated>2013-11-15T01:14:57+00:00</updated>
+     <updated>2025-08-07T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -565,16 +565,7 @@
+@@ -599,16 +599,7 @@
    <citation et-al-min="4" et-al-use-first="1">
      <layout delimiter="; " suffix=".">
        <choose>
@@ -40,7 +41,7 @@
            <choose>
              <if match="any" type="legal_case bill legislation treaty">
                <!--don't use short form and above note for legal citations -->
-@@ -605,7 +596,7 @@
+@@ -650,7 +641,7 @@
                </group>
              </else>
            </choose>
