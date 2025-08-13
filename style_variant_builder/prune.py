@@ -153,6 +153,43 @@ class CSLPruner:
         )
         text = re.sub(r"—+", lambda m: "&#8212;" * len(m.group(0)), text)
 
+        # Collapse XML fragments inside multi-line comments to match CSL repository indentation
+        # Pattern captures the entire comment body (non-greedy) so we can post-process line breaks
+        comment_pattern = re.compile(r"<!--(.*?)-->", re.DOTALL)
+
+        def collapse_comment(match: re.Match) -> str:
+            body = match.group(1)
+            # Quick exit if no newline (single-line comment)
+            if "\n" not in body:
+                return f"<!--{body}-->"
+            lines = body.split("\n")
+            tag_line_regex = re.compile(r"^[ \t]*<[^>]+>[ \t]*$")
+            new_lines: list[str] = []
+            i = 0
+            while i < len(lines):
+                if tag_line_regex.match(lines[i]):
+                    # Gather consecutive tag-only lines
+                    seq: list[str] = []
+                    while i < len(lines) and tag_line_regex.match(lines[i]):
+                        seq.append(lines[i])
+                        i += 1
+                    # Collapse sequence
+                    first_indent_match = re.match(r"^([ \t]*)", seq[0])
+                    indent = (
+                        first_indent_match.group(1)
+                        if first_indent_match
+                        else ""
+                    )
+                    collapsed = indent + "".join(s.strip() for s in seq)
+                    new_lines.append(collapsed)
+                else:
+                    new_lines.append(lines[i])
+                    i += 1
+            collapsed_body = "\n".join(new_lines)
+            return f"<!--{collapsed_body}-->"
+
+        text = comment_pattern.sub(collapse_comment, text)
+
         # Reorder the default-locale attribute to the end in <style ...> tags.
         def reorder_default_locale(match: re.Match) -> str:
             attribs = match.group(1)
