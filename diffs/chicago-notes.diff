@@ -9,7 +9,7 @@
 -    <id>http://www.zotero.org/styles/chicago-notes-bibliography</id>
 -    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="self"/>
 +    <title>Chicago Manual of Style 18th edition (notes without bibliography)</title>
-+    <title-short>CMOS with Bluebook (notes only)</title-short>
++    <title-short>CMOS with Bluebook (notes only [13.23])</title-short>
 +    <id>http://www.zotero.org/styles/chicago-notes</id>
 +    <link href="http://www.zotero.org/styles/chicago-notes" rel="self"/>
 +    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="template"/>

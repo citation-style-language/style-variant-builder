@@ -8,8 +8,8 @@
 -    <title-short>CMOS with Bluebook</title-short>
 -    <id>http://www.zotero.org/styles/chicago-notes-bibliography</id>
 -    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="self"/>
-+    <title>Chicago Manual of Style 18th edition (shortened notes and bibliography, classic variants, without URLs)</title>
-+    <title-short>CMOS with Bluebook (shortened author-title notes, classic variants, no URLs)</title-short>
++    <title>Chicago Manual of Style 18th edition (shortened notes and bibliography [13.32], classic variants [13.113, 14.8, 14.30], without URLs [13.6])</title>
++    <title-short>CMOS with Bluebook (shortened author-title notes [13.32], classic variants [13.113, 14.8, 14.30], no URLs [13.6])</title-short>
 +    <id>http://www.zotero.org/styles/chicago-shortened-notes-bibliography-classic-no-url</id>
 +    <link href="http://www.zotero.org/styles/chicago-shortened-notes-bibliography-classic-no-url" rel="self"/>
 +    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="template"/>

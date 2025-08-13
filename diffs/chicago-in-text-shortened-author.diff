@@ -12,7 +12,7 @@
 -    <id>http://www.zotero.org/styles/chicago-notes-bibliography</id>
 -    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="self"/>
 +    <title>Chicago Manual of Style 18th edition (in-text shortened author-only citations)</title>
-+    <title-short>CMOS with Bluebook (parenthetical author-only)</title-short>
++    <title-short>CMOS with Bluebook (parenthetical author-only [12.77])</title-short>
 +    <id>http://www.zotero.org/styles/chicago-in-text-shortened-author</id>
 +    <link href="http://www.zotero.org/styles/chicago-in-text-shortened-author" rel="self"/>
 +    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="template"/>
