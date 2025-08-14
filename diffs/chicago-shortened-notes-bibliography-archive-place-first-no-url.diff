@@ -1,0 +1,90 @@
+--- templates/chicago-template.csl
++++ development/chicago-shortened-notes-bibliography-archive-place-first-no-url.csl
+@@ -5,10 +5,11 @@
+   type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+ <style and="text" class="note" demote-non-dropping-particle="display-and-sort" page-range-format="chicago-16" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
+   <info>
+-    <title>Chicago Manual of Style 18th edition (template)</title>
+-    <title-short>CMOS with Bluebook</title-short>
+-    <id>http://www.zotero.org/styles/chicago-notes-bibliography</id>
+-    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="self"/>
++    <title>Chicago Manual of Style 18th edition (shortened notes and bibliography, archival references with place first, without URLs)</title>
++    <title-short>CMOS with Bluebook (shortened author-title notes [13.32], archive place first [14.205], no URLs [13.6])</title-short>
++    <id>http://www.zotero.org/styles/chicago-shortened-notes-bibliography-archive-place-first-no-url</id>
++    <link href="http://www.zotero.org/styles/chicago-shortened-notes-bibliography-archive-place-first-no-url" rel="self"/>
++    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="template"/>
+     <link href="https://www.chicagomanualofstyle.org/" rel="documentation"/>
+     <author>
+       <name>Andrew Dunning</name>
+@@ -30,7 +31,7 @@
+     <category field="social_science"/>
+     <category field="sociology"/>
+     <category field="theology"/>
+-    <summary>Chicago-style source citations (with Bluebook for legal citations), template</summary>
++    <summary>Chicago-style source citations (with Bluebook for legal citations), shortened author-title notes and bibliography system, archival references with place first (CMOS18 14.205), without URLs (CMOS18 13.6)</summary>
+     <updated>2025-08-07T00:00:00+00:00</updated>
+     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
+   </info>
+@@ -1449,7 +1450,7 @@
+       </group>
+       <text macro="source-medium-bib"/>
+       <text macro="source-archive-bib"/>
+-      <text macro="source-DOI-URL-bib"/>
++      <!-- <text macro="source-DOI-URL-bib"/> -->
+     </group>
+   </macro>
+   <macro name="title-and-source-note">
+@@ -1502,7 +1503,7 @@
+       </choose>
+       <text macro="source-medium-note"/>
+       <text macro="source-archive-note"/>
+-      <text macro="source-DOI-URL-note"/>
++      <!-- <text macro="source-DOI-URL-note"/> -->
+     </group>
+   </macro>
+   <!-- 3.1. Title -->
+@@ -5804,7 +5805,7 @@
+         <text macro="source-archive-name-first"/>
+       </if>
+       <else-if match="any" type="collection document manuscript personal_communication" variable="archive_collection archive-place">
+-        <text macro="source-archive-location-first-bib"/>
++        <text macro="source-archive-place-first"/>
+       </else-if>
+       <!-- Without `archive_collection` or `archive-place`: digital archives (database and identifier) -->
+       <else>
+@@ -5819,7 +5820,7 @@
+         <text macro="source-archive-name-first"/>
+       </if>
+       <else-if match="any" type="collection document manuscript personal_communication" variable="archive_collection archive-place">
+-        <text macro="source-archive-location-first-note"/>
++        <text macro="source-archive-place-first"/>
+       </else-if>
+       <!-- Without `archive_collection` or `archive-place`: digital archives (database and identifier) -->
+       <else>
+@@ -5997,7 +5998,7 @@
+         </group>
+       </group>
+       <text variable="references"/>
+-      <text macro="source-DOI-URL"/>
++      <!-- <text macro="source-DOI-URL"/> -->
+     </group>
+   </macro>
+   <!-- 6.1. Legal author -->
+@@ -6650,7 +6651,7 @@
+   </macro>
+   <citation disambiguate-add-givenname="true" disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
+     <layout delimiter="; " suffix=".">
+-      <text macro="citation-notes-full-subsequent-author-title"/>
++      <text macro="citation-notes-shortened-author-title"/>
+     </layout>
+   </citation>
+   <!-- Bibliography -->
+@@ -6824,7 +6825,7 @@
+       <key macro="source-archive-bib"/>
+     </sort>
+     <layout suffix=".">
+-      <text macro="bibliography-filtered-notes"/>
++      <text macro="bibliography-filtered-notes-shortened"/>
+     </layout>
+   </bibliography>
+ </style>

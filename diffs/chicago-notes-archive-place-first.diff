@@ -1,0 +1,74 @@
+--- templates/chicago-template.csl
++++ development/chicago-notes-archive-place-first.csl
+@@ -5,10 +5,11 @@
+   type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+ <style and="text" class="note" demote-non-dropping-particle="display-and-sort" page-range-format="chicago-16" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
+   <info>
+-    <title>Chicago Manual of Style 18th edition (template)</title>
+-    <title-short>CMOS with Bluebook</title-short>
+-    <id>http://www.zotero.org/styles/chicago-notes-bibliography</id>
+-    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="self"/>
++    <title>Chicago Manual of Style 18th edition (notes without bibliography, archival references with place first)</title>
++    <title-short>CMOS with Bluebook (notes only [13.23], archive place first [14.205])</title-short>
++    <id>http://www.zotero.org/styles/chicago-notes-archive-place-first</id>
++    <link href="http://www.zotero.org/styles/chicago-notes-archive-place-first" rel="self"/>
++    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="template"/>
+     <link href="https://www.chicagomanualofstyle.org/" rel="documentation"/>
+     <author>
+       <name>Andrew Dunning</name>
+@@ -30,7 +31,7 @@
+     <category field="social_science"/>
+     <category field="sociology"/>
+     <category field="theology"/>
+-    <summary>Chicago-style source citations (with Bluebook for legal citations), template</summary>
++    <summary>Chicago-style source citations (with Bluebook for legal citations), notes system without bibliography, listing up to six authors in a full citation (CMOS18 13.23), archival references with place first (CMOS18 14.205)</summary>
+     <updated>2025-08-07T00:00:00+00:00</updated>
+     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
+   </info>
+@@ -5804,7 +5805,7 @@
+         <text macro="source-archive-name-first"/>
+       </if>
+       <else-if match="any" type="collection document manuscript personal_communication" variable="archive_collection archive-place">
+-        <text macro="source-archive-location-first-bib"/>
++        <text macro="source-archive-place-first"/>
+       </else-if>
+       <!-- Without `archive_collection` or `archive-place`: digital archives (database and identifier) -->
+       <else>
+@@ -5819,7 +5820,7 @@
+         <text macro="source-archive-name-first"/>
+       </if>
+       <else-if match="any" type="collection document manuscript personal_communication" variable="archive_collection archive-place">
+-        <text macro="source-archive-location-first-note"/>
++        <text macro="source-archive-place-first"/>
+       </else-if>
+       <!-- Without `archive_collection` or `archive-place`: digital archives (database and identifier) -->
+       <else>
+@@ -6648,7 +6649,7 @@
+       </else>
+     </choose>
+   </macro>
+-  <citation disambiguate-add-givenname="true" disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
++  <citation disambiguate-add-givenname="true" disambiguate-add-names="true" et-al-min="7" et-al-subsequent-min="3" et-al-subsequent-use-first="1" et-al-use-first="3">
+     <layout delimiter="; " suffix=".">
+       <text macro="citation-notes-full-subsequent-author-title"/>
+     </layout>
+@@ -6812,19 +6813,4 @@
+       </else>
+     </choose>
+   </macro>
+-  <bibliography et-al-min="7" et-al-use-first="3" hanging-indent="true">
+-    <sort>
+-      <key macro="author-sort"/>
+-      <key macro="title-and-descriptions-bib"/>
+-      <key macro="source-bib"/>
+-      <key variable="volume"/>
+-      <key variable="part-number"/>
+-      <key variable="event-date"/>
+-      <key macro="source-date-issued-or-status"/>
+-      <key macro="source-archive-bib"/>
+-    </sort>
+-    <layout suffix=".">
+-      <text macro="bibliography-filtered-notes"/>
+-    </layout>
+-  </bibliography>
+ </style>

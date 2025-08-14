@@ -1,0 +1,129 @@
+--- templates/chicago-template.csl
++++ development/chicago-author-date-archive-place-first.csl
+@@ -3,18 +3,19 @@
+   type="application/relax-ng-compact-syntax" schematypens="http://relaxng.org/ns/compatibility/annotations/1.0"?>
+ <?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl-repository.rnc"
+   type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+-<style and="text" class="note" demote-non-dropping-particle="display-and-sort" page-range-format="chicago-16" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
++<style and="text" class="in-text" demote-non-dropping-particle="display-and-sort" page-range-format="chicago-16" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
+   <info>
+-    <title>Chicago Manual of Style 18th edition (template)</title>
+-    <title-short>CMOS with Bluebook</title-short>
+-    <id>http://www.zotero.org/styles/chicago-notes-bibliography</id>
+-    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="self"/>
++    <title>Chicago Manual of Style 18th edition (author-date, archival references with place first)</title>
++    <title-short>CMOS with Bluebook (author-date [13.102], archive place first [14.205])</title-short>
++    <id>http://www.zotero.org/styles/chicago-author-date-archive-place-first</id>
++    <link href="http://www.zotero.org/styles/chicago-author-date-archive-place-first" rel="self"/>
++    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="template"/>
+     <link href="https://www.chicagomanualofstyle.org/" rel="documentation"/>
+     <author>
+       <name>Andrew Dunning</name>
+       <uri>https://orcid.org/0000-0003-0464-5036</uri>
+     </author>
+-    <category citation-format="note"/>
++    <category citation-format="author-date"/>
+     <category field="anthropology"/>
+     <category field="communications"/>
+     <category field="generic-base"/>
+@@ -30,7 +31,7 @@
+     <category field="social_science"/>
+     <category field="sociology"/>
+     <category field="theology"/>
+-    <summary>Chicago-style source citations (with Bluebook for legal citations), template</summary>
++    <summary>Chicago-style source citations (with Bluebook for legal citations), author-date system, archival references with place first (CMOS18 14.205)</summary>
+     <updated>2025-08-07T00:00:00+00:00</updated>
+     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
+   </info>
+@@ -3593,14 +3594,14 @@
+     <choose>
+       <if match="any" variable="issue supplement-number volume">
+         <group delimiter=": ">
+-          <text macro="source-serial-identifier-volume-bib"/>
++          <text macro="source-serial-identifier-volume-author-date"/>
+           <text macro="source-serial-locator"/>
+         </group>
+       </if>
+       <else>
+         <group delimiter=", ">
+           <group delimiter=". ">
+-            <text macro="source-serial-identifier-volume-bib"/>
++            <text macro="source-serial-identifier-volume-author-date"/>
+             <!-- periodical edition always capitalized (CMOS18 14.89) -->
+             <text macro="label-edition-capitalized"/>
+           </group>
+@@ -5357,9 +5358,7 @@
+         <date date-parts="year" form="text" variable="available-date"/>
+       </else-if>
+       <else>
+-        <text macro="source-date-issued-or-status"/>
+-        <!-- for author-date: -->
+-        <!-- <text macro="source-date-issued-month-day"/> -->
++        <text macro="source-date-issued-month-day"/>
+       </else>
+     </choose>
+   </macro>
+@@ -5526,9 +5525,7 @@
+     </choose>
+   </macro>
+   <macro name="source-date-original">
+-    <text macro="source-date-original-full"/>
+-    <!-- for author-date 18th edition: -->
+-    <!-- <text macro="source-date-original-month-day"/> -->
++    <text macro="source-date-original-month-day"/>
+   </macro>
+   <macro name="source-date-original-full">
+     <!-- Give full date for more ephemeral types -->
+@@ -5804,7 +5801,7 @@
+         <text macro="source-archive-name-first"/>
+       </if>
+       <else-if match="any" type="collection document manuscript personal_communication" variable="archive_collection archive-place">
+-        <text macro="source-archive-location-first-bib"/>
++        <text macro="source-archive-place-first"/>
+       </else-if>
+       <!-- Without `archive_collection` or `archive-place`: digital archives (database and identifier) -->
+       <else>
+@@ -5819,7 +5816,7 @@
+         <text macro="source-archive-name-first"/>
+       </if>
+       <else-if match="any" type="collection document manuscript personal_communication" variable="archive_collection archive-place">
+-        <text macro="source-archive-location-first-note"/>
++        <text macro="source-archive-place-first"/>
+       </else-if>
+       <!-- Without `archive_collection` or `archive-place`: digital archives (database and identifier) -->
+       <else>
+@@ -6648,9 +6645,9 @@
+       </else>
+     </choose>
+   </macro>
+-  <citation disambiguate-add-givenname="true" disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
+-    <layout delimiter="; " suffix=".">
+-      <text macro="citation-notes-full-subsequent-author-title"/>
++  <citation after-collapse-delimiter="; " collapse="year" disambiguate-add-givenname="true" disambiguate-add-names="true" disambiguate-add-year-suffix="true" et-al-min="3" et-al-use-first="1">
++    <layout delimiter="; " prefix="(" suffix=")">
++      <text macro="citation-author-date"/>
+     </layout>
+   </citation>
+   <!-- Bibliography -->
+@@ -6815,16 +6812,19 @@
+   <bibliography et-al-min="7" et-al-use-first="3" hanging-indent="true">
+     <sort>
+       <key macro="author-sort"/>
++      <key macro="date-sort-group"/>
++      <key macro="date-sort-year"/>
++      <key macro="date"/>
+       <key macro="title-and-descriptions-bib"/>
+       <key macro="source-bib"/>
+       <key variable="volume"/>
+       <key variable="part-number"/>
+       <key variable="event-date"/>
+-      <key macro="source-date-issued-or-status"/>
++      <key variable="issued"/>
+       <key macro="source-archive-bib"/>
+     </sort>
+     <layout suffix=".">
+-      <text macro="bibliography-filtered-notes"/>
++      <text macro="bibliography-filtered-author-date"/>
+     </layout>
+   </bibliography>
+ </style>
