@@ -12,7 +12,7 @@
 -    <id>http://www.zotero.org/styles/chicago-notes-bibliography</id>
 -    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="self"/>
 +    <title>Chicago Manual of Style 18th edition (in-text full citations)</title>
-+    <title-short>CMOS with Bluebook (in-text full citations and bibliography [12.76])</title-short>
++    <title-short>CMOS with Bluebook (parenthetical full citations [12.76])</title-short>
 +    <id>http://www.zotero.org/styles/chicago-in-text-full</id>
 +    <link href="http://www.zotero.org/styles/chicago-in-text-full" rel="self"/>
      <link href="https://www.chicagomanualofstyle.org/" rel="documentation"/>
