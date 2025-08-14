@@ -25,7 +25,7 @@
      <updated>2025-08-07T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -1490,7 +1491,7 @@
+@@ -1449,7 +1450,7 @@
        </group>
        <text macro="source-medium-bib"/>
        <text macro="source-archive-bib"/>
@@ -34,7 +34,7 @@
      </group>
    </macro>
    <macro name="title-and-source-note">
-@@ -1543,7 +1544,7 @@
+@@ -1502,7 +1503,7 @@
        </choose>
        <text macro="source-medium-note"/>
        <text macro="source-archive-note"/>
@@ -43,7 +43,7 @@
      </group>
    </macro>
    <!-- 3.1. Title -->
-@@ -6041,7 +6042,7 @@
+@@ -5997,7 +5998,7 @@
          </group>
        </group>
        <text variable="references"/>
@@ -52,7 +52,7 @@
      </group>
    </macro>
    <!-- 6.1. Legal author -->
-@@ -6692,7 +6693,7 @@
+@@ -6648,7 +6649,7 @@
        </else>
      </choose>
    </macro>
@@ -61,7 +61,7 @@
      <layout delimiter="; " suffix=".">
        <text macro="citation-notes-full-subsequent-author-title"/>
      </layout>
-@@ -6855,19 +6856,4 @@
+@@ -6812,19 +6813,4 @@
        </else>
      </choose>
    </macro>
@@ -69,11 +69,11 @@
 -    <sort>
 -      <key macro="author-sort"/>
 -      <key macro="title-and-descriptions-bib"/>
+-      <key macro="source-bib"/>
 -      <key variable="volume"/>
 -      <key variable="part-number"/>
 -      <key variable="event-date"/>
--      <key variable="issued"/>
--      <key variable="status"/>
+-      <key macro="source-date-issued-or-status"/>
 -      <key macro="source-archive-bib"/>
 -    </sort>
 -    <layout suffix=".">

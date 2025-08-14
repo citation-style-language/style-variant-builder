@@ -24,7 +24,7 @@
      <updated>2025-08-07T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -1490,7 +1490,7 @@
+@@ -1449,7 +1449,7 @@
        </group>
        <text macro="source-medium-bib"/>
        <text macro="source-archive-bib"/>
@@ -33,7 +33,7 @@
      </group>
    </macro>
    <macro name="title-and-source-note">
-@@ -1543,7 +1543,7 @@
+@@ -1502,7 +1502,7 @@
        </choose>
        <text macro="source-medium-note"/>
        <text macro="source-archive-note"/>
@@ -42,7 +42,7 @@
      </group>
    </macro>
    <!-- 3.1. Title -->
-@@ -5848,7 +5848,7 @@
+@@ -5804,7 +5804,7 @@
          <text macro="source-archive-name-first"/>
        </if>
        <else-if match="any" type="collection document manuscript personal_communication" variable="archive_collection archive-place">
@@ -51,7 +51,7 @@
        </else-if>
        <!-- Without `archive_collection` or `archive-place`: digital archives (database and identifier) -->
        <else>
-@@ -5863,7 +5863,7 @@
+@@ -5819,7 +5819,7 @@
          <text macro="source-archive-name-first"/>
        </if>
        <else-if match="any" type="collection document manuscript personal_communication" variable="archive_collection archive-place">
@@ -60,7 +60,7 @@
        </else-if>
        <!-- Without `archive_collection` or `archive-place`: digital archives (database and identifier) -->
        <else>
-@@ -6041,7 +6041,7 @@
+@@ -5997,7 +5997,7 @@
          </group>
        </group>
        <text variable="references"/>

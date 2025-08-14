@@ -6691,8 +6691,9 @@
       <key macro="author-sort"/>
       <key macro="date-sort-group"/>
       <key macro="date-sort-year"/>
-      <key variable="status"/>
+      <key macro="date"/>
       <key macro="title-and-descriptions-bib"/>
+      <key macro="source-bib"/>
       <key variable="volume"/>
       <key variable="part-number"/>
       <key variable="event-date"/>
@@ -6815,11 +6816,11 @@
     <sort>
       <key macro="author-sort"/>
       <key macro="title-and-descriptions-bib"/>
+      <key macro="source-bib"/>
       <key variable="volume"/>
       <key variable="part-number"/>
       <key variable="event-date"/>
-      <key variable="issued"/>
-      <key variable="status"/>
+      <key macro="source-date-issued-or-status"/>
       <key macro="source-archive-bib"/>
     </sort>
     <layout suffix=".">
