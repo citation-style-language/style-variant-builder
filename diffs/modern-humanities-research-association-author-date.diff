@@ -114,7 +114,7 @@
        <key variable="event-date"/>
 -      <key variable="original-date"/>
 -      <key macro="source-date-issued-or-status"/>
-+      <key variable="source-date-issued-or-status"/>
++      <key variable="issued"/>
        <key macro="source-archive"/>
      </sort>
      <layout>
