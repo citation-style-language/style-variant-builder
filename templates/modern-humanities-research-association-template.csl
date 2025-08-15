@@ -2514,7 +2514,8 @@
     <group delimiter=" ">
       <choose>
         <!-- Journal special issues and supplements (MHRA 7.4) -->
-        <if variable="collection-title supplement-number"/>
+        <if match="none" variable="container-title"/>
+        <else-if variable="collection-title supplement-number"/>
         <else-if variable="supplement-number volume-title">
           <text term="supplement"/>
           <text value="to"/>
@@ -2531,7 +2532,7 @@
             <else-if variable="volume-title">
               <text term="special-issue"/>
             </else-if>
-            <else-if type="periodical" variable="editor title">
+            <else-if type="periodical" variable="title">
               <text term="special-issue"/>
             </else-if>
           </choose>
