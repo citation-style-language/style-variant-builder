@@ -1,0 +1,35 @@
+--- templates/modern-language-association-template.csl
++++ development/modern-language-association-annotated-bibliography.csl
+@@ -5,10 +5,11 @@
+   type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+ <style and="text" class="in-text" demote-non-dropping-particle="never" page-range-format="minimal-two" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
+   <info>
+-    <title>Modern Language Association 9th edition (template)</title>
+-    <title-short>MLA Handbook</title-short>
+-    <id>http://www.zotero.org/styles/modern-language-association</id>
+-    <link href="http://www.zotero.org/styles/modern-language-association" rel="self"/>
++    <title>Modern Language Association 9th edition (annotated bibliography)</title>
++    <title-short>MLA Handbook (annotated bibliography)</title-short>
++    <id>http://www.zotero.org/styles/modern-language-association-annotated-bibliography</id>
++    <link href="http://www.zotero.org/styles/modern-language-association-annotated-bibliography" rel="self"/>
++    <link href="http://www.zotero.org/styles/modern-language-association" rel="template"/>
+     <link href="https://style.mla.org/" rel="documentation"/>
+     <author>
+       <name>Sebastian Karcher</name>
+@@ -25,7 +26,7 @@
+     <category field="generic-base"/>
+     <category field="humanities"/>
+     <category field="literature"/>
+-    <summary>MLA source citations, 9th edition</summary>
++    <summary>MLA source citations, 9th edition, with annotated bibliography</summary>
+     <updated>2025-07-15T00:00:00+00:00</updated>
+     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
+   </info>
+@@ -419,6 +420,7 @@
+         </group>
+         <text macro="accessed"/>
+       </group>
++      <text display="block" variable="note"/>
+     </layout>
+   </bibliography>
+ </style>
