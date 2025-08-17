@@ -1,11 +1,22 @@
 --- templates/modern-language-association-template.csl
 +++ development/modern-language-association.csl
-@@ -5,7 +5,7 @@
+@@ -5,8 +5,8 @@
    type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
  <style and="text" class="in-text" demote-non-dropping-particle="never" page-range-format="minimal-two" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
--    <title>Modern Language Association 9th edition (template)</title>
-+    <title>Modern Language Association 9th edition</title>
-     <title-short>MLA Handbook</title-short>
+-    <title>Modern Language Association 9th edition</title>
+-    <title-short>MLA Handbook</title-short>
++    <title>Modern Language Association 9th edition (in-text citations)</title>
++    <title-short>MLA Handbook (in-text citations)</title-short>
      <id>http://www.zotero.org/styles/modern-language-association</id>
      <link href="http://www.zotero.org/styles/modern-language-association" rel="self"/>
+     <link href="https://style.mla.org/" rel="documentation"/>
+@@ -25,7 +25,7 @@
+     <category field="generic-base"/>
+     <category field="humanities"/>
+     <category field="literature"/>
+-    <summary>MLA source citations</summary>
++    <summary>MLA source citations, in-text citations system (chapter 6)</summary>
+     <updated>2025-07-15T00:00:00+00:00</updated>
+     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
+   </info>
