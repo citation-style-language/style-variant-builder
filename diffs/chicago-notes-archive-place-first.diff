@@ -25,7 +25,7 @@
      <updated>2025-08-07T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -5804,7 +5805,7 @@
+@@ -5801,7 +5802,7 @@
          <text macro="source-archive-name-first"/>
        </if>
        <else-if match="any" type="collection document manuscript personal_communication" variable="archive_collection archive-place">
@@ -34,7 +34,7 @@
        </else-if>
        <!-- Without `archive_collection` or `archive-place`: digital archives (database and identifier) -->
        <else>
-@@ -5819,7 +5820,7 @@
+@@ -5816,7 +5817,7 @@
          <text macro="source-archive-name-first"/>
        </if>
        <else-if match="any" type="collection document manuscript personal_communication" variable="archive_collection archive-place">
@@ -43,7 +43,7 @@
        </else-if>
        <!-- Without `archive_collection` or `archive-place`: digital archives (database and identifier) -->
        <else>
-@@ -6648,7 +6649,7 @@
+@@ -6645,7 +6646,7 @@
        </else>
      </choose>
    </macro>
@@ -52,7 +52,7 @@
      <layout delimiter="; " suffix=".">
        <text macro="citation-notes-full-subsequent-author-title"/>
      </layout>
-@@ -6812,19 +6813,4 @@
+@@ -6809,19 +6810,4 @@
        </else>
      </choose>
    </macro>

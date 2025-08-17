@@ -356,14 +356,14 @@
     <group delimiter=" ">
       <choose>
         <!-- TODO: Replace with `supplement-number` label when CSL provides one -->
-        <if variable="supplement-number volume-title">
+        <if is-numeric="supplement-number" variable="volume-title">
           <!-- if there is a volume title, it is already described as a supplement -->
           <text form="short" term="issue"/>
         </if>
-        <else-if type="periodical" variable="supplement-number title">
+        <else-if is-numeric="supplement-number" type="periodical" variable="title">
           <text form="short" term="issue"/>
         </else-if>
-        <else-if variable="supplement-number">
+        <else-if is-numeric="supplement-number">
           <text form="short" term="supplement"/>
         </else-if>
       </choose>
@@ -3364,10 +3364,9 @@
   </macro>
   <!-- 4. Source -->
   <macro name="source-bib">
-    <group delimiter=". ">
       <choose>
         <if match="any" type="article-journal article-magazine article-newspaper periodical post-weblog review review-book">
-          <!-- Serial items -->
+          <!-- serial usage -->
           <text macro="source-serial-bib"/>
         </if>
         <else-if match="any" type="interview paper-conference">
@@ -3387,13 +3386,11 @@
           <text macro="source-monographic-bib"/>
         </else>
       </choose>
-    </group>
   </macro>
   <macro name="source-note">
-    <group delimiter=", ">
       <choose>
         <if match="any" type="article-journal article-magazine article-newspaper periodical post-weblog review review-book">
-          <!-- Serial items -->
+          <!-- serial usage -->
           <text macro="source-serial-note"/>
         </if>
         <else-if match="any" type="interview paper-conference">
@@ -3413,7 +3410,6 @@
           <text macro="source-monographic-note"/>
         </else>
       </choose>
-    </group>
   </macro>
   <!-- 4.1. Serial sources -->
   <macro name="source-serial-bib">
