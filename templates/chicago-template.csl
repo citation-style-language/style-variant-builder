@@ -3364,52 +3364,52 @@
   </macro>
   <!-- 4. Source -->
   <macro name="source-bib">
-      <choose>
-        <if match="any" type="article-journal article-magazine article-newspaper periodical post-weblog review review-book">
-          <!-- serial usage -->
-          <text macro="source-serial-bib"/>
-        </if>
-        <else-if match="any" type="interview paper-conference">
-          <choose>
-            <if match="any" variable="collection-editor container-author editor editorial-director">
-              <!-- monographic usage -->
-              <text macro="source-monographic-bib"/>
-            </if>
-            <else>
-              <!-- serial usage -->
-              <text macro="source-serial-bib"/>
-            </else>
-          </choose>
-        </else-if>
-        <else-if match="any" type="patent post webpage"/>
-        <else>
-          <text macro="source-monographic-bib"/>
-        </else>
-      </choose>
+    <choose>
+      <if match="any" type="article-journal article-magazine article-newspaper periodical post-weblog review review-book">
+        <!-- serial usage -->
+        <text macro="source-serial-bib"/>
+      </if>
+      <else-if match="any" type="interview paper-conference">
+        <choose>
+          <if match="any" variable="collection-editor container-author editor editorial-director">
+            <!-- monographic usage -->
+            <text macro="source-monographic-bib"/>
+          </if>
+          <else>
+            <!-- serial usage -->
+            <text macro="source-serial-bib"/>
+          </else>
+        </choose>
+      </else-if>
+      <else-if match="any" type="patent post webpage"/>
+      <else>
+        <text macro="source-monographic-bib"/>
+      </else>
+    </choose>
   </macro>
   <macro name="source-note">
-      <choose>
-        <if match="any" type="article-journal article-magazine article-newspaper periodical post-weblog review review-book">
-          <!-- serial usage -->
-          <text macro="source-serial-note"/>
-        </if>
-        <else-if match="any" type="interview paper-conference">
-          <choose>
-            <if match="any" variable="collection-editor container-author editor editorial-director">
-              <!-- monographic usage -->
-              <text macro="source-monographic-note"/>
-            </if>
-            <else>
-              <!-- serial usage -->
-              <text macro="source-serial-note"/>
-            </else>
-          </choose>
-        </else-if>
-        <else-if match="any" type="patent post webpage"/>
-        <else>
-          <text macro="source-monographic-note"/>
-        </else>
-      </choose>
+    <choose>
+      <if match="any" type="article-journal article-magazine article-newspaper periodical post-weblog review review-book">
+        <!-- serial usage -->
+        <text macro="source-serial-note"/>
+      </if>
+      <else-if match="any" type="interview paper-conference">
+        <choose>
+          <if match="any" variable="collection-editor container-author editor editorial-director">
+            <!-- monographic usage -->
+            <text macro="source-monographic-note"/>
+          </if>
+          <else>
+            <!-- serial usage -->
+            <text macro="source-serial-note"/>
+          </else>
+        </choose>
+      </else-if>
+      <else-if match="any" type="patent post webpage"/>
+      <else>
+        <text macro="source-monographic-note"/>
+      </else>
+    </choose>
   </macro>
   <!-- 4.1. Serial sources -->
   <macro name="source-serial-bib">
