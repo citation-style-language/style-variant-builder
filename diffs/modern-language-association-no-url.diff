@@ -1,5 +1,5 @@
 --- templates/modern-language-association-template.csl
-+++ development/modern-language-association-annotated-bibliography.csl
++++ development/modern-language-association-no-url.csl
 @@ -5,10 +5,11 @@
    type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
  <style and="text" class="in-text" demote-non-dropping-particle="never" page-range-format="minimal-two" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
@@ -8,10 +8,10 @@
 -    <title-short>MLA Handbook</title-short>
 -    <id>http://www.zotero.org/styles/modern-language-association</id>
 -    <link href="http://www.zotero.org/styles/modern-language-association" rel="self"/>
-+    <title>Modern Language Association 9th edition (in-text citations, annotated bibliography)</title>
-+    <title-short>MLA Handbook (in-text citations, annotated bibliography)</title-short>
-+    <id>http://www.zotero.org/styles/modern-language-association-annotated-bibliography</id>
-+    <link href="http://www.zotero.org/styles/modern-language-association-annotated-bibliography" rel="self"/>
++    <title>Modern Language Association 9th edition (in-text citations without URLs)</title>
++    <title-short>MLA Handbook (in-text citations, no URLs)</title-short>
++    <id>http://www.zotero.org/styles/modern-language-association-no-url</id>
++    <link href="http://www.zotero.org/styles/modern-language-association-no-url" rel="self"/>
 +    <link href="http://www.zotero.org/styles/modern-language-association" rel="template"/>
      <link href="https://style.mla.org/" rel="documentation"/>
      <author>
@@ -21,15 +21,27 @@
      <category field="humanities"/>
      <category field="literature"/>
 -    <summary>MLA source citations</summary>
-+    <summary>MLA source citations, in-text citations system (chapter 6), with annotated bibliography (5.132)</summary>
++    <summary>MLA source citations, in-text citations system (chapter 6), without URLs (5.84)</summary>
      <updated>2025-07-15T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -1161,6 +1162,7 @@
-         <text macro="container2"/>
-         <text macro="supplemental-element-end"/>
-       </group>
-+      <text display="block" variable="note"/>
-     </layout>
-   </bibliography>
- </style>
+@@ -841,11 +842,6 @@
+   <macro name="container1-location">
+     <group delimiter=", ">
+       <text macro="label-page"/>
+-      <choose>
+-        <if match="none" variable="source">
+-          <text macro="URI"/>
+-        </if>
+-      </choose>
+     </group>
+   </macro>
+   <!-- 5. Supplemental Element Between Containers (MLA 5.119) -->
+@@ -887,7 +883,6 @@
+   <macro name="container2">
+     <group delimiter=", ">
+       <text macro="container2-title"/>
+-      <text macro="container2-location"/>
+     </group>
+   </macro>
+   <!-- 6.1. Title of Container (MLA 5.31-37) -->

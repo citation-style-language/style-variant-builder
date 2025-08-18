@@ -1,5 +1,5 @@
 --- templates/modern-language-association-template.csl
-+++ development/modern-language-association-notes.csl
++++ development/modern-language-association-notes-no-url.csl
 @@ -3,12 +3,13 @@
    type="application/relax-ng-compact-syntax" schematypens="http://relaxng.org/ns/compatibility/annotations/1.0"?>
  <?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl-repository.rnc"
@@ -11,10 +11,10 @@
 -    <title-short>MLA Handbook</title-short>
 -    <id>http://www.zotero.org/styles/modern-language-association</id>
 -    <link href="http://www.zotero.org/styles/modern-language-association" rel="self"/>
-+    <title>Modern Language Association 9th edition (notes)</title>
-+    <title-short>MLA Handbook (notes)</title-short>
-+    <id>http://www.zotero.org/styles/modern-language-association-notes</id>
-+    <link href="http://www.zotero.org/styles/modern-language-association-notes" rel="self"/>
++    <title>Modern Language Association 9th edition (notes without URLs)</title>
++    <title-short>MLA Handbook (notes, no URLs)</title-short>
++    <id>http://www.zotero.org/styles/modern-language-association-notes-no-url</id>
++    <link href="http://www.zotero.org/styles/modern-language-association-notes-no-url" rel="self"/>
 +    <link href="http://www.zotero.org/styles/modern-language-association" rel="template"/>
      <link href="https://style.mla.org/" rel="documentation"/>
      <author>
@@ -29,11 +29,31 @@
      <category field="humanities"/>
      <category field="literature"/>
 -    <summary>MLA source citations</summary>
-+    <summary>MLA source citations, notes system (chapter 7)</summary>
++    <summary>MLA source citations, notes system (chapter 7), without URLs (5.84)</summary>
      <updated>2025-07-15T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -1124,7 +1125,7 @@
+@@ -841,11 +842,6 @@
+   <macro name="container1-location">
+     <group delimiter=", ">
+       <text macro="label-page"/>
+-      <choose>
+-        <if match="none" variable="source">
+-          <text macro="URI"/>
+-        </if>
+-      </choose>
+     </group>
+   </macro>
+   <!-- 5. Supplemental Element Between Containers (MLA 5.119) -->
+@@ -887,7 +883,6 @@
+   <macro name="container2">
+     <group delimiter=", ">
+       <text macro="container2-title"/>
+-      <text macro="container2-location"/>
+     </group>
+   </macro>
+   <!-- 6.1. Title of Container (MLA 5.31-37) -->
+@@ -1124,7 +1119,7 @@
      </group>
    </macro>
    <citation disambiguate-add-givenname="true" disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
