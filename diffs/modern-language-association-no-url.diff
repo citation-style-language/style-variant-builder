@@ -8,7 +8,7 @@
 -    <title-short>MLA Handbook</title-short>
 -    <id>http://www.zotero.org/styles/modern-language-association</id>
 -    <link href="http://www.zotero.org/styles/modern-language-association" rel="self"/>
-+    <title>Modern Language Association 9th edition (in-text citations without URLs)</title>
++    <title>Modern Language Association 9th edition (in-text citations, without URLs)</title>
 +    <title-short>MLA Handbook (in-text citations, no URLs)</title-short>
 +    <id>http://www.zotero.org/styles/modern-language-association-no-url</id>
 +    <link href="http://www.zotero.org/styles/modern-language-association-no-url" rel="self"/>
@@ -25,7 +25,7 @@
      <updated>2025-07-15T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -841,11 +842,6 @@
+@@ -844,11 +845,6 @@
    <macro name="container1-location">
      <group delimiter=", ">
        <text macro="label-page"/>
@@ -37,7 +37,7 @@
      </group>
    </macro>
    <!-- 5. Supplemental Element Between Containers (MLA 5.119) -->
-@@ -887,7 +883,6 @@
+@@ -863,7 +859,6 @@
    <macro name="container2">
      <group delimiter=", ">
        <text macro="container2-title"/>
