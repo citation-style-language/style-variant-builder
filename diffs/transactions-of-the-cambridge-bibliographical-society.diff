@@ -58,7 +58,7 @@
        <text variable="page"/>
      </group>
    </macro>
-@@ -1097,6 +1096,8 @@
+@@ -1093,6 +1092,8 @@
          <if variable="title">
            <text macro="title"/>
            <text macro="description"/>
@@ -67,7 +67,7 @@
            <text macro="identifier"/>
          </if>
          <else>
-@@ -1166,9 +1167,9 @@
+@@ -1162,9 +1163,9 @@
          </choose>
          <text macro="source-medium"/>
          <text macro="source-archive"/>
@@ -79,7 +79,7 @@
      </group>
    </macro>
    <!-- 3.1. Title -->
-@@ -3268,8 +3269,8 @@
+@@ -3264,8 +3265,8 @@
          </else-if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -90,7 +90,7 @@
            </group>
          </else-if>
          <!-- TODO: remove conditional when Zotero fixes double-mapping of `event-place` -->
-@@ -3290,8 +3291,8 @@
+@@ -3286,8 +3287,8 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
