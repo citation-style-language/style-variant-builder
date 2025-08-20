@@ -53,7 +53,7 @@
      </group>
    </macro>
    <!-- 3.1. Title -->
-@@ -3590,14 +3591,14 @@
+@@ -3585,14 +3586,14 @@
      <choose>
        <if match="any" variable="issue supplement-number volume">
          <group delimiter=": ">
@@ -70,7 +70,7 @@
              <!-- periodical edition always capitalized (CMOS18 14.89) -->
              <text macro="label-edition-capitalized"/>
            </group>
-@@ -5354,9 +5355,7 @@
+@@ -5349,9 +5350,7 @@
          <date date-parts="year" form="text" variable="available-date"/>
        </else-if>
        <else>
@@ -81,7 +81,7 @@
        </else>
      </choose>
    </macro>
-@@ -5523,9 +5522,7 @@
+@@ -5518,9 +5517,7 @@
      </choose>
    </macro>
    <macro name="source-date-original">
@@ -92,7 +92,7 @@
    </macro>
    <macro name="source-date-original-full">
      <!-- Give full date for more ephemeral types -->
-@@ -5801,7 +5798,7 @@
+@@ -5796,7 +5793,7 @@
          <text macro="source-archive-name-first"/>
        </if>
        <else-if match="any" type="collection document manuscript personal_communication" variable="archive_collection archive-place">
@@ -101,7 +101,7 @@
        </else-if>
        <!-- Without `archive_collection` or `archive-place`: digital archives (database and identifier) -->
        <else>
-@@ -5816,7 +5813,7 @@
+@@ -5811,7 +5808,7 @@
          <text macro="source-archive-name-first"/>
        </if>
        <else-if match="any" type="collection document manuscript personal_communication" variable="archive_collection archive-place">
@@ -110,7 +110,7 @@
        </else-if>
        <!-- Without `archive_collection` or `archive-place`: digital archives (database and identifier) -->
        <else>
-@@ -5994,7 +5991,7 @@
+@@ -5989,7 +5986,7 @@
          </group>
        </group>
        <text variable="references"/>
@@ -119,7 +119,7 @@
      </group>
    </macro>
    <!-- 6.1. Legal author -->
-@@ -6645,9 +6642,9 @@
+@@ -6640,9 +6637,9 @@
        </else>
      </choose>
    </macro>
@@ -132,7 +132,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -6812,16 +6809,19 @@
+@@ -6807,16 +6804,19 @@
    <bibliography et-al-min="7" et-al-use-first="3" hanging-indent="true">
      <sort>
        <key macro="author-sort"/>
