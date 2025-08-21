@@ -25,7 +25,7 @@
      <updated>2025-08-07T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -3263,7 +3264,7 @@
+@@ -3250,7 +3251,7 @@
          </else-if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -34,7 +34,7 @@
              <text variable="publisher"/>
            </group>
          </else-if>
-@@ -3285,7 +3286,7 @@
+@@ -3272,7 +3273,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">

@@ -79,7 +79,7 @@
      </group>
    </macro>
    <!-- 3.1. Title -->
-@@ -3263,8 +3264,8 @@
+@@ -3250,8 +3251,8 @@
          </else-if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -90,7 +90,7 @@
            </group>
          </else-if>
          <!-- TODO: remove conditional when Zotero fixes double-mapping of `event-place` -->
-@@ -3285,8 +3286,8 @@
+@@ -3272,8 +3273,8 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">

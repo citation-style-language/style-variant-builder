@@ -52,7 +52,7 @@
      </group>
    </macro>
    <!-- 3.1. Title -->
-@@ -3869,24 +3869,24 @@
+@@ -3855,24 +3855,24 @@
                  <!-- date appears first if a magazine or review `container-title` has been substituted for a missing author (CMOS18 14.89) -->
                  <choose>
                    <if match="any" variable="author chair collection-editor compiler composer curator director editor editor-translator editorial-director executive-producer guest host illustrator organizer producer series-creator translator">
@@ -81,7 +81,7 @@
                  <!-- for CMOS17 author-date: -->
                  <!-- <text macro="source-date-issued-month-day" prefix="(" suffix=")"/> -->
                </else>
-@@ -4847,32 +4847,32 @@
+@@ -4833,32 +4833,32 @@
      <!-- Facts of publication with brackets for print monographic formats -->
      <choose>
        <if match="any" type="book chapter classic interview musical_score pamphlet paper-conference report thesis">
@@ -120,7 +120,7 @@
            </if>
          </choose>
        </else-if>
-@@ -4915,7 +4915,7 @@
+@@ -4901,7 +4901,7 @@
      <!-- mirrors `source-monographic-publication-note-bracketed` -->
      <choose>
        <if disambiguate="true">
@@ -129,7 +129,7 @@
            <group delimiter=", ">
              <choose>
                <!-- Facts of publication with brackets for print monographic formats -->
-@@ -5250,7 +5250,7 @@
+@@ -5236,7 +5236,7 @@
              <names variable="original-author"/>
              <text font-style="italic" text-case="title" variable="original-title"/>
            </group>
@@ -138,7 +138,7 @@
              <text macro="source-publication-publisher-original-note"/>
              <text macro="source-date-original"/>
            </group>
-@@ -5989,7 +5989,7 @@
+@@ -5975,7 +5975,7 @@
          </group>
        </group>
        <text variable="references"/>
@@ -147,7 +147,7 @@
      </group>
    </macro>
    <!-- 6.1. Legal author -->
-@@ -6641,8 +6641,8 @@
+@@ -6627,8 +6627,8 @@
      </choose>
    </macro>
    <citation disambiguate-add-givenname="true" disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
