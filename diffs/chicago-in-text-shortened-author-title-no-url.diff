@@ -44,7 +44,7 @@
      </group>
    </macro>
    <macro name="title-and-source-note">
-@@ -5975,7 +5976,7 @@
+@@ -5973,7 +5974,7 @@
          </group>
        </group>
        <text variable="references"/>
@@ -53,7 +53,7 @@
      </group>
    </macro>
    <!-- 6.1. Legal author -->
-@@ -6627,8 +6628,8 @@
+@@ -6625,8 +6626,8 @@
      </choose>
    </macro>
    <citation disambiguate-add-givenname="true" disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
@@ -64,7 +64,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -6802,7 +6803,7 @@
+@@ -6800,7 +6801,7 @@
        <key macro="source-archive-bib"/>
      </sort>
      <layout suffix=".">
