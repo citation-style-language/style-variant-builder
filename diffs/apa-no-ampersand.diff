@@ -1,11 +1,8 @@
 --- templates/apa-template.csl
 +++ development/apa-no-ampersand.csl
-@@ -3,13 +3,13 @@
-   type="application/relax-ng-compact-syntax" schematypens="http://relaxng.org/ns/compatibility/annotations/1.0"?>
- <?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl-repository.rnc"
+@@ -5,11 +5,11 @@
    type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
--<style and="symbol" class="in-text" demote-non-dropping-particle="never" initialize-with=". " names-delimiter=", " page-range-format="expanded" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
-+<style and="text" class="in-text" demote-non-dropping-particle="never" initialize-with=". " names-delimiter=", " page-range-format="expanded" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
+ <style class="in-text" demote-non-dropping-particle="never" initialize-with=". " names-delimiter=", " page-range-format="expanded" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>American Psychological Association 7th edition (template)</title>
 -    <title-short>APA Style with Bluebook</title-short>
@@ -29,8 +26,8 @@
      <updated>2025-04-14T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -39,6 +39,14 @@
-       <term name="at">before the</term>
+@@ -38,6 +38,14 @@
+       <term name="ad"> C.E.</term>
        <term name="bc"> B.C.E.</term>
        <term form="short" name="circa">ca.</term>
 +      <term form="short" name="editor-translator">
@@ -44,3 +41,119 @@
        <term name="guest">
          <single>guest expert</single>
          <multiple>guest experts</multiple>
+@@ -349,7 +357,7 @@
+     <group delimiter=" ">
+       <!-- Substitutes for missing authors: order prioritizes primary creators (e.g., composer, author) over secondary roles (e.g., editor, curator), with title as the final fallback. -->
+       <names variable="composer">
+-        <name and="symbol" delimiter-precedes-last="always" name-as-sort-order="all"/>
++        <name and="text" delimiter-precedes-last="always" name-as-sort-order="all"/>
+         <label form="short" prefix=" (" suffix=")" text-case="title"/>
+         <substitute>
+           <names variable="author"/>
+@@ -359,24 +367,24 @@
+             <if type="broadcast">
+               <names variable="script-writer director">
+                 <!-- Actors/performers and producers [not executive] not cited in APA style. -->
+-                <name and="symbol" delimiter-precedes-last="always" name-as-sort-order="all"/>
++                <name and="text" delimiter-precedes-last="always" name-as-sort-order="all"/>
+                 <label prefix=" (" suffix=")" text-case="title"/>
+               </names>
+             </if>
+           </choose>
+           <names variable="director">
+             <!-- For non-broadcast items, APA only cites directors and not writers. -->
+-            <name and="symbol" delimiter-precedes-last="always" name-as-sort-order="all"/>
++            <name and="text" delimiter-precedes-last="always" name-as-sort-order="all"/>
+             <label prefix=" (" suffix=")" text-case="title"/>
+           </names>
+           <names variable="guest host">
+             <!-- TODO: Collapse variables when that becomes available. -->
+-            <name and="symbol" delimiter-precedes-last="always" name-as-sort-order="all"/>
++            <name and="text" delimiter-precedes-last="always" name-as-sort-order="all"/>
+             <label prefix=" (" suffix=")" text-case="title"/>
+           </names>
+           <names variable="producer">
+             <!-- Producers not cited if there is a writer/director, but use if they are the principal creator. -->
+-            <name and="symbol" delimiter-precedes-last="always" name-as-sort-order="all"/>
++            <name and="text" delimiter-precedes-last="always" name-as-sort-order="all"/>
+             <label prefix=" (" suffix=")" text-case="title"/>
+           </names>
+           <choose>
+@@ -387,11 +395,11 @@
+             </else-if>
+           </choose>
+           <names variable="executive-producer">
+-            <name and="symbol" delimiter-precedes-last="always" name-as-sort-order="all"/>
++            <name and="text" delimiter-precedes-last="always" name-as-sort-order="all"/>
+             <label prefix=" (" suffix=")" text-case="title"/>
+           </names>
+           <names variable="series-creator">
+-            <name and="symbol" delimiter-precedes-last="always" name-as-sort-order="all"/>
++            <name and="text" delimiter-precedes-last="always" name-as-sort-order="all"/>
+             <label prefix=" (" suffix=")" text-case="title"/>
+           </names>
+           <names variable="editor-translator"/>
+@@ -399,23 +407,23 @@
+           <names variable="editor"/>
+           <names variable="editorial-director"/>
+           <names variable="compiler">
+-            <name and="symbol" delimiter-precedes-last="always" name-as-sort-order="all"/>
++            <name and="text" delimiter-precedes-last="always" name-as-sort-order="all"/>
+             <label prefix=" (" suffix=")" text-case="title"/>
+           </names>
+           <choose>
+             <if match="any" type="event performance speech">
+               <names variable="chair">
+-                <name and="symbol" delimiter-precedes-last="always" name-as-sort-order="all"/>
++                <name and="text" delimiter-precedes-last="always" name-as-sort-order="all"/>
+                 <label prefix=" (" suffix=")" text-case="title"/>
+               </names>
+               <names variable="organizer">
+-                <name and="symbol" delimiter-precedes-last="always" name-as-sort-order="all"/>
++                <name and="text" delimiter-precedes-last="always" name-as-sort-order="all"/>
+                 <label prefix=" (" suffix=")" text-case="title"/>
+               </names>
+             </if>
+           </choose>
+           <names variable="curator">
+-            <name and="symbol" delimiter-precedes-last="always" name-as-sort-order="all"/>
++            <name and="text" delimiter-precedes-last="always" name-as-sort-order="all"/>
+             <label prefix=" (" suffix=")" text-case="title"/>
+           </names>
+           <names variable="collection-editor"/>
+@@ -432,7 +440,7 @@
+         <if match="any" type="book classic collection">
+           <names prefix="(" suffix=")" variable="contributor">
+             <label form="verb" suffix=" "/>
+-            <name and="symbol" delimiter-precedes-last="always" name-as-sort-order="all"/>
++            <name and="text" delimiter-precedes-last="always" name-as-sort-order="all"/>
+           </names>
+         </if>
+       </choose>
+@@ -448,7 +456,7 @@
+           <!-- These variables indicate that the letter is retrievable by the reader. If not, use the APA in-text-only personal communication format. -->
+           <if match="any" variable="archive archive-place container-title DOI number publisher references URL">
+             <names variable="author">
+-              <name and="symbol" form="short"/>
++              <name and="text" form="short"/>
+               <substitute>
+                 <text macro="title-and-descriptions-short"/>
+               </substitute>
+@@ -468,7 +476,7 @@
+       </else-if>
+       <else>
+         <names variable="composer">
+-          <name and="symbol" form="short"/>
++          <name and="text" form="short"/>
+           <substitute>
+             <names variable="author"/>
+             <names variable="illustrator"/>
+@@ -1453,7 +1461,7 @@
+             <text macro="description-format"/>
+             <names variable="recipient">
+               <label form="verb" suffix=" "/>
+-              <name and="symbol" initialize="false"/>
++              <name and="text" initialize="false"/>
+             </names>
+           </group>
+           <text macro="description-medium"/>

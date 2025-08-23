@@ -2,7 +2,7 @@
 +++ development/oxford-guide-to-style-notes.csl
 @@ -5,10 +5,11 @@
    type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
- <style and="text" class="note" default-locale="en-GB" demote-non-dropping-particle="display-and-sort" et-al-min="4" et-al-use-first="1" page-range-format="chicago" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
+ <style and="text" class="note" default-locale="en-GB" demote-non-dropping-particle="display-and-sort" et-al-min="4" et-al-use-first="1" page-range-format="chicago-16" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>New Hart's Rules: The Oxford Style Guide 2nd edition (template)</title>
 -    <title-short>NHR (template)</title-short>
@@ -25,7 +25,7 @@
      <updated>2025-07-15T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -408,11 +409,8 @@
+@@ -388,11 +389,8 @@
    <macro name="author-bib">
      <group delimiter=", ">
        <names variable="composer">
@@ -37,7 +37,7 @@
          <label form="short" prefix=", "/>
          <substitute>
            <names variable="author"/>
-@@ -2423,8 +2421,6 @@
+@@ -2401,8 +2399,6 @@
            </group>
          </if>
        </choose>
@@ -46,7 +46,7 @@
        <text macro="source-event"/>
      </group>
    </macro>
-@@ -2596,9 +2592,7 @@
+@@ -2590,9 +2586,7 @@
    <macro name="source-monographic-locator">
      <choose>
        <if is-numeric="volume" locator="page">
@@ -55,9 +55,9 @@
 -          <!-- <group delimiter=". " -->
 +        <group delimiter=". ">
            <choose>
-             <if match="none" variable="collection-editor part-number part-title volume-title">
-               <text variable="volume"/>
-@@ -2796,8 +2790,7 @@
+             <if match="none" variable="part-number part-title volume-title">
+               <text macro="label-volume"/>
+@@ -2765,8 +2759,7 @@
            <choose>
              <if match="any" variable="collection-editor container-author editor editorial-director">
                <!-- monographic usage -->
@@ -67,7 +67,7 @@
                <text macro="source-publication-and-date"/>
              </if>
            </choose>
-@@ -2805,8 +2798,7 @@
+@@ -2774,8 +2767,7 @@
          <!-- `patent` date in identification (cf. CMOS18 14.158) -->
          <else-if type="patent"/>
          <else>

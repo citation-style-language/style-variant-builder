@@ -4,8 +4,8 @@
    type="application/relax-ng-compact-syntax" schematypens="http://relaxng.org/ns/compatibility/annotations/1.0"?>
  <?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl-repository.rnc"
    type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
--<style and="text" class="note" demote-non-dropping-particle="display-and-sort" page-range-format="chicago-16" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
-+<style and="text" class="in-text" demote-non-dropping-particle="display-and-sort" page-range-format="chicago-16" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
+-<style class="note" demote-non-dropping-particle="display-and-sort" page-range-format="chicago-16" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
++<style class="in-text" demote-non-dropping-particle="display-and-sort" page-range-format="chicago-16" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>Chicago Manual of Style 18th edition (template)</title>
 -    <title-short>CMOS with Bluebook</title-short>
@@ -35,7 +35,7 @@
      <updated>2025-08-07T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -1449,7 +1450,7 @@
+@@ -1445,7 +1446,7 @@
        </group>
        <text macro="source-medium-bib"/>
        <text macro="source-archive-bib"/>
@@ -44,7 +44,7 @@
      </group>
    </macro>
    <macro name="title-and-source-note">
-@@ -1502,7 +1503,7 @@
+@@ -1498,7 +1499,7 @@
        </choose>
        <text macro="source-medium-note"/>
        <text macro="source-archive-note"/>
@@ -53,7 +53,7 @@
      </group>
    </macro>
    <!-- 3.1. Title -->
-@@ -3569,14 +3570,14 @@
+@@ -3565,14 +3566,14 @@
      <choose>
        <if match="any" variable="issue supplement-number volume">
          <group delimiter=": ">
@@ -70,7 +70,7 @@
              <!-- periodical edition always capitalized (CMOS18 14.89) -->
              <text macro="label-edition-capitalized"/>
            </group>
-@@ -5333,9 +5334,7 @@
+@@ -5329,9 +5330,7 @@
          <date date-parts="year" form="text" variable="available-date"/>
        </else-if>
        <else>
@@ -81,7 +81,7 @@
        </else>
      </choose>
    </macro>
-@@ -5502,9 +5501,7 @@
+@@ -5498,9 +5497,7 @@
      </choose>
    </macro>
    <macro name="source-date-original">
@@ -92,7 +92,7 @@
    </macro>
    <macro name="source-date-original-full">
      <!-- Give full date for more ephemeral types -->
-@@ -5780,7 +5777,7 @@
+@@ -5776,7 +5773,7 @@
          <text macro="source-archive-name-first"/>
        </if>
        <else-if match="any" type="collection document manuscript personal_communication" variable="archive_collection archive-place">
@@ -101,7 +101,7 @@
        </else-if>
        <!-- Without `archive_collection` or `archive-place`: digital archives (database and identifier) -->
        <else>
-@@ -5795,7 +5792,7 @@
+@@ -5791,7 +5788,7 @@
          <text macro="source-archive-name-first"/>
        </if>
        <else-if match="any" type="collection document manuscript personal_communication" variable="archive_collection archive-place">
@@ -110,7 +110,7 @@
        </else-if>
        <!-- Without `archive_collection` or `archive-place`: digital archives (database and identifier) -->
        <else>
-@@ -5973,7 +5970,7 @@
+@@ -5971,7 +5968,7 @@
          </group>
        </group>
        <text variable="references"/>
@@ -118,8 +118,8 @@
 +      <!-- <text macro="source-DOI-URL"/> -->
      </group>
    </macro>
-   <!-- 6.1. Legal author -->
-@@ -6624,9 +6621,9 @@
+   <!-- 6.1. Legal date -->
+@@ -6614,9 +6611,9 @@
        </else>
      </choose>
    </macro>
@@ -132,7 +132,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -6791,16 +6788,19 @@
+@@ -6781,16 +6778,19 @@
    <bibliography et-al-min="7" et-al-use-first="3" hanging-indent="true">
      <sort>
        <key macro="author-sort"/>

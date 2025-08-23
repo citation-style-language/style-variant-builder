@@ -4,8 +4,8 @@
    type="application/relax-ng-compact-syntax" schematypens="http://relaxng.org/ns/compatibility/annotations/1.0"?>
  <?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl-repository.rnc"
    type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
--<style and="text" class="note" demote-non-dropping-particle="display-and-sort" page-range-format="chicago-16" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
-+<style and="text" class="in-text" demote-non-dropping-particle="display-and-sort" page-range-format="chicago-16" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
+-<style class="note" demote-non-dropping-particle="display-and-sort" page-range-format="chicago-16" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
++<style class="in-text" demote-non-dropping-particle="display-and-sort" page-range-format="chicago-16" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>Chicago Manual of Style 18th edition (template)</title>
 -    <title-short>CMOS with Bluebook</title-short>
@@ -34,7 +34,7 @@
      <updated>2025-08-07T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -1449,7 +1449,7 @@
+@@ -1445,7 +1445,7 @@
        </group>
        <text macro="source-medium-bib"/>
        <text macro="source-archive-bib"/>
@@ -43,7 +43,7 @@
      </group>
    </macro>
    <macro name="title-and-source-note">
-@@ -1502,7 +1502,7 @@
+@@ -1498,7 +1498,7 @@
        </choose>
        <text macro="source-medium-note"/>
        <text macro="source-archive-note"/>
@@ -52,7 +52,7 @@
      </group>
    </macro>
    <!-- 3.1. Title -->
-@@ -3853,24 +3853,24 @@
+@@ -3849,24 +3849,24 @@
                  <!-- date appears first if a magazine or review `container-title` has been substituted for a missing author (CMOS18 14.89) -->
                  <choose>
                    <if match="any" variable="author chair collection-editor compiler composer curator director editor editor-translator editorial-director executive-producer guest host illustrator organizer producer series-creator translator">
@@ -81,7 +81,7 @@
                  <!-- for CMOS17 author-date: -->
                  <!-- <text macro="source-date-issued-month-day" prefix="(" suffix=")"/> -->
                </else>
-@@ -4831,32 +4831,32 @@
+@@ -4827,32 +4827,32 @@
      <!-- Facts of publication with brackets for print monographic formats -->
      <choose>
        <if match="any" type="book chapter classic interview musical_score pamphlet paper-conference report thesis">
@@ -120,7 +120,7 @@
            </if>
          </choose>
        </else-if>
-@@ -4899,7 +4899,7 @@
+@@ -4895,7 +4895,7 @@
      <!-- mirrors `source-monographic-publication-note-bracketed` -->
      <choose>
        <if disambiguate="true">
@@ -129,7 +129,7 @@
            <group delimiter=", ">
              <choose>
                <!-- Facts of publication with brackets for print monographic formats -->
-@@ -5234,7 +5234,7 @@
+@@ -5230,7 +5230,7 @@
              <names variable="original-author"/>
              <text font-style="italic" text-case="title" variable="original-title"/>
            </group>
@@ -138,7 +138,7 @@
              <text macro="source-publication-publisher-original-note"/>
              <text macro="source-date-original"/>
            </group>
-@@ -5973,7 +5973,7 @@
+@@ -5971,7 +5971,7 @@
          </group>
        </group>
        <text variable="references"/>
@@ -146,8 +146,8 @@
 +      <!-- <text macro="source-DOI-URL"/> -->
      </group>
    </macro>
-   <!-- 6.1. Legal author -->
-@@ -6625,8 +6625,8 @@
+   <!-- 6.1. Legal date -->
+@@ -6615,8 +6615,8 @@
      </choose>
    </macro>
    <citation disambiguate-add-givenname="true" disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">

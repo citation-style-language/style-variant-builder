@@ -2,7 +2,7 @@
 +++ development/chicago-notes-publisher-place-archive-place-first-no-url.csl
 @@ -5,10 +5,11 @@
    type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
- <style and="text" class="note" demote-non-dropping-particle="display-and-sort" page-range-format="chicago-16" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
+ <style class="note" demote-non-dropping-particle="display-and-sort" page-range-format="chicago-16" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>Chicago Manual of Style 18th edition (template)</title>
 -    <title-short>CMOS with Bluebook</title-short>
@@ -25,7 +25,7 @@
      <updated>2025-08-07T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -1449,7 +1450,7 @@
+@@ -1445,7 +1446,7 @@
        </group>
        <text macro="source-medium-bib"/>
        <text macro="source-archive-bib"/>
@@ -34,7 +34,7 @@
      </group>
    </macro>
    <macro name="title-and-source-note">
-@@ -1502,7 +1503,7 @@
+@@ -1498,7 +1499,7 @@
        </choose>
        <text macro="source-medium-note"/>
        <text macro="source-archive-note"/>
@@ -43,7 +43,7 @@
      </group>
    </macro>
    <!-- 3.1. Title -->
-@@ -5250,8 +5251,8 @@
+@@ -5246,8 +5247,8 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -54,7 +54,7 @@
            </group>
          </else-if>
          <!-- TODO: remove conditional when Zotero fixes double-mapping of `event-place` -->
-@@ -5276,8 +5277,8 @@
+@@ -5272,8 +5273,8 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -65,7 +65,7 @@
            </group>
          </else-if>
          <!-- TODO: remove conditional when Zotero fixes double-mapping of `event-place` -->
-@@ -5298,8 +5299,8 @@
+@@ -5294,8 +5295,8 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -76,7 +76,7 @@
          </group>
        </if>
        <else>
-@@ -5311,8 +5312,8 @@
+@@ -5307,8 +5308,8 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -87,7 +87,7 @@
          </group>
        </if>
        <else>
-@@ -5780,7 +5781,7 @@
+@@ -5776,7 +5777,7 @@
          <text macro="source-archive-name-first"/>
        </if>
        <else-if match="any" type="collection document manuscript personal_communication" variable="archive_collection archive-place">
@@ -96,7 +96,7 @@
        </else-if>
        <!-- Without `archive_collection` or `archive-place`: digital archives (database and identifier) -->
        <else>
-@@ -5795,7 +5796,7 @@
+@@ -5791,7 +5792,7 @@
          <text macro="source-archive-name-first"/>
        </if>
        <else-if match="any" type="collection document manuscript personal_communication" variable="archive_collection archive-place">
@@ -105,7 +105,7 @@
        </else-if>
        <!-- Without `archive_collection` or `archive-place`: digital archives (database and identifier) -->
        <else>
-@@ -5973,7 +5974,7 @@
+@@ -5971,7 +5972,7 @@
          </group>
        </group>
        <text variable="references"/>
@@ -113,8 +113,8 @@
 +      <!-- <text macro="source-DOI-URL"/> -->
      </group>
    </macro>
-   <!-- 6.1. Legal author -->
-@@ -6624,7 +6625,7 @@
+   <!-- 6.1. Legal date -->
+@@ -6614,7 +6615,7 @@
        </else>
      </choose>
    </macro>
@@ -123,7 +123,7 @@
      <layout delimiter="; " suffix=".">
        <text macro="citation-notes-full-subsequent-author-title"/>
      </layout>
-@@ -6788,19 +6789,4 @@
+@@ -6778,19 +6779,4 @@
        </else>
      </choose>
    </macro>

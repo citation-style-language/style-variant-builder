@@ -2,7 +2,7 @@
 +++ development/apa.csl
 @@ -5,7 +5,7 @@
    type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
- <style and="symbol" class="in-text" demote-non-dropping-particle="never" initialize-with=". " names-delimiter=", " page-range-format="expanded" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
+ <style class="in-text" demote-non-dropping-particle="never" initialize-with=". " names-delimiter=", " page-range-format="expanded" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>American Psychological Association 7th edition (template)</title>
 +    <title>American Psychological Association 7th edition</title>

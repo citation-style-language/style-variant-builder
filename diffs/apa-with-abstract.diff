@@ -2,7 +2,7 @@
 +++ development/apa-with-abstract.csl
 @@ -5,11 +5,11 @@
    type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
- <style and="symbol" class="in-text" demote-non-dropping-particle="never" initialize-with=". " names-delimiter=", " page-range-format="expanded" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
+ <style class="in-text" demote-non-dropping-particle="never" initialize-with=". " names-delimiter=", " page-range-format="expanded" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>American Psychological Association 7th edition (template)</title>
 -    <title-short>APA Style with Bluebook</title-short>
@@ -26,7 +26,7 @@
      <updated>2025-04-14T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -2372,6 +2372,7 @@
+@@ -2368,6 +2368,7 @@
      </sort>
      <layout>
        <text macro="bibliography-filtered"/>
