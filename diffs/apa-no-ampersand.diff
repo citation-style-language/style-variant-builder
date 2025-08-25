@@ -148,6 +148,108 @@
            <substitute>
              <names variable="author"/>
              <names variable="illustrator"/>
+@@ -1020,7 +1028,7 @@
+       <choose>
+         <if variable="title">
+           <names variable="interviewer">
+-            <name and="symbol"/>
++            <name and="text"/>
+             <label form="short" prefix=", " text-case="title"/>
+           </names>
+         </if>
+@@ -1031,18 +1039,18 @@
+           <group delimiter="; ">
+             <names variable="container-author">
+               <label form="verb-short" suffix=" " text-case="title"/>
+-              <name and="symbol"/>
++              <name and="text"/>
+             </names>
+             <names delimiter="; " variable="editor translator">
+-              <name and="symbol"/>
++              <name and="text"/>
+               <label form="short" prefix=", " text-case="title"/>
+             </names>
+             <names delimiter="; " variable="illustrator narrator">
+-              <name and="symbol"/>
++              <name and="text"/>
+               <label form="short" prefix=", " text-case="title"/>
+             </names>
+             <names delimiter="; " variable="compiler chair organizer curator series-creator executive-producer">
+-              <name and="symbol"/>
++              <name and="text"/>
+               <label prefix=", " text-case="title"/>
+             </names>
+           </group>
+@@ -1050,7 +1058,7 @@
+         <else>
+           <group delimiter="; ">
+             <names delimiter="; " variable="illustrator narrator">
+-              <name and="symbol"/>
++              <name and="text"/>
+               <label form="short" prefix=", " text-case="title"/>
+             </names>
+             <choose>
+@@ -1058,7 +1066,7 @@
+               <else-if variable="container-title">
+                 <!-- TODO: Check logic once processors start to automatically populate `editor-translator` -->
+                 <names delimiter="; " variable="translator">
+-                  <name and="symbol"/>
++                  <name and="text"/>
+                   <label form="short" prefix=", " text-case="title"/>
+                 </names>
+               </else-if>
+@@ -1066,14 +1074,14 @@
+                 <group delimiter="; ">
+                   <names variable="container-author">
+                     <label form="verb-short" suffix=" " text-case="title"/>
+-                    <name and="symbol"/>
++                    <name and="text"/>
+                   </names>
+                   <names delimiter="; " variable="editor translator">
+-                    <name and="symbol"/>
++                    <name and="text"/>
+                     <label form="short" prefix=", " text-case="title"/>
+                   </names>
+                   <names delimiter="; " variable="compiler chair organizer curator series-creator executive-producer">
+-                    <name and="symbol"/>
++                    <name and="text"/>
+                     <label prefix=", " text-case="title"/>
+                   </names>
+                 </group>
+@@ -1089,13 +1097,13 @@
+       <choose>
+         <if variable="title">
+           <names delimiter="; " variable="interviewer">
+-            <name and="symbol"/>
++            <name and="text"/>
+             <label form="short" prefix=", " text-case="title"/>
+           </names>
+         </if>
+       </choose>
+       <names delimiter="; " variable="translator narrator">
+-        <name and="symbol"/>
++        <name and="text"/>
+         <label form="short" prefix=", " text-case="title"/>
+       </names>
+     </group>
+@@ -1426,7 +1434,7 @@
+         <group delimiter="; ">
+           <names variable="interviewer">
+             <label form="verb" suffix=" " text-case="capitalize-first"/>
+-            <name and="symbol"/>
++            <name and="text"/>
+           </names>
+           <text text-case="capitalize-first" variable="medium"/>
+         </group>
+@@ -1439,7 +1447,7 @@
+   <macro name="description-interview-short">
+     <names variable="interviewer">
+       <label form="verb" suffix=" " text-case="capitalize-first"/>
+-      <name and="symbol"/>
++      <name and="text"/>
+       <substitute>
+         <text macro="description-format-short"/>
+       </substitute>
 @@ -1453,7 +1461,7 @@
              <text macro="description-format"/>
              <names variable="recipient">
@@ -157,3 +259,57 @@
              </names>
            </group>
            <text macro="description-medium"/>
+@@ -1471,7 +1479,7 @@
+           <text macro="description-format-short"/>
+           <names variable="recipient">
+             <label form="verb" suffix=" "/>
+-            <name and="symbol"/>
++            <name and="text"/>
+           </names>
+         </group>
+       </if>
+@@ -1524,7 +1532,7 @@
+         </group>
+         <names variable="reviewed-author">
+           <label form="verb-short" suffix=" "/>
+-          <name and="symbol"/>
++          <name and="text"/>
+         </names>
+       </group>
+       <text macro="description-medium"/>
+@@ -1730,22 +1738,22 @@
+   <!-- Monographic source author -->
+   <macro name="source-monographic-author">
+     <names variable="container-author">
+-      <name and="symbol"/>
++      <name and="text"/>
+       <label prefix=" (" suffix=")" text-case="title"/>
+       <substitute>
+         <names variable="executive-producer"/>
+         <names variable="series-creator"/>
+         <names variable="editor-translator">
+-          <name and="symbol"/>
++          <name and="text"/>
+           <label form="short" prefix=" (" suffix=")" text-case="title"/>
+         </names>
+         <!-- TODO: Translator omitted on the assumption that editor-translators are uncommon for chapter citations. If needed, direct entry or automatic population of `editor-translator` can produce combined labels. -->
+         <names delimiter="; " variable="editor">
+-          <name and="symbol"/>
++          <name and="text"/>
+           <label form="short" prefix=" (" suffix=")" text-case="title"/>
+         </names>
+         <names variable="editorial-director">
+-          <name and="symbol"/>
++          <name and="text"/>
+           <label form="short" prefix=" (" suffix=")" text-case="title"/>
+         </names>
+         <names variable="compiler"/>
+@@ -1757,7 +1765,7 @@
+         </choose>
+         <names variable="curator"/>
+         <names variable="collection-editor">
+-          <name and="symbol"/>
++          <name and="text"/>
+           <label form="short" prefix=" (" suffix=")" text-case="title"/>
+         </names>
+       </substitute>
