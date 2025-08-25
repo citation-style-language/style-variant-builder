@@ -116,7 +116,7 @@
            <text variable="original-publisher"/>
          </group>
        </if>
-@@ -6616,7 +6603,7 @@
+@@ -6615,7 +6602,7 @@
    </macro>
    <citation disambiguate-add-givenname="true" disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
      <layout delimiter="; " suffix=".">
@@ -125,7 +125,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -6778,7 +6765,7 @@
+@@ -6777,7 +6764,7 @@
        </else>
      </choose>
    </macro>

@@ -312,7 +312,7 @@
        </else-if>
        <else-if match="any" variable="issue volume">
          <text macro="date-original-year-month"/>
-@@ -6614,9 +6551,9 @@
+@@ -6613,9 +6550,9 @@
        </else>
      </choose>
    </macro>
@@ -325,7 +325,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -6778,19 +6715,22 @@
+@@ -6777,19 +6714,22 @@
        </else>
      </choose>
    </macro>

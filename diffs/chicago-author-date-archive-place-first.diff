@@ -92,7 +92,7 @@
        </else-if>
        <!-- Without `archive_collection` or `archive-place`: digital archives (database and identifier) -->
        <else>
-@@ -6614,9 +6611,9 @@
+@@ -6613,9 +6610,9 @@
        </else>
      </choose>
    </macro>
@@ -105,7 +105,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -6781,16 +6778,19 @@
+@@ -6780,16 +6777,19 @@
    <bibliography et-al-min="7" et-al-use-first="3" hanging-indent="true">
      <sort>
        <key macro="author-sort"/>

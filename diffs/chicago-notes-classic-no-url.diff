@@ -143,7 +143,7 @@
      </group>
    </macro>
    <!-- 6.1. Legal date -->
-@@ -6614,7 +6601,7 @@
+@@ -6613,7 +6600,7 @@
        </else>
      </choose>
    </macro>
@@ -152,7 +152,7 @@
      <layout delimiter="; " suffix=".">
        <text macro="citation-notes-full-subsequent-author-title"/>
      </layout>
-@@ -6778,19 +6765,4 @@
+@@ -6777,19 +6764,4 @@
        </else>
      </choose>
    </macro>

@@ -192,7 +192,7 @@
      </group>
    </macro>
    <!-- 6.1. Legal date -->
-@@ -6614,9 +6597,9 @@
+@@ -6613,9 +6596,9 @@
        </else>
      </choose>
    </macro>
@@ -205,7 +205,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -6778,19 +6761,22 @@
+@@ -6777,19 +6760,22 @@
        </else>
      </choose>
    </macro>

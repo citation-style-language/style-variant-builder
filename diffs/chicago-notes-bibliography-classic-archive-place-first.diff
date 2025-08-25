@@ -134,7 +134,7 @@
        </else-if>
        <!-- Without `archive_collection` or `archive-place`: digital archives (database and identifier) -->
        <else>
-@@ -6778,7 +6765,7 @@
+@@ -6777,7 +6764,7 @@
        </else>
      </choose>
    </macro>
