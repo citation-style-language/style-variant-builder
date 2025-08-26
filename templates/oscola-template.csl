@@ -42,6 +42,17 @@
       </term>
     </terms>
   </locale>
+  <!-- Variable labels -->
+  <macro name="label-locator-legal">
+    <group delimiter=" ">
+      <choose>
+        <if locator="page" match="none">
+          <label form="short" strip-periods="true" variable="locator"/>
+        </if>
+      </choose>
+      <text variable="locator"/>
+    </group>
+  </macro>
   <!--Authors and Persons-->
   <macro name="author-note">
     <!--for bills & hearing this should start with jurisdiction once available-->
@@ -442,7 +453,14 @@
             </if>
           </choose>
           <group delimiter=" ">
-            <text variable="volume"/>
+            <group>
+              <text variable="volume"/>
+              <choose>
+                <if match="any" type="article-journal article-magazine article-newspaper">
+                  <text prefix="(" suffix=")" variable="issue"/>
+                </if>
+              </choose>
+            </group>
             <choose>
               <if type="legal_case">
                 <choose>
@@ -481,16 +499,6 @@
       </if>
     </choose>
   </macro>
-  <macro name="locator-basic">
-    <group delimiter=" ">
-      <choose>
-        <if locator="page" match="none">
-          <label form="short" strip-periods="true" variable="locator"/>
-        </if>
-      </choose>
-      <text variable="locator"/>
-    </group>
-  </macro>
   <macro name="locator-space">
     <choose>
       <if type="legal_case">
@@ -505,12 +513,12 @@
         </choose>
       </if>
       <else-if match="none" type="legislation book article-journal article-magazine">
-        <text macro="locator-basic"/>
+        <text macro="label-locator-legal"/>
       </else-if>
       <else-if type="book">
         <choose>
           <if match="any" variable="issued publisher">
-            <text macro="locator-basic"/>
+            <text macro="label-locator-legal"/>
           </if>
         </choose>
       </else-if>
@@ -533,11 +541,11 @@
         </choose>
       </if>
       <else-if match="any" type="legislation article-journal article-magazine">
-        <text macro="locator-basic"/>
+        <text macro="label-locator-legal"/>
       </else-if>
     </choose>
   </macro>
-  <!--Others -->
+  <!-- Others -->
   <macro name="treaty-catchall">
     <choose>
       <if type="treaty">
@@ -547,18 +555,23 @@
   </macro>
   <macro name="URL">
     <choose>
-      <if match="none" type="legal_case legislation bill">
-        <choose>
-          <if variable="URL">
-            <group delimiter=" ">
-              <text prefix="&lt;" suffix="&gt;" variable="URL"/>
-              <group delimiter=" ">
-                <text term="accessed"/>
-                <date form="text" variable="accessed"/>
-              </group>
-            </group>
-          </if>
-        </choose>
+      <if match="any" variable="DOI URL">
+        <group delimiter=" ">
+          <group prefix="&lt;" suffix="&gt;">
+            <choose>
+              <if variable="DOI">
+                <text prefix="https://doi.org/" variable="DOI"/>
+              </if>
+              <else-if variable="URL">
+                <text variable="URL"/>
+              </else-if>
+            </choose>
+          </group>
+          <group delimiter=" ">
+            <text term="accessed"/>
+            <date form="text" variable="accessed"/>
+          </group>
+        </group>
       </if>
     </choose>
   </macro>
@@ -596,6 +609,50 @@
       </else>
     </choose>
   </macro>
+  <!-- Legal sources -->
+  <macro name="citation-legal">
+    <group delimiter=", ">
+      <group delimiter=" ">
+        <group delimiter=", ">
+          <text macro="author-note"/>
+          <text macro="title"/>
+        </group>
+        <group delimiter=" ">
+          <text macro="date-parenthesis"/>
+          <text macro="bill-number"/>
+          <text macro="article-case-info"/>
+          <text macro="publisher"/>
+        </group>
+      </group>
+      <text macro="treaty-catchall"/>
+    </group>
+    <group delimiter=", ">
+      <group delimiter=" ">
+        <text macro="page-first"/>
+        <text macro="court"/>
+        <text macro="locator-space"/>
+      </group>
+      <text macro="locator-comma"/>
+    </group>
+  </macro>
+  <macro name="citation-legal-subsequent">
+    <!--don't use short form and above note for legal citations -->
+    <group delimiter=" ">
+      <text macro="author-note"/>
+      <text macro="title-short"/>
+      <text macro="looseleaf-note"/>
+      <choose>
+        <if type="legislation"/>
+        <else-if variable="first-reference-note-number">
+          <group delimiter=" " prefix="(" suffix=")">
+            <text form="short" strip-periods="true" term="note"/>
+            <text variable="first-reference-note-number"/>
+          </group>
+        </else-if>
+      </choose>
+      <text macro="label-locator-legal"/>
+    </group>
+  </macro>
   <citation et-al-min="4" et-al-use-first="1">
     <layout delimiter="; " suffix=".">
       <choose>
@@ -610,23 +667,8 @@
         </else-if>
         <else-if position="subsequent">
           <choose>
-            <if match="any" type="legal_case bill legislation treaty">
-              <!--don't use short form and above note for legal citations -->
-              <group delimiter=" ">
-                <text macro="author-note"/>
-                <text macro="title-short"/>
-                <text macro="looseleaf-note"/>
-                <choose>
-                  <if type="legislation"/>
-                  <else-if variable="first-reference-note-number">
-                    <group delimiter=" " prefix="(" suffix=")">
-                      <text form="short" strip-periods="true" term="note"/>
-                      <text variable="first-reference-note-number"/>
-                    </group>
-                  </else-if>
-                </choose>
-                <text macro="locator-basic"/>
-              </group>
+            <if match="any" type="bill hearing legal_case legislation regulation treaty">
+              <text macro="citation-legal-subsequent"/>
             </if>
             <else>
               <group delimiter=" ">
@@ -646,45 +688,52 @@
                     </group>
                   </if>
                 </choose>
-                <text macro="locator-basic"/>
+                <text macro="label-locator-legal"/>
               </group>
             </else>
           </choose>
         </else-if>
         <else>
-          <!--general whole citation -->
-          <group delimiter=" ">
-            <group delimiter=", ">
+          <choose>
+            <if match="any" type="bill hearing legal_case legislation regulation treaty">
+              <text macro="citation-legal"/>
+            </if>
+            <else>
+              <!--general whole citation -->
               <group delimiter=" ">
                 <group delimiter=", ">
-                  <text macro="author-note"/>
                   <group delimiter=" ">
-                    <text macro="title"/>
-                    <text macro="book-container"/>
+                    <group delimiter=", ">
+                      <text macro="author-note"/>
+                      <group delimiter=" ">
+                        <text macro="title"/>
+                        <text macro="book-container"/>
+                      </group>
+                      <text macro="broadcast-container"/>
+                      <text macro="volume-book"/>
+                      <text macro="looseleaf-note"/>
+                    </group>
+                    <group delimiter=" ">
+                      <text macro="date-parenthesis"/>
+                      <text macro="bill-number"/>
+                      <text macro="article-case-info"/>
+                      <text macro="publisher"/>
+                    </group>
                   </group>
-                  <text macro="broadcast-container"/>
-                  <text macro="volume-book"/>
-                  <text macro="looseleaf-note"/>
+                  <text macro="treaty-catchall"/>
                 </group>
-                <group delimiter=" ">
-                  <text macro="date-parenthesis"/>
-                  <text macro="bill-number"/>
-                  <text macro="article-case-info"/>
-                  <text macro="publisher"/>
+                <group delimiter=", ">
+                  <group delimiter=" ">
+                    <text macro="page-first"/>
+                    <text macro="court"/>
+                    <text macro="locator-space"/>
+                  </group>
+                  <text macro="locator-comma"/>
                 </group>
+                <text macro="URL"/>
               </group>
-              <text macro="treaty-catchall"/>
-            </group>
-            <group delimiter=", ">
-              <group delimiter=" ">
-                <text macro="page-first"/>
-                <text macro="court"/>
-                <text macro="locator-space"/>
-              </group>
-              <text macro="locator-comma"/>
-            </group>
-            <text macro="URL"/>
-          </group>
+            </else>
+          </choose>
         </else>
       </choose>
     </layout>
