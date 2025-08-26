@@ -25,7 +25,7 @@
      <updated>2025-08-07T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -1445,7 +1446,7 @@
+@@ -1463,7 +1464,7 @@
        </group>
        <text macro="source-medium-bib"/>
        <text macro="source-archive-bib"/>
@@ -34,7 +34,7 @@
      </group>
    </macro>
    <macro name="title-and-source-note">
-@@ -1498,7 +1499,7 @@
+@@ -1516,7 +1517,7 @@
        </choose>
        <text macro="source-medium-note"/>
        <text macro="source-archive-note"/>
@@ -43,7 +43,7 @@
      </group>
    </macro>
    <!-- 3.1. Title -->
-@@ -5776,7 +5777,7 @@
+@@ -5794,7 +5795,7 @@
          <text macro="source-archive-name-first"/>
        </if>
        <else-if match="any" type="collection document manuscript personal_communication" variable="archive_collection archive-place">
@@ -52,7 +52,7 @@
        </else-if>
        <!-- Without `archive_collection` or `archive-place`: digital archives (database and identifier) -->
        <else>
-@@ -5791,7 +5792,7 @@
+@@ -5809,7 +5810,7 @@
          <text macro="source-archive-name-first"/>
        </if>
        <else-if match="any" type="collection document manuscript personal_communication" variable="archive_collection archive-place">
@@ -61,7 +61,7 @@
        </else-if>
        <!-- Without `archive_collection` or `archive-place`: digital archives (database and identifier) -->
        <else>
-@@ -5971,7 +5972,7 @@
+@@ -5989,7 +5990,7 @@
          </group>
        </group>
        <text variable="references"/>
@@ -70,7 +70,7 @@
      </group>
    </macro>
    <!-- 6.1. Legal date -->
-@@ -6615,7 +6616,7 @@
+@@ -6633,7 +6634,7 @@
    </macro>
    <citation disambiguate-add-givenname="true" disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
      <layout delimiter="; " suffix=".">
@@ -79,7 +79,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -6789,7 +6790,7 @@
+@@ -6807,7 +6808,7 @@
        <key macro="source-archive-bib"/>
      </sort>
      <layout suffix=".">

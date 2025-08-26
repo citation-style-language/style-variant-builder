@@ -35,7 +35,7 @@
      <updated>2025-08-07T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -1445,7 +1446,7 @@
+@@ -1463,7 +1464,7 @@
        </group>
        <text macro="source-medium-bib"/>
        <text macro="source-archive-bib"/>
@@ -44,7 +44,7 @@
      </group>
    </macro>
    <macro name="title-and-source-note">
-@@ -1498,7 +1499,7 @@
+@@ -1516,7 +1517,7 @@
        </choose>
        <text macro="source-medium-note"/>
        <text macro="source-archive-note"/>
@@ -53,7 +53,7 @@
      </group>
    </macro>
    <!-- 3.1. Title -->
-@@ -3565,14 +3566,14 @@
+@@ -3583,14 +3584,14 @@
      <choose>
        <if match="any" variable="issue supplement-number volume">
          <group delimiter=": ">
@@ -70,7 +70,7 @@
              <!-- periodical edition always capitalized (CMOS18 14.89) -->
              <text macro="label-edition-capitalized"/>
            </group>
-@@ -5329,9 +5330,7 @@
+@@ -5347,9 +5348,7 @@
          <date date-parts="year" form="text" variable="available-date"/>
        </else-if>
        <else>
@@ -81,7 +81,7 @@
        </else>
      </choose>
    </macro>
-@@ -5498,9 +5497,7 @@
+@@ -5516,9 +5515,7 @@
      </choose>
    </macro>
    <macro name="source-date-original">
@@ -92,7 +92,7 @@
    </macro>
    <macro name="source-date-original-full">
      <!-- Give full date for more ephemeral types -->
-@@ -5971,7 +5968,7 @@
+@@ -5989,7 +5986,7 @@
          </group>
        </group>
        <text variable="references"/>
@@ -101,7 +101,7 @@
      </group>
    </macro>
    <!-- 6.1. Legal date -->
-@@ -6613,9 +6610,9 @@
+@@ -6631,9 +6628,9 @@
        </else>
      </choose>
    </macro>
@@ -114,7 +114,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -6780,16 +6777,19 @@
+@@ -6798,16 +6795,19 @@
    <bibliography et-al-min="7" et-al-use-first="3" hanging-indent="true">
      <sort>
        <key macro="author-sort"/>
