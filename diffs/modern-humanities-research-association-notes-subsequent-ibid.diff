@@ -8,8 +8,8 @@
 -    <title-short>MHRA Style Guide</title-short>
 -    <id>http://www.zotero.org/styles/modern-humanities-research-association-notes</id>
 -    <link href="http://www.zotero.org/styles/modern-humanities-research-association-notes" rel="self"/>
-+    <title>Modern Humanities Research Association 4th edition (notes with subsequent ibid.)</title>
-+    <title-short>MHRA Style Guide (notes with subsequent ibid.)</title-short>
++    <title>Modern Humanities Research Association 4th edition (notes, subsequent ibid.)</title>
++    <title-short>MHRA Style Guide (notes, subsequent ibid.)</title-short>
 +    <id>http://www.zotero.org/styles/modern-humanities-research-association-notes-subsequent-ibid</id>
 +    <link href="http://www.zotero.org/styles/modern-humanities-research-association-notes-subsequent-ibid" rel="self"/>
 +    <link href="http://www.zotero.org/styles/modern-humanities-research-association-notes" rel="template"/>
