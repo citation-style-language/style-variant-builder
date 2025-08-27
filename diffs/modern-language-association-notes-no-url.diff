@@ -33,7 +33,7 @@
      <updated>2025-07-15T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -873,11 +874,6 @@
+@@ -877,11 +878,6 @@
    <macro name="container1-location">
      <group delimiter=", ">
        <text macro="label-page"/>
@@ -45,7 +45,7 @@
      </group>
    </macro>
    <!-- 5. Supplemental Element Between Containers (MLA 5.119) -->
-@@ -892,7 +888,6 @@
+@@ -896,7 +892,6 @@
    <macro name="container2">
      <group delimiter=", ">
        <text macro="container2-title"/>
@@ -53,7 +53,7 @@
      </group>
    </macro>
    <!-- 6.1. Title of Container (MLA 5.31-37) -->
-@@ -1171,7 +1166,7 @@
+@@ -1191,7 +1186,7 @@
      </group>
    </macro>
    <citation disambiguate-add-givenname="true" disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
