@@ -43,7 +43,7 @@
      </group>
    </macro>
    <!-- 3.1. Title -->
-@@ -5794,7 +5795,7 @@
+@@ -5792,7 +5793,7 @@
          <text macro="source-archive-name-first"/>
        </if>
        <else-if match="any" type="collection document manuscript personal_communication" variable="archive_collection archive-place">
@@ -52,7 +52,7 @@
        </else-if>
        <!-- Without `archive_collection` or `archive-place`: digital archives (database and identifier) -->
        <else>
-@@ -5809,7 +5810,7 @@
+@@ -5807,7 +5808,7 @@
          <text macro="source-archive-name-first"/>
        </if>
        <else-if match="any" type="collection document manuscript personal_communication" variable="archive_collection archive-place">
@@ -61,7 +61,7 @@
        </else-if>
        <!-- Without `archive_collection` or `archive-place`: digital archives (database and identifier) -->
        <else>
-@@ -5989,7 +5990,7 @@
+@@ -5987,7 +5988,7 @@
          </group>
        </group>
        <text variable="references"/>
@@ -70,7 +70,7 @@
      </group>
    </macro>
    <!-- 6.1. Legal date -->
-@@ -6633,7 +6634,7 @@
+@@ -6631,7 +6632,7 @@
    </macro>
    <citation disambiguate-add-givenname="true" disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
      <layout delimiter="; " suffix=".">
@@ -79,7 +79,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -6807,7 +6808,7 @@
+@@ -6805,7 +6806,7 @@
        <key macro="source-archive-bib"/>
      </sort>
      <layout suffix=".">

@@ -43,7 +43,7 @@
      </group>
    </macro>
    <!-- 3.1. Title -->
-@@ -5264,8 +5265,8 @@
+@@ -5262,8 +5263,8 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -54,7 +54,7 @@
            </group>
          </else-if>
          <!-- TODO: remove conditional when Zotero fixes double-mapping of `event-place` -->
-@@ -5290,8 +5291,8 @@
+@@ -5288,8 +5289,8 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -65,7 +65,7 @@
            </group>
          </else-if>
          <!-- TODO: remove conditional when Zotero fixes double-mapping of `event-place` -->
-@@ -5312,8 +5313,8 @@
+@@ -5310,8 +5311,8 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -76,7 +76,7 @@
          </group>
        </if>
        <else>
-@@ -5325,8 +5326,8 @@
+@@ -5323,8 +5324,8 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -87,7 +87,7 @@
          </group>
        </if>
        <else>
-@@ -5794,7 +5795,7 @@
+@@ -5792,7 +5793,7 @@
          <text macro="source-archive-name-first"/>
        </if>
        <else-if match="any" type="collection document manuscript personal_communication" variable="archive_collection archive-place">
@@ -96,7 +96,7 @@
        </else-if>
        <!-- Without `archive_collection` or `archive-place`: digital archives (database and identifier) -->
        <else>
-@@ -5809,7 +5810,7 @@
+@@ -5807,7 +5808,7 @@
          <text macro="source-archive-name-first"/>
        </if>
        <else-if match="any" type="collection document manuscript personal_communication" variable="archive_collection archive-place">
@@ -105,7 +105,7 @@
        </else-if>
        <!-- Without `archive_collection` or `archive-place`: digital archives (database and identifier) -->
        <else>
-@@ -5989,7 +5990,7 @@
+@@ -5987,7 +5988,7 @@
          </group>
        </group>
        <text variable="references"/>
@@ -114,7 +114,7 @@
      </group>
    </macro>
    <!-- 6.1. Legal date -->
-@@ -6631,7 +6632,7 @@
+@@ -6629,7 +6630,7 @@
        </else>
      </choose>
    </macro>
@@ -123,7 +123,7 @@
      <layout delimiter="; " suffix=".">
        <text macro="citation-notes-full-subsequent-author-title"/>
      </layout>
-@@ -6795,19 +6796,4 @@
+@@ -6793,19 +6794,4 @@
        </else>
      </choose>
    </macro>

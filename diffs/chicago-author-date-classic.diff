@@ -107,7 +107,7 @@
        <else-if is-numeric="volume" variable="page">
          <!-- collapse the volume and page number if adjacent -->
          <group delimiter=":">
-@@ -5264,7 +5251,7 @@
+@@ -5262,7 +5249,7 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -116,7 +116,7 @@
              <text text-case="capitalize-first" variable="publisher"/>
            </group>
          </else-if>
-@@ -5290,7 +5277,7 @@
+@@ -5288,7 +5275,7 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -125,7 +125,7 @@
              <text variable="publisher"/>
            </group>
          </else-if>
-@@ -5312,7 +5299,7 @@
+@@ -5310,7 +5297,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -134,7 +134,7 @@
            <text text-case="capitalize-first" variable="original-publisher"/>
          </group>
        </if>
-@@ -5325,7 +5312,7 @@
+@@ -5323,7 +5310,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -143,7 +143,7 @@
            <text variable="original-publisher"/>
          </group>
        </if>
-@@ -5347,9 +5334,7 @@
+@@ -5345,9 +5332,7 @@
          <date date-parts="year" form="text" variable="available-date"/>
        </else-if>
        <else>
@@ -154,7 +154,7 @@
        </else>
      </choose>
    </macro>
-@@ -5516,9 +5501,7 @@
+@@ -5514,9 +5499,7 @@
      </choose>
    </macro>
    <macro name="source-date-original">
@@ -165,7 +165,7 @@
    </macro>
    <macro name="source-date-original-full">
      <!-- Give full date for more ephemeral types -->
-@@ -6631,9 +6614,9 @@
+@@ -6629,9 +6612,9 @@
        </else>
      </choose>
    </macro>
@@ -178,7 +178,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -6795,19 +6778,22 @@
+@@ -6793,19 +6776,22 @@
        </else>
      </choose>
    </macro>

@@ -70,7 +70,7 @@
              <!-- periodical edition always capitalized (CMOS18 14.89) -->
              <text macro="label-edition-capitalized"/>
            </group>
-@@ -5347,9 +5348,7 @@
+@@ -5345,9 +5346,7 @@
          <date date-parts="year" form="text" variable="available-date"/>
        </else-if>
        <else>
@@ -81,7 +81,7 @@
        </else>
      </choose>
    </macro>
-@@ -5516,9 +5515,7 @@
+@@ -5514,9 +5513,7 @@
      </choose>
    </macro>
    <macro name="source-date-original">
@@ -92,7 +92,7 @@
    </macro>
    <macro name="source-date-original-full">
      <!-- Give full date for more ephemeral types -->
-@@ -5989,7 +5986,7 @@
+@@ -5987,7 +5984,7 @@
          </group>
        </group>
        <text variable="references"/>
@@ -101,7 +101,7 @@
      </group>
    </macro>
    <!-- 6.1. Legal date -->
-@@ -6631,9 +6628,9 @@
+@@ -6629,9 +6626,9 @@
        </else>
      </choose>
    </macro>
@@ -114,7 +114,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -6798,16 +6795,19 @@
+@@ -6796,16 +6793,19 @@
    <bibliography et-al-min="7" et-al-use-first="3" hanging-indent="true">
      <sort>
        <key macro="author-sort"/>
