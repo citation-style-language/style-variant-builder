@@ -113,6 +113,8 @@ class CSLBuilder:
     def _prune_variant(self, patched_file: Path, output_variant: Path) -> None:
         pruner = CSLPruner(patched_file, output_variant)
         pruner.parse_xml()
+        # Flatten single-macro layouts before pruning so wrapper macros can be removed
+        pruner.flatten_layout_macros()
         pruner.prune_macros()
         self._insert_notice_comment_xml(pruner)
         pruner.save()

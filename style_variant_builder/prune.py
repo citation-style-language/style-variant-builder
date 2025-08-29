@@ -6,6 +6,7 @@ import argparse
 import logging
 import re
 import sys
+from copy import deepcopy
 from dataclasses import dataclass, field
 from pathlib import Path
 
@@ -72,6 +73,63 @@ class CSLPruner:
             name = elem.attrib.get("name")
             if name:
                 self.macro_defs[name] = elem
+
+    def flatten_layout_macros(self) -> int:
+        """Flatten layout macro wrappers.
+
+        If a <layout> has exactly one child, and that child is a <text> element
+        with only a macro attribute (no other attributes), replace that child
+        with the body (children) of the referenced macro. This simplifies the
+        tree so that wrapper macros can be pruned subsequently.
+
+        Returns the number of <layout> nodes updated.
+        """
+        if self.root is None:
+            msg = "Root is None. Ensure parse_xml() is called successfully."
+            logging.error(msg)
+            raise ValueError(msg)
+
+        updated = 0
+        for layout in self.root.iter(f"{NS}layout"):
+            # Consider only real element children, ignore comments/whitespace
+            children = [ch for ch in list(layout) if isinstance(ch.tag, str)]
+            if len(children) != 1:
+                continue
+            only_child = children[0]
+            if only_child.tag != f"{NS}text":
+                continue
+
+            # Require a pure macro call to avoid changing semantics if other attributes exist
+            # Build a concrete dict[str, str] of attributes for type safety
+            attrs: dict[str, str] = {
+                str(k): str(v) for k, v in only_child.attrib.items()
+            }
+            macro_attr = attrs.get("macro")
+            # Ensure the attribute is a string (lxml can expose AnyStr)
+            if not isinstance(macro_attr, str):
+                continue
+            macro_name: str = macro_attr
+            if not macro_name or len(attrs) != 1:
+                continue
+
+            macro_def = self.macro_defs.get(macro_name)
+            if macro_def is None:
+                # Unknown macro; skip
+                continue
+
+            # Replace the <text macro="..."/> with the macro's child nodes
+            for ch in list(layout):
+                layout.remove(ch)
+            for sub in list(macro_def):
+                layout.append(deepcopy(sub))
+
+            updated += 1
+
+        if updated:
+            self.modified = True
+            # Tree structure changed; rebuild parent map for subsequent operations
+            self.build_parent_map()
+        return updated
 
     def gather_macro_refs(self, element: etree._Element) -> set:
         """Recursively collect macro names to which the element refers."""
@@ -210,6 +268,30 @@ class CSLPruner:
         text = re.sub(r"<style\s+([^>]+)>", reorder_default_locale, text)
         return text.encode("utf-8")
 
+    def reindent_xml_bytes(self, xml_data: bytes) -> bytes:
+        """Reindent the XML by stripping blank text nodes and pretty-printing.
+
+        This should be applied as a final structural formatter to ensure
+        consistent indentation after all tree edits and notice insertion.
+        """
+        try:
+            parser = etree.XMLParser(remove_blank_text=True)
+            root = etree.fromstring(xml_data, parser)
+            new_tree = etree.ElementTree(root)
+            return etree.tostring(
+                new_tree,
+                encoding="utf-8",
+                xml_declaration=True,
+                pretty_print=True,
+            )
+        except Exception:
+            # If reindent fails for any reason, fall back to the original bytes
+            logging.warning(
+                "Reindent step failed; writing original formatted XML.",
+                exc_info=True,
+            )
+            return xml_data
+
     def save(self) -> None:
         if self.tree is not None:
             try:
@@ -219,8 +301,21 @@ class CSLPruner:
                     xml_declaration=True,
                     pretty_print=True,
                 )
+                # Normalize textual content, then reindent the entire file
                 xml_data = self.normalize_xml_content(xml_data)
-                self.output_path.write_bytes(xml_data)
+                xml_data = self.reindent_xml_bytes(xml_data)
+                # Ensure XML declaration uses double quotes
+                xml_text = xml_data.decode("utf-8")
+                xml_text = re.sub(
+                    r"<\?xml version='1\.0' encoding='utf-8'\?>",
+                    '<?xml version="1.0" encoding="utf-8"?>',
+                    xml_text,
+                )
+                # lxml will decode character entities during reparse; restore em-dashes as numeric entities
+                xml_text = re.sub(
+                    r"—+", lambda m: "&#8212;" * len(m.group(0)), xml_text
+                )
+                self.output_path.write_text(xml_text, encoding="utf-8")
             except Exception as e:
                 logging.error(
                     "Failed to save the pruned XML file. Please ensure the output path is valid and writable.",
@@ -251,6 +346,8 @@ def main() -> int:
     pruner = CSLPruner(args.input_path, args.output_path)
     try:
         pruner.parse_xml()
+        # Inline trivial macro-only layouts so wrapper macros become removable
+        pruner.flatten_layout_macros()
         pruner.prune_macros()
         pruner.save()
         if pruner.modified:
