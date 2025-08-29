@@ -25,39 +25,61 @@
      <updated>2025-07-15T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -354,11 +355,8 @@
+@@ -372,11 +373,9 @@
    <macro name="author-bib">
      <group delimiter=", ">
        <names variable="composer">
 -        <name delimiter-precedes-et-al="after-inverted-name" delimiter-precedes-last="always" name-as-sort-order="first"/>
--        <!-- for OGS:
-         <name delimiter-precedes-et-al="after-inverted-name" delimiter-precedes-last="always" font-variant="small-caps" name-as-sort-order="first"/>
-         <et-al font-variant="normal"/>
--        -->
-         <label form="short" prefix=", "/>
+-        <!-- for OGS: -->
+-        <!-- <name delimiter-precedes-et-al="after-inverted-name" delimiter-precedes-last="always" font-variant="small-caps" name-as-sort-order="first"/> -->
+-        <!-- <et-al font-variant="normal"/> -->
+-        <label form="short" prefix=", "/>
++        <name delimiter-precedes-et-al="after-inverted-name" delimiter-precedes-last="always" font-variant="small-caps" name-as-sort-order="first"/>
++        <et-al font-variant="normal"/>
++        <label form="short" prefix=" (" suffix=")"/>
          <substitute>
            <names variable="author"/>
-@@ -2325,8 +2323,6 @@
+           <names variable="host"/>
+@@ -1168,16 +1167,12 @@
+               <choose>
+                 <if match="any" variable="collection-editor container-author editor editorial-director">
+                   <!-- monographic usage -->
+-                  <text macro="source-monographic-locator"/>
+-                  <!-- for OGS: -->
+-                  <!-- <text macro="source-monographic-locator-range"/> -->
++                  <text macro="source-monographic-locator-range"/>
+                 </if>
+               </choose>
+             </else-if>
+             <else>
+-              <text macro="source-monographic-locator"/>
+-              <!-- for OGS: -->
+-              <!-- <text macro="source-monographic-locator-range"/> -->
++              <text macro="source-monographic-locator-range"/>
+             </else>
+           </choose>
+         </group>
+@@ -2257,9 +2252,7 @@
+       <text macro="source-serial-identifier-volume"/>
+       <!-- periodical edition always capitalized (cf. CMOS18 14.89) -->
+       <text macro="label-edition-capitalized"/>
+-      <text macro="source-serial-locator"/>
+-      <!-- for OGS: -->
+-      <!-- <text macro="source-serial-locator-range"/> -->
++      <text macro="source-serial-locator-range"/>
+     </group>
+   </macro>
+   <macro name="source-serial-identifier-volume">
+@@ -2379,8 +2372,6 @@
            </group>
          </if>
        </choose>
--      <!-- move `source-series` for OGS: -->
+-      <!-- remove `source-series` for OGS: -->
 -      <text macro="source-series"/>
        <text macro="source-event"/>
      </group>
    </macro>
-@@ -2509,9 +2505,7 @@
-   <macro name="source-monographic-locator">
-     <choose>
-       <if is-numeric="volume" locator="page">
--        <group delimiter=", ">
--          <!-- for OGS: -->
--          <!-- <group delimiter=". " -->
-+        <group delimiter=". ">
-           <choose>
-             <if match="none" variable="part-number part-title volume-title">
-               <text macro="label-volume"/>
-@@ -2684,8 +2678,7 @@
+@@ -2735,8 +2726,7 @@
            <choose>
              <if match="any" variable="collection-editor container-author editor editorial-director">
                <!-- monographic usage -->
@@ -67,7 +89,7 @@
                <text macro="source-publication-and-date"/>
              </if>
            </choose>
-@@ -2693,8 +2686,7 @@
+@@ -2744,8 +2734,7 @@
          <!-- `patent` date in identification (cf. CMOS18 14.158) -->
          <else-if type="patent"/>
          <else>

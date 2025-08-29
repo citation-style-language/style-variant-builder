@@ -35,6 +35,11 @@
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <locale xml:lang="en">
+    <date form="text">
+      <date-part name="day" suffix=" "/>
+      <date-part form="short" name="month" suffix=" "/>
+      <date-part name="year"/>
+    </date>
     <terms>
       <!-- Like Chicago, Oxford omits 'by' from `verb-short` forms; it abbreviates only the most common roles -->
       <term name="advance-online-publication">published online</term>
@@ -49,8 +54,6 @@
         <single>ed. and trans.</single>
         <multiple>eds and trans.</multiple>
       </term>
-      <term form="verb" name="editor-translator">edited and translated by</term>
-      <term form="verb" name="editortranslator">edited and translated by</term>
       <term form="verb-short" name="editor-translator">ed. and trans.</term>
       <term form="verb-short" name="editortranslator">ed. and trans.</term>
       <term form="verb-short" name="illustrator">illus.</term>
@@ -235,6 +238,21 @@
       <text variable="locator"/>
     </group>
   </macro>
+  <macro name="label-locator-all">
+    <group delimiter=" ">
+      <choose>
+        <if is-numeric="locator">
+          <label form="short" variable="locator"/>
+        </if>
+        <!-- a non-numeric canonical reference is described by its formatting and does not need a label, similar to a timestamp (NHR 17.2.5) -->
+        <else-if locator="chapter line verse" match="any"/>
+        <else>
+          <label form="short" variable="locator"/>
+        </else>
+      </choose>
+      <text variable="locator"/>
+    </group>
+  </macro>
   <macro name="label-number">
     <group delimiter=" ">
       <choose>
@@ -355,10 +373,9 @@
     <group delimiter=", ">
       <names variable="composer">
         <name delimiter-precedes-et-al="after-inverted-name" delimiter-precedes-last="always" name-as-sort-order="first"/>
-        <!-- for OGS:
-        <name delimiter-precedes-et-al="after-inverted-name" delimiter-precedes-last="always" font-variant="small-caps" name-as-sort-order="first"/>
-        <et-al font-variant="normal"/>
-        -->
+        <!-- for OGS: -->
+        <!-- <name delimiter-precedes-et-al="after-inverted-name" delimiter-precedes-last="always" font-variant="small-caps" name-as-sort-order="first"/> -->
+        <!-- <et-al font-variant="normal"/> -->
         <label form="short" prefix=", "/>
         <substitute>
           <names variable="author"/>
@@ -829,48 +846,50 @@
   </macro>
   <!-- 2. Date -->
   <macro name="date">
-    <choose>
-      <if variable="issued">
-        <group delimiter=" ">
-          <!-- reprints and earlier editions may give original year in brackets (cf. CMOS18 14.16) -->
-          <text macro="date-original-year" prefix="(" suffix=")"/>
-          <group>
-            <text macro="date-issued-year"/>
-            <text variable="year-suffix"/>
+    <group prefix="(" suffix=")">
+      <choose>
+        <if variable="issued">
+          <group delimiter=" ">
+            <!-- reprints and earlier editions may give original year in brackets (cf. CMOS18 14.16) -->
+            <text macro="date-original-year" prefix="[" suffix="]"/>
+            <group>
+              <text macro="date-issued-year"/>
+              <text variable="year-suffix"/>
+            </group>
           </group>
-        </group>
-      </if>
-      <else-if variable="available-date">
-        <date date-parts="year" form="text" variable="available-date"/>
-      </else-if>
-      <else-if variable="event-date">
-        <text macro="date-event-year"/>
-      </else-if>
-      <else-if variable="status">
-        <group>
-          <!-- Print the status variable rather than use generic CSL terms (`in press`, etc.) -->
-          <text text-case="capitalize-first" variable="status"/>
-          <text prefix="-" variable="year-suffix"/>
-        </group>
-      </else-if>
-      <else-if type="collection">
-        <!-- do not give n.d. for archival collections (cf. CMOS18 14.128) -->
-        <text prefix="-" variable="year-suffix"/>
-      </else-if>
-      <else-if type="manuscript">
-        <!-- do not give n.d. with a bare shelfmark -->
-        <choose>
-          <if match="any" variable="container-title event-date event-place event-title genre title publisher publisher-place">
-            <text form="short" term="no date"/>
+        </if>
+        <else-if variable="available-date">
+          <date date-parts="year" form="text" variable="available-date"/>
+        </else-if>
+        <else-if variable="event-date">
+          <text macro="date-event-year"/>
+        </else-if>
+        <else-if variable="status">
+          <group>
+            <!-- Print the status variable rather than use generic CSL terms (`in press`, etc.) -->
+            <text text-case="capitalize-first" variable="status"/>
             <text prefix="-" variable="year-suffix"/>
-          </if>
-        </choose>
-      </else-if>
-      <else>
-        <text form="short" term="no date"/>
-        <text prefix="-" variable="year-suffix"/>
-      </else>
-    </choose>
+          </group>
+        </else-if>
+        <else-if type="collection">
+          <!-- do not give n.d. for archival collections (cf. CMOS18 14.128) -->
+          <text prefix="-" variable="year-suffix"/>
+        </else-if>
+        <else-if type="manuscript">
+          <!-- do not give n.d. with a bare shelfmark -->
+          <choose>
+            <if match="any" variable="container-title event-date event-place event-title genre title publisher publisher-place">
+              <text form="short" term="no date"/>
+              <text prefix="-" variable="year-suffix"/>
+            </if>
+          </choose>
+        </else-if>
+        <else>
+          <text form="short" term="no date"/>
+          <text prefix="-" variable="year-suffix"/>
+        </else>
+      </choose>
+    </group>
   </macro>
   <macro name="date-short">
     <choose>
@@ -1150,11 +1169,15 @@
                 <if match="any" variable="collection-editor container-author editor editorial-director">
                   <!-- monographic usage -->
                   <text macro="source-monographic-locator"/>
+                  <!-- for OGS: -->
+                  <!-- <text macro="source-monographic-locator-range"/> -->
                 </if>
               </choose>
             </else-if>
             <else>
               <text macro="source-monographic-locator"/>
+              <!-- for OGS: -->
+              <!-- <text macro="source-monographic-locator-range"/> -->
             </else>
           </choose>
         </group>
@@ -1396,10 +1419,11 @@
     <group delimiter=", ">
       <group delimiter=": ">
         <choose>
-          <if match="any" variable="part-number part-title volume-title">
+          <!-- negotiate with `source-monographic-locator` -->
+          <if match="any" variable="part-title volume-title">
             <text macro="label-volume"/>
           </if>
-          <else-if match="none" variable="locator">
+          <else-if match="none" variable="locator page">
             <text macro="label-volume"/>
           </else-if>
         </choose>
@@ -1407,7 +1431,14 @@
       </group>
       <!-- `part-number` and `part-title` of monographic items refer to the source book/volume -->
       <group delimiter=": ">
-        <text macro="label-part-number"/>
+        <choose>
+          <if match="any" variable="part-title volume-title">
+            <text macro="label-part-number"/>
+          </if>
+          <else-if match="none" variable="locator page">
+            <text macro="label-part-number"/>
+          </else-if>
+        </choose>
         <text macro="title-part"/>
       </group>
     </group>
@@ -2015,15 +2046,12 @@
   </macro>
   <macro name="identifier-edition">
     <choose>
-      <if match="none" variable="original-date">
-        <choose>
-          <if variable="editor">
-            <!-- different positioning of edition depending on whether there is a reviser; CSL does not have a proper role for this (NHR 18.2.1) -->
-            <text macro="label-edition"/>
-          </if>
-        </choose>
+      <if variable="original-title">
+        <text macro="label-edition"/>
       </if>
-      <else-if variable="original-title">
+      <else-if variable="original-date"/>
+      <else-if variable="editor">
+        <!-- different positioning of edition depending on whether there is a reviser; CSL does not have a proper role for this (NHR 18.2.1) -->
         <text macro="label-edition"/>
       </else-if>
     </choose>
@@ -2214,9 +2242,11 @@
         <group delimiter=", ">
           <group delimiter=" ">
             <text term="in"/>
-            <text font-style="italic" text-case="title" variable="volume-title"/>
+            <group delimiter=", ">
+              <text macro="source-monographic-author"/>
+              <text font-style="italic" text-case="title" variable="volume-title"/>
+            </group>
           </group>
-          <text macro="source-monographic-identifier-contributors"/>
         </group>
       </if>
     </choose>
@@ -2228,6 +2258,8 @@
       <!-- periodical edition always capitalized (cf. CMOS18 14.89) -->
       <text macro="label-edition-capitalized"/>
       <text macro="source-serial-locator"/>
+      <!-- for OGS: -->
+      <!-- <text macro="source-serial-locator-range"/> -->
     </group>
   </macro>
   <macro name="source-serial-identifier-volume">
@@ -2306,6 +2338,28 @@
       </else>
     </choose>
   </macro>
+  <macro name="source-serial-locator-range">
+    <choose>
+      <if match="any" variable="locator number">
+        <group delimiter=", ">
+          <group delimiter=" ">
+            <choose>
+              <if variable="page">
+                <text variable="page"/>
+                <text term="at"/>
+              </if>
+            </choose>
+            <text macro="label-locator"/>
+          </group>
+          <!-- `number` is an article ID (cf. CMOS18 14.71) -->
+          <text macro="label-number-article"/>
+        </group>
+      </if>
+      <else>
+        <text variable="page"/>
+      </else>
+    </choose>
+  </macro>
   <!-- 4.2. Monographic sources -->
   <macro name="source-monographic">
     <group delimiter=", ">
@@ -2325,7 +2379,7 @@
           </group>
         </if>
       </choose>
-      <!-- move `source-series` for OGS: -->
+      <!-- remove `source-series` for OGS: -->
       <text macro="source-series"/>
       <text macro="source-event"/>
     </group>
@@ -2439,7 +2493,7 @@
             </if>
           </choose>
           <text macro="label-version"/>
-          <text macro="label-edition"/>
+          <text macro="identifier-edition"/>
           <text macro="source-monographic-identifier-contributors"/>
           <text macro="identifier-volume"/>
         </group>
@@ -2507,38 +2561,52 @@
   </macro>
   <!-- Monographic source locator -->
   <macro name="source-monographic-locator">
-    <choose>
-      <if is-numeric="volume" locator="page">
-        <group delimiter=", ">
-          <!-- for OGS: -->
-          <!-- <group delimiter=". " -->
-          <choose>
-            <if match="none" variable="part-number part-title volume-title">
-              <text macro="label-volume"/>
-            </if>
-          </choose>
-          <text variable="locator"/>
-        </group>
-      </if>
-      <else-if variable="locator">
-        <text macro="label-locator"/>
-      </else-if>
-      <else-if is-numeric="volume" variable="page">
-        <!-- collapse the volume and page number if adjacent -->
-        <group delimiter=", ">
-          <choose>
-            <!-- check for variables that might come between the volume and page number -->
-            <if match="none" variable="part-number part-title volume-title">
-              <text variable="volume"/>
-            </if>
-          </choose>
+    <group delimiter=", ">
+      <choose>
+        <if match="any" variable="part-title volume-title"/>
+        <else-if match="any" variable="locator page">
+          <text macro="label-volume"/>
+          <text macro="label-part-number"/>
+        </else-if>
+      </choose>
+      <choose>
+        <if variable="locator">
+          <text macro="label-locator"/>
+        </if>
+        <else>
           <text variable="page"/>
-        </group>
-      </else-if>
-      <else>
-        <text variable="page"/>
-      </else>
-    </choose>
+        </else>
+      </choose>
+    </group>
+  </macro>
+  <macro name="source-monographic-locator-range">
+    <group delimiter=". ">
+      <!-- full stop is delimiter in Oxford Guide to Style; for NHR delimiter: -->
+      <!-- <group delimiter=". " -->
+      <choose>
+        <if match="any" variable="part-title volume-title"/>
+        <else-if match="any" variable="locator page">
+          <text macro="label-volume"/>
+          <text macro="label-part-number"/>
+        </else-if>
+      </choose>
+      <choose>
+        <if variable="locator">
+          <group delimiter=" ">
+            <choose>
+              <if variable="page">
+                <text variable="page"/>
+                <text term="at"/>
+              </if>
+            </choose>
+            <text macro="label-locator"/>
+          </group>
+        </if>
+        <else>
+          <text variable="page"/>
+        </else>
+      </choose>
+    </group>
   </macro>
   <!-- 4.3. Series -->
   <macro name="source-series">
@@ -2564,7 +2632,7 @@
                 <if match="none" variable="collection-editor compiler editor editorial-director issue page supplement-number volume">
                   <!-- Don't print event info for conference papers published in proceedings -->
                   <text macro="source-event-status"/>
-                  <text macro="source-event-unpublished-paper-conference"/>
+                  <text macro="source-event-description"/>
                 </if>
               </choose>
             </if>
@@ -2655,23 +2723,6 @@
       <text macro="source-event-title"/>
       <text macro="date-event-full"/>
       <text variable="event-place"/>
-    </group>
-  </macro>
-  <macro name="source-event-unpublished-paper-conference">
-    <!-- place and date are rendered in brackets for an unpublished conference paper (cf. MHRA4 7.10.vi) -->
-    <group delimiter=" ">
-      <text macro="source-event-title"/>
-      <group delimiter=", " prefix="(" suffix=")">
-        <text variable="event-place"/>
-        <choose>
-          <if variable="event-date">
-            <text macro="date-event-full"/>
-          </if>
-          <else>
-            <text macro="date-issued-full"/>
-          </else>
-        </choose>
-      </group>
     </group>
   </macro>
   <!-- 4.5. Facts of publication -->
@@ -2878,9 +2929,13 @@
           </group>
           <group delimiter=", ">
             <choose>
-              <if match="none" variable="editor">
+              <if variable="original-date">
                 <text macro="label-edition"/>
               </if>
+              <else-if variable="editor"/>
+              <else>
+                <text macro="label-edition"/>
+              </else>
             </choose>
             <group delimiter=", ">
               <text macro="source-publication-description"/>
@@ -3485,9 +3540,13 @@
   <!-- Bibliography -->
   <macro name="bibliography-author-date">
     <group delimiter=". ">
-      <text macro="author-bib"/>
-      <text macro="date"/>
-      <text macro="title-and-source"/>
+      <group delimiter=" ">
+        <text macro="author-bib"/>
+        <group delimiter=", ">
+          <text macro="date"/>
+          <text macro="title-and-source"/>
+        </group>
+      </group>
       <text variable="references"/>
     </group>
   </macro>
