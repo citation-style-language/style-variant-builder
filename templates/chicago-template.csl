@@ -61,8 +61,6 @@
       <term form="verb-short" name="illustrator">ill.</term>
       <term form="short" name="legislation">Pub. L.</term>
       <term name="manuscript">unpublished manuscript</term>
-      <term form="verb" name="narrator">read by</term>
-      <!-- both 'narrated by' (CMOS18 14.58) and 'read by' (CMOS18 14.164): taking the latter as it is in the section on recorded readings -->
       <term name="original-work-published">originally published as</term>
       <term form="short" name="paper-conference">paper</term>
       <!-- 'under' replaces 's.v.' from CMOS17 and earlier (CMOS18 14.130) -->
@@ -6238,14 +6236,6 @@
   </macro>
   <!-- Citation -->
   <macro name="citation-author-date">
-    <!-- Usage:
-    
-    <citation after-collapse-delimiter="; " collapse="year" disambiguate-add-givenname="true" disambiguate-add-names="true" disambiguate-add-year-suffix="true" et-al-min="3" et-al-use-first="1">
-      <layout delimiter="; " prefix="(" suffix=")">
-        <text macro="citation-author-date"/>
-      </layout>
-    </citation>
-    -->
     <choose>
       <if type="classic">
         <!-- with `classic`, a non-numeric canonical reference or identifying number is separated by a space rather than a comma (CMOS18 14.145) -->
@@ -6667,24 +6657,6 @@
     </choose>
   </macro>
   <macro name="bibliography-filtered-author-date">
-    <!-- usage:
-     <sort>
-      <key macro="author-sort"/>
-      <key macro="date-sort-group"/>
-      <key macro="date-sort-year"/>
-      <key macro="date"/>
-      <key macro="title-and-descriptions-bib"/>
-      <key macro="source-bib"/>
-      <key variable="volume"/>
-      <key variable="part-number"/>
-      <key variable="event-date"/>
-      <key variable="issued"/>
-      <key macro="source-archive-bib"/>
-     </sort>
-     <layout suffix=".">
-       <text macro="bibliography-filtered-author-date"/>
-     </layout>
-    -->
     <choose>
       <if type="classic">
         <choose>
