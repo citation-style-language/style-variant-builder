@@ -37,8 +37,6 @@
         <single>ed. and trans.</single>
         <multiple>eds and trans.</multiple>
       </term>
-      <term form="verb" name="editor-translator">edited and translated by</term>
-      <term form="verb" name="editortranslator">edited and translated by</term>
       <term form="verb-short" name="editor-translator">ed. and trans. by</term>
       <term form="verb-short" name="editortranslator">ed. and trans. by</term>
       <term name="et-al">and others</term>
