@@ -28,7 +28,7 @@
          </choose>
          <text macro="source-medium"/>
          <text macro="source-archive"/>
--        <text macro="source-DOI"/>
+-        <text prefix="doi:" variable="DOI"/>
        </group>
 -      <text macro="source-URL"/>
      </group>

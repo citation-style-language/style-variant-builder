@@ -35,7 +35,7 @@
      <updated>2025-08-07T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -3583,14 +3584,14 @@
+@@ -3581,14 +3582,14 @@
      <choose>
        <if match="any" variable="issue supplement-number volume">
          <group delimiter=": ">
@@ -52,7 +52,7 @@
              <!-- periodical edition always capitalized (CMOS18 14.89) -->
              <text macro="label-edition-capitalized"/>
            </group>
-@@ -5345,9 +5346,7 @@
+@@ -5343,9 +5344,7 @@
          <date date-parts="year" form="text" variable="available-date"/>
        </else-if>
        <else>
@@ -63,7 +63,7 @@
        </else>
      </choose>
    </macro>
-@@ -5514,9 +5513,7 @@
+@@ -5512,9 +5511,7 @@
      </choose>
    </macro>
    <macro name="source-date-original">
@@ -74,7 +74,7 @@
    </macro>
    <macro name="source-date-original-full">
      <!-- Give full date for more ephemeral types -->
-@@ -5792,7 +5789,7 @@
+@@ -5790,7 +5787,7 @@
          <text macro="source-archive-name-first"/>
        </if>
        <else-if match="any" type="collection document manuscript personal_communication" variable="archive_collection archive-place">
@@ -83,7 +83,7 @@
        </else-if>
        <!-- Without `archive_collection` or `archive-place`: digital archives (database and identifier) -->
        <else>
-@@ -5807,7 +5804,7 @@
+@@ -5805,7 +5802,7 @@
          <text macro="source-archive-name-first"/>
        </if>
        <else-if match="any" type="collection document manuscript personal_communication" variable="archive_collection archive-place">
@@ -92,7 +92,7 @@
        </else-if>
        <!-- Without `archive_collection` or `archive-place`: digital archives (database and identifier) -->
        <else>
-@@ -6629,9 +6626,9 @@
+@@ -6611,9 +6608,9 @@
        </else>
      </choose>
    </macro>
@@ -105,7 +105,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -6796,16 +6793,19 @@
+@@ -6764,16 +6761,19 @@
    <bibliography et-al-min="7" et-al-use-first="3" hanging-indent="true">
      <sort>
        <key macro="author-sort"/>

@@ -35,25 +35,25 @@
      <updated>2025-08-07T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -1463,7 +1464,7 @@
-       </group>
-       <text macro="source-medium-bib"/>
-       <text macro="source-archive-bib"/>
--      <text macro="source-DOI-URL-bib"/>
-+      <!-- <text macro="source-DOI-URL-bib"/> -->
-     </group>
-   </macro>
-   <macro name="title-and-source-note">
-@@ -5987,7 +5988,7 @@
-         </group>
-       </group>
-       <text variable="references"/>
+@@ -5890,7 +5891,7 @@
+           </group>
+         </else-if>
+       </choose>
 -      <text macro="source-DOI-URL"/>
 +      <!-- <text macro="source-DOI-URL"/> -->
      </group>
    </macro>
-   <!-- 6.1. Legal date -->
-@@ -6630,8 +6631,8 @@
+   <macro name="source-date-accessed-DOI-URL-note">
+@@ -5905,7 +5906,7 @@
+           </group>
+         </else-if>
+       </choose>
+-      <text macro="source-DOI-URL"/>
++      <!-- <text macro="source-DOI-URL"/> -->
+     </group>
+   </macro>
+   <macro name="source-DOI-URL">
+@@ -6612,8 +6613,8 @@
      </choose>
    </macro>
    <citation disambiguate-add-givenname="true" disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
@@ -64,7 +64,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -6805,7 +6806,7 @@
+@@ -6773,7 +6774,7 @@
        <key macro="source-archive-bib"/>
      </sort>
      <layout suffix=".">

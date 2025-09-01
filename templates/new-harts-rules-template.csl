@@ -1184,7 +1184,7 @@
         <text macro="source-medium" prefix="[" suffix="]"/>
       </group>
       <text macro="source-archive"/>
-      <text macro="source-DOI-URL"/>
+      <text macro="source-date-accessed-DOI-URL"/>
     </group>
   </macro>
   <!-- 3.1. Title -->
@@ -3352,23 +3352,28 @@
     </group>
   </macro>
   <!-- 4.10. DOI or URL -->
+  <macro name="source-date-accessed-DOI-URL">
+    <group delimiter=", ">
+      <choose>
+        <if variable="DOI"/>
+        <else-if match="any" variable="available-date event-date issued status"/>
+        <else-if variable="URL">
+          <group delimiter=" ">
+            <text term="accessed"/>
+            <date form="text" variable="accessed"/>
+          </group>
+        </else-if>
+      </choose>
+      <text macro="source-DOI-URL"/>
+    </group>
+  </macro>
   <macro name="source-DOI-URL">
     <choose>
       <if variable="DOI">
         <text prefix="https://doi.org/" variable="DOI"/>
       </if>
       <else-if variable="URL">
-        <group delimiter=", ">
-          <choose>
-            <if match="none" variable="available-date event-date issued status">
-              <group delimiter=" ">
-                <text term="accessed"/>
-                <date form="text" variable="accessed"/>
-              </group>
-            </if>
-          </choose>
-          <text variable="URL"/>
-        </group>
+        <text variable="URL"/>
       </else-if>
     </choose>
   </macro>

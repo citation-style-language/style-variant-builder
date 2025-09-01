@@ -25,8 +25,8 @@
      <updated>2025-08-07T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -65,9 +66,6 @@
-       <!-- both 'narrated by' (CMOS18 14.58) and 'read by' (CMOS18 14.164): taking the latter as it is in the section on recorded readings -->
+@@ -63,9 +64,6 @@
+       <term name="manuscript">unpublished manuscript</term>
        <term name="original-work-published">originally published as</term>
        <term form="short" name="paper-conference">paper</term>
 -      <!-- 'under' replaces 's.v.' from CMOS17 and earlier (CMOS18 14.130) -->
@@ -35,7 +35,7 @@
        <term name="timestamp">at</term>
        <term form="verb-short" name="translator">trans.</term>
      </terms>
-@@ -3320,10 +3318,6 @@
+@@ -3318,10 +3316,6 @@
            <if match="any" variable="collection-editor part-number part-title volume-title">
              <text macro="label-volume"/>
            </if>
@@ -46,7 +46,7 @@
          </choose>
        </else-if>
        <else-if variable="volume">
-@@ -4023,11 +4017,9 @@
+@@ -4021,11 +4015,9 @@
            </if>
          </choose>
        </else-if>
@@ -58,7 +58,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number-capitalized"/>
-@@ -4059,11 +4051,9 @@
+@@ -4057,11 +4049,9 @@
            </if>
          </choose>
        </else-if>
@@ -70,7 +70,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number"/>
-@@ -4456,10 +4446,6 @@
+@@ -4454,10 +4444,6 @@
              <if is-numeric="volume" match="none">
                <text macro="label-volume"/>
              </if>
@@ -81,7 +81,7 @@
              <else-if is-numeric="volume" variable="page">
                <choose>
                  <!-- check for variables that might come between the volume and page number -->
-@@ -4496,8 +4482,6 @@
+@@ -4494,8 +4480,6 @@
        <else-if variable="locator">
          <text macro="label-locator"/>
        </else-if>
@@ -90,7 +90,7 @@
        <else-if is-numeric="volume" variable="page">
          <!-- collapse the volume and page number if adjacent -->
          <group delimiter=":">
-@@ -5262,7 +5246,7 @@
+@@ -5260,7 +5244,7 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -99,7 +99,7 @@
              <text text-case="capitalize-first" variable="publisher"/>
            </group>
          </else-if>
-@@ -5288,7 +5272,7 @@
+@@ -5286,7 +5270,7 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -108,7 +108,7 @@
              <text variable="publisher"/>
            </group>
          </else-if>
-@@ -5310,7 +5294,7 @@
+@@ -5308,7 +5292,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -117,7 +117,7 @@
            <text text-case="capitalize-first" variable="original-publisher"/>
          </group>
        </if>
-@@ -5323,7 +5307,7 @@
+@@ -5321,7 +5305,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -126,7 +126,7 @@
            <text variable="original-publisher"/>
          </group>
        </if>
-@@ -5407,14 +5391,10 @@
+@@ -5405,14 +5389,10 @@
          <text macro="date-issued-full"/>
        </if>
        <else-if variable="issue volume">
@@ -143,7 +143,7 @@
        </else-if>
        <else-if match="any" variable="issue volume">
          <text macro="date-issued-year-month"/>
-@@ -5563,14 +5543,10 @@
+@@ -5561,14 +5541,10 @@
    <macro name="source-date-original-full-serial">
      <choose>
        <if variable="issue volume">
@@ -160,7 +160,7 @@
        </else-if>
        <else-if match="any" variable="issue volume">
          <text macro="date-original-year-month"/>
-@@ -6629,9 +6605,9 @@
+@@ -6611,9 +6587,9 @@
        </else>
      </choose>
    </macro>
@@ -172,7 +172,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -6793,7 +6769,7 @@
+@@ -6761,7 +6737,7 @@
        </else>
      </choose>
    </macro>
@@ -181,7 +181,7 @@
      <sort>
        <key macro="author-sort"/>
        <key macro="title-and-descriptions-bib"/>
-@@ -6805,7 +6781,7 @@
+@@ -6773,7 +6749,7 @@
        <key macro="source-archive-bib"/>
      </sort>
      <layout suffix=".">

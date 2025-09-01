@@ -34,25 +34,7 @@
      <updated>2025-08-07T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -1463,7 +1463,7 @@
-       </group>
-       <text macro="source-medium-bib"/>
-       <text macro="source-archive-bib"/>
--      <text macro="source-DOI-URL-bib"/>
-+      <!-- <text macro="source-DOI-URL-bib"/> -->
-     </group>
-   </macro>
-   <macro name="title-and-source-note">
-@@ -1516,7 +1516,7 @@
-       </choose>
-       <text macro="source-medium-note"/>
-       <text macro="source-archive-note"/>
--      <text macro="source-DOI-URL-note"/>
-+      <!-- <text macro="source-DOI-URL-note"/> -->
-     </group>
-   </macro>
-   <!-- 3.1. Title -->
-@@ -3867,24 +3867,24 @@
+@@ -3865,24 +3865,24 @@
                  <!-- date appears first if a magazine or review `container-title` has been substituted for a missing author (CMOS18 14.89) -->
                  <choose>
                    <if match="any" variable="author chair collection-editor compiler composer curator director editor editor-translator editorial-director executive-producer guest host illustrator organizer producer series-creator translator">
@@ -81,7 +63,7 @@
                  <!-- for CMOS17 author-date: -->
                  <!-- <text macro="source-date-issued-month-day" prefix="(" suffix=")"/> -->
                </else>
-@@ -4845,32 +4845,32 @@
+@@ -4843,32 +4843,32 @@
      <!-- Facts of publication with brackets for print monographic formats -->
      <choose>
        <if match="any" type="book chapter classic interview musical_score pamphlet paper-conference report thesis">
@@ -120,7 +102,7 @@
            </if>
          </choose>
        </else-if>
-@@ -4913,7 +4913,7 @@
+@@ -4911,7 +4911,7 @@
      <!-- mirrors `source-monographic-publication-note-bracketed` -->
      <choose>
        <if disambiguate="true">
@@ -129,7 +111,7 @@
            <choose>
              <!-- Facts of publication with brackets for print monographic formats -->
              <if match="any" type="book chapter classic interview musical_score pamphlet paper-conference report thesis">
-@@ -5246,7 +5246,7 @@
+@@ -5244,7 +5244,7 @@
              <names variable="original-author"/>
              <text font-style="italic" text-case="title" variable="original-title"/>
            </group>
@@ -138,16 +120,25 @@
              <text macro="source-publication-publisher-original-note"/>
              <text macro="source-date-original"/>
            </group>
-@@ -5987,7 +5987,7 @@
-         </group>
-       </group>
-       <text variable="references"/>
+@@ -5890,7 +5890,7 @@
+           </group>
+         </else-if>
+       </choose>
 -      <text macro="source-DOI-URL"/>
 +      <!-- <text macro="source-DOI-URL"/> -->
      </group>
    </macro>
-   <!-- 6.1. Legal date -->
-@@ -6630,8 +6630,8 @@
+   <macro name="source-date-accessed-DOI-URL-note">
+@@ -5905,7 +5905,7 @@
+           </group>
+         </else-if>
+       </choose>
+-      <text macro="source-DOI-URL"/>
++      <!-- <text macro="source-DOI-URL"/> -->
+     </group>
+   </macro>
+   <macro name="source-DOI-URL">
+@@ -6612,8 +6612,8 @@
      </choose>
    </macro>
    <citation disambiguate-add-givenname="true" disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">

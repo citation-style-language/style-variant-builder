@@ -25,25 +25,7 @@
      <updated>2025-08-07T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -1463,7 +1464,7 @@
-       </group>
-       <text macro="source-medium-bib"/>
-       <text macro="source-archive-bib"/>
--      <text macro="source-DOI-URL-bib"/>
-+      <!-- <text macro="source-DOI-URL-bib"/> -->
-     </group>
-   </macro>
-   <macro name="title-and-source-note">
-@@ -1516,7 +1517,7 @@
-       </choose>
-       <text macro="source-medium-note"/>
-       <text macro="source-archive-note"/>
--      <text macro="source-DOI-URL-note"/>
-+      <!-- <text macro="source-DOI-URL-note"/> -->
-     </group>
-   </macro>
-   <!-- 3.1. Title -->
-@@ -3320,10 +3321,6 @@
+@@ -3318,10 +3319,6 @@
            <if match="any" variable="collection-editor part-number part-title volume-title">
              <text macro="label-volume"/>
            </if>
@@ -54,7 +36,7 @@
          </choose>
        </else-if>
        <else-if variable="volume">
-@@ -4023,11 +4020,9 @@
+@@ -4021,11 +4018,9 @@
            </if>
          </choose>
        </else-if>
@@ -66,7 +48,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number-capitalized"/>
-@@ -4059,11 +4054,9 @@
+@@ -4057,11 +4052,9 @@
            </if>
          </choose>
        </else-if>
@@ -78,7 +60,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number"/>
-@@ -4456,10 +4449,6 @@
+@@ -4454,10 +4447,6 @@
              <if is-numeric="volume" match="none">
                <text macro="label-volume"/>
              </if>
@@ -89,7 +71,7 @@
              <else-if is-numeric="volume" variable="page">
                <choose>
                  <!-- check for variables that might come between the volume and page number -->
-@@ -4496,8 +4485,6 @@
+@@ -4494,8 +4483,6 @@
        <else-if variable="locator">
          <text macro="label-locator"/>
        </else-if>
@@ -98,7 +80,7 @@
        <else-if is-numeric="volume" variable="page">
          <!-- collapse the volume and page number if adjacent -->
          <group delimiter=":">
-@@ -5262,7 +5249,7 @@
+@@ -5260,7 +5247,7 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -107,7 +89,7 @@
              <text text-case="capitalize-first" variable="publisher"/>
            </group>
          </else-if>
-@@ -5288,7 +5275,7 @@
+@@ -5286,7 +5273,7 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -116,7 +98,7 @@
              <text variable="publisher"/>
            </group>
          </else-if>
-@@ -5310,7 +5297,7 @@
+@@ -5308,7 +5295,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -125,7 +107,7 @@
            <text text-case="capitalize-first" variable="original-publisher"/>
          </group>
        </if>
-@@ -5323,7 +5310,7 @@
+@@ -5321,7 +5308,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -134,16 +116,25 @@
            <text variable="original-publisher"/>
          </group>
        </if>
-@@ -5987,7 +5974,7 @@
-         </group>
-       </group>
-       <text variable="references"/>
+@@ -5890,7 +5877,7 @@
+           </group>
+         </else-if>
+       </choose>
 -      <text macro="source-DOI-URL"/>
 +      <!-- <text macro="source-DOI-URL"/> -->
      </group>
    </macro>
-   <!-- 6.1. Legal date -->
-@@ -6631,7 +6618,7 @@
+   <macro name="source-date-accessed-DOI-URL-note">
+@@ -5905,7 +5892,7 @@
+           </group>
+         </else-if>
+       </choose>
+-      <text macro="source-DOI-URL"/>
++      <!-- <text macro="source-DOI-URL"/> -->
+     </group>
+   </macro>
+   <macro name="source-DOI-URL">
+@@ -6613,7 +6600,7 @@
    </macro>
    <citation disambiguate-add-givenname="true" disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
      <layout delimiter="; " suffix=".">
@@ -152,7 +143,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -6793,7 +6780,7 @@
+@@ -6761,7 +6748,7 @@
        </else>
      </choose>
    </macro>
@@ -161,7 +152,7 @@
      <sort>
        <key macro="author-sort"/>
        <key macro="title-and-descriptions-bib"/>
-@@ -6805,7 +6792,7 @@
+@@ -6773,7 +6760,7 @@
        <key macro="source-archive-bib"/>
      </sort>
      <layout suffix=".">

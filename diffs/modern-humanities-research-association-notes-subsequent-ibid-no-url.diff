@@ -29,13 +29,13 @@
          </choose>
          <text macro="source-medium"/>
          <text macro="source-archive"/>
--        <text macro="source-DOI"/>
+-        <text prefix="doi:" variable="DOI"/>
        </group>
 -      <text macro="source-URL"/>
      </group>
    </macro>
    <!-- 3.1. Title -->
-@@ -3778,7 +3777,7 @@
+@@ -3763,7 +3762,7 @@
    </macro>
    <citation disambiguate-add-givenname="true" disambiguate-add-names="true">
      <layout delimiter="; " suffix=".">
