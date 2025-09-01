@@ -1,5 +1,5 @@
 --- templates/new-harts-rules-template.csl
-+++ development/new-harts-rules-notes-initials-publisher.csl
++++ development/new-harts-rules-numbered.csl
 @@ -3,12 +3,13 @@
    type="application/relax-ng-compact-syntax" schematypens="http://relaxng.org/ns/compatibility/annotations/1.0"?>
  <?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl-repository.rnc"
@@ -11,10 +11,10 @@
 -    <title-short>NHR (template)</title-short>
 -    <id>http://www.zotero.org/styles/new-harts-rules-notes</id>
 -    <link href="http://www.zotero.org/styles/new-harts-rules-notes" rel="self"/>
-+    <title>New Hart's Rules: The Oxford Style Guide 2nd edition (notes, author initials, publisher)</title>
-+    <title-short>NHR (notes, author initials [18.2.2], publisher [18.2.10])</title-short>
-+    <id>http://www.zotero.org/styles/new-harts-rules-notes-initials-publisher</id>
-+    <link href="http://www.zotero.org/styles/new-harts-rules-notes-initials-publisher" rel="self"/>
++    <title>New Hart's Rules: The Oxford Style Guide 2nd edition (numbered)</title>
++    <title-short>NHR (author-number/Vancouver)</title-short>
++    <id>http://www.zotero.org/styles/new-harts-rules-numbered</id>
++    <link href="http://www.zotero.org/styles/new-harts-rules-numbered" rel="self"/>
 +    <link href="http://www.zotero.org/styles/new-harts-rules-notes" rel="template"/>
      <link href="https://en.wikipedia.org/wiki/Hart's_Rules" rel="documentation"/>
      <author>
@@ -24,25 +24,41 @@
      <category field="sociology"/>
      <category field="theology"/>
 -    <summary>Oxford source citations, template</summary>
-+    <summary>Oxford source citations, notes system, author forenames reduced to initials, including publisher</summary>
++    <summary>Oxford source citations, numbered system</summary>
      <updated>2025-07-15T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -2982,7 +2983,7 @@
-                 <text form="short" term="no-place"/>
-               </else-if>
-             </choose>
--            <!-- <text variable="publisher"/> -->
-+            <text variable="publisher"/>
-           </group>
-         </if>
-         <else>
-@@ -3002,7 +3003,7 @@
-       <if match="any" type="book chapter classic entry entry-dictionary entry-encyclopedia interview musical_score pamphlet paper-conference report">
-         <group delimiter=": ">
-           <text variable="original-publisher-place"/>
--          <!-- <text variable="original-publisher"/> -->
-+          <text variable="original-publisher"/>
-         </group>
-       </if>
-       <else>
+@@ -3524,9 +3525,12 @@
+       </choose>
+     </group>
+   </macro>
+-  <citation disambiguate-add-givenname="true" disambiguate-add-names="true">
+-    <layout delimiter="; " suffix=".">
+-      <text macro="citation-notes-full-subsequent-author-title"/>
++  <citation collapse="citation-number">
++    <sort>
++      <key variable="citation-number"/>
++    </sort>
++    <layout delimiter="," vertical-align="sup">
++      <text variable="citation-number"/>
+     </layout>
+   </citation>
+   <!-- Bibliography -->
+@@ -3636,7 +3630,7 @@
+       </else>
+     </choose>
+   </macro>
+-  <bibliography hanging-indent="true">
++  <bibliography hanging-indent="true" second-field-align="flush">
+     <sort>
+       <key macro="author-bib"/>
+       <key macro="title-and-descriptions"/>
+@@ -3649,7 +3643,7 @@
+       <key macro="source-archive"/>
+     </sort>
+     <layout suffix=".">
+-      <text macro="bibliography-filtered-notes"/>
++      <text macro="bibliography-numbered"/>
+     </layout>
+   </bibliography>
+ </style>

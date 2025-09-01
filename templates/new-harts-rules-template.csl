@@ -3,7 +3,7 @@
   type="application/relax-ng-compact-syntax" schematypens="http://relaxng.org/ns/compatibility/annotations/1.0"?>
 <?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl-repository.rnc"
   type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<style and="text" class="note" default-locale="en-GB" demote-non-dropping-particle="display-and-sort" et-al-min="4" et-al-use-first="1" page-range-format="chicago-16" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
+<style and="text" class="note" default-locale="en-GB" demote-non-dropping-particle="display-and-sort" et-al-min="4" et-al-use-first="1" page-range-format="minimal" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
   <info>
     <title>New Hart's Rules: The Oxford Style Guide 2nd edition (template)</title>
     <title-short>NHR (template)</title-short>
@@ -3544,6 +3544,16 @@
   </macro>
   <macro name="bibliography-notes">
     <group delimiter=". ">
+      <group delimiter=", ">
+        <text macro="author-bib"/>
+        <text macro="title-and-source"/>
+      </group>
+      <text variable="references"/>
+    </group>
+  </macro>
+  <macro name="bibliography-numbered">
+    <group delimiter=". ">
+      <text variable="citation-number"/>
       <group delimiter=", ">
         <text macro="author-bib"/>
         <text macro="title-and-source"/>
