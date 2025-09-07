@@ -35,24 +35,38 @@
      <updated>2025-08-07T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -3567,14 +3568,14 @@
-     <choose>
-       <if match="any" variable="issue supplement-number volume">
-         <group delimiter=": ">
--          <text macro="source-serial-identifier-volume-bib"/>
-+          <text macro="source-serial-identifier-volume-author-date"/>
-           <text macro="source-serial-locator"/>
-         </group>
-       </if>
-       <else>
+@@ -3568,9 +3569,7 @@
+       <if match="any" type="article-magazine article-newspaper">
          <group delimiter=", ">
            <group delimiter=". ">
 -            <text macro="source-serial-identifier-volume-bib"/>
+-            <!-- for author-date: -->
+-            <!-- <text macro="source-serial-identifier-volume-author-date"/> -->
 +            <text macro="source-serial-identifier-volume-author-date"/>
-             <!-- periodical edition always capitalized (CMOS18 14.89) -->
+             <!-- newspaper edition always capitalized (CMOS18 14.89) -->
              <text macro="label-edition-capitalized"/>
            </group>
-@@ -5329,9 +5330,7 @@
+@@ -3579,17 +3578,13 @@
+       </if>
+       <else-if match="any" variable="issue supplement-number volume">
+         <group delimiter=": ">
+-          <text macro="source-serial-identifier-volume-bib"/>
+-          <!-- for author-date: -->
+-          <!-- <text macro="source-serial-identifier-volume-author-date"/> -->
++          <text macro="source-serial-identifier-volume-author-date"/>
+           <text macro="source-serial-locator"/>
+         </group>
+       </else-if>
+       <else>
+         <group delimiter=", ">
+-          <text macro="source-serial-identifier-volume-bib"/>
+-          <!-- for author-date: -->
+-          <!-- <text macro="source-serial-identifier-volume-author-date"/> -->
++          <text macro="source-serial-identifier-volume-author-date"/>
+           <text macro="source-serial-locator"/>
+         </group>
+       </else>
+@@ -5347,9 +5342,7 @@
          <date date-parts="year" form="text" variable="available-date"/>
        </else-if>
        <else>
@@ -63,7 +77,7 @@
        </else>
      </choose>
    </macro>
-@@ -5499,9 +5498,7 @@
+@@ -5517,9 +5510,7 @@
      </choose>
    </macro>
    <macro name="source-date-original">
@@ -74,7 +88,7 @@
    </macro>
    <macro name="source-date-original-full">
      <!-- Give full date for more ephemeral types -->
-@@ -6598,9 +6595,9 @@
+@@ -6616,9 +6607,9 @@
        </else>
      </choose>
    </macro>
@@ -87,7 +101,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -6751,16 +6748,19 @@
+@@ -6769,16 +6760,19 @@
    <bibliography et-al-min="7" et-al-use-first="3" hanging-indent="true">
      <sort>
        <key macro="author-sort"/>
