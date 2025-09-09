@@ -980,10 +980,18 @@
   <macro name="date-event-full">
     <choose>
       <if is-uncertain-date="issued">
-        <group prefix="[" suffix="]">
-          <text font-style="italic" form="short" term="circa"/>
-          <date form="text" variable="event-date"/>
-        </group>
+        <choose>
+          <if type="book broadcast chapter classic entry interview motion_picture musical_score pamphlet paper-conference report software song standard">
+            <group prefix="[" suffix="]">
+              <text font-style="italic" form="short" term="circa"/>
+              <date form="text" variable="event-date"/>
+            </group>
+          </if>
+          <else>
+            <text font-style="italic" form="short" term="circa"/>
+            <date form="text" variable="event-date"/>
+          </else>
+        </choose>
       </if>
       <else>
         <date form="text" variable="event-date"/>
@@ -993,10 +1001,18 @@
   <macro name="date-event-year">
     <choose>
       <if is-uncertain-date="issued">
-        <group prefix="[" suffix="]">
-          <text font-style="italic" form="short" term="circa"/>
-          <date date-parts="year" form="text" variable="event-date"/>
-        </group>
+        <choose>
+          <if type="book broadcast chapter classic entry interview motion_picture musical_score pamphlet paper-conference report software song standard">
+            <group prefix="[" suffix="]">
+              <text font-style="italic" form="short" term="circa"/>
+              <date date-parts="year" form="text" variable="event-date"/>
+            </group>
+          </if>
+          <else>
+            <text font-style="italic" form="short" term="circa"/>
+            <date date-parts="year" form="text" variable="event-date"/>
+          </else>
+        </choose>
       </if>
       <else>
         <date date-parts="year" form="text" variable="event-date"/>
@@ -1006,10 +1022,18 @@
   <macro name="date-issued-full">
     <choose>
       <if is-uncertain-date="issued">
-        <group prefix="[" suffix="]">
-          <text font-style="italic" form="short" term="circa"/>
-          <date form="text" variable="issued"/>
-        </group>
+        <choose>
+          <if type="book chapter classic entry entry-dictionary entry-encyclopedia interview musical_score pamphlet paper-conference report thesis">
+            <group prefix="[" suffix="]">
+              <text font-style="italic" form="short" term="circa"/>
+              <date form="text" variable="issued"/>
+            </group>
+          </if>
+          <else>
+            <text font-style="italic" form="short" term="circa"/>
+            <date form="text" variable="issued"/>
+          </else>
+        </choose>
       </if>
       <else>
         <date form="text" variable="issued"/>
@@ -1030,10 +1054,18 @@
   <macro name="date-issued-year">
     <choose>
       <if is-uncertain-date="issued">
-        <group prefix="[" suffix="]">
-          <text font-style="italic" form="short" term="circa"/>
-          <date date-parts="year" form="text" variable="issued"/>
-        </group>
+        <choose>
+          <if type="book chapter classic entry entry-dictionary entry-encyclopedia interview musical_score pamphlet paper-conference report thesis">
+            <group prefix="[" suffix="]">
+              <text font-style="italic" form="short" term="circa"/>
+              <date date-parts="year" form="text" variable="issued"/>
+            </group>
+          </if>
+          <else>
+            <text font-style="italic" form="short" term="circa"/>
+            <date date-parts="year" form="text" variable="issued"/>
+          </else>
+        </choose>
       </if>
       <else>
         <date date-parts="year" form="text" variable="issued"/>
@@ -1043,10 +1075,18 @@
   <macro name="date-issued-year-month">
     <choose>
       <if is-uncertain-date="issued">
-        <group prefix="[" suffix="]">
-          <text font-style="italic" form="short" term="circa"/>
-          <date date-parts="year-month" form="text" variable="issued"/>
-        </group>
+        <choose>
+          <if type="book chapter classic entry entry-dictionary entry-encyclopedia interview musical_score pamphlet paper-conference report thesis">
+            <group prefix="[" suffix="]">
+              <text font-style="italic" form="short" term="circa"/>
+              <date date-parts="year-month" form="text" variable="issued"/>
+            </group>
+          </if>
+          <else>
+            <text font-style="italic" form="short" term="circa"/>
+            <date date-parts="year-month" form="text" variable="issued"/>
+          </else>
+        </choose>
       </if>
       <else>
         <date date-parts="year-month" form="text" variable="issued"/>
@@ -1056,10 +1096,18 @@
   <macro name="date-original-full">
     <choose>
       <if is-uncertain-date="original-date">
-        <group prefix="[" suffix="]">
-          <text font-style="italic" form="short" term="circa"/>
-          <date form="text" variable="original-date"/>
-        </group>
+        <choose>
+          <if type="book chapter classic entry entry-dictionary entry-encyclopedia interview musical_score pamphlet paper-conference report thesis">
+            <group prefix="[" suffix="]">
+              <text font-style="italic" form="short" term="circa"/>
+              <date form="text" variable="original-date"/>
+            </group>
+          </if>
+          <else>
+            <text font-style="italic" form="short" term="circa"/>
+            <date form="text" variable="original-date"/>
+          </else>
+        </choose>
       </if>
       <else>
         <date form="text" variable="original-date"/>
@@ -1080,10 +1128,18 @@
   <macro name="date-original-year">
     <choose>
       <if is-uncertain-date="original-date">
-        <group prefix="[" suffix="]">
-          <text font-style="italic" form="short" term="circa"/>
-          <date date-parts="year" form="text" variable="original-date"/>
-        </group>
+        <choose>
+          <if type="book chapter classic entry entry-dictionary entry-encyclopedia interview musical_score pamphlet paper-conference report thesis">
+            <group prefix="[" suffix="]">
+              <text font-style="italic" form="short" term="circa"/>
+              <date date-parts="year" form="text" variable="original-date"/>
+            </group>
+          </if>
+          <else>
+            <text font-style="italic" form="short" term="circa"/>
+            <date date-parts="year" form="text" variable="original-date"/>
+          </else>
+        </choose>
       </if>
       <else>
         <date date-parts="year" form="text" variable="original-date"/>
@@ -1093,10 +1149,18 @@
   <macro name="date-original-year-month">
     <choose>
       <if is-uncertain-date="original-date">
-        <group prefix="[" suffix="]">
-          <text font-style="italic" form="short" term="circa"/>
-          <date date-parts="year-month" form="text" variable="original-date"/>
-        </group>
+        <choose>
+          <if type="book chapter classic entry entry-dictionary entry-encyclopedia interview musical_score pamphlet paper-conference report thesis">
+            <group prefix="[" suffix="]">
+              <text font-style="italic" form="short" term="circa"/>
+              <date date-parts="year-month" form="text" variable="original-date"/>
+            </group>
+          </if>
+          <else>
+            <text font-style="italic" form="short" term="circa"/>
+            <date date-parts="year-month" form="text" variable="original-date"/>
+          </else>
+        </choose>
       </if>
       <else>
         <date date-parts="year-month" form="text" variable="original-date"/>
@@ -2174,6 +2238,25 @@
           <text macro="source-serial-title"/>
           <text macro="source-serial-identifier"/>
         </else-if>
+        <else-if type="interview" variable="publisher">
+          <!-- publisher possible with `interview` (NHR 18.7.3) -->
+          <group delimiter=", ">
+            <text macro="source-serial-title"/>
+            <group delimiter=" ">
+              <text variable="publisher"/>
+              <text macro="source-serial-identifier"/>
+            </group>
+          </group>
+        </else-if>
+        <else-if variable="interviewer publisher">
+          <group delimiter=", ">
+            <text macro="source-serial-title"/>
+            <group delimiter=" ">
+              <text variable="publisher"/>
+              <text macro="source-serial-identifier"/>
+            </group>
+          </group>
+        </else-if>
         <else>
           <group delimiter=" ">
             <text macro="source-serial-title"/>
@@ -2195,12 +2278,6 @@
           </if>
         </choose>
       </group>
-      <choose>
-        <if match="any" type="interview" variable="interviewer">
-          <!-- publisher possible with `interview` (cf. CMOS18 14.110) -->
-          <text variable="publisher"/>
-        </if>
-      </choose>
     </group>
   </macro>
   <macro name="source-serial-title">
@@ -2225,6 +2302,7 @@
       </choose>
       <group delimiter=" ">
         <choose>
+          <!-- 'in' for reviews only (NHR 18.3.5) -->
           <if match="none" variable="container-title"/>
           <else-if match="any" type="periodical" variable="supplement-number volume-title"/>
           <else-if match="any" type="review review-book" variable="reviewed-author reviewed-genre reviewed-title">
@@ -2978,6 +3056,9 @@
               <if variable="publisher-place">
                 <text variable="publisher-place"/>
               </if>
+              <else-if type="report">
+                <text variable="publisher"/>
+              </else-if>
               <else-if match="none" type="classic entry entry-dictionary entry-encyclopedia" variable="original-publisher-place">
                 <text form="short" term="no-place"/>
               </else-if>
