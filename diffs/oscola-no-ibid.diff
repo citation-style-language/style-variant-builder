@@ -23,7 +23,7 @@
      <updated>2025-08-07T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -657,16 +657,7 @@
+@@ -656,16 +656,7 @@
    <citation et-al-min="4" et-al-use-first="1">
      <layout delimiter="; " suffix=".">
        <choose>
@@ -41,7 +41,7 @@
            <choose>
              <if match="any" type="bill hearing legal_case legislation regulation treaty">
                <text macro="citation-legal-subsequent"/>
-@@ -693,7 +684,7 @@
+@@ -692,7 +683,7 @@
                </group>
              </else>
            </choose>

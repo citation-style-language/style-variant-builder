@@ -25,7 +25,7 @@
      <updated>2025-08-07T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -5264,8 +5265,8 @@
+@@ -5284,8 +5285,8 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -36,7 +36,7 @@
            </group>
          </else-if>
          <!-- TODO: remove conditional when Zotero fixes double-mapping of `event-place` -->
-@@ -5290,8 +5291,8 @@
+@@ -5310,8 +5311,8 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -47,7 +47,7 @@
            </group>
          </else-if>
          <!-- TODO: remove conditional when Zotero fixes double-mapping of `event-place` -->
-@@ -5312,8 +5313,8 @@
+@@ -5332,8 +5333,8 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -58,7 +58,7 @@
          </group>
        </if>
        <else>
-@@ -5325,8 +5326,8 @@
+@@ -5345,8 +5346,8 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -69,25 +69,25 @@
          </group>
        </if>
        <else>
-@@ -5795,7 +5796,7 @@
-         <text macro="source-archive-name-first"/>
-       </if>
-       <else-if match="any" type="collection document manuscript personal_communication" variable="archive_collection archive-place">
--        <text macro="source-archive-location-first-bib"/>
-+        <text macro="source-archive-place-first"/>
-       </else-if>
-       <!-- Without `archive_collection` or `archive-place`: digital archives (database and identifier) -->
-       <else>
-@@ -5810,7 +5811,7 @@
-         <text macro="source-archive-name-first"/>
-       </if>
-       <else-if match="any" type="collection document manuscript personal_communication" variable="archive_collection archive-place">
--        <text macro="source-archive-location-first-note"/>
-+        <text macro="source-archive-place-first"/>
-       </else-if>
-       <!-- Without `archive_collection` or `archive-place`: digital archives (database and identifier) -->
-       <else>
-@@ -5895,7 +5896,7 @@
+@@ -5815,7 +5816,7 @@
+           <text macro="source-archive-reference-institution-first"/>
+         </if>
+         <else>
+-          <text macro="source-archive-reference-location-first-bib"/>
++          <text macro="source-archive-reference-place-first"/>
+         </else>
+       </choose>
+       <text macro="source-archive-database-number"/>
+@@ -5828,7 +5829,7 @@
+           <text macro="source-archive-reference-institution-first"/>
+         </if>
+         <else>
+-          <text macro="source-archive-reference-location-first-note"/>
++          <text macro="source-archive-reference-place-first"/>
+         </else>
+       </choose>
+       <text macro="source-archive-database-number" prefix="(" suffix=")"/>
+@@ -5930,7 +5931,7 @@
            </group>
          </else-if>
        </choose>
@@ -96,7 +96,7 @@
      </group>
    </macro>
    <macro name="source-date-accessed-DOI-URL-note">
-@@ -5910,7 +5911,7 @@
+@@ -5945,7 +5946,7 @@
            </group>
          </else-if>
        </choose>
@@ -105,7 +105,7 @@
      </group>
    </macro>
    <macro name="source-DOI-URL">
-@@ -6616,7 +6617,7 @@
+@@ -6651,7 +6652,7 @@
        </else>
      </choose>
    </macro>
@@ -114,7 +114,7 @@
      <layout delimiter="; " suffix=".">
        <text macro="citation-notes-full-subsequent-author-title"/>
      </layout>
-@@ -6766,19 +6767,4 @@
+@@ -6801,19 +6802,4 @@
        </else>
      </choose>
    </macro>

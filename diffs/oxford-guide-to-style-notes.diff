@@ -25,7 +25,7 @@
      <updated>2025-07-15T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -372,11 +373,9 @@
+@@ -363,11 +364,9 @@
    <macro name="author-bib">
      <group delimiter=", ">
        <names variable="composer">
@@ -40,7 +40,7 @@
          <substitute>
            <names variable="author"/>
            <names variable="host"/>
-@@ -1232,16 +1231,12 @@
+@@ -1223,16 +1222,12 @@
                <choose>
                  <if match="any" variable="collection-editor container-author editor editorial-director">
                    <!-- monographic usage -->
@@ -59,7 +59,7 @@
              </else>
            </choose>
          </group>
-@@ -2322,9 +2317,7 @@
+@@ -2327,9 +2322,7 @@
        <text macro="source-serial-identifier-volume"/>
        <!-- periodical edition always capitalized (cf. CMOS18 14.89) -->
        <text macro="label-edition-capitalized"/>
@@ -70,7 +70,7 @@
      </group>
    </macro>
    <macro name="source-serial-identifier-volume">
-@@ -2444,8 +2437,6 @@
+@@ -2449,8 +2442,6 @@
            </group>
          </if>
        </choose>
@@ -79,23 +79,34 @@
        <text macro="source-event"/>
      </group>
    </macro>
-@@ -2800,8 +2791,7 @@
+@@ -2814,8 +2805,7 @@
            <choose>
              <if match="any" variable="collection-editor container-author editor editorial-director">
                <!-- monographic usage -->
--              <!-- for OGS: -->
+-              <!-- add for OGS: -->
 -              <!-- <text macro="source-series"/> -->
 +              <text macro="source-series"/>
                <text macro="source-publication-and-date"/>
              </if>
            </choose>
-@@ -2809,8 +2799,7 @@
+@@ -2823,8 +2813,7 @@
          <!-- `patent` date in identification (cf. CMOS18 14.158) -->
          <else-if type="patent"/>
          <else>
--          <!-- for OGS: -->
+-          <!-- add for OGS: -->
 -          <!-- <text macro="source-series"/> -->
 +          <text macro="source-series"/>
            <text macro="source-publication-and-date"/>
          </else>
        </choose>
+@@ -3419,9 +3408,7 @@
+       <!-- usually `archive`, `archive-place` but sometimes also `archive-place`, `archive` (NHR 18.6.5); the latter is more common elsewhere (OGS 15.11.1 and MHRA4 7.7) -->
+       <text variable="archive_collection"/>
+       <text variable="archive_location"/>
+-      <text macro="source-archive-locator"/>
+-      <!-- for OGS: -->
+-      <!-- <text macro="source-archive-locator-range"/> -->
++      <text macro="source-archive-locator-range"/>
+       <choose>
+         <!-- database identifier, if not included elsewhere (cf. CMOS18 14.113) -->
+         <if match="any" variable="archive_collection archive_location archive-place"/>

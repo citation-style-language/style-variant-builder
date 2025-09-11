@@ -25,25 +25,25 @@
      <updated>2025-08-07T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -5795,7 +5796,7 @@
-         <text macro="source-archive-name-first"/>
-       </if>
-       <else-if match="any" type="collection document manuscript personal_communication" variable="archive_collection archive-place">
--        <text macro="source-archive-location-first-bib"/>
-+        <text macro="source-archive-place-first"/>
-       </else-if>
-       <!-- Without `archive_collection` or `archive-place`: digital archives (database and identifier) -->
-       <else>
-@@ -5810,7 +5811,7 @@
-         <text macro="source-archive-name-first"/>
-       </if>
-       <else-if match="any" type="collection document manuscript personal_communication" variable="archive_collection archive-place">
--        <text macro="source-archive-location-first-note"/>
-+        <text macro="source-archive-place-first"/>
-       </else-if>
-       <!-- Without `archive_collection` or `archive-place`: digital archives (database and identifier) -->
-       <else>
-@@ -6618,7 +6619,7 @@
+@@ -5815,7 +5816,7 @@
+           <text macro="source-archive-reference-institution-first"/>
+         </if>
+         <else>
+-          <text macro="source-archive-reference-location-first-bib"/>
++          <text macro="source-archive-reference-place-first"/>
+         </else>
+       </choose>
+       <text macro="source-archive-database-number"/>
+@@ -5828,7 +5829,7 @@
+           <text macro="source-archive-reference-institution-first"/>
+         </if>
+         <else>
+-          <text macro="source-archive-reference-location-first-note"/>
++          <text macro="source-archive-reference-place-first"/>
+         </else>
+       </choose>
+       <text macro="source-archive-database-number" prefix="(" suffix=")"/>
+@@ -6653,7 +6654,7 @@
    </macro>
    <citation disambiguate-add-givenname="true" disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
      <layout delimiter="; " suffix=".">
@@ -52,7 +52,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -6778,7 +6779,7 @@
+@@ -6813,7 +6814,7 @@
        <key macro="source-archive-bib"/>
      </sort>
      <layout suffix=".">

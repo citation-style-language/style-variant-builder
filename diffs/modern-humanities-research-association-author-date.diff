@@ -46,7 +46,7 @@
            <text macro="identifier"/>
          </else>
        </choose>
-@@ -2806,18 +2805,6 @@
+@@ -2817,18 +2816,6 @@
            </else-if>
          </choose>
        </group>
@@ -65,7 +65,7 @@
      </group>
    </macro>
    <!-- 4.3. Series -->
-@@ -3248,9 +3235,7 @@
+@@ -3259,9 +3246,7 @@
          <date date-parts="year" form="text" variable="available-date"/>
        </if>
        <else>
@@ -76,7 +76,7 @@
        </else>
      </choose>
    </macro>
-@@ -3399,9 +3384,7 @@
+@@ -3410,9 +3395,7 @@
      </choose>
    </macro>
    <macro name="source-date-original">
@@ -87,7 +87,7 @@
    </macro>
    <macro name="source-date-original-full">
      <!-- Give full date for more ephemeral types; reflected in `date-sort` -->
-@@ -3761,9 +3744,9 @@
+@@ -3829,9 +3812,9 @@
        </choose>
      </group>
    </macro>
@@ -100,7 +100,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -3863,17 +3846,19 @@
+@@ -3931,17 +3914,19 @@
    <bibliography hanging-indent="true" subsequent-author-substitute="&#8212;&#8212;" subsequent-author-substitute-rule="partial-first">
      <sort>
        <key macro="author-bib"/>

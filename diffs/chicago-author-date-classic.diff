@@ -35,7 +35,7 @@
      <updated>2025-08-07T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -3302,10 +3303,6 @@
+@@ -3316,10 +3317,6 @@
            <if match="any" variable="collection-editor part-number part-title volume-title">
              <text macro="label-volume"/>
            </if>
@@ -46,7 +46,7 @@
          </choose>
        </else-if>
        <else-if variable="volume">
-@@ -3568,9 +3565,7 @@
+@@ -3582,9 +3579,7 @@
        <if match="any" type="article-magazine article-newspaper">
          <group delimiter=", ">
            <group delimiter=". ">
@@ -57,7 +57,7 @@
              <!-- newspaper edition always capitalized (CMOS18 14.89) -->
              <text macro="label-edition-capitalized"/>
            </group>
-@@ -3579,17 +3574,13 @@
+@@ -3593,17 +3588,13 @@
        </if>
        <else-if match="any" variable="issue supplement-number volume">
          <group delimiter=": ">
@@ -77,7 +77,7 @@
            <text macro="source-serial-locator"/>
          </group>
        </else>
-@@ -4025,11 +4016,9 @@
+@@ -4039,11 +4030,9 @@
            </if>
          </choose>
        </else-if>
@@ -89,7 +89,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number-capitalized"/>
-@@ -4061,11 +4050,9 @@
+@@ -4075,11 +4064,9 @@
            </if>
          </choose>
        </else-if>
@@ -101,7 +101,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number"/>
-@@ -4458,10 +4445,6 @@
+@@ -4472,10 +4459,6 @@
              <if is-numeric="volume" match="none">
                <text macro="label-volume"/>
              </if>
@@ -112,7 +112,7 @@
              <else-if is-numeric="volume" variable="page">
                <choose>
                  <!-- check for variables that might come between the volume and page number -->
-@@ -4498,8 +4481,6 @@
+@@ -4516,8 +4499,6 @@
        <else-if variable="locator">
          <text macro="label-locator"/>
        </else-if>
@@ -121,7 +121,7 @@
        <else-if is-numeric="volume" variable="page">
          <!-- collapse the volume and page number if adjacent -->
          <group delimiter=":">
-@@ -5264,7 +5245,7 @@
+@@ -5284,7 +5265,7 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -130,7 +130,7 @@
              <text text-case="capitalize-first" variable="publisher"/>
            </group>
          </else-if>
-@@ -5290,7 +5271,7 @@
+@@ -5310,7 +5291,7 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -139,7 +139,7 @@
              <text variable="publisher"/>
            </group>
          </else-if>
-@@ -5312,7 +5293,7 @@
+@@ -5332,7 +5313,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -148,7 +148,7 @@
            <text text-case="capitalize-first" variable="original-publisher"/>
          </group>
        </if>
-@@ -5325,7 +5306,7 @@
+@@ -5345,7 +5326,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -157,7 +157,7 @@
            <text variable="original-publisher"/>
          </group>
        </if>
-@@ -5347,9 +5328,7 @@
+@@ -5367,9 +5348,7 @@
          <date date-parts="year" form="text" variable="available-date"/>
        </else-if>
        <else>
@@ -168,7 +168,7 @@
        </else>
      </choose>
    </macro>
-@@ -5517,9 +5496,7 @@
+@@ -5537,9 +5516,7 @@
      </choose>
    </macro>
    <macro name="source-date-original">
@@ -179,7 +179,7 @@
    </macro>
    <macro name="source-date-original-full">
      <!-- Give full date for more ephemeral types -->
-@@ -6616,9 +6593,9 @@
+@@ -6651,9 +6628,9 @@
        </else>
      </choose>
    </macro>
@@ -192,7 +192,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -6766,19 +6743,22 @@
+@@ -6801,19 +6778,22 @@
        </else>
      </choose>
    </macro>
