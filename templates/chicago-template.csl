@@ -1423,8 +1423,12 @@
             </if>
           </choose>
         </if>
+        <else-if type="chapter" variable="container-title genre title">
+          <text macro="title-and-descriptions-bib"/>
+          <text macro="source-bib"/>
+        </else-if>
         <else-if type="chapter" variable="container-title genre">
-          <!-- 'Introduction to' etc. (CMOS18 14.12, 14.14) -->
+          <!-- 'Introduction to' etc. if no `title` (CMOS18 14.12, 14.14) -->
           <group delimiter=" ">
             <text macro="title-and-descriptions-bib"/>
             <text macro="source-bib"/>
@@ -1975,6 +1979,12 @@
             <text form="short" term="personal-communication"/>
           </if>
         </choose>
+      </else-if>
+      <else-if variable="chapter-number container-title">
+        <group delimiter=" ">
+          <text macro="source-monographic-preposition-note"/>
+          <text font-style="italic" text-case="title" variable="container-title"/>
+        </group>
       </else-if>
       <else-if variable="chapter-number">
         <text macro="label-chapter-number"/>
@@ -4028,9 +4038,12 @@
   <!-- Monographic source title -->
   <macro name="source-monographic-preposition-bib">
     <choose>
-      <if type="chapter" variable="container-title genre">
-        <text value="to"/>
+      <if type="chapter" variable="container-title genre title">
+        <text term="in"/>
       </if>
+      <else-if type="chapter" variable="container-title genre">
+        <text value="to"/>
+      </else-if>
       <else-if match="any" type="entry entry-dictionary entry-encyclopedia">
         <choose>
           <if match="any" variable="author composer">
@@ -4064,9 +4077,12 @@
   </macro>
   <macro name="source-monographic-preposition-note">
     <choose>
-      <if type="chapter" variable="container-title genre">
-        <text value="to"/>
+      <if type="chapter" variable="container-title genre title">
+        <text term="in"/>
       </if>
+      <else-if type="chapter" variable="container-title genre">
+        <text value="to"/>
+      </else-if>
       <else-if match="any" type="entry entry-dictionary entry-encyclopedia">
         <choose>
           <if match="any" variable="author composer">

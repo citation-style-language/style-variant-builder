@@ -1200,13 +1200,17 @@
           <group delimiter=" ">
             <group delimiter=", ">
               <choose>
-                <if type="chapter" variable="container-title genre">
-                  <!-- 'introduction in' (NHR 18.2.6; cf. CMOS18 14.12, 14.14) -->
+                <if type="chapter" variable="container-title genre title">
+                  <text macro="title-and-descriptions"/>
+                  <text macro="source"/>
+                </if>
+                <else-if type="chapter" variable="container-title genre">
+                  <!-- 'introduction in' if no title (NHR 18.2.6; cf. CMOS18 14.12, 14.14) -->
                   <group delimiter=" ">
                     <text macro="title-and-descriptions"/>
                     <text macro="source"/>
                   </group>
-                </if>
+                </else-if>
                 <else>
                   <text macro="title-and-descriptions"/>
                   <text macro="source"/>
@@ -1598,9 +1602,6 @@
       <else-if variable="medium">
         <text variable="medium"/>
       </else-if>
-      <else-if variable="chapter-number">
-        <text macro="label-chapter-number"/>
-      </else-if>
       <else-if type="manuscript">
         <!-- 'unpublished manuscript' if no `genre` (cf. CMOS18 14.114) -->
         <choose>
@@ -1616,6 +1617,16 @@
             <text form="short" term="personal-communication"/>
           </if>
         </choose>
+      </else-if>
+      <else-if variable="chapter-number container-title">
+        <group delimiter=" ">
+          <text macro="label-chapter-number"/>
+          <text term="in"/>
+          <text font-style="italic" text-case="title" variable="container-title"/>
+        </group>
+      </else-if>
+      <else-if variable="chapter-number">
+        <text macro="label-chapter-number"/>
       </else-if>
     </choose>
   </macro>

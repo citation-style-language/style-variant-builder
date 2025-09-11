@@ -1110,13 +1110,17 @@
         <group delimiter=" ">
           <group delimiter=", ">
             <choose>
-              <if type="chapter" variable="container-title genre">
-                <!-- MHRA does not cover introductions but NHR 18.2.6 suggests 'introduction in' (cf. CMOS18 14.12, 14.14, 'introduction to') -->
+              <if type="chapter" variable="container-title genre title">
+                <text macro="title-and-descriptions"/>
+                <text macro="source"/>
+              </if>
+              <else-if type="chapter" variable="container-title genre">
+                <!-- MHRA does not cover introductions but NHR 18.2.6 suggests 'introduction in' if no title (cf. CMOS18 14.12, 14.14, 'introduction to') -->
                 <group delimiter=" ">
                   <text macro="title-and-descriptions"/>
                   <text macro="source"/>
                 </group>
-              </if>
+              </else-if>
               <else>
                 <text macro="title-and-descriptions"/>
                 <text macro="source"/>
@@ -1565,6 +1569,13 @@
             <text form="short" term="personal-communication"/>
           </if>
         </choose>
+      </else-if>
+      <else-if variable="chapter-number container-title">
+        <group delimiter=" ">
+          <text macro="label-chapter-number"/>
+          <text macro="source-monographic-preposition"/>
+          <text font-style="italic" text-case="title" variable="container-title"/>
+        </group>
       </else-if>
       <else-if variable="chapter-number">
         <text macro="label-chapter-number"/>
