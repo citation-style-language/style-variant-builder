@@ -250,12 +250,9 @@
         <names variable="editor"/>
         <names variable="translator"/>
         <choose>
-          <if type="software">
-            <text variable="publisher"/>
-          </if>
-          <else-if type="standard">
+          <if type="standard">
             <text variable="authority"/>
-          </else-if>
+          </if>
         </choose>
         <text macro="title"/>
       </substitute>
@@ -272,12 +269,9 @@
           <names variable="editor"/>
           <names variable="translator"/>
           <choose>
-            <if type="software">
-              <text variable="publisher"/>
-            </if>
-            <else-if type="standard">
+            <if type="standard">
               <text variable="authority"/>
-            </else-if>
+            </if>
           </choose>
           <text macro="title-short"/>
         </substitute>
