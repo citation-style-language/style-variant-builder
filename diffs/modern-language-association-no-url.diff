@@ -25,7 +25,7 @@
      <updated>2025-07-15T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -901,11 +902,6 @@
+@@ -895,11 +896,6 @@
        <text variable="archive_collection"/>
        <text variable="archive_location"/>
        <text macro="label-page"/>
@@ -37,7 +37,7 @@
      </group>
    </macro>
    <macro name="container1-location-event">
-@@ -1212,7 +1208,6 @@
+@@ -1206,7 +1202,6 @@
        <key macro="supplemental-element-after-title"/>
        <key macro="container1"/>
        <key macro="supplemental-element-between"/>
@@ -45,7 +45,7 @@
        <key macro="supplemental-element-end"/>
      </sort>
      <layout suffix=".">
-@@ -1222,7 +1217,6 @@
+@@ -1216,7 +1211,6 @@
          <text macro="supplemental-element-after-title"/>
          <text macro="container1"/>
          <text macro="supplemental-element-between"/>

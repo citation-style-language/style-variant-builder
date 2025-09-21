@@ -40,7 +40,7 @@
          <substitute>
            <names variable="author"/>
            <names variable="host"/>
-@@ -1223,16 +1222,12 @@
+@@ -1227,16 +1226,12 @@
                <choose>
                  <if match="any" variable="collection-editor container-author editor editorial-director">
                    <!-- monographic usage -->
@@ -59,7 +59,7 @@
              </else>
            </choose>
          </group>
-@@ -2327,9 +2322,7 @@
+@@ -2353,9 +2348,7 @@
        <text macro="source-serial-identifier-volume"/>
        <!-- periodical edition always capitalized (cf. CMOS18 14.89) -->
        <text macro="label-edition-capitalized"/>
@@ -70,7 +70,7 @@
      </group>
    </macro>
    <macro name="source-serial-identifier-volume">
-@@ -2449,8 +2442,6 @@
+@@ -2475,8 +2468,6 @@
            </group>
          </if>
        </choose>
@@ -79,7 +79,7 @@
        <text macro="source-event"/>
      </group>
    </macro>
-@@ -2814,8 +2805,7 @@
+@@ -2845,8 +2836,7 @@
            <choose>
              <if match="any" variable="collection-editor container-author editor editorial-director">
                <!-- monographic usage -->
@@ -89,7 +89,7 @@
                <text macro="source-publication-and-date"/>
              </if>
            </choose>
-@@ -2823,8 +2813,7 @@
+@@ -2854,8 +2844,7 @@
          <!-- `patent` date in identification (cf. CMOS18 14.158) -->
          <else-if type="patent"/>
          <else>
@@ -99,7 +99,7 @@
            <text macro="source-publication-and-date"/>
          </else>
        </choose>
-@@ -3419,9 +3408,7 @@
+@@ -3450,9 +3439,7 @@
        <!-- usually `archive`, `archive-place` but sometimes also `archive-place`, `archive` (NHR 18.6.5); the latter is more common elsewhere (OGS 15.11.1 and MHRA4 7.7) -->
        <text variable="archive_collection"/>
        <text variable="archive_location"/>

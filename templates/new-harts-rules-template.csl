@@ -225,7 +225,7 @@
   <macro name="label-locator">
     <group delimiter=" ">
       <choose>
-        <if locator="page"/>
+        <if locator="column page" match="any"/>
         <else-if is-numeric="locator">
           <label form="short" variable="locator"/>
         </else-if>
@@ -1482,9 +1482,14 @@
           <if match="any" variable="part-title volume-title">
             <text macro="label-volume"/>
           </if>
-          <else-if match="none" variable="locator page">
+          <else-if locator="column page" match="any"/>
+          <else-if variable="locator">
             <text macro="label-volume"/>
           </else-if>
+          <else-if variable="page"/>
+          <else>
+            <text macro="label-volume"/>
+          </else>
         </choose>
         <text font-style="italic" text-case="title" variable="volume-title"/>
       </group>
@@ -1595,40 +1600,50 @@
     </choose>
   </macro>
   <macro name="description-format-short">
-    <choose>
-      <if variable="genre">
-        <text variable="genre"/>
-      </if>
-      <else-if variable="medium">
-        <text variable="medium"/>
-      </else-if>
-      <else-if type="manuscript">
-        <!-- 'unpublished manuscript' if no `genre` (cf. CMOS18 14.114) -->
-        <choose>
-          <if match="none" variable="archive archive-place container-title DOI number publisher references URL">
-            <text term="manuscript"/>
-          </if>
-        </choose>
-      </else-if>
-      <else-if type="personal_communication">
-        <!-- 'pers. comm.' if no `genre` (cf. CMOS18 14.111) -->
-        <choose>
-          <if match="none" variable="archive archive-place container-title DOI number publisher references URL">
-            <text form="short" term="personal-communication"/>
-          </if>
-        </choose>
-      </else-if>
-      <else-if variable="chapter-number container-title">
-        <group delimiter=" ">
+    <group delimiter=" ">
+      <choose>
+        <if variable="container-title genre">
+          <text variable="genre"/>
+          <choose>
+            <if disambiguate="true">
+              <!-- disambiguate items with an identical `genre` (e.g. 'introduction') -->
+              <text term="in"/>
+              <text font-style="italic" text-case="title" variable="container-title"/>
+            </if>
+          </choose>
+        </if>
+        <else-if variable="genre">
+          <text variable="genre"/>
+        </else-if>
+        <else-if variable="medium">
+          <text variable="medium"/>
+        </else-if>
+        <else-if type="manuscript">
+          <!-- 'unpublished manuscript' if no `genre` (cf. CMOS18 14.114) -->
+          <choose>
+            <if match="none" variable="archive archive-place container-title DOI number publisher references URL">
+              <text term="manuscript"/>
+            </if>
+          </choose>
+        </else-if>
+        <else-if type="personal_communication">
+          <!-- 'pers. comm.' if no `genre` (cf. CMOS18 14.111) -->
+          <choose>
+            <if match="none" variable="archive archive-place container-title DOI number publisher references URL">
+              <text form="short" term="personal-communication"/>
+            </if>
+          </choose>
+        </else-if>
+        <else-if variable="chapter-number container-title">
           <text macro="label-chapter-number"/>
           <text term="in"/>
           <text font-style="italic" text-case="title" variable="container-title"/>
-        </group>
-      </else-if>
-      <else-if variable="chapter-number">
-        <text macro="label-chapter-number"/>
-      </else-if>
-    </choose>
+        </else-if>
+        <else-if variable="chapter-number">
+          <text macro="label-chapter-number"/>
+        </else-if>
+      </choose>
+    </group>
   </macro>
   <macro name="description-generic">
     <!-- For conference presentations/performances/events, chapters in reports/standards/generic documents, software, place description within the source element -->
@@ -2643,7 +2658,12 @@
     <group delimiter=", ">
       <choose>
         <if match="any" variable="part-title volume-title"/>
-        <else-if match="any" variable="locator page">
+        <else-if locator="column page" match="any">
+          <text macro="label-volume"/>
+          <text macro="label-part-number"/>
+        </else-if>
+        <else-if variable="locator"/>
+        <else-if variable="page">
           <text macro="label-volume"/>
           <text macro="label-part-number"/>
         </else-if>

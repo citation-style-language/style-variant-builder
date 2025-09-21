@@ -1423,12 +1423,8 @@
             </if>
           </choose>
         </if>
-        <else-if type="chapter" variable="container-title genre title">
-          <text macro="title-and-descriptions-bib"/>
-          <text macro="source-bib"/>
-        </else-if>
         <else-if type="chapter" variable="container-title genre">
-          <!-- 'Introduction to' etc. if no `title` (CMOS18 14.12, 14.14) -->
+          <!-- 'introduction to', 'online appendix to' (CMOS18 14.12, 14.14) -->
           <group delimiter=" ">
             <text macro="title-and-descriptions-bib"/>
             <text macro="source-bib"/>
@@ -1482,7 +1478,7 @@
               <text macro="source-event-note"/>
             </if>
             <else-if type="chapter" variable="container-title genre">
-              <!-- 'Introduction to' etc. (CMOS18 14.12, 14.14) -->
+              <!-- 'introduction to', 'online appendix to' (CMOS18 14.12, 14.14) -->
               <group delimiter=" ">
                 <text macro="title-and-descriptions-note"/>
                 <text macro="source-note"/>
@@ -1957,39 +1953,49 @@
     </choose>
   </macro>
   <macro name="description-format-short">
-    <choose>
-      <if variable="genre">
-        <text variable="genre"/>
-      </if>
-      <else-if variable="medium">
-        <text variable="medium"/>
-      </else-if>
-      <else-if type="manuscript">
-        <!-- 'unpublished manuscript' if no `genre` (CMOS18 14.114) -->
-        <choose>
-          <if match="none" variable="archive archive-place container-title DOI number publisher references URL">
-            <text term="manuscript"/>
-          </if>
-        </choose>
-      </else-if>
-      <else-if type="personal_communication">
-        <!-- 'pers. comm.' if no `genre` (CMOS18 14.111) -->
-        <choose>
-          <if match="none" variable="archive archive-place container-title DOI number publisher references URL">
-            <text form="short" term="personal-communication"/>
-          </if>
-        </choose>
-      </else-if>
-      <else-if variable="chapter-number container-title">
-        <group delimiter=" ">
+    <group delimiter=" ">
+      <choose>
+        <if variable="container-title genre">
+          <text variable="genre"/>
+          <choose>
+            <if disambiguate="true">
+              <!-- disambiguate items with an identical `genre` (e.g. 'introduction') -->
+              <text macro="source-monographic-preposition-note"/>
+              <text font-style="italic" text-case="title" variable="container-title"/>
+            </if>
+          </choose>
+        </if>
+        <else-if variable="genre">
+          <text variable="genre"/>
+        </else-if>
+        <else-if variable="medium">
+          <text variable="medium"/>
+        </else-if>
+        <else-if type="manuscript">
+          <!-- 'unpublished manuscript' if no `genre` (CMOS18 14.114) -->
+          <choose>
+            <if match="none" variable="archive archive-place container-title DOI number publisher references URL">
+              <text term="manuscript"/>
+            </if>
+          </choose>
+        </else-if>
+        <else-if type="personal_communication">
+          <!-- 'pers. comm.' if no `genre` (CMOS18 14.111) -->
+          <choose>
+            <if match="none" variable="archive archive-place container-title DOI number publisher references URL">
+              <text form="short" term="personal-communication"/>
+            </if>
+          </choose>
+        </else-if>
+        <else-if variable="chapter-number container-title">
           <text macro="source-monographic-preposition-note"/>
           <text font-style="italic" text-case="title" variable="container-title"/>
-        </group>
-      </else-if>
-      <else-if variable="chapter-number">
-        <text macro="label-chapter-number"/>
-      </else-if>
-    </choose>
+        </else-if>
+        <else-if variable="chapter-number">
+          <text macro="label-chapter-number"/>
+        </else-if>
+      </choose>
+    </group>
   </macro>
   <macro name="description-generic-bib">
     <!-- For conference presentations/performances/events, chapters in reports/standards/generic documents, software, place description within the source element -->
@@ -4038,12 +4044,9 @@
   <!-- Monographic source title -->
   <macro name="source-monographic-preposition-bib">
     <choose>
-      <if type="chapter" variable="container-title genre title">
-        <text term="in"/>
-      </if>
-      <else-if type="chapter" variable="container-title genre">
+      <if type="chapter" variable="container-title genre">
         <text value="to"/>
-      </else-if>
+      </if>
       <else-if match="any" type="entry entry-dictionary entry-encyclopedia">
         <choose>
           <if match="any" variable="author composer">
@@ -4077,12 +4080,9 @@
   </macro>
   <macro name="source-monographic-preposition-note">
     <choose>
-      <if type="chapter" variable="container-title genre title">
-        <text term="in"/>
-      </if>
-      <else-if type="chapter" variable="container-title genre">
+      <if type="chapter" variable="container-title genre">
         <text value="to"/>
-      </else-if>
+      </if>
       <else-if match="any" type="entry entry-dictionary entry-encyclopedia">
         <choose>
           <if match="any" variable="author composer">
