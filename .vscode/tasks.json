@@ -1,0 +1,75 @@
+{
+    // VS Code tasks to run the builder via Makefile/uv
+    "$schema": "vscode://schemas/tasks",
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build variants (make final)",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "final"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Build variants flat (make final-flat)",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "final-flat"
+            ],
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "Build development styles (make dev)",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "dev"
+            ],
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "Generate diff files (make diffs)",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "diffs"
+            ],
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "Clean outputs (make clean)",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "clean"
+            ],
+            "group": "none",
+            "problemMatcher": []
+        },
+        {
+            "label": "Run builder (uv run -m)",
+            "type": "shell",
+            "command": "uv",
+            "args": [
+                "run",
+                "python3",
+                "-m",
+                "style_variant_builder.build"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": []
+        }
+    ]
+}
