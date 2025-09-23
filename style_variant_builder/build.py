@@ -40,6 +40,24 @@ handler.setFormatter(ColourFormatter("%(message)s"))
 logging.getLogger().handlers = [handler]
 
 
+class ErrorCountingFilter(logging.Filter):
+    """Filter that counts ERROR and higher log records while passing all records through."""
+
+    def __init__(self) -> None:
+        super().__init__()
+        self.error_count = 0
+
+    def filter(self, record: logging.LogRecord) -> bool:
+        if record.levelno >= logging.ERROR:
+            self.error_count += 1
+        return True
+
+
+# Global instance to track error count across the entire run
+_error_count_filter = ErrorCountingFilter()
+logging.getLogger().addFilter(_error_count_filter)
+
+
 @dataclass(slots=True)
 class CSLBuilder:
     templates_dir: Path
@@ -351,6 +369,14 @@ def main() -> int:
                 f"Error processing style family {style_family}: {e}",
                 exc_info=True,
             )
+    # Summary if any errors occurred
+    if _error_count_filter.error_count:
+        error_word: str = (
+            "error" if _error_count_filter.error_count == 1 else "errors"
+        )
+        logging.error(
+            f"Run completed with {_error_count_filter.error_count} {error_word}."
+        )
     return 0 if overall_success else 1
 
 
