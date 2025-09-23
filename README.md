@@ -53,7 +53,10 @@ Follow these steps to create and maintain a new family of CSL styles:
      ```bash
      make
      ```
-   - This will generate the final pruned styles in the `output` directory. Unused macros will be removed from these styles.
+   - This will generate the final pruned styles in the `output` directory. By default, outputs are grouped per style family (e.g., `output/apa/...`, `output/chicago/...`). To write outputs to a single flat directory, use instead:
+     ```bash
+     make final-flat
+     ```
 
 ### Cleaning up
 

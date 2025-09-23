@@ -1,8 +1,11 @@
 # Phony targets ensure commands always run
-.PHONY: final dev diffs clean help
+.PHONY: final final-flat dev diffs clean help
 
-final: ## Build CSL variants with default style families
+final: ## Build CSL variants (grouped per family by default)
 	@uv run python3 -m style_variant_builder.build
+
+final-flat: ## Build CSL variants without grouping (flat output directory)
+	@uv run python3 -m style_variant_builder.build --flat-output
 
 dev: ## Build unpruned CSL variants for development
 	@uv run python3 -m style_variant_builder.build --development

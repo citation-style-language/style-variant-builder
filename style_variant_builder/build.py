@@ -67,6 +67,7 @@ class CSLBuilder:
     style_family: str
     export_development: bool = False
     generate_diffs: bool = False
+    group_by_family: bool = True
 
     def _get_template_path(self) -> Path:
         template = self.templates_dir / f"{self.style_family}-template.csl"
@@ -179,7 +180,13 @@ class CSLBuilder:
         except FileNotFoundError as e:
             logging.warning(f"Skipping style family '{self.style_family}': {e}")
             return
-        self.output_dir.mkdir(parents=True, exist_ok=True)
+        # Prepare output directory (optionally group by family)
+        target_output_dir = (
+            self.output_dir / self.style_family
+            if self.group_by_family
+            else self.output_dir
+        )
+        target_output_dir.mkdir(parents=True, exist_ok=True)
         if self.export_development:
             self.development_dir.mkdir(parents=True, exist_ok=True)
         for diff_path in diff_files:
@@ -203,7 +210,7 @@ class CSLBuilder:
                     )
                 else:
                     output_variant = (
-                        self.output_dir / diff_path.with_suffix(".csl").name
+                        target_output_dir / diff_path.with_suffix(".csl").name
                     )
                     self._prune_variant(patched_file, output_variant)
                     logging.info(f"Generated variant: {output_variant}")
@@ -332,6 +339,11 @@ def main() -> int:
         action="store_true",
         help="Generate new diff files by comparing development files against templates.",
     )
+    parser.add_argument(
+        "--flat-output",
+        action="store_true",
+        help="Write pruned output styles into a flat output directory (no per-family subfolders).",
+    )
 
     args = parser.parse_args()
 
@@ -357,6 +369,7 @@ def main() -> int:
             style_family=style_family,
             export_development=args.development,
             generate_diffs=args.diffs,
+            group_by_family=(not args.flat_output),
         )
         try:
             if args.diffs:
