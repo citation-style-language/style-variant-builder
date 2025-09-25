@@ -13,6 +13,7 @@ style-variant-builder = "style_variant_builder.build:main"
 dev = [
     "lxml-stubs>=0.5.1",
     "pytest>=8.4.2",
+    "pytest-github-actions-annotate-failures>=0.3.0",
 ]
 
 [tool.uv]
