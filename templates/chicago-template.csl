@@ -5834,7 +5834,7 @@
           <text macro="source-archive-reference-location-first-bib"/>
         </else>
       </choose>
-      <text macro="source-archive-database-number"/>
+      <text macro="source-archive-database-number" prefix="(" suffix=")"/>
     </group>
   </macro>
   <macro name="source-archive-note">
@@ -5866,8 +5866,9 @@
   </macro>
   <macro name="source-archive-locator">
     <choose>
-      <!-- archival locators appear after the shelfmark (CMOS18 14.127) -->
+      <!-- physical locators with archival references appear after the shelfmark (CMOS18 14.127) -->
       <if locator="column" variable="archive archive_location">
+        <!-- archival locators must always be labelled to avoid confusion with `archive_location` -->
         <text macro="label-locator-all"/>
       </if>
       <else-if locator="folio" variable="archive archive_location">
