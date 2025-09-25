@@ -26,7 +26,7 @@
      <updated>2025-04-14T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -2342,6 +2342,7 @@
+@@ -2345,6 +2345,7 @@
      </sort>
      <layout>
        <text macro="bibliography-filtered"/>
