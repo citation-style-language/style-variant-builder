@@ -22,9 +22,7 @@ class CSLPruner:
     output_path: Path
     tree: etree._ElementTree | None = field(default=None, init=False)
     root: etree._Element | None = field(default=None, init=False)
-    macro_defs: dict[str, etree._Element] = field(
-        default_factory=dict, init=False
-    )
+    macro_defs: dict[str, etree._Element] = field(default_factory=dict, init=False)
     parent_map: dict[etree._Element, etree._Element] = field(
         default_factory=dict, init=False
     )
@@ -190,9 +188,7 @@ class CSLPruner:
                 logging.debug("No unused macros found.")
                 break
         if total_removed:
-            logging.info(
-                f"Removed a total of {len(total_removed)} unused macros."
-            )
+            logging.info(f"Removed a total of {len(total_removed)} unused macros.")
         else:
             logging.info("No macros pruned.")
 
@@ -233,11 +229,7 @@ class CSLPruner:
                         i += 1
                     # Collapse sequence
                     first_indent_match = re.match(r"^([ \t]*)", seq[0])
-                    indent = (
-                        first_indent_match.group(1)
-                        if first_indent_match
-                        else ""
-                    )
+                    indent = first_indent_match.group(1) if first_indent_match else ""
                     collapsed = indent + "".join(s.strip() for s in seq)
                     new_lines.append(collapsed)
                 else:
@@ -323,9 +315,7 @@ class CSLPruner:
                 )
                 raise e
         else:
-            msg = (
-                "Cannot save file because the XML was not successfully loaded."
-            )
+            msg = "Cannot save file because the XML was not successfully loaded."
             logging.error(msg)
             raise ValueError(msg)
 
@@ -335,9 +325,7 @@ def main() -> int:
         description=__doc__,
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
     )
-    parser.add_argument(
-        "input_path", type=Path, help="Path to the input CSL file."
-    )
+    parser.add_argument("input_path", type=Path, help="Path to the input CSL file.")
     parser.add_argument(
         "output_path", type=Path, help="Path to the output pruned CSL file."
     )

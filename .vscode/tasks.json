@@ -57,14 +57,12 @@
             "problemMatcher": []
         },
         {
-            "label": "Run builder (uv run -m)",
+            "label": "Run builder (uv run)",
             "type": "shell",
             "command": "uv",
             "args": [
                 "run",
-                "python3",
-                "-m",
-                "style_variant_builder.build"
+                "style-variant-builder"
             ],
             "options": {
                 "cwd": "${workspaceFolder}"
