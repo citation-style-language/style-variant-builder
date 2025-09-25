@@ -160,7 +160,7 @@
        </else-if>
        <else-if match="any" variable="issue volume">
          <text macro="date-original-year-month"/>
-@@ -6667,9 +6643,9 @@
+@@ -6668,9 +6644,9 @@
        </else>
      </choose>
    </macro>
@@ -172,7 +172,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -6817,7 +6793,7 @@
+@@ -6818,7 +6794,7 @@
        </else>
      </choose>
    </macro>
@@ -181,7 +181,7 @@
      <sort>
        <key macro="author-sort"/>
        <key macro="title-and-descriptions-bib"/>
-@@ -6829,7 +6805,7 @@
+@@ -6830,7 +6806,7 @@
        <key macro="source-archive-bib"/>
      </sort>
      <layout suffix=".">

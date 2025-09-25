@@ -88,7 +88,7 @@
    </macro>
    <macro name="source-date-original-full">
      <!-- Give full date for more ephemeral types -->
-@@ -5946,7 +5937,7 @@
+@@ -5947,7 +5938,7 @@
            </group>
          </else-if>
        </choose>
@@ -97,7 +97,7 @@
      </group>
    </macro>
    <macro name="source-date-accessed-DOI-URL-note">
-@@ -5961,7 +5952,7 @@
+@@ -5962,7 +5953,7 @@
            </group>
          </else-if>
        </choose>
@@ -106,7 +106,7 @@
      </group>
    </macro>
    <macro name="source-DOI-URL">
-@@ -6667,9 +6658,9 @@
+@@ -6668,9 +6659,9 @@
        </else>
      </choose>
    </macro>
@@ -119,7 +119,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -6820,16 +6811,19 @@
+@@ -6821,16 +6812,19 @@
    <bibliography et-al-min="7" et-al-use-first="3" hanging-indent="true">
      <sort>
        <key macro="author-sort"/>

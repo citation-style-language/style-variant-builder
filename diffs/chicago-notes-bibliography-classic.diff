@@ -116,7 +116,7 @@
            <text variable="original-publisher"/>
          </group>
        </if>
-@@ -6817,7 +6804,7 @@
+@@ -6818,7 +6805,7 @@
        </else>
      </choose>
    </macro>

@@ -124,7 +124,7 @@
 +          <text macro="source-archive-reference-place-first"/>
          </else>
        </choose>
-       <text macro="source-archive-database-number"/>
+       <text macro="source-archive-database-number" prefix="(" suffix=")"/>
 @@ -5844,7 +5831,7 @@
            <text macro="source-archive-reference-institution-first"/>
          </if>
@@ -134,7 +134,7 @@
          </else>
        </choose>
        <text macro="source-archive-database-number" prefix="(" suffix=")"/>
-@@ -6817,7 +6804,7 @@
+@@ -6818,7 +6805,7 @@
        </else>
      </choose>
    </macro>

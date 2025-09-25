@@ -33,7 +33,7 @@
 +          <text macro="source-archive-reference-place-first"/>
          </else>
        </choose>
-       <text macro="source-archive-database-number"/>
+       <text macro="source-archive-database-number" prefix="(" suffix=")"/>
 @@ -5844,7 +5845,7 @@
            <text macro="source-archive-reference-institution-first"/>
          </if>
@@ -43,7 +43,7 @@
          </else>
        </choose>
        <text macro="source-archive-database-number" prefix="(" suffix=")"/>
-@@ -6669,7 +6670,7 @@
+@@ -6670,7 +6671,7 @@
    </macro>
    <citation disambiguate-add-givenname="true" disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
      <layout delimiter="; " suffix=".">
@@ -52,7 +52,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -6829,7 +6830,7 @@
+@@ -6830,7 +6831,7 @@
        <key macro="source-archive-bib"/>
      </sort>
      <layout suffix=".">

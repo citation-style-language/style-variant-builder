@@ -25,11 +25,15 @@
      <updated>2025-08-07T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -6513,6 +6514,7 @@
-           </choose>
-           <text macro="source-locator-subsequent"/>
-         </group>
-+        <text display="block" variable="abstract"/>
-       </else>
-     </choose>
-   </macro>
+@@ -6829,8 +6830,9 @@
+       <key macro="source-date-issued-or-status"/>
+       <key macro="source-archive-bib"/>
+     </sort>
+-    <layout suffix=".">
+-      <text macro="bibliography-filtered-notes"/>
++    <layout>
++      <text macro="bibliography-notes" suffix="."/>
++      <text display="block" variable="abstract"/>
+     </layout>
+   </bibliography>
+ </style>

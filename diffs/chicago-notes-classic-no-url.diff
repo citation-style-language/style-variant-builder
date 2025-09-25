@@ -116,7 +116,7 @@
            <text variable="original-publisher"/>
          </group>
        </if>
-@@ -5946,7 +5933,7 @@
+@@ -5947,7 +5934,7 @@
            </group>
          </else-if>
        </choose>
@@ -125,7 +125,7 @@
      </group>
    </macro>
    <macro name="source-date-accessed-DOI-URL-note">
-@@ -5961,7 +5948,7 @@
+@@ -5962,7 +5949,7 @@
            </group>
          </else-if>
        </choose>
@@ -134,7 +134,7 @@
      </group>
    </macro>
    <macro name="source-DOI-URL">
-@@ -6667,7 +6654,7 @@
+@@ -6668,7 +6655,7 @@
        </else>
      </choose>
    </macro>
@@ -143,7 +143,7 @@
      <layout delimiter="; " suffix=".">
        <text macro="citation-notes-full-subsequent-author-title"/>
      </layout>
-@@ -6817,19 +6804,4 @@
+@@ -6818,19 +6805,4 @@
        </else>
      </choose>
    </macro>

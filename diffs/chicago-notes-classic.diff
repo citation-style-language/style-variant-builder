@@ -116,7 +116,7 @@
            <text variable="original-publisher"/>
          </group>
        </if>
-@@ -6667,7 +6654,7 @@
+@@ -6668,7 +6655,7 @@
        </else>
      </choose>
    </macro>
@@ -125,7 +125,7 @@
      <layout delimiter="; " suffix=".">
        <text macro="citation-notes-full-subsequent-author-title"/>
      </layout>
-@@ -6817,19 +6804,4 @@
+@@ -6818,19 +6805,4 @@
        </else>
      </choose>
    </macro>

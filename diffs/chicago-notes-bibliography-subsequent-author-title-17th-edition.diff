@@ -160,7 +160,7 @@
        </else-if>
        <else-if match="any" variable="issue volume">
          <text macro="date-original-year-month"/>
-@@ -6667,7 +6643,7 @@
+@@ -6668,7 +6644,7 @@
        </else>
      </choose>
    </macro>
@@ -169,7 +169,7 @@
      <layout delimiter="; " suffix=".">
        <text macro="citation-notes-full-subsequent-author-title"/>
      </layout>
-@@ -6775,8 +6751,6 @@
+@@ -6776,8 +6752,6 @@
            </if>
          </choose>
        </else-if>
@@ -178,7 +178,7 @@
        <else>
          <text macro="bibliography-notes"/>
        </else>
-@@ -6817,7 +6791,7 @@
+@@ -6818,7 +6792,7 @@
        </else>
      </choose>
    </macro>
