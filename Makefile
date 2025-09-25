@@ -2,16 +2,16 @@
 .PHONY: final final-flat dev diffs clean help
 
 final: ## Build CSL variants (grouped per family by default)
-	@uv run python3 -m style_variant_builder.build
+	@uv run style-variant-builder
 
 final-flat: ## Build CSL variants without grouping (flat output directory)
-	@uv run python3 -m style_variant_builder.build --flat-output
+	@uv run style-variant-builder --flat-output
 
 dev: ## Build unpruned CSL variants for development
-	@uv run python3 -m style_variant_builder.build --development
+	@uv run style-variant-builder --development
 
 diffs: ## Regenerate diff patches from development
-	@uv run python3 -m style_variant_builder.build --diffs
+	@uv run style-variant-builder --diffs
 
 clean: ## Remove output directories
 	@rm -rf output development

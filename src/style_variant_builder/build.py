@@ -68,6 +68,8 @@ class CSLBuilder:
     export_development: bool = False
     generate_diffs: bool = False
     group_by_family: bool = True
+    successful_variants: int = 0
+    failed_variants: int = 0
 
     def _get_template_path(self) -> Path:
         template = self.templates_dir / f"{self.style_family}-template.csl"
@@ -169,17 +171,17 @@ class CSLBuilder:
         else:
             pruner.root[0].tail = "\n  "
 
-    def build_variants(self) -> None:
+    def build_variants(self) -> tuple[int, int]:
         try:
             template_path = self._get_template_path()
         except FileNotFoundError as e:
             logging.warning(f"Skipping style family '{self.style_family}': {e}")
-            return
+            return (0, 0)
         try:
             diff_files = self._get_diff_files()
         except FileNotFoundError as e:
             logging.warning(f"Skipping style family '{self.style_family}': {e}")
-            return
+            return (0, 0)
         # Prepare output directory (optionally group by family)
         target_output_dir = (
             self.output_dir / self.style_family
@@ -195,9 +197,10 @@ class CSLBuilder:
                 logging.info(f"Processing diff: {diff_path.name}")
                 patched_file = self._apply_patch(template_path, diff_path)
                 if patched_file is None:
-                    logging.warning(
+                    logging.error(
                         f"Skipping diff {diff_path.name} due to patch failure."
                     )
+                    self.failed_variants += 1
                     continue
                 if self.export_development:
                     dev_variant = (
@@ -208,20 +211,25 @@ class CSLBuilder:
                     logging.info(
                         f"Exported development variant to {dev_variant}"
                     )
+                    self.successful_variants += 1
                 else:
                     output_variant = (
                         target_output_dir / diff_path.with_suffix(".csl").name
                     )
                     self._prune_variant(patched_file, output_variant)
                     logging.info(f"Generated variant: {output_variant}")
+                    self.successful_variants += 1
             except Exception as e:
                 logging.error(
                     f"Error processing diff {diff_path.name}: {e}",
                     exc_info=True,
                 )
+                self.failed_variants += 1
             finally:
                 if patched_file is not None and patched_file.exists():
                     patched_file.unlink(missing_ok=True)
+
+        return (self.successful_variants, self.failed_variants)
 
     def generate_diff_files(self) -> None:
         try:
@@ -357,6 +365,8 @@ def main() -> int:
     ]
 
     overall_success = True
+    family_results = {}  # Track results per family
+
     for style_family in style_families:
         logging.info(
             f"Processing style family: \033[1;36m{style_family}\033[0m"
@@ -374,14 +384,50 @@ def main() -> int:
         try:
             if args.diffs:
                 builder.generate_diff_files()
+                family_results[style_family] = (
+                    0,
+                    0,
+                )  # diff generation doesn't track variants
             else:
-                builder.build_variants()
+                successful, failed = builder.build_variants()
+                family_results[style_family] = (successful, failed)
+                # Consider it a failure if any variants failed to build
+                if failed > 0:
+                    overall_success = False
         except Exception as e:
             overall_success = False
+            family_results[style_family] = (0, 1)  # Mark as failed
             logging.error(
                 f"Error processing style family {style_family}: {e}",
                 exc_info=True,
             )
+    # Summary reporting
+    if not args.diffs:  # Only report variant stats for build mode
+        total_successful = sum(
+            successful for successful, failed in family_results.values()
+        )
+        total_failed = sum(
+            failed for successful, failed in family_results.values()
+        )
+        failed_families = [
+            family
+            for family, (successful, failed) in family_results.items()
+            if successful == 0 and failed > 0
+        ]
+
+        if failed_families:
+            logging.error(
+                f"Style families with no successful builds: {', '.join(failed_families)}"
+            )
+
+        if total_successful > 0:
+            logging.info(
+                f"Successfully built {total_successful} variants across {len(style_families)} style families."
+            )
+
+        if total_failed > 0:
+            logging.error(f"Failed to build {total_failed} variants.")
+
     # Summary if any errors occurred
     if _error_count_filter.error_count:
         error_word: str = (
