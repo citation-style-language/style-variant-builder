@@ -1,5 +1,5 @@
 # Phony targets ensure commands always run
-.PHONY: final final-flat dev diffs clean help
+.PHONY: final final-flat dev diffs check clean help
 
 final: ## Build CSL variants (grouped per family by default)
 	@uv run style-variant-builder
@@ -12,6 +12,10 @@ dev: ## Build unpruned CSL variants for development
 
 diffs: ## Regenerate diff patches from development
 	@uv run style-variant-builder --diffs
+
+check: ## Build development styles and generate diffs to verify patches
+	@$(MAKE) dev
+	@$(MAKE) diffs
 
 clean: ## Remove output directories
 	@rm -rf output development
