@@ -63,7 +63,9 @@ def display_macro_tally(
     referenced_macros: list[tuple[str, int]] = [
         (macro, count) for macro, count in macro_list if count > 0
     ]
-    col_width: int = max((len(macro) for macro, _ in referenced_macros), default=30) + 2
+    col_width: int = (
+        max((len(macro) for macro, _ in referenced_macros), default=30) + 2
+    )
     print("\nMacros with references")
     print(f"{'-' * (col_width + 7)}")
     for macro, count in referenced_macros:
@@ -121,7 +123,9 @@ def main() -> int:
 
     total_macros: int = len(all_macros)
     used_macros: int = sum(1 for _, count in macro_list if count > 0)
-    unused_macros: list[str] = [macro for macro, count in macro_list if count == 0]
+    unused_macros: list[str] = [
+        macro for macro, count in macro_list if count == 0
+    ]
 
     display_macro_tally(macro_list, total_macros, used_macros, unused_macros)
     return 0
