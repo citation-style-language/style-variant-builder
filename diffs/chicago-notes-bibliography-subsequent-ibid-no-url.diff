@@ -1,0 +1,53 @@
+--- templates/chicago-template.csl
++++ development/chicago-notes-bibliography-subsequent-ibid-no-url.csl
+@@ -5,10 +5,10 @@
+   type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+ <style class="note" demote-non-dropping-particle="display-and-sort" page-range-format="chicago-16" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
+   <info>
+-    <title>Chicago Manual of Style 18th edition (template)</title>
+-    <title-short>CMOS with Bluebook</title-short>
+-    <id>http://www.zotero.org/styles/chicago-notes-bibliography</id>
+-    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="self"/>
++    <title>Chicago Manual of Style 18th edition (notes and bibliography, subsequent ibid., without URLs)</title>
++    <title-short>CMOS with Bluebook (notes and bibliography [13.18], subsequent ibid. [13.37], no URLs [13.6])</title-short>
++    <id>http://www.zotero.org/styles/chicago-notes-bibliography-subsequent-ibid-no-url</id>
++    <link href="http://www.zotero.org/styles/chicago-notes-bibliography-subsequent-ibid-no-url" rel="self"/>
+     <link href="https://www.chicagomanualofstyle.org/" rel="documentation"/>
+     <author>
+       <name>Andrew Dunning</name>
+@@ -30,7 +30,7 @@
+     <category field="social_science"/>
+     <category field="sociology"/>
+     <category field="theology"/>
+-    <summary>Chicago-style source citations (with Bluebook for legal citations), template</summary>
++    <summary>Chicago-style source citations (with Bluebook for legal citations), notes and bibliography system, abbreviating subsequent references with ibid. (CMOS18 13.37), without URLs (CMOS18 13.6)</summary>
+     <updated>2025-08-07T00:00:00+00:00</updated>
+     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
+   </info>
+@@ -5947,7 +5947,7 @@
+           </group>
+         </else-if>
+       </choose>
+-      <text macro="source-DOI-URL"/>
++      <!-- <text macro="source-DOI-URL"/> -->
+     </group>
+   </macro>
+   <macro name="source-date-accessed-DOI-URL-note">
+@@ -5962,7 +5962,7 @@
+           </group>
+         </else-if>
+       </choose>
+-      <text macro="source-DOI-URL"/>
++      <!-- <text macro="source-DOI-URL"/> -->
+     </group>
+   </macro>
+   <macro name="source-DOI-URL">
+@@ -6670,7 +6670,7 @@
+   </macro>
+   <citation disambiguate-add-givenname="true" disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
+     <layout delimiter="; " suffix=".">
+-      <text macro="citation-notes-full-subsequent-author-title"/>
++      <text macro="citation-notes-full-subsequent-ibid"/>
+     </layout>
+   </citation>
+   <!-- Bibliography -->
