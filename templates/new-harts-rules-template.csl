@@ -974,13 +974,11 @@
         <choose>
           <if type="book broadcast chapter classic entry interview motion_picture musical_score pamphlet paper-conference report software song standard">
             <group prefix="[" suffix="]">
-              <text font-style="italic" form="short" term="circa"/>
-              <date form="text" variable="event-date"/>
+              <date form="text" suffix="?" variable="event-date"/>
             </group>
           </if>
           <else>
-            <text font-style="italic" form="short" term="circa"/>
-            <date form="text" variable="event-date"/>
+            <date form="text" suffix="?" variable="event-date"/>
           </else>
         </choose>
       </if>
@@ -995,13 +993,11 @@
         <choose>
           <if type="book broadcast chapter classic entry interview motion_picture musical_score pamphlet paper-conference report software song standard">
             <group prefix="[" suffix="]">
-              <text font-style="italic" form="short" term="circa"/>
-              <date date-parts="year" form="text" variable="event-date"/>
+              <date date-parts="year" form="text" suffix="?" variable="event-date"/>
             </group>
           </if>
           <else>
-            <text font-style="italic" form="short" term="circa"/>
-            <date date-parts="year" form="text" variable="event-date"/>
+            <date date-parts="year" form="text" suffix="?" variable="event-date"/>
           </else>
         </choose>
       </if>
@@ -1016,13 +1012,11 @@
         <choose>
           <if type="book chapter classic entry entry-dictionary entry-encyclopedia interview musical_score pamphlet paper-conference report thesis">
             <group prefix="[" suffix="]">
-              <text font-style="italic" form="short" term="circa"/>
-              <date form="text" variable="issued"/>
+              <date form="text" suffix="?" variable="issued"/>
             </group>
           </if>
           <else>
-            <text font-style="italic" form="short" term="circa"/>
-            <date form="text" variable="issued"/>
+            <date form="text" suffix="?" variable="issued"/>
           </else>
         </choose>
       </if>
@@ -1048,13 +1042,11 @@
         <choose>
           <if type="book chapter classic entry entry-dictionary entry-encyclopedia interview musical_score pamphlet paper-conference report thesis">
             <group prefix="[" suffix="]">
-              <text font-style="italic" form="short" term="circa"/>
-              <date date-parts="year" form="text" variable="issued"/>
+              <date date-parts="year" form="text" suffix="?" variable="issued"/>
             </group>
           </if>
           <else>
-            <text font-style="italic" form="short" term="circa"/>
-            <date date-parts="year" form="text" variable="issued"/>
+            <date date-parts="year" form="text" suffix="?" variable="issued"/>
           </else>
         </choose>
       </if>
@@ -1069,13 +1061,11 @@
         <choose>
           <if type="book chapter classic entry entry-dictionary entry-encyclopedia interview musical_score pamphlet paper-conference report thesis">
             <group prefix="[" suffix="]">
-              <text font-style="italic" form="short" term="circa"/>
-              <date date-parts="year-month" form="text" variable="issued"/>
+              <date date-parts="year-month" form="text" suffix="?" variable="issued"/>
             </group>
           </if>
           <else>
-            <text font-style="italic" form="short" term="circa"/>
-            <date date-parts="year-month" form="text" variable="issued"/>
+            <date date-parts="year-month" form="text" suffix="?" variable="issued"/>
           </else>
         </choose>
       </if>
@@ -1090,13 +1080,11 @@
         <choose>
           <if type="book chapter classic entry entry-dictionary entry-encyclopedia interview musical_score pamphlet paper-conference report thesis">
             <group prefix="[" suffix="]">
-              <text font-style="italic" form="short" term="circa"/>
-              <date form="text" variable="original-date"/>
+              <date form="text" suffix="?" variable="original-date"/>
             </group>
           </if>
           <else>
-            <text font-style="italic" form="short" term="circa"/>
-            <date form="text" variable="original-date"/>
+            <date form="text" suffix="?" variable="original-date"/>
           </else>
         </choose>
       </if>
@@ -1122,13 +1110,11 @@
         <choose>
           <if type="book chapter classic entry entry-dictionary entry-encyclopedia interview musical_score pamphlet paper-conference report thesis">
             <group prefix="[" suffix="]">
-              <text font-style="italic" form="short" term="circa"/>
-              <date date-parts="year" form="text" variable="original-date"/>
+              <date date-parts="year" form="text" suffix="?" variable="original-date"/>
             </group>
           </if>
           <else>
-            <text font-style="italic" form="short" term="circa"/>
-            <date date-parts="year" form="text" variable="original-date"/>
+            <date date-parts="year" form="text" suffix="?" variable="original-date"/>
           </else>
         </choose>
       </if>
@@ -1143,13 +1129,11 @@
         <choose>
           <if type="book chapter classic entry entry-dictionary entry-encyclopedia interview musical_score pamphlet paper-conference report thesis">
             <group prefix="[" suffix="]">
-              <text font-style="italic" form="short" term="circa"/>
-              <date date-parts="year-month" form="text" variable="original-date"/>
+              <date date-parts="year-month" form="text" suffix="?" variable="original-date"/>
             </group>
           </if>
           <else>
-            <text font-style="italic" form="short" term="circa"/>
-            <date date-parts="year-month" form="text" variable="original-date"/>
+            <date date-parts="year-month" form="text" suffix="?" variable="original-date"/>
           </else>
         </choose>
       </if>
