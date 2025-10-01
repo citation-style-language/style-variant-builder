@@ -3075,7 +3075,7 @@
               <else-if type="report">
                 <text variable="publisher"/>
               </else-if>
-              <else-if match="none" type="classic entry entry-dictionary entry-encyclopedia" variable="original-publisher-place">
+              <else-if match="none" type="classic entry entry-dictionary entry-encyclopedia interview manuscript personal_communication" variable="original-publisher-place">
                 <text form="short" term="no-place"/>
               </else-if>
             </choose>
