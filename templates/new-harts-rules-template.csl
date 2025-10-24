@@ -2114,7 +2114,8 @@
       <if variable="original-title">
         <text macro="label-edition"/>
       </if>
-      <else-if variable="original-date"/>
+      <!-- critical editions or original date require placement in brackets -->
+      <else-if match="any" type="classic" variable="original-date"/>
       <else-if variable="editor">
         <!-- different positioning of edition depending on whether there is a reviser; CSL does not have a proper role for this (NHR 18.2.1) -->
         <text macro="label-edition"/>
@@ -3023,7 +3024,7 @@
           </group>
           <group delimiter=", ">
             <choose>
-              <if variable="original-date">
+              <if match="any" type="classic" variable="original-date">
                 <text macro="label-edition"/>
               </if>
               <else-if variable="editor"/>
