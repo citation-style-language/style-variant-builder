@@ -169,11 +169,20 @@
      <layout delimiter="; " suffix=".">
        <text macro="citation-notes-full-subsequent-author-title"/>
      </layout>
+@@ -6768,7 +6744,7 @@
+           </if>
+         </choose>
+       </else-if>
+-      <else-if match="any" type="document manuscript paper-conference speech">
++      <else-if match="any" type="document manuscript">
+         <!-- In note styles, the bibliography also omits inaccessible manuscripts (CMOS18 14.114), conference papers (new in CMOS18 14.115; included in CMOS17 14.217), and private documents (CMOS18 14.118) -->
+         <choose>
+           <if match="any" variable="archive archive-place container-title DOI number publisher references URL">
 @@ -6776,8 +6752,6 @@
            </if>
          </choose>
        </else-if>
--      <!-- social media content now omitted from the bibliography (CMOS18 14.106), but included in earlier editions (CMOS17 14.209) -->
+-      <!-- social media content omitted from the bibliography (new in CMOS18 14.106; included in CMOS17 14.209) -->
 -      <else-if type="post"/>
        <else>
          <text macro="bibliography-notes"/>
