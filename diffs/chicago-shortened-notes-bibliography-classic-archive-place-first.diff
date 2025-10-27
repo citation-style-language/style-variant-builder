@@ -1,5 +1,5 @@
 --- templates/chicago-template.csl
-+++ development/chicago-notes-bibliography-subsequent-author-classic-no-url.csl
++++ development/chicago-shortened-notes-bibliography-classic-archive-place-first.csl
 @@ -5,10 +5,11 @@
    type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
  <style class="note" demote-non-dropping-particle="display-and-sort" page-range-format="chicago-16" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
@@ -8,10 +8,10 @@
 -    <title-short>CMOS with Bluebook</title-short>
 -    <id>http://www.zotero.org/styles/chicago-notes-bibliography</id>
 -    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="self"/>
-+    <title>Chicago Manual of Style 18th edition (notes and bibliography, subsequent author-only citations, classic variants, without URLs)</title>
-+    <title-short>CMOS with Bluebook (notes and bibliography [13.18], subsequent author-only [13.37], classic variants [13.113, 14.8, 14.30], no URLs [13.6])</title-short>
-+    <id>http://www.zotero.org/styles/chicago-notes-bibliography-subsequent-author-classic-no-url</id>
-+    <link href="http://www.zotero.org/styles/chicago-notes-bibliography-subsequent-author-classic-no-url" rel="self"/>
++    <title>Chicago Manual of Style 18th edition (shortened notes and bibliography, classic variants, archival references with place first)</title>
++    <title-short>CMOS with Bluebook (shortened author-title notes [13.32], classic variants [13.113, 14.8, 14.30], archive place first [14.205])</title-short>
++    <id>http://www.zotero.org/styles/chicago-shortened-notes-bibliography-classic-archive-place-first</id>
++    <link href="http://www.zotero.org/styles/chicago-shortened-notes-bibliography-classic-archive-place-first" rel="self"/>
 +    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="template"/>
      <link href="https://www.chicagomanualofstyle.org/" rel="documentation"/>
      <author>
@@ -21,7 +21,7 @@
      <category field="sociology"/>
      <category field="theology"/>
 -    <summary>Chicago-style source citations (with Bluebook for legal citations), template</summary>
-+    <summary>Chicago-style source citations (with Bluebook for legal citations), notes and bibliography system, with author-only subsequent shortened citations (CMOS18 13.37); classic variants: 3-em dash for repeated names (CMOS18 13.113), chapter page numbers (CMOS18 14.8), and place of publication (CMOS18 14.30); without URLs (CMOS18 13.6)</summary>
++    <summary>Chicago-style source citations (with Bluebook for legal citations), shortened author-title notes and bibliography system, with classic variants: 3-em dash for repeated names (CMOS18 13.113), chapter page numbers (CMOS18 14.8), and place of publication (CMOS18 14.30); archival references with place first (CMOS18 14.205)</summary>
      <updated>2025-10-27T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
@@ -116,30 +116,30 @@
            <text variable="original-publisher"/>
          </group>
        </if>
-@@ -5947,7 +5934,7 @@
-           </group>
-         </else-if>
+@@ -5831,7 +5818,7 @@
+           <text macro="source-archive-reference-institution-first"/>
+         </if>
+         <else>
+-          <text macro="source-archive-reference-location-first-bib"/>
++          <text macro="source-archive-reference-place-first"/>
+         </else>
        </choose>
--      <text macro="source-DOI-URL"/>
-+      <!-- <text macro="source-DOI-URL"/> -->
-     </group>
-   </macro>
-   <macro name="source-date-accessed-DOI-URL-note">
-@@ -5962,7 +5949,7 @@
-           </group>
-         </else-if>
+       <text macro="source-archive-database-number" prefix="(" suffix=")"/>
+@@ -5844,7 +5831,7 @@
+           <text macro="source-archive-reference-institution-first"/>
+         </if>
+         <else>
+-          <text macro="source-archive-reference-location-first-note"/>
++          <text macro="source-archive-reference-place-first"/>
+         </else>
        </choose>
--      <text macro="source-DOI-URL"/>
-+      <!-- <text macro="source-DOI-URL"/> -->
-     </group>
-   </macro>
-   <macro name="source-DOI-URL">
+       <text macro="source-archive-database-number" prefix="(" suffix=")"/>
 @@ -6670,7 +6657,7 @@
    </macro>
    <citation disambiguate-add-givenname="true" disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
      <layout delimiter="; " suffix=".">
 -      <text macro="citation-notes-full-subsequent-author-title"/>
-+      <text macro="citation-notes-full-subsequent-author-only"/>
++      <text macro="citation-notes-shortened-author-title"/>
      </layout>
    </citation>
    <!-- Bibliography -->
@@ -152,3 +152,12 @@
      <sort>
        <key macro="author-sort"/>
        <key macro="title-and-descriptions-bib"/>
+@@ -6830,7 +6817,7 @@
+       <key macro="source-archive-bib"/>
+     </sort>
+     <layout suffix=".">
+-      <text macro="bibliography-filtered-notes"/>
++      <text macro="bibliography-filtered-notes-shortened"/>
+     </layout>
+   </bibliography>
+ </style>
