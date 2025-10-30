@@ -37,7 +37,10 @@ class CSLPruner:
 
     def parse_xml(self) -> None:
         try:
-            self.tree = etree.parse(self.input_path)
+            parser = etree.XMLParser(
+                remove_blank_text=True, resolve_entities=False, no_network=True
+            )
+            self.tree = etree.parse(self.input_path, parser=parser)
             if self.tree is None:
                 raise ValueError("Parsed XML tree is None.")
             self.root = self.tree.getroot()
