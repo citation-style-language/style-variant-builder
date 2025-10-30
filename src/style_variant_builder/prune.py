@@ -31,9 +31,6 @@ class CSLPruner:
     macro_defs: dict[str, etree._Element] = field(
         default_factory=dict, init=False
     )
-    parent_map: dict[etree._Element, etree._Element] = field(
-        default_factory=dict, init=False
-    )
     modified: bool = field(
         default=False, init=False
     )  # Track whether changes have been made
@@ -54,19 +51,7 @@ class CSLPruner:
             msg = "The XML file appears to be empty or malformed. Please verify its contents."
             logging.error(msg)
             raise ValueError(msg)
-        self.build_parent_map()
         self.collect_macro_definitions()
-
-    def build_parent_map(self) -> None:
-        """Build a mapping from each node to its parent for removal operations."""
-        if self.root is None:
-            msg = "XML structure missing: the root element could not be found. Please check the input file."
-            logging.error(msg)
-            raise ValueError(msg)
-        self.parent_map = {}
-        for element in self.root.iter():
-            for child in element:
-                self.parent_map[child] = element
 
     def collect_macro_definitions(self) -> None:
         """Collect <macro> elements keyed on their 'name' attribute."""
@@ -96,8 +81,8 @@ class CSLPruner:
 
         updated = 0
         for layout in self.root.iter(_tag("layout")):
-            # Consider only real element children, ignore comments/whitespace
-            children = [ch for ch in list(layout) if isinstance(ch.tag, str)]
+            # Consider only element children (lxml iteration skips comments/text by default)
+            children = [ch for ch in layout if isinstance(ch.tag, str)]
             if len(children) != 1:
                 continue
             only_child = children[0]
@@ -129,8 +114,8 @@ class CSLPruner:
 
         if updated:
             self.modified = True
-            # Tree structure changed; rebuild parent map for subsequent operations
-            self.build_parent_map()
+            # Tree structure changed; rebuild macro definitions for subsequent operations
+            self.collect_macro_definitions()
         return updated
 
     def gather_macro_refs(self, element: etree._Element) -> set[str]:
@@ -178,8 +163,7 @@ class CSLPruner:
             removed = []
             for name, macro in list(self.macro_defs.items()):
                 if name not in used_macros:
-                    parent = self.parent_map.get(macro, macro.getparent())
-                    if parent is not None:
+                    if (parent := macro.getparent()) is not None:
                         parent.remove(macro)
                         removed.append(name)
                         logging.debug(f"Removed macro: {name}")
@@ -187,7 +171,6 @@ class CSLPruner:
                 self.modified = True
                 total_removed_count += len(removed)
                 self.collect_macro_definitions()
-                self.build_parent_map()
             else:
                 logging.debug("No unused macros found.")
                 break
