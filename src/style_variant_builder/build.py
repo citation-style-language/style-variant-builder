@@ -9,6 +9,7 @@ import shutil
 import subprocess
 import sys
 import tempfile
+from concurrent.futures import ProcessPoolExecutor, as_completed
 from contextlib import suppress
 from dataclasses import dataclass
 from itertools import chain
@@ -61,6 +62,8 @@ logging.getLogger().addFilter(_error_count_filter)
 
 @dataclass(slots=True)
 class CSLBuilder:
+    """Builder for CSL style variants with parallel processing support."""
+
     templates_dir: Path
     diffs_dir: Path
     output_dir: Path
@@ -69,8 +72,132 @@ class CSLBuilder:
     export_development: bool = False
     generate_diffs: bool = False
     group_by_family: bool = True
+    max_workers: int | None = None
     successful_variants: int = 0
     failed_variants: int = 0
+
+    @staticmethod
+    def _generate_single_diff(
+        dev_file: Path,
+        template_lines: list[str],
+        template_path: Path,
+        diffs_dir: Path,
+    ) -> tuple[str, bool, str]:
+        """
+        Generate a diff file for a single development file.
+
+        Returns: (filename, success, message)
+        """
+        try:
+            with dev_file.open("r", encoding="utf-8") as df:
+                dev_lines = df.readlines()
+
+            diff = list(
+                difflib.unified_diff(
+                    template_lines,
+                    dev_lines,
+                    fromfile=str(template_path),
+                    tofile=str(dev_file),
+                    lineterm="\n",
+                )
+            )
+
+            if not diff:
+                return (
+                    dev_file.name,
+                    True,
+                    f"No differences found for {dev_file.name}.",
+                )
+
+            diff_path = diffs_dir / dev_file.with_suffix(".diff").name
+            diffs_dir.mkdir(parents=True, exist_ok=True)
+            diff_path.write_text("".join(diff), encoding="utf-8")
+            return (dev_file.name, True, f"Generated diff file: {diff_path}")
+
+        except Exception as e:
+            return (dev_file.name, False, f"Error generating diff: {e}")
+
+    @staticmethod
+    def _process_single_diff(
+        diff_path: Path,
+        template_path: Path,
+        target_output_dir: Path,
+        development_dir: Path | None,
+        export_development: bool,
+    ) -> tuple[str, bool, str]:
+        """
+        Process a single diff file in a worker process.
+
+        Returns: (diff_name, success, message)
+        """
+        patched_file = None
+        try:
+            # Apply the patch
+            if not shutil.which("patch"):
+                return (
+                    diff_path.name,
+                    False,
+                    "Required command 'patch' not found in PATH.",
+                )
+
+            with tempfile.NamedTemporaryFile(
+                delete=False, mode="w+", encoding="utf-8"
+            ) as tmp_file:
+                shutil.copy(template_path, tmp_file.name)
+                tmp_file_path = Path(tmp_file.name)
+
+            patched_file = tmp_file_path
+            result = subprocess.run(
+                ["patch", "-s", "-N", str(patched_file), str(diff_path)],
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                text=True,
+            )
+
+            if result.returncode != 0:
+                return (
+                    diff_path.name,
+                    False,
+                    f"Failed to apply patch: {result.stdout}",
+                )
+
+            # Export or prune
+            if export_development and development_dir is not None:
+                dev_variant = (
+                    development_dir / diff_path.with_suffix(".csl").name
+                )
+                shutil.copy(patched_file, dev_variant)
+                return (
+                    diff_path.name,
+                    True,
+                    f"Exported development variant to {dev_variant}",
+                )
+            else:
+                output_variant = (
+                    target_output_dir / diff_path.with_suffix(".csl").name
+                )
+                # Prune the variant
+                pruner = CSLPruner(
+                    input_path=patched_file,
+                    output_path=output_variant,
+                )
+                pruner.parse_xml()
+                pruner.flatten_layout_macros()
+                pruner.prune_macros()
+                pruner.save()
+                return (
+                    diff_path.name,
+                    True,
+                    f"Generated variant: {output_variant}",
+                )
+
+        except Exception as e:
+            return (diff_path.name, False, f"Error processing diff: {e}")
+
+        finally:
+            if patched_file is not None:
+                with suppress(FileNotFoundError):
+                    patched_file.unlink()
 
     def _get_template_path(self) -> Path:
         template = self.templates_dir / f"{self.style_family}-template.csl"
@@ -80,11 +207,11 @@ class CSLBuilder:
 
     def _get_diff_files(self) -> list[Path]:
         # Collect diff files that match the expected naming convention.
-        filname_diffs = set(self.diffs_dir.glob(f"{self.style_family}*.diff"))
+        filename_diffs = set(self.diffs_dir.glob(f"{self.style_family}*.diff"))
         reference_diffs = []
         # Also examine all diff files for an internal reference to the template.
         for diff_file in self.diffs_dir.glob("*.diff"):
-            if diff_file in filname_diffs:
+            if diff_file in filename_diffs:
                 continue
             try:
                 with diff_file.open("r", encoding="utf-8") as f:
@@ -100,51 +227,12 @@ class CSLBuilder:
                     f"Error reading diff file {diff_file.name}: {e}",
                     exc_info=True,
                 )
-        all_diffs = sorted(chain(filname_diffs, reference_diffs))
+        all_diffs = sorted(chain(filename_diffs, reference_diffs))
         if not all_diffs:
             raise FileNotFoundError(
                 f"No diff files found for style family '{self.style_family}' in {self.diffs_dir}"
             )
         return all_diffs
-
-    def _apply_patch(self, template_path: Path, diff_path: Path) -> Path | None:
-        # Ensure the 'patch' command is available
-        if not shutil.which("patch"):
-            raise EnvironmentError(
-                "Required command 'patch' not found in PATH."
-            )
-        with tempfile.NamedTemporaryFile(
-            delete=False, mode="w+", encoding="utf-8"
-        ) as tmp_file:
-            shutil.copy(template_path, tmp_file.name)
-            tmp_file_path = Path(tmp_file.name)
-        result = subprocess.run(
-            ["patch", "-s", "-N", str(tmp_file_path), str(diff_path)],
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
-            text=True,
-        )
-        if result.returncode != 0:
-            logging.error(
-                f"Failed to apply patch {diff_path}:\n {result.stdout}"
-            )
-            tmp_file_path.unlink(missing_ok=True)
-            return None  # Fail gracefully by returning None
-        return tmp_file_path
-
-    def _prune_variant(self, patched_file: Path, output_variant: Path) -> None:
-        pruner = CSLPruner(patched_file, output_variant)
-        pruner.parse_xml()
-        # Flatten single-macro layouts before pruning so wrapper macros can be removed
-        pruner.flatten_layout_macros()
-        pruner.prune_macros()
-        # Set notice comment to be inserted during save
-        pruner.notice_comment = (
-            "This file was generated by the Style Variant Builder "
-            "<https://github.com/citation-style-language/style-variant-builder>. "
-            "To contribute changes, modify the template and regenerate variants."
-        )
-        pruner.save()
 
     def build_variants(self) -> tuple[int, int]:
         try:
@@ -157,6 +245,7 @@ class CSLBuilder:
         except FileNotFoundError as e:
             logging.warning(f"Skipping style family '{self.style_family}': {e}")
             return (0, 0)
+
         # Prepare output directory (optionally group by family)
         target_output_dir = (
             self.output_dir / self.style_family
@@ -166,44 +255,29 @@ class CSLBuilder:
         target_output_dir.mkdir(parents=True, exist_ok=True)
         if self.export_development:
             self.development_dir.mkdir(parents=True, exist_ok=True)
-        for diff_path in diff_files:
-            patched_file = None
-            try:
-                logging.debug(f"Processing diff: {diff_path.name}")
-                patched_file = self._apply_patch(template_path, diff_path)
-                if patched_file is None:
-                    logging.error(
-                        f"Skipping diff {diff_path.name} due to patch failure."
-                    )
-                    self.failed_variants += 1
-                    continue
-                if self.export_development:
-                    dev_variant = (
-                        self.development_dir
-                        / diff_path.with_suffix(".csl").name
-                    )
-                    shutil.copy(patched_file, dev_variant)
-                    logging.info(
-                        f"Exported development variant to {dev_variant}"
-                    )
+
+        # Process diff files in parallel
+        with ProcessPoolExecutor(max_workers=self.max_workers) as executor:
+            futures = [
+                executor.submit(
+                    CSLBuilder._process_single_diff,
+                    diff_path,
+                    template_path,
+                    target_output_dir,
+                    self.development_dir if self.export_development else None,
+                    self.export_development,
+                )
+                for diff_path in diff_files
+            ]
+
+            for future in as_completed(futures):
+                diff_name, success, message = future.result()
+                if success:
+                    logging.info(message)
                     self.successful_variants += 1
                 else:
-                    output_variant = (
-                        target_output_dir / diff_path.with_suffix(".csl").name
-                    )
-                    self._prune_variant(patched_file, output_variant)
-                    logging.info(f"Generated variant: {output_variant}")
-                    self.successful_variants += 1
-            except Exception as e:
-                logging.error(
-                    f"Error processing diff {diff_path.name}: {e}",
-                    exc_info=True,
-                )
-                self.failed_variants += 1
-            finally:
-                if patched_file is not None:
-                    with suppress(FileNotFoundError):
-                        patched_file.unlink()
+                    logging.error(f"Failed {diff_name}: {message}")
+                    self.failed_variants += 1
 
         return (self.successful_variants, self.failed_variants)
 
@@ -249,31 +323,25 @@ class CSLBuilder:
         with template_path.open("r", encoding="utf-8") as tf:
             template_lines = tf.readlines()
 
-        for dev_file in dev_files:
-            try:
-                with dev_file.open("r", encoding="utf-8") as df:
-                    dev_lines = df.readlines()
-                diff = list(
-                    difflib.unified_diff(
-                        template_lines,
-                        dev_lines,
-                        fromfile=str(template_path),
-                        tofile=str(dev_file),
-                        lineterm="\n",
-                    )
+        # Process diff generation in parallel
+        with ProcessPoolExecutor(max_workers=self.max_workers) as executor:
+            futures = [
+                executor.submit(
+                    CSLBuilder._generate_single_diff,
+                    dev_file,
+                    template_lines,
+                    template_path,
+                    self.diffs_dir,
                 )
-                if not diff:
-                    logging.info(f"No differences found for {dev_file.name}.")
-                    continue
-                diff_path = self.diffs_dir / dev_file.with_suffix(".diff").name
-                self.diffs_dir.mkdir(parents=True, exist_ok=True)
-                diff_path.write_text("".join(diff), encoding="utf-8")
-                logging.info(f"Generated diff file: {diff_path}")
-            except Exception as e:
-                logging.error(
-                    f"Error generating diff for {dev_file.name}: {e}",
-                    exc_info=True,
-                )
+                for dev_file in dev_files
+            ]
+
+            for future in as_completed(futures):
+                filename, success, message = future.result()
+                if success:
+                    logging.info(message)
+                else:
+                    logging.error(f"Failed {filename}: {message}")
 
 
 def main() -> int:
@@ -327,6 +395,13 @@ def main() -> int:
         action="store_true",
         help="Write pruned output styles into a flat output directory (no per-family subfolders).",
     )
+    parser.add_argument(
+        "--max-workers",
+        "-w",
+        type=int,
+        default=None,
+        help="Maximum number of parallel workers. Default is the number of CPU cores.",
+    )
 
     args = parser.parse_args()
 
@@ -356,6 +431,7 @@ def main() -> int:
             export_development=args.development,
             generate_diffs=args.diffs,
             group_by_family=(not args.flat_output),
+            max_workers=args.max_workers,
         )
         try:
             if args.diffs:
