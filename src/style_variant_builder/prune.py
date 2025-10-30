@@ -34,6 +34,7 @@ class CSLPruner:
     modified: bool = field(
         default=False, init=False
     )  # Track whether changes have been made
+    notice_comment: str | None = field(default=None, init=False)
 
     def parse_xml(self) -> None:
         try:
@@ -280,6 +281,12 @@ class CSLPruner:
     def save(self) -> None:
         if self.tree is not None:
             try:
+                # Insert notice comment if set
+                if self.notice_comment and self.root is not None:
+                    # Add spaces around comment text for proper XML comment formatting
+                    comment_text = f" {self.notice_comment.strip()} "
+                    self.root.insert(0, etree.Comment(comment_text))
+
                 # Serialize from the element root to avoid including any
                 # document-level processing instructions (e.g., xml-model)
                 xml_data = etree.tostring(
