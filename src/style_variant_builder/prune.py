@@ -181,10 +181,6 @@ class CSLPruner:
         else:
             logging.info("No macros pruned.")
 
-    def remove_xml_model_declarations(self, xml_data: str) -> str:
-        """Remove any xml-model declarations from the XML content."""
-        return re.sub(r"<\?xml-model [^>]+>\n?", "", xml_data)
-
     def _normalize_xml_declaration(self, text: str) -> str:
         """Ensure XML declaration uses double quotes."""
         return re.sub(
@@ -200,7 +196,6 @@ class CSLPruner:
     def normalize_xml_content(self, xml_data: bytes) -> bytes:
         """Revert Python changes to XML content and reorder the default-locale attribute in <style> tags."""
         text = xml_data.decode("utf-8")
-        text = self.remove_xml_model_declarations(text)
         text = self._normalize_xml_declaration(text)
         text = self._escape_em_dashes(text)
 
@@ -282,8 +277,10 @@ class CSLPruner:
     def save(self) -> None:
         if self.tree is not None:
             try:
+                # Serialize from the element root to avoid including any
+                # document-level processing instructions (e.g., xml-model)
                 xml_data = etree.tostring(
-                    self.tree,
+                    self.root if self.root is not None else self.tree,
                     encoding="utf-8",
                     xml_declaration=True,
                     pretty_print=True,
