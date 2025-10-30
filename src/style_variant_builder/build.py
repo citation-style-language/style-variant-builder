@@ -29,6 +29,7 @@ class ColourFormatter(logging.Formatter):
         "ERROR": "\033[1;31m",  # Bright Red
     }
     RESET = "\033[0m"
+    GREEN = "\033[32m"  # Green for success
 
     def format(self, record: logging.LogRecord) -> str:
         colour = self.COLOURS.get(record.levelname, "")
@@ -106,13 +107,13 @@ class CSLBuilder:
                 return (
                     dev_file.name,
                     True,
-                    f"No differences found for {dev_file.name}.",
+                    f"  ≈ {dev_file.stem}",
                 )
 
             diff_path = diffs_dir / dev_file.with_suffix(".diff").name
             diffs_dir.mkdir(parents=True, exist_ok=True)
             diff_path.write_text("".join(diff), encoding="utf-8")
-            return (dev_file.name, True, f"Generated diff file: {diff_path}")
+            return (dev_file.name, True, f"  ✓ {diff_path.name}")
 
         except Exception as e:
             return (dev_file.name, False, f"Error generating diff: {e}")
@@ -170,7 +171,7 @@ class CSLBuilder:
                 return (
                     diff_path.name,
                     True,
-                    f"Exported development variant to {dev_variant}",
+                    f"  ✓ {dev_variant.stem}",
                 )
             else:
                 output_variant = (
@@ -188,7 +189,7 @@ class CSLBuilder:
                 return (
                     diff_path.name,
                     True,
-                    f"Generated variant: {output_variant}",
+                    f"  ✓ {output_variant.stem}",
                 )
 
         except Exception as e:
@@ -276,7 +277,7 @@ class CSLBuilder:
                     logging.info(message)
                     self.successful_variants += 1
                 else:
-                    logging.error(f"Failed {diff_name}: {message}")
+                    logging.error(f"  ✗ {diff_name}: {message}")
                     self.failed_variants += 1
 
         return (self.successful_variants, self.failed_variants)
@@ -341,7 +342,7 @@ class CSLBuilder:
                 if success:
                     logging.info(message)
                 else:
-                    logging.error(f"Failed {filename}: {message}")
+                    logging.error(f"  ✗ {filename}: {message}")
 
 
 def main() -> int:
@@ -414,6 +415,16 @@ def main() -> int:
         template.stem.removesuffix(TEMPLATE_SUFFIX.removesuffix(".csl"))
         for template in template_files
     ]
+
+    # Print mode indicator
+    if args.diffs:
+        logging.info("Mode: \033[1;35mGenerating diff files\033[0m\n")
+    elif args.development:
+        logging.info(
+            "Mode: \033[1;35mBuilding development variants (unpruned)\033[0m\n"
+        )
+    else:
+        logging.info("Mode: \033[1;35mBuilding production variants\033[0m\n")
 
     overall_success = True
     family_results = {}  # Track results per family
