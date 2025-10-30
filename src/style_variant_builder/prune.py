@@ -179,11 +179,11 @@ class CSLPruner:
                 logging.debug("No unused macros found.")
                 break
         if total_removed_count > 0:
-            logging.info(
+            logging.debug(
                 f"Removed a total of {total_removed_count} unused macros."
             )
         else:
-            logging.info("No macros pruned.")
+            logging.debug("No macros pruned.")
 
     def _normalize_xml_declaration(self, text: str) -> str:
         """Ensure XML declaration uses double quotes."""

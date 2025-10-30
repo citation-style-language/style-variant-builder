@@ -169,7 +169,7 @@ class CSLBuilder:
         for diff_path in diff_files:
             patched_file = None
             try:
-                logging.info(f"Processing diff: {diff_path.name}")
+                logging.debug(f"Processing diff: {diff_path.name}")
                 patched_file = self._apply_patch(template_path, diff_path)
                 if patched_file is None:
                     logging.error(
