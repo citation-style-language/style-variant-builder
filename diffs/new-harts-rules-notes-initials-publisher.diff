@@ -24,11 +24,11 @@
      <category field="sociology"/>
      <category field="theology"/>
 -    <summary>Oxford source citations, template</summary>
-+    <summary>Oxford source citations, notes system, author forenames reduced to initials, including publisher</summary>
++    <summary>Oxford source citations, notes system, author forenames reduced to initials (NHR 18.2.2), including publisher (NHR 18.2.10)</summary>
      <updated>2025-07-15T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -3079,7 +3080,7 @@
+@@ -3080,7 +3081,7 @@
                  <text form="short" term="no-place"/>
                </else-if>
              </choose>
@@ -37,7 +37,7 @@
            </group>
          </if>
          <else>
-@@ -3099,7 +3100,7 @@
+@@ -3100,7 +3101,7 @@
        <if match="any" type="book chapter classic entry entry-dictionary entry-encyclopedia interview musical_score pamphlet paper-conference report">
          <group delimiter=": ">
            <text variable="original-publisher-place"/>
