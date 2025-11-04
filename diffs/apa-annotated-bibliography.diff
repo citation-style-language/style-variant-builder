@@ -26,10 +26,12 @@
      <updated>2025-04-14T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -2350,6 +2350,7 @@
+@@ -2349,7 +2349,8 @@
+       <key macro="source-archive"/>
      </sort>
      <layout>
-       <text macro="bibliography-filtered"/>
+-      <text macro="bibliography-filtered"/>
++      <text macro="bibliography"/>
 +      <text display="block" variable="note"/>
      </layout>
    </bibliography>
