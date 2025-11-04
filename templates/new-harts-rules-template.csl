@@ -3067,7 +3067,7 @@
   <macro name="source-publication-publisher">
     <group delimiter=" ">
       <choose>
-        <if match="any" type="book chapter classic collection entry entry-dictionary entry-encyclopedia interview manuscript musical_score pamphlet paper-conference report">
+        <if match="any" type="book chapter classic collection entry entry-dictionary entry-encyclopedia interview manuscript musical_score pamphlet paper-conference performance report">
           <group delimiter=": ">
             <choose>
               <if variable="publisher-place">
