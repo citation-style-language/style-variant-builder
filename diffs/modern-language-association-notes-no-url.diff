@@ -45,7 +45,7 @@
      </group>
    </macro>
    <macro name="container1-location-event">
-@@ -1182,7 +1178,7 @@
+@@ -1183,7 +1179,7 @@
      </group>
    </macro>
    <citation disambiguate-add-givenname="true" disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
@@ -54,7 +54,7 @@
        <choose>
          <if locator="page line" match="any">
            <group delimiter=" ">
-@@ -1206,7 +1202,6 @@
+@@ -1207,7 +1203,6 @@
        <key macro="supplemental-element-after-title"/>
        <key macro="container1"/>
        <key macro="supplemental-element-between"/>
@@ -62,7 +62,7 @@
        <key macro="supplemental-element-end"/>
      </sort>
      <layout suffix=".">
-@@ -1216,7 +1211,6 @@
+@@ -1217,7 +1212,6 @@
          <text macro="supplemental-element-after-title"/>
          <text macro="container1"/>
          <text macro="supplemental-element-between"/>
