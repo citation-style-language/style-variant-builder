@@ -2366,6 +2366,8 @@
                 </if>
                 <else>
                   <text variable="volume"/>
+                  <!-- for Roman volume numbers: -->
+                  <!-- <text macro="label-volume"/> -->
                   <text macro="label-issue"/>
                 </else>
               </choose>
@@ -3404,6 +3406,13 @@
           <!-- Do not provide `volume` or `part-number` for defined section -->
           <text macro="label-locator"/>
         </if>
+        <!-- for OGS: -->
+        <!-- <else-if match="none" variable="part-number">
+          <group delimiter=". ">
+            <text macro="label-volume"/>
+            <text macro="label-locator"/>
+          </group>
+        </else-if> -->
         <else>
           <text macro="label-volume"/>
           <text macro="label-part-number"/>
