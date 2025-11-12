@@ -521,7 +521,7 @@
           </choose>
           <names variable="illustrator"/>
           <choose>
-            <!-- In multivolume works, notes list editors after the title of the part for which they are responsible (cf. CMOS18 14.20–24); it appears also that editors should not be substituted for authors with chapters (cf. CMOS18 14.22) -->
+            <!-- In multivolume works, notes list editors after the title of the part for which they are responsible (NHR 17.2.5, cf. CMOS18 14.20-24); it appears also that editors should not be substituted for authors with chapters (cf. CMOS18 14.22) -->
             <if match="any" type="chapter standard" variable="part-title volume-title"/>
             <else-if type="book" variable="container-title"/>
             <else>
@@ -603,7 +603,7 @@
             </choose>
             <names variable="illustrator"/>
             <choose>
-              <!-- In multivolume works, notes list editors after the title of the part for which they are responsible (cf. CMOS18 14.20–24); it appears also that editors should not be substituted for authors with chapters (cf. CMOS18 14.22) -->
+              <!-- In multivolume works, notes list editors after the title of the part for which they are responsible (cf. CMOS18 14.20-24); it appears also that editors should not be substituted for authors with chapters (cf. CMOS18 14.22) -->
               <if match="any" type="chapter standard" variable="part-title volume-title"/>
               <else-if type="book" variable="container-title"/>
               <else>
@@ -1142,7 +1142,7 @@
       </else>
     </choose>
   </macro>
-  <!-- 3. Title and descriptions (cf. CMOS18 13.87–101) -->
+  <!-- 3. Title and descriptions (cf. CMOS18 13.87-101) -->
   <macro name="title-and-descriptions">
     <group delimiter=", ">
       <choose>
@@ -1468,6 +1468,7 @@
           </if>
           <else-if locator="column page" match="any"/>
           <else-if variable="locator">
+            <!-- remove variable="locator" condition for OGS, which prints ranges -->
             <text macro="label-volume"/>
           </else-if>
           <else-if variable="page"/>
@@ -2429,10 +2430,17 @@
             <choose>
               <if variable="page">
                 <text variable="page"/>
-                <text term="at"/>
               </if>
             </choose>
-            <text macro="label-locator"/>
+            <choose>
+              <if variable="locator page">
+                <text term="at"/>
+                <text macro="label-locator"/>
+              </if>
+              <else-if variable="locator">
+                <text macro="label-locator"/>
+              </else-if>
+            </choose>
           </group>
           <!-- `number` is an article ID (cf. CMOS18 14.71) -->
           <text macro="label-number-article"/>
@@ -2692,8 +2700,15 @@
         <else-if variable="page">
           <group delimiter=" ">
             <text variable="page"/>
-            <text term="at"/>
-            <text macro="label-locator"/>
+            <choose>
+              <if variable="locator page">
+                <text term="at"/>
+                <text macro="label-locator"/>
+              </if>
+              <else-if variable="locator">
+                <text macro="label-locator"/>
+              </else-if>
+            </choose>
           </group>
         </else-if>
         <else-if locator="column" variable="archive archive_location"/>
@@ -3091,7 +3106,7 @@
       </choose>
       <choose>
         <if type="song">
-          <!-- Album catalogue number follows label name (NHR 18.7.2; cf. CMOS18 14.163–164) -->
+          <!-- Album catalogue number follows label name (NHR 18.7.2; cf. CMOS18 14.163-164) -->
           <text variable="number"/>
         </if>
       </choose>
@@ -3407,7 +3422,12 @@
           <text macro="label-locator"/>
         </if>
         <!-- for OGS: -->
-        <!-- <else-if match="none" variable="part-number">
+        <!-- <else-if match="none" locator="column page">
+          <text macro="label-volume"/>
+          <text macro="label-part-number"/>
+          <text macro="label-locator"/>
+        </else-if>
+        <else-if match="none" variable="part-number">
           <group delimiter=". ">
             <text macro="label-volume"/>
             <text macro="label-locator"/>
@@ -3429,7 +3449,7 @@
   </macro>
   <!-- 4.8. Medium -->
   <macro name="source-medium">
-    <!-- the medium appears at both the title and container levels, and both with and without brackets (NHR 18.7.2–3, 18.8.5) -->
+    <!-- the medium appears at both the title and container levels, and both with and without brackets (NHR 18.7.2-3, 18.8.5) -->
     <group delimiter=", ">
       <text variable="medium"/>
       <text variable="scale"/>
@@ -3496,8 +3516,15 @@
           <text variable="page"/>
         </else>
       </choose>
-      <text term="at"/>
-      <text macro="label-locator"/>
+      <choose>
+        <if variable="locator page">
+          <text term="at"/>
+          <text macro="label-locator-all"/>
+        </if>
+        <else-if variable="locator">
+          <text macro="label-locator-all"/>
+        </else-if>
+      </choose>
     </group>
   </macro>
   <macro name="source-archive-locator-range">
