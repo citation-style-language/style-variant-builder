@@ -1,0 +1,143 @@
+--- templates/modern-humanities-research-association-template.csl
++++ development/modern-humanities-research-association-author-date-publisher-place.csl
+@@ -3,18 +3,19 @@
+   type="application/relax-ng-compact-syntax" schematypens="http://relaxng.org/ns/compatibility/annotations/1.0"?>
+ <?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl-repository.rnc"
+   type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+-<style and="text" class="note" default-locale="en-GB" demote-non-dropping-particle="display-and-sort" et-al-min="4" et-al-use-first="1" page-range-format="minimal-two" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
++<style and="text" class="in-text" default-locale="en-GB" demote-non-dropping-particle="display-and-sort" et-al-min="4" et-al-use-first="1" page-range-format="minimal-two" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
+   <info>
+-    <title>Modern Humanities Research Association 4th edition (template)</title>
+-    <title-short>MHRA Style Guide</title-short>
+-    <id>http://www.zotero.org/styles/modern-humanities-research-association-notes</id>
+-    <link href="http://www.zotero.org/styles/modern-humanities-research-association-notes" rel="self"/>
++    <title>Modern Humanities Research Association 4th edition (author-date, place of publication)</title>
++    <title-short>MHRA Style Guide (author-date/Harvard, place of publication)</title-short>
++    <id>http://www.zotero.org/styles/modern-humanities-research-association-author-date</id>
++    <link href="http://www.zotero.org/styles/modern-humanities-research-association-author-date" rel="self"/>
++    <link href="http://www.zotero.org/styles/modern-humanities-research-association-notes" rel="template"/>
+     <link href="https://www.mhra.org.uk/style/" rel="documentation"/>
+     <author>
+       <name>Andrew Dunning</name>
+       <uri>https://orcid.org/0000-0003-0464-5036</uri>
+     </author>
+-    <category citation-format="note"/>
++    <category citation-format="author-date"/>
+     <category field="generic-base"/>
+     <category field="history"/>
+     <category field="humanities"/>
+@@ -22,7 +23,7 @@
+     <category field="literature"/>
+     <category field="philosophy"/>
+     <category field="theology"/>
+-    <summary>MHRA source citations, template</summary>
++    <summary>MHRA source citations, author-date system, with place of publication (MHRA 7.3)</summary>
+     <updated>2025-08-07T00:00:00+00:00</updated>
+     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
+   </info>
+@@ -1077,9 +1078,7 @@
+           <text macro="identifier"/>
+         </if>
+         <else>
+-          <text macro="description"/>
+-          <!-- for author-date: -->
+-          <!-- <text macro="description-capitalized"/> -->
++          <text macro="description-capitalized"/>
+           <text macro="identifier"/>
+         </else>
+       </choose>
+@@ -2838,18 +2837,6 @@
+           </else-if>
+         </choose>
+       </group>
+-      <!-- remove volume `issued` date from this position in author-date -->
+-      <choose>
+-        <if variable="available-date issued volume">
+-          <text macro="date-issued-year" prefix="(" suffix=")"/>
+-        </if>
+-        <else-if variable="available-date issued part-number">
+-          <text macro="date-issued-year" prefix="(" suffix=")"/>
+-        </else-if>
+-        <else-if type="broadcast" variable="available-date issued number">
+-          <text macro="date-issued-year" prefix="(" suffix=")"/>
+-        </else-if>
+-      </choose>
+     </group>
+   </macro>
+   <!-- 4.3. Series -->
+@@ -3242,7 +3229,7 @@
+         </else-if>
+         <else-if variable="publisher">
+           <group delimiter=": ">
+-            <!-- <text variable="publisher-place"/> -->
++            <text variable="publisher-place"/>
+             <text variable="publisher"/>
+           </group>
+         </else-if>
+@@ -3264,7 +3251,7 @@
+     <choose>
+       <if variable="original-publisher">
+         <group delimiter=": ">
+-          <!-- <text variable="original-publisher-place"/> -->
++          <text variable="original-publisher-place"/>
+           <text variable="original-publisher"/>
+         </group>
+       </if>
+@@ -3280,9 +3267,7 @@
+         <date date-parts="year" form="text" variable="available-date"/>
+       </if>
+       <else>
+-        <text macro="source-date-issued-or-status"/>
+-        <!-- for author-date: -->
+-        <!-- <text macro="source-date-issued-day-month"/> -->
++        <text macro="source-date-issued-day-month"/>
+       </else>
+     </choose>
+   </macro>
+@@ -3431,9 +3416,7 @@
+     </choose>
+   </macro>
+   <macro name="source-date-original">
+-    <text macro="source-date-original-full"/>
+-    <!-- for author-date: -->
+-    <!-- <text macro="source-date-original-day-month"/> -->
++    <text macro="source-date-original-day-month"/>
+   </macro>
+   <macro name="source-date-original-full">
+     <!-- Give full date for more ephemeral types; reflected in `date-sort` -->
+@@ -3850,9 +3833,9 @@
+       </choose>
+     </group>
+   </macro>
+-  <citation disambiguate-add-givenname="true" disambiguate-add-names="true">
+-    <layout delimiter="; " suffix=".">
+-      <text macro="citation-notes-full-subsequent-author-title"/>
++  <citation after-collapse-delimiter="; " collapse="year" disambiguate-add-givenname="true" disambiguate-add-names="true" disambiguate-add-year-suffix="true">
++    <layout delimiter="; " prefix="(" suffix=")">
++      <text macro="citation-author-date"/>
+     </layout>
+   </citation>
+   <!-- Bibliography -->
+@@ -3952,17 +3935,19 @@
+   <bibliography hanging-indent="true" subsequent-author-substitute="&#8212;&#8212;" subsequent-author-substitute-rule="partial-first">
+     <sort>
+       <key macro="author-bib"/>
++      <key macro="date-sort-group"/>
++      <key macro="date-sort-year"/>
++      <key macro="date"/>
+       <key macro="title-and-descriptions"/>
+       <key macro="source"/>
+       <key variable="volume"/>
+       <key variable="part-number"/>
+       <key variable="event-date"/>
+-      <key variable="original-date"/>
+-      <key macro="source-date-issued-or-status"/>
++      <key variable="issued"/>
+       <key macro="source-archive"/>
+     </sort>
+     <layout>
+-      <text macro="bibliography-filtered-notes"/>
++      <text macro="bibliography-filtered-author-date"/>
+     </layout>
+   </bibliography>
+ </style>
