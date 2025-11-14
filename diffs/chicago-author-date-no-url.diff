@@ -35,7 +35,7 @@
      <updated>2025-10-27T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -3598,9 +3599,7 @@
+@@ -3602,9 +3603,7 @@
        <if match="any" type="article-magazine article-newspaper">
          <group delimiter=", ">
            <group delimiter=". ">
@@ -46,7 +46,7 @@
              <!-- newspaper edition always capitalized (CMOS18 14.89) -->
              <text macro="label-edition-capitalized"/>
            </group>
-@@ -3609,17 +3608,13 @@
+@@ -3613,17 +3612,13 @@
        </if>
        <else-if match="any" variable="issue supplement-number volume">
          <group delimiter=": ">
@@ -66,7 +66,7 @@
            <text macro="source-serial-locator"/>
          </group>
        </else>
-@@ -5383,9 +5378,7 @@
+@@ -5387,9 +5382,7 @@
          <date date-parts="year" form="text" variable="available-date"/>
        </else-if>
        <else>
@@ -77,7 +77,7 @@
        </else>
      </choose>
    </macro>
-@@ -5553,9 +5546,7 @@
+@@ -5557,9 +5550,7 @@
      </choose>
    </macro>
    <macro name="source-date-original">
@@ -88,7 +88,7 @@
    </macro>
    <macro name="source-date-original-full">
      <!-- Give full date for more ephemeral types -->
-@@ -5947,7 +5938,7 @@
+@@ -5951,7 +5942,7 @@
            </group>
          </else-if>
        </choose>
@@ -97,7 +97,7 @@
      </group>
    </macro>
    <macro name="source-date-accessed-DOI-URL-note">
-@@ -5962,7 +5953,7 @@
+@@ -5966,7 +5957,7 @@
            </group>
          </else-if>
        </choose>
@@ -106,7 +106,7 @@
      </group>
    </macro>
    <macro name="source-DOI-URL">
-@@ -6668,9 +6659,9 @@
+@@ -6672,9 +6663,9 @@
        </else>
      </choose>
    </macro>
@@ -119,7 +119,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -6821,16 +6812,19 @@
+@@ -6825,16 +6816,19 @@
    <bibliography et-al-min="7" et-al-use-first="3" hanging-indent="true">
      <sort>
        <key macro="author-sort"/>
