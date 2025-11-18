@@ -81,7 +81,7 @@
      </group>
    </macro>
    <macro name="source-serial-identifier-volume">
-@@ -2470,8 +2459,6 @@
+@@ -2479,8 +2468,6 @@
            </group>
          </if>
        </choose>
@@ -90,7 +90,7 @@
        <text macro="source-event"/>
      </group>
    </macro>
-@@ -2847,8 +2834,7 @@
+@@ -2856,8 +2843,7 @@
            <choose>
              <if match="any" variable="collection-editor container-author editor editorial-director">
                <!-- monographic usage -->
@@ -100,7 +100,7 @@
                <text macro="source-publication-and-date"/>
              </if>
            </choose>
-@@ -2856,8 +2842,7 @@
+@@ -2865,8 +2851,7 @@
          <!-- `patent` date in identification (cf. CMOS18 14.158) -->
          <else-if type="patent"/>
          <else>
@@ -110,7 +110,7 @@
            <text macro="source-publication-and-date"/>
          </else>
        </choose>
-@@ -3422,7 +3407,7 @@
+@@ -3431,7 +3416,7 @@
            <text macro="label-locator"/>
          </if>
          <!-- for OGS: -->
@@ -119,7 +119,7 @@
            <text macro="label-volume"/>
            <text macro="label-part-number"/>
            <text macro="label-locator"/>
-@@ -3432,7 +3417,7 @@
+@@ -3441,7 +3426,7 @@
              <text macro="label-volume"/>
              <text macro="label-locator"/>
            </group>
@@ -128,7 +128,7 @@
          <else>
            <text macro="label-volume"/>
            <text macro="label-part-number"/>
-@@ -3464,9 +3449,7 @@
+@@ -3473,9 +3458,7 @@
        <!-- usually `archive`, `archive-place` but sometimes also `archive-place`, `archive` (NHR 18.6.5); the latter is more common elsewhere (OGS 15.11.1 and MHRA4 7.7) -->
        <text variable="archive_collection"/>
        <text variable="archive_location"/>

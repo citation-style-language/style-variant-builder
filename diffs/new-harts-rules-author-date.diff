@@ -35,7 +35,7 @@
      <updated>2025-11-05T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -3127,9 +3128,7 @@
+@@ -3136,9 +3137,7 @@
    </macro>
    <!-- 4.6. Date -->
    <macro name="source-date">
@@ -46,7 +46,7 @@
    </macro>
    <!-- Date elements -->
    <macro name="source-date-issued-full">
-@@ -3268,9 +3267,7 @@
+@@ -3277,9 +3276,7 @@
      </choose>
    </macro>
    <macro name="source-date-original">
@@ -57,7 +57,7 @@
    </macro>
    <macro name="source-date-original-full">
      <!-- Give full date for more ephemeral types; reflected in `date-year-sort` -->
-@@ -3751,9 +3748,9 @@
+@@ -3760,9 +3757,9 @@
        </choose>
      </group>
    </macro>
@@ -70,7 +70,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -3866,17 +3863,16 @@
+@@ -3875,17 +3872,16 @@
    <bibliography hanging-indent="true">
      <sort>
        <key macro="author-bib"/>

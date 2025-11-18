@@ -46,7 +46,7 @@
          </choose>
        </else-if>
        <else-if variable="volume">
-@@ -4059,11 +4053,9 @@
+@@ -4068,11 +4062,9 @@
            </if>
          </choose>
        </else-if>
@@ -58,7 +58,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number-capitalized"/>
-@@ -4095,11 +4087,9 @@
+@@ -4104,11 +4096,9 @@
            </if>
          </choose>
        </else-if>
@@ -70,7 +70,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number"/>
-@@ -4492,10 +4482,6 @@
+@@ -4501,10 +4491,6 @@
              <if is-numeric="volume" match="none">
                <text macro="label-volume"/>
              </if>
@@ -81,7 +81,7 @@
              <else-if is-numeric="volume" variable="page">
                <choose>
                  <!-- check for variables that might come between the volume and page number -->
-@@ -4536,8 +4522,6 @@
+@@ -4545,8 +4531,6 @@
        <else-if variable="locator">
          <text macro="label-locator"/>
        </else-if>
@@ -90,7 +90,7 @@
        <else-if is-numeric="volume" variable="page">
          <!-- collapse the volume and page number if adjacent -->
          <group delimiter=":">
-@@ -5304,7 +5288,7 @@
+@@ -5313,7 +5297,7 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -99,7 +99,7 @@
              <text text-case="capitalize-first" variable="publisher"/>
            </group>
          </else-if>
-@@ -5330,7 +5314,7 @@
+@@ -5339,7 +5323,7 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -108,7 +108,7 @@
              <text variable="publisher"/>
            </group>
          </else-if>
-@@ -5352,7 +5336,7 @@
+@@ -5361,7 +5345,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -117,7 +117,7 @@
            <text text-case="capitalize-first" variable="original-publisher"/>
          </group>
        </if>
-@@ -5365,7 +5349,7 @@
+@@ -5374,7 +5358,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -126,7 +126,7 @@
            <text variable="original-publisher"/>
          </group>
        </if>
-@@ -5450,14 +5434,10 @@
+@@ -5459,14 +5443,10 @@
          <text macro="date-issued-full"/>
        </if>
        <else-if variable="issue volume">
@@ -143,7 +143,7 @@
        </else-if>
        <else-if match="any" variable="issue volume">
          <text macro="date-issued-year-month"/>
-@@ -5606,14 +5586,10 @@
+@@ -5615,14 +5595,10 @@
    <macro name="source-date-original-full-serial">
      <choose>
        <if variable="issue volume">
@@ -160,7 +160,7 @@
        </else-if>
        <else-if match="any" variable="issue volume">
          <text macro="date-original-year-month"/>
-@@ -6672,9 +6648,9 @@
+@@ -6683,9 +6659,9 @@
        </else>
      </choose>
    </macro>
@@ -172,7 +172,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -6822,7 +6798,7 @@
+@@ -6833,7 +6809,7 @@
        </else>
      </choose>
    </macro>
@@ -181,7 +181,7 @@
      <sort>
        <key macro="author-sort"/>
        <key macro="title-and-descriptions-bib"/>
-@@ -6834,7 +6810,7 @@
+@@ -6845,7 +6821,7 @@
        <key macro="source-archive-bib"/>
      </sort>
      <layout suffix=".">
