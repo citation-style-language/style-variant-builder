@@ -35,7 +35,7 @@
      <updated>2025-10-27T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -3602,9 +3603,7 @@
+@@ -3605,9 +3606,7 @@
        <if match="any" type="article-magazine article-newspaper">
          <group delimiter=", ">
            <group delimiter=". ">
@@ -46,7 +46,7 @@
              <!-- newspaper edition always capitalized (CMOS18 14.89) -->
              <text macro="label-edition-capitalized"/>
            </group>
-@@ -3613,17 +3612,13 @@
+@@ -3616,17 +3615,13 @@
        </if>
        <else-if match="any" variable="issue supplement-number volume">
          <group delimiter=": ">
@@ -66,7 +66,7 @@
            <text macro="source-serial-locator"/>
          </group>
        </else>
-@@ -5396,9 +5391,7 @@
+@@ -5399,9 +5394,7 @@
          <date date-parts="year" form="text" variable="available-date"/>
        </else-if>
        <else>
@@ -77,7 +77,7 @@
        </else>
      </choose>
    </macro>
-@@ -5566,9 +5559,7 @@
+@@ -5569,9 +5562,7 @@
      </choose>
    </macro>
    <macro name="source-date-original">
@@ -88,7 +88,7 @@
    </macro>
    <macro name="source-date-original-full">
      <!-- Give full date for more ephemeral types -->
-@@ -5844,7 +5835,7 @@
+@@ -5847,7 +5838,7 @@
            <text macro="source-archive-reference-institution-first"/>
          </if>
          <else>
@@ -97,7 +97,7 @@
          </else>
        </choose>
        <text macro="source-archive-database-number" prefix="(" suffix=")"/>
-@@ -5857,7 +5848,7 @@
+@@ -5860,7 +5851,7 @@
            <text macro="source-archive-reference-institution-first"/>
          </if>
          <else>
@@ -106,7 +106,7 @@
          </else>
        </choose>
        <text macro="source-archive-database-number" prefix="(" suffix=")"/>
-@@ -6683,9 +6674,9 @@
+@@ -6686,9 +6677,9 @@
        </else>
      </choose>
    </macro>
@@ -119,7 +119,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -6836,16 +6827,19 @@
+@@ -6839,16 +6830,19 @@
    <bibliography et-al-min="7" et-al-use-first="3" hanging-indent="true">
      <sort>
        <key macro="author-sort"/>

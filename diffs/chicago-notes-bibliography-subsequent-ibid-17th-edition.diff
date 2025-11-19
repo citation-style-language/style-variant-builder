@@ -35,7 +35,7 @@
        <term name="timestamp">at</term>
        <term form="verb-short" name="translator">trans.</term>
      </terms>
-@@ -3332,10 +3330,6 @@
+@@ -3335,10 +3333,6 @@
            <if match="any" variable="collection-editor part-number part-title volume-title">
              <text macro="label-volume"/>
            </if>
@@ -46,7 +46,7 @@
          </choose>
        </else-if>
        <else-if variable="volume">
-@@ -4068,11 +4062,9 @@
+@@ -4071,11 +4065,9 @@
            </if>
          </choose>
        </else-if>
@@ -58,7 +58,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number-capitalized"/>
-@@ -4104,11 +4096,9 @@
+@@ -4107,11 +4099,9 @@
            </if>
          </choose>
        </else-if>
@@ -70,7 +70,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number"/>
-@@ -4501,10 +4491,6 @@
+@@ -4504,10 +4494,6 @@
              <if is-numeric="volume" match="none">
                <text macro="label-volume"/>
              </if>
@@ -81,7 +81,7 @@
              <else-if is-numeric="volume" variable="page">
                <choose>
                  <!-- check for variables that might come between the volume and page number -->
-@@ -4545,8 +4531,6 @@
+@@ -4548,8 +4534,6 @@
        <else-if variable="locator">
          <text macro="label-locator"/>
        </else-if>
@@ -90,7 +90,7 @@
        <else-if is-numeric="volume" variable="page">
          <!-- collapse the volume and page number if adjacent -->
          <group delimiter=":">
-@@ -5313,7 +5297,7 @@
+@@ -5316,7 +5300,7 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -99,7 +99,7 @@
              <text text-case="capitalize-first" variable="publisher"/>
            </group>
          </else-if>
-@@ -5339,7 +5323,7 @@
+@@ -5342,7 +5326,7 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -108,7 +108,7 @@
              <text variable="publisher"/>
            </group>
          </else-if>
-@@ -5361,7 +5345,7 @@
+@@ -5364,7 +5348,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -117,7 +117,7 @@
            <text text-case="capitalize-first" variable="original-publisher"/>
          </group>
        </if>
-@@ -5374,7 +5358,7 @@
+@@ -5377,7 +5361,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -126,7 +126,7 @@
            <text variable="original-publisher"/>
          </group>
        </if>
-@@ -5459,14 +5443,10 @@
+@@ -5462,14 +5446,10 @@
          <text macro="date-issued-full"/>
        </if>
        <else-if variable="issue volume">
@@ -143,7 +143,7 @@
        </else-if>
        <else-if match="any" variable="issue volume">
          <text macro="date-issued-year-month"/>
-@@ -5615,14 +5595,10 @@
+@@ -5618,14 +5598,10 @@
    <macro name="source-date-original-full-serial">
      <choose>
        <if variable="issue volume">
@@ -160,7 +160,7 @@
        </else-if>
        <else-if match="any" variable="issue volume">
          <text macro="date-original-year-month"/>
-@@ -6683,9 +6659,9 @@
+@@ -6686,9 +6662,9 @@
        </else>
      </choose>
    </macro>
@@ -172,7 +172,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -6783,7 +6759,7 @@
+@@ -6786,7 +6762,7 @@
            </if>
          </choose>
        </else-if>
@@ -181,7 +181,7 @@
          <!-- In note styles, the bibliography also omits inaccessible manuscripts (CMOS18 14.114), conference papers (new in CMOS18 14.115; included in CMOS17 14.217), and private documents (CMOS18 14.118) -->
          <choose>
            <if match="any" variable="archive archive-place container-title DOI number publisher references URL">
-@@ -6791,8 +6767,6 @@
+@@ -6794,8 +6770,6 @@
            </if>
          </choose>
        </else-if>
@@ -190,7 +190,7 @@
        <else>
          <text macro="bibliography-notes"/>
        </else>
-@@ -6833,7 +6807,7 @@
+@@ -6836,7 +6810,7 @@
        </else>
      </choose>
    </macro>
