@@ -184,6 +184,37 @@
      </group>
    </macro>
    <macro name="source-serial-identifier-author-date">
+@@ -2457,7 +2502,7 @@
+         </group>
+       </if>
+       <else>
+-        <text variable="page"/>
++        <text macro="label-page"/>
+       </else>
+     </choose>
+   </macro>
+@@ -2465,10 +2510,10 @@
+     <choose>
+       <if match="any" variable="locator number">
+         <group delimiter=", ">
+-          <group delimiter=" ">
++          <group delimiter=", ">
+             <choose>
+               <if variable="page">
+-                <text variable="page"/>
++                <text macro="label-page"/>
+               </if>
+             </choose>
+             <choose>
+@@ -2486,7 +2531,7 @@
+         </group>
+       </if>
+       <else>
+-        <text variable="page"/>
++        <text macro="label-page"/>
+       </else>
+     </choose>
+   </macro>
 @@ -2509,8 +2554,6 @@
            </group>
          </if>
@@ -193,6 +224,42 @@
        <text macro="source-event"/>
      </group>
    </macro>
+@@ -2712,7 +2755,7 @@
+         </else-if>
+         <else-if variable="archive archive_location page"/>
+         <else>
+-          <text variable="page"/>
++          <text macro="label-page"/>
+         </else>
+       </choose>
+     </group>
+@@ -2763,13 +2806,13 @@
+               <text variable="volume"/>
+             </if>
+           </choose>
+-          <text variable="page"/>
++          <text macro="label-page"/>
+         </group>
+       </else-if>
+       <!-- archival locators appear after the shelfmark (cf. CMOS18 14.127) -->
+       <else-if variable="archive archive_location page"/>
+       <else>
+-        <text variable="page"/>
++        <text macro="label-page"/>
+       </else>
+     </choose>
+   </macro>
+@@ -2793,8 +2836,8 @@
+           <text macro="label-locator"/>
+         </else-if>
+         <else-if variable="page">
+-          <group delimiter=" ">
+-            <text variable="page"/>
++          <group delimiter=", ">
++            <text macro="label-page"/>
+             <choose>
+               <if variable="locator page">
+                 <text term="at"/>
 @@ -2944,8 +2987,7 @@
            <choose>
              <if match="any" variable="collection-editor container-author editor editorial-director">
@@ -242,3 +309,12 @@
        <choose>
          <!-- database identifier, if not included elsewhere (cf. CMOS18 14.113) -->
          <if match="any" variable="archive_collection archive_location archive-place"/>
+@@ -3629,7 +3668,7 @@
+     </choose>
+   </macro>
+   <macro name="source-archive-locator-page">
+-    <group delimiter=" ">
++    <group delimiter=", ">
+       <choose>
+         <if is-numeric="page">
+           <!-- TODO: remove this conditional when `page` parsing is fixed for different locator types -->
