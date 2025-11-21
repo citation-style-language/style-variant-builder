@@ -1,5 +1,5 @@
 --- templates/new-harts-rules-template.csl
-+++ development/new-harts-rules-notes-initials-page.csl
++++ development/new-harts-rules-notes-initials-label-page.csl
 @@ -3,12 +3,13 @@
    type="application/relax-ng-compact-syntax" schematypens="http://relaxng.org/ns/compatibility/annotations/1.0"?>
  <?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl-repository.rnc"
@@ -12,9 +12,9 @@
 -    <id>http://www.zotero.org/styles/new-harts-rules-notes</id>
 -    <link href="http://www.zotero.org/styles/new-harts-rules-notes" rel="self"/>
 +    <title>New Hart's Rules: The Oxford Style Guide 2nd edition (notes, author initials, page abbreviations)</title>
-+    <title-short>NHR (notes, author initials [18.2.2], page abbreviations [17.2.5])</title-short>
-+    <id>http://www.zotero.org/styles/new-harts-rules-notes-initials-page</id>
-+    <link href="http://www.zotero.org/styles/new-harts-rules-notes-initials-page" rel="self"/>
++    <title-short>NHR (notes [17.2], author initials [18.2.2], label page locator [17.2.5])</title-short>
++    <id>http://www.zotero.org/styles/new-harts-rules-notes-initials-label-page</id>
++    <link href="http://www.zotero.org/styles/new-harts-rules-notes-initials-label-page" rel="self"/>
 +    <link href="http://www.zotero.org/styles/new-harts-rules-notes" rel="template"/>
      <link href="https://en.wikipedia.org/wiki/Hart's_Rules" rel="documentation"/>
      <author>
@@ -24,7 +24,20 @@
      <category field="sociology"/>
      <category field="theology"/>
 -    <summary>Oxford source citations, template</summary>
-+    <summary>Oxford source citations, notes system, author forenames reduced to initials (NHR 18.2.2), with page abbreviations (NHR 17.2.5)</summary>
++    <summary>Oxford source citations, notes system, author forenames reduced to initials (NHR 18.2.2), page abbreviations with locator (NHR 17.2.5)</summary>
      <updated>2025-11-05T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
+@@ -225,10 +226,9 @@
+   <macro name="label-locator">
+     <group delimiter=" ">
+       <choose>
+-        <if locator="column page" match="any"/>
+-        <else-if is-numeric="locator">
++        <if is-numeric="locator">
+           <label form="short" variable="locator"/>
+-        </else-if>
++        </if>
+         <!-- a non-numeric canonical reference is described by its formatting and does not need a label, similar to a timestamp (NHR 17.2.5) -->
+         <else-if locator="chapter line verse" match="any"/>
+         <else>

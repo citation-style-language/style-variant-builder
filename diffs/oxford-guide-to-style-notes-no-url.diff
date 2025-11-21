@@ -1,5 +1,5 @@
 --- templates/new-harts-rules-template.csl
-+++ development/oxford-guide-to-style-notes.csl
++++ development/oxford-guide-to-style-notes-no-url.csl
 @@ -5,10 +5,11 @@
    type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
  <style and="text" class="note" default-locale="en-GB" demote-non-dropping-particle="display-and-sort" et-al-min="4" et-al-use-first="1" page-range-format="minimal" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
@@ -8,10 +8,10 @@
 -    <title-short>NHR (template)</title-short>
 -    <id>http://www.zotero.org/styles/new-harts-rules-notes</id>
 -    <link href="http://www.zotero.org/styles/new-harts-rules-notes" rel="self"/>
-+    <title>Oxford Guide to Style (notes)</title>
-+    <title-short>OGS (notes)</title-short>
-+    <id>http://www.zotero.org/styles/oxford-guide-to-style-notes</id>
-+    <link href="http://www.zotero.org/styles/oxford-guide-to-style-notes" rel="self"/>
++    <title>Oxford Guide to Style (notes, without URLs)</title>
++    <title-short>OGS (notes, no URLs)</title-short>
++    <id>http://www.zotero.org/styles/oxford-guide-to-style-notes-no-url</id>
++    <link href="http://www.zotero.org/styles/oxford-guide-to-style-notes-no-url" rel="self"/>
 +    <link href="http://www.zotero.org/styles/new-harts-rules-notes" rel="template"/>
      <link href="https://en.wikipedia.org/wiki/Hart's_Rules" rel="documentation"/>
      <author>
@@ -21,7 +21,7 @@
      <category field="sociology"/>
      <category field="theology"/>
 -    <summary>Oxford source citations, template</summary>
-+    <summary>Oxford source citations, notes system</summary>
++    <summary>Oxford source citations, notes system, without URLs</summary>
      <updated>2025-11-05T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
@@ -226,3 +226,12 @@
        <choose>
          <!-- database identifier, if not included elsewhere (cf. CMOS18 14.113) -->
          <if match="any" variable="archive_collection archive_location archive-place"/>
+@@ -3709,7 +3749,7 @@
+           </group>
+         </else-if>
+       </choose>
+-      <text macro="source-DOI-URL"/>
++      <!-- <text macro="source-DOI-URL"/> -->
+     </group>
+   </macro>
+   <macro name="source-DOI-URL">

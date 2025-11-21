@@ -1,17 +1,20 @@
 --- templates/new-harts-rules-template.csl
-+++ development/oxford-guide-to-style-notes.csl
-@@ -5,10 +5,11 @@
++++ development/oxford-guide-to-style-notes-initials-label-page.csl
+@@ -3,12 +3,13 @@
+   type="application/relax-ng-compact-syntax" schematypens="http://relaxng.org/ns/compatibility/annotations/1.0"?>
+ <?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl-repository.rnc"
    type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
- <style and="text" class="note" default-locale="en-GB" demote-non-dropping-particle="display-and-sort" et-al-min="4" et-al-use-first="1" page-range-format="minimal" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
+-<style and="text" class="note" default-locale="en-GB" demote-non-dropping-particle="display-and-sort" et-al-min="4" et-al-use-first="1" page-range-format="minimal" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
++<style and="text" class="note" default-locale="en-GB" demote-non-dropping-particle="display-and-sort" et-al-min="4" et-al-use-first="1" initialize-with=". " page-range-format="minimal" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>New Hart's Rules: The Oxford Style Guide 2nd edition (template)</title>
 -    <title-short>NHR (template)</title-short>
 -    <id>http://www.zotero.org/styles/new-harts-rules-notes</id>
 -    <link href="http://www.zotero.org/styles/new-harts-rules-notes" rel="self"/>
-+    <title>Oxford Guide to Style (notes)</title>
-+    <title-short>OGS (notes)</title-short>
-+    <id>http://www.zotero.org/styles/oxford-guide-to-style-notes</id>
-+    <link href="http://www.zotero.org/styles/oxford-guide-to-style-notes" rel="self"/>
++    <title>Oxford Guide to Style (notes, author initials, page abbreviations)</title>
++    <title-short>OGS (notes, author initials, label page locator)</title-short>
++    <id>http://www.zotero.org/styles/oxford-guide-to-style-notes-initials-label-page</id>
++    <link href="http://www.zotero.org/styles/oxford-guide-to-style-notes-initials-label-page" rel="self"/>
 +    <link href="http://www.zotero.org/styles/new-harts-rules-notes" rel="template"/>
      <link href="https://en.wikipedia.org/wiki/Hart's_Rules" rel="documentation"/>
      <author>
@@ -21,7 +24,7 @@
      <category field="sociology"/>
      <category field="theology"/>
 -    <summary>Oxford source citations, template</summary>
-+    <summary>Oxford source citations, notes system</summary>
++    <summary>Oxford source citations, notes system, author forenames reduced to initials, page abbreviations with locator</summary>
      <updated>2025-11-05T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
@@ -112,7 +115,20 @@
    <!-- Contents:
      
         This file interprets Oxford style using APA's four basic reference elements:
-@@ -363,11 +421,9 @@
+@@ -225,10 +283,9 @@
+   <macro name="label-locator">
+     <group delimiter=" ">
+       <choose>
+-        <if locator="column page" match="any"/>
+-        <else-if is-numeric="locator">
++        <if is-numeric="locator">
+           <label form="short" variable="locator"/>
+-        </else-if>
++        </if>
+         <!-- a non-numeric canonical reference is described by its formatting and does not need a label, similar to a timestamp (NHR 17.2.5) -->
+         <else-if locator="chapter line verse" match="any"/>
+         <else>
+@@ -363,11 +420,9 @@
    <macro name="author-bib">
      <group delimiter=", ">
        <names variable="composer">
@@ -127,7 +143,7 @@
          <substitute>
            <names variable="author"/>
            <names variable="host"/>
-@@ -1211,16 +1267,12 @@
+@@ -1211,16 +1266,12 @@
                <choose>
                  <if match="any" variable="collection-editor container-author editor editorial-director">
                    <!-- monographic usage -->
@@ -146,7 +162,7 @@
              </else>
            </choose>
          </group>
-@@ -1467,10 +1519,6 @@
+@@ -1467,10 +1518,6 @@
              <text macro="label-volume"/>
            </if>
            <else-if locator="column page" match="any"/>
@@ -157,7 +173,7 @@
            <else-if variable="page"/>
            <else>
              <text macro="label-volume"/>
-@@ -2342,9 +2390,7 @@
+@@ -2342,9 +2389,7 @@
        <text macro="source-serial-identifier-volume"/>
        <!-- periodical edition always capitalized (cf. CMOS18 14.89) -->
        <text macro="label-edition-capitalized"/>
@@ -168,7 +184,7 @@
      </group>
    </macro>
    <macro name="source-serial-identifier-author-date">
-@@ -2509,8 +2555,6 @@
+@@ -2509,8 +2554,6 @@
            </group>
          </if>
        </choose>
@@ -177,7 +193,7 @@
        <text macro="source-event"/>
      </group>
    </macro>
-@@ -2944,8 +2988,7 @@
+@@ -2944,8 +2987,7 @@
            <choose>
              <if match="any" variable="collection-editor container-author editor editorial-director">
                <!-- monographic usage -->
@@ -187,7 +203,7 @@
                <text macro="source-publication-and-date"/>
              </if>
            </choose>
-@@ -2953,8 +2996,7 @@
+@@ -2953,8 +2995,7 @@
          <!-- `patent` date in identification (cf. CMOS18 14.158) -->
          <else-if type="patent"/>
          <else>
@@ -197,7 +213,7 @@
            <text macro="source-publication-and-date"/>
          </else>
        </choose>
-@@ -3519,7 +3561,7 @@
+@@ -3519,7 +3560,7 @@
            <text macro="label-locator"/>
          </if>
          <!-- for OGS: -->
@@ -206,7 +222,7 @@
            <text macro="label-volume"/>
            <text macro="label-part-number"/>
            <text macro="label-locator"/>
-@@ -3529,7 +3571,7 @@
+@@ -3529,7 +3570,7 @@
              <text macro="label-volume"/>
              <text macro="label-locator"/>
            </group>
@@ -215,7 +231,7 @@
          <else>
            <text macro="label-volume"/>
            <text macro="label-part-number"/>
-@@ -3587,9 +3629,7 @@
+@@ -3587,9 +3628,7 @@
        <!-- usually `archive`, `archive-place` but sometimes also `archive-place`, `archive` (NHR 18.6.5); the latter is more common elsewhere (OGS 15.11.1 and MHRA4 7.7) -->
        <text variable="archive_collection"/>
        <text variable="archive_location"/>

@@ -1,5 +1,5 @@
 --- templates/new-harts-rules-template.csl
-+++ development/new-harts-rules-author-date.csl
++++ development/new-harts-rules-author-date-publisher.csl
 @@ -3,18 +3,19 @@
    type="application/relax-ng-compact-syntax" schematypens="http://relaxng.org/ns/compatibility/annotations/1.0"?>
  <?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl-repository.rnc"
@@ -11,10 +11,10 @@
 -    <title-short>NHR (template)</title-short>
 -    <id>http://www.zotero.org/styles/new-harts-rules-notes</id>
 -    <link href="http://www.zotero.org/styles/new-harts-rules-notes" rel="self"/>
-+    <title>New Hart's Rules: The Oxford Style Guide 2nd edition (author-date, bracketed date with comma)</title>
-+    <title-short>NHR (author-date/Harvard [17.3], date with comma)</title-short>
-+    <id>http://www.zotero.org/styles/new-harts-rules-author-date</id>
-+    <link href="http://www.zotero.org/styles/new-harts-rules-author-date" rel="self"/>
++    <title>New Hart's Rules: The Oxford Style Guide 2nd edition (author-date, publisher)</title>
++    <title-short>NHR (author-date/Harvard [17.3], publisher [18.2.10])</title-short>
++    <id>http://www.zotero.org/styles/new-harts-rules-author-date-publisher</id>
++    <link href="http://www.zotero.org/styles/new-harts-rules-author-date-publisher" rel="self"/>
 +    <link href="http://www.zotero.org/styles/new-harts-rules-notes" rel="template"/>
      <link href="https://en.wikipedia.org/wiki/Hart's_Rules" rel="documentation"/>
      <author>
@@ -31,7 +31,7 @@
      <category field="sociology"/>
      <category field="theology"/>
 -    <summary>Oxford source citations, template</summary>
-+    <summary>Oxford source citations, author-date system</summary>
++    <summary>Oxford source citations, author-date system, publisher name (NHR 18.2.10)</summary>
      <updated>2025-11-05T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
@@ -76,6 +76,24 @@
            </group>
          </else>
        </choose>
+@@ -3194,7 +3195,7 @@
+                 <text form="short" term="no-place"/>
+               </else-if>
+             </choose>
+-            <!-- <text variable="publisher"/> -->
++            <text variable="publisher"/>
+           </group>
+         </if>
+         <else>
+@@ -3214,7 +3215,7 @@
+       <if match="any" type="book chapter classic entry entry-dictionary entry-encyclopedia interview musical_score pamphlet paper-conference report">
+         <group delimiter=": ">
+           <text variable="original-publisher-place"/>
+-          <!-- <text variable="original-publisher"/> -->
++          <text variable="original-publisher"/>
+         </group>
+       </if>
+       <else>
 @@ -3224,9 +3225,7 @@
    </macro>
    <!-- 4.6. Date -->
