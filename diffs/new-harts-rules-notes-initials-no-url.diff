@@ -1,5 +1,5 @@
 --- templates/new-harts-rules-template.csl
-+++ development/new-harts-rules-notes-initials.csl
++++ development/new-harts-rules-notes-initials-no-url.csl
 @@ -3,12 +3,13 @@
    type="application/relax-ng-compact-syntax" schematypens="http://relaxng.org/ns/compatibility/annotations/1.0"?>
  <?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl-repository.rnc"

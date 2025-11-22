@@ -1,5 +1,5 @@
 --- templates/new-harts-rules-template.csl
-+++ development/new-harts-rules-notes-initials-bracket-role-page-range.csl
++++ development/new-harts-rules-notes-initials-bracket-role-page-range-no-url.csl
 @@ -3,12 +3,13 @@
    type="application/relax-ng-compact-syntax" schematypens="http://relaxng.org/ns/compatibility/annotations/1.0"?>
  <?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl-repository.rnc"
@@ -89,7 +89,7 @@
        <choose>
          <!-- database identifier, if not included elsewhere (cf. CMOS18 14.113) -->
          <if match="any" variable="archive_collection archive_location archive-place"/>
-@@ -3709,7 +3710,7 @@
+@@ -3709,7 +3700,7 @@
            </group>
          </else-if>
        </choose>
