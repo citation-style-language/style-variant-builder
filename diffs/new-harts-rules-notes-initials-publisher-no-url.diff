@@ -11,10 +11,10 @@
 -    <title-short>NHR (template)</title-short>
 -    <id>http://www.zotero.org/styles/new-harts-rules-notes</id>
 -    <link href="http://www.zotero.org/styles/new-harts-rules-notes" rel="self"/>
-+    <title>New Hart's Rules: The Oxford Style Guide 2nd edition (notes, author initials, publisher)</title>
-+    <title-short>NHR (notes [17.2], author initials [18.2.2], publisher [18.2.10])</title-short>
-+    <id>http://www.zotero.org/styles/new-harts-rules-notes-initials-publisher</id>
-+    <link href="http://www.zotero.org/styles/new-harts-rules-notes-initials-publisher" rel="self"/>
++    <title>New Hart's Rules: The Oxford Style Guide 2nd edition (notes, author initials, publisher, without URLs)</title>
++    <title-short>NHR (notes [17.2], author initials [18.2.2], publisher [18.2.10], no URLs))</title-short>
++    <id>http://www.zotero.org/styles/new-harts-rules-notes-initials-publisher-no-url</id>
++    <link href="http://www.zotero.org/styles/new-harts-rules-notes-initials-publisher-no-url" rel="self"/>
 +    <link href="http://www.zotero.org/styles/new-harts-rules-notes" rel="template"/>
      <link href="https://en.wikipedia.org/wiki/Hart's_Rules" rel="documentation"/>
      <author>
@@ -24,7 +24,7 @@
      <category field="sociology"/>
      <category field="theology"/>
 -    <summary>Oxford source citations, template</summary>
-+    <summary>Oxford source citations, notes system, author forenames reduced to initials (NHR 18.2.2), publisher name (NHR 18.2.10)</summary>
++    <summary>Oxford source citations, notes system, author forenames reduced to initials (NHR 18.2.2), publisher name (NHR 18.2.10), without URLs</summary>
      <updated>2025-11-05T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
@@ -46,3 +46,12 @@
          </group>
        </if>
        <else>
+@@ -3709,7 +3710,7 @@
+           </group>
+         </else-if>
+       </choose>
+-      <text macro="source-DOI-URL"/>
++      <!-- <text macro="source-DOI-URL"/> -->
+     </group>
+   </macro>
+   <macro name="source-DOI-URL">
