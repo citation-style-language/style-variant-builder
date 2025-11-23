@@ -1,0 +1,1109 @@
+--- templates/modern-humanities-research-association-template.csl
++++ development/instrumenta-patristica-et-mediaevalia.csl
+@@ -3,31 +3,36 @@
+   type="application/relax-ng-compact-syntax" schematypens="http://relaxng.org/ns/compatibility/annotations/1.0"?>
+ <?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl-repository.rnc"
+   type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+-<style and="text" class="note" default-locale="en-GB" demote-non-dropping-particle="display-and-sort" et-al-min="4" et-al-use-first="1" page-range-format="minimal-two" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
++<style class="note" default-locale="en-GB" demote-non-dropping-particle="display-and-sort" et-al-min="4" et-al-use-first="1" initialize-with=". " page-range-format="expanded" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
+   <info>
+-    <title>Modern Humanities Research Association 4th edition (template)</title>
+-    <title-short>MHRA Style Guide</title-short>
+-    <id>http://www.zotero.org/styles/modern-humanities-research-association-notes</id>
+-    <link href="http://www.zotero.org/styles/modern-humanities-research-association-notes" rel="self"/>
+-    <link href="https://www.mhra.org.uk/style/" rel="documentation"/>
++    <title>Instrumenta Patristica et Mediaevalia</title>
++    <title-short>IPM</title-short>
++    <id>http://www.zotero.org/styles/instrumenta-patristica-et-mediaevalia</id>
++    <link href="http://www.zotero.org/styles/instrumenta-patristica-et-mediaevalia" rel="self"/>
++    <link href="http://www.zotero.org/styles/modern-humanities-research-association-notes" rel="template"/>
++    <link href="https://www.corpuschristianorum.org/author-info" rel="documentation"/>
++    <link href="https://www.brepols.net/permalink/stylesheet-full-refs" rel="documentation"/>
+     <author>
+       <name>Andrew Dunning</name>
+       <uri>https://orcid.org/0000-0003-0464-5036</uri>
+     </author>
+     <category citation-format="note"/>
+-    <category field="generic-base"/>
+-    <category field="history"/>
+     <category field="humanities"/>
+-    <category field="linguistics"/>
+     <category field="literature"/>
+     <category field="philosophy"/>
+     <category field="theology"/>
+-    <summary>MHRA source citations, template</summary>
++    <issn>1379-9878</issn>
++    <eissn>2294-8457</eissn>
++    <summary>Instrumenta Patristica et Mediaevalia (Brepols), interpreted as a light modification of MHRA.</summary>
+     <updated>2025-08-07T00:00:00+00:00</updated>
+     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
+   </info>
+   <locale xml:lang="en">
+     <terms>
++      <term name="open-quote">“</term>
++      <term name="close-quote">”</term>
++      <term name="open-inner-quote">‘</term>
++      <term name="close-inner-quote">’</term>
+       <term name="advance-online-publication">published online</term>
+       <term form="short" name="editor-translator">
+         <single>ed. and trans.</single>
+@@ -39,7 +44,6 @@
+       </term>
+       <term form="verb-short" name="editor-translator">ed. and trans. by</term>
+       <term form="verb-short" name="editortranslator">ed. and trans. by</term>
+-      <term name="et-al">and others</term>
+       <term name="manuscript">unpublished manuscript</term>
+       <term name="original-work-published">originally published as</term>
+       <term form="short" name="paper-conference">paper</term>
+@@ -372,7 +376,8 @@
+   <macro name="author-bib">
+     <group delimiter=", ">
+       <names variable="composer">
+-        <name delimiter-precedes-et-al="after-inverted-name" delimiter-precedes-last="always" name-as-sort-order="first"/>
++        <name delimiter-precedes-et-al="after-inverted-name" delimiter-precedes-last="always" font-variant="small-caps" name-as-sort-order="first"/>
++        <et-al font-variant="normal"/>
+         <label form="short" prefix=" (" suffix=")"/>
+         <substitute>
+           <choose>
+@@ -385,7 +390,16 @@
+               </choose>
+             </if>
+           </choose>
+-          <names variable="author"/>
++          <choose>
++            <if match="any" type="classic document manuscript personal_communication">
++              <names variable="author">
++                <name delimiter-precedes-et-al="after-inverted-name" delimiter-precedes-last="always" name-as-sort-order="first"/>
++              </names>
++            </if>
++            <else>
++              <names variable="author"/>
++            </else>
++          </choose>
+           <names variable="host"/>
+           <names variable="guest"/>
+           <choose>
+@@ -531,7 +545,8 @@
+   <macro name="author-note">
+     <group delimiter=", ">
+       <names variable="composer">
+-        <name delimiter-precedes-last="contextual"/>
++        <name delimiter-precedes-last="contextual" font-variant="small-caps"/>
++        <et-al font-variant="normal"/>
+         <label form="short" prefix=" (" suffix=")"/>
+         <substitute>
+           <choose>
+@@ -544,7 +559,16 @@
+               </choose>
+             </if>
+           </choose>
+-          <names variable="author"/>
++          <choose>
++            <if match="any" type="classic document manuscript personal_communication">
++              <names variable="author">
++                <name initialize="false"/>
++              </names>
++            </if>
++            <else>
++              <names variable="author"/>
++            </else>
++          </choose>
+           <names variable="illustrator"/>
+           <choose>
+             <if type="song">
+@@ -575,7 +599,8 @@
+       </if>
+       <else>
+         <names variable="composer">
+-          <name form="short"/>
++          <name font-variant="small-caps" form="short"/>
++          <et-al font-variant="normal"/>
+           <substitute>
+             <choose>
+               <if variable="author interviewer">
+@@ -587,7 +612,16 @@
+                 </choose>
+               </if>
+             </choose>
+-            <names variable="author"/>
++            <choose>
++              <if type="classic">
++                <names variable="author">
++                  <name delimiter-precedes-et-al="after-inverted-name" delimiter-precedes-last="always" name-as-sort-order="first"/>
++                </names>
++              </if>
++              <else>
++                <names variable="author"/>
++              </else>
++            </choose>
+             <names variable="host"/>
+             <names variable="illustrator"/>
+             <choose>
+@@ -628,7 +662,8 @@
+       <else-if match="any" type="book broadcast chapter classic entry interview motion_picture musical_score pamphlet paper-conference report software song standard thesis">
+         <names variable="contributor">
+           <label form="verb" suffix=" "/>
+-          <name/>
++          <name font-variant="small-caps"/>
++          <et-al font-variant="normal"/>
+         </names>
+       </else-if>
+     </choose>
+@@ -650,7 +685,8 @@
+             <if match="none" variable="genre">
+               <names variable="recipient">
+                 <label form="verb-short" suffix=" "/>
+-                <name/>
++                <name font-variant="small-caps"/>
++                <et-al font-variant="normal"/>
+               </names>
+             </if>
+           </choose>
+@@ -660,12 +696,14 @@
+             <if match="any" variable="container-title DOI issue number publisher publisher-place references URL volume">
+               <!-- cite published interviews under interviewer name (MHRA 7.11) -->
+               <names variable="interviewer">
+-                <name form="short"/>
++                <name font-variant="small-caps" form="short"/>
++                <et-al font-variant="normal"/>
+               </names>
+             </if>
+             <else>
+               <names variable="author">
+-                <name form="short"/>
++                <name font-variant="small-caps" form="short"/>
++                <et-al font-variant="normal"/>
+               </names>
+             </else>
+           </choose>
+@@ -673,20 +711,23 @@
+         <else-if variable="author recipient">
+           <names variable="author">
+             <label/>
+-            <name form="short"/>
++            <name font-variant="small-caps" form="short"/>
++            <et-al font-variant="normal"/>
+           </names>
+           <choose>
+             <if match="none" variable="genre">
+               <names variable="recipient">
+                 <label form="verb" suffix=" "/>
+-                <name form="short"/>
++                <name font-variant="small-caps" form="short"/>
++                <et-al font-variant="normal"/>
+               </names>
+             </if>
+           </choose>
+         </else-if>
+         <else>
+           <names variable="author">
+-            <name form="short"/>
++            <name font-variant="small-caps" form="short"/>
++            <et-al font-variant="normal"/>
+             <substitute>
+               <text macro="title-and-descriptions-short"/>
+             </substitute>
+@@ -1127,8 +1168,23 @@
+               </else>
+             </choose>
+             <text macro="source-monographic-publication-unbracketed"/>
++            <text macro="source-monographic-publication-bracketed"/>
+           </group>
+-          <text macro="source-monographic-publication-bracketed"/>
++          <choose>
++            <!-- Series, for monographic types only -->
++            <if match="any" type="article-journal article-magazine article-newspaper periodical post-weblog review review-book"/>
++            <else-if match="any" type="interview paper-conference">
++              <choose>
++                <if match="any" variable="collection-editor container-author editor editorial-director">
++                  <!-- monographic usage -->
++                  <text macro="source-series" prefix="(" suffix=")"/>
++                </if>
++              </choose>
++            </else-if>
++            <else>
++              <text macro="source-series" prefix="(" suffix=")"/>
++            </else>
++          </choose>
+         </group>
+         <choose>
+           <!-- Locator for monographic types only; serial locator handled in `source-serial-locator` -->
+@@ -1147,9 +1203,7 @@
+         </choose>
+         <text macro="source-medium"/>
+         <text macro="source-archive"/>
+-        <text prefix="doi:" variable="DOI"/>
+       </group>
+-      <text macro="source-URL"/>
+     </group>
+   </macro>
+   <!-- 3.1. Title -->
+@@ -1196,12 +1250,12 @@
+         <!-- If a review has no `reviewed-title`, assume that `title` contains the title of the reviewed work; the description provides it. -->
+         <choose>
+           <if variable="reviewed-genre title">
+-            <!-- Quotes, title case -->
+-            <text form="short" quotes="true" text-case="title" variable="title"/>
++            <!-- Quotes, sentence case -->
++            <text form="short" quotes="true" text-case="capitalize-first" variable="title"/>
+           </if>
+           <else-if variable="reviewed-genre reviewed-title title">
+-            <!-- Quotes, title case -->
+-            <text form="short" quotes="true" text-case="title" variable="title"/>
++            <!-- Quotes, sentence case -->
++            <text form="short" quotes="true" text-case="capitalize-first" variable="title"/>
+           </else-if>
+           <else>
+             <text macro="description-short"/>
+@@ -1245,16 +1299,16 @@
+         <text form="short" text-case="capitalize-first" variable="part-title"/>
+       </if>
+       <else-if match="any" type="bill collection legislation regulation treaty">
+-        <!-- No italics or quotes, title case -->
+-        <text text-case="title" variable="part-title"/>
++        <!-- No italics or quotes, sentence case -->
++        <text text-case="capitalize-first" variable="part-title"/>
+       </else-if>
+       <else-if match="any" type="book classic graphic hearing map periodical">
+         <!-- Italicized, title case (regardless of `container-title`) -->
+         <text font-style="italic" text-case="title" variable="part-title"/>
+       </else-if>
+       <else-if type="entry-encyclopedia" variable="author container-title">
+-        <!-- Signed encyclopedia entry in quotes, title case (cf. CMOS18 14.132) -->
+-        <text quotes="true" text-case="title" variable="part-title"/>
++        <!-- Signed encyclopedia entry in quotes, sentence case (cf. CMOS18 14.132) -->
++        <text quotes="true" text-case="capitalize-first" variable="part-title"/>
+       </else-if>
+       <else-if type="entry-dictionary" variable="container-title">
+         <!-- Quotes, sentence case -->
+@@ -1272,8 +1326,8 @@
+       <else-if variable="container-title">
+         <choose>
+           <if match="any" type="article-journal article-magazine article-newspaper periodical post-weblog review review-book">
+-            <!-- Quotes, title case -->
+-            <text quotes="true" text-case="title" variable="part-title"/>
++            <!-- Quotes, sentence case -->
++            <text quotes="true" text-case="capitalize-first" variable="part-title"/>
+           </if>
+           <else-if match="any" type="interview paper-conference">
+             <choose>
+@@ -1284,8 +1338,8 @@
+               </if>
+               <else>
+                 <!-- serial usage -->
+-                <!-- Quotes, title case -->
+-                <text quotes="true" text-case="title" variable="part-title"/>
++                <!-- Quotes, sentence case -->
++                <text quotes="true" text-case="capitalize-first" variable="part-title"/>
+               </else>
+             </choose>
+           </else-if>
+@@ -1298,8 +1352,8 @@
+       </else-if>
+       <else-if match="any" type="article dataset document interview manuscript paper-conference personal_communication speech thesis webpage">
+         <!-- Container-like but not necessarily with `container-title` -->
+-        <!-- Quotes, title case -->
+-        <text quotes="true" text-case="title" variable="part-title"/>
++        <!-- Quotes, sentence case -->
++        <text quotes="true" text-case="capitalize-first" variable="part-title"/>
+       </else-if>
+       <else>
+         <!-- Italicized, title case (default) -->
+@@ -1314,16 +1368,16 @@
+         <text form="short" text-case="capitalize-first" variable="title"/>
+       </if>
+       <else-if match="any" type="bill collection legislation regulation treaty">
+-        <!-- No italics or quotes, title case -->
+-        <text text-case="title" variable="title"/>
++        <!-- No italics or quotes, sentence case -->
++        <text text-case="capitalize-first" variable="title"/>
+       </else-if>
+       <else-if match="any" type="book classic graphic hearing map periodical">
+         <!-- Italicized, title case (regardless of `container-title`) -->
+         <text font-style="italic" text-case="title" variable="title"/>
+       </else-if>
+       <else-if type="entry-encyclopedia" variable="author container-title">
+-        <!-- Signed encyclopedia entry in quotes, title case (cf. CMOS18 14.132) -->
+-        <text quotes="true" text-case="title" variable="title"/>
++        <!-- Signed encyclopedia entry in quotes, sentence case (cf. CMOS18 14.132) -->
++        <text quotes="true" text-case="capitalize-first" variable="title"/>
+       </else-if>
+       <else-if type="entry-dictionary" variable="container-title">
+         <!-- Quotes, sentence case -->
+@@ -1339,13 +1393,13 @@
+       </else-if>
+       <!-- Other types are formatted based on presence of `container-title` -->
+       <else-if variable="container-title">
+-        <!-- Quotes, title case -->
+-        <text quotes="true" text-case="title" variable="title"/>
++        <!-- Quotes, sentence case -->
++        <text quotes="true" text-case="capitalize-first" variable="title"/>
+       </else-if>
+       <else-if match="any" type="article dataset document interview manuscript paper-conference personal_communication speech thesis webpage">
+         <!-- Container-like but not necessarily with `container-title` -->
+-        <!-- Quotes, title case -->
+-        <text quotes="true" text-case="title" variable="title"/>
++        <!-- Quotes, sentence case -->
++        <text quotes="true" text-case="capitalize-first" variable="title"/>
+       </else-if>
+       <else>
+         <!-- Italicized, title case (default) -->
+@@ -1360,16 +1414,16 @@
+         <text form="short" text-case="capitalize-first" variable="title"/>
+       </if>
+       <else-if match="any" type="bill collection legislation regulation treaty">
+-        <!-- No italics or quotes, title case -->
+-        <text form="short" text-case="title" variable="title"/>
++        <!-- No italics or quotes, sentence case -->
++        <text form="short" text-case="capitalize-first" variable="title"/>
+       </else-if>
+       <else-if match="any" type="book classic graphic hearing map periodical">
+         <!-- Italicized, title case (regardless of `container-title`) -->
+         <text font-style="italic" form="short" text-case="title" variable="title"/>
+       </else-if>
+       <else-if type="entry-encyclopedia" variable="author container-title">
+-        <!-- Signed encyclopedia entry in quotes, title case (cf. CMOS18 14.132) -->
+-        <text form="short" quotes="true" text-case="title" variable="title"/>
++        <!-- Signed encyclopedia entry in quotes, sentence case (cf. CMOS18 14.132) -->
++        <text form="short" quotes="true" text-case="capitalize-first" variable="title"/>
+       </else-if>
+       <else-if type="entry-dictionary" variable="container-title">
+         <!-- Quotes, sentence case -->
+@@ -1385,13 +1439,13 @@
+       </else-if>
+       <!-- Other types are formatted based on presence of `container-title` -->
+       <else-if variable="container-title">
+-        <!-- Quotes, title case -->
+-        <text form="short" quotes="true" text-case="title" variable="title"/>
++        <!-- Quotes, sentence case -->
++        <text form="short" quotes="true" text-case="capitalize-first" variable="title"/>
+       </else-if>
+       <else-if match="any" type="article dataset document interview manuscript paper-conference personal_communication speech thesis webpage">
+         <!-- Container-like but not necessarily with `container-title` -->
+-        <!-- Quotes, title case -->
+-        <text form="short" quotes="true" text-case="title" variable="title"/>
++        <!-- Quotes, sentence case -->
++        <text form="short" quotes="true" text-case="capitalize-first" variable="title"/>
+       </else-if>
+       <else>
+         <!-- Italicized, title case (default) -->
+@@ -1706,7 +1760,8 @@
+               <!-- `genre` printed with `number` -->
+               <names variable="interviewer">
+                 <label form="verb" suffix=" "/>
+-                <name/>
++                <name font-variant="small-caps"/>
++                <et-al font-variant="normal"/>
+               </names>
+             </if>
+             <else-if variable="genre">
+@@ -1721,7 +1776,8 @@
+             <else-if variable="interviewer">
+               <names variable="interviewer">
+                 <label form="verb" suffix=" "/>
+-                <name/>
++                <name font-variant="small-caps"/>
++                <et-al font-variant="normal"/>
+               </names>
+             </else-if>
+             <else>
+@@ -1828,12 +1884,14 @@
+           <if match="any" variable="container-title DOI issue number publisher publisher-place references URL volume">
+             <!-- interviewee appears in the description of a published interview only (MHRA 7.11) -->
+             <names variable="author">
+-              <name form="short"/>
++              <name font-variant="small-caps" form="short"/>
++              <et-al font-variant="normal"/>
+             </names>
+           </if>
+           <else>
+             <names variable="interviewer">
+-              <name form="short"/>
++              <name font-variant="small-caps" form="short"/>
++              <et-al font-variant="normal"/>
+             </names>
+           </else>
+         </choose>
+@@ -1864,7 +1922,8 @@
+               <!-- `genre` appears with `number` -->
+               <names variable="recipient">
+                 <label form="verb" suffix=" "/>
+-                <name/>
++                <name font-variant="small-caps"/>
++                <et-al font-variant="normal"/>
+               </names>
+             </if>
+             <else>
+@@ -1872,7 +1931,8 @@
+                 <text macro="description-format"/>
+                 <names variable="recipient">
+                   <label form="verb" suffix=" "/>
+-                  <name/>
++                  <name font-variant="small-caps"/>
++                  <et-al font-variant="normal"/>
+                 </names>
+               </group>
+             </else>
+@@ -1926,7 +1986,8 @@
+             <text macro="description-format-short"/>
+             <names variable="recipient">
+               <label form="verb" suffix=" "/>
+-              <name/>
++              <name font-variant="small-caps"/>
++              <et-al font-variant="normal"/>
+             </names>
+           </group>
+         </if>
+@@ -1978,6 +2039,28 @@
+           </if>
+           <else>
+             <text term="review-of"/>
++          </else>
++        </choose>
++        <group delimiter=", ">
++          <names variable="reviewed-author"/>
++          <text macro="description-review-title"/>
++          <text variable="reviewed-genre"/>
++          <text macro="source-event-place-first"/>
++        </group>
++      </group>
++      <text macro="label-section"/>
++    </group>
++  </macro>
++  <macro name="description-review-capitalized">
++    <group delimiter=", ">
++      <group delimiter=" ">
++        <choose>
++          <if variable="genre">
++            <!-- assume that `genre` is entered as 'Review of the book' or similar -->
++            <text text-case="capitalize-first" variable="genre"/>
++          </if>
++          <else>
++            <text term="review-of" text-case="capitalize-first"/>
+           </else>
+         </choose>
+         <group delimiter=", ">
+@@ -1990,28 +2073,6 @@
+       <text macro="label-section"/>
+     </group>
+   </macro>
+-  <macro name="description-review-capitalized">
+-    <group delimiter=", ">
+-      <group delimiter=" ">
+-        <choose>
+-          <if variable="genre">
+-            <!-- assume that `genre` is entered as 'Review of the book' or similar -->
+-            <text text-case="capitalize-first" variable="genre"/>
+-          </if>
+-          <else>
+-            <text term="review-of" text-case="capitalize-first"/>
+-          </else>
+-        </choose>
+-        <group delimiter=", ">
+-          <names variable="reviewed-author"/>
+-          <text macro="description-review-title"/>
+-          <text variable="reviewed-genre"/>
+-        </group>
+-        <text macro="source-event-place-first" prefix="(" suffix=")"/>
+-      </group>
+-      <text macro="label-section"/>
+-    </group>
+-  </macro>
+   <macro name="description-review-short">
+     <group delimiter=" ">
+       <text term="review-of"/>
+@@ -2074,6 +2135,26 @@
+       <choose>
+         <if variable="genre">
+           <text variable="genre"/>
++          <text form="verb" term="performer"/>
++        </if>
++      </choose>
++      <names variable="author">
++        <name delimiter-precedes-last="always" font-variant="small-caps"/>
++        <et-al font-variant="normal"/>
++        <substitute>
++          <names variable="performer"/>
++        </substitute>
++      </names>
++    </group>
++  </macro>
++  <macro name="description-song-capitalized">
++    <!-- Performer of classical music works -->
++    <!-- TODO: remove when Zotero fixes mapping of performer to `author` -->
++    <group delimiter=" ">
++      <!-- Based on `description-format` macro -->
++      <choose>
++        <if variable="genre">
++          <text text-case="capitalize-first" variable="genre"/>
+           <text form="verb" term="performer"/>
+         </if>
+       </choose>
+@@ -2085,25 +2166,6 @@
+       </names>
+     </group>
+   </macro>
+-  <macro name="description-song-capitalized">
+-    <!-- Performer of classical music works -->
+-    <!-- TODO: remove when Zotero fixes mapping of performer to `author` -->
+-    <group delimiter=" ">
+-      <!-- Based on `description-format` macro -->
+-      <choose>
+-        <if variable="genre">
+-          <text text-case="capitalize-first" variable="genre"/>
+-          <text form="verb" term="performer"/>
+-        </if>
+-      </choose>
+-      <names variable="author">
+-        <name delimiter-precedes-last="always"/>
+-        <substitute>
+-          <names variable="performer"/>
+-        </substitute>
+-      </names>
+-    </group>
+-  </macro>
+   <!-- 3.3. Identifier (contributors) -->
+   <macro name="identifier">
+     <group delimiter=", ">
+@@ -2140,7 +2202,8 @@
+               <!-- if there is a volume or part, contributors except for the series editor follow the corresponding volume -->
+               <names variable="collection-editor">
+                 <label form="verb-short" suffix=" "/>
+-                <name/>
++                <name font-variant="small-caps"/>
++                <et-al font-variant="normal"/>
+               </names>
+             </if>
+             <else-if match="any" variable="number-of-volumes part-number volume">
+@@ -2148,7 +2211,8 @@
+                 <if variable="collection-editor">
+                   <names variable="collection-editor">
+                     <label form="verb-short" suffix=" "/>
+-                    <name/>
++                    <name font-variant="small-caps"/>
++                    <et-al font-variant="normal"/>
+                   </names>
+                 </if>
+                 <else>
+@@ -2194,51 +2258,63 @@
+           <group delimiter=", ">
+             <names variable="container-author">
+               <label form="verb-short" suffix=" "/>
+-              <name/>
++              <name font-variant="small-caps"/>
++              <et-al font-variant="normal"/>
+             </names>
+             <names variable="editor-translator">
+               <label form="verb-short" suffix=" "/>
+-              <name/>
++              <name font-variant="small-caps"/>
++              <et-al font-variant="normal"/>
+             </names>
+             <names delimiter=", " variable="editor translator">
+               <label form="verb-short" suffix=" "/>
+-              <name/>
++              <name font-variant="small-caps"/>
++              <et-al font-variant="normal"/>
+             </names>
+             <names variable="editorial-director">
+               <label form="verb-short" suffix=" "/>
+-              <name/>
++              <name font-variant="small-caps"/>
++              <et-al font-variant="normal"/>
+             </names>
+             <names variable="host">
+               <label form="verb-short" suffix=" "/>
+-              <name/>
++              <name font-variant="small-caps"/>
++              <et-al font-variant="normal"/>
+             </names>
+             <names variable="guest">
+               <label form="verb" suffix=" "/>
+-              <name/>
++              <name font-variant="small-caps"/>
++              <et-al font-variant="normal"/>
+             </names>
+             <names delimiter=", " variable="illustrator narrator">
+               <label form="verb-short" suffix=" "/>
+-              <name/>
++              <name font-variant="small-caps"/>
++              <et-al font-variant="normal"/>
+             </names>
+             <names delimiter=", " variable="compiler chair organizer curator">
+               <label form="verb-short" suffix=" "/>
+-              <name/>
++              <name font-variant="small-caps"/>
++              <et-al font-variant="normal"/>
+             </names>
+             <names delimiter=", " variable="series-creator executive-producer">
+               <label form="verb" suffix=" "/>
+-              <name/>
++              <name font-variant="small-caps"/>
++              <et-al font-variant="normal"/>
+             </names>
+             <names variable="producer">
+               <label form="verb-short" suffix=" "/>
+-              <name/>
++              <name font-variant="small-caps"/>
++              <et-al font-variant="normal"/>
+             </names>
+             <names variable="director">
+               <label form="verb-short" suffix=" "/>
+-              <name/>
++              <name font-variant="small-caps"/>
++              <et-al font-variant="normal"/>
+             </names>
+             <names variable="performer">
+               <label form="verb-short" suffix=" "/>
+-              <name/>
++              <name font-variant="small-caps"/>
++              <et-al font-variant="normal"/>
+             </names>
+             <choose>
+               <if match="any" type="book broadcast chapter classic entry interview motion_picture musical_score pamphlet paper-conference report software"/>
+@@ -2246,7 +2322,8 @@
+               <else>
+                 <names variable="contributor">
+                   <label form="verb-short" suffix=" "/>
+-                  <name/>
++                  <name font-variant="small-caps"/>
++                  <et-al font-variant="normal"/>
+                 </names>
+               </else>
+             </choose>
+@@ -2259,59 +2336,72 @@
+               <if match="none" variable="container-title">
+                 <names variable="container-author">
+                   <label form="verb-short" suffix=" "/>
+-                  <name/>
++                  <name font-variant="small-caps"/>
++                  <et-al font-variant="normal"/>
+                 </names>
+                 <names variable="editor-translator">
+                   <label form="verb-short" suffix=" "/>
+-                  <name/>
++                  <name font-variant="small-caps"/>
++                  <et-al font-variant="normal"/>
+                 </names>
+                 <names delimiter=", " variable="editor translator">
+                   <label form="verb-short" suffix=" "/>
+-                  <name/>
++                  <name font-variant="small-caps"/>
++                  <et-al font-variant="normal"/>
+                 </names>
+                 <names variable="editorial-director">
+                   <label form="verb-short" suffix=" "/>
+-                  <name/>
++                  <name font-variant="small-caps"/>
++                  <et-al font-variant="normal"/>
+                 </names>
+                 <names variable="host">
+                   <label form="verb-short" suffix=" "/>
+-                  <name/>
++                  <name font-variant="small-caps"/>
++                  <et-al font-variant="normal"/>
+                 </names>
+                 <names variable="guest">
+                   <label form="verb" suffix=" "/>
+-                  <name/>
++                  <name font-variant="small-caps"/>
++                  <et-al font-variant="normal"/>
+                 </names>
+               </if>
+             </choose>
+             <names delimiter=", " variable="illustrator">
+               <label form="verb-short" suffix=" "/>
+-              <name/>
++              <name font-variant="small-caps"/>
++              <et-al font-variant="normal"/>
+             </names>
+             <names delimiter=", " variable="narrator">
+               <label form="verb-short" suffix=" "/>
+-              <name/>
++              <name font-variant="small-caps"/>
++              <et-al font-variant="normal"/>
+             </names>
+             <choose>
+               <if match="none" variable="container-title">
+                 <names delimiter=", " variable="compiler chair organizer curator">
+                   <label form="verb-short" suffix=" "/>
+-                  <name/>
++                  <name font-variant="small-caps"/>
++                  <et-al font-variant="normal"/>
+                 </names>
+                 <names delimiter=", " variable="series-creator executive-producer">
+                   <label form="verb" suffix=" "/>
+-                  <name/>
++                  <name font-variant="small-caps"/>
++                  <et-al font-variant="normal"/>
+                 </names>
+                 <names variable="producer">
+                   <label form="verb-short" suffix=" "/>
+-                  <name/>
++                  <name font-variant="small-caps"/>
++                  <et-al font-variant="normal"/>
+                 </names>
+                 <names variable="director">
+                   <label form="verb-short" suffix=" "/>
+-                  <name/>
++                  <name font-variant="small-caps"/>
++                  <et-al font-variant="normal"/>
+                 </names>
+                 <names variable="performer">
+                   <label form="verb-short" suffix=" "/>
+-                  <name/>
++                  <name font-variant="small-caps"/>
++                  <et-al font-variant="normal"/>
+                 </names>
+                 <choose>
+                   <if match="any" type="book broadcast chapter classic entry interview motion_picture musical_score pamphlet paper-conference report software"/>
+@@ -2320,7 +2410,8 @@
+                   <else>
+                     <names variable="contributor">
+                       <label form="verb-short" suffix=" "/>
+-                      <name/>
++                      <name font-variant="small-caps"/>
++                      <et-al font-variant="normal"/>
+                     </names>
+                   </else>
+                 </choose>
+@@ -2331,7 +2422,8 @@
+                 <!-- Song contributors attached to album (cf. CMOS18 14.163) -->
+                 <names variable="contributor">
+                   <label form="verb-short" suffix=" "/>
+-                  <name/>
++                  <name font-variant="small-caps"/>
++                  <et-al font-variant="normal"/>
+                 </names>
+               </if>
+             </choose>
+@@ -2346,34 +2438,41 @@
+         <if type="periodical">
+           <names variable="editor">
+             <label form="verb-short" suffix=" "/>
+-            <name/>
++            <name font-variant="small-caps"/>
++            <et-al font-variant="normal"/>
+           </names>
+         </if>
+       </choose>
+       <names delimiter=", " variable="translator narrator">
+         <label form="verb-short" suffix=" "/>
+-        <name/>
++        <name font-variant="small-caps"/>
++        <et-al font-variant="normal"/>
+       </names>
+       <names delimiter=", " variable="compiler chair organizer curator">
+         <label form="verb-short" suffix=" "/>
+-        <name/>
++        <name font-variant="small-caps"/>
++        <et-al font-variant="normal"/>
+       </names>
+       <names delimiter=", " variable="series-creator executive-producer">
+         <label form="verb" suffix=" "/>
+-        <name/>
++        <name font-variant="small-caps"/>
++        <et-al font-variant="normal"/>
+       </names>
+       <names variable="producer">
+         <!-- not abbreviated (cf. CMOS18 14.168) -->
+         <label form="verb" suffix=" "/>
+-        <name/>
++        <name font-variant="small-caps"/>
++        <et-al font-variant="normal"/>
+       </names>
+       <names variable="director">
+         <label form="verb-short" suffix=" "/>
+-        <name/>
++        <name font-variant="small-caps"/>
++        <et-al font-variant="normal"/>
+       </names>
+       <names variable="performer">
+         <label form="verb-short" suffix=" "/>
+-        <name/>
++        <name font-variant="small-caps"/>
++        <et-al font-variant="normal"/>
+       </names>
+     </group>
+   </macro>
+@@ -2666,7 +2765,6 @@
+           </group>
+         </if>
+       </choose>
+-      <text macro="source-series"/>
+       <text macro="source-event"/>
+       <text macro="label-version"/>
+       <text macro="identifier-edition"/>
+@@ -2737,7 +2835,8 @@
+               <!-- if there is a volume or part, contributors except for the series editor follow the corresponding volume -->
+               <names variable="collection-editor">
+                 <label form="verb-short" suffix=" "/>
+-                <name/>
++                <name font-variant="small-caps"/>
++                <et-al font-variant="normal"/>
+               </names>
+             </if>
+             <else-if match="any" variable="number-of-volumes part-number volume">
+@@ -2745,7 +2844,8 @@
+                 <if variable="collection-editor">
+                   <names variable="collection-editor">
+                     <label form="verb-short" suffix=" "/>
+-                    <name/>
++                    <name font-variant="small-caps"/>
++                    <et-al font-variant="normal"/>
+                   </names>
+                 </if>
+                 <else>
+@@ -2765,47 +2865,58 @@
+     <group delimiter=", ">
+       <names variable="editor-translator">
+         <label form="verb-short" suffix=" "/>
+-        <name/>
++        <name font-variant="small-caps"/>
++        <et-al font-variant="normal"/>
+       </names>
+       <names delimiter=", " variable="editor translator">
+         <label form="verb-short" suffix=" "/>
+-        <name/>
++        <name font-variant="small-caps"/>
++        <et-al font-variant="normal"/>
+       </names>
+       <names variable="host">
+         <label form="verb-short" suffix=" "/>
+-        <name/>
++        <name font-variant="small-caps"/>
++        <et-al font-variant="normal"/>
+       </names>
+       <names variable="guest">
+         <label form="verb" suffix=" "/>
+-        <name/>
++        <name font-variant="small-caps"/>
++        <et-al font-variant="normal"/>
+       </names>
+       <names delimiter=", " variable="chair organizer">
+         <label form="verb-short" suffix=" "/>
+-        <name/>
++        <name font-variant="small-caps"/>
++        <et-al font-variant="normal"/>
+       </names>
+       <names delimiter=", " variable="illustrator narrator compiler curator">
+         <label form="verb-short" suffix=" "/>
+-        <name/>
++        <name font-variant="small-caps"/>
++        <et-al font-variant="normal"/>
+       </names>
+       <names delimiter=", " variable="series-creator executive-producer">
+         <label form="verb" suffix=" "/>
+-        <name/>
++        <name font-variant="small-caps"/>
++        <et-al font-variant="normal"/>
+       </names>
+       <names variable="producer">
+         <label form="verb-short" suffix=" "/>
+-        <name/>
++        <name font-variant="small-caps"/>
++        <et-al font-variant="normal"/>
+       </names>
+       <names variable="editorial-director">
+         <label form="verb-short" suffix=" "/>
+-        <name/>
++        <name font-variant="small-caps"/>
++        <et-al font-variant="normal"/>
+       </names>
+       <names variable="director">
+         <label form="verb-short" suffix=" "/>
+-        <name/>
++        <name font-variant="small-caps"/>
++        <et-al font-variant="normal"/>
+       </names>
+       <names variable="performer">
+         <label form="verb-short" suffix=" "/>
+-        <name/>
++        <name font-variant="small-caps"/>
++        <et-al font-variant="normal"/>
+       </names>
+       <choose>
+         <if match="any" type="book broadcast chapter classic entry interview motion_picture musical_score pamphlet paper-conference report software"/>
+@@ -2815,7 +2926,8 @@
+           <!-- Song contributors attached to album (cf. CMOS18 14.163) -->
+           <names variable="contributor">
+             <label form="verb-short" suffix=" "/>
+-            <name/>
++            <name font-variant="small-caps"/>
++            <et-al font-variant="normal"/>
+           </names>
+         </else>
+       </choose>
+@@ -2849,7 +2961,7 @@
+     </group>
+   </macro>
+   <macro name="source-monographic-locator-volume">
+-    <group delimiter=" ">
++    <group delimiter=", ">
+       <group delimiter=", ">
+         <text macro="title-volume"/>
+         <choose>
+@@ -2873,13 +2985,13 @@
+       <!-- remove volume `issued` date from this position in author-date -->
+       <choose>
+         <if variable="available-date issued volume">
+-          <text macro="date-issued-year" prefix="(" suffix=")"/>
++          <text macro="date-issued-year"/>
+         </if>
+         <else-if variable="available-date issued part-number">
+-          <text macro="date-issued-year" prefix="(" suffix=")"/>
++          <text macro="date-issued-year"/>
+         </else-if>
+         <else-if type="broadcast" variable="available-date issued number">
+-          <text macro="date-issued-year" prefix="(" suffix=")"/>
++          <text macro="date-issued-year"/>
+         </else-if>
+       </choose>
+     </group>
+@@ -3004,19 +3116,17 @@
+   </macro>
+   <macro name="source-event-unpublished-paper-conference">
+     <!-- place and date are rendered in brackets for an unpublished conference paper (MHRA 7.10.vi) -->
+-    <group delimiter=" ">
++    <group delimiter=", ">
+       <text macro="source-event-title"/>
+-      <group delimiter=", " prefix="(" suffix=")">
+-        <text variable="event-place"/>
+-        <choose>
+-          <if variable="event-date">
+-            <text macro="date-event-full"/>
+-          </if>
+-          <else>
+-            <text macro="date-issued-full"/>
+-          </else>
+-        </choose>
+-      </group>
++      <text variable="event-place"/>
++      <choose>
++        <if variable="event-date">
++          <text macro="date-event-full"/>
++        </if>
++        <else>
++          <text macro="date-issued-full"/>
++        </else>
++      </choose>
+     </group>
+   </macro>
+   <!-- 4.5. Facts of publication -->
+@@ -3046,24 +3156,24 @@
+     <!-- Facts of publication with brackets for print monographic formats -->
+     <choose>
+       <if match="any" type="book broadcast chapter classic entry interview motion_picture musical_score pamphlet paper-conference report software song standard thesis">
+-        <text macro="source-monographic-publication" prefix="(" suffix=")"/>
++        <text macro="source-monographic-publication"/>
+       </if>
+       <else-if type="article" variable="genre publisher">
+         <!-- without brackets for a preprint in a repository (cf. CMOS18 14.76), with brackets for a working paper (cf. CMOS18 14.116) -->
+-        <text macro="source-monographic-publication" prefix="(" suffix=")"/>
++        <text macro="source-monographic-publication"/>
+       </else-if>
+       <!-- dictionary/encyclopedia entries probably are bracketed only with publisher (MHRA 7.5) -->
+       <else-if type="entry-dictionary" variable="publisher">
+-        <text macro="source-monographic-publication" prefix="(" suffix=")"/>
++        <text macro="source-monographic-publication"/>
+       </else-if>
+       <else-if type="entry-encyclopedia" variable="publisher">
+-        <text macro="source-monographic-publication" prefix="(" suffix=")"/>
++        <text macro="source-monographic-publication"/>
+       </else-if>
+       <else-if type="personal_communication">
+         <choose>
+           <if match="any" variable="collection-editor compiler editor editorial-director publisher">
+             <!-- in an edited collection -->
+-            <text macro="source-monographic-publication" prefix="(" suffix=")"/>
++            <text macro="source-monographic-publication"/>
+           </if>
+         </choose>
+       </else-if>
+@@ -3093,7 +3203,7 @@
+     <!-- mirrors `source-monographic-publication-bracketed` -->
+     <choose>
+       <if disambiguate="true">
+-        <group delimiter=", " prefix="(" suffix=")">
++        <group delimiter=", ">
+           <choose>
+             <!-- Facts of publication with brackets for print monographic formats -->
+             <if match="any" type="book chapter classic entry entry-dictionary entry-encyclopedia interview musical_score pamphlet paper-conference report thesis">
+@@ -3250,8 +3360,6 @@
+           <group delimiter=", ">
+             <names variable="original-author"/>
+             <text font-style="italic" text-case="title" variable="original-title"/>
+-          </group>
+-          <group delimiter=", " prefix="(" suffix=")">
+             <text macro="source-publication-publisher-original"/>
+             <text macro="source-date-original"/>
+           </group>
+@@ -3262,26 +3370,21 @@
+   <macro name="source-publication-publisher">
+     <group delimiter=" ">
+       <choose>
+-        <if type="thesis" variable="publisher">
++        <if match="any" type="book chapter classic entry entry-dictionary entry-encyclopedia interview musical_score pamphlet paper-conference report">
++          <group delimiter=": ">
++            <choose>
++              <if variable="publisher-place">
++                <text variable="publisher-place"/>
++              </if>
++              <else-if match="none" type="classic entry entry-dictionary entry-encyclopedia" variable="original-publisher-place">
++                <text form="short" term="no-place"/>
++              </else-if>
++            </choose>
++            <!-- <text variable="publisher"/> -->
++          </group>
++        </if>
++        <else>
+           <text variable="publisher"/>
+-        </if>
+-        <else-if type="motion_picture" variable="publisher-place">
+-          <!-- prioritize the country of origin for films (MHRA 7.8) -->
+-          <text variable="publisher-place"/>
+-        </else-if>
+-        <else-if type="motion_picture" variable="event-place">
+-          <text variable="event-place"/>
+-        </else-if>
+-        <else-if variable="publisher">
+-          <group delimiter=": ">
+-            <!-- <text variable="publisher-place"/> -->
+-            <text variable="publisher"/>
+-          </group>
+-        </else-if>
+-        <!-- TODO: remove conditional when Zotero fixes double-mapping of `event-place` -->
+-        <else-if match="any" variable="event-date event-title"/>
+-        <else>
+-          <text variable="publisher-place"/>
+         </else>
+       </choose>
+       <choose>
+@@ -3296,7 +3399,7 @@
+     <choose>
+       <if variable="original-publisher">
+         <group delimiter=": ">
+-          <!-- <text variable="original-publisher-place"/> -->
++          <text variable="original-publisher-place"/>
+           <text variable="original-publisher"/>
+         </group>
+       </if>
+@@ -3866,7 +3969,8 @@
+         <if disambiguate="true">
+           <names variable="editor-translator">
+             <label form="verb-short" suffix=" "/>
+-            <name form="short"/>
++            <name font-variant="small-caps" form="short"/>
++            <et-al font-variant="normal"/>
+             <substitute>
+               <names variable="editor"/>
+               <names variable="translator"/>
+@@ -3994,7 +4098,7 @@
+       <key macro="source-archive"/>
+     </sort>
+     <layout>
+-      <text macro="bibliography-filtered-notes"/>
++      <text macro="bibliography-notes"/>
+     </layout>
+   </bibliography>
+ </style>
