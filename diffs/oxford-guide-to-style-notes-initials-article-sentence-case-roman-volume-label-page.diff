@@ -162,120 +162,167 @@
              </else>
            </choose>
          </group>
-@@ -1264,11 +1315,11 @@
+@@ -1263,12 +1314,12 @@
+         <!-- If a review has no `reviewed-title`, assume that `title` contains the title of the reviewed work; the description provides it. -->
          <choose>
            <if variable="reviewed-genre title">
-             <!-- Quotes, title case -->
+-            <!-- Quotes, title case -->
 -            <text form="short" quotes="true" text-case="title" variable="title"/>
++            <!-- Quotes, sentence case -->
 +            <text form="short" quotes="true" text-case="capitalize-first" variable="title"/>
            </if>
            <else-if variable="reviewed-genre reviewed-title title">
-             <!-- Quotes, title case -->
+-            <!-- Quotes, title case -->
 -            <text form="short" quotes="true" text-case="title" variable="title"/>
++            <!-- Quotes, sentence case -->
 +            <text form="short" quotes="true" text-case="capitalize-first" variable="title"/>
            </else-if>
            <else>
              <text macro="description-short"/>
-@@ -1328,7 +1379,7 @@
+@@ -1327,16 +1378,16 @@
+         <text form="short" text-case="capitalize-first" variable="part-title"/>
        </if>
        <else-if match="any" type="bill collection legislation regulation treaty">
-         <!-- No italics or quotes, title case -->
+-        <!-- No italics or quotes, title case -->
 -        <text text-case="title" variable="part-title"/>
++        <!-- No italics or quotes, sentence case -->
 +        <text text-case="capitalize-first" variable="part-title"/>
        </else-if>
        <else-if match="any" type="book classic graphic hearing map periodical">
          <!-- Italicized, title case (regardless of `container-title`) -->
-@@ -1336,7 +1387,7 @@
+         <text font-style="italic" text-case="title" variable="part-title"/>
        </else-if>
        <else-if type="entry-encyclopedia" variable="author container-title">
-         <!-- Signed encyclopedia entry in quotes, title case (cf. CMOS18 14.132) -->
+-        <!-- Signed encyclopedia entry in quotes, title case (cf. CMOS18 14.132) -->
 -        <text quotes="true" text-case="title" variable="part-title"/>
++        <!-- Signed encyclopedia entry in quotes, sentence case (cf. CMOS18 14.132) -->
 +        <text quotes="true" text-case="capitalize-first" variable="part-title"/>
        </else-if>
        <else-if type="entry-dictionary" variable="container-title">
          <!-- Quotes, sentence case -->
-@@ -1353,12 +1404,12 @@
-       <!-- Other types are formatted based on presence of `container-title` -->
+@@ -1354,8 +1405,8 @@
        <else-if variable="container-title">
-         <!-- Quotes, title case -->
--        <text quotes="true" text-case="title" variable="part-title"/>
-+        <text quotes="true" text-case="capitalize-first" variable="part-title"/>
+         <choose>
+           <if match="any" type="article-journal article-magazine article-newspaper periodical post-weblog review review-book">
+-            <!-- Quotes, title case -->
+-            <text quotes="true" text-case="title" variable="part-title"/>
++            <!-- Quotes, sentence case -->
++            <text quotes="true" text-case="capitalize-first" variable="part-title"/>
+           </if>
+           <else-if match="any" type="interview paper-conference">
+             <choose>
+@@ -1366,8 +1417,8 @@
+               </if>
+               <else>
+                 <!-- serial usage -->
+-                <!-- Quotes, title case -->
+-                <text quotes="true" text-case="title" variable="part-title"/>
++                <!-- Quotes, sentence case -->
++                <text quotes="true" text-case="capitalize-first" variable="part-title"/>
+               </else>
+             </choose>
+           </else-if>
+@@ -1380,8 +1431,8 @@
        </else-if>
        <else-if match="any" type="article dataset document interview manuscript paper-conference personal_communication speech thesis webpage">
          <!-- Container-like but not necessarily with `container-title` -->
-         <!-- Quotes, title case -->
+-        <!-- Quotes, title case -->
 -        <text quotes="true" text-case="title" variable="part-title"/>
++        <!-- Quotes, sentence case -->
 +        <text quotes="true" text-case="capitalize-first" variable="part-title"/>
        </else-if>
        <else>
          <!-- Italicized, title case (default) -->
-@@ -1374,7 +1425,7 @@
+@@ -1396,16 +1447,16 @@
+         <text form="short" text-case="capitalize-first" variable="title"/>
        </if>
        <else-if match="any" type="bill collection legislation regulation treaty">
-         <!-- No italics or quotes, title case -->
+-        <!-- No italics or quotes, title case -->
 -        <text text-case="title" variable="title"/>
++        <!-- No italics or quotes, sentence case -->
 +        <text text-case="capitalize-first" variable="title"/>
        </else-if>
        <else-if match="any" type="book classic graphic hearing map periodical">
          <!-- Italicized, title case (regardless of `container-title`) -->
-@@ -1382,7 +1433,7 @@
+         <text font-style="italic" text-case="title" variable="title"/>
        </else-if>
        <else-if type="entry-encyclopedia" variable="author container-title">
-         <!-- Signed encyclopedia entry in quotes, title case (cf. CMOS18 14.132) -->
+-        <!-- Signed encyclopedia entry in quotes, title case (cf. CMOS18 14.132) -->
 -        <text quotes="true" text-case="title" variable="title"/>
++        <!-- Signed encyclopedia entry in quotes, sentence case (cf. CMOS18 14.132) -->
 +        <text quotes="true" text-case="capitalize-first" variable="title"/>
        </else-if>
        <else-if type="entry-dictionary" variable="container-title">
          <!-- Quotes, sentence case -->
-@@ -1399,12 +1450,12 @@
+@@ -1421,13 +1472,13 @@
+       </else-if>
        <!-- Other types are formatted based on presence of `container-title` -->
        <else-if variable="container-title">
-         <!-- Quotes, title case -->
+-        <!-- Quotes, title case -->
 -        <text quotes="true" text-case="title" variable="title"/>
-+        <text quotes="true" text-case="capitalize-first" variable="title"/>
++        <!-- Quotes, sentence case -->
++        <text quotes="true" variable="title"/>
        </else-if>
        <else-if match="any" type="article dataset document interview manuscript paper-conference personal_communication speech thesis webpage">
          <!-- Container-like but not necessarily with `container-title` -->
-         <!-- Quotes, title case -->
+-        <!-- Quotes, title case -->
 -        <text quotes="true" text-case="title" variable="title"/>
-+        <text quotes="true" text-case="capitalize-first" variable="title"/>
++        <!-- Quotes, sentence case -->
++        <text quotes="true" variable="title"/>
        </else-if>
        <else>
          <!-- Italicized, title case (default) -->
-@@ -1420,7 +1471,7 @@
+@@ -1442,38 +1493,38 @@
+         <text form="short" text-case="capitalize-first" variable="title"/>
        </if>
        <else-if match="any" type="bill collection legislation regulation treaty">
-         <!-- No italics or quotes, title case -->
+-        <!-- No italics or quotes, title case -->
 -        <text form="short" text-case="title" variable="title"/>
++        <!-- No italics or quotes, sentence case -->
 +        <text form="short" text-case="capitalize-first" variable="title"/>
        </else-if>
        <else-if match="any" type="book classic graphic hearing map periodical">
          <!-- Italicized, title case (regardless of `container-title`) -->
-@@ -1428,7 +1479,7 @@
+         <text font-style="italic" form="short" text-case="title" variable="title"/>
        </else-if>
        <else-if type="entry-encyclopedia" variable="author container-title">
-         <!-- Signed encyclopedia entry in quotes, title case (cf. CMOS18 14.132) -->
+-        <!-- Signed encyclopedia entry in quotes, title case (cf. CMOS18 14.132) -->
 -        <text form="short" quotes="true" text-case="title" variable="title"/>
++        <!-- Signed encyclopedia entry in quotes, sentence case (cf. CMOS18 14.132) -->
 +        <text form="short" quotes="true" text-case="capitalize-first" variable="title"/>
        </else-if>
        <else-if type="entry-dictionary" variable="container-title">
          <!-- Quotes, sentence case -->
-@@ -1445,12 +1496,12 @@
+-        <text form="short" quotes="true" variable="title"/>
++        <text form="short" quotes="true" text-case="capitalize-first" variable="title"/>
+       </else-if>
+       <else-if type="entry-encyclopedia" variable="container-title">
+         <!-- Quotes, sentence case -->
+-        <text form="short" quotes="true" variable="title"/>
++        <text form="short" quotes="true" text-case="capitalize-first" variable="title"/>
+       </else-if>
+       <else-if type="post">
+         <!-- Quotes, sentence case -->
+-        <text form="short" quotes="true" variable="title"/>
++        <text form="short" quotes="true" text-case="capitalize-first" variable="title"/>
+       </else-if>
        <!-- Other types are formatted based on presence of `container-title` -->
        <else-if variable="container-title">
-         <!-- Quotes, title case -->
+-        <!-- Quotes, title case -->
 -        <text form="short" quotes="true" text-case="title" variable="title"/>
++        <!-- Quotes, sentence case -->
 +        <text form="short" quotes="true" text-case="capitalize-first" variable="title"/>
        </else-if>
        <else-if match="any" type="article dataset document interview manuscript paper-conference personal_communication speech thesis webpage">
          <!-- Container-like but not necessarily with `container-title` -->
-         <!-- Quotes, title case -->
+-        <!-- Quotes, title case -->
 -        <text form="short" quotes="true" text-case="title" variable="title"/>
++        <!-- Quotes, sentence case -->
 +        <text form="short" quotes="true" text-case="capitalize-first" variable="title"/>
        </else-if>
        <else>
          <!-- Italicized, title case (default) -->
-@@ -1467,10 +1518,6 @@
+@@ -1490,10 +1541,6 @@
              <text macro="label-volume"/>
            </if>
            <else-if locator="column page" match="any"/>
@@ -286,7 +333,7 @@
            <else-if variable="page"/>
            <else>
              <text macro="label-volume"/>
-@@ -2342,9 +2389,7 @@
+@@ -2365,9 +2412,7 @@
        <text macro="source-serial-identifier-volume"/>
        <!-- periodical edition always capitalized (cf. CMOS18 14.89) -->
        <text macro="label-edition-capitalized"/>
@@ -297,7 +344,7 @@
      </group>
    </macro>
    <macro name="source-serial-identifier-author-date">
-@@ -2389,16 +2434,12 @@
+@@ -2412,16 +2457,12 @@
                <choose>
                  <if variable="issue volume">
                    <group delimiter="/">
@@ -316,7 +363,7 @@
                    <text macro="label-issue"/>
                  </else>
                </choose>
-@@ -2509,8 +2550,6 @@
+@@ -2532,8 +2573,6 @@
            </group>
          </if>
        </choose>
@@ -325,7 +372,7 @@
        <text macro="source-event"/>
      </group>
    </macro>
-@@ -2819,9 +2858,7 @@
+@@ -2842,9 +2881,7 @@
    <macro name="source-series">
      <group delimiter=", ">
        <text text-case="title" variable="collection-title"/>
@@ -336,7 +383,7 @@
        <text macro="label-issue"/>
      </group>
    </macro>
-@@ -2944,8 +2981,7 @@
+@@ -2967,8 +3004,7 @@
            <choose>
              <if match="any" variable="collection-editor container-author editor editorial-director">
                <!-- monographic usage -->
@@ -346,7 +393,7 @@
                <text macro="source-publication-and-date"/>
              </if>
            </choose>
-@@ -2953,8 +2989,7 @@
+@@ -2976,8 +3012,7 @@
          <!-- `patent` date in identification (cf. CMOS18 14.158) -->
          <else-if type="patent"/>
          <else>
@@ -356,7 +403,7 @@
            <text macro="source-publication-and-date"/>
          </else>
        </choose>
-@@ -3519,7 +3554,7 @@
+@@ -3542,7 +3577,7 @@
            <text macro="label-locator"/>
          </if>
          <!-- for OGS: -->
@@ -365,7 +412,7 @@
            <text macro="label-volume"/>
            <text macro="label-part-number"/>
            <text macro="label-locator"/>
-@@ -3529,7 +3564,7 @@
+@@ -3552,7 +3587,7 @@
              <text macro="label-volume"/>
              <text macro="label-locator"/>
            </group>
@@ -374,7 +421,7 @@
          <else>
            <text macro="label-volume"/>
            <text macro="label-part-number"/>
-@@ -3587,9 +3622,7 @@
+@@ -3610,9 +3645,7 @@
        <!-- usually `archive`, `archive-place` but sometimes also `archive-place`, `archive` (NHR 18.6.5); the latter is more common elsewhere (OGS 15.11.1 and MHRA4 7.7) -->
        <text variable="archive_collection"/>
        <text variable="archive_location"/>

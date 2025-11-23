@@ -56,7 +56,7 @@
              </else>
            </choose>
          </group>
-@@ -2342,9 +2339,7 @@
+@@ -2365,9 +2362,7 @@
        <text macro="source-serial-identifier-volume"/>
        <!-- periodical edition always capitalized (cf. CMOS18 14.89) -->
        <text macro="label-edition-capitalized"/>
@@ -67,7 +67,7 @@
      </group>
    </macro>
    <macro name="source-serial-identifier-author-date">
-@@ -2774,9 +2769,7 @@
+@@ -2797,9 +2792,7 @@
      </choose>
    </macro>
    <macro name="source-monographic-locator-range">
@@ -78,7 +78,7 @@
        <choose>
          <if match="any" variable="part-title volume-title"/>
          <else-if match="any" variable="locator page">
-@@ -3587,9 +3580,7 @@
+@@ -3610,9 +3603,7 @@
        <!-- usually `archive`, `archive-place` but sometimes also `archive-place`, `archive` (NHR 18.6.5); the latter is more common elsewhere (OGS 15.11.1 and MHRA4 7.7) -->
        <text variable="archive_collection"/>
        <text variable="archive_location"/>

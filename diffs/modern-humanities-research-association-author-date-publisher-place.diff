@@ -46,7 +46,7 @@
            <text macro="identifier"/>
          </else>
        </choose>
-@@ -2847,18 +2846,6 @@
+@@ -2870,18 +2869,6 @@
            </else-if>
          </choose>
        </group>
@@ -65,7 +65,7 @@
      </group>
    </macro>
    <!-- 4.3. Series -->
-@@ -3251,7 +3238,7 @@
+@@ -3274,7 +3261,7 @@
          </else-if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -74,7 +74,7 @@
              <text variable="publisher"/>
            </group>
          </else-if>
-@@ -3273,7 +3260,7 @@
+@@ -3296,7 +3283,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -83,7 +83,7 @@
            <text variable="original-publisher"/>
          </group>
        </if>
-@@ -3289,9 +3276,7 @@
+@@ -3312,9 +3299,7 @@
          <date date-parts="year" form="text" variable="available-date"/>
        </if>
        <else>
@@ -94,7 +94,7 @@
        </else>
      </choose>
    </macro>
-@@ -3440,9 +3425,7 @@
+@@ -3463,9 +3448,7 @@
      </choose>
    </macro>
    <macro name="source-date-original">
@@ -105,7 +105,7 @@
    </macro>
    <macro name="source-date-original-full">
      <!-- Give full date for more ephemeral types; reflected in `date-sort` -->
-@@ -3859,9 +3842,9 @@
+@@ -3882,9 +3865,9 @@
        </choose>
      </group>
    </macro>
@@ -118,7 +118,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -3961,17 +3944,19 @@
+@@ -3984,17 +3967,19 @@
    <bibliography hanging-indent="true" subsequent-author-substitute="&#8212;&#8212;" subsequent-author-substitute-rule="partial-first">
      <sort>
        <key macro="author-bib"/>
