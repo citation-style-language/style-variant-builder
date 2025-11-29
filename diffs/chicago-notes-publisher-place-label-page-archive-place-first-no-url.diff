@@ -1,0 +1,231 @@
+--- templates/chicago-template.csl
++++ development/chicago-notes-publisher-place-label-page-archive-place-first-no-url.csl
+@@ -5,10 +5,11 @@
+   type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+ <style class="note" demote-non-dropping-particle="display-and-sort" page-range-format="chicago-16" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
+   <info>
+-    <title>Chicago Manual of Style 18th edition (template)</title>
+-    <title-short>CMOS with Bluebook</title-short>
+-    <id>http://www.zotero.org/styles/chicago-notes-bibliography</id>
+-    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="self"/>
++    <title>Chicago Manual of Style 18th edition (notes without bibliography, place of publication substituted for publisher, page abbreviations, archival references with place first, without URLs)</title>
++    <title-short>CMOS with Bluebook (notes without bibliography [13.23], chapter page numbers [14.8], publisher place for name [14.31], label page locator [14.50], archive place first [14.205], no URLs [13.6])</title-short>
++    <id>http://www.zotero.org/styles/chicago-notes-publisher-place-archive-place-first-no-url</id>
++    <link href="http://www.zotero.org/styles/chicago-notes-publisher-place-archive-place-first-no-url" rel="self"/>
++    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="template"/>
+     <link href="https://www.chicagomanualofstyle.org/" rel="documentation"/>
+     <author>
+       <name>Andrew Dunning</name>
+@@ -30,7 +31,7 @@
+     <category field="social_science"/>
+     <category field="sociology"/>
+     <category field="theology"/>
+-    <summary>Chicago-style source citations (with Bluebook for legal citations), template</summary>
++    <summary>Chicago-style source citations (with Bluebook for legal citations), notes system without bibliography, listing up to six authors in a full citation (CMOS18 13.23), chapter page numbers (CMOS18 14.8), substituting place of publication for publisher name (CMOS18 14.31), page abbreviations with locator (CMOS18 14.50), archival references with place first (CMOS18 14.205), without URLs (CMOS18 13.6)</summary>
+     <updated>2025-10-27T00:00:00+00:00</updated>
+     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
+   </info>
+@@ -253,8 +254,7 @@
+   <macro name="label-locator">
+     <group delimiter=" ">
+       <choose>
+-        <if locator="page"/>
+-        <else-if match="any" type="bill hearing legal_case legislation regulation treaty">
++        <if match="any" type="bill hearing legal_case legislation regulation treaty">
+           <!-- Bluebook-style labels for legal types (CMOS18 14.174) -->
+           <choose>
+             <if locator="chapter paragraph section" match="any">
+@@ -264,7 +264,7 @@
+               <label form="short" variable="locator"/>
+             </else>
+           </choose>
+-        </else-if>
++        </if>
+         <else-if is-numeric="locator">
+           <choose>
+             <if locator="line">
+@@ -3358,10 +3358,6 @@
+           <if match="any" variable="collection-editor part-number part-title volume-title">
+             <text macro="label-volume"/>
+           </if>
+-          <else-if variable="container-title">
+-            <!-- remove condition in styles that print chapter page numbers (CMOS17/classic) -->
+-            <text macro="label-volume"/>
+-          </else-if>
+         </choose>
+       </else-if>
+       <else-if variable="volume">
+@@ -4094,11 +4090,9 @@
+           </if>
+         </choose>
+       </else-if>
+-      <!-- if printing chapter page numbers (CMOS17/classic):
+       <else-if variable="chapter-number page title">
+         <text term="in" text-case="capitalize-first"/>
+       </else-if>
+-      -->
+       <else-if variable="chapter-number">
+         <group delimiter=" ">
+           <text macro="label-chapter-number-capitalized"/>
+@@ -4130,11 +4124,9 @@
+           </if>
+         </choose>
+       </else-if>
+-      <!-- if printing chapter page numbers (CMOS17/classic):
+       <else-if variable="chapter-number page title">
+         <text term="in"/>
+       </else-if>
+-      -->
+       <else-if variable="chapter-number">
+         <group delimiter=" ">
+           <text macro="label-chapter-number"/>
+@@ -4527,10 +4519,6 @@
+             <if is-numeric="volume" match="none">
+               <text macro="label-volume"/>
+             </if>
+-            <else-if variable="container-title">
+-              <!-- remove condition in styles that print chapter page numbers (CMOS17/classic) -->
+-              <text macro="label-volume"/>
+-            </else-if>
+             <else-if is-numeric="volume" variable="page">
+               <choose>
+                 <!-- check for variables that might come between the volume and page number -->
+@@ -4571,8 +4559,6 @@
+       <else-if variable="locator">
+         <text macro="label-locator"/>
+       </else-if>
+-      <!-- remove `container-title` condition in styles that print chapter page numbers (CMOS17/classic) -->
+-      <else-if variable="container-title"/>
+       <else-if is-numeric="volume" variable="page">
+         <!-- collapse the volume and page number if adjacent -->
+         <group delimiter=":">
+@@ -4580,15 +4566,18 @@
+             <!-- check for variables that might come between the volume and page number -->
+             <if match="none" variable="collection-editor part-number part-title volume-title">
+               <text variable="volume"/>
++              <text variable="page"/>
+             </if>
++            <else>
++              <text macro="label-page"/>
++            </else>
+           </choose>
+-          <text variable="page"/>
+         </group>
+       </else-if>
+       <!-- archival locators appear after the shelfmark (CMOS18 14.127) -->
+       <else-if variable="archive archive_location page"/>
+       <else>
+-        <text variable="page"/>
++        <text macro="label-page"/>
+       </else>
+     </choose>
+   </macro>
+@@ -5339,8 +5328,8 @@
+         </if>
+         <else-if variable="publisher">
+           <group delimiter=": ">
+-            <!-- <text text-case="capitalize-first" variable="publisher-place"/> -->
+-            <text text-case="capitalize-first" variable="publisher"/>
++            <text text-case="capitalize-first" variable="publisher-place"/>
++            <!-- <text text-case="capitalize-first" variable="publisher"/> -->
+           </group>
+         </else-if>
+         <!-- TODO: remove conditional when Zotero fixes double-mapping of `event-place` -->
+@@ -5365,8 +5354,8 @@
+         </if>
+         <else-if variable="publisher">
+           <group delimiter=": ">
+-            <!-- <text variable="publisher-place"/> -->
+-            <text variable="publisher"/>
++            <text variable="publisher-place"/>
++            <!-- <text variable="publisher"/> -->
+           </group>
+         </else-if>
+         <!-- TODO: remove conditional when Zotero fixes double-mapping of `event-place` -->
+@@ -5387,8 +5376,8 @@
+     <choose>
+       <if variable="original-publisher">
+         <group delimiter=": ">
+-          <!-- <text text-case="capitalize-first" variable="original-publisher-place"/> -->
+-          <text text-case="capitalize-first" variable="original-publisher"/>
++          <text text-case="capitalize-first" variable="original-publisher-place"/>
++          <!-- <text text-case="capitalize-first" variable="original-publisher"/> -->
+         </group>
+       </if>
+       <else>
+@@ -5400,8 +5389,8 @@
+     <choose>
+       <if variable="original-publisher">
+         <group delimiter=": ">
+-          <!-- <text variable="original-publisher-place"/> -->
+-          <text variable="original-publisher"/>
++          <text variable="original-publisher-place"/>
++          <!-- <text variable="original-publisher"/> -->
+         </group>
+       </if>
+       <else>
+@@ -5870,7 +5859,7 @@
+           <text macro="source-archive-reference-institution-first"/>
+         </if>
+         <else>
+-          <text macro="source-archive-reference-location-first-bib"/>
++          <text macro="source-archive-reference-place-first"/>
+         </else>
+       </choose>
+       <text macro="source-archive-database-number" prefix="(" suffix=")"/>
+@@ -5883,7 +5872,7 @@
+           <text macro="source-archive-reference-institution-first"/>
+         </if>
+         <else>
+-          <text macro="source-archive-reference-location-first-note"/>
++          <text macro="source-archive-reference-place-first"/>
+         </else>
+       </choose>
+       <text macro="source-archive-database-number" prefix="(" suffix=")"/>
+@@ -5988,7 +5977,7 @@
+           </group>
+         </else-if>
+       </choose>
+-      <text macro="source-DOI-URL"/>
++      <!-- <text macro="source-DOI-URL"/> -->
+     </group>
+   </macro>
+   <macro name="source-date-accessed-DOI-URL-note">
+@@ -6003,7 +5992,7 @@
+           </group>
+         </else-if>
+       </choose>
+-      <text macro="source-DOI-URL"/>
++      <!-- <text macro="source-DOI-URL"/> -->
+     </group>
+   </macro>
+   <macro name="source-DOI-URL">
+@@ -6709,7 +6698,7 @@
+       </else>
+     </choose>
+   </macro>
+-  <citation disambiguate-add-givenname="true" disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
++  <citation disambiguate-add-givenname="true" disambiguate-add-names="true" et-al-min="7" et-al-subsequent-min="3" et-al-subsequent-use-first="1" et-al-use-first="3">
+     <layout delimiter="; " suffix=".">
+       <text macro="citation-notes-full-subsequent-author-title"/>
+     </layout>
+@@ -6859,19 +6848,4 @@
+       </else>
+     </choose>
+   </macro>
+-  <bibliography et-al-min="7" et-al-use-first="3" hanging-indent="true">
+-    <sort>
+-      <key macro="author-sort"/>
+-      <key macro="title-and-descriptions-bib"/>
+-      <key macro="source-bib"/>
+-      <key variable="volume"/>
+-      <key variable="part-number"/>
+-      <key variable="event-date"/>
+-      <key macro="source-date-issued-or-status"/>
+-      <key macro="source-archive-bib"/>
+-    </sort>
+-    <layout suffix=".">
+-      <text macro="bibliography-filtered-notes"/>
+-    </layout>
+-  </bibliography>
+ </style>
