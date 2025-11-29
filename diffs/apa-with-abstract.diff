@@ -4,13 +4,13 @@
    type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
  <style class="in-text" demote-non-dropping-particle="never" initialize-with=". " names-delimiter=", " page-range-format="expanded" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
--    <title>American Psychological Association 7th edition (template)</title>
--    <title-short>APA Style with Bluebook</title-short>
+-    <title>APA Style 7th edition (template)</title>
+-    <title-short>Publication Manual of the American Psychological Association, with Bluebook</title-short>
 -    <id>http://www.zotero.org/styles/apa</id>
 -    <link href="http://www.zotero.org/styles/apa" rel="self"/>
 -    <link href="http://www.zotero.org/styles/apa-6th-edition" rel="template"/>
-+    <title>American Psychological Association 7th edition (with abstract)</title>
-+    <title-short>APA Style with Bluebook (with abstract)</title-short>
++    <title>APA Style 7th edition (with abstract)</title>
++    <title-short>Publication Manual of the American Psychological Association, with Bluebook (with abstract)</title-short>
 +    <id>http://www.zotero.org/styles/apa-with-abstract</id>
 +    <link href="http://www.zotero.org/styles/apa-with-abstract" rel="self"/>
 +    <link href="http://www.zotero.org/styles/apa" rel="template"/>
@@ -26,7 +26,7 @@
      <updated>2025-04-14T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -2349,7 +2349,8 @@
+@@ -2359,7 +2359,8 @@
        <key macro="source-archive"/>
      </sort>
      <layout>

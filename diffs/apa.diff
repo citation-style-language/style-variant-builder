@@ -4,8 +4,8 @@
    type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
  <style class="in-text" demote-non-dropping-particle="never" initialize-with=". " names-delimiter=", " page-range-format="expanded" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
--    <title>American Psychological Association 7th edition (template)</title>
-+    <title>American Psychological Association 7th edition</title>
-     <title-short>APA Style with Bluebook</title-short>
+-    <title>APA Style 7th edition (template)</title>
++    <title>APA Style 7th edition</title>
+     <title-short>Publication Manual of the American Psychological Association, with Bluebook</title-short>
      <id>http://www.zotero.org/styles/apa</id>
      <link href="http://www.zotero.org/styles/apa" rel="self"/>

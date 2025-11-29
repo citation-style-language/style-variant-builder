@@ -4,13 +4,13 @@
    type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
  <style class="in-text" demote-non-dropping-particle="never" initialize-with=". " names-delimiter=", " page-range-format="expanded" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
--    <title>American Psychological Association 7th edition (template)</title>
--    <title-short>APA Style with Bluebook</title-short>
+-    <title>APA Style 7th edition (template)</title>
+-    <title-short>Publication Manual of the American Psychological Association, with Bluebook</title-short>
 -    <id>http://www.zotero.org/styles/apa</id>
 -    <link href="http://www.zotero.org/styles/apa" rel="self"/>
 -    <link href="http://www.zotero.org/styles/apa-6th-edition" rel="template"/>
-+    <title>American Psychological Association 7th edition (no ampersand)</title>
-+    <title-short>APA Style with Bluebook (no ampersand)</title-short>
++    <title>APA Style 7th edition (no ampersand)</title>
++    <title-short>American Psychological Association, with Bluebook (no ampersand)</title-short>
 +    <id>http://www.zotero.org/styles/apa-no-ampersand</id>
 +    <link href="http://www.zotero.org/styles/apa-no-ampersand" rel="self"/>
 +    <link href="http://www.zotero.org/styles/apa" rel="template"/>
@@ -79,7 +79,7 @@
              <label prefix=" (" suffix=")" text-case="title"/>
            </names>
            <choose>
-@@ -392,11 +400,11 @@
+@@ -397,11 +405,11 @@
              </else-if>
            </choose>
            <names variable="executive-producer">
@@ -93,7 +93,7 @@
              <label prefix=" (" suffix=")" text-case="title"/>
            </names>
            <names variable="editor-translator"/>
-@@ -404,23 +412,23 @@
+@@ -409,23 +417,23 @@
            <names variable="editor"/>
            <names variable="editorial-director"/>
            <names variable="compiler">
@@ -121,7 +121,7 @@
              <label prefix=" (" suffix=")" text-case="title"/>
            </names>
            <names variable="collection-editor"/>
-@@ -437,7 +445,7 @@
+@@ -442,7 +450,7 @@
          <if match="any" type="book classic collection">
            <names prefix="(" suffix=")" variable="contributor">
              <label form="verb" suffix=" "/>
@@ -130,7 +130,7 @@
            </names>
          </if>
        </choose>
-@@ -453,7 +461,7 @@
+@@ -458,7 +466,7 @@
            <!-- These variables indicate that the letter is retrievable by the reader. If not, use the APA in-text-only personal communication format. -->
            <if match="any" variable="archive archive-place container-title DOI number publisher references URL">
              <names variable="author">
@@ -139,7 +139,7 @@
                <substitute>
                  <text macro="title-and-descriptions-short"/>
                </substitute>
-@@ -473,7 +481,7 @@
+@@ -478,7 +486,7 @@
        </else-if>
        <else>
          <names variable="composer">
@@ -148,7 +148,7 @@
            <substitute>
              <names variable="author"/>
              <names variable="illustrator"/>
-@@ -1024,7 +1032,7 @@
+@@ -1034,7 +1042,7 @@
        <choose>
          <if variable="title">
            <names variable="interviewer">
@@ -157,7 +157,7 @@
              <label form="short" prefix=", " text-case="title"/>
            </names>
          </if>
-@@ -1035,18 +1043,18 @@
+@@ -1045,18 +1053,18 @@
            <group delimiter="; ">
              <names variable="container-author">
                <label form="verb-short" suffix=" " text-case="title"/>
@@ -180,7 +180,7 @@
                <label prefix=", " text-case="title"/>
              </names>
            </group>
-@@ -1054,7 +1062,7 @@
+@@ -1064,7 +1072,7 @@
          <else>
            <group delimiter="; ">
              <names delimiter="; " variable="illustrator narrator">
@@ -189,7 +189,7 @@
                <label form="short" prefix=", " text-case="title"/>
              </names>
              <choose>
-@@ -1062,7 +1070,7 @@
+@@ -1072,7 +1080,7 @@
                <else-if variable="container-title">
                  <!-- TODO: Check logic once processors start to automatically populate `editor-translator` -->
                  <names delimiter="; " variable="translator">
@@ -198,7 +198,7 @@
                    <label form="short" prefix=", " text-case="title"/>
                  </names>
                </else-if>
-@@ -1070,14 +1078,14 @@
+@@ -1080,14 +1088,14 @@
                  <group delimiter="; ">
                    <names variable="container-author">
                      <label form="verb-short" suffix=" " text-case="title"/>
@@ -216,7 +216,7 @@
                      <label prefix=", " text-case="title"/>
                    </names>
                  </group>
-@@ -1093,13 +1101,13 @@
+@@ -1103,13 +1111,13 @@
        <choose>
          <if variable="title">
            <names delimiter="; " variable="interviewer">
@@ -232,7 +232,7 @@
          <label form="short" prefix=", " text-case="title"/>
        </names>
      </group>
-@@ -1422,7 +1430,7 @@
+@@ -1432,7 +1440,7 @@
          <group delimiter="; ">
            <names variable="interviewer">
              <label form="verb" suffix=" " text-case="capitalize-first"/>
@@ -241,7 +241,7 @@
            </names>
            <text text-case="capitalize-first" variable="medium"/>
          </group>
-@@ -1435,7 +1443,7 @@
+@@ -1445,7 +1453,7 @@
    <macro name="description-interview-short">
      <names variable="interviewer">
        <label form="verb" suffix=" " text-case="capitalize-first"/>
@@ -250,7 +250,7 @@
        <substitute>
          <text macro="description-format-short"/>
        </substitute>
-@@ -1449,7 +1457,7 @@
+@@ -1459,7 +1467,7 @@
              <text macro="description-format"/>
              <names variable="recipient">
                <label form="verb" suffix=" "/>
@@ -259,7 +259,7 @@
              </names>
            </group>
            <text macro="description-medium"/>
-@@ -1467,7 +1475,7 @@
+@@ -1477,7 +1485,7 @@
            <text macro="description-format-short"/>
            <names variable="recipient">
              <label form="verb" suffix=" "/>
@@ -268,7 +268,7 @@
            </names>
          </group>
        </if>
-@@ -1520,7 +1528,7 @@
+@@ -1530,7 +1538,7 @@
          </group>
          <names variable="reviewed-author">
            <label form="verb-short" suffix=" "/>
@@ -277,7 +277,7 @@
          </names>
        </group>
        <text macro="description-medium"/>
-@@ -1722,22 +1730,22 @@
+@@ -1732,22 +1740,22 @@
    <!-- Monographic source author -->
    <macro name="source-monographic-author">
      <names variable="container-author">
@@ -304,7 +304,7 @@
            <label form="short" prefix=" (" suffix=")" text-case="title"/>
          </names>
          <names variable="compiler"/>
-@@ -1749,7 +1757,7 @@
+@@ -1759,7 +1767,7 @@
          </choose>
          <names variable="curator"/>
          <names variable="collection-editor">

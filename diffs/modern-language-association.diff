@@ -4,10 +4,10 @@
    type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
  <style and="text" class="in-text" demote-non-dropping-particle="never" page-range-format="minimal-two" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
--    <title>Modern Language Association 9th edition</title>
--    <title-short>MLA Handbook</title-short>
-+    <title>Modern Language Association 9th edition (in-text citations)</title>
-+    <title-short>MLA Handbook (in-text citations)</title-short>
+-    <title>MLA Handbook 9th edition</title>
+-    <title-short>Modern Language Association</title-short>
++    <title>MLA Handbook 9th edition (in-text citations)</title>
++    <title-short>Modern Language Association (in-text citations)</title-short>
      <id>http://www.zotero.org/styles/modern-language-association</id>
      <link href="http://www.zotero.org/styles/modern-language-association" rel="self"/>
      <link href="https://style.mla.org/" rel="documentation"/>

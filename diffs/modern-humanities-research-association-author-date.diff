@@ -7,12 +7,12 @@
 -<style and="text" class="note" default-locale="en-GB" demote-non-dropping-particle="display-and-sort" et-al-min="4" et-al-use-first="1" page-range-format="minimal-two" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
 +<style and="text" class="in-text" default-locale="en-GB" demote-non-dropping-particle="display-and-sort" et-al-min="4" et-al-use-first="1" page-range-format="minimal-two" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
--    <title>Modern Humanities Research Association 4th edition (template)</title>
--    <title-short>MHRA Style Guide</title-short>
+-    <title>MHRA Style Guide 4th edition (template)</title>
+-    <title-short>Modern Humanities Research Association</title-short>
 -    <id>http://www.zotero.org/styles/modern-humanities-research-association-notes</id>
 -    <link href="http://www.zotero.org/styles/modern-humanities-research-association-notes" rel="self"/>
-+    <title>Modern Humanities Research Association 4th edition (author-date)</title>
-+    <title-short>MHRA Style Guide (author-date/Harvard)</title-short>
++    <title>MHRA Style Guide 4th edition (author-date)</title>
++    <title-short>Modern Humanities Research Association (author-date/Harvard)</title-short>
 +    <id>http://www.zotero.org/styles/modern-humanities-research-association-author-date</id>
 +    <link href="http://www.zotero.org/styles/modern-humanities-research-association-author-date" rel="self"/>
 +    <link href="http://www.zotero.org/styles/modern-humanities-research-association-notes" rel="template"/>

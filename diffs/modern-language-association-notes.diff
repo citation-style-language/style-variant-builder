@@ -7,12 +7,12 @@
 -<style and="text" class="in-text" demote-non-dropping-particle="never" page-range-format="minimal-two" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
 +<style and="text" class="note" demote-non-dropping-particle="never" page-range-format="minimal-two" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
--    <title>Modern Language Association 9th edition</title>
--    <title-short>MLA Handbook</title-short>
+-    <title>MLA Handbook 9th edition</title>
+-    <title-short>Modern Language Association</title-short>
 -    <id>http://www.zotero.org/styles/modern-language-association</id>
 -    <link href="http://www.zotero.org/styles/modern-language-association" rel="self"/>
-+    <title>Modern Language Association 9th edition (notes)</title>
-+    <title-short>MLA Handbook (notes)</title-short>
++    <title>MLA Handbook 9th edition (notes)</title>
++    <title-short>Modern Language Association (notes)</title-short>
 +    <id>http://www.zotero.org/styles/modern-language-association-notes</id>
 +    <link href="http://www.zotero.org/styles/modern-language-association-notes" rel="self"/>
 +    <link href="http://www.zotero.org/styles/modern-language-association" rel="template"/>

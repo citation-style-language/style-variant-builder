@@ -4,13 +4,13 @@
    type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
  <style class="in-text" demote-non-dropping-particle="never" initialize-with=". " names-delimiter=", " page-range-format="expanded" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
--    <title>American Psychological Association 7th edition (template)</title>
--    <title-short>APA Style with Bluebook</title-short>
+-    <title>APA Style 7th edition (template)</title>
+-    <title-short>Publication Manual of the American Psychological Association, with Bluebook</title-short>
 -    <id>http://www.zotero.org/styles/apa</id>
 -    <link href="http://www.zotero.org/styles/apa" rel="self"/>
 -    <link href="http://www.zotero.org/styles/apa-6th-edition" rel="template"/>
-+    <title>American Psychological Association 7th edition (numeric, superscript)</title>
-+    <title-short>APA Style with Bluebook (numeric, superscript)</title-short>
++    <title>APA Style 7th edition (numeric, superscript)</title>
++    <title-short>American Psychological Association, with Bluebook (numeric, superscript)</title-short>
 +    <id>http://www.zotero.org/styles/apa-numeric-superscript</id>
 +    <link href="http://www.zotero.org/styles/apa-numeric-superscript" rel="self"/>
 +    <link href="http://www.zotero.org/styles/apa" rel="template"/>
@@ -35,7 +35,7 @@
      <updated>2025-04-14T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -2283,18 +2283,14 @@
+@@ -2293,18 +2293,14 @@
      </group>
    </macro>
    <!-- Citation -->
@@ -60,7 +60,7 @@
        </group>
      </layout>
    </citation>
-@@ -2336,20 +2332,11 @@
+@@ -2346,20 +2342,11 @@
      </choose>
    </macro>
    <bibliography entry-spacing="0" et-al-min="21" et-al-use-first="19" et-al-use-last="true" hanging-indent="true" line-spacing="2">
