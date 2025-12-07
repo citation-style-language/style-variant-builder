@@ -92,7 +92,7 @@
          <substitute>
            <names variable="author"/>
            <names variable="guest"/>
-@@ -776,11 +772,11 @@
+@@ -795,11 +791,11 @@
        </else-if>
        <else-if match="any" type="entry entry-dictionary entry-encyclopedia">
          <!-- Anonymous entries in reference works (cf. CMOS18 14.130) -->
@@ -106,7 +106,7 @@
        </else-if>
      </choose>
    </macro>
-@@ -789,23 +785,23 @@
+@@ -808,23 +804,23 @@
        <if match="none" variable="container-title"/>
        <else-if match="any" type="article-journal article-magazine article-newspaper periodical post-weblog review review-book">
          <!-- Anonymous works in serials substitute name of publication (cf. CMOS18 14.87, 14.97, 14.102) -->
@@ -134,7 +134,7 @@
        </else-if>
      </choose>
    </macro>
-@@ -1211,16 +1207,14 @@
+@@ -1226,16 +1222,14 @@
                <choose>
                  <if match="any" variable="collection-editor container-author editor editorial-director">
                    <!-- monographic usage -->
@@ -153,7 +153,7 @@
              </else>
            </choose>
          </group>
-@@ -1263,12 +1257,12 @@
+@@ -1278,12 +1272,12 @@
          <!-- If a review has no `reviewed-title`, assume that `title` contains the title of the reviewed work; the description provides it. -->
          <choose>
            <if variable="reviewed-genre title">
@@ -170,7 +170,7 @@
            </else-if>
            <else>
              <text macro="description-short"/>
-@@ -1327,16 +1321,16 @@
+@@ -1342,16 +1336,16 @@
          <text form="short" text-case="capitalize-first" variable="part-title"/>
        </if>
        <else-if match="any" type="bill collection legislation regulation treaty">
@@ -193,7 +193,7 @@
        </else-if>
        <else-if type="entry-dictionary" variable="container-title">
          <!-- Quotes, sentence case -->
-@@ -1348,44 +1342,44 @@
+@@ -1363,44 +1357,44 @@
        </else-if>
        <else-if type="post">
          <!-- Quotes, sentence case -->
@@ -253,7 +253,7 @@
        </else>
      </choose>
    </macro>
-@@ -1396,16 +1390,16 @@
+@@ -1411,16 +1405,16 @@
          <text form="short" text-case="capitalize-first" variable="title"/>
        </if>
        <else-if match="any" type="bill collection legislation regulation treaty">
@@ -276,7 +276,7 @@
        </else-if>
        <else-if type="entry-dictionary" variable="container-title">
          <!-- Quotes, sentence case -->
-@@ -1421,17 +1415,17 @@
+@@ -1436,17 +1430,17 @@
        </else-if>
        <!-- Other types are formatted based on presence of `container-title` -->
        <else-if variable="container-title">
@@ -302,7 +302,7 @@
        </else>
      </choose>
    </macro>
-@@ -1442,16 +1436,16 @@
+@@ -1457,16 +1451,16 @@
          <text form="short" text-case="capitalize-first" variable="title"/>
        </if>
        <else-if match="any" type="bill collection legislation regulation treaty">
@@ -325,7 +325,7 @@
        </else-if>
        <else-if type="entry-dictionary" variable="container-title">
          <!-- Quotes, sentence case -->
-@@ -1467,17 +1461,17 @@
+@@ -1482,17 +1476,17 @@
        </else-if>
        <!-- Other types are formatted based on presence of `container-title` -->
        <else-if variable="container-title">
@@ -351,7 +351,7 @@
        </else>
      </choose>
    </macro>
-@@ -1490,16 +1484,12 @@
+@@ -1505,16 +1499,12 @@
              <text macro="label-volume"/>
            </if>
            <else-if locator="column page" match="any"/>
@@ -369,7 +369,7 @@
        </group>
        <!-- `part-number` and `part-title` of monographic items refer to the source book/volume -->
        <group delimiter=": ">
-@@ -1616,7 +1606,7 @@
+@@ -1646,7 +1636,7 @@
              <if disambiguate="true">
                <!-- disambiguate items with an identical `genre` (e.g. 'introduction') -->
                <text term="in"/>
@@ -378,7 +378,7 @@
              </if>
            </choose>
          </if>
-@@ -1645,7 +1635,7 @@
+@@ -1675,7 +1665,7 @@
          <else-if variable="chapter-number container-title">
            <text macro="label-chapter-number"/>
            <text term="in"/>
@@ -387,7 +387,7 @@
          </else-if>
          <else-if variable="chapter-number">
            <text macro="label-chapter-number"/>
-@@ -1814,11 +1804,11 @@
+@@ -1844,11 +1834,11 @@
              <if match="any" variable="reviewed-genre reviewed-title">
                <!-- Not possible to distinguish TV series episode from other reviewed works without a reviewed source title -->
                <!-- Adapt for `reviewed-container-title` or similar if it becomes available -->
@@ -401,7 +401,7 @@
              </else>
            </choose>
            <text variable="reviewed-genre"/>
-@@ -1835,11 +1825,11 @@
+@@ -1865,11 +1855,11 @@
          <if match="any" variable="reviewed-genre reviewed-title">
            <!-- Not possible to distinguish TV series episode from other reviewed works without a reviewed source title -->
            <!-- Adapt for `reviewed-container-title` or similar if it becomes available -->
@@ -415,7 +415,7 @@
          </else>
        </choose>
      </group>
-@@ -2264,6 +2254,16 @@
+@@ -2294,6 +2284,16 @@
              <text macro="source-serial-identifier"/>
            </group>
          </if>
@@ -432,7 +432,7 @@
          <else-if match="any" variable="collection-title issue supplement-number volume">
            <text macro="source-serial-title"/>
            <text macro="source-serial-identifier"/>
-@@ -2352,7 +2352,7 @@
+@@ -2382,7 +2382,7 @@
              <text term="in"/>
              <group delimiter=", ">
                <text macro="source-monographic-author"/>
@@ -441,7 +441,7 @@
              </group>
            </group>
          </group>
-@@ -2365,9 +2365,8 @@
+@@ -2395,9 +2395,8 @@
        <text macro="source-serial-identifier-volume"/>
        <!-- periodical edition always capitalized (cf. CMOS18 14.89) -->
        <text macro="label-edition-capitalized"/>
@@ -452,7 +452,7 @@
      </group>
    </macro>
    <macro name="source-serial-identifier-author-date">
-@@ -2412,16 +2411,16 @@
+@@ -2442,16 +2441,16 @@
                <choose>
                  <if variable="issue volume">
                    <group delimiter="/">
@@ -473,7 +473,7 @@
                    <text macro="label-issue"/>
                  </else>
                </choose>
-@@ -2533,7 +2532,7 @@
+@@ -2563,7 +2562,7 @@
          </if>
        </choose>
        <!-- remove `source-series` for OGS: -->
@@ -482,7 +482,7 @@
        <text macro="source-event"/>
      </group>
    </macro>
-@@ -2559,7 +2558,7 @@
+@@ -2589,7 +2588,7 @@
      <!-- based on `author-note` -->
      <names variable="container-author">
        <name delimiter-precedes-last="contextual"/>
@@ -491,7 +491,7 @@
        <substitute>
          <names variable="author"/>
          <names variable="guest"/>
-@@ -2607,7 +2606,7 @@
+@@ -2637,7 +2636,7 @@
    </macro>
    <macro name="source-monographic-title">
      <group delimiter=", ">
@@ -500,7 +500,7 @@
        <text macro="title-volume"/>
      </group>
    </macro>
-@@ -2841,11 +2840,23 @@
+@@ -2871,11 +2870,23 @@
    <!-- 4.3. Series -->
    <macro name="source-series">
      <group delimiter=", ">
@@ -529,7 +529,7 @@
      </group>
    </macro>
    <!-- 4.4. Event -->
-@@ -2959,7 +2970,7 @@
+@@ -2989,7 +3000,7 @@
    </macro>
    <!-- 4.5. Facts of publication -->
    <macro name="source-monographic-publication">
@@ -538,7 +538,7 @@
        <choose>
          <!-- Provide only for monographic types -->
          <if match="any" type="article-journal article-magazine article-newspaper periodical post-weblog review review-book"/>
-@@ -2968,7 +2979,7 @@
+@@ -2998,7 +3009,7 @@
              <if match="any" variable="collection-editor container-author editor editorial-director">
                <!-- monographic usage -->
                <!-- add for OGS: -->
@@ -547,7 +547,7 @@
                <text macro="source-publication-and-date"/>
              </if>
            </choose>
-@@ -2977,7 +2988,7 @@
+@@ -3007,7 +3018,7 @@
          <else-if type="patent"/>
          <else>
            <!-- add for OGS: -->
@@ -556,7 +556,7 @@
            <text macro="source-publication-and-date"/>
          </else>
        </choose>
-@@ -2987,45 +2998,15 @@
+@@ -3017,45 +3028,15 @@
    <macro name="source-monographic-publication-bracketed">
      <!-- Facts of publication with brackets for print monographic formats -->
      <choose>
@@ -604,7 +604,7 @@
        <else>
          <text macro="source-monographic-publication"/>
        </else>
-@@ -3101,11 +3082,11 @@
+@@ -3131,11 +3112,11 @@
      </choose>
    </macro>
    <macro name="source-publication-and-date">
@@ -618,7 +618,7 @@
          </if>
        </choose>
        <text macro="source-publication-history"/>
-@@ -3125,7 +3106,10 @@
+@@ -3155,7 +3136,10 @@
        </else-if>
        <else-if type="thesis">
          <!-- thesis type appears with university name (cf. MHRA4 7.10) -->
@@ -630,7 +630,7 @@
        </else-if>
        <else-if match="any" variable="original-publisher original-publisher-place">
          <choose>
-@@ -3191,7 +3175,7 @@
+@@ -3221,7 +3205,7 @@
            </choose>
            <group delimiter=", ">
              <names variable="original-author"/>
@@ -639,7 +639,7 @@
            </group>
            <group delimiter=", " prefix="[" suffix="]">
              <text macro="source-publication-publisher-original"/>
-@@ -3207,9 +3191,10 @@
+@@ -3237,9 +3221,10 @@
          <if match="any" type="book chapter classic collection entry entry-dictionary entry-encyclopedia interview manuscript musical_score pamphlet paper-conference performance report">
            <group delimiter=": ">
              <choose>
@@ -652,7 +652,7 @@
                <else-if type="report">
                  <text variable="publisher"/>
                </else-if>
-@@ -3542,7 +3527,7 @@
+@@ -3572,7 +3557,7 @@
            <text macro="label-locator"/>
          </if>
          <!-- for OGS: -->
@@ -661,7 +661,7 @@
            <text macro="label-volume"/>
            <text macro="label-part-number"/>
            <text macro="label-locator"/>
-@@ -3552,7 +3537,7 @@
+@@ -3582,7 +3567,7 @@
              <text macro="label-volume"/>
              <text macro="label-locator"/>
            </group>
@@ -670,7 +670,7 @@
          <else>
            <text macro="label-volume"/>
            <text macro="label-part-number"/>
-@@ -3605,14 +3590,13 @@
+@@ -3635,14 +3620,13 @@
    <!-- 4.9. Archival location -->
    <macro name="source-archive">
      <group delimiter=", ">
@@ -687,7 +687,7 @@
        <choose>
          <!-- database identifier, if not included elsewhere (cf. CMOS18 14.113) -->
          <if match="any" variable="archive_collection archive_location archive-place"/>
-@@ -3732,7 +3716,7 @@
+@@ -3762,7 +3746,7 @@
            </group>
          </else-if>
        </choose>
@@ -696,7 +696,7 @@
      </group>
    </macro>
    <macro name="source-DOI-URL">
-@@ -3809,8 +3793,36 @@
+@@ -3839,8 +3823,36 @@
      <choose>
        <if position="subsequent">
          <group delimiter=", ">
@@ -735,9 +735,9 @@
          </group>
        </if>
        <else>
-@@ -3869,9 +3881,12 @@
-             </choose>
-           </if>
+@@ -3898,9 +3910,12 @@
+             <text macro="source-medium"/>
+           </else-if>
          </choose>
 -        <text macro="source-monographic-publication-short-unbracketed"/>
 +        <choose>
