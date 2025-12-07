@@ -11,7 +11,7 @@ import sys
 import tempfile
 from concurrent.futures import ProcessPoolExecutor, as_completed
 from contextlib import suppress
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from itertools import chain
 from pathlib import Path
 
@@ -51,7 +51,9 @@ class ErrorCountingFilter(logging.Filter):
         self.error_count = 0
 
     def filter(self, record: logging.LogRecord) -> bool:
-        if record.levelno >= logging.ERROR:
+        if record.levelno >= logging.ERROR and record.__dict__.get(
+            "count_error", True
+        ):
             self.error_count += 1
         return True
 
@@ -76,6 +78,7 @@ class CSLBuilder:
     max_workers: int | None = None
     successful_variants: int = 0
     failed_variants: int = 0
+    failure_messages: list[str] = field(default_factory=list)
 
     @staticmethod
     def _generate_single_diff(
@@ -149,17 +152,31 @@ class CSLBuilder:
 
             patched_file = tmp_file_path
             result = subprocess.run(
-                ["patch", "-s", "-N", str(patched_file), str(diff_path)],
+                ["patch", "-N", str(patched_file), str(diff_path)],
                 stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE,
                 text=True,
             )
 
             if result.returncode != 0:
+                stdout_msg = result.stdout.strip()
+                stderr_msg = result.stderr.strip()
+                details = "\n".join(
+                    part
+                    for part in (
+                        stdout_msg if stdout_msg else None,
+                        stderr_msg if stderr_msg else None,
+                    )
+                    if part
+                )
                 return (
                     diff_path.name,
                     False,
-                    f"Failed to apply patch: {result.stdout}",
+                    (
+                        "Failed to apply patch "
+                        f"(template={template_path.name}, diff={diff_path.name})."
+                        + (f"\n{details}" if details else "")
+                    ),
                 )
 
             # Export or prune
@@ -240,11 +257,13 @@ class CSLBuilder:
             template_path = self._get_template_path()
         except FileNotFoundError as e:
             logging.warning(f"Skipping style family '{self.style_family}': {e}")
+            self.failure_messages.append(f"{self.style_family}: {e}")
             return (0, 0)
         try:
             diff_files = self._get_diff_files()
         except FileNotFoundError as e:
             logging.warning(f"Skipping style family '{self.style_family}': {e}")
+            self.failure_messages.append(f"{self.style_family}: {e}")
             return (0, 0)
 
         # Prepare output directory (optionally group by family)
@@ -279,6 +298,10 @@ class CSLBuilder:
                 else:
                     logging.error(f"  ✗ {diff_name}: {message}")
                     self.failed_variants += 1
+                    variant_name = Path(diff_name).stem
+                    self.failure_messages.append(
+                        f"{self.style_family}/{variant_name}: {message}"
+                    )
 
         return (self.successful_variants, self.failed_variants)
 
@@ -428,6 +451,7 @@ def main() -> int:
 
     overall_success = True
     family_results = {}  # Track results per family
+    failure_summaries: list[str] = []
 
     for style_family in style_families:
         logging.info(
@@ -454,6 +478,7 @@ def main() -> int:
             else:
                 successful, failed = builder.build_variants()
                 family_results[style_family] = (successful, failed)
+                failure_summaries.extend(builder.failure_messages)
                 # Consider it a failure if any variants failed to build
                 if failed > 0:
                     overall_success = False
@@ -464,6 +489,7 @@ def main() -> int:
                 f"Error processing style family {style_family}: {e}",
                 exc_info=True,
             )
+            failure_summaries.append(f"{style_family}: {e}")
     # Summary reporting
     if not args.diffs:  # Only report variant stats for build mode
         total_successful = sum(
@@ -480,7 +506,8 @@ def main() -> int:
 
         if failed_families:
             logging.error(
-                f"Style families with no successful builds: {', '.join(failed_families)}"
+                f"Style families with no successful builds: {', '.join(failed_families)}",
+                extra={"count_error": False},
             )
 
         if total_successful > 0:
@@ -489,7 +516,17 @@ def main() -> int:
             )
 
         if total_failed > 0:
-            logging.error(f"Failed to build {total_failed} variants.")
+            logging.error(
+                f"Failed to build {total_failed} variants.",
+                extra={"count_error": False},
+            )
+
+        if failure_summaries:
+            logging.error(
+                "Failed variants and errors:\n  "
+                + "\n  ".join(failure_summaries),
+                extra={"count_error": False},
+            )
 
     # Summary if any errors occurred
     if _error_count_filter.error_count:
@@ -497,7 +534,8 @@ def main() -> int:
             "error" if _error_count_filter.error_count == 1 else "errors"
         )
         logging.error(
-            f"Run completed with {_error_count_filter.error_count} {error_word}."
+            f"Run completed with {_error_count_filter.error_count} {error_word}.",
+            extra={"count_error": False},
         )
     return 0 if overall_success else 1
 
