@@ -369,16 +369,16 @@
        </group>
        <!-- `part-number` and `part-title` of monographic items refer to the source book/volume -->
        <group delimiter=": ">
-@@ -1646,7 +1636,7 @@
-             <if disambiguate="true">
-               <!-- disambiguate items with an identical `genre` (e.g. 'introduction') -->
-               <text term="in"/>
--              <text font-style="italic" text-case="title" variable="container-title"/>
-+              <text font-style="italic" text-case="capitalize-first" variable="container-title"/>
-             </if>
-           </choose>
+@@ -1644,7 +1634,7 @@
+           <text variable="genre"/>
+           <!-- untitled introductions, based on review model (cf. CMOS18 14.101, MHRA4 7.12) -->
+           <text macro="source-monographic-preposition"/>
+-          <text font-style="italic" text-case="title" variable="container-title"/>
++          <text font-style="italic" text-case="capitalize-first" variable="container-title"/>
          </if>
-@@ -1675,7 +1665,7 @@
+         <else-if variable="genre">
+           <text variable="genre"/>
+@@ -1671,7 +1661,7 @@
          <else-if variable="chapter-number container-title">
            <text macro="label-chapter-number"/>
            <text term="in"/>
@@ -387,7 +387,7 @@
          </else-if>
          <else-if variable="chapter-number">
            <text macro="label-chapter-number"/>
-@@ -1844,11 +1834,11 @@
+@@ -1840,11 +1830,11 @@
              <if match="any" variable="reviewed-genre reviewed-title">
                <!-- Not possible to distinguish TV series episode from other reviewed works without a reviewed source title -->
                <!-- Adapt for `reviewed-container-title` or similar if it becomes available -->
@@ -401,7 +401,7 @@
              </else>
            </choose>
            <text variable="reviewed-genre"/>
-@@ -1865,11 +1855,11 @@
+@@ -1861,11 +1851,11 @@
          <if match="any" variable="reviewed-genre reviewed-title">
            <!-- Not possible to distinguish TV series episode from other reviewed works without a reviewed source title -->
            <!-- Adapt for `reviewed-container-title` or similar if it becomes available -->
@@ -415,7 +415,7 @@
          </else>
        </choose>
      </group>
-@@ -2294,6 +2284,16 @@
+@@ -2290,6 +2280,16 @@
              <text macro="source-serial-identifier"/>
            </group>
          </if>
@@ -432,7 +432,7 @@
          <else-if match="any" variable="collection-title issue supplement-number volume">
            <text macro="source-serial-title"/>
            <text macro="source-serial-identifier"/>
-@@ -2382,7 +2382,7 @@
+@@ -2378,7 +2378,7 @@
              <text term="in"/>
              <group delimiter=", ">
                <text macro="source-monographic-author"/>
@@ -441,7 +441,7 @@
              </group>
            </group>
          </group>
-@@ -2395,9 +2395,8 @@
+@@ -2391,9 +2391,8 @@
        <text macro="source-serial-identifier-volume"/>
        <!-- periodical edition always capitalized (cf. CMOS18 14.89) -->
        <text macro="label-edition-capitalized"/>
@@ -452,7 +452,7 @@
      </group>
    </macro>
    <macro name="source-serial-identifier-author-date">
-@@ -2442,16 +2441,16 @@
+@@ -2438,16 +2437,16 @@
                <choose>
                  <if variable="issue volume">
                    <group delimiter="/">
@@ -473,7 +473,7 @@
                    <text macro="label-issue"/>
                  </else>
                </choose>
-@@ -2563,7 +2562,7 @@
+@@ -2559,7 +2558,7 @@
          </if>
        </choose>
        <!-- remove `source-series` for OGS: -->
@@ -482,7 +482,7 @@
        <text macro="source-event"/>
      </group>
    </macro>
-@@ -2589,7 +2588,7 @@
+@@ -2585,7 +2584,7 @@
      <!-- based on `author-note` -->
      <names variable="container-author">
        <name delimiter-precedes-last="contextual"/>
@@ -491,7 +491,7 @@
        <substitute>
          <names variable="author"/>
          <names variable="guest"/>
-@@ -2637,7 +2636,7 @@
+@@ -2633,7 +2632,7 @@
    </macro>
    <macro name="source-monographic-title">
      <group delimiter=", ">
@@ -500,7 +500,7 @@
        <text macro="title-volume"/>
      </group>
    </macro>
-@@ -2871,11 +2870,23 @@
+@@ -2867,11 +2866,23 @@
    <!-- 4.3. Series -->
    <macro name="source-series">
      <group delimiter=", ">
@@ -529,7 +529,7 @@
      </group>
    </macro>
    <!-- 4.4. Event -->
-@@ -2989,7 +3000,7 @@
+@@ -2985,7 +2996,7 @@
    </macro>
    <!-- 4.5. Facts of publication -->
    <macro name="source-monographic-publication">
@@ -538,7 +538,7 @@
        <choose>
          <!-- Provide only for monographic types -->
          <if match="any" type="article-journal article-magazine article-newspaper periodical post-weblog review review-book"/>
-@@ -2998,7 +3009,7 @@
+@@ -2994,7 +3005,7 @@
              <if match="any" variable="collection-editor container-author editor editorial-director">
                <!-- monographic usage -->
                <!-- add for OGS: -->
@@ -547,7 +547,7 @@
                <text macro="source-publication-and-date"/>
              </if>
            </choose>
-@@ -3007,7 +3018,7 @@
+@@ -3003,7 +3014,7 @@
          <else-if type="patent"/>
          <else>
            <!-- add for OGS: -->
@@ -556,7 +556,7 @@
            <text macro="source-publication-and-date"/>
          </else>
        </choose>
-@@ -3017,45 +3028,15 @@
+@@ -3013,45 +3024,15 @@
    <macro name="source-monographic-publication-bracketed">
      <!-- Facts of publication with brackets for print monographic formats -->
      <choose>
@@ -604,7 +604,7 @@
        <else>
          <text macro="source-monographic-publication"/>
        </else>
-@@ -3131,11 +3112,11 @@
+@@ -3127,11 +3108,11 @@
      </choose>
    </macro>
    <macro name="source-publication-and-date">
@@ -618,7 +618,7 @@
          </if>
        </choose>
        <text macro="source-publication-history"/>
-@@ -3155,7 +3136,10 @@
+@@ -3151,7 +3132,10 @@
        </else-if>
        <else-if type="thesis">
          <!-- thesis type appears with university name (cf. MHRA4 7.10) -->
@@ -630,7 +630,7 @@
        </else-if>
        <else-if match="any" variable="original-publisher original-publisher-place">
          <choose>
-@@ -3221,7 +3205,7 @@
+@@ -3217,7 +3201,7 @@
            </choose>
            <group delimiter=", ">
              <names variable="original-author"/>
@@ -639,7 +639,7 @@
            </group>
            <group delimiter=", " prefix="[" suffix="]">
              <text macro="source-publication-publisher-original"/>
-@@ -3237,9 +3221,10 @@
+@@ -3233,9 +3217,10 @@
          <if match="any" type="book chapter classic collection entry entry-dictionary entry-encyclopedia interview manuscript musical_score pamphlet paper-conference performance report">
            <group delimiter=": ">
              <choose>
@@ -652,7 +652,7 @@
                <else-if type="report">
                  <text variable="publisher"/>
                </else-if>
-@@ -3572,7 +3557,7 @@
+@@ -3568,7 +3553,7 @@
            <text macro="label-locator"/>
          </if>
          <!-- for OGS: -->
@@ -661,7 +661,7 @@
            <text macro="label-volume"/>
            <text macro="label-part-number"/>
            <text macro="label-locator"/>
-@@ -3582,7 +3567,7 @@
+@@ -3578,7 +3563,7 @@
              <text macro="label-volume"/>
              <text macro="label-locator"/>
            </group>
@@ -670,7 +670,7 @@
          <else>
            <text macro="label-volume"/>
            <text macro="label-part-number"/>
-@@ -3635,14 +3620,13 @@
+@@ -3631,14 +3616,13 @@
    <!-- 4.9. Archival location -->
    <macro name="source-archive">
      <group delimiter=", ">
@@ -687,7 +687,7 @@
        <choose>
          <!-- database identifier, if not included elsewhere (cf. CMOS18 14.113) -->
          <if match="any" variable="archive_collection archive_location archive-place"/>
-@@ -3762,7 +3746,7 @@
+@@ -3758,7 +3742,7 @@
            </group>
          </else-if>
        </choose>
@@ -696,7 +696,7 @@
      </group>
    </macro>
    <macro name="source-DOI-URL">
-@@ -3839,8 +3823,36 @@
+@@ -3835,8 +3819,36 @@
      <choose>
        <if position="subsequent">
          <group delimiter=", ">
@@ -735,7 +735,7 @@
          </group>
        </if>
        <else>
-@@ -3898,9 +3910,12 @@
+@@ -3894,9 +3906,12 @@
              <text macro="source-medium"/>
            </else-if>
          </choose>

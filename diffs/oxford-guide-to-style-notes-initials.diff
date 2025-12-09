@@ -160,7 +160,7 @@
            <else-if variable="page"/>
            <else>
              <text macro="label-volume"/>
-@@ -2395,9 +2443,7 @@
+@@ -2391,9 +2439,7 @@
        <text macro="source-serial-identifier-volume"/>
        <!-- periodical edition always capitalized (cf. CMOS18 14.89) -->
        <text macro="label-edition-capitalized"/>
@@ -171,7 +171,7 @@
      </group>
    </macro>
    <macro name="source-serial-identifier-author-date">
-@@ -2562,8 +2608,6 @@
+@@ -2558,8 +2604,6 @@
            </group>
          </if>
        </choose>
@@ -180,7 +180,7 @@
        <text macro="source-event"/>
      </group>
    </macro>
-@@ -2997,8 +3041,7 @@
+@@ -2993,8 +3037,7 @@
            <choose>
              <if match="any" variable="collection-editor container-author editor editorial-director">
                <!-- monographic usage -->
@@ -190,7 +190,7 @@
                <text macro="source-publication-and-date"/>
              </if>
            </choose>
-@@ -3006,8 +3049,7 @@
+@@ -3002,8 +3045,7 @@
          <!-- `patent` date in identification (cf. CMOS18 14.158) -->
          <else-if type="patent"/>
          <else>
@@ -200,7 +200,7 @@
            <text macro="source-publication-and-date"/>
          </else>
        </choose>
-@@ -3572,7 +3614,7 @@
+@@ -3568,7 +3610,7 @@
            <text macro="label-locator"/>
          </if>
          <!-- for OGS: -->
@@ -209,7 +209,7 @@
            <text macro="label-volume"/>
            <text macro="label-part-number"/>
            <text macro="label-locator"/>
-@@ -3582,7 +3624,7 @@
+@@ -3578,7 +3620,7 @@
              <text macro="label-volume"/>
              <text macro="label-locator"/>
            </group>
@@ -218,7 +218,7 @@
          <else>
            <text macro="label-volume"/>
            <text macro="label-part-number"/>
-@@ -3640,9 +3682,7 @@
+@@ -3636,9 +3678,7 @@
        <!-- usually `archive`, `archive-place` but sometimes also `archive-place`, `archive` (NHR 18.6.5); the latter is more common elsewhere (OGS 15.11.1 and MHRA4 7.7) -->
        <text variable="archive_collection"/>
        <text variable="archive_location"/>

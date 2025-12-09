@@ -41,7 +41,7 @@
          <!-- a non-numeric canonical reference is described by its formatting and does not need a label, similar to a timestamp (NHR 17.2.5) -->
          <else-if locator="chapter line verse" match="any"/>
          <else>
-@@ -2510,7 +2510,7 @@
+@@ -2506,7 +2506,7 @@
          </group>
        </if>
        <else>
@@ -50,7 +50,7 @@
        </else>
      </choose>
    </macro>
-@@ -2765,7 +2765,7 @@
+@@ -2761,7 +2761,7 @@
          </else-if>
          <else-if variable="archive archive_location page"/>
          <else>
@@ -59,7 +59,7 @@
          </else>
        </choose>
      </group>
-@@ -2816,13 +2816,13 @@
+@@ -2812,13 +2812,13 @@
                <text variable="volume"/>
              </if>
            </choose>

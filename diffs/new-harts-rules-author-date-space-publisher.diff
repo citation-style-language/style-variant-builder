@@ -35,7 +35,7 @@
      <updated>2025-11-05T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -2291,12 +2292,12 @@
+@@ -2287,12 +2288,12 @@
          <if type="article-newspaper">
            <group delimiter=" ">
              <text macro="source-serial-title"/>
@@ -50,7 +50,7 @@
          </else-if>
          <else-if type="interview" variable="publisher">
            <!-- publisher possible with `interview` (NHR 18.7.3) -->
-@@ -2304,7 +2305,7 @@
+@@ -2300,7 +2301,7 @@
              <text macro="source-serial-title"/>
              <group delimiter=" ">
                <text variable="publisher"/>
@@ -59,7 +59,7 @@
              </group>
            </group>
          </else-if>
-@@ -2313,14 +2314,14 @@
+@@ -2309,14 +2310,14 @@
              <text macro="source-serial-title"/>
              <group delimiter=" ">
                <text variable="publisher"/>
@@ -76,7 +76,7 @@
            </group>
          </else>
        </choose>
-@@ -3247,7 +3248,7 @@
+@@ -3243,7 +3244,7 @@
                  <text form="short" term="no-place"/>
                </else-if>
              </choose>
@@ -85,7 +85,7 @@
            </group>
          </if>
          <else>
-@@ -3267,7 +3268,7 @@
+@@ -3263,7 +3264,7 @@
        <if match="any" type="book chapter classic entry entry-dictionary entry-encyclopedia interview musical_score pamphlet paper-conference report">
          <group delimiter=": ">
            <text variable="original-publisher-place"/>
@@ -94,7 +94,7 @@
          </group>
        </if>
        <else>
-@@ -3277,9 +3278,7 @@
+@@ -3273,9 +3274,7 @@
    </macro>
    <!-- 4.6. Date -->
    <macro name="source-date">
@@ -105,7 +105,7 @@
    </macro>
    <!-- Date elements -->
    <macro name="source-date-issued-full">
-@@ -3418,9 +3417,7 @@
+@@ -3414,9 +3413,7 @@
      </choose>
    </macro>
    <macro name="source-date-original">
@@ -116,7 +116,7 @@
    </macro>
    <macro name="source-date-original-full">
      <!-- Give full date for more ephemeral types; reflected in `date-year-sort` -->
-@@ -3926,9 +3923,9 @@
+@@ -3922,9 +3919,9 @@
        </choose>
      </group>
    </macro>
@@ -129,7 +129,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -3936,7 +3933,7 @@
+@@ -3932,7 +3929,7 @@
      <group delimiter=". ">
        <group delimiter=" ">
          <text macro="author-bib"/>
@@ -138,7 +138,7 @@
            <text macro="date"/>
            <text macro="title-and-source"/>
          </group>
-@@ -4041,17 +4038,16 @@
+@@ -4037,17 +4034,16 @@
    <bibliography hanging-indent="true">
      <sort>
        <key macro="author-bib"/>

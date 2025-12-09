@@ -25,7 +25,7 @@
      <updated>2025-10-27T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -3406,10 +3407,6 @@
+@@ -3402,10 +3403,6 @@
            <if match="any" variable="collection-editor part-number part-title volume-title">
              <text macro="label-volume"/>
            </if>
@@ -36,7 +36,7 @@
          </choose>
        </else-if>
        <else-if variable="volume">
-@@ -4142,11 +4139,9 @@
+@@ -4138,11 +4135,9 @@
            </if>
          </choose>
        </else-if>
@@ -48,7 +48,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number-capitalized"/>
-@@ -4178,11 +4173,9 @@
+@@ -4174,11 +4169,9 @@
            </if>
          </choose>
        </else-if>
@@ -60,7 +60,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number"/>
-@@ -4575,10 +4568,6 @@
+@@ -4571,10 +4564,6 @@
              <if is-numeric="volume" match="none">
                <text macro="label-volume"/>
              </if>
@@ -71,7 +71,7 @@
              <else-if is-numeric="volume" variable="page">
                <choose>
                  <!-- check for variables that might come between the volume and page number -->
-@@ -4619,8 +4608,6 @@
+@@ -4615,8 +4604,6 @@
        <else-if variable="locator">
          <text macro="label-locator"/>
        </else-if>
@@ -80,7 +80,7 @@
        <else-if is-numeric="volume" variable="page">
          <!-- collapse the volume and page number if adjacent -->
          <group delimiter=":">
-@@ -5387,8 +5374,8 @@
+@@ -5383,8 +5370,8 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -91,7 +91,7 @@
            </group>
          </else-if>
          <!-- TODO: remove conditional when Zotero fixes double-mapping of `event-place` -->
-@@ -5413,8 +5400,8 @@
+@@ -5409,8 +5396,8 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -102,7 +102,7 @@
            </group>
          </else-if>
          <!-- TODO: remove conditional when Zotero fixes double-mapping of `event-place` -->
-@@ -5435,8 +5422,8 @@
+@@ -5431,8 +5418,8 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -113,7 +113,7 @@
          </group>
        </if>
        <else>
-@@ -5448,8 +5435,8 @@
+@@ -5444,8 +5431,8 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -124,7 +124,7 @@
          </group>
        </if>
        <else>
-@@ -6756,7 +6743,7 @@
+@@ -6752,7 +6739,7 @@
        </else>
      </choose>
    </macro>
@@ -133,7 +133,7 @@
      <layout delimiter="; " suffix=".">
        <text macro="citation-notes-full-subsequent-author-title"/>
      </layout>
-@@ -6906,19 +6893,4 @@
+@@ -6902,19 +6889,4 @@
        </else>
      </choose>
    </macro>
