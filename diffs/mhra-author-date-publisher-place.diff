@@ -1,5 +1,5 @@
---- templates/modern-humanities-research-association-template.csl
-+++ development/modern-humanities-research-association-author-date-publisher-place.csl
+--- templates/mhra-template.csl
++++ development/mhra-author-date-publisher-place.csl
 @@ -3,18 +3,19 @@
    type="application/relax-ng-compact-syntax" schematypens="http://relaxng.org/ns/compatibility/annotations/1.0"?>
  <?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl-repository.rnc"
@@ -9,13 +9,13 @@
    <info>
 -    <title>MHRA Style Guide 4th edition (template)</title>
 -    <title-short>Modern Humanities Research Association</title-short>
--    <id>http://www.zotero.org/styles/modern-humanities-research-association-notes</id>
--    <link href="http://www.zotero.org/styles/modern-humanities-research-association-notes" rel="self"/>
+-    <id>http://www.zotero.org/styles/mhra-notes</id>
+-    <link href="http://www.zotero.org/styles/mhra-notes" rel="self"/>
 +    <title>MHRA Style Guide 4th edition (author-date, place of publication)</title>
 +    <title-short>Modern Humanities Research Association (author-date/Harvard, place of publication)</title-short>
-+    <id>http://www.zotero.org/styles/modern-humanities-research-association-author-date-publisher-place</id>
-+    <link href="http://www.zotero.org/styles/modern-humanities-research-association-author-date-publisher-place" rel="self"/>
-+    <link href="http://www.zotero.org/styles/modern-humanities-research-association-notes" rel="template"/>
++    <id>http://www.zotero.org/styles/mhra-author-date-publisher-place</id>
++    <link href="http://www.zotero.org/styles/mhra-author-date-publisher-place" rel="self"/>
++    <link href="http://www.zotero.org/styles/mhra-notes" rel="template"/>
      <link href="https://www.mhra.org.uk/style/" rel="documentation"/>
      <author>
        <name>Andrew Dunning</name>

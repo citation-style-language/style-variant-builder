@@ -1,18 +1,18 @@
---- templates/modern-humanities-research-association-template.csl
-+++ development/modern-humanities-research-association-notes-subsequent-ibid.csl
+--- templates/mhra-template.csl
++++ development/mhra-notes-subsequent-ibid-no-url.csl
 @@ -5,10 +5,11 @@
    type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
  <style and="text" class="note" default-locale="en-GB" demote-non-dropping-particle="display-and-sort" et-al-min="4" et-al-use-first="1" page-range-format="minimal-two" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>MHRA Style Guide 4th edition (template)</title>
 -    <title-short>Modern Humanities Research Association</title-short>
--    <id>http://www.zotero.org/styles/modern-humanities-research-association-notes</id>
--    <link href="http://www.zotero.org/styles/modern-humanities-research-association-notes" rel="self"/>
-+    <title>MHRA Style Guide 4th edition (notes, subsequent ibid.)</title>
-+    <title-short>Modern Humanities Research Association (notes, subsequent ibid.)</title-short>
-+    <id>http://www.zotero.org/styles/modern-humanities-research-association-notes-subsequent-ibid</id>
-+    <link href="http://www.zotero.org/styles/modern-humanities-research-association-notes-subsequent-ibid" rel="self"/>
-+    <link href="http://www.zotero.org/styles/modern-humanities-research-association-notes" rel="template"/>
+-    <id>http://www.zotero.org/styles/mhra-notes</id>
+-    <link href="http://www.zotero.org/styles/mhra-notes" rel="self"/>
++    <title>MHRA Style Guide 4th edition (notes, subsequent ibid., without URLs)</title>
++    <title-short>Modern Humanities Research Association (notes, subsequent ibid., no URLs)</title-short>
++    <id>http://www.zotero.org/styles/mhra-notes-subsequent-ibid-no-url</id>
++    <link href="http://www.zotero.org/styles/mhra-notes-subsequent-ibid-no-url" rel="self"/>
++    <link href="http://www.zotero.org/styles/mhra-notes" rel="template"/>
      <link href="https://www.mhra.org.uk/style/" rel="documentation"/>
      <author>
        <name>Andrew Dunning</name>
@@ -21,11 +21,21 @@
      <category field="philosophy"/>
      <category field="theology"/>
 -    <summary>MHRA source citations, template</summary>
-+    <summary>MHRA source citations, notes system, using ibid. in subsequent citations (MHRA 7.12)</summary>
++    <summary>MHRA source citations, notes system, using ibid. in subsequent citations (MHRA 7.12), without URLs</summary>
      <updated>2025-11-23T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -3901,7 +3902,7 @@
+@@ -1146,9 +1147,7 @@
+         </choose>
+         <text macro="source-medium"/>
+         <text macro="source-archive"/>
+-        <text prefix="doi:" variable="DOI"/>
+       </group>
+-      <text macro="source-URL"/>
+     </group>
+   </macro>
+   <!-- 3.1. Title -->
+@@ -3901,7 +3900,7 @@
    </macro>
    <citation disambiguate-add-givenname="true" disambiguate-add-names="true">
      <layout delimiter="; " suffix=".">

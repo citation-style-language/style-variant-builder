@@ -1,4 +1,4 @@
---- templates/modern-humanities-research-association-template.csl
+--- templates/mhra-template.csl
 +++ development/instrumenta-patristica-et-mediaevalia.csl
 @@ -3,31 +3,36 @@
    type="application/relax-ng-compact-syntax" schematypens="http://relaxng.org/ns/compatibility/annotations/1.0"?>
@@ -9,14 +9,14 @@
    <info>
 -    <title>MHRA Style Guide 4th edition (template)</title>
 -    <title-short>Modern Humanities Research Association</title-short>
--    <id>http://www.zotero.org/styles/modern-humanities-research-association-notes</id>
--    <link href="http://www.zotero.org/styles/modern-humanities-research-association-notes" rel="self"/>
+-    <id>http://www.zotero.org/styles/mhra-notes</id>
+-    <link href="http://www.zotero.org/styles/mhra-notes" rel="self"/>
 -    <link href="https://www.mhra.org.uk/style/" rel="documentation"/>
 +    <title>Instrumenta Patristica et Mediaevalia</title>
 +    <title-short>IPM</title-short>
 +    <id>http://www.zotero.org/styles/instrumenta-patristica-et-mediaevalia</id>
 +    <link href="http://www.zotero.org/styles/instrumenta-patristica-et-mediaevalia" rel="self"/>
-+    <link href="http://www.zotero.org/styles/modern-humanities-research-association-notes" rel="template"/>
++    <link href="http://www.zotero.org/styles/mhra-notes" rel="template"/>
 +    <link href="https://www.corpuschristianorum.org/author-info" rel="documentation"/>
 +    <link href="https://www.brepols.net/permalink/stylesheet-full-refs" rel="documentation"/>
      <author>
