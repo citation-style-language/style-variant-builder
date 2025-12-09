@@ -46,7 +46,7 @@
            <text macro="identifier"/>
          </else>
        </choose>
-@@ -1150,9 +1149,7 @@
+@@ -1146,9 +1145,7 @@
          </choose>
          <text macro="source-medium"/>
          <text macro="source-archive"/>
