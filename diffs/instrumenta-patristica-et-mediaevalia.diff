@@ -495,7 +495,7 @@
    <macro name="description-review-short">
      <group delimiter=" ">
        <text term="review-of"/>
-@@ -2084,6 +2143,26 @@
+@@ -2088,6 +2147,26 @@
        <choose>
          <if variable="genre">
            <text variable="genre"/>
@@ -522,7 +522,7 @@
            <text form="verb" term="performer"/>
          </if>
        </choose>
-@@ -2095,25 +2174,6 @@
+@@ -2099,25 +2178,6 @@
        </names>
      </group>
    </macro>
@@ -548,7 +548,7 @@
    <!-- 3.3. Identifier (contributors) -->
    <macro name="identifier">
      <group delimiter=", ">
-@@ -2150,7 +2210,8 @@
+@@ -2154,7 +2214,8 @@
                <!-- if there is a volume or part, contributors except for the series editor follow the corresponding volume -->
                <names variable="collection-editor">
                  <label form="verb-short" suffix=" "/>
@@ -558,7 +558,7 @@
                </names>
              </if>
              <else-if match="any" variable="number-of-volumes part-number volume">
-@@ -2158,7 +2219,8 @@
+@@ -2162,7 +2223,8 @@
                  <if variable="collection-editor">
                    <names variable="collection-editor">
                      <label form="verb-short" suffix=" "/>
@@ -568,7 +568,7 @@
                    </names>
                  </if>
                  <else>
-@@ -2204,51 +2266,63 @@
+@@ -2208,51 +2270,63 @@
            <group delimiter=", ">
              <names variable="container-author">
                <label form="verb-short" suffix=" "/>
@@ -644,7 +644,7 @@
              </names>
              <choose>
                <if match="any" type="book broadcast chapter classic entry interview motion_picture musical_score pamphlet paper-conference report software"/>
-@@ -2256,7 +2330,8 @@
+@@ -2260,7 +2334,8 @@
                <else>
                  <names variable="contributor">
                    <label form="verb-short" suffix=" "/>
@@ -654,7 +654,7 @@
                  </names>
                </else>
              </choose>
-@@ -2269,59 +2344,72 @@
+@@ -2273,59 +2348,72 @@
                <if match="none" variable="container-title">
                  <names variable="container-author">
                    <label form="verb-short" suffix=" "/>
@@ -740,7 +740,7 @@
                  </names>
                  <choose>
                    <if match="any" type="book broadcast chapter classic entry interview motion_picture musical_score pamphlet paper-conference report software"/>
-@@ -2330,7 +2418,8 @@
+@@ -2334,7 +2422,8 @@
                    <else>
                      <names variable="contributor">
                        <label form="verb-short" suffix=" "/>
@@ -750,7 +750,7 @@
                      </names>
                    </else>
                  </choose>
-@@ -2341,7 +2430,8 @@
+@@ -2345,7 +2434,8 @@
                  <!-- Song contributors attached to album (cf. CMOS18 14.163) -->
                  <names variable="contributor">
                    <label form="verb-short" suffix=" "/>
@@ -760,7 +760,7 @@
                  </names>
                </if>
              </choose>
-@@ -2356,34 +2446,41 @@
+@@ -2360,34 +2450,41 @@
          <if type="periodical">
            <names variable="editor">
              <label form="verb-short" suffix=" "/>
@@ -809,7 +809,7 @@
        </names>
      </group>
    </macro>
-@@ -2676,7 +2773,6 @@
+@@ -2680,7 +2777,6 @@
            </group>
          </if>
        </choose>
@@ -817,7 +817,7 @@
        <text macro="source-event"/>
        <text macro="label-version"/>
        <text macro="identifier-edition"/>
-@@ -2751,7 +2847,8 @@
+@@ -2755,7 +2851,8 @@
                <!-- if there is a volume or part, contributors except for the series editor follow the corresponding volume -->
                <names variable="collection-editor">
                  <label form="verb-short" suffix=" "/>
@@ -827,7 +827,7 @@
                </names>
              </if>
              <else-if match="any" variable="number-of-volumes part-number volume">
-@@ -2759,7 +2856,8 @@
+@@ -2763,7 +2860,8 @@
                  <if variable="collection-editor">
                    <names variable="collection-editor">
                      <label form="verb-short" suffix=" "/>
@@ -837,7 +837,7 @@
                    </names>
                  </if>
                  <else>
-@@ -2779,47 +2877,58 @@
+@@ -2783,47 +2881,58 @@
      <group delimiter=", ">
        <names variable="editor-translator">
          <label form="verb-short" suffix=" "/>
@@ -907,7 +907,7 @@
        </names>
        <choose>
          <if match="any" type="book broadcast chapter classic entry interview motion_picture musical_score pamphlet paper-conference report software"/>
-@@ -2829,7 +2938,8 @@
+@@ -2833,7 +2942,8 @@
            <!-- Song contributors attached to album (cf. CMOS18 14.163) -->
            <names variable="contributor">
              <label form="verb-short" suffix=" "/>
@@ -917,7 +917,7 @@
            </names>
          </else>
        </choose>
-@@ -2863,7 +2973,7 @@
+@@ -2867,7 +2977,7 @@
      </group>
    </macro>
    <macro name="source-monographic-locator-volume">
@@ -926,7 +926,7 @@
        <group delimiter=", ">
          <text macro="title-volume"/>
          <choose>
-@@ -2887,13 +2997,13 @@
+@@ -2891,13 +3001,13 @@
        <!-- remove volume `issued` date from this position in author-date -->
        <choose>
          <if variable="available-date issued volume">
@@ -943,7 +943,7 @@
          </else-if>
        </choose>
      </group>
-@@ -3018,19 +3128,17 @@
+@@ -3022,19 +3132,17 @@
    </macro>
    <macro name="source-event-unpublished-paper-conference">
      <!-- place and date are rendered in brackets for an unpublished conference paper (MHRA 7.10.vi) -->
@@ -973,7 +973,7 @@
      </group>
    </macro>
    <!-- 4.5. Facts of publication -->
-@@ -3060,24 +3168,24 @@
+@@ -3064,24 +3172,24 @@
      <!-- Facts of publication with brackets for print monographic formats -->
      <choose>
        <if match="any" type="book broadcast chapter classic entry interview motion_picture musical_score pamphlet paper-conference report software song standard thesis">
@@ -1003,7 +1003,7 @@
            </if>
          </choose>
        </else-if>
-@@ -3107,7 +3215,7 @@
+@@ -3111,7 +3219,7 @@
      <!-- mirrors `source-monographic-publication-bracketed` -->
      <choose>
        <if disambiguate="true">
@@ -1012,7 +1012,7 @@
            <choose>
              <!-- Facts of publication with brackets for print monographic formats -->
              <if match="any" type="book chapter classic entry entry-dictionary entry-encyclopedia interview musical_score pamphlet paper-conference report thesis">
-@@ -3264,8 +3372,6 @@
+@@ -3268,8 +3376,6 @@
            <group delimiter=", ">
              <names variable="original-author"/>
              <text font-style="italic" text-case="title" variable="original-title"/>
@@ -1021,7 +1021,7 @@
              <text macro="source-publication-publisher-original"/>
              <text macro="source-date-original"/>
            </group>
-@@ -3276,26 +3382,21 @@
+@@ -3280,26 +3386,21 @@
    <macro name="source-publication-publisher">
      <group delimiter=" ">
        <choose>
@@ -1062,7 +1062,7 @@
          </else>
        </choose>
        <choose>
-@@ -3310,7 +3411,7 @@
+@@ -3314,7 +3415,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -1071,7 +1071,7 @@
            <text variable="original-publisher"/>
          </group>
        </if>
-@@ -3879,7 +3980,8 @@
+@@ -3883,7 +3984,8 @@
          <if disambiguate="true">
            <names variable="editor-translator">
              <label form="verb-short" suffix=" "/>
@@ -1081,7 +1081,7 @@
              <substitute>
                <names variable="editor"/>
                <names variable="translator"/>
-@@ -4007,7 +4109,7 @@
+@@ -4011,7 +4113,7 @@
        <key macro="source-archive"/>
      </sort>
      <layout>
