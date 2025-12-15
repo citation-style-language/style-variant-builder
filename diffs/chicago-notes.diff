@@ -25,7 +25,55 @@
      <updated>2025-10-27T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -6752,7 +6753,7 @@
+@@ -431,12 +432,12 @@
+       </choose>
+       <text variable="volume"/>
+       <!-- always display number of volumes in notes without bibliography (CMOS 14.20): -->
+-      <!-- <choose>
++      <choose>
+         <if is-numeric="number-of-volumes" variable="volume">
+           <text value="of"/>
+           <text variable="number-of-volumes"/>
+         </if>
+-      </choose> -->
++      </choose>
+     </group>
+   </macro>
+   <macro name="label-volume-capitalized">
+@@ -3402,9 +3403,9 @@
+               <text macro="label-volume"/>
+             </if>
+             <!-- always display number of volumes in notes without bibliography (CMOS 14.20): -->
+-            <!-- <else>
++            <else>
+               <text macro="label-number-of-volumes"/>
+-            </else> -->
++            </else>
+           </choose>
+         </else-if>
+         <else-if is-numeric="volume" variable="page">
+@@ -3417,18 +3418,14 @@
+               <text macro="label-volume"/>
+             </else-if>
+             <!-- always display number of volumes in notes without bibliography (CMOS 14.20): -->
+-            <!-- <else>
++            <else>
+               <text macro="label-number-of-volumes"/>
+-            </else> -->
++            </else>
+           </choose>
+         </else-if>
+         <else-if variable="volume">
+           <text macro="label-volume"/>
+         </else-if>
+-        <!-- notes only show the number of volumes if there is no physical locator, which should include a volume number, e.g. 4:243; except when using notes without bibliography (CMOS18 14.20) -->
+-        <else-if locator="column"/>
+-        <else-if locator="folio"/>
+-        <else-if locator="page"/>
+         <else>
+           <text macro="label-number-of-volumes"/>
+         </else>
+@@ -6767,7 +6764,7 @@
        </else>
      </choose>
    </macro>
@@ -34,7 +82,7 @@
      <layout delimiter="; " suffix=".">
        <text macro="citation-notes-full-subsequent-author-title"/>
      </layout>
-@@ -6902,19 +6903,4 @@
+@@ -6917,19 +6914,4 @@
        </else>
      </choose>
    </macro>

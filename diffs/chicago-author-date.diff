@@ -35,7 +35,7 @@
      <updated>2025-10-27T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -3672,9 +3673,7 @@
+@@ -3687,9 +3688,7 @@
        <if match="any" type="article-magazine article-newspaper">
          <group delimiter=", ">
            <group delimiter=". ">
@@ -46,7 +46,7 @@
              <!-- newspaper edition always capitalized (CMOS18 14.89) -->
              <text macro="label-edition-capitalized"/>
            </group>
-@@ -3683,17 +3682,13 @@
+@@ -3698,17 +3697,13 @@
        </if>
        <else-if match="any" variable="issue supplement-number volume">
          <group delimiter=": ">
@@ -66,7 +66,7 @@
            <text macro="source-serial-locator"/>
          </group>
        </else>
-@@ -5466,9 +5461,7 @@
+@@ -5481,9 +5476,7 @@
          <date date-parts="year" form="text" variable="available-date"/>
        </else-if>
        <else>
@@ -77,7 +77,7 @@
        </else>
      </choose>
    </macro>
-@@ -5636,9 +5629,7 @@
+@@ -5651,9 +5644,7 @@
      </choose>
    </macro>
    <macro name="source-date-original">
@@ -88,7 +88,7 @@
    </macro>
    <macro name="source-date-original-full">
      <!-- Give full date for more ephemeral types -->
-@@ -6752,9 +6743,9 @@
+@@ -6767,9 +6758,9 @@
        </else>
      </choose>
    </macro>
@@ -101,7 +101,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -6905,16 +6896,19 @@
+@@ -6920,16 +6911,19 @@
    <bibliography et-al-min="7" et-al-use-first="3" hanging-indent="true">
      <sort>
        <key macro="author-sort"/>
