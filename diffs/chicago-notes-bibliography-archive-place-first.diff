@@ -24,7 +24,7 @@
      <updated>2025-10-27T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -5929,7 +5929,7 @@
+@@ -6163,7 +6163,7 @@
            <text macro="source-archive-reference-institution-first"/>
          </if>
          <else>
@@ -33,7 +33,7 @@
          </else>
        </choose>
        <text macro="source-archive-database-number" prefix="(" suffix=")"/>
-@@ -5942,7 +5942,7 @@
+@@ -6176,7 +6176,7 @@
            <text macro="source-archive-reference-institution-first"/>
          </if>
          <else>

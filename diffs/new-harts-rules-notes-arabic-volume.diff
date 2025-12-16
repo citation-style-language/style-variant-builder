@@ -48,7 +48,7 @@
    </macro>
    <!-- 1. Author -->
    <macro name="author-bib">
-@@ -1226,14 +1225,14 @@
+@@ -1220,14 +1219,14 @@
                <choose>
                  <if match="any" variable="collection-editor container-author editor editorial-director">
                    <!-- monographic usage -->
@@ -65,7 +65,7 @@
                <!-- for OGS: -->
                <!-- <text macro="source-monographic-locator-range"/> -->
              </else>
-@@ -3547,7 +3546,7 @@
+@@ -3549,7 +3548,7 @@
          <choose>
            <if match="any" variable="collection-editor compiler editor editorial-director">
              <!-- monographic usage -->
@@ -74,7 +74,7 @@
            </if>
            <else>
              <!-- serial usage -->
-@@ -3556,7 +3555,7 @@
+@@ -3558,7 +3557,7 @@
          </choose>
        </else-if>
        <else>

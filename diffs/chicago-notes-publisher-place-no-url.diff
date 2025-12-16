@@ -40,7 +40,7 @@
      </group>
    </macro>
    <macro name="label-volume-capitalized">
-@@ -3402,9 +3403,9 @@
+@@ -3546,9 +3547,9 @@
                <text macro="label-volume"/>
              </if>
              <!-- always display number of volumes in notes without bibliography (CMOS 14.20): -->
@@ -52,7 +52,7 @@
            </choose>
          </else-if>
          <else-if is-numeric="volume" variable="page">
-@@ -3412,23 +3413,15 @@
+@@ -3556,23 +3557,15 @@
              <if match="any" variable="collection-editor part-number part-title volume-title">
                <text macro="label-volume"/>
              </if>
@@ -78,7 +78,7 @@
          <else>
            <text macro="label-number-of-volumes"/>
          </else>
-@@ -4153,11 +4146,9 @@
+@@ -4321,11 +4314,9 @@
            </if>
          </choose>
        </else-if>
@@ -90,7 +90,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number-capitalized"/>
-@@ -4189,11 +4180,9 @@
+@@ -4357,11 +4348,9 @@
            </if>
          </choose>
        </else-if>
@@ -102,7 +102,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number"/>
-@@ -4586,10 +4575,6 @@
+@@ -4808,10 +4797,6 @@
              <if is-numeric="volume" match="none">
                <text macro="label-volume"/>
              </if>
@@ -113,16 +113,16 @@
              <else-if is-numeric="volume" variable="page">
                <choose>
                  <!-- check for variables that might come between the volume and page number -->
-@@ -4630,8 +4615,6 @@
+@@ -4853,8 +4838,6 @@
        <else-if variable="locator">
          <text macro="label-locator"/>
        </else-if>
 -      <!-- remove `container-title` condition in styles that print chapter page numbers (CMOS17/classic) -->
 -      <else-if variable="container-title"/>
        <else-if is-numeric="volume" variable="page">
-         <!-- collapse the volume and page number if adjacent -->
+         <!-- collapse the volume and page number if adjacent (CMOS18 14.18) -->
          <group delimiter=":">
-@@ -5398,8 +5381,8 @@
+@@ -5623,8 +5606,8 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -133,7 +133,7 @@
            </group>
          </else-if>
          <!-- TODO: remove conditional when Zotero fixes double-mapping of `event-place` -->
-@@ -5424,8 +5407,8 @@
+@@ -5649,8 +5632,8 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -144,7 +144,7 @@
            </group>
          </else-if>
          <!-- TODO: remove conditional when Zotero fixes double-mapping of `event-place` -->
-@@ -5446,8 +5429,8 @@
+@@ -5671,8 +5654,8 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -155,7 +155,7 @@
          </group>
        </if>
        <else>
-@@ -5459,8 +5442,8 @@
+@@ -5684,8 +5667,8 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -166,7 +166,7 @@
          </group>
        </if>
        <else>
-@@ -6047,7 +6030,7 @@
+@@ -6281,7 +6264,7 @@
            </group>
          </else-if>
        </choose>
@@ -175,7 +175,7 @@
      </group>
    </macro>
    <macro name="source-date-accessed-DOI-URL-note">
-@@ -6062,7 +6045,7 @@
+@@ -6296,7 +6279,7 @@
            </group>
          </else-if>
        </choose>
@@ -184,7 +184,7 @@
      </group>
    </macro>
    <macro name="source-DOI-URL">
-@@ -6767,7 +6750,7 @@
+@@ -7001,7 +6984,7 @@
        </else>
      </choose>
    </macro>
@@ -193,7 +193,7 @@
      <layout delimiter="; " suffix=".">
        <text macro="citation-notes-full-subsequent-author-title"/>
      </layout>
-@@ -6917,19 +6900,4 @@
+@@ -7151,19 +7134,4 @@
        </else>
      </choose>
    </macro>
