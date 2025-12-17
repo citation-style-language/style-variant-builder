@@ -24,7 +24,7 @@
      <updated>2025-10-27T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -6281,7 +6281,7 @@
+@@ -6293,7 +6293,7 @@
            </group>
          </else-if>
        </choose>
@@ -33,7 +33,7 @@
      </group>
    </macro>
    <macro name="source-date-accessed-DOI-URL-note">
-@@ -6296,7 +6296,7 @@
+@@ -6308,7 +6308,7 @@
            </group>
          </else-if>
        </choose>

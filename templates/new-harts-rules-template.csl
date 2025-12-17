@@ -802,23 +802,23 @@
       <if match="none" variable="container-title"/>
       <else-if match="any" type="article-journal article-magazine article-newspaper periodical post-weblog review review-book">
         <!-- Anonymous works in serials substitute name of publication (cf. CMOS18 14.87, 14.97, 14.102) -->
-        <text font-style="italic" form="short" text-case="title" variable="container-title"/>
+        <text font-style="italic" text-case="title" variable="container-title"/>
       </else-if>
       <else-if match="any" type="interview paper-conference">
         <choose>
           <if match="none" variable="collection-editor compiler editor editorial-director">
             <!-- serial usage -->
-            <text font-style="italic" form="short" text-case="title" variable="container-title"/>
+            <text font-style="italic" text-case="title" variable="container-title"/>
           </if>
         </choose>
       </else-if>
       <else-if match="any" type="entry entry-dictionary entry-encyclopedia">
         <!-- Anonymous entries in reference works (cf. CMOS18 14.130) -->
-        <text font-style="italic" form="short" text-case="title" variable="container-title"/>
+        <text font-style="italic" text-case="title" variable="container-title"/>
       </else-if>
       <else-if type="webpage">
         <!-- Website title substituted in bibliography only (cf. CMOS18 14.104) -->
-        <text form="short" text-case="title" variable="container-title"/>
+        <text text-case="title" variable="container-title"/>
       </else-if>
     </choose>
   </macro>
@@ -1641,10 +1641,10 @@
           <text font-style="italic" text-case="title" variable="container-title"/>
         </if>
         <else-if variable="genre">
-          <text variable="genre"/>
+          <text form="short" variable="genre"/>
         </else-if>
         <else-if variable="medium">
-          <text variable="medium"/>
+          <text form="short" variable="medium"/>
         </else-if>
         <else-if type="manuscript">
           <!-- 'unpublished manuscript' if no `genre` (cf. CMOS18 14.114) -->
@@ -1789,7 +1789,7 @@
             <text macro="description-format-short"/>
             <names variable="recipient">
               <label form="verb" suffix=" "/>
-              <name/>
+              <name form="short"/>
             </names>
           </group>
         </if>
@@ -1878,7 +1878,7 @@
         <text macro="description-format-short"/>
       </else-if>
       <else>
-        <text variable="section"/>
+        <text form="short" variable="section"/>
       </else>
     </choose>
   </macro>
@@ -3747,8 +3747,8 @@
           <text form="short" variable="archive"/>
         </if>
       </choose>
-      <text variable="archive_collection"/>
-      <text variable="archive_location"/>
+      <text form="short" variable="archive_collection"/>
+      <text form="short" variable="archive_location"/>
     </group>
   </macro>
   <!-- 4.10. DOI or URL -->

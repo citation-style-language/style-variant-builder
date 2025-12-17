@@ -59,7 +59,7 @@
      </group>
    </macro>
    <macro name="label-volume-capitalized">
-@@ -3546,9 +3546,9 @@
+@@ -3554,9 +3554,9 @@
                <text macro="label-volume"/>
              </if>
              <!-- always display number of volumes in notes without bibliography (CMOS 14.20): -->
@@ -71,7 +71,7 @@
            </choose>
          </else-if>
          <else-if is-numeric="volume" variable="page">
-@@ -3556,23 +3556,15 @@
+@@ -3564,23 +3564,15 @@
              <if match="any" variable="collection-editor part-number part-title volume-title">
                <text macro="label-volume"/>
              </if>
@@ -97,7 +97,7 @@
          <else>
            <text macro="label-number-of-volumes"/>
          </else>
-@@ -4321,11 +4313,9 @@
+@@ -4329,11 +4321,9 @@
            </if>
          </choose>
        </else-if>
@@ -109,7 +109,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number-capitalized"/>
-@@ -4357,11 +4347,9 @@
+@@ -4365,11 +4355,9 @@
            </if>
          </choose>
        </else-if>
@@ -121,7 +121,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number"/>
-@@ -4808,10 +4796,6 @@
+@@ -4816,10 +4804,6 @@
              <if is-numeric="volume" match="none">
                <text macro="label-volume"/>
              </if>
@@ -132,7 +132,7 @@
              <else-if is-numeric="volume" variable="page">
                <choose>
                  <!-- check for variables that might come between the volume and page number -->
-@@ -4853,8 +4837,6 @@
+@@ -4861,8 +4845,6 @@
        <else-if variable="locator">
          <text macro="label-locator"/>
        </else-if>
@@ -141,7 +141,7 @@
        <else-if is-numeric="volume" variable="page">
          <!-- collapse the volume and page number if adjacent (CMOS18 14.18) -->
          <group delimiter=":">
-@@ -4862,15 +4844,18 @@
+@@ -4870,15 +4852,18 @@
              <!-- check for variables that might come between the volume and page number -->
              <if match="none" variable="collection-editor part-number part-title volume-title">
                <text variable="volume"/>
@@ -163,7 +163,7 @@
        </else>
      </choose>
    </macro>
-@@ -5623,8 +5608,8 @@
+@@ -5635,8 +5620,8 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -174,7 +174,7 @@
            </group>
          </else-if>
          <!-- TODO: remove conditional when Zotero fixes double-mapping of `event-place` -->
-@@ -5649,8 +5634,8 @@
+@@ -5661,8 +5646,8 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -185,7 +185,7 @@
            </group>
          </else-if>
          <!-- TODO: remove conditional when Zotero fixes double-mapping of `event-place` -->
-@@ -5671,8 +5656,8 @@
+@@ -5683,8 +5668,8 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -196,7 +196,7 @@
          </group>
        </if>
        <else>
-@@ -5684,8 +5669,8 @@
+@@ -5696,8 +5681,8 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -207,7 +207,7 @@
          </group>
        </if>
        <else>
-@@ -6163,7 +6148,7 @@
+@@ -6175,7 +6160,7 @@
            <text macro="source-archive-reference-institution-first"/>
          </if>
          <else>
@@ -216,7 +216,7 @@
          </else>
        </choose>
        <text macro="source-archive-database-number" prefix="(" suffix=")"/>
-@@ -6176,7 +6161,7 @@
+@@ -6188,7 +6173,7 @@
            <text macro="source-archive-reference-institution-first"/>
          </if>
          <else>
@@ -225,7 +225,7 @@
          </else>
        </choose>
        <text macro="source-archive-database-number" prefix="(" suffix=")"/>
-@@ -7001,7 +6986,7 @@
+@@ -7013,7 +6998,7 @@
        </else>
      </choose>
    </macro>
@@ -234,7 +234,7 @@
      <layout delimiter="; " suffix=".">
        <text macro="citation-notes-full-subsequent-author-title"/>
      </layout>
-@@ -7151,19 +7136,4 @@
+@@ -7163,19 +7148,4 @@
        </else>
      </choose>
    </macro>

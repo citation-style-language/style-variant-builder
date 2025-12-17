@@ -881,6 +881,7 @@
             <if position="first">
               <!-- do not shorten at first reference as there is no bibliography entry -->
               <names variable="author">
+                <name and="text"/>
                 <substitute>
                   <text macro="title-and-descriptions-short"/>
                 </substitute>
@@ -947,6 +948,7 @@
             <if position="first">
               <!-- at the first citation in shortened forms, give the full name -->
               <names variable="author">
+                <name and="text"/>
                 <substitute>
                   <text macro="title-and-descriptions-short"/>
                 </substitute>
@@ -2072,16 +2074,16 @@
     <group delimiter=" ">
       <choose>
         <if type="chapter" variable="container-title genre">
-          <text variable="genre"/>
+          <text form="short" variable="genre"/>
           <!-- untitled introductions: cf. review model, which includes a title (CMOS18 14.101) -->
           <text macro="source-monographic-preposition-note"/>
           <text font-style="italic" text-case="title" variable="container-title"/>
         </if>
         <else-if variable="genre">
-          <text variable="genre"/>
+          <text form="short" variable="genre"/>
         </else-if>
         <else-if variable="medium">
-          <text variable="medium"/>
+          <text form="short" variable="medium"/>
         </else-if>
         <else-if type="manuscript">
           <!-- 'unpublished manuscript' if no `genre` (CMOS18 14.114) -->
@@ -2156,7 +2158,9 @@
             <text text-case="capitalize-first" variable="genre"/>
             <group delimiter=" ">
               <text form="verb" term="container-author"/>
-              <names variable="interviewer"/>
+              <names variable="interviewer">
+                <name and="text"/>
+              </names>
             </group>
           </group>
         </else-if>
@@ -2188,7 +2192,9 @@
             <text variable="genre"/>
             <group delimiter=" ">
               <text form="verb" term="container-author"/>
-              <names variable="interviewer"/>
+              <names variable="interviewer">
+                <name and="text"/>
+              </names>
             </group>
           </group>
         </else-if>
@@ -2550,7 +2556,7 @@
         <text macro="description-format-short"/>
       </else-if>
       <else>
-        <text variable="section"/>
+        <text form="short" variable="section"/>
       </else>
     </choose>
   </macro>
@@ -2570,6 +2576,7 @@
         </else>
       </choose>
       <names variable="author">
+        <name and="text"/>
         <substitute>
           <names variable="performer"/>
         </substitute>
@@ -2592,6 +2599,7 @@
         </else>
       </choose>
       <names variable="author">
+        <name and="text"/>
         <substitute>
           <names variable="performer"/>
         </substitute>
@@ -5586,7 +5594,9 @@
         <group delimiter=" ">
           <text term="original-work-published" text-case="capitalize-first"/>
           <group delimiter=", ">
-            <names variable="original-author"/>
+            <names variable="original-author">
+              <name and="text"/>
+            </names>
             <text font-style="italic" text-case="title" variable="original-title"/>
           </group>
           <group delimiter=", " prefix="(" suffix=")">
@@ -5604,7 +5614,9 @@
         <group delimiter=" ">
           <text term="original-work-published"/>
           <group delimiter=", ">
-            <names variable="original-author"/>
+            <names variable="original-author">
+              <name and="text"/>
+            </names>
             <text font-style="italic" text-case="title" variable="original-title"/>
           </group>
           <group delimiter=", " prefix="(" suffix=")">
