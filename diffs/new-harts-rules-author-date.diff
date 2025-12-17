@@ -35,7 +35,7 @@
      <updated>2025-11-05T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -2289,12 +2290,12 @@
+@@ -2273,12 +2274,12 @@
          <if type="article-newspaper">
            <group delimiter=" ">
              <text macro="source-serial-title"/>
@@ -50,7 +50,7 @@
          </else-if>
          <else-if type="interview" variable="publisher">
            <!-- publisher possible with `interview` (NHR 18.7.3) -->
-@@ -2302,7 +2303,7 @@
+@@ -2286,7 +2287,7 @@
              <text macro="source-serial-title"/>
              <group delimiter=" ">
                <text variable="publisher"/>
@@ -59,7 +59,7 @@
              </group>
            </group>
          </else-if>
-@@ -2311,14 +2312,14 @@
+@@ -2295,14 +2296,14 @@
              <text macro="source-serial-title"/>
              <group delimiter=" ">
                <text variable="publisher"/>
@@ -76,7 +76,7 @@
            </group>
          </else>
        </choose>
-@@ -3275,9 +3276,7 @@
+@@ -3259,9 +3260,7 @@
    </macro>
    <!-- 4.6. Date -->
    <macro name="source-date">
@@ -87,7 +87,7 @@
    </macro>
    <!-- Date elements -->
    <macro name="source-date-issued-full">
-@@ -3416,9 +3415,7 @@
+@@ -3400,9 +3399,7 @@
      </choose>
    </macro>
    <macro name="source-date-original">
@@ -98,7 +98,7 @@
    </macro>
    <macro name="source-date-original-full">
      <!-- Give full date for more ephemeral types; reflected in `date-year-sort` -->
-@@ -3928,9 +3925,9 @@
+@@ -3912,9 +3909,9 @@
        </choose>
      </group>
    </macro>
@@ -111,7 +111,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -4043,17 +4040,16 @@
+@@ -4027,17 +4024,16 @@
    <bibliography hanging-indent="true">
      <sort>
        <key macro="author-bib"/>

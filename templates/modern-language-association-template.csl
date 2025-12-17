@@ -516,7 +516,7 @@
         <text macro="supplemental-generic-label-review-short"/>
       </if>
       <else>
-        <text text-case="capitalize-first" variable="genre"/>
+        <text form="short" text-case="capitalize-first" variable="genre"/>
       </else>
     </choose>
   </macro>

@@ -61,7 +61,7 @@
    </macro>
    <!-- 1. Author -->
    <macro name="author-bib">
-@@ -1220,14 +1218,14 @@
+@@ -1204,14 +1202,14 @@
                <choose>
                  <if match="any" variable="collection-editor container-author editor editorial-director">
                    <!-- monographic usage -->
@@ -78,7 +78,7 @@
                <!-- for OGS: -->
                <!-- <text macro="source-monographic-locator-range"/> -->
              </else>
-@@ -2508,7 +2506,7 @@
+@@ -2492,7 +2490,7 @@
          </group>
        </if>
        <else>
@@ -87,7 +87,7 @@
        </else>
      </choose>
    </macro>
-@@ -2763,7 +2761,7 @@
+@@ -2747,7 +2745,7 @@
          </else-if>
          <else-if variable="archive archive_location page"/>
          <else>
@@ -96,7 +96,7 @@
          </else>
        </choose>
      </group>
-@@ -2814,13 +2812,13 @@
+@@ -2798,13 +2796,13 @@
                <text variable="volume"/>
              </if>
            </choose>
@@ -112,7 +112,7 @@
        </else>
      </choose>
    </macro>
-@@ -3549,7 +3547,7 @@
+@@ -3533,7 +3531,7 @@
          <choose>
            <if match="any" variable="collection-editor compiler editor editorial-director">
              <!-- monographic usage -->
@@ -121,7 +121,7 @@
            </if>
            <else>
              <!-- serial usage -->
-@@ -3558,7 +3556,7 @@
+@@ -3542,7 +3540,7 @@
          </choose>
        </else-if>
        <else>
@@ -130,7 +130,7 @@
        </else>
      </choose>
    </macro>
-@@ -3764,7 +3762,7 @@
+@@ -3748,7 +3746,7 @@
            </group>
          </else-if>
        </choose>

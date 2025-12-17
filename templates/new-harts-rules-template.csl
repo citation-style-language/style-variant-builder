@@ -775,10 +775,6 @@
   <macro name="author-title-substitute-container">
     <choose>
       <if match="none" variable="container-title"/>
-      <else-if match="any" type="article-journal article-magazine article-newspaper periodical post-weblog review review-book">
-        <!-- Anonymous serials substitute name of publication (cf. CMOS18 14.87, 14.97, 14.102) -->
-        <text macro="source-serial-name"/>
-      </else-if>
       <else-if match="any" type="interview paper-conference">
         <choose>
           <if match="none" variable="collection-editor compiler editor editorial-director">
@@ -800,25 +796,13 @@
   <macro name="author-title-substitute-container-short">
     <choose>
       <if match="none" variable="container-title"/>
-      <else-if match="any" type="article-journal article-magazine article-newspaper periodical post-weblog review review-book">
-        <!-- Anonymous works in serials substitute name of publication (cf. CMOS18 14.87, 14.97, 14.102) -->
-        <text font-style="italic" text-case="title" variable="container-title"/>
-      </else-if>
-      <else-if match="any" type="interview paper-conference">
-        <choose>
-          <if match="none" variable="collection-editor compiler editor editorial-director">
-            <!-- serial usage -->
-            <text font-style="italic" text-case="title" variable="container-title"/>
-          </if>
-        </choose>
-      </else-if>
       <else-if match="any" type="entry entry-dictionary entry-encyclopedia">
         <!-- Anonymous entries in reference works (cf. CMOS18 14.130) -->
-        <text font-style="italic" text-case="title" variable="container-title"/>
+        <text font-style="italic" form="short" text-case="title" variable="container-title"/>
       </else-if>
       <else-if type="webpage">
         <!-- Website title substituted in bibliography only (cf. CMOS18 14.104) -->
-        <text text-case="title" variable="container-title"/>
+        <text form="short" text-case="title" variable="container-title"/>
       </else-if>
     </choose>
   </macro>
@@ -1176,7 +1160,7 @@
             <if match="none" type="entry entry-dictionary entry-encyclopedia"/>
             <else-if match="none" variable="author">
               <!-- give container title to distinguish an unsigned reference entry -->
-              <text font-style="italic" variable="container-title"/>
+              <text font-style="italic" form="short" variable="container-title"/>
             </else-if>
           </choose>
         </group>
@@ -1638,7 +1622,7 @@
           <text variable="genre"/>
           <!-- untitled introductions, based on review model (cf. CMOS18 14.101, MHRA4 7.12) -->
           <text macro="source-monographic-preposition"/>
-          <text font-style="italic" text-case="title" variable="container-title"/>
+          <text font-style="italic" form="short" text-case="title" variable="container-title"/>
         </if>
         <else-if variable="genre">
           <text form="short" variable="genre"/>
@@ -1665,7 +1649,7 @@
         <else-if variable="chapter-number container-title">
           <text macro="label-chapter-number"/>
           <text term="in"/>
-          <text font-style="italic" text-case="title" variable="container-title"/>
+          <text font-style="italic" form="short" text-case="title" variable="container-title"/>
         </else-if>
         <else-if variable="chapter-number">
           <text macro="label-chapter-number"/>
@@ -1726,7 +1710,7 @@
       <if disambiguate="true">
         <names variable="interviewer">
           <label form="verb" suffix=" "/>
-          <name/>
+          <name form="short"/>
           <substitute>
             <text macro="description-format-short"/>
           </substitute>
