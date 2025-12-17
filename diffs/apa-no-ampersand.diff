@@ -245,8 +245,8 @@
    <macro name="description-interview-short">
      <names variable="interviewer">
        <label form="verb" suffix=" " text-case="capitalize-first"/>
--      <name and="symbol"/>
-+      <name and="text"/>
+-      <name and="symbol" form="short"/>
++      <name and="text" form="short"/>
        <substitute>
          <text macro="description-format-short"/>
        </substitute>
@@ -263,8 +263,8 @@
            <text macro="description-format-short"/>
            <names variable="recipient">
              <label form="verb" suffix=" "/>
--            <name and="symbol"/>
-+            <name and="text"/>
+-            <name and="symbol" form="short"/>
++            <name and="text" form="short"/>
            </names>
          </group>
        </if>
