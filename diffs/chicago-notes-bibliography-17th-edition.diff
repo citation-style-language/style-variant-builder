@@ -35,7 +35,7 @@
        <term name="timestamp">at</term>
        <term form="verb-short" name="translator">trans.</term>
      </terms>
-@@ -3564,10 +3562,6 @@
+@@ -3571,10 +3569,6 @@
              <if match="any" variable="collection-editor part-number part-title volume-title">
                <text macro="label-volume"/>
              </if>
@@ -46,7 +46,7 @@
              <!-- always display number of volumes in notes without bibliography (CMOS 14.20): -->
              <!-- <else>
                <text macro="label-number-of-volumes"/>
-@@ -4329,11 +4323,9 @@
+@@ -4336,11 +4330,9 @@
            </if>
          </choose>
        </else-if>
@@ -58,7 +58,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number-capitalized"/>
-@@ -4365,11 +4357,9 @@
+@@ -4372,11 +4364,9 @@
            </if>
          </choose>
        </else-if>
@@ -70,7 +70,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number"/>
-@@ -4816,10 +4806,6 @@
+@@ -4823,10 +4813,6 @@
              <if is-numeric="volume" match="none">
                <text macro="label-volume"/>
              </if>
@@ -81,7 +81,7 @@
              <else-if is-numeric="volume" variable="page">
                <choose>
                  <!-- check for variables that might come between the volume and page number -->
-@@ -4861,8 +4847,6 @@
+@@ -4868,8 +4854,6 @@
        <else-if variable="locator">
          <text macro="label-locator"/>
        </else-if>
@@ -90,7 +90,7 @@
        <else-if is-numeric="volume" variable="page">
          <!-- collapse the volume and page number if adjacent (CMOS18 14.18) -->
          <group delimiter=":">
-@@ -5635,7 +5619,7 @@
+@@ -5642,7 +5626,7 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -99,7 +99,7 @@
              <text text-case="capitalize-first" variable="publisher"/>
            </group>
          </else-if>
-@@ -5661,7 +5645,7 @@
+@@ -5668,7 +5652,7 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -108,7 +108,7 @@
              <text variable="publisher"/>
            </group>
          </else-if>
-@@ -5683,7 +5667,7 @@
+@@ -5690,7 +5674,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -117,7 +117,7 @@
            <text text-case="capitalize-first" variable="original-publisher"/>
          </group>
        </if>
-@@ -5696,7 +5680,7 @@
+@@ -5703,7 +5687,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -126,7 +126,7 @@
            <text variable="original-publisher"/>
          </group>
        </if>
-@@ -5780,14 +5764,10 @@
+@@ -5787,14 +5771,10 @@
          <text macro="date-issued-full"/>
        </if>
        <else-if variable="issue volume">
@@ -143,7 +143,7 @@
        </else-if>
        <else-if match="any" variable="issue volume">
          <text macro="date-issued-year-month"/>
-@@ -5936,14 +5916,10 @@
+@@ -5943,14 +5923,10 @@
    <macro name="source-date-original-full-serial">
      <choose>
        <if variable="issue volume">
@@ -160,7 +160,7 @@
        </else-if>
        <else-if match="any" variable="issue volume">
          <text macro="date-original-year-month"/>
-@@ -7013,9 +6989,9 @@
+@@ -7020,9 +6996,9 @@
        </else>
      </choose>
    </macro>
@@ -172,7 +172,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -7113,7 +7089,7 @@
+@@ -7120,7 +7096,7 @@
            </if>
          </choose>
        </else-if>
@@ -181,7 +181,7 @@
          <!-- In note styles, the bibliography also omits inaccessible manuscripts (CMOS18 14.114), conference papers (new in CMOS18 14.115; included in CMOS17 14.217), and private documents (CMOS18 14.118) -->
          <choose>
            <if match="any" variable="archive archive-place container-title DOI number publisher references URL">
-@@ -7121,8 +7097,6 @@
+@@ -7128,8 +7104,6 @@
            </if>
          </choose>
        </else-if>
@@ -190,7 +190,7 @@
        <else>
          <text macro="bibliography-notes"/>
        </else>
-@@ -7163,7 +7137,7 @@
+@@ -7170,7 +7144,7 @@
        </else>
      </choose>
    </macro>

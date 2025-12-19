@@ -25,7 +25,7 @@
      <updated>2025-10-27T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -6284,9 +6285,8 @@
+@@ -6291,9 +6292,8 @@
    <macro name="source-date-accessed-DOI-URL-bib">
      <group delimiter=". ">
        <choose>
@@ -37,7 +37,7 @@
            <group delimiter=" ">
              <text term="accessed" text-case="capitalize-first"/>
              <date form="text" variable="accessed"/>
-@@ -6299,9 +6299,8 @@
+@@ -6306,9 +6306,8 @@
    <macro name="source-date-accessed-DOI-URL-note">
      <group delimiter=", ">
        <choose>

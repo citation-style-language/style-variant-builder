@@ -40,7 +40,7 @@
      </group>
    </macro>
    <macro name="label-volume-capitalized">
-@@ -3554,9 +3555,9 @@
+@@ -3561,9 +3562,9 @@
                <text macro="label-volume"/>
              </if>
              <!-- always display number of volumes in notes without bibliography (CMOS 14.20): -->
@@ -52,7 +52,7 @@
            </choose>
          </else-if>
          <else-if is-numeric="volume" variable="page">
-@@ -3569,18 +3570,14 @@
+@@ -3576,18 +3577,14 @@
                <text macro="label-volume"/>
              </else-if>
              <!-- always display number of volumes in notes without bibliography (CMOS 14.20): -->
@@ -73,7 +73,7 @@
          <else>
            <text macro="label-number-of-volumes"/>
          </else>
-@@ -7013,7 +7010,7 @@
+@@ -7020,7 +7017,7 @@
        </else>
      </choose>
    </macro>
@@ -82,7 +82,7 @@
      <layout delimiter="; " suffix=".">
        <text macro="citation-notes-full-subsequent-author-title"/>
      </layout>
-@@ -7163,19 +7160,4 @@
+@@ -7170,19 +7167,4 @@
        </else>
      </choose>
    </macro>
