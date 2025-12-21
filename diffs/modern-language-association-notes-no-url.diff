@@ -52,7 +52,7 @@
 -    <layout delimiter="; " prefix="(" suffix=")">
 +    <layout delimiter="; " suffix=".">
        <choose>
-         <if locator="page line" match="any">
+         <if locator="line page timestamp" match="any">
            <group delimiter=" ">
 @@ -1203,7 +1199,6 @@
        <key macro="supplemental-element-after-title"/>
