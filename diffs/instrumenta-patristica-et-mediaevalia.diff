@@ -530,7 +530,7 @@
 +              <et-al font-variant="normal"/>
              </names>
              <names variable="guest">
-               <label form="verb" suffix=" "/>
+               <label form="verb-short" suffix=" "/>
 -              <name/>
 +              <name font-variant="small-caps"/>
 +              <et-al font-variant="normal"/>
@@ -566,7 +566,7 @@
 +              <et-al font-variant="normal"/>
              </names>
              <names variable="performer">
-               <label form="verb-short" suffix=" "/>
+               <label form="verb" suffix=" "/>
 -              <name/>
 +              <name font-variant="small-caps"/>
 +              <et-al font-variant="normal"/>
@@ -616,7 +616,7 @@
 +                  <et-al font-variant="normal"/>
                  </names>
                  <names variable="guest">
-                   <label form="verb" suffix=" "/>
+                   <label form="verb-short" suffix=" "/>
 -                  <name/>
 +                  <name font-variant="small-caps"/>
 +                  <et-al font-variant="normal"/>
@@ -662,7 +662,7 @@
 +                  <et-al font-variant="normal"/>
                  </names>
                  <names variable="performer">
-                   <label form="verb-short" suffix=" "/>
+                   <label form="verb" suffix=" "/>
 -                  <name/>
 +                  <name font-variant="small-caps"/>
 +                  <et-al font-variant="normal"/>
@@ -731,7 +731,7 @@
 +        <et-al font-variant="normal"/>
        </names>
        <names variable="performer">
-         <label form="verb-short" suffix=" "/>
+         <label form="verb" suffix=" "/>
 -        <name/>
 +        <name font-variant="small-caps"/>
 +        <et-al font-variant="normal"/>
@@ -787,7 +787,7 @@
 +        <et-al font-variant="normal"/>
        </names>
        <names variable="guest">
-         <label form="verb" suffix=" "/>
+         <label form="verb-short" suffix=" "/>
 -        <name/>
 +        <name font-variant="small-caps"/>
 +        <et-al font-variant="normal"/>
@@ -829,7 +829,7 @@
 +        <et-al font-variant="normal"/>
        </names>
        <names variable="performer">
-         <label form="verb-short" suffix=" "/>
+         <label form="verb" suffix=" "/>
 -        <name/>
 +        <name font-variant="small-caps"/>
 +        <et-al font-variant="normal"/>

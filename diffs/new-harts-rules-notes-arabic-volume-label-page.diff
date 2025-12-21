@@ -78,7 +78,7 @@
                <!-- for OGS: -->
                <!-- <text macro="source-monographic-locator-range"/> -->
              </else>
-@@ -2499,7 +2497,7 @@
+@@ -2532,7 +2530,7 @@
          </group>
        </if>
        <else>
@@ -87,7 +87,7 @@
        </else>
      </choose>
    </macro>
-@@ -2754,7 +2752,7 @@
+@@ -2807,7 +2805,7 @@
          </else-if>
          <else-if variable="archive archive_location page"/>
          <else>
@@ -96,7 +96,7 @@
          </else>
        </choose>
      </group>
-@@ -2805,13 +2803,13 @@
+@@ -2858,13 +2856,13 @@
                <text variable="volume"/>
              </if>
            </choose>
@@ -112,7 +112,7 @@
        </else>
      </choose>
    </macro>
-@@ -3540,7 +3538,7 @@
+@@ -3593,7 +3591,7 @@
          <choose>
            <if match="any" variable="collection-editor compiler editor editorial-director">
              <!-- monographic usage -->
@@ -121,7 +121,7 @@
            </if>
            <else>
              <!-- serial usage -->
-@@ -3549,7 +3547,7 @@
+@@ -3602,7 +3600,7 @@
          </choose>
        </else-if>
        <else>

@@ -65,7 +65,7 @@
                <!-- for OGS: -->
                <!-- <text macro="source-monographic-locator-range"/> -->
              </else>
-@@ -3540,7 +3539,7 @@
+@@ -3593,7 +3592,7 @@
          <choose>
            <if match="any" variable="collection-editor compiler editor editorial-director">
              <!-- monographic usage -->
@@ -74,7 +74,7 @@
            </if>
            <else>
              <!-- serial usage -->
-@@ -3549,7 +3548,7 @@
+@@ -3602,7 +3601,7 @@
          </choose>
        </else-if>
        <else>

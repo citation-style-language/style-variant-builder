@@ -157,7 +157,7 @@
            <else-if variable="page"/>
            <else>
              <text macro="label-volume"/>
-@@ -2384,9 +2432,7 @@
+@@ -2417,9 +2465,7 @@
        <text macro="source-serial-identifier-volume"/>
        <!-- periodical edition always capitalized (cf. CMOS18 14.89) -->
        <text macro="label-edition-capitalized"/>
@@ -168,7 +168,7 @@
      </group>
    </macro>
    <macro name="source-serial-identifier-author-date">
-@@ -2431,16 +2477,12 @@
+@@ -2464,16 +2510,12 @@
                <choose>
                  <if variable="issue volume">
                    <group delimiter="/">
@@ -187,7 +187,7 @@
                    <text macro="label-issue"/>
                  </else>
                </choose>
-@@ -2551,8 +2593,6 @@
+@@ -2584,8 +2626,6 @@
            </group>
          </if>
        </choose>
@@ -196,7 +196,7 @@
        <text macro="source-event"/>
      </group>
    </macro>
-@@ -2861,9 +2901,7 @@
+@@ -2914,9 +2954,7 @@
    <macro name="source-series">
      <group delimiter=", ">
        <text text-case="title" variable="collection-title"/>
@@ -207,7 +207,7 @@
        <text macro="label-issue"/>
      </group>
    </macro>
-@@ -2986,8 +3024,7 @@
+@@ -3039,8 +3077,7 @@
            <choose>
              <if match="any" variable="collection-editor container-author editor editorial-director">
                <!-- monographic usage -->
@@ -217,7 +217,7 @@
                <text macro="source-publication-and-date"/>
              </if>
            </choose>
-@@ -2995,8 +3032,7 @@
+@@ -3048,8 +3085,7 @@
          <!-- `patent` date in identification (cf. CMOS18 14.158) -->
          <else-if type="patent"/>
          <else>
@@ -227,7 +227,7 @@
            <text macro="source-publication-and-date"/>
          </else>
        </choose>
-@@ -3561,7 +3597,7 @@
+@@ -3614,7 +3650,7 @@
            <text macro="label-locator"/>
          </if>
          <!-- for OGS: -->
@@ -236,7 +236,7 @@
            <text macro="label-volume"/>
            <text macro="label-part-number"/>
            <text macro="label-locator"/>
-@@ -3571,7 +3607,7 @@
+@@ -3624,7 +3660,7 @@
              <text macro="label-volume"/>
              <text macro="label-locator"/>
            </group>
@@ -245,7 +245,7 @@
          <else-if variable="part-number">
            <text macro="label-volume"/>
            <text macro="label-part-number"/>
-@@ -3628,14 +3664,12 @@
+@@ -3681,14 +3717,12 @@
    <!-- 4.9. Archival location -->
    <macro name="source-archive">
      <group delimiter=", ">
