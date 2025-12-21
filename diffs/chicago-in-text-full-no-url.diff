@@ -34,7 +34,7 @@
      <updated>2025-10-27T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -4165,24 +4165,24 @@
+@@ -4169,24 +4169,24 @@
                  <!-- date appears first if a review `container-title` has been substituted for a missing author (CMOS18 14.89) -->
                  <choose>
                    <if match="any" variable="author chair collection-editor compiler composer curator director editor editor-translator editorial-director executive-producer guest host illustrator organizer producer series-creator translator">
@@ -63,7 +63,7 @@
                  <!-- for CMOS17 author-date: -->
                  <!-- <text macro="source-date-issued-month-day" prefix="(" suffix=")"/> -->
                </else>
-@@ -5219,32 +5219,32 @@
+@@ -5225,32 +5225,32 @@
      <!-- Facts of publication with brackets for print monographic formats -->
      <choose>
        <if match="any" type="book chapter classic interview musical_score pamphlet paper-conference report thesis">
@@ -102,7 +102,7 @@
            </if>
          </choose>
        </else-if>
-@@ -5287,7 +5287,7 @@
+@@ -5293,7 +5293,7 @@
      <!-- mirrors `source-monographic-publication-note-bracketed` -->
      <choose>
        <if disambiguate="true">
@@ -111,7 +111,7 @@
            <choose>
              <!-- Facts of publication with brackets for print monographic formats -->
              <if match="any" type="book chapter classic interview musical_score pamphlet paper-conference report thesis">
-@@ -5626,7 +5626,7 @@
+@@ -5632,7 +5632,7 @@
              </names>
              <text font-style="italic" text-case="title" variable="original-title"/>
            </group>
@@ -120,7 +120,7 @@
              <text macro="source-publication-publisher-original-note"/>
              <text macro="source-date-original"/>
            </group>
-@@ -6300,7 +6300,7 @@
+@@ -6306,7 +6306,7 @@
            </group>
          </else-if>
        </choose>
@@ -129,7 +129,7 @@
      </group>
    </macro>
    <macro name="source-date-accessed-DOI-URL-note">
-@@ -6315,7 +6315,7 @@
+@@ -6321,7 +6321,7 @@
            </group>
          </else-if>
        </choose>
@@ -138,7 +138,7 @@
      </group>
    </macro>
    <macro name="source-DOI-URL">
-@@ -7021,8 +7021,8 @@
+@@ -7027,8 +7027,8 @@
      </choose>
    </macro>
    <citation disambiguate-add-givenname="true" disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
