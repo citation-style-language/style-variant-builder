@@ -324,8 +324,11 @@
           </else>
         </choose>
       </if>
-      <else>
+      <else-if variable="title">
         <text macro="title-primary-short"/>
+      </else-if>
+      <else>
+        <text macro="supplemental-generic-label-short"/>
       </else>
     </choose>
   </macro>
