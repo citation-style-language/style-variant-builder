@@ -28,7 +28,7 @@
 @@ -432,12 +433,12 @@
        </choose>
        <text variable="volume"/>
-       <!-- always display number of volumes in notes without bibliography (CMOS 14.20): -->
+       <!-- always display number of volumes in notes without bibliography (CMOS18 14.20): -->
 -      <!-- <choose>
 +      <choose>
          <if is-numeric="number-of-volumes" variable="volume">
@@ -43,7 +43,7 @@
 @@ -3566,9 +3567,9 @@
                <text macro="label-volume"/>
              </if>
-             <!-- always display number of volumes in notes without bibliography (CMOS 14.20): -->
+             <!-- always display number of volumes in notes without bibliography (CMOS18 14.20): -->
 -            <!-- <else>
 +            <else>
                <text macro="label-number-of-volumes"/>
@@ -60,7 +60,7 @@
 -              <!-- remove condition in styles that print chapter page numbers (CMOS17/classic) -->
 -              <text macro="label-volume"/>
 -            </else-if>
-             <!-- always display number of volumes in notes without bibliography (CMOS 14.20): -->
+             <!-- always display number of volumes in notes without bibliography (CMOS18 14.20): -->
 -            <!-- <else>
 +            <else>
                <text macro="label-number-of-volumes"/>

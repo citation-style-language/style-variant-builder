@@ -43,7 +43,7 @@
 -              <!-- remove condition in styles that print chapter page numbers (CMOS17/classic) -->
 -              <text macro="label-volume"/>
 -            </else-if>
-             <!-- always display number of volumes in notes without bibliography (CMOS 14.20): -->
+             <!-- always display number of volumes in notes without bibliography (CMOS18 14.20): -->
              <!-- <else>
                <text macro="label-number-of-volumes"/>
 @@ -4341,11 +4335,9 @@

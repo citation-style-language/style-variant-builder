@@ -65,7 +65,7 @@
            <text macro="title-bib"/>
            <text macro="description-bib"/>
 -          <text macro="identifier-bib"/>
--          <!-- for author-date or notes and bibliography leading with volume title (CMOS 14.21): -->
+-          <!-- for author-date or notes and bibliography leading with volume title (CMOS18 14.21): -->
 -          <!-- <text macro="identifier-bib-specific-title-first"/> -->
 +          <text macro="identifier-bib-specific-title-first"/>
          </if>
@@ -74,7 +74,7 @@
            <!-- Congressional reports are indistinguishable from other reports -->
            <text macro="identifier-number-bib"/>
 -          <text macro="identifier-bib"/>
--          <!-- for author-date or notes and bibliography leading with volume title (CMOS 14.21): -->
+-          <!-- for author-date or notes and bibliography leading with volume title (CMOS18 14.21): -->
 -          <!-- <text macro="identifier-bib-specific-title-first"/> -->
 +          <text macro="identifier-bib-specific-title-first"/>
            <text macro="description-bib"/>
@@ -82,7 +82,7 @@
          <else>
            <text macro="description-bib"/>
 -          <text macro="identifier-bib"/>
--          <!-- for author-date or notes and bibliography leading with volume title (CMOS 14.21): -->
+-          <!-- for author-date or notes and bibliography leading with volume title (CMOS18 14.21): -->
 -          <!-- <text macro="identifier-bib-specific-title-first"/> -->
 +          <text macro="identifier-bib-specific-title-first"/>
          </else>
@@ -93,7 +93,7 @@
          <if type="broadcast" variable="container-title number title">
            <!-- Bespoke `broadcast` format (CMOS18 14.165, 14.168) -->
 -          <text font-style="italic" text-case="title" variable="container-title"/>
--          <!-- for author-date or notes and bibliography leading with volume title (CMOS 14.21): -->
+-          <!-- for author-date or notes and bibliography leading with volume title (CMOS18 14.21): -->
 -          <!-- <text macro="source-monographic-title-specific-title-first"/> -->
 +          <text macro="source-monographic-title-specific-title-first"/>
            <group delimiter=", ">
@@ -104,7 +104,7 @@
            <if match="any" variable="collection-editor compiler editor editorial-director">
              <!-- monographic usage -->
 -            <text macro="title-primary"/>
--            <!-- for author-date or notes and bibliography leading with volume title (CMOS 14.21): -->
+-            <!-- for author-date or notes and bibliography leading with volume title (CMOS18 14.21): -->
 -            <!-- <text macro="title-monographic-bib-specific-title-first"/> -->
 +            <text macro="title-monographic-bib-specific-title-first"/>
            </if>
@@ -115,7 +115,7 @@
        </else-if>
        <else>
 -        <text macro="title-primary"/>
--        <!-- for author-date or notes and bibliography leading with volume title (CMOS 14.21): -->
+-        <!-- for author-date or notes and bibliography leading with volume title (CMOS18 14.21): -->
 -        <!-- <text macro="title-monographic-bib-specific-title-first"/> -->
 +        <text macro="title-monographic-bib-specific-title-first"/>
        </else>
@@ -129,7 +129,7 @@
 -              <!-- remove condition in styles that print chapter page numbers (CMOS17/classic) -->
 -              <text macro="label-volume"/>
 -            </else-if>
-             <!-- always display number of volumes in notes without bibliography (CMOS 14.20): -->
+             <!-- always display number of volumes in notes without bibliography (CMOS18 14.20): -->
              <!-- <else>
                <text macro="label-number-of-volumes"/>
 @@ -3606,16 +3580,12 @@
@@ -137,14 +137,14 @@
            <if match="any" variable="collection-editor compiler editor editorial-director">
              <!-- monographic usage -->
 -            <text macro="identifier-volume-bib"/>
--            <!-- for author-date or notes and bibliography leading with volume title (CMOS 14.21): -->
+-            <!-- for author-date or notes and bibliography leading with volume title (CMOS18 14.21): -->
 -            <!-- <text macro="identifier-volume-bib-specific-title-first"/> -->
 -          </if>
 -        </choose>
 -      </else-if>
 -      <else>
 -        <text macro="identifier-volume-bib"/>
--        <!-- for author-date or notes and bibliography leading with volume title (CMOS 14.21): -->
+-        <!-- for author-date or notes and bibliography leading with volume title (CMOS18 14.21): -->
 -        <!-- <text macro="identifier-volume-bib-specific-title-first"/> -->
 +            <text macro="identifier-volume-bib-specific-title-first"/>
 +          </if>
@@ -191,7 +191,7 @@
                      <else-if match="none" variable="issue volume"/>
                      <else>
 -                      <text macro="source-date-issued-or-status"/>
--                      <!-- for author-date or notes and bibliography leading with volume title (CMOS 14.21): -->
+-                      <!-- for author-date or notes and bibliography leading with volume title (CMOS18 14.21): -->
 -                      <!-- <text macro="source-date-bib-specific-title-first"/> -->
 -                      <!-- for CMOS17 author-date: -->
 -                      <!-- <text macro="source-date-issued-month-day"/> -->
@@ -204,7 +204,7 @@
                        <choose>
                          <if match="any" variable="author chair collection-editor compiler composer curator director editor editor-translator editorial-director executive-producer guest host illustrator organizer producer series-creator translator">
 -                          <text macro="source-date-issued-or-status"/>
--                          <!-- for author-date or notes and bibliography leading with volume title (CMOS 14.21): -->
+-                          <!-- for author-date or notes and bibliography leading with volume title (CMOS18 14.21): -->
 -                          <!-- <text macro="source-date-bib-specific-title-first"/> -->
 -                          <!-- for CMOS17 author-date: -->
 -                          <!-- <text macro="source-date-issued-month-day"/> -->
@@ -214,7 +214,7 @@
                      </else-if>
                      <else>
 -                      <text macro="source-date-issued-or-status"/>
--                      <!-- for author-date or notes and bibliography leading with volume title (CMOS 14.21): -->
+-                      <!-- for author-date or notes and bibliography leading with volume title (CMOS18 14.21): -->
 -                      <!-- <text macro="source-date-bib-specific-title-first"/> -->
 -                      <!-- for CMOS17 author-date: -->
 -                      <!-- <text macro="source-date-issued-month-day"/> -->
@@ -227,7 +227,7 @@
                    <choose>
                      <if match="any" variable="author chair collection-editor compiler composer curator director editor editor-translator editorial-director executive-producer guest host illustrator organizer producer series-creator translator">
 -                      <text macro="source-date-issued-or-status" prefix="(" suffix=")"/>
--                      <!-- for author-date or notes and bibliography leading with volume title (CMOS 14.21): -->
+-                      <!-- for author-date or notes and bibliography leading with volume title (CMOS18 14.21): -->
 -                      <!-- <text macro="source-date-bib-specific-title-first" prefix="(" suffix=")"/> -->
 -                      <!-- for CMOS17 author-date: -->
 -                      <!-- <text macro="source-date-issued-month-day" prefix="(" suffix=")"/> -->
@@ -240,7 +240,7 @@
                <choose>
                  <if match="none" variable="author chair collection-editor compiler composer curator director editor editor-translator editorial-director executive-producer guest host illustrator organizer producer series-creator translator">
 -                  <text macro="source-date-issued-or-status"/>
--                  <!-- for author-date or notes and bibliography leading with volume title (CMOS 14.21): -->
+-                  <!-- for author-date or notes and bibliography leading with volume title (CMOS18 14.21): -->
 -                  <!-- <text macro="source-date-bib-specific-title-first"/> -->
 -                  <!-- for CMOS17 author-date: -->
 -                  <!-- <text macro="source-date-issued-month-day"/> -->
@@ -253,7 +253,7 @@
                  <choose>
                    <if match="any" variable="author chair collection-editor compiler composer curator director editor editor-translator editorial-director executive-producer guest host illustrator organizer producer series-creator translator">
 -                    <text macro="source-date-issued-or-status" prefix="(" suffix=")"/>
--                    <!-- for author-date or notes and bibliography leading with volume title (CMOS 14.21): -->
+-                    <!-- for author-date or notes and bibliography leading with volume title (CMOS18 14.21): -->
 -                    <!-- <text macro="source-date-bib-specific-title-first" prefix="(" suffix=")"/> -->
 +                    <text macro="source-date-bib-specific-title-first" prefix="(" suffix=")"/>
                    </if>
@@ -261,7 +261,7 @@
                </if>
                <else>
 -                <text macro="source-date-issued-or-status" prefix="(" suffix=")"/>
--                <!-- for author-date or notes and bibliography leading with volume title (CMOS 14.21): -->
+-                <!-- for author-date or notes and bibliography leading with volume title (CMOS18 14.21): -->
 -                <!-- <text macro="source-date-bib-specific-title-first" prefix="(" suffix=")"/> -->
 +                <text macro="source-date-bib-specific-title-first" prefix="(" suffix=")"/>
                </else>
@@ -314,7 +314,7 @@
        <group delimiter=" ">
          <text macro="source-date-status-bib"/>
 -        <text macro="source-date-issued-or-status"/>
--        <!-- for author-date or notes and bibliography leading with volume title (CMOS 14.21): -->
+-        <!-- for author-date or notes and bibliography leading with volume title (CMOS18 14.21): -->
 -        <!-- <text macro="source-date-bib-specific-title-first"/> -->
 -        <!-- for CMOS17 author-date: -->
 -        <!-- <text macro="source-date-issued-full-serial"/> -->
@@ -327,13 +327,13 @@
                  </if>
                </choose>
 -              <text font-style="italic" text-case="title" variable="container-title"/>
--              <!-- for author-date or notes and bibliography leading with volume title (CMOS 14.21): -->
+-              <!-- for author-date or notes and bibliography leading with volume title (CMOS18 14.21): -->
 -              <!-- <text macro="source-monographic-title-specific-title-first"/> -->
 +              <text macro="source-monographic-title-specific-title-first"/>
              </group>
              <text macro="source-monographic-description-bib"/>
 -            <text macro="source-monographic-identifier-bib"/>
--            <!-- for author-date or notes and bibliography leading with volume title (CMOS 14.21): -->
+-            <!-- for author-date or notes and bibliography leading with volume title (CMOS18 14.21): -->
 -            <!-- <text macro="source-monographic-identifier-bib-specific-title-first"/> -->
 +            <text macro="source-monographic-identifier-bib-specific-title-first"/>
              <text macro="source-monographic-locator"/>
@@ -388,7 +388,7 @@
        <group delimiter=" ">
          <text macro="source-date-status-bib"/>
 -        <text macro="source-date-issued-or-status"/>
--        <!-- for author-date or notes and bibliography leading with volume title (CMOS 14.21): -->
+-        <!-- for author-date or notes and bibliography leading with volume title (CMOS18 14.21): -->
 -        <!-- <text macro="source-date-bib-specific-title-first"/> -->
 +        <text macro="source-date-bib-specific-title-first"/>
        </group>
