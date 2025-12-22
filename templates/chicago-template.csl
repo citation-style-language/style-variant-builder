@@ -1086,7 +1086,7 @@
     <choose>
       <!-- if there is no `container-title`, there is nothing to substitute -->
       <if match="none" variable="container-title"/>
-      <!-- no CMOS18 model for citing an anonymous article with an issue title in `volume-title` -->
+      <!-- no Chicago model for citing an anonymous article with an issue title in `volume-title` -->
       <else-if variable="volume-title"/>
       <else-if match="any" type="article-magazine article-newspaper">
         <!-- Anonymous magazine and newspaper articles substitute name of publication (CMOS18 14.87, 14.97) -->
