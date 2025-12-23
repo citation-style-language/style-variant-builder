@@ -2,10 +2,10 @@
 +++ development/oscola.csl
 @@ -5,7 +5,7 @@
    type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
- <style class="note" default-locale="en-GB" demote-non-dropping-particle="never" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
+ <style xmlns="http://purl.org/net/xbiblio/csl" class="note" version="1.0" demote-non-dropping-particle="never" default-locale="en-GB">
    <info>
--    <title>Oxford University Standard for Citation of Legal Authorities 4th edition (template)</title>
-+    <title>Oxford University Standard for Citation of Legal Authorities 4th edition</title>
-     <title-short>OSCOLA</title-short>
+-    <title>OSCOLA 4th edition (template)</title>
++    <title>OSCOLA 4th edition</title>
+     <title-short>Oxford University Standard for Citation of Legal Authorities</title-short>
      <id>http://www.zotero.org/styles/oscola</id>
      <link href="http://www.zotero.org/styles/oscola" rel="self"/>

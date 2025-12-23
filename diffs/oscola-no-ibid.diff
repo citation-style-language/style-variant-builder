@@ -2,51 +2,61 @@
 +++ development/oscola-no-ibid.csl
 @@ -5,10 +5,10 @@
    type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
- <style class="note" default-locale="en-GB" demote-non-dropping-particle="never" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
+ <style xmlns="http://purl.org/net/xbiblio/csl" class="note" version="1.0" demote-non-dropping-particle="never" default-locale="en-GB">
    <info>
--    <title>Oxford University Standard for Citation of Legal Authorities 4th edition (template)</title>
-+    <title>Oxford University Standard for Citation of Legal Authorities 4th edition (no ibid.)</title>
-     <title-short>OSCOLA</title-short>
+-    <title>OSCOLA 4th edition (template)</title>
++    <title>OSCOLA 4th edition (no ibid.)</title>
+     <title-short>Oxford University Standard for Citation of Legal Authorities</title-short>
 -    <id>http://www.zotero.org/styles/oscola</id>
 -    <link href="http://www.zotero.org/styles/oscola" rel="self"/>
 +    <id>http://www.zotero.org/styles/oscola-no-ibid</id>
 +    <link href="http://www.zotero.org/styles/oscola-no-ibid" rel="self"/>
+     <link href="http://www.zotero.org/styles/australian-guide-to-legal-citation" rel="template"/>
      <link href="https://www.law.ox.ac.uk/oscola" rel="documentation"/>
      <author>
-       <name>Sebastian Karcher</name>
-@@ -20,7 +20,7 @@
+@@ -16,7 +16,7 @@
      </author>
      <category citation-format="note"/>
      <category field="law"/>
 -    <summary>The OSCOLA Standards. For a Zotero Group showing data-entry in Zotero see: https://www.zotero.org/groups/oscola_samples/items/order/itemType</summary>
 +    <summary>The OSCOLA Standards with no ibid. For a Zotero Group showing data-entry in Zotero see: https://www.zotero.org/groups/oscola_samples/items/order/itemType</summary>
-     <updated>2025-08-07T00:00:00+00:00</updated>
+     <updated>2025-07-08T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -656,16 +656,7 @@
+@@ -584,16 +584,7 @@
    <citation et-al-min="4" et-al-use-first="1">
-     <layout delimiter="; " suffix=".">
+     <layout suffix="." delimiter="; ">
        <choose>
 -        <if position="ibid-with-locator">
 -          <group delimiter=" ">
--            <text strip-periods="true" term="ibid" text-case="lowercase"/>
+-            <text term="ibid" strip-periods="true" text-case="lowercase"/>
 -            <text variable="locator"/>
 -          </group>
 -        </if>
 -        <else-if position="ibid">
--          <text strip-periods="true" term="ibid" text-case="lowercase"/>
+-          <text term="ibid" strip-periods="true" text-case="lowercase"/>
 -        </else-if>
 -        <else-if position="subsequent">
 +        <if position="subsequent">
            <choose>
-             <if match="any" type="bill hearing legal_case legislation regulation treaty">
-               <text macro="citation-legal-subsequent"/>
-@@ -692,7 +683,7 @@
+             <if type="legal_case bill legislation treaty" match="any">
+               <!--don't use short form and above note for legal citations -->
+@@ -610,7 +601,6 @@
+               </group>
+             </if>
+             <else>
+-              <!--general whole citation -->
+               <group delimiter=" ">
+                 <group delimiter=", ">
+                   <text macro="author-short"/>
+@@ -625,8 +615,9 @@
                </group>
              </else>
            </choose>
 -        </else-if>
 +        </if>
          <else>
-           <choose>
-             <if match="any" type="bill hearing legal_case legislation regulation treaty">
++          <!--general whole citation -->
+           <group delimiter=" ">
+             <group delimiter=", ">
+               <group delimiter=" ">

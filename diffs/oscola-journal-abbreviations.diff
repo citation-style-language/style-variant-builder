@@ -1,0 +1,49 @@
+--- templates/oscola-template.csl
++++ development/oscola-journal-abbreviations.csl
+@@ -5,18 +5,24 @@
+   type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+ <style xmlns="http://purl.org/net/xbiblio/csl" class="note" version="1.0" demote-non-dropping-particle="never" default-locale="en-GB">
+   <info>
+-    <title>OSCOLA 4th edition (template)</title>
++    <title>OSCOLA 4th edition (journal abbreviations)</title>
+     <title-short>Oxford University Standard for Citation of Legal Authorities</title-short>
+-    <id>http://www.zotero.org/styles/oscola</id>
+-    <link href="http://www.zotero.org/styles/oscola" rel="self"/>
+-    <link href="http://www.zotero.org/styles/australian-guide-to-legal-citation" rel="template"/>
++    <id>http://www.zotero.org/styles/oscola-journal-abbreviations</id>
++    <link href="http://www.zotero.org/styles/oscola-journal-abbreviations" rel="self"/>
++    <link href="http://www.zotero.org/styles/oscola" rel="template"/>
+     <link href="https://www.law.ox.ac.uk/oscola" rel="documentation"/>
+     <author>
+       <name>Sebastian Karcher</name>
+     </author>
++    <contributor>
++      <name>Aaron Timoshanko</name>
++    </contributor>
++    <contributor>
++      <name>Brenton M. Wiernik</name>
++    </contributor>
+     <category citation-format="note"/>
+     <category field="law"/>
+-    <summary>The OSCOLA Standards. For a Zotero Group showing data-entry in Zotero see: https://www.zotero.org/groups/oscola_samples/items/order/itemType</summary>
++    <summary>The OSCOLA Standards, with journal abbreviations. For a Zotero Group showing data-entry in Zotero see: https://www.zotero.org/groups/oscola_samples/items/order/itemType</summary>
+     <updated>2025-07-08T00:00:00+00:00</updated>
+     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
+   </info>
+@@ -421,6 +427,16 @@
+                   </if>
+                 </choose>
+               </if>
++              <else-if type="article-journal">
++                <choose>
++                  <if variable="container-title-short">
++                    <text variable="container-title-short" form="short" strip-periods="true"/>
++                  </if>
++                  <else>
++                    <text variable="container-title" strip-periods="true"/>
++                  </else>
++                </choose>
++              </else-if>
+               <else-if type="article-magazine article-newspaper" match="any">
+                 <text variable="container-title" font-style="italic"/>
+               </else-if>
