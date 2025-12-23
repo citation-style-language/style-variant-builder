@@ -112,7 +112,31 @@
    <!-- Contents:
      
         This file interprets Oxford style using APA's four basic reference elements:
-@@ -363,11 +421,9 @@
+@@ -349,33 +407,22 @@
+     </group>
+   </macro>
+   <macro name="label-volume">
+-    <group delimiter=" ">
+-      <choose>
+-        <if is-numeric="volume">
+-          <label form="short" variable="volume"/>
+-        </if>
+-      </choose>
+-      <text variable="volume"/>
+-    </group>
+-    <!-- in OGS and other styles, label a volume by rendering it in Roman numerals (NHR 18.2.7): -->
+-    <!-- <choose>
++    <choose>
+       <if is-numeric="volume">
+         <number form="roman" variable="volume"/>
+       </if>
+       <else>
+         <text variable="volume"/>
+       </else>
+-    </choose> -->
++    </choose>
+   </macro>
+   <!-- 1. Author -->
    <macro name="author-bib">
      <group delimiter=", ">
        <names variable="composer">
@@ -127,11 +151,13 @@
          <substitute>
            <names variable="author"/>
            <names variable="host"/>
-@@ -1204,16 +1260,12 @@
+@@ -1212,20 +1259,12 @@
                <choose>
                  <if match="any" variable="collection-editor container-author editor editorial-director">
                    <!-- monographic usage -->
--                  <text macro="source-monographic-locator"/>
+-                  <text macro="source-monographic-locator-arabic-volume"/>
+-                  <!-- for styles using Roman volume numbers: -->
+-                  <!-- <text macro="source-monographic-locator-roman-volume"/> -->
 -                  <!-- for OGS: -->
 -                  <!-- <text macro="source-monographic-locator-range"/> -->
 +                  <text macro="source-monographic-locator-range"/>
@@ -139,14 +165,16 @@
                </choose>
              </else-if>
              <else>
--              <text macro="source-monographic-locator"/>
+-              <text macro="source-monographic-locator-arabic-volume"/>
+-              <!-- for styles using Roman volume numbers: -->
+-              <!-- <text macro="source-monographic-locator-roman-volume"/> -->
 -              <!-- for OGS: -->
 -              <!-- <text macro="source-monographic-locator-range"/> -->
 +              <text macro="source-monographic-locator-range"/>
              </else>
            </choose>
          </group>
-@@ -1483,10 +1535,6 @@
+@@ -1495,10 +1534,6 @@
              <text macro="label-volume"/>
            </if>
            <else-if locator="column page" match="any"/>
@@ -157,7 +185,7 @@
            <else-if variable="page"/>
            <else>
              <text macro="label-volume"/>
-@@ -2417,9 +2465,7 @@
+@@ -2429,9 +2464,7 @@
        <text macro="source-serial-identifier-volume"/>
        <!-- periodical edition always capitalized (cf. CMOS18 14.89) -->
        <text macro="label-edition-capitalized"/>
@@ -168,7 +196,7 @@
      </group>
    </macro>
    <macro name="source-serial-identifier-author-date">
-@@ -2584,8 +2630,6 @@
+@@ -2596,8 +2629,6 @@
            </group>
          </if>
        </choose>
@@ -177,7 +205,7 @@
        <text macro="source-event"/>
      </group>
    </macro>
-@@ -3039,8 +3083,7 @@
+@@ -3090,8 +3121,7 @@
            <choose>
              <if match="any" variable="collection-editor container-author editor editorial-director">
                <!-- monographic usage -->
@@ -187,7 +215,7 @@
                <text macro="source-publication-and-date"/>
              </if>
            </choose>
-@@ -3048,8 +3091,7 @@
+@@ -3099,8 +3129,7 @@
          <!-- `patent` date in identification (cf. CMOS18 14.158) -->
          <else-if type="patent"/>
          <else>
@@ -197,16 +225,39 @@
            <text macro="source-publication-and-date"/>
          </else>
        </choose>
-@@ -3614,7 +3656,7 @@
+@@ -3644,9 +3673,7 @@
+         <choose>
+           <if match="any" variable="collection-editor compiler editor editorial-director">
+             <!-- monographic usage -->
+-            <text macro="source-locator-subsequent-monographic-arabic-volume"/>
+-            <!-- for OGS and other styles using Roman volume numbers: -->
+-            <!-- <text macro="source-locator-subsequent-monographic-roman-volume"/> -->
++            <text macro="source-locator-subsequent-monographic-roman-volume"/>
+           </if>
+           <else>
+             <!-- serial usage -->
+@@ -3655,9 +3682,7 @@
+         </choose>
+       </else-if>
+       <else>
+-        <text macro="source-locator-subsequent-monographic-arabic-volume"/>
+-        <!-- for OGS and other styles using Roman volume numbers: -->
+-        <!-- <text macro="source-locator-subsequent-monographic-roman-volume"/> -->
++        <text macro="source-locator-subsequent-monographic-roman-volume"/>
+       </else>
+     </choose>
+   </macro>
+@@ -3696,8 +3721,7 @@
+           <!-- Do not provide `volume` or `part-number` for defined section -->
            <text macro="label-locator"/>
          </if>
-         <!-- for OGS: -->
+-        <!-- for OGS: -->
 -        <!-- <else-if locator="column page" match="none">
 +        <else-if locator="column page" match="none">
            <text macro="label-volume"/>
            <text macro="label-part-number"/>
            <text macro="label-locator"/>
-@@ -3624,7 +3666,7 @@
+@@ -3707,7 +3731,7 @@
              <text macro="label-volume"/>
              <text macro="label-locator"/>
            </group>
@@ -215,7 +266,7 @@
          <else-if variable="part-number">
            <text macro="label-volume"/>
            <text macro="label-part-number"/>
-@@ -3686,9 +3728,7 @@
+@@ -3743,9 +3767,7 @@
        <!-- usually `archive`, `archive-place` but sometimes also `archive-place`, `archive` (NHR 18.6.5); the latter is more common elsewhere (OGS 15.11.1 and MHRA4 7.7) -->
        <text variable="archive_collection"/>
        <text variable="archive_location"/>
@@ -226,7 +277,7 @@
        <choose>
          <!-- database identifier, if not included elsewhere (cf. CMOS18 14.113) -->
          <if match="any" variable="archive_collection archive_location archive-place"/>
-@@ -3808,7 +3848,7 @@
+@@ -3865,7 +3887,7 @@
            </group>
          </else-if>
        </choose>
