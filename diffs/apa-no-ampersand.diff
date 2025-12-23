@@ -277,7 +277,7 @@
          </names>
        </group>
        <text macro="description-medium"/>
-@@ -1735,22 +1743,22 @@
+@@ -1724,22 +1732,22 @@
    <!-- Monographic source author -->
    <macro name="source-monographic-author">
      <names variable="container-author">
@@ -304,7 +304,7 @@
            <label form="short" prefix=" (" suffix=")" text-case="title"/>
          </names>
          <names variable="compiler"/>
-@@ -1762,7 +1770,7 @@
+@@ -1751,7 +1759,7 @@
          </choose>
          <names variable="curator"/>
          <names variable="collection-editor">

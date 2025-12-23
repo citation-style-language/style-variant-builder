@@ -112,7 +112,7 @@
    <!-- Contents:
      
         This file interprets Oxford style using APA's four basic reference elements:
-@@ -349,33 +407,22 @@
+@@ -353,33 +411,22 @@
      </group>
    </macro>
    <macro name="label-volume">
@@ -151,7 +151,7 @@
          <substitute>
            <names variable="author"/>
            <names variable="host"/>
-@@ -1212,20 +1259,12 @@
+@@ -1223,20 +1270,12 @@
                <choose>
                  <if match="any" variable="collection-editor container-author editor editorial-director">
                    <!-- monographic usage -->
@@ -174,7 +174,7 @@
              </else>
            </choose>
          </group>
-@@ -1495,10 +1534,6 @@
+@@ -1506,10 +1545,6 @@
              <text macro="label-volume"/>
            </if>
            <else-if locator="column page" match="any"/>
@@ -185,7 +185,7 @@
            <else-if variable="page"/>
            <else>
              <text macro="label-volume"/>
-@@ -2429,9 +2464,7 @@
+@@ -2446,9 +2481,7 @@
        <text macro="source-serial-identifier-volume"/>
        <!-- periodical edition always capitalized (cf. CMOS18 14.89) -->
        <text macro="label-edition-capitalized"/>
@@ -196,7 +196,7 @@
      </group>
    </macro>
    <macro name="source-serial-identifier-author-date">
-@@ -2476,16 +2509,12 @@
+@@ -2493,16 +2526,12 @@
                <choose>
                  <if variable="issue volume">
                    <group delimiter="/">
@@ -215,7 +215,7 @@
                    <text macro="label-issue"/>
                  </else>
                </choose>
-@@ -2596,8 +2625,6 @@
+@@ -2613,8 +2642,6 @@
            </group>
          </if>
        </choose>
@@ -224,7 +224,7 @@
        <text macro="source-event"/>
      </group>
    </macro>
-@@ -2965,9 +2992,7 @@
+@@ -2982,9 +3009,7 @@
    <macro name="source-series">
      <group delimiter=", ">
        <text text-case="title" variable="collection-title"/>
@@ -235,7 +235,7 @@
        <text macro="label-issue"/>
      </group>
    </macro>
-@@ -3090,8 +3115,7 @@
+@@ -3107,8 +3132,7 @@
            <choose>
              <if match="any" variable="collection-editor container-author editor editorial-director">
                <!-- monographic usage -->
@@ -245,7 +245,7 @@
                <text macro="source-publication-and-date"/>
              </if>
            </choose>
-@@ -3099,8 +3123,7 @@
+@@ -3116,8 +3140,7 @@
          <!-- `patent` date in identification (cf. CMOS18 14.158) -->
          <else-if type="patent"/>
          <else>
@@ -255,7 +255,7 @@
            <text macro="source-publication-and-date"/>
          </else>
        </choose>
-@@ -3644,9 +3667,7 @@
+@@ -3661,9 +3684,7 @@
          <choose>
            <if match="any" variable="collection-editor compiler editor editorial-director">
              <!-- monographic usage -->
@@ -266,7 +266,7 @@
            </if>
            <else>
              <!-- serial usage -->
-@@ -3655,9 +3676,7 @@
+@@ -3672,9 +3693,7 @@
          </choose>
        </else-if>
        <else>
@@ -277,7 +277,7 @@
        </else>
      </choose>
    </macro>
-@@ -3696,8 +3715,7 @@
+@@ -3713,8 +3732,7 @@
            <!-- Do not provide `volume` or `part-number` for defined section -->
            <text macro="label-locator"/>
          </if>
@@ -287,7 +287,7 @@
            <text macro="label-volume"/>
            <text macro="label-part-number"/>
            <text macro="label-locator"/>
-@@ -3707,7 +3725,7 @@
+@@ -3724,7 +3742,7 @@
              <text macro="label-volume"/>
              <text macro="label-locator"/>
            </group>
@@ -296,7 +296,7 @@
          <else-if variable="part-number">
            <text macro="label-volume"/>
            <text macro="label-part-number"/>
-@@ -3738,14 +3756,12 @@
+@@ -3755,14 +3773,12 @@
    <!-- 4.9. Archival location -->
    <macro name="source-archive">
      <group delimiter=", ">
