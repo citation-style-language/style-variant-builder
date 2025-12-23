@@ -208,7 +208,7 @@
        <text macro="source-event"/>
      </group>
    </macro>
-@@ -3107,8 +3138,7 @@
+@@ -3051,8 +3082,7 @@
            <choose>
              <if match="any" variable="collection-editor container-author editor editorial-director">
                <!-- monographic usage -->
@@ -218,7 +218,7 @@
                <text macro="source-publication-and-date"/>
              </if>
            </choose>
-@@ -3116,8 +3146,7 @@
+@@ -3060,8 +3090,7 @@
          <!-- `patent` date in identification (cf. CMOS18 14.158) -->
          <else-if type="patent"/>
          <else>
@@ -228,7 +228,7 @@
            <text macro="source-publication-and-date"/>
          </else>
        </choose>
-@@ -3661,9 +3690,7 @@
+@@ -3605,9 +3634,7 @@
          <choose>
            <if match="any" variable="collection-editor compiler editor editorial-director">
              <!-- monographic usage -->
@@ -239,7 +239,7 @@
            </if>
            <else>
              <!-- serial usage -->
-@@ -3672,9 +3699,7 @@
+@@ -3616,9 +3643,7 @@
          </choose>
        </else-if>
        <else>
@@ -250,7 +250,7 @@
        </else>
      </choose>
    </macro>
-@@ -3713,8 +3738,7 @@
+@@ -3657,8 +3682,7 @@
            <!-- Do not provide `volume` or `part-number` for defined section -->
            <text macro="label-locator"/>
          </if>
@@ -260,7 +260,7 @@
            <text macro="label-volume"/>
            <text macro="label-part-number"/>
            <text macro="label-locator"/>
-@@ -3724,7 +3748,7 @@
+@@ -3668,7 +3692,7 @@
              <text macro="label-volume"/>
              <text macro="label-locator"/>
            </group>
@@ -269,7 +269,7 @@
          <else-if variable="part-number">
            <text macro="label-volume"/>
            <text macro="label-part-number"/>
-@@ -3760,9 +3784,7 @@
+@@ -3704,9 +3728,7 @@
        <!-- usually `archive`, `archive-place` but sometimes also `archive-place`, `archive` (NHR 18.6.5); the latter is more common elsewhere (OGS 15.11.1 and MHRA4 7.7) -->
        <text variable="archive_collection"/>
        <text variable="archive_location"/>

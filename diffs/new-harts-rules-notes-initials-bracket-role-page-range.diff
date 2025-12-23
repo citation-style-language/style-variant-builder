@@ -71,8 +71,8 @@
      </group>
    </macro>
    <macro name="source-serial-identifier-author-date">
-@@ -2937,9 +2928,7 @@
-     </choose>
+@@ -2881,9 +2872,7 @@
+     </group>
    </macro>
    <macro name="source-monographic-locator-range">
 -    <group delimiter=". ">
@@ -82,7 +82,7 @@
        <choose>
          <if match="any" variable="part-title volume-title"/>
          <else-if match="any" variable="locator page">
-@@ -3760,9 +3749,7 @@
+@@ -3704,9 +3693,7 @@
        <!-- usually `archive`, `archive-place` but sometimes also `archive-place`, `archive` (NHR 18.6.5); the latter is more common elsewhere (OGS 15.11.1 and MHRA4 7.7) -->
        <text variable="archive_collection"/>
        <text variable="archive_location"/>
