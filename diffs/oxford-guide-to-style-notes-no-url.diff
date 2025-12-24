@@ -155,7 +155,7 @@
                <choose>
                  <if match="any" variable="collection-editor container-author editor editorial-director">
                    <!-- monographic usage -->
--                  <text macro="source-monographic-locator-arabic-volume"/>
+-                  <text macro="source-monographic-locator"/>
 -                  <!-- for styles using Roman volume numbers: -->
 -                  <!-- <text macro="source-monographic-locator-roman-volume"/> -->
 -                  <!-- for OGS: -->
@@ -165,7 +165,7 @@
                </choose>
              </else-if>
              <else>
--              <text macro="source-monographic-locator-arabic-volume"/>
+-              <text macro="source-monographic-locator"/>
 -              <!-- for styles using Roman volume numbers: -->
 -              <!-- <text macro="source-monographic-locator-roman-volume"/> -->
 -              <!-- for OGS: -->
@@ -205,7 +205,7 @@
        <text macro="source-event"/>
      </group>
    </macro>
-@@ -3051,8 +3082,7 @@
+@@ -3055,8 +3086,7 @@
            <choose>
              <if match="any" variable="collection-editor container-author editor editorial-director">
                <!-- monographic usage -->
@@ -215,7 +215,7 @@
                <text macro="source-publication-and-date"/>
              </if>
            </choose>
-@@ -3060,8 +3090,7 @@
+@@ -3064,8 +3094,7 @@
          <!-- `patent` date in identification (cf. CMOS18 14.158) -->
          <else-if type="patent"/>
          <else>
@@ -225,29 +225,29 @@
            <text macro="source-publication-and-date"/>
          </else>
        </choose>
-@@ -3605,9 +3634,7 @@
+@@ -3609,9 +3638,7 @@
          <choose>
            <if match="any" variable="collection-editor compiler editor editorial-director">
              <!-- monographic usage -->
--            <text macro="source-locator-subsequent-monographic-arabic-volume"/>
+-            <text macro="source-locator-subsequent-monographic"/>
 -            <!-- for OGS and other styles using Roman volume numbers: -->
 -            <!-- <text macro="source-locator-subsequent-monographic-roman-volume"/> -->
 +            <text macro="source-locator-subsequent-monographic-roman-volume"/>
            </if>
            <else>
              <!-- serial usage -->
-@@ -3616,9 +3643,7 @@
+@@ -3620,9 +3647,7 @@
          </choose>
        </else-if>
        <else>
--        <text macro="source-locator-subsequent-monographic-arabic-volume"/>
+-        <text macro="source-locator-subsequent-monographic"/>
 -        <!-- for OGS and other styles using Roman volume numbers: -->
 -        <!-- <text macro="source-locator-subsequent-monographic-roman-volume"/> -->
 +        <text macro="source-locator-subsequent-monographic-roman-volume"/>
        </else>
      </choose>
    </macro>
-@@ -3657,8 +3682,7 @@
+@@ -3668,8 +3693,7 @@
            <!-- Do not provide `volume` or `part-number` for defined section -->
            <text macro="label-locator"/>
          </if>
@@ -257,7 +257,7 @@
            <text macro="label-volume"/>
            <text macro="label-part-number"/>
            <text macro="label-locator"/>
-@@ -3668,7 +3692,7 @@
+@@ -3679,7 +3703,7 @@
              <text macro="label-volume"/>
              <text macro="label-locator"/>
            </group>
@@ -266,7 +266,7 @@
          <else-if variable="part-number">
            <text macro="label-volume"/>
            <text macro="label-part-number"/>
-@@ -3704,9 +3728,7 @@
+@@ -3715,9 +3739,7 @@
        <!-- usually `archive`, `archive-place` but sometimes also `archive-place`, `archive` (NHR 18.6.5); the latter is more common elsewhere (OGS 15.11.1 and MHRA4 7.7) -->
        <text variable="archive_collection"/>
        <text variable="archive_location"/>
@@ -277,7 +277,7 @@
        <choose>
          <!-- database identifier, if not included elsewhere (cf. CMOS18 14.113) -->
          <if match="any" variable="archive_collection archive_location archive-place"/>
-@@ -3826,7 +3848,7 @@
+@@ -3837,7 +3859,7 @@
            </group>
          </else-if>
        </choose>

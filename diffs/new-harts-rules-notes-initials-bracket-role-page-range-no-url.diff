@@ -41,7 +41,7 @@
                <choose>
                  <if match="any" variable="collection-editor container-author editor editorial-director">
                    <!-- monographic usage -->
--                  <text macro="source-monographic-locator-arabic-volume"/>
+-                  <text macro="source-monographic-locator"/>
 -                  <!-- for styles using Roman volume numbers: -->
 -                  <!-- <text macro="source-monographic-locator-roman-volume"/> -->
 -                  <!-- for OGS: -->
@@ -51,7 +51,7 @@
                </choose>
              </else-if>
              <else>
--              <text macro="source-monographic-locator-arabic-volume"/>
+-              <text macro="source-monographic-locator"/>
 -              <!-- for styles using Roman volume numbers: -->
 -              <!-- <text macro="source-monographic-locator-roman-volume"/> -->
 -              <!-- for OGS: -->
@@ -71,8 +71,8 @@
      </group>
    </macro>
    <macro name="source-serial-identifier-author-date">
-@@ -2881,9 +2872,7 @@
-     </group>
+@@ -2863,9 +2854,7 @@
+     </choose>
    </macro>
    <macro name="source-monographic-locator-range">
 -    <group delimiter=". ">
@@ -80,9 +80,9 @@
 -      <!-- <group delimiter=", " -->
 +    <group delimiter=", ">
        <choose>
-         <if match="any" variable="part-title volume-title"/>
+         <if match="any" variable="part-number part-title volume-title"/>
          <else-if match="any" variable="locator page">
-@@ -3704,9 +3693,7 @@
+@@ -3715,9 +3704,7 @@
        <!-- usually `archive`, `archive-place` but sometimes also `archive-place`, `archive` (NHR 18.6.5); the latter is more common elsewhere (OGS 15.11.1 and MHRA4 7.7) -->
        <text variable="archive_collection"/>
        <text variable="archive_location"/>
@@ -93,7 +93,7 @@
        <choose>
          <!-- database identifier, if not included elsewhere (cf. CMOS18 14.113) -->
          <if match="any" variable="archive_collection archive_location archive-place"/>
-@@ -3826,7 +3813,7 @@
+@@ -3837,7 +3824,7 @@
            </group>
          </else-if>
        </choose>

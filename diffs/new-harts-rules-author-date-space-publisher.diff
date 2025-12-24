@@ -76,7 +76,7 @@
            </group>
          </else>
        </choose>
-@@ -3301,7 +3302,7 @@
+@@ -3305,7 +3306,7 @@
                  <text form="short" term="no-place"/>
                </else-if>
              </choose>
@@ -85,7 +85,7 @@
            </group>
          </if>
          <else>
-@@ -3321,7 +3322,7 @@
+@@ -3325,7 +3326,7 @@
        <if match="any" type="book chapter classic entry entry-dictionary entry-encyclopedia interview musical_score pamphlet paper-conference report">
          <group delimiter=": ">
            <text variable="original-publisher-place"/>
@@ -94,7 +94,7 @@
          </group>
        </if>
        <else>
-@@ -3331,9 +3332,7 @@
+@@ -3335,9 +3336,7 @@
    </macro>
    <!-- 4.6. Date -->
    <macro name="source-date">
@@ -105,7 +105,7 @@
    </macro>
    <!-- Date elements -->
    <macro name="source-date-issued-full">
-@@ -3472,9 +3471,7 @@
+@@ -3476,9 +3475,7 @@
      </choose>
    </macro>
    <macro name="source-date-original">
@@ -116,7 +116,7 @@
    </macro>
    <macro name="source-date-original-full">
      <!-- Give full date for more ephemeral types; reflected in `date-year-sort` -->
-@@ -3990,9 +3987,9 @@
+@@ -4001,9 +3998,9 @@
        </choose>
      </group>
    </macro>
@@ -129,7 +129,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -4000,7 +3997,7 @@
+@@ -4011,7 +4008,7 @@
      <group delimiter=". ">
        <group delimiter=" ">
          <text macro="author-bib"/>
@@ -138,7 +138,7 @@
            <text macro="date"/>
            <text macro="title-and-source"/>
          </group>
-@@ -4105,17 +4102,16 @@
+@@ -4116,17 +4113,16 @@
    <bibliography hanging-indent="true">
      <sort>
        <key macro="author-bib"/>

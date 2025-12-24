@@ -155,7 +155,7 @@
                <choose>
                  <if match="any" variable="collection-editor container-author editor editorial-director">
                    <!-- monographic usage -->
--                  <text macro="source-monographic-locator-arabic-volume"/>
+-                  <text macro="source-monographic-locator"/>
 -                  <!-- for styles using Roman volume numbers: -->
 -                  <!-- <text macro="source-monographic-locator-roman-volume"/> -->
 -                  <!-- for OGS: -->
@@ -165,7 +165,7 @@
                </choose>
              </else-if>
              <else>
--              <text macro="source-monographic-locator-arabic-volume"/>
+-              <text macro="source-monographic-locator"/>
 -              <!-- for styles using Roman volume numbers: -->
 -              <!-- <text macro="source-monographic-locator-roman-volume"/> -->
 -              <!-- for OGS: -->
@@ -224,7 +224,7 @@
        <text macro="source-event"/>
      </group>
    </macro>
-@@ -2926,9 +2953,7 @@
+@@ -2930,9 +2957,7 @@
    <macro name="source-series">
      <group delimiter=", ">
        <text text-case="title" variable="collection-title"/>
@@ -235,7 +235,7 @@
        <text macro="label-issue"/>
      </group>
    </macro>
-@@ -3051,8 +3076,7 @@
+@@ -3055,8 +3080,7 @@
            <choose>
              <if match="any" variable="collection-editor container-author editor editorial-director">
                <!-- monographic usage -->
@@ -245,7 +245,7 @@
                <text macro="source-publication-and-date"/>
              </if>
            </choose>
-@@ -3060,8 +3084,7 @@
+@@ -3064,8 +3088,7 @@
          <!-- `patent` date in identification (cf. CMOS18 14.158) -->
          <else-if type="patent"/>
          <else>
@@ -255,29 +255,29 @@
            <text macro="source-publication-and-date"/>
          </else>
        </choose>
-@@ -3605,9 +3628,7 @@
+@@ -3609,9 +3632,7 @@
          <choose>
            <if match="any" variable="collection-editor compiler editor editorial-director">
              <!-- monographic usage -->
--            <text macro="source-locator-subsequent-monographic-arabic-volume"/>
+-            <text macro="source-locator-subsequent-monographic"/>
 -            <!-- for OGS and other styles using Roman volume numbers: -->
 -            <!-- <text macro="source-locator-subsequent-monographic-roman-volume"/> -->
 +            <text macro="source-locator-subsequent-monographic-roman-volume"/>
            </if>
            <else>
              <!-- serial usage -->
-@@ -3616,9 +3637,7 @@
+@@ -3620,9 +3641,7 @@
          </choose>
        </else-if>
        <else>
--        <text macro="source-locator-subsequent-monographic-arabic-volume"/>
+-        <text macro="source-locator-subsequent-monographic"/>
 -        <!-- for OGS and other styles using Roman volume numbers: -->
 -        <!-- <text macro="source-locator-subsequent-monographic-roman-volume"/> -->
 +        <text macro="source-locator-subsequent-monographic-roman-volume"/>
        </else>
      </choose>
    </macro>
-@@ -3657,8 +3676,7 @@
+@@ -3668,8 +3687,7 @@
            <!-- Do not provide `volume` or `part-number` for defined section -->
            <text macro="label-locator"/>
          </if>
@@ -287,7 +287,7 @@
            <text macro="label-volume"/>
            <text macro="label-part-number"/>
            <text macro="label-locator"/>
-@@ -3668,7 +3686,7 @@
+@@ -3679,7 +3697,7 @@
              <text macro="label-volume"/>
              <text macro="label-locator"/>
            </group>
@@ -296,7 +296,7 @@
          <else-if variable="part-number">
            <text macro="label-volume"/>
            <text macro="label-part-number"/>
-@@ -3699,14 +3717,12 @@
+@@ -3710,14 +3728,12 @@
    <!-- 4.9. Archival location -->
    <macro name="source-archive">
      <group delimiter=", ">
@@ -313,7 +313,7 @@
        <choose>
          <!-- database identifier, if not included elsewhere (cf. CMOS18 14.113) -->
          <if match="any" variable="archive_collection archive_location archive-place"/>
-@@ -3826,7 +3842,7 @@
+@@ -3837,7 +3853,7 @@
            </group>
          </else-if>
        </choose>
