@@ -2756,6 +2756,16 @@
         <label form="verb-short" suffix=" "/>
         <name/>
       </names>
+      <choose>
+        <if variable="collection-editor editor"/>
+        <else-if variable="collection-editor editor-translator"/>
+        <else>
+          <names variable="collection-editor">
+            <label form="verb-short" suffix=" "/>
+            <name/>
+          </names>
+        </else>
+      </choose>
       <names variable="guest">
         <label form="verb" suffix=" "/>
         <name/>

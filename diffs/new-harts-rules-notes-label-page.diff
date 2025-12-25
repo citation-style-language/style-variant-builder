@@ -46,7 +46,7 @@
        </else>
      </choose>
    </macro>
-@@ -2864,13 +2863,13 @@
+@@ -2874,13 +2873,13 @@
                <text variable="volume"/>
              </if>
            </choose>
@@ -62,7 +62,7 @@
        </else>
      </choose>
    </macro>
-@@ -2933,7 +2932,7 @@
+@@ -2943,7 +2942,7 @@
          </else-if>
          <else-if variable="archive archive_location page"/>
          <else>

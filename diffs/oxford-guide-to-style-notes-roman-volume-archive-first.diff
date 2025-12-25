@@ -224,7 +224,7 @@
        <text macro="source-event"/>
      </group>
    </macro>
-@@ -2942,9 +2969,7 @@
+@@ -2952,9 +2979,7 @@
    <macro name="source-series">
      <group delimiter=", ">
        <text text-case="title" variable="collection-title"/>
@@ -235,7 +235,7 @@
        <text macro="label-issue"/>
      </group>
    </macro>
-@@ -3067,8 +3092,7 @@
+@@ -3077,8 +3102,7 @@
            <choose>
              <if match="any" variable="collection-editor container-author editor editorial-director">
                <!-- monographic usage -->
@@ -245,7 +245,7 @@
                <text macro="source-publication-and-date"/>
              </if>
            </choose>
-@@ -3076,8 +3100,7 @@
+@@ -3086,8 +3110,7 @@
          <!-- `patent` date in identification (cf. CMOS18 14.158) -->
          <else-if type="patent"/>
          <else>
@@ -255,7 +255,7 @@
            <text macro="source-publication-and-date"/>
          </else>
        </choose>
-@@ -3621,9 +3644,7 @@
+@@ -3631,9 +3654,7 @@
          <choose>
            <if match="any" variable="collection-editor compiler editor editorial-director">
              <!-- monographic usage -->
@@ -266,7 +266,7 @@
            </if>
            <else>
              <!-- serial usage -->
-@@ -3632,9 +3653,7 @@
+@@ -3642,9 +3663,7 @@
          </choose>
        </else-if>
        <else>
@@ -277,7 +277,7 @@
        </else>
      </choose>
    </macro>
-@@ -3680,8 +3699,7 @@
+@@ -3690,8 +3709,7 @@
            <!-- Do not provide `volume` or `part-number` for defined section -->
            <text macro="label-locator"/>
          </if>
@@ -287,7 +287,7 @@
            <text macro="label-volume"/>
            <text macro="label-part-number"/>
            <text macro="label-locator"/>
-@@ -3691,7 +3709,7 @@
+@@ -3701,7 +3719,7 @@
              <text macro="label-volume"/>
              <text macro="label-locator"/>
            </group>
@@ -296,7 +296,7 @@
          <else-if variable="part-number">
            <text macro="label-volume"/>
            <text macro="label-part-number"/>
-@@ -3722,14 +3740,12 @@
+@@ -3732,14 +3750,12 @@
    <!-- 4.9. Archival location -->
    <macro name="source-archive">
      <group delimiter=", ">

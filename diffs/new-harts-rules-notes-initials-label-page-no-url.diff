@@ -50,7 +50,7 @@
        </else>
      </choose>
    </macro>
-@@ -2864,13 +2864,13 @@
+@@ -2874,13 +2874,13 @@
                <text variable="volume"/>
              </if>
            </choose>
@@ -66,7 +66,7 @@
        </else>
      </choose>
    </macro>
-@@ -2933,7 +2933,7 @@
+@@ -2943,7 +2943,7 @@
          </else-if>
          <else-if variable="archive archive_location page"/>
          <else>
@@ -75,7 +75,7 @@
          </else>
        </choose>
      </group>
-@@ -3849,7 +3849,7 @@
+@@ -3859,7 +3859,7 @@
            </group>
          </else-if>
        </choose>
