@@ -402,6 +402,13 @@
           </choose>
           <names variable="illustrator"/>
           <choose>
+            <!-- list an edited multivolume work under the name of the series editor -->
+            <if variable="container-title"/>
+            <else-if match="any" variable="number-of-volumes part-number part-title volume volume-title">
+              <names variable="collection-editor"/>
+            </else-if>
+          </choose>
+          <choose>
             <if match="none" type="standard">
               <names variable="editor-translator"/>
               <names variable="editor"/>
@@ -479,6 +486,13 @@
               </if>
             </choose>
             <names variable="illustrator"/>
+            <choose>
+              <!-- list an edited multivolume work under the name of the series editor -->
+              <if variable="container-title"/>
+              <else-if match="any" variable="number-of-volumes part-number part-title volume volume-title">
+                <names variable="collection-editor"/>
+              </else-if>
+            </choose>
             <choose>
               <if match="none" type="standard">
                 <names variable="editor-translator"/>
