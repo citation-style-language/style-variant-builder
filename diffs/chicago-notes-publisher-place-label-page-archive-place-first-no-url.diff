@@ -59,7 +59,7 @@
      </group>
    </macro>
    <macro name="label-volume-capitalized">
-@@ -3604,9 +3604,9 @@
+@@ -3606,9 +3606,9 @@
                <text macro="label-volume"/>
              </else-if>
              <!-- always display number of volumes in notes without bibliography (CMOS18 14.20): -->
@@ -71,7 +71,7 @@
            </choose>
          </else-if>
          <else-if is-numeric="volume" variable="page">
-@@ -3617,23 +3617,15 @@
+@@ -3619,23 +3619,15 @@
              <else-if match="any" variable="container-author editor editor-translator translator">
                <text macro="label-volume"/>
              </else-if>
@@ -97,7 +97,7 @@
          <else>
            <text macro="label-number-of-volumes"/>
          </else>
-@@ -4385,11 +4377,9 @@
+@@ -4383,11 +4375,9 @@
            </if>
          </choose>
        </else-if>
@@ -109,7 +109,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number-capitalized"/>
-@@ -4424,11 +4414,9 @@
+@@ -4422,11 +4412,9 @@
            </if>
          </choose>
        </else-if>
@@ -121,7 +121,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number"/>
-@@ -4787,10 +4775,6 @@
+@@ -4785,10 +4773,6 @@
              <if is-numeric="volume" match="none">
                <text macro="label-volume"/>
              </if>
@@ -132,7 +132,7 @@
              <else-if is-numeric="volume" variable="page">
                <choose>
                  <!-- check for variables that might come between the volume and page number -->
-@@ -4836,28 +4820,30 @@
+@@ -4834,28 +4818,30 @@
        <else-if variable="locator">
          <text macro="label-locator"/>
        </else-if>
@@ -169,7 +169,7 @@
        </else>
      </choose>
    </macro>
-@@ -5608,8 +5594,8 @@
+@@ -5600,8 +5586,8 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -180,7 +180,7 @@
            </group>
          </else-if>
          <!-- TODO: remove conditional when Zotero fixes double-mapping of `event-place` -->
-@@ -5634,8 +5620,8 @@
+@@ -5626,8 +5612,8 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -191,7 +191,7 @@
            </group>
          </else-if>
          <!-- TODO: remove conditional when Zotero fixes double-mapping of `event-place` -->
-@@ -5656,8 +5642,8 @@
+@@ -5648,8 +5634,8 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -202,7 +202,7 @@
          </group>
        </if>
        <else>
-@@ -5669,8 +5655,8 @@
+@@ -5661,8 +5647,8 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -213,7 +213,7 @@
          </group>
        </if>
        <else>
-@@ -6148,7 +6134,7 @@
+@@ -6140,7 +6126,7 @@
            <text macro="source-archive-reference-institution-first"/>
          </if>
          <else>
@@ -222,7 +222,7 @@
          </else>
        </choose>
        <text macro="source-archive-database-number" prefix="(" suffix=")"/>
-@@ -6161,7 +6147,7 @@
+@@ -6153,7 +6139,7 @@
            <text macro="source-archive-reference-institution-first"/>
          </if>
          <else>
@@ -231,7 +231,7 @@
          </else>
        </choose>
        <text macro="source-archive-database-number" prefix="(" suffix=")"/>
-@@ -6266,7 +6252,7 @@
+@@ -6258,7 +6244,7 @@
            </group>
          </else-if>
        </choose>
@@ -240,7 +240,7 @@
      </group>
    </macro>
    <macro name="source-date-accessed-DOI-URL-note">
-@@ -6281,7 +6267,7 @@
+@@ -6273,7 +6259,7 @@
            </group>
          </else-if>
        </choose>
@@ -249,7 +249,7 @@
      </group>
    </macro>
    <macro name="source-DOI-URL">
-@@ -6986,7 +6972,7 @@
+@@ -6950,7 +6936,7 @@
        </else>
      </choose>
    </macro>
@@ -258,7 +258,7 @@
      <layout delimiter="; " suffix=".">
        <text macro="citation-notes-full-subsequent-author-title"/>
      </layout>
-@@ -7136,19 +7122,4 @@
+@@ -7100,19 +7086,4 @@
        </else>
      </choose>
    </macro>

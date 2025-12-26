@@ -35,7 +35,7 @@
      <updated>2025-11-05T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -2354,12 +2355,12 @@
+@@ -2348,38 +2349,32 @@
          <if type="article-newspaper">
            <group delimiter=" ">
              <text macro="source-serial-title"/>
@@ -50,33 +50,36 @@
          </else-if>
          <else-if type="interview" variable="publisher">
            <!-- publisher possible with `interview` (NHR 18.7.3) -->
-@@ -2367,7 +2368,7 @@
-             <text macro="source-serial-title"/>
-             <group delimiter=" ">
-               <text variable="publisher"/>
--              <text macro="source-serial-identifier"/>
-+              <text macro="source-serial-identifier-author-date"/>
-             </group>
+           <text macro="source-serial-title"/>
+           <group delimiter=" ">
+             <text variable="publisher"/>
+-            <text macro="source-serial-identifier"/>
+-            <!-- for author-date: -->
+-            <!-- <text macro="source-serial-identifier-author-date"/> -->
++            <text macro="source-serial-identifier-author-date"/>
            </group>
          </else-if>
-@@ -2376,14 +2377,14 @@
-             <text macro="source-serial-title"/>
-             <group delimiter=" ">
-               <text variable="publisher"/>
--              <text macro="source-serial-identifier"/>
-+              <text macro="source-serial-identifier-author-date"/>
-             </group>
+         <else-if variable="interviewer publisher">
+           <text macro="source-serial-title"/>
+           <group delimiter=" ">
+             <text variable="publisher"/>
+-            <text macro="source-serial-identifier"/>
+-            <!-- for author-date: -->
+-            <!-- <text macro="source-serial-identifier-author-date"/> -->
++            <text macro="source-serial-identifier-author-date"/>
            </group>
          </else-if>
          <else>
            <group delimiter=" ">
              <text macro="source-serial-title"/>
 -            <text macro="source-serial-identifier"/>
+-            <!-- for author-date: -->
+-            <!-- <text macro="source-serial-identifier-author-date"/> -->
 +            <text macro="source-serial-identifier-author-date"/>
            </group>
          </else>
        </choose>
-@@ -3357,9 +3358,7 @@
+@@ -3333,9 +3328,7 @@
    </macro>
    <!-- 4.6. Date -->
    <macro name="source-date">
@@ -87,7 +90,7 @@
    </macro>
    <!-- Date elements -->
    <macro name="source-date-issued-full">
-@@ -3498,9 +3497,7 @@
+@@ -3474,9 +3467,7 @@
      </choose>
    </macro>
    <macro name="source-date-original">
@@ -98,7 +101,7 @@
    </macro>
    <macro name="source-date-original-full">
      <!-- Give full date for more ephemeral types; reflected in `date-year-sort` -->
-@@ -4023,9 +4020,9 @@
+@@ -3993,9 +3984,9 @@
        </choose>
      </group>
    </macro>
@@ -111,7 +114,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -4138,17 +4135,16 @@
+@@ -4108,17 +4099,16 @@
    <bibliography hanging-indent="true">
      <sort>
        <key macro="author-bib"/>

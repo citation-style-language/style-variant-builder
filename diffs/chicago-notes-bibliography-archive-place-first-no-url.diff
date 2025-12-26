@@ -24,7 +24,7 @@
      <updated>2025-10-27T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -6148,7 +6148,7 @@
+@@ -6140,7 +6140,7 @@
            <text macro="source-archive-reference-institution-first"/>
          </if>
          <else>
@@ -33,7 +33,7 @@
          </else>
        </choose>
        <text macro="source-archive-database-number" prefix="(" suffix=")"/>
-@@ -6161,7 +6161,7 @@
+@@ -6153,7 +6153,7 @@
            <text macro="source-archive-reference-institution-first"/>
          </if>
          <else>
@@ -42,7 +42,7 @@
          </else>
        </choose>
        <text macro="source-archive-database-number" prefix="(" suffix=")"/>
-@@ -6266,7 +6266,7 @@
+@@ -6258,7 +6258,7 @@
            </group>
          </else-if>
        </choose>
@@ -51,7 +51,7 @@
      </group>
    </macro>
    <macro name="source-date-accessed-DOI-URL-note">
-@@ -6281,7 +6281,7 @@
+@@ -6273,7 +6273,7 @@
            </group>
          </else-if>
        </choose>

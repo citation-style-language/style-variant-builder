@@ -35,7 +35,7 @@
      <updated>2025-10-27T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -6266,7 +6267,7 @@
+@@ -6258,7 +6259,7 @@
            </group>
          </else-if>
        </choose>
@@ -44,7 +44,7 @@
      </group>
    </macro>
    <macro name="source-date-accessed-DOI-URL-note">
-@@ -6281,7 +6282,7 @@
+@@ -6273,7 +6274,7 @@
            </group>
          </else-if>
        </choose>
@@ -53,7 +53,7 @@
      </group>
    </macro>
    <macro name="source-DOI-URL">
-@@ -6987,8 +6988,8 @@
+@@ -6951,8 +6952,8 @@
      </choose>
    </macro>
    <citation disambiguate-add-givenname="true" disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
@@ -64,7 +64,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -7148,7 +7149,7 @@
+@@ -7112,7 +7113,7 @@
        <key macro="source-archive-bib"/>
      </sort>
      <layout suffix=".">
