@@ -25,7 +25,7 @@
      <updated>2025-10-27T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -436,12 +437,12 @@
+@@ -430,12 +431,12 @@
        </choose>
        <text variable="volume"/>
        <!-- always display number of volumes in notes without bibliography (CMOS18 14.20): -->
@@ -40,7 +40,7 @@
      </group>
    </macro>
    <macro name="label-volume-capitalized">
-@@ -3606,9 +3607,9 @@
+@@ -3543,9 +3544,9 @@
                <text macro="label-volume"/>
              </else-if>
              <!-- always display number of volumes in notes without bibliography (CMOS18 14.20): -->
@@ -52,7 +52,7 @@
            </choose>
          </else-if>
          <else-if is-numeric="volume" variable="page">
-@@ -3624,18 +3625,14 @@
+@@ -3561,18 +3562,14 @@
                <text macro="label-volume"/>
              </else-if>
              <!-- always display number of volumes in notes without bibliography (CMOS18 14.20): -->
@@ -73,7 +73,7 @@
          <else>
            <text macro="label-number-of-volumes"/>
          </else>
-@@ -6950,7 +6947,7 @@
+@@ -6856,7 +6853,7 @@
        </else>
      </choose>
    </macro>
@@ -82,7 +82,7 @@
      <layout delimiter="; " suffix=".">
        <text macro="citation-notes-full-subsequent-author-title"/>
      </layout>
-@@ -7100,19 +7097,4 @@
+@@ -7006,19 +7003,4 @@
        </else>
      </choose>
    </macro>

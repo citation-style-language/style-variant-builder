@@ -1,6 +1,6 @@
 --- templates/oscola-template.csl
 +++ development/oscola-no-ibid.csl
-@@ -5,10 +5,10 @@
+@@ -5,10 +5,11 @@
    type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
  <style xmlns="http://purl.org/net/xbiblio/csl" class="note" version="1.0" demote-non-dropping-particle="never" default-locale="en-GB">
    <info>
@@ -11,10 +11,11 @@
 -    <link href="http://www.zotero.org/styles/oscola" rel="self"/>
 +    <id>http://www.zotero.org/styles/oscola-no-ibid</id>
 +    <link href="http://www.zotero.org/styles/oscola-no-ibid" rel="self"/>
-     <link href="http://www.zotero.org/styles/australian-guide-to-legal-citation" rel="template"/>
++    <link href="http://www.zotero.org/styles/oscola" rel="template"/>
      <link href="https://www.law.ox.ac.uk/oscola" rel="documentation"/>
      <author>
-@@ -21,7 +21,7 @@
+       <name>Sebastian Karcher</name>
+@@ -20,7 +21,7 @@
      </author>
      <category citation-format="note"/>
      <category field="law"/>
@@ -23,7 +24,7 @@
      <updated>2025-07-08T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -595,16 +595,7 @@
+@@ -594,16 +595,7 @@
    <citation et-al-min="4" et-al-use-first="1">
      <layout suffix="." delimiter="; ">
        <choose>
@@ -41,7 +42,7 @@
            <choose>
              <if type="legal_case bill legislation treaty" match="any">
                <!--don't use short form and above note for legal citations -->
-@@ -642,7 +633,7 @@
+@@ -641,7 +633,7 @@
                </group>
              </else>
            </choose>

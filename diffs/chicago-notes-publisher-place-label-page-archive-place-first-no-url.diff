@@ -25,7 +25,7 @@
      <updated>2025-10-27T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -254,8 +255,7 @@
+@@ -248,8 +249,7 @@
    <macro name="label-locator">
      <group delimiter=" ">
        <choose>
@@ -35,7 +35,7 @@
            <!-- Bluebook-style labels for legal types (CMOS18 14.174) -->
            <choose>
              <if locator="chapter paragraph section" match="any">
-@@ -265,7 +265,7 @@
+@@ -259,7 +259,7 @@
                <label form="short" variable="locator"/>
              </else>
            </choose>
@@ -44,7 +44,7 @@
          <else-if is-numeric="locator">
            <choose>
              <if locator="line">
-@@ -436,12 +436,12 @@
+@@ -430,12 +430,12 @@
        </choose>
        <text variable="volume"/>
        <!-- always display number of volumes in notes without bibliography (CMOS18 14.20): -->
@@ -59,7 +59,7 @@
      </group>
    </macro>
    <macro name="label-volume-capitalized">
-@@ -3606,9 +3606,9 @@
+@@ -3543,9 +3543,9 @@
                <text macro="label-volume"/>
              </else-if>
              <!-- always display number of volumes in notes without bibliography (CMOS18 14.20): -->
@@ -71,7 +71,7 @@
            </choose>
          </else-if>
          <else-if is-numeric="volume" variable="page">
-@@ -3619,23 +3619,15 @@
+@@ -3556,23 +3556,15 @@
              <else-if match="any" variable="container-author editor editor-translator translator">
                <text macro="label-volume"/>
              </else-if>
@@ -97,7 +97,7 @@
          <else>
            <text macro="label-number-of-volumes"/>
          </else>
-@@ -4383,11 +4375,9 @@
+@@ -4306,11 +4298,9 @@
            </if>
          </choose>
        </else-if>
@@ -109,7 +109,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number-capitalized"/>
-@@ -4422,11 +4412,9 @@
+@@ -4345,11 +4335,9 @@
            </if>
          </choose>
        </else-if>
@@ -121,7 +121,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number"/>
-@@ -4785,10 +4773,6 @@
+@@ -4707,10 +4695,6 @@
              <if is-numeric="volume" match="none">
                <text macro="label-volume"/>
              </if>
@@ -132,7 +132,7 @@
              <else-if is-numeric="volume" variable="page">
                <choose>
                  <!-- check for variables that might come between the volume and page number -->
-@@ -4834,28 +4818,30 @@
+@@ -4756,28 +4740,30 @@
        <else-if variable="locator">
          <text macro="label-locator"/>
        </else-if>
@@ -169,7 +169,7 @@
        </else>
      </choose>
    </macro>
-@@ -5600,8 +5586,8 @@
+@@ -5520,8 +5506,8 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -180,7 +180,7 @@
            </group>
          </else-if>
          <!-- TODO: remove conditional when Zotero fixes double-mapping of `event-place` -->
-@@ -5626,8 +5612,8 @@
+@@ -5546,8 +5532,8 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -191,7 +191,7 @@
            </group>
          </else-if>
          <!-- TODO: remove conditional when Zotero fixes double-mapping of `event-place` -->
-@@ -5648,8 +5634,8 @@
+@@ -5568,8 +5554,8 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -202,7 +202,7 @@
          </group>
        </if>
        <else>
-@@ -5661,8 +5647,8 @@
+@@ -5581,8 +5567,8 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -213,7 +213,7 @@
          </group>
        </if>
        <else>
-@@ -6140,7 +6126,7 @@
+@@ -6046,7 +6032,7 @@
            <text macro="source-archive-reference-institution-first"/>
          </if>
          <else>
@@ -222,7 +222,7 @@
          </else>
        </choose>
        <text macro="source-archive-database-number" prefix="(" suffix=")"/>
-@@ -6153,7 +6139,7 @@
+@@ -6059,7 +6045,7 @@
            <text macro="source-archive-reference-institution-first"/>
          </if>
          <else>
@@ -231,7 +231,7 @@
          </else>
        </choose>
        <text macro="source-archive-database-number" prefix="(" suffix=")"/>
-@@ -6258,7 +6244,7 @@
+@@ -6164,7 +6150,7 @@
            </group>
          </else-if>
        </choose>
@@ -240,7 +240,7 @@
      </group>
    </macro>
    <macro name="source-date-accessed-DOI-URL-note">
-@@ -6273,7 +6259,7 @@
+@@ -6179,7 +6165,7 @@
            </group>
          </else-if>
        </choose>
@@ -249,7 +249,7 @@
      </group>
    </macro>
    <macro name="source-DOI-URL">
-@@ -6950,7 +6936,7 @@
+@@ -6856,7 +6842,7 @@
        </else>
      </choose>
    </macro>
@@ -258,7 +258,7 @@
      <layout delimiter="; " suffix=".">
        <text macro="citation-notes-full-subsequent-author-title"/>
      </layout>
-@@ -7100,19 +7086,4 @@
+@@ -7006,19 +6992,4 @@
        </else>
      </choose>
    </macro>

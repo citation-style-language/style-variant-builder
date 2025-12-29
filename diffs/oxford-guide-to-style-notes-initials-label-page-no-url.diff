@@ -115,7 +115,7 @@
    <!-- Contents:
      
         This file interprets Oxford style using APA's four basic reference elements:
-@@ -225,10 +283,9 @@
+@@ -218,10 +276,9 @@
    <macro name="label-locator">
      <group delimiter=" ">
        <choose>
@@ -128,7 +128,7 @@
          <!-- a non-numeric canonical reference is described by its formatting and does not need a label, similar to a timestamp (NHR 17.2.5) -->
          <else-if locator="chapter line verse" match="any"/>
          <else>
-@@ -353,33 +410,22 @@
+@@ -346,33 +403,22 @@
      </group>
    </macro>
    <macro name="label-volume">
@@ -167,19 +167,19 @@
          <substitute>
            <names variable="author"/>
            <names variable="host"/>
-@@ -1223,20 +1269,12 @@
-               <choose>
-                 <if match="any" variable="collection-editor container-author editor editorial-director">
-                   <!-- monographic usage -->
--                  <text macro="source-monographic-locator"/>
--                  <!-- for styles using Roman volume numbers: -->
--                  <!-- <text macro="source-monographic-locator-roman-volume"/> -->
--                  <!-- for OGS: -->
--                  <!-- <text macro="source-monographic-locator-range"/> -->
-+                  <text macro="source-monographic-locator-range"/>
-                 </if>
-               </choose>
+@@ -1205,20 +1251,12 @@
+             <if match="any" type="article-journal article-magazine article-newspaper periodical post-weblog review review-book"/>
+             <else-if match="any" variable="collection-editor compiler editor editorial-director">
+               <!-- monographic types -->
+-              <text macro="source-monographic-locator"/>
+-              <!-- for styles using Roman volume numbers: -->
+-              <!-- <text macro="source-monographic-locator-roman-volume"/> -->
+-              <!-- for OGS: -->
+-              <!-- <text macro="source-monographic-locator-range"/> -->
++              <text macro="source-monographic-locator-range"/>
              </else-if>
+             <!-- omit serial types -->
+             <else-if match="any" type="interview paper-conference"/>
              <else>
 -              <text macro="source-monographic-locator"/>
 -              <!-- for styles using Roman volume numbers: -->
@@ -190,7 +190,7 @@
              </else>
            </choose>
          </group>
-@@ -1506,10 +1544,6 @@
+@@ -1483,10 +1521,6 @@
              <text macro="label-volume"/>
            </if>
            <else-if locator="column page" match="any"/>
@@ -201,7 +201,7 @@
            <else-if variable="page"/>
            <else>
              <text macro="label-volume"/>
-@@ -2452,9 +2486,7 @@
+@@ -2406,9 +2440,7 @@
        <text macro="source-serial-identifier-volume"/>
        <!-- periodical edition always capitalized (cf. CMOS18 14.89) -->
        <text macro="label-edition-capitalized"/>
@@ -212,16 +212,7 @@
      </group>
    </macro>
    <macro name="source-serial-identifier-author-date">
-@@ -2563,7 +2595,7 @@
-         </group>
-       </if>
-       <else>
--        <text variable="page"/>
-+        <text macro="label-page"/>
-       </else>
-     </choose>
-   </macro>
-@@ -2571,8 +2603,8 @@
+@@ -2525,8 +2557,8 @@
      <choose>
        <if match="any" variable="locator number">
          <group delimiter=", ">
@@ -232,7 +223,7 @@
              <choose>
                <if variable="locator page">
                  <text term="at"/>
-@@ -2588,7 +2620,7 @@
+@@ -2542,7 +2574,7 @@
          </group>
        </if>
        <else>
@@ -241,7 +232,7 @@
        </else>
      </choose>
    </macro>
-@@ -2611,8 +2643,6 @@
+@@ -2565,8 +2597,6 @@
            </group>
          </if>
        </choose>
@@ -250,7 +241,7 @@
        <text macro="source-event"/>
      </group>
    </macro>
-@@ -2885,8 +2915,8 @@
+@@ -2836,8 +2866,8 @@
            <text macro="label-locator"/>
          </else-if>
          <else-if variable="page">
@@ -261,7 +252,7 @@
              <choose>
                <if variable="locator page">
                  <text term="at"/>
-@@ -2925,7 +2955,7 @@
+@@ -2876,7 +2906,7 @@
          </else-if>
          <else-if variable="archive archive_location page"/>
          <else>
@@ -270,39 +261,36 @@
          </else>
        </choose>
      </group>
-@@ -3059,8 +3089,7 @@
-           <choose>
-             <if match="any" variable="collection-editor container-author editor editorial-director">
-               <!-- monographic usage -->
--              <!-- add for OGS: -->
--              <!-- <text macro="source-series"/> -->
-+              <text macro="source-series"/>
-               <text macro="source-publication-and-date"/>
-             </if>
-           </choose>
-@@ -3068,8 +3097,7 @@
-         <!-- `patent` date in identification (cf. CMOS18 14.158) -->
-         <else-if type="patent"/>
+@@ -3010,16 +3040,14 @@
+         <else-if match="any" type="article-journal article-magazine article-newspaper periodical post-weblog review review-book"/>
+         <else-if match="any" variable="collection-editor compiler editor editorial-director">
+           <!-- monographic types -->
+-          <!-- add for OGS: -->
+-          <!-- <text macro="source-series"/> -->
++          <text macro="source-series"/>
+           <text macro="source-publication-and-date"/>
+         </else-if>
+         <!-- omit serial types -->
+         <else-if match="any" type="interview paper-conference"/>
          <else>
+           <!-- monographic types -->
 -          <!-- add for OGS: -->
 -          <!-- <text macro="source-series"/> -->
 +          <text macro="source-series"/>
            <text macro="source-publication-and-date"/>
          </else>
        </choose>
-@@ -3607,9 +3635,7 @@
-         <choose>
-           <if match="any" variable="collection-editor compiler editor editorial-director">
-             <!-- monographic usage -->
--            <text macro="source-locator-subsequent-monographic"/>
--            <!-- for OGS and other styles using Roman volume numbers: -->
--            <!-- <text macro="source-locator-subsequent-monographic-roman-volume"/> -->
-+            <text macro="source-locator-subsequent-monographic-roman-volume"/>
-           </if>
-           <else>
-             <!-- serial usage -->
-@@ -3618,9 +3644,7 @@
-         </choose>
+@@ -3545,17 +3573,13 @@
+         <text macro="source-locator-subsequent-serial"/>
+       </if>
+       <else-if match="any" variable="collection-editor compiler editor editorial-director">
+-        <text macro="source-locator-subsequent-monographic"/>
+-        <!-- for OGS and other styles using Roman volume numbers: -->
+-        <!-- <text macro="source-locator-subsequent-monographic-roman-volume"/> -->
++        <text macro="source-locator-subsequent-monographic-roman-volume"/>
+       </else-if>
+       <else-if match="any" type="interview paper-conference">
+         <text macro="source-locator-subsequent-serial"/>
        </else-if>
        <else>
 -        <text macro="source-locator-subsequent-monographic"/>
@@ -312,7 +300,7 @@
        </else>
      </choose>
    </macro>
-@@ -3666,8 +3690,7 @@
+@@ -3601,8 +3625,7 @@
            <!-- Do not provide `volume` or `part-number` for defined section -->
            <text macro="label-locator"/>
          </if>
@@ -322,7 +310,7 @@
            <text macro="label-volume"/>
            <text macro="label-part-number"/>
            <text macro="label-locator"/>
-@@ -3677,7 +3700,7 @@
+@@ -3612,7 +3635,7 @@
              <text macro="label-volume"/>
              <text macro="label-locator"/>
            </group>
@@ -331,7 +319,7 @@
          <else-if variable="part-number">
            <text macro="label-volume"/>
            <text macro="label-part-number"/>
-@@ -3713,9 +3736,7 @@
+@@ -3648,9 +3671,7 @@
        <!-- usually `archive`, `archive-place` but sometimes also `archive-place`, `archive` (NHR 18.6.5); the latter is more common elsewhere (OGS 15.11.1 and MHRA4 7.7) -->
        <text variable="archive_collection"/>
        <text variable="archive_location"/>
@@ -342,7 +330,7 @@
        <choose>
          <!-- database identifier, if not included elsewhere (cf. CMOS18 14.113) -->
          <if match="any" variable="archive_collection archive_location archive-place"/>
-@@ -3755,7 +3776,7 @@
+@@ -3690,7 +3711,7 @@
      </choose>
    </macro>
    <macro name="source-archive-locator-page">
@@ -351,7 +339,7 @@
        <choose>
          <if is-numeric="page">
            <!-- TODO: remove this conditional when `page` parsing is fixed for different locator types -->
-@@ -3835,7 +3856,7 @@
+@@ -3770,7 +3791,7 @@
            </group>
          </else-if>
        </choose>
