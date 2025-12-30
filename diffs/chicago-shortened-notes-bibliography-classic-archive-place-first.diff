@@ -25,7 +25,7 @@
      <updated>2025-10-27T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -3561,10 +3562,6 @@
+@@ -3523,10 +3524,6 @@
              <else-if match="any" variable="container-author editor editor-translator translator">
                <text macro="label-volume"/>
              </else-if>
@@ -36,7 +36,7 @@
              <!-- always display number of volumes in notes without bibliography (CMOS18 14.20): -->
              <!-- <else>
                <text macro="label-number-of-volumes"/>
-@@ -4266,11 +4263,9 @@
+@@ -4184,11 +4181,9 @@
            </if>
          </choose>
        </else-if>
@@ -48,7 +48,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number-capitalized"/>
-@@ -4305,11 +4300,9 @@
+@@ -4223,11 +4218,9 @@
            </if>
          </choose>
        </else-if>
@@ -60,18 +60,18 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number"/>
-@@ -4691,10 +4684,6 @@
-             <if is-numeric="volume" match="none">
-               <text macro="label-volume"/>
-             </if>
--            <else-if variable="container-title">
--              <!-- remove condition in styles that print chapter page numbers (CMOS17/classic) -->
--              <text macro="label-volume"/>
--            </else-if>
-             <else-if is-numeric="volume" variable="page">
-               <choose>
-                 <!-- check for variables that might come between the volume and page number -->
-@@ -4737,8 +4726,6 @@
+@@ -4596,10 +4589,6 @@
+         <else-if is-numeric="volume" match="none">
+           <text macro="label-volume"/>
+         </else-if>
+-        <else-if variable="container-title">
+-          <!-- remove condition in styles that print chapter page numbers (CMOS17/classic) -->
+-          <text macro="label-volume"/>
+-        </else-if>
+         <else-if is-numeric="volume" variable="page">
+           <choose>
+             <!-- check for variables that might come between the volume and page number -->
+@@ -4639,8 +4628,6 @@
        <else-if variable="locator">
          <text macro="label-locator"/>
        </else-if>
@@ -80,7 +80,7 @@
        <else-if is-numeric="volume" variable="page">
          <!-- collapse the volume and page number if adjacent (CMOS18 14.18) -->
          <group delimiter=":">
-@@ -5501,7 +5488,7 @@
+@@ -5405,7 +5392,7 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -89,7 +89,7 @@
              <text text-case="capitalize-first" variable="publisher"/>
            </group>
          </else-if>
-@@ -5527,7 +5514,7 @@
+@@ -5431,7 +5418,7 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -98,7 +98,7 @@
              <text variable="publisher"/>
            </group>
          </else-if>
-@@ -5549,7 +5536,7 @@
+@@ -5453,7 +5440,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -107,7 +107,7 @@
            <text text-case="capitalize-first" variable="original-publisher"/>
          </group>
        </if>
-@@ -5562,7 +5549,7 @@
+@@ -5466,7 +5453,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -116,7 +116,7 @@
            <text variable="original-publisher"/>
          </group>
        </if>
-@@ -6027,7 +6014,7 @@
+@@ -5932,7 +5919,7 @@
            <text macro="source-archive-reference-institution-first"/>
          </if>
          <else>
@@ -125,7 +125,7 @@
          </else>
        </choose>
        <text macro="source-archive-database-number" prefix="(" suffix=")"/>
-@@ -6040,7 +6027,7 @@
+@@ -5945,7 +5932,7 @@
            <text macro="source-archive-reference-institution-first"/>
          </if>
          <else>
@@ -134,7 +134,7 @@
          </else>
        </choose>
        <text macro="source-archive-database-number" prefix="(" suffix=")"/>
-@@ -6839,7 +6826,7 @@
+@@ -6754,7 +6741,7 @@
    </macro>
    <citation disambiguate-add-givenname="true" disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
      <layout delimiter="; " suffix=".">
@@ -143,7 +143,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -6987,7 +6974,7 @@
+@@ -6902,7 +6889,7 @@
        </else>
      </choose>
    </macro>
@@ -152,7 +152,7 @@
      <sort>
        <key macro="author-sort"/>
        <key macro="title-and-descriptions-bib"/>
-@@ -6999,7 +6986,7 @@
+@@ -6914,7 +6901,7 @@
        <key macro="source-archive-bib"/>
      </sort>
      <layout suffix=".">

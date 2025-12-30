@@ -154,7 +154,7 @@
          <substitute>
            <names variable="author"/>
            <names variable="host"/>
-@@ -1205,20 +1252,12 @@
+@@ -1193,20 +1240,12 @@
              <if match="any" type="article-journal article-magazine article-newspaper periodical post-weblog review review-book"/>
              <else-if match="any" variable="collection-editor compiler editor editorial-director">
                <!-- monographic types -->
@@ -177,7 +177,7 @@
              </else>
            </choose>
          </group>
-@@ -1483,10 +1522,6 @@
+@@ -1471,10 +1510,6 @@
              <text macro="label-volume"/>
            </if>
            <else-if locator="column page" match="any"/>
@@ -188,7 +188,7 @@
            <else-if variable="page"/>
            <else>
              <text macro="label-volume"/>
-@@ -2406,9 +2441,7 @@
+@@ -2383,9 +2418,7 @@
        <text macro="source-serial-identifier-volume"/>
        <!-- periodical edition always capitalized (cf. CMOS18 14.89) -->
        <text macro="label-edition-capitalized"/>
@@ -199,7 +199,7 @@
      </group>
    </macro>
    <macro name="source-serial-identifier-author-date">
-@@ -2565,8 +2598,6 @@
+@@ -2542,8 +2575,6 @@
            </group>
          </if>
        </choose>
@@ -208,7 +208,7 @@
        <text macro="source-event"/>
      </group>
    </macro>
-@@ -3010,16 +3041,14 @@
+@@ -2987,16 +3018,14 @@
          <else-if match="any" type="article-journal article-magazine article-newspaper periodical post-weblog review review-book"/>
          <else-if match="any" variable="collection-editor compiler editor editorial-director">
            <!-- monographic types -->
@@ -227,7 +227,7 @@
            <text macro="source-publication-and-date"/>
          </else>
        </choose>
-@@ -3545,17 +3574,13 @@
+@@ -3525,17 +3554,13 @@
          <text macro="source-locator-subsequent-serial"/>
        </if>
        <else-if match="any" variable="collection-editor compiler editor editorial-director">
@@ -247,7 +247,7 @@
        </else>
      </choose>
    </macro>
-@@ -3601,8 +3626,7 @@
+@@ -3581,8 +3606,7 @@
            <!-- Do not provide `volume` or `part-number` for defined section -->
            <text macro="label-locator"/>
          </if>
@@ -257,7 +257,7 @@
            <text macro="label-volume"/>
            <text macro="label-part-number"/>
            <text macro="label-locator"/>
-@@ -3612,7 +3636,7 @@
+@@ -3592,7 +3616,7 @@
              <text macro="label-volume"/>
              <text macro="label-locator"/>
            </group>
@@ -266,7 +266,7 @@
          <else-if variable="part-number">
            <text macro="label-volume"/>
            <text macro="label-part-number"/>
-@@ -3648,9 +3672,7 @@
+@@ -3628,9 +3652,7 @@
        <!-- usually `archive`, `archive-place` but sometimes also `archive-place`, `archive` (NHR 18.6.5); the latter is more common elsewhere (OGS 15.11.1 and MHRA4 7.7) -->
        <text variable="archive_collection"/>
        <text variable="archive_location"/>

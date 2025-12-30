@@ -34,36 +34,46 @@
      <updated>2025-10-27T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -4094,24 +4094,24 @@
-                 <!-- date appears first if a review `container-title` has been substituted for a missing author (CMOS18 14.89) -->
+@@ -3939,12 +3939,12 @@
+                 <!-- date for unsigned reviews only appears here if it did not earlier (CMOS18 14.102) -->
                  <choose>
                    <if match="any" variable="author chair collection-editor compiler composer curator director editor editor-translator editorial-director executive-producer guest host illustrator organizer producer series-creator translator">
 -                    <text macro="source-date-issued-or-status" prefix="(" suffix=")"/>
 +                    <text macro="source-date-issued-or-status" prefix="[" suffix="]"/>
-                     <!-- for CMOS17 author-date: -->
-                     <!-- <text macro="source-date-issued-month-day" prefix="(" suffix=")"/> -->
                    </if>
-                   <else-if match="any" variable="reviewed-genre reviewed-title title">
--                    <text macro="source-date-issued-or-status" prefix="(" suffix=")"/>
-+                    <text macro="source-date-issued-or-status" prefix="[" suffix="]"/>
-                     <!-- for CMOS17 author-date: -->
-                     <!-- <text macro="source-date-issued-month-day" prefix="(" suffix=")"/> -->
-                   </else-if>
-                   <else-if match="none" variable="genre section">
--                    <text macro="source-date-issued-or-status" prefix="(" suffix=")"/>
-+                    <text macro="source-date-issued-or-status" prefix="[" suffix="]"/>
-                     <!-- for CMOS17 author-date: -->
-                     <!-- <text macro="source-date-issued-month-day" prefix="(" suffix=")"/> -->
-                   </else-if>
                  </choose>
                </if>
                <else>
 -                <text macro="source-date-issued-or-status" prefix="(" suffix=")"/>
 +                <text macro="source-date-issued-or-status" prefix="[" suffix="]"/>
-                 <!-- for CMOS17 author-date: -->
-                 <!-- <text macro="source-date-issued-month-day" prefix="(" suffix=")"/> -->
                </else>
-@@ -5084,32 +5084,32 @@
+             </choose>
+           </group>
+@@ -4021,19 +4021,19 @@
+                 <!-- date appears first if a review `container-title` has been substituted for a missing author (CMOS18 14.89) -->
+                 <choose>
+                   <if match="any" variable="author chair collection-editor compiler composer curator director editor editor-translator editorial-director executive-producer guest host illustrator organizer producer series-creator translator">
+-                    <text macro="source-date-issued-or-status" prefix="(" suffix=")"/>
++                    <text macro="source-date-issued-or-status" prefix="[" suffix="]"/>
+                   </if>
+                   <else-if match="any" variable="reviewed-genre reviewed-title title">
+-                    <text macro="source-date-issued-or-status" prefix="(" suffix=")"/>
++                    <text macro="source-date-issued-or-status" prefix="[" suffix="]"/>
+                   </else-if>
+                   <else-if match="any" variable="genre section"/>
+                   <else>
+-                    <text macro="source-date-issued-or-status" prefix="(" suffix=")"/>
++                    <text macro="source-date-issued-or-status" prefix="[" suffix="]"/>
+                   </else>
+                 </choose>
+               </if>
+               <else>
+-                <text macro="source-date-issued-or-status" prefix="(" suffix=")"/>
++                <text macro="source-date-issued-or-status" prefix="[" suffix="]"/>
+               </else>
+             </choose>
+           </group>
+@@ -4988,32 +4988,32 @@
      <!-- Facts of publication with brackets for print monographic formats -->
      <choose>
        <if match="any" type="book chapter classic interview musical_score pamphlet paper-conference report thesis">
@@ -102,7 +112,7 @@
            </if>
          </choose>
        </else-if>
-@@ -5150,7 +5150,7 @@
+@@ -5054,7 +5054,7 @@
    </macro>
    <macro name="source-monographic-publication-short-bracketed">
      <!-- mirrors `source-monographic-publication-note-bracketed` -->
@@ -111,7 +121,7 @@
        <choose>
          <if disambiguate="true" match="none"/>
          <!-- Facts of publication with brackets for print monographic formats -->
-@@ -5485,7 +5485,7 @@
+@@ -5389,7 +5389,7 @@
              </names>
              <text font-style="italic" text-case="title" variable="original-title"/>
            </group>
@@ -120,7 +130,7 @@
              <text macro="source-publication-publisher-original-note"/>
              <text macro="source-date-original"/>
            </group>
-@@ -6838,8 +6838,8 @@
+@@ -6753,8 +6753,8 @@
      </choose>
    </macro>
    <citation disambiguate-add-givenname="true" disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
