@@ -25,7 +25,7 @@
      <updated>2025-10-27T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -430,12 +431,12 @@
+@@ -426,12 +427,12 @@
        </choose>
        <text variable="volume"/>
        <!-- always display number of volumes in notes without bibliography (CMOS18 14.20): -->
@@ -40,7 +40,7 @@
      </group>
    </macro>
    <macro name="label-volume-capitalized">
-@@ -3272,9 +3273,6 @@
+@@ -3268,9 +3269,6 @@
        <choose>
          <!-- notes only show the number of volumes if there is no physical locator, which should include a volume number, e.g. 4:243; except when using notes without bibliography (CMOS18 14.20) -->
          <if match="any" variable="part-number part-title volume volume-title"/>
@@ -50,7 +50,7 @@
          <else>
            <text macro="label-number-of-volumes"/>
          </else>
-@@ -3510,9 +3508,9 @@
+@@ -3506,9 +3504,9 @@
                <text macro="label-volume"/>
              </else-if>
              <!-- always display number of volumes in notes without bibliography (CMOS18 14.20): -->
@@ -62,7 +62,7 @@
            </choose>
          </else-if>
          <else-if is-numeric="volume" variable="page">
-@@ -3528,9 +3526,9 @@
+@@ -3524,9 +3522,9 @@
                <text macro="label-volume"/>
              </else-if>
              <!-- always display number of volumes in notes without bibliography (CMOS18 14.20): -->
@@ -74,7 +74,7 @@
            </choose>
          </else-if>
          <else-if variable="volume">
-@@ -4540,10 +4538,6 @@
+@@ -4536,10 +4534,6 @@
        <choose>
          <!-- notes only show the number of volumes if there is no physical locator, which should include a volume number, e.g. 4:243; except when using notes without bibliography (CMOS18 14.20) -->
          <if match="any" variable="part-number part-title volume volume-title"/>
@@ -85,7 +85,7 @@
          <else>
            <text macro="label-number-of-volumes"/>
          </else>
-@@ -6050,7 +6044,7 @@
+@@ -6046,7 +6040,7 @@
            </group>
          </else-if>
        </choose>
@@ -94,7 +94,7 @@
      </group>
    </macro>
    <macro name="source-date-accessed-DOI-URL-note">
-@@ -6065,7 +6059,7 @@
+@@ -6061,7 +6055,7 @@
            </group>
          </else-if>
        </choose>
@@ -103,7 +103,7 @@
      </group>
    </macro>
    <macro name="source-DOI-URL">
-@@ -6752,7 +6746,7 @@
+@@ -6748,7 +6742,7 @@
        </else>
      </choose>
    </macro>
@@ -112,7 +112,7 @@
      <layout delimiter="; " suffix=".">
        <text macro="citation-notes-full-subsequent-author-title"/>
      </layout>
-@@ -6902,19 +6896,4 @@
+@@ -6883,19 +6877,4 @@
        </else>
      </choose>
    </macro>

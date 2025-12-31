@@ -35,7 +35,7 @@
        <term name="timestamp">at</term>
        <term form="verb-short" name="translator">trans.</term>
      </terms>
-@@ -3523,10 +3521,6 @@
+@@ -3519,10 +3517,6 @@
              <else-if match="any" variable="container-author editor editor-translator translator">
                <text macro="label-volume"/>
              </else-if>
@@ -46,7 +46,7 @@
              <!-- always display number of volumes in notes without bibliography (CMOS18 14.20): -->
              <!-- <else>
                <text macro="label-number-of-volumes"/>
-@@ -4184,11 +4178,9 @@
+@@ -4180,11 +4174,9 @@
            </if>
          </choose>
        </else-if>
@@ -58,7 +58,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number-capitalized"/>
-@@ -4223,11 +4215,9 @@
+@@ -4219,11 +4211,9 @@
            </if>
          </choose>
        </else-if>
@@ -70,7 +70,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number"/>
-@@ -4596,10 +4586,6 @@
+@@ -4592,10 +4582,6 @@
          <else-if is-numeric="volume" match="none">
            <text macro="label-volume"/>
          </else-if>
@@ -81,7 +81,7 @@
          <else-if is-numeric="volume" variable="page">
            <choose>
              <!-- check for variables that might come between the volume and page number -->
-@@ -4639,8 +4625,6 @@
+@@ -4635,8 +4621,6 @@
        <else-if variable="locator">
          <text macro="label-locator"/>
        </else-if>
@@ -90,7 +90,7 @@
        <else-if is-numeric="volume" variable="page">
          <!-- collapse the volume and page number if adjacent (CMOS18 14.18) -->
          <group delimiter=":">
-@@ -5405,7 +5389,7 @@
+@@ -5401,7 +5385,7 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -99,7 +99,7 @@
              <text text-case="capitalize-first" variable="publisher"/>
            </group>
          </else-if>
-@@ -5431,7 +5415,7 @@
+@@ -5427,7 +5411,7 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -108,7 +108,7 @@
              <text variable="publisher"/>
            </group>
          </else-if>
-@@ -5453,7 +5437,7 @@
+@@ -5449,7 +5433,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -117,7 +117,7 @@
            <text text-case="capitalize-first" variable="original-publisher"/>
          </group>
        </if>
-@@ -5466,7 +5450,7 @@
+@@ -5462,7 +5446,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -126,7 +126,7 @@
            <text variable="original-publisher"/>
          </group>
        </if>
-@@ -5550,14 +5534,10 @@
+@@ -5546,14 +5530,10 @@
          <text macro="date-issued-full"/>
        </if>
        <else-if variable="issue volume">
@@ -143,7 +143,7 @@
        </else-if>
        <else-if match="any" variable="issue volume">
          <text macro="date-issued-year-month"/>
-@@ -5702,14 +5682,10 @@
+@@ -5698,14 +5678,10 @@
    <macro name="source-date-original-full-serial">
      <choose>
        <if variable="issue volume">
@@ -160,7 +160,7 @@
        </else-if>
        <else-if match="any" variable="issue volume">
          <text macro="date-original-year-month"/>
-@@ -6752,9 +6728,9 @@
+@@ -6748,9 +6724,9 @@
        </else>
      </choose>
    </macro>
@@ -172,25 +172,24 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -6852,7 +6828,7 @@
-           </if>
-         </choose>
-       </else-if>
--      <else-if match="any" type="document manuscript paper-conference speech">
-+      <else-if match="any" type="document manuscript">
-         <!-- In note styles, the bibliography also omits inaccessible manuscripts (CMOS18 14.114), conference papers (new in CMOS18 14.115; included in CMOS17 14.217), and private documents (CMOS18 14.118) -->
-         <choose>
-           <if match="any" variable="archive archive-place container-title DOI number publisher references URL">
-@@ -6860,8 +6836,6 @@
+@@ -6837,15 +6813,13 @@
            </if>
          </choose>
        </else-if>
 -      <!-- social media content omitted from the bibliography (new in CMOS18 14.106; included in CMOS17 14.209) -->
 -      <else-if type="post"/>
+       <else-if match="any" variable="archive archive-place container-title DOI number publisher references URL">
+         <text macro="bibliography-notes"/>
+       </else-if>
+       <!-- Personal communications only appear in the bibliography if the reader can retrieve them (CMOS18 14.13, 14.111) -->
+       <else-if match="any" type="interview personal_communication"/>
+       <!-- In note styles, the bibliography also omits inaccessible manuscripts (CMOS18 14.114), conference papers (new in CMOS18 14.115; included in CMOS17 14.217), and private documents (CMOS18 14.118) -->
+-      <else-if match="any" type="document manuscript paper-conference speech"/>
++      <else-if match="any" type="document manuscript"/>
        <else>
          <text macro="bibliography-notes"/>
        </else>
-@@ -6902,7 +6876,7 @@
+@@ -6883,7 +6857,7 @@
        </else>
      </choose>
    </macro>

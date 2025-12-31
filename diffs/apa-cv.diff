@@ -26,7 +26,7 @@
      <updated>2025-04-14T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -2236,19 +2236,17 @@
+@@ -2224,19 +2224,17 @@
      </group>
    </macro>
    <!-- Citation -->
@@ -53,7 +53,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -2291,10 +2289,11 @@
+@@ -2276,10 +2274,11 @@
    </macro>
    <bibliography entry-spacing="0" et-al-min="21" et-al-use-first="19" et-al-use-last="true" hanging-indent="true" line-spacing="2">
      <sort>
@@ -67,7 +67,7 @@
        <key macro="title"/>
        <key variable="volume"/>
        <key variable="part-number"/>
-@@ -2303,7 +2302,7 @@
+@@ -2288,7 +2287,7 @@
        <key macro="source-archive"/>
      </sort>
      <layout>

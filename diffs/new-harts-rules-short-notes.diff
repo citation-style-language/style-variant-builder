@@ -1,0 +1,22 @@
+--- templates/new-harts-rules-template.csl
++++ development/new-harts-rules-short-notes.csl
+@@ -5,8 +5,8 @@
+   type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+ <style and="text" class="note" default-locale="en-GB" demote-non-dropping-particle="display-and-sort" et-al-min="4" et-al-use-first="1" page-range-format="minimal" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
+   <info>
+-    <title>New Hart's Rules: The Oxford Style Guide 2nd edition (template)</title>
+-    <title-short>NHR (template)</title-short>
++    <title>New Hart's Rules: The Oxford Style Guide 2nd edition (notes)</title>
++    <title-short>NHR (notes [17.2])</title-short>
+     <id>http://www.zotero.org/styles/new-harts-rules-notes</id>
+     <link href="http://www.zotero.org/styles/new-harts-rules-notes" rel="self"/>
+     <link href="https://en.wikipedia.org/wiki/Hart's_Rules" rel="documentation"/>
+@@ -30,7 +30,7 @@
+     <category field="social_science"/>
+     <category field="sociology"/>
+     <category field="theology"/>
+-    <summary>Oxford source citations, template</summary>
++    <summary>Oxford source citations, notes system</summary>
+     <updated>2025-11-05T00:00:00+00:00</updated>
+     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
+   </info>

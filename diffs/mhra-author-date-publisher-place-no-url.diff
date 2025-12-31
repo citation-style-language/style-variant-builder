@@ -35,7 +35,7 @@
      <updated>2025-11-23T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -1093,9 +1094,7 @@
+@@ -1069,9 +1070,7 @@
            <text macro="identifier"/>
          </if>
          <else>
@@ -46,7 +46,7 @@
            <text macro="identifier"/>
          </else>
        </choose>
-@@ -1166,9 +1165,7 @@
+@@ -1142,9 +1141,7 @@
          </choose>
          <text macro="source-medium"/>
          <text macro="source-archive"/>
@@ -56,7 +56,7 @@
      </group>
    </macro>
    <!-- 3.1. Title -->
-@@ -2784,18 +2781,6 @@
+@@ -2760,18 +2757,6 @@
            </else-if>
          </choose>
        </group>
@@ -75,7 +75,7 @@
      </group>
    </macro>
    <!-- 4.3. Series -->
-@@ -3180,7 +3165,7 @@
+@@ -3156,7 +3141,7 @@
          </else-if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -84,7 +84,7 @@
              <text variable="publisher"/>
            </group>
          </else-if>
-@@ -3202,7 +3187,7 @@
+@@ -3178,7 +3163,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -93,7 +93,7 @@
            <text variable="original-publisher"/>
          </group>
        </if>
-@@ -3218,9 +3203,7 @@
+@@ -3194,9 +3179,7 @@
          <date date-parts="year" form="text" variable="available-date"/>
        </if>
        <else>
@@ -104,7 +104,7 @@
        </else>
      </choose>
    </macro>
-@@ -3364,9 +3347,7 @@
+@@ -3340,9 +3323,7 @@
      </choose>
    </macro>
    <macro name="source-date-original">
@@ -115,7 +115,7 @@
    </macro>
    <macro name="source-date-original-full">
      <!-- Give full date for more ephemeral types; reflected in `date-sort` -->
-@@ -3775,9 +3756,9 @@
+@@ -3751,9 +3732,9 @@
        </choose>
      </group>
    </macro>
@@ -128,7 +128,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -3877,17 +3858,19 @@
+@@ -3841,17 +3822,19 @@
    <bibliography hanging-indent="true" subsequent-author-substitute="&#8212;&#8212;" subsequent-author-substitute-rule="partial-first">
      <sort>
        <key macro="author-bib"/>

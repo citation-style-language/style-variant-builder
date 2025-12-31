@@ -148,7 +148,7 @@
            <substitute>
              <names variable="author"/>
              <names variable="illustrator"/>
-@@ -1025,7 +1033,7 @@
+@@ -1017,7 +1025,7 @@
        <choose>
          <if variable="title">
            <names variable="interviewer">
@@ -157,7 +157,7 @@
              <label form="short" prefix=", " text-case="title"/>
            </names>
          </if>
-@@ -1035,24 +1043,24 @@
+@@ -1027,24 +1035,24 @@
            <!-- Handle `container-title` on `post` or `webpage` as `publisher` -->
            <names variable="container-author">
              <label form="verb-short" suffix=" " text-case="title"/>
@@ -187,7 +187,7 @@
              <label form="short" prefix=", " text-case="title"/>
            </names>
            <choose>
-@@ -1060,21 +1068,21 @@
+@@ -1052,21 +1060,21 @@
              <else-if variable="container-title">
                <!-- TODO: Check logic once processors start to automatically populate `editor-translator` -->
                <names delimiter="; " variable="translator">
@@ -213,7 +213,7 @@
                  <label prefix=", " text-case="title"/>
                </names>
              </else>
-@@ -1088,13 +1096,13 @@
+@@ -1080,13 +1088,13 @@
        <choose>
          <if variable="title">
            <names delimiter="; " variable="interviewer">
@@ -229,7 +229,7 @@
          <label form="short" prefix=", " text-case="title"/>
        </names>
      </group>
-@@ -1419,7 +1427,7 @@
+@@ -1410,7 +1418,7 @@
          <else-if variable="interviewer">
            <names variable="interviewer">
              <label form="verb" suffix=" " text-case="capitalize-first"/>
@@ -238,7 +238,7 @@
            </names>
            <text text-case="capitalize-first" variable="medium"/>
          </else-if>
-@@ -1432,7 +1440,7 @@
+@@ -1423,7 +1431,7 @@
    <macro name="description-interview-short">
      <names variable="interviewer">
        <label form="verb" suffix=" " text-case="capitalize-first"/>
@@ -247,7 +247,7 @@
        <substitute>
          <text macro="description-format-short"/>
        </substitute>
-@@ -1446,7 +1454,7 @@
+@@ -1437,7 +1445,7 @@
              <text macro="description-format"/>
              <names variable="recipient">
                <label form="verb" suffix=" "/>
@@ -256,7 +256,7 @@
              </names>
            </group>
            <text macro="description-medium"/>
-@@ -1464,7 +1472,7 @@
+@@ -1455,7 +1463,7 @@
            <text macro="description-format-short"/>
            <names variable="recipient">
              <label form="verb" suffix=" "/>
@@ -265,7 +265,7 @@
            </names>
          </group>
        </if>
-@@ -1513,7 +1521,7 @@
+@@ -1504,7 +1512,7 @@
          </group>
          <names variable="reviewed-author">
            <label form="verb-short" suffix=" "/>
@@ -274,7 +274,7 @@
          </names>
        </group>
        <text macro="description-medium"/>
-@@ -1699,22 +1707,22 @@
+@@ -1690,22 +1698,22 @@
    <!-- Monographic source author -->
    <macro name="source-monographic-author">
      <names variable="container-author">
@@ -301,7 +301,7 @@
            <label form="short" prefix=" (" suffix=")" text-case="title"/>
          </names>
          <names variable="compiler"/>
-@@ -1726,7 +1734,7 @@
+@@ -1717,7 +1725,7 @@
          </choose>
          <names variable="curator"/>
          <names variable="collection-editor">

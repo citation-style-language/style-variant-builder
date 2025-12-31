@@ -25,7 +25,7 @@
      <updated>2025-10-27T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -5932,7 +5933,7 @@
+@@ -5928,7 +5929,7 @@
            <text macro="source-archive-reference-institution-first"/>
          </if>
          <else>
@@ -34,7 +34,7 @@
          </else>
        </choose>
        <text macro="source-archive-database-number" prefix="(" suffix=")"/>
-@@ -5945,7 +5946,7 @@
+@@ -5941,7 +5942,7 @@
            <text macro="source-archive-reference-institution-first"/>
          </if>
          <else>
@@ -43,7 +43,7 @@
          </else>
        </choose>
        <text macro="source-archive-database-number" prefix="(" suffix=")"/>
-@@ -6754,7 +6755,7 @@
+@@ -6750,7 +6751,7 @@
    </macro>
    <citation disambiguate-add-givenname="true" disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
      <layout delimiter="; " suffix=".">
@@ -52,7 +52,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -6914,7 +6915,7 @@
+@@ -6895,7 +6896,7 @@
        <key macro="source-archive-bib"/>
      </sort>
      <layout suffix=".">

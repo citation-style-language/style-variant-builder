@@ -25,7 +25,7 @@
      <updated>2025-10-27T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -5932,7 +5933,7 @@
+@@ -5928,7 +5929,7 @@
            <text macro="source-archive-reference-institution-first"/>
          </if>
          <else>
@@ -34,7 +34,7 @@
          </else>
        </choose>
        <text macro="source-archive-database-number" prefix="(" suffix=")"/>
-@@ -5945,7 +5946,7 @@
+@@ -5941,7 +5942,7 @@
            <text macro="source-archive-reference-institution-first"/>
          </if>
          <else>
@@ -43,7 +43,7 @@
          </else>
        </choose>
        <text macro="source-archive-database-number" prefix="(" suffix=")"/>
-@@ -6050,7 +6051,7 @@
+@@ -6046,7 +6047,7 @@
            </group>
          </else-if>
        </choose>
@@ -52,7 +52,7 @@
      </group>
    </macro>
    <macro name="source-date-accessed-DOI-URL-note">
-@@ -6065,7 +6066,7 @@
+@@ -6061,7 +6062,7 @@
            </group>
          </else-if>
        </choose>
@@ -61,7 +61,7 @@
      </group>
    </macro>
    <macro name="source-DOI-URL">
-@@ -6752,7 +6753,7 @@
+@@ -6748,7 +6749,7 @@
        </else>
      </choose>
    </macro>
@@ -70,7 +70,7 @@
      <layout delimiter="; " suffix=".">
        <text macro="citation-notes-full-subsequent-author-title"/>
      </layout>
-@@ -6902,19 +6903,4 @@
+@@ -6883,19 +6884,4 @@
        </else>
      </choose>
    </macro>
