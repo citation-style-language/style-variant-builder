@@ -370,13 +370,15 @@
       <names variable="composer">
         <name delimiter-precedes-et-al="after-inverted-name" delimiter-precedes-last="always" name-as-sort-order="first"/>
         <!-- for OGS: -->
-        <!-- <name delimiter-precedes-et-al="after-inverted-name" delimiter-precedes-last="always" font-variant="small-caps" name-as-sort-order="first"/> -->
-        <!-- <et-al font-variant="normal"/> -->
+        <!-- <name delimiter-precedes-et-al="after-inverted-name" delimiter-precedes-last="always" font-variant="small-caps" name-as-sort-order="first"/>
+        <et-al font-variant="normal"/> -->
         <label form="short" prefix=", "/>
+        <!-- for OGS or variants with bracketed roles: -->
+        <!-- <label form="short" prefix=" (" suffix=")"/> -->
         <substitute>
           <names variable="author"/>
-          <names variable="host"/>
           <names variable="guest"/>
+          <names variable="host"/>
           <choose>
             <if type="song">
               <names variable="performer"/>
@@ -441,8 +443,8 @@
           <name form="short" initialize-with=". "/>
           <substitute>
             <names variable="author"/>
-            <names variable="host"/>
             <names variable="guest"/>
+            <names variable="host"/>
             <choose>
               <if type="song">
                 <names variable="performer"/>
@@ -503,6 +505,8 @@
       <names variable="composer">
         <name delimiter-precedes-last="contextual"/>
         <label form="short" prefix=", "/>
+        <!-- for OGS or variants with bracketed roles: -->
+        <!-- <label form="short" prefix=" (" suffix=")"/> -->
         <substitute>
           <names variable="author"/>
           <names variable="guest"/>
@@ -2570,6 +2574,8 @@
     <names variable="container-author">
       <name delimiter-precedes-last="contextual"/>
       <label form="short" prefix=", "/>
+      <!-- for OGS or variants with bracketed roles: -->
+      <!-- <label form="short" prefix=" (" suffix=")"/> -->
       <substitute>
         <names variable="author"/>
         <names variable="guest"/>
