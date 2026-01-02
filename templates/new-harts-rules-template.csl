@@ -3954,7 +3954,6 @@
     </group>
   </macro>
   <macro name="bibliography-filtered-author-date">
-    <!-- MHRA4 does not provide specific guidance on excluding citations from the bibliography (cf. MHRA4 8.3), but this seems to be the intent, as some of its examples are only usable in a note; this macro follows guidance in NHR and CMOS. -->
     <choose>
       <if type="classic">
         <choose>
@@ -4011,6 +4010,38 @@
       <else-if match="any" type="interview personal_communication"/>
       <!-- In note styles, the bibliography also omits inaccessible manuscripts (NHR 18.3.1; cf. CMOS18 14.114), conference papers (cf. CMOS18 14.115), and private documents (cf. CMOS18 14.118) -->
       <else-if match="any" type="document manuscript paper-conference speech"/>
+      <else>
+        <text macro="bibliography-notes"/>
+      </else>
+    </choose>
+  </macro>
+  <macro name="bibliography-filtered-notes-shortened">
+    <!-- logic identical to `bibliography-filtered-author-date` -->
+    <choose>
+      <if type="classic">
+        <choose>
+          <if match="any" variable="archive editor translator publisher">
+            <text macro="bibliography-notes"/>
+          </if>
+        </choose>
+      </if>
+      <else-if match="any" type="entry entry-dictionary entry-encyclopedia">
+        <choose>
+          <if variable="author">
+            <!-- Only signed reference entries appear in the bibliography (cf. CMOS18 14.132) -->
+            <text macro="bibliography-notes"/>
+          </if>
+          <else-if match="any" variable="DOI URL">
+            <!-- Provide a bibliography if necessary identifying information is not in text -->
+            <text macro="bibliography-notes"/>
+          </else-if>
+        </choose>
+      </else-if>
+      <else-if match="any" variable="archive archive-place container-title DOI number publisher references URL">
+        <!-- Personal communications only appear in the bibliography if the reader can retrieve them (NHR 17.3.2; cf. CMOS18 14.13, 14.111) -->
+        <text macro="bibliography-notes"/>
+      </else-if>
+      <else-if match="any" type="interview personal_communication"/>
       <else>
         <text macro="bibliography-notes"/>
       </else>
