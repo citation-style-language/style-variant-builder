@@ -50,7 +50,7 @@
          <substitute>
            <names variable="author"/>
            <names variable="guest"/>
-@@ -1197,20 +1194,12 @@
+@@ -1197,27 +1194,19 @@
              <if match="any" type="article-journal article-magazine article-newspaper periodical post-weblog review review-book"/>
              <else-if match="any" variable="collection-editor compiler editor editorial-director">
                <!-- monographic types -->
@@ -73,6 +73,14 @@
              </else>
            </choose>
          </group>
+         <text macro="source-medium" prefix="[" suffix="]"/>
+       </group>
+       <text macro="source-archive"/>
+-      <text macro="source-date-accessed-DOI-URL"/>
++      <text macro="source-date-accessed"/>
+     </group>
+   </macro>
+   <!-- 3.1. Title -->
 @@ -2387,9 +2376,7 @@
        <text macro="source-serial-identifier-volume"/>
        <!-- periodical edition always capitalized (cf. CMOS18 14.89) -->
@@ -117,12 +125,3 @@
        <choose>
          <!-- database identifier, if not included elsewhere (cf. CMOS18 14.113) -->
          <if match="any" variable="archive_collection archive_location archive-place"/>
-@@ -3752,7 +3733,7 @@
-           </group>
-         </else-if>
-       </choose>
--      <text macro="source-DOI-URL"/>
-+      <!-- <text macro="source-DOI-URL"/> -->
-     </group>
-   </macro>
-   <macro name="source-DOI-URL">

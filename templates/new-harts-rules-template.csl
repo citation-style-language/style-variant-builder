@@ -3741,8 +3741,24 @@
     </group>
   </macro>
   <!-- 4.10. DOI or URL -->
+  <macro name="source-date-accessed">
+    <!-- provide accessed date if none other available, when no URL is printed -->
+    <group delimiter=", ">
+      <choose>
+        <if variable="DOI"/>
+        <else-if match="any" variable="available-date event-date issued status"/>
+        <else-if variable="URL">
+          <group delimiter=" ">
+            <text term="accessed"/>
+            <date form="text" variable="accessed"/>
+          </group>
+        </else-if>
+      </choose>
+    </group>
+  </macro>
   <macro name="source-date-accessed-DOI-URL">
     <group delimiter=", ">
+      <text macro="source-DOI-URL"/>
       <choose>
         <if variable="DOI"/>
         <else-if variable="URL">
@@ -3752,7 +3768,6 @@
           </group>
         </else-if>
       </choose>
-      <text macro="source-DOI-URL"/>
     </group>
   </macro>
   <macro name="source-DOI-URL">

@@ -180,7 +180,7 @@
          <substitute>
            <names variable="author"/>
            <names variable="guest"/>
-@@ -1197,20 +1239,12 @@
+@@ -1197,27 +1239,19 @@
              <if match="any" type="article-journal article-magazine article-newspaper periodical post-weblog review review-book"/>
              <else-if match="any" variable="collection-editor compiler editor editorial-director">
                <!-- monographic types -->
@@ -203,6 +203,14 @@
              </else>
            </choose>
          </group>
+         <text macro="source-medium" prefix="[" suffix="]"/>
+       </group>
+       <text macro="source-archive"/>
+-      <text macro="source-date-accessed-DOI-URL"/>
++      <text macro="source-date-accessed"/>
+     </group>
+   </macro>
+   <!-- 3.1. Title -->
 @@ -1475,10 +1509,6 @@
              <text macro="label-volume"/>
            </if>
@@ -363,12 +371,3 @@
        <choose>
          <if is-numeric="page">
            <!-- TODO: remove this conditional when `page` parsing is fixed for different locator types -->
-@@ -3752,7 +3767,7 @@
-           </group>
-         </else-if>
-       </choose>
--      <text macro="source-DOI-URL"/>
-+      <!-- <text macro="source-DOI-URL"/> -->
-     </group>
-   </macro>
-   <macro name="source-DOI-URL">
