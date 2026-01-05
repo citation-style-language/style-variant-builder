@@ -3745,7 +3745,6 @@
     <group delimiter=", ">
       <choose>
         <if variable="DOI"/>
-        <else-if match="any" variable="available-date event-date issued status"/>
         <else-if variable="URL">
           <group delimiter=" ">
             <text term="accessed"/>

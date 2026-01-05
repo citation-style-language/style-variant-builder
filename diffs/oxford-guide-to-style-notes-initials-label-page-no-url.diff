@@ -363,7 +363,7 @@
        <choose>
          <if is-numeric="page">
            <!-- TODO: remove this conditional when `page` parsing is fixed for different locator types -->
-@@ -3753,7 +3768,7 @@
+@@ -3752,7 +3767,7 @@
            </group>
          </else-if>
        </choose>

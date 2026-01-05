@@ -717,7 +717,7 @@
        <choose>
          <!-- database identifier, if not included elsewhere (cf. CMOS18 14.113) -->
          <if match="any" variable="archive_collection archive_location archive-place"/>
-@@ -3753,7 +3704,7 @@
+@@ -3752,7 +3703,7 @@
            </group>
          </else-if>
        </choose>
@@ -726,7 +726,7 @@
      </group>
    </macro>
    <macro name="source-DOI-URL">
-@@ -3833,8 +3784,32 @@
+@@ -3832,8 +3783,32 @@
      <group delimiter=", ">
        <choose>
          <if position="subsequent">
@@ -761,7 +761,7 @@
          </if>
          <else>
            <text macro="author-note"/>
-@@ -3888,9 +3863,12 @@
+@@ -3887,9 +3862,12 @@
              <text macro="source-medium"/>
            </else-if>
          </choose>

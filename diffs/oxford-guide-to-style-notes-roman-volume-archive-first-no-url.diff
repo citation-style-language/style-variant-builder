@@ -334,7 +334,7 @@
        <choose>
          <!-- database identifier, if not included elsewhere (cf. CMOS18 14.113) -->
          <if match="any" variable="archive_collection archive_location archive-place"/>
-@@ -3753,7 +3763,7 @@
+@@ -3752,7 +3762,7 @@
            </group>
          </else-if>
        </choose>
