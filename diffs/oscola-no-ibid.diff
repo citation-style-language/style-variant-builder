@@ -24,7 +24,7 @@
      <updated>2025-07-08T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -594,16 +595,7 @@
+@@ -597,16 +598,7 @@
    <citation et-al-min="4" et-al-use-first="1">
      <layout suffix="." delimiter="; ">
        <choose>
@@ -42,7 +42,7 @@
            <choose>
              <if type="legal_case bill legislation treaty" match="any">
                <!--don't use short form and above note for legal citations -->
-@@ -641,7 +633,7 @@
+@@ -644,7 +636,7 @@
                </group>
              </else>
            </choose>
