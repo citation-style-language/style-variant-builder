@@ -32,9 +32,9 @@
      <updated>2025-07-08T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -445,6 +452,16 @@
-                   </if>
-                 </choose>
+@@ -438,6 +445,16 @@
+               <if type="legal_case" variable="container-title">
+                 <text form="short" strip-periods="true" variable="container-title"/>
                </if>
 +              <else-if type="article-journal">
 +                <choose>
