@@ -2,7 +2,7 @@
 +++ development/oscola-journal-abbreviations.csl
 @@ -5,10 +5,11 @@
    type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
- <style xmlns="http://purl.org/net/xbiblio/csl" class="note" version="1.0" demote-non-dropping-particle="never" default-locale="en-GB">
+ <style class="note" default-locale="en-GB" demote-non-dropping-particle="never" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>OSCOLA 4th edition (template)</title>
 +    <title>OSCOLA 4th edition (journal abbreviations)</title>
@@ -39,13 +39,13 @@
 +              <else-if type="article-journal">
 +                <choose>
 +                  <if variable="container-title-short">
-+                    <text variable="container-title-short" form="short" strip-periods="true"/>
++                    <text form="short" strip-periods="true" variable="container-title-short"/>
 +                  </if>
 +                  <else>
-+                    <text variable="container-title" strip-periods="true"/>
++                    <text strip-periods="true" variable="container-title"/>
 +                  </else>
 +                </choose>
 +              </else-if>
-               <else-if type="article-magazine article-newspaper" match="any">
-                 <text variable="container-title" font-style="italic"/>
+               <else-if match="any" type="article-magazine article-newspaper">
+                 <text font-style="italic" variable="container-title"/>
                </else-if>

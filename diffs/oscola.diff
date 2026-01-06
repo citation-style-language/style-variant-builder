@@ -2,7 +2,7 @@
 +++ development/oscola.csl
 @@ -5,7 +5,7 @@
    type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
- <style xmlns="http://purl.org/net/xbiblio/csl" class="note" version="1.0" demote-non-dropping-particle="never" default-locale="en-GB">
+ <style class="note" default-locale="en-GB" demote-non-dropping-particle="never" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>OSCOLA 4th edition (template)</title>
 +    <title>OSCOLA 4th edition</title>
