@@ -37,6 +37,53 @@
       </term>
     </terms>
   </locale>
+  <!-- Variable labels -->
+  <macro name="label-edition">
+    <group delimiter=" ">
+      <choose>
+        <if is-numeric="edition">
+          <number form="ordinal" variable="edition"/>
+          <label form="short" strip-periods="true" variable="edition"/>
+        </if>
+        <else>
+          <text variable="edition"/>
+        </else>
+      </choose>
+    </group>
+  </macro>
+  <macro name="label-first-reference-note-number">
+    <group delimiter=" ">
+      <label form="short" strip-periods="true" variable="first-reference-note-number"/>
+      <text variable="first-reference-note-number"/>
+    </group>
+  </macro>
+  <macro name="label-locator">
+    <group delimiter=" ">
+      <choose>
+        <if locator="page"/>
+        <else>
+          <label form="short" strip-periods="true" variable="locator"/>
+        </else>
+      </choose>
+      <text variable="locator"/>
+    </group>
+  </macro>
+  <macro name="label-locator-all">
+    <group delimiter=" ">
+      <label form="short" strip-periods="true" variable="locator"/>
+      <text variable="locator"/>
+    </group>
+  </macro>
+  <macro name="label-volume">
+    <group delimiter=" ">
+      <choose>
+        <if is-numeric="volume">
+          <label form="short" strip-periods="true" variable="volume"/>
+        </if>
+      </choose>
+      <text variable="volume"/>
+    </group>
+  </macro>
   <!--Authors and Persons-->
   <macro name="author-note">
     <!--for bills & hearing this should start with jurisdiction once available-->
@@ -224,14 +271,7 @@
         <text form="short" variable="title"/>
       </else-if>
       <else-if type="legal_case">
-        <choose>
-          <if variable="title-short">
-            <text font-style="italic" variable="title-short"/>
-          </if>
-          <else>
-            <text font-style="italic" variable="title"/>
-          </else>
-        </choose>
+        <text font-style="italic" form="short" variable="title"/>
       </else-if>
       <else>
         <text form="short" quotes="true" text-case="title" variable="title"/>
@@ -247,7 +287,7 @@
   </macro>
   <macro name="date-parenthesis">
     <choose>
-      <if match="any" type="legal_case article-journal article-magazine">
+      <if match="any" type="article-journal article-magazine legal_case">
         <choose>
           <if match="all" variable="number authority">
             <text macro="issued-year" prefix="[" suffix="]"/>
@@ -255,7 +295,7 @@
           <else-if variable="volume">
             <text macro="issued-year" prefix="(" suffix=")"/>
           </else-if>
-          <else-if match="any" variable="container-title volume number">
+          <else-if match="any" variable="container-title number volume">
             <!--no year in square brackets for unreported case w/o medium neutral citation-->
             <text macro="issued-year" prefix="[" suffix="]"/>
           </else-if>
@@ -293,7 +333,7 @@
                 <choose>
                   <!--if none of these, this we don't want edition either. Might be Loose-Leaf-->
                   <if match="any" variable="publisher issued genre container-title">
-                    <text macro="edition"/>
+                    <text macro="label-edition"/>
                   </if>
                 </choose>
                 <choose>
@@ -331,11 +371,9 @@
             </choose>
           </group>
           <choose>
-            <if match="any" type="report interview manuscript">
-              <group delimiter=" ">
-                <text strip-periods="true" variable="genre"/>
-                <text variable="number"/>
-              </group>
+            <if match="any" type="interview manuscript report">
+              <text strip-periods="true" variable="genre"/>
+              <text variable="number"/>
             </if>
           </choose>
         </group>
@@ -344,44 +382,20 @@
   </macro>
   <macro name="looseleaf-note">
     <choose>
-      <if type="book">
-        <choose>
-          <if match="none" variable="publisher issued">
-            <choose>
-              <if variable="locator">
-                <group delimiter=" ">
-                  <label form="short" strip-periods="true" variable="locator"/>
-                  <text variable="locator"/>
-                  <text prefix="(" suffix=")" variable="edition"/>
-                </group>
-              </if>
-            </choose>
-          </if>
-        </choose>
-      </if>
+      <if match="any" variable="issued publisher"/>
+      <else-if type="book" variable="locator">
+        <group delimiter=" ">
+          <text macro="label-locator-all"/>
+          <text prefix="(" suffix=")" variable="edition"/>
+        </group>
+      </else-if>
     </choose>
   </macro>
   <macro name="volume-book">
     <choose>
       <if match="any" type="book chapter report">
-        <group delimiter=" ">
-          <label form="short" strip-periods="true" variable="volume"/>
-          <text variable="volume"/>
-        </group>
+        <text macro="label-volume"/>
       </if>
-    </choose>
-  </macro>
-  <macro name="edition">
-    <choose>
-      <if is-numeric="edition">
-        <group delimiter=" ">
-          <number form="ordinal" variable="edition"/>
-          <label form="short" strip-periods="true" variable="edition"/>
-        </group>
-      </if>
-      <else>
-        <text strip-periods="true" variable="edition"/>
-      </else>
     </choose>
   </macro>
   <macro name="book-container">
@@ -475,19 +489,9 @@
         </choose>
       </if>
       <else>
-        <text macro="locator-subsequent"/>
+        <text macro="label-locator"/>
       </else>
     </choose>
-  </macro>
-  <macro name="locator-subsequent">
-    <group delimiter=" ">
-      <choose>
-        <if locator="page" match="none">
-          <label form="short" strip-periods="true" variable="locator"/>
-        </if>
-      </choose>
-      <text variable="locator"/>
-    </group>
   </macro>
   <macro name="locator-space">
     <choose>
@@ -545,19 +549,16 @@
   </macro>
   <macro name="URL">
     <choose>
-      <if match="none" type="legal_case legislation bill">
-        <choose>
-          <if variable="URL">
-            <group delimiter=" ">
-              <text prefix="&lt;" suffix="&gt;" variable="URL"/>
-              <group delimiter=" ">
-                <text term="accessed"/>
-                <date form="text" variable="accessed"/>
-              </group>
-            </group>
-          </if>
-        </choose>
-      </if>
+      <if match="any" type="bill legal_case legislation"/>
+      <else-if variable="URL">
+        <group delimiter=" ">
+          <text prefix="&lt;" suffix="&gt;" variable="URL"/>
+          <group delimiter=" ">
+            <text term="accessed"/>
+            <date form="text" variable="accessed"/>
+          </group>
+        </group>
+      </else-if>
     </choose>
   </macro>
   <macro name="author-count">
@@ -616,13 +617,10 @@
                 <text macro="looseleaf-note"/>
                 <choose>
                   <if match="none" type="legislation">
-                    <group delimiter=" " prefix="(" suffix=")">
-                      <text form="short" strip-periods="true" term="note"/>
-                      <text variable="first-reference-note-number"/>
-                    </group>
+                    <text macro="label-first-reference-note-number" prefix="(" suffix=")"/>
                   </if>
                 </choose>
-                <text macro="locator-subsequent"/>
+                <text macro="label-locator"/>
               </group>
             </if>
             <else>
@@ -636,10 +634,7 @@
                     </if>
                   </choose>
                 </group>
-                <group delimiter=" " prefix="(" suffix=")">
-                  <text form="short" strip-periods="true" term="note"/>
-                  <text variable="first-reference-note-number"/>
-                </group>
+                <text macro="label-first-reference-note-number" prefix="(" suffix=")"/>
                 <text macro="locator-basic"/>
               </group>
             </else>
