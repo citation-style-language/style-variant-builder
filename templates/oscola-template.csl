@@ -228,8 +228,8 @@
   </macro>
   <macro name="editor">
     <choose>
-      <if match="none" type="chapter paper-conference entry-encyclopedia">
-        <names delimiter=", " variable="editor translator container-author">
+      <if match="none" type="chapter entry-encyclopedia paper-conference">
+        <names delimiter=", " variable="container-author editor translator">
           <name and="text" delimiter=", " delimiter-precedes-last="never" initialize="false" initialize-with=""/>
           <label form="short" prefix=" " strip-periods="true"/>
         </names>
@@ -239,7 +239,7 @@
   <macro name="editor-chapter">
     <group delimiter=" ">
       <text term="in"/>
-      <names delimiter=", " variable="editor translator container-author">
+      <names delimiter=", " variable="container-author editor translator">
         <name and="text" delimiter=", " delimiter-precedes-last="never" initialize="false" initialize-with=""/>
         <label form="short" prefix=" (" strip-periods="true" suffix=")"/>
       </names>
@@ -289,7 +289,7 @@
     <choose>
       <if match="any" type="article-journal article-magazine legal_case">
         <choose>
-          <if match="all" variable="number authority">
+          <if match="all" variable="authority number">
             <text macro="issued-year" prefix="[" suffix="]"/>
           </if>
           <else-if variable="volume">
@@ -301,7 +301,7 @@
           </else-if>
         </choose>
       </if>
-      <else-if match="any" type="legislation bill">
+      <else-if match="any" type="bill legislation">
         <text macro="issued-year"/>
       </else-if>
     </choose>
@@ -309,7 +309,7 @@
   <!--publication info -->
   <macro name="publisher">
     <choose>
-      <if match="any" type="book chapter broadcast personal_communication manuscript paper-conference article-newspaper report legislation motion_picture speech interview thesis entry-encyclopedia webpage post-weblog article">
+      <if match="any" type="article article-newspaper book broadcast chapter entry-encyclopedia interview legislation manuscript motion_picture paper-conference personal_communication post-weblog report speech thesis webpage">
         <group delimiter=" ">
           <group delimiter=", " prefix="(" suffix=")">
             <choose>
@@ -320,7 +320,7 @@
               <else-if match="any" type="broadcast personal_communication treaty">
                 <date form="text" variable="issued"/>
               </else-if>
-              <else-if match="any" type="legislation bill">
+              <else-if match="any" type="bill legislation">
                 <!--this should be jurisdiction we use code instead-->
                 <text strip-periods="true" variable="container-title"/>
               </else-if>
@@ -332,7 +332,7 @@
                 <text macro="editor"/>
                 <choose>
                   <!--if none of these, this we don't want edition either. Might be Loose-Leaf-->
-                  <if match="any" variable="publisher issued genre container-title">
+                  <if match="any" variable="container-title genre issued publisher">
                     <text macro="label-edition"/>
                   </if>
                 </choose>
@@ -349,7 +349,7 @@
                       <text macro="issued-year"/>
                     </group>
                   </else-if>
-                  <else-if match="any" type="webpage post-weblog">
+                  <else-if match="any" type="post-weblog webpage">
                     <text font-style="italic" variable="container-title"/>
                     <text macro="issued-full"/>
                   </else-if>
@@ -400,7 +400,7 @@
   </macro>
   <macro name="book-container">
     <choose>
-      <if match="any" type="chapter paper-conference entry-encyclopedia">
+      <if match="any" type="chapter entry-encyclopedia paper-conference">
         <group delimiter=", ">
           <text macro="editor-chapter"/>
           <text font-style="italic" variable="container-title"/>
@@ -482,7 +482,7 @@
           <if locator="paragraph">
             <text prefix="[" suffix="]" variable="locator"/>
           </if>
-          <else-if match="all" variable="number container-title volume page"/>
+          <else-if match="all" variable="container-title number page volume"/>
           <else-if variable="authority">
             <text variable="locator"/>
           </else-if>
@@ -500,13 +500,13 @@
           <if locator="paragraph">
             <text prefix="[" suffix="]" variable="locator"/>
           </if>
-          <else-if match="all" variable="number container-title volume page"/>
+          <else-if match="all" variable="container-title number page volume"/>
           <else-if variable="authority">
             <text variable="locator"/>
           </else-if>
         </choose>
       </if>
-      <else-if match="none" type="legislation book article-journal article-magazine">
+      <else-if match="none" type="article-journal article-magazine book legislation">
         <text macro="locator-basic"/>
       </else-if>
       <else-if type="book">
@@ -527,14 +527,14 @@
               <if match="none" variable="authority">
                 <text variable="locator"/>
               </if>
-              <else-if match="all" variable="number container-title volume page">
+              <else-if match="all" variable="container-title number page volume">
                 <text variable="locator"/>
               </else-if>
             </choose>
           </if>
         </choose>
       </if>
-      <else-if match="any" type="legislation article-journal article-magazine">
+      <else-if match="any" type="article-journal article-magazine legislation">
         <text macro="locator-basic"/>
       </else-if>
     </choose>
@@ -572,7 +572,7 @@
   <macro name="sort-type">
     <!--This should just sort secondary sources first. I'm leaving the rest from AGLC for simplicity-->
     <choose>
-      <if match="any" type="book chapter paper-conference article-magazine article-newspaper article-journal manuscript report speech entry-encyclopedia">
+      <if match="any" type="article-journal article-magazine article-newspaper book chapter entry-encyclopedia manuscript paper-conference report speech">
         <text value="1"/>
       </if>
       <else-if type="legal_case">
