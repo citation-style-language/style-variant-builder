@@ -725,7 +725,7 @@
        <choose>
          <!-- database identifier, if not included elsewhere (cf. CMOS18 14.113) -->
          <if match="any" variable="archive_collection archive_location archive-place"/>
-@@ -3847,8 +3798,32 @@
+@@ -3845,8 +3796,32 @@
      <group delimiter=", ">
        <choose>
          <if position="subsequent">
@@ -760,7 +760,7 @@
          </if>
          <else>
            <text macro="author-note"/>
-@@ -3902,9 +3877,12 @@
+@@ -3900,9 +3875,12 @@
              <text macro="source-medium"/>
            </else-if>
          </choose>
