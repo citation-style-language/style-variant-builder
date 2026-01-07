@@ -2024,7 +2024,7 @@
           <text macro="identifier-report"/>
         </else-if>
         <else-if match="any" type="post webpage">
-          <!-- Handle `container-title` on `post` or `webpage` as `publisher` -->
+          <!-- Handle `container-title` on `post` or `webpage` akin to `publisher` -->
           <text macro="identifier-number"/>
           <text macro="identifier-contributors"/>
         </else-if>
@@ -2154,7 +2154,7 @@
           </choose>
         </if>
         <else>
-          <!-- Handle `container-title` on `post` or `webpage` as `publisher` -->
+          <!-- Handle `container-title` on `post` or `webpage` akin to `publisher` -->
           <choose>
             <if match="none" variable="container-title">
               <names variable="container-author">

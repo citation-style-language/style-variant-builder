@@ -2555,7 +2555,7 @@
           <text macro="identifier-report-bib"/>
         </else-if>
         <else-if match="any" type="post webpage">
-          <!-- Handle `container-title` on `post` or `webpage` as `publisher` -->
+          <!-- Handle `container-title` on `post` or `webpage` akin to `publisher` -->
           <text macro="identifier-number-bib"/>
           <text macro="label-version-capitalized"/>
           <text macro="identifier-edition-bib"/>
@@ -2593,7 +2593,7 @@
           <text macro="identifier-report-note"/>
         </else-if>
         <else-if match="any" type="post webpage">
-          <!-- Handle `container-title` on `post` or `webpage` as `publisher` -->
+          <!-- Handle `container-title` on `post` or `webpage` akin to `publisher` -->
           <text macro="identifier-number-note"/>
           <text macro="label-version"/>
           <text macro="identifier-edition-note"/>
@@ -2728,7 +2728,7 @@
           </choose>
         </if>
         <else>
-          <!-- Handle `container-title` on `post` or `webpage` as `publisher` -->
+          <!-- Handle `container-title` on `post` or `webpage` akin to `publisher` -->
           <choose>
             <if match="none" variable="container-title">
               <names variable="container-author">
@@ -2821,7 +2821,7 @@
   <macro name="identifier-contributors-monographic-bib-multivolume">
     <!-- lowercase for attachment to volume; otherwise identical to `identifier-contributors-monographic-bib` -->
     <group delimiter=", ">
-      <!-- Handle `container-title` on `post` or `webpage` as `publisher` -->
+      <!-- Handle `container-title` on `post` or `webpage` akin to `publisher` -->
       <choose>
         <if match="none" variable="container-title">
           <names variable="container-author">
@@ -2990,7 +2990,7 @@
           </choose>
         </if>
         <else>
-          <!-- Handle `container-title` on `post` or `webpage` as `publisher` -->
+          <!-- Handle `container-title` on `post` or `webpage` akin to `publisher` -->
           <choose>
             <if match="none" variable="container-title">
               <names variable="container-author">
