@@ -158,7 +158,7 @@
            </names>
          </if>
 @@ -1027,24 +1035,24 @@
-           <!-- Handle `container-title` on `post` or `webpage` as `publisher` -->
+           <!-- Handle `container-title` on `post` or `webpage` akin to `publisher` -->
            <names variable="container-author">
              <label form="verb-short" suffix=" " text-case="title"/>
 -            <name and="symbol"/>
