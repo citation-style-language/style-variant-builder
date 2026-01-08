@@ -2,7 +2,7 @@
 +++ development/nlm-citation-sequence-brackets-no-et-al.csl
 @@ -5,10 +5,11 @@
    type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
- <style class="in-text" demote-non-dropping-particle="sort-only" initialize-with-hyphen="false" page-range-format="minimal" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
+ <style class="in-text" delimiter-precedes-last="always" demote-non-dropping-particle="sort-only" initialize-with="" initialize-with-hyphen="false" name-as-sort-order="all" name-delimiter=", " names-delimiter=", " page-range-format="minimal" sort-separator=" " version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>NLM Style Guide (Vancouver): Citing Medicine 2nd edition (template)</title>
 -    <title-short>National Library of Medicine, ANSI/NISO Z39.29-2005 (R2010), ICMJE Recommendations/URMs (C-S)</title-short>
@@ -25,7 +25,7 @@
      <updated>2026-01-07T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -393,11 +394,11 @@
+@@ -489,7 +490,7 @@
      <sort>
        <key variable="citation-number"/>
      </sort>
@@ -34,8 +34,12 @@
        <text variable="citation-number"/>
      </layout>
    </citation>
+@@ -518,7 +519,7 @@
+       <text macro="access"/>
+     </group>
+   </macro>
 -  <bibliography et-al-min="7" et-al-use-first="6" second-field-align="flush">
 +  <bibliography second-field-align="flush">
      <layout>
        <text suffix="." variable="citation-number"/>
-       <group delimiter=". " suffix=". ">
+       <text macro="bibliography"/>

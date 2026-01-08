@@ -2,7 +2,7 @@
 +++ development/nlm-citation-sequence-superscript-year-only-no-issue.csl
 @@ -5,10 +5,11 @@
    type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
- <style class="in-text" demote-non-dropping-particle="sort-only" initialize-with-hyphen="false" page-range-format="minimal" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
+ <style class="in-text" delimiter-precedes-last="always" demote-non-dropping-particle="sort-only" initialize-with="" initialize-with-hyphen="false" name-as-sort-order="all" name-delimiter=", " names-delimiter=", " page-range-format="minimal" sort-separator=" " version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>NLM Style Guide (Vancouver): Citing Medicine 2nd edition (template)</title>
 -    <title-short>National Library of Medicine, ANSI/NISO Z39.29-2005 (R2010), ICMJE Recommendations/URMs (C-S)</title-short>
@@ -25,24 +25,25 @@
      <updated>2026-01-07T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -261,7 +262,7 @@
-     <choose>
-       <if match="any" type="article-journal article-magazine article-newspaper review review-book">
-         <group delimiter=" " suffix=";">
--          <date form="text" variable="issued"/>
-+          <date date-parts="year" form="text" variable="issued"/>
-           <text macro="accessed-date"/>
-         </group>
-       </if>
-@@ -347,7 +348,6 @@
-     <choose>
-       <if match="any" type="article-journal article-magazine periodical review review-book">
-         <text variable="volume"/>
--        <text prefix="(" suffix=")" variable="issue"/>
-       </if>
-     </choose>
-   </macro>
-@@ -393,7 +393,7 @@
+@@ -347,7 +348,7 @@
+         <if match="any" type="article-journal article-magazine article-newspaper periodical post-weblog review review-book">
+           <group delimiter=":">
+             <group delimiter=" ">
+-              <date form="text" variable="issued"/>
++              <date date-parts="year" form="text" variable="issued"/>
+               <text macro="accessed-date"/>
+             </group>
+             <choose>
+@@ -432,7 +433,7 @@
+             <text variable="collection-title"/>
+             <text variable="volume"/>
+             <group delimiter=" " prefix="(" suffix=")">
+-              <text variable="issue"/>
++              <!-- <text variable="issue"/> -->
+               <text macro="label-supplement-number"/>
+             </group>
+           </group>
+@@ -489,7 +490,7 @@
      <sort>
        <key variable="citation-number"/>
      </sort>
