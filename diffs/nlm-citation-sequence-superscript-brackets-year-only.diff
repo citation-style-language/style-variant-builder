@@ -25,16 +25,16 @@
      <updated>2026-01-07T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -347,7 +348,7 @@
+@@ -327,7 +328,7 @@
          <if match="any" type="article-journal article-magazine article-newspaper periodical post-weblog review review-book">
            <group delimiter=":">
              <group delimiter=" ">
 -              <date form="text" variable="issued"/>
 +              <date date-parts="year" form="text" variable="issued"/>
-               <text macro="accessed-date"/>
+               <text macro="date-accessed"/>
              </group>
              <choose>
-@@ -489,7 +490,7 @@
+@@ -503,7 +504,7 @@
      <sort>
        <key variable="citation-number"/>
      </sort>

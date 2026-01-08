@@ -25,7 +25,7 @@
      <updated>2026-01-07T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -489,7 +490,7 @@
+@@ -503,7 +504,7 @@
      <sort>
        <key variable="citation-number"/>
      </sort>
@@ -34,8 +34,8 @@
        <text variable="citation-number"/>
      </layout>
    </citation>
-@@ -518,7 +519,7 @@
-       <text macro="access"/>
+@@ -535,7 +536,7 @@
+       <text macro="notes"/>
      </group>
    </macro>
 -  <bibliography et-al-min="7" et-al-use-first="6" second-field-align="flush">
