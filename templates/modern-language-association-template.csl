@@ -235,7 +235,7 @@
   <macro name="author">
     <names variable="composer">
       <name delimiter-precedes-et-al="always" delimiter-precedes-last="always" name-as-sort-order="first"/>
-      <label form="long" prefix=", "/>
+      <label prefix=", "/>
       <substitute>
         <names variable="author"/>
         <names variable="guest">
