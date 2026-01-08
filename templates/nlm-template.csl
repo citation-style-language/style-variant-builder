@@ -115,7 +115,7 @@
   <macro name="webpage-title">
     <!--If a webpage has a container, we're assuming the citation is "part of a website" as per ch. 25 Citing Medicine https://www.ncbi.nlm.nih.gov/books/NBK7274/?report=reader -->
     <choose>
-      <if match="all" type="webpage" variable="container-title">
+      <if type="webpage" variable="container-title">
         <group delimiter=" ">
           <text variable="container-title"/>
           <text prefix="[" suffix="]" term="internet" text-case="capitalize-first"/>
@@ -126,7 +126,7 @@
   <macro name="publisher">
     <choose>
       <!--discard publisher info for articles-->
-      <if match="none" type="article-journal article-magazine article-newspaper">
+      <if match="none" type="article-journal article-magazine article-newspaper periodical post-weblog review review-book">
         <group delimiter=": " suffix=";">
           <choose>
             <if type="thesis">
@@ -165,22 +165,24 @@
   <macro name="container-title">
     <choose>
       <if match="any" type="article-journal article-magazine chapter paper-conference article-newspaper review review-book entry-dictionary entry-encyclopedia">
-        <group delimiter=" " suffix=".">
-          <choose>
-            <if match="any" type="article-journal review review-book">
-              <text form="short" strip-periods="true" variable="container-title"/>
-            </if>
-            <else>
-              <text strip-periods="true" variable="container-title"/>
-            </else>
-          </choose>
-          <choose>
-            <if variable="URL">
-              <text prefix="[" suffix="]" term="internet" text-case="capitalize-first"/>
-            </if>
-          </choose>
+        <group delimiter=". ">
+          <group delimiter=" ">
+            <choose>
+              <if match="any" type="article-journal review review-book">
+                <text form="short" strip-periods="true" variable="container-title"/>
+              </if>
+              <else>
+                <text strip-periods="true" variable="container-title"/>
+              </else>
+            </choose>
+            <choose>
+              <if variable="URL">
+                <text prefix="[" suffix="]" term="internet" text-case="capitalize-first"/>
+              </if>
+            </choose>
+          </group>
+          <text macro="edition"/>
         </group>
-        <text macro="edition" prefix=" "/>
       </if>
       <!--add event-name and event-place once they become available-->
       <else-if match="any" type="bill legislation">
@@ -221,7 +223,7 @@
   </macro>
   <macro name="title">
     <choose>
-      <if match="all" type="webpage" variable="container-title"/>
+      <if type="webpage" variable="container-title"/>
       <else>
         <text variable="title"/>
         <choose>
@@ -343,7 +345,7 @@
   </macro>
   <macro name="journal-location">
     <choose>
-      <if match="any" type="article-journal article-magazine review review-book">
+      <if match="any" type="article-journal article-magazine periodical review review-book">
         <text variable="volume"/>
         <text prefix="(" suffix=")" variable="issue"/>
       </if>
@@ -351,38 +353,39 @@
   </macro>
   <macro name="webpage-part">
     <choose>
-      <if match="all" type="webpage" variable="container-title">
+      <if type="webpage" variable="container-title">
         <text variable="title"/>
       </if>
     </choose>
   </macro>
   <macro name="collection-details">
     <choose>
-      <if match="none" type="article-journal article-magazine article-newspaper review review-book">
-        <choose>
-          <if variable="collection-title">
-            <group delimiter=" " prefix="(" suffix=")">
-              <names suffix="." variable="collection-editor">
-                <name delimiter=", " delimiter-precedes-last="always" initialize-with="" name-as-sort-order="all" sort-separator=" "/>
-                <label form="long" prefix=", "/>
-              </names>
-              <group delimiter="; ">
-                <text variable="collection-title"/>
-                <group delimiter=" ">
-                  <label form="short" variable="volume"/>
-                  <text variable="volume"/>
-                </group>
-              </group>
+      <if match="any" type="article-journal article-magazine article-newspaper periodical post-weblog review review-book"/>
+      <else-if variable="collection-title">
+        <group delimiter=" " prefix="(" suffix=")">
+          <names suffix="." variable="collection-editor">
+            <name delimiter=", " delimiter-precedes-last="always" initialize-with="" name-as-sort-order="all" sort-separator=" "/>
+            <label form="long" prefix=", "/>
+          </names>
+          <group delimiter="; ">
+            <text variable="collection-title"/>
+            <group delimiter=" ">
+              <label form="short" variable="volume"/>
+              <text variable="volume"/>
             </group>
-          </if>
-        </choose>
-      </if>
+          </group>
+        </group>
+      </else-if>
     </choose>
   </macro>
   <macro name="report-details">
     <choose>
       <if type="report">
-        <text prefix="Report No.: " variable="number"/>
+        <group delimiter=" ">
+          <text term="report" text-case="capitalize-first"/>
+          <text form="short" term="number" text-case="capitalize-first"/>
+          <text variable="number"/>
+        </group>
       </if>
     </choose>
   </macro>

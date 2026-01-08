@@ -25,7 +25,7 @@
      <updated>2026-01-07T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -259,7 +260,7 @@
+@@ -261,7 +262,7 @@
      <choose>
        <if match="any" type="article-journal article-magazine article-newspaper review review-book">
          <group delimiter=" " suffix=";">
@@ -34,15 +34,15 @@
            <text macro="accessed-date"/>
          </group>
        </if>
-@@ -345,7 +346,6 @@
+@@ -347,7 +348,6 @@
      <choose>
-       <if match="any" type="article-journal article-magazine review review-book">
+       <if match="any" type="article-journal article-magazine periodical review review-book">
          <text variable="volume"/>
 -        <text prefix="(" suffix=")" variable="issue"/>
        </if>
      </choose>
    </macro>
-@@ -390,7 +390,7 @@
+@@ -393,7 +393,7 @@
      <sort>
        <key variable="citation-number"/>
      </sort>
