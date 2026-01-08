@@ -34,7 +34,7 @@
                <text macro="date-accessed"/>
              </group>
              <choose>
-@@ -399,7 +400,7 @@
+@@ -378,7 +379,7 @@
              <text variable="collection-title"/>
              <text variable="volume"/>
              <group delimiter=" " prefix="(" suffix=")">
@@ -43,7 +43,7 @@
                <text macro="label-supplement-number"/>
              </group>
            </group>
-@@ -503,7 +504,7 @@
+@@ -482,7 +483,7 @@
      <sort>
        <key variable="citation-number"/>
      </sort>

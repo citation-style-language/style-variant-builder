@@ -338,58 +338,37 @@
           </group>
         </if>
         <else-if match="any" type="bill legislation">
-          <group delimiter=", ">
-            <date delimiter=" " variable="issued">
-              <date-part form="short" name="month" strip-periods="true"/>
-              <date-part name="day"/>
-            </date>
-            <date variable="issued">
-              <date-part name="year"/>
-            </date>
-          </group>
+          <date form="text" variable="issued"/>
         </else-if>
         <else-if type="report">
-          <date delimiter=" " variable="issued">
-            <date-part name="year"/>
-            <date-part form="short" name="month" strip-periods="true"/>
-          </date>
+          <date date-parts="year-month" form="text" variable="issued"/>
           <text macro="date-accessed"/>
         </else-if>
         <else-if type="patent">
           <group delimiter=", ">
             <text variable="number"/>
-            <date variable="issued">
-              <date-part name="year"/>
-            </date>
+            <date date-parts="year" form="numeric" variable="issued"/>
           </group>
           <text macro="date-accessed"/>
         </else-if>
         <else-if type="speech">
           <group delimiter="; ">
             <group delimiter=" ">
-              <date delimiter=" " variable="issued">
-                <date-part name="year"/>
-                <date-part form="short" name="month" strip-periods="true"/>
-                <date-part name="day"/>
-              </date>
+              <date form="text" variable="issued"/>
               <text macro="date-accessed"/>
             </group>
             <text variable="event-place"/>
           </group>
         </else-if>
         <else>
-          <date variable="issued">
-            <date-part name="year"/>
-          </date>
+          <date date-parts="year" form="numeric" variable="issued"/>
           <text macro="date-accessed"/>
         </else>
       </choose>
     </group>
   </macro>
   <macro name="date-short">
-    <date variable="issued">
-      <date-part name="year"/>
-    </date>
+    <date date-parts="year" form="numeric" variable="issued"/>
   </macro>
   <macro name="identifier-serial">
     <choose>
