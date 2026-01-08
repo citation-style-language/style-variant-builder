@@ -1,10 +1,8 @@
 --- templates/nlm-template.csl
 +++ development/nlm-citation-sequence-brackets-year-only-no-issue.csl
-@@ -4,11 +4,13 @@
- <?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl-repository.rnc"
+@@ -5,10 +5,11 @@
    type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
- <style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="sort-only" initialize-with-hyphen="false" page-range-format="minimal">
-+  <!-- This style was edited with the Visual CSL Editor (http://editor.citationstyles.org/visualEditor/) -->
+ <style class="in-text" demote-non-dropping-particle="sort-only" initialize-with-hyphen="false" page-range-format="minimal" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>NLM Style Guide (Vancouver): Citing Medicine 2nd edition (template)</title>
 -    <title-short>National Library of Medicine, ANSI/NISO Z39.29-2005 (R2010), ICMJE Recommendations/URMs (C-S)</title-short>
@@ -18,7 +16,7 @@
      <link href="https://www.nlm.nih.gov/citingmedicine" rel="documentation"/>
      <link href="https://www.nlm.nih.gov/bsd/uniform_requirements.html" rel="documentation"/>
      <link href="https://www.icmje.org/recommendations/" rel="documentation"/>
-@@ -43,7 +45,7 @@
+@@ -43,7 +44,7 @@
      <category field="generic-base"/>
      <category field="medicine"/>
      <category field="science"/>
@@ -27,29 +25,29 @@
      <updated>2026-01-07T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -259,7 +261,7 @@
+@@ -259,7 +260,7 @@
      <choose>
-       <if type="article-journal article-magazine article-newspaper review review-book" match="any">
-         <group suffix=";" delimiter=" ">
--          <date variable="issued" form="text"/>
-+          <date variable="issued" form="text" date-parts="year"/>
+       <if match="any" type="article-journal article-magazine article-newspaper review review-book">
+         <group delimiter=" " suffix=";">
+-          <date form="text" variable="issued"/>
++          <date date-parts="year" form="text" variable="issued"/>
            <text macro="accessed-date"/>
          </group>
        </if>
-@@ -345,7 +347,6 @@
+@@ -345,7 +346,6 @@
      <choose>
-       <if type="article-journal article-magazine review review-book" match="any">
+       <if match="any" type="article-journal article-magazine review review-book">
          <text variable="volume"/>
--        <text variable="issue" prefix="(" suffix=")"/>
+-        <text prefix="(" suffix=")" variable="issue"/>
        </if>
      </choose>
    </macro>
-@@ -390,7 +391,7 @@
+@@ -390,7 +390,7 @@
      <sort>
        <key variable="citation-number"/>
      </sort>
--    <layout prefix="(" suffix=")" delimiter=",">
-+    <layout prefix="[" suffix="]" delimiter=",">
+-    <layout delimiter="," prefix="(" suffix=")">
++    <layout delimiter="," prefix="[" suffix="]">
        <text variable="citation-number"/>
      </layout>
    </citation>

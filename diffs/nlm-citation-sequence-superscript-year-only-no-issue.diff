@@ -2,7 +2,7 @@
 +++ development/nlm-citation-sequence-superscript-year-only-no-issue.csl
 @@ -5,10 +5,11 @@
    type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
- <style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="sort-only" initialize-with-hyphen="false" page-range-format="minimal">
+ <style class="in-text" demote-non-dropping-particle="sort-only" initialize-with-hyphen="false" page-range-format="minimal" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>NLM Style Guide (Vancouver): Citing Medicine 2nd edition (template)</title>
 -    <title-short>National Library of Medicine, ANSI/NISO Z39.29-2005 (R2010), ICMJE Recommendations/URMs (C-S)</title-short>
@@ -27,18 +27,18 @@
    </info>
 @@ -259,7 +260,7 @@
      <choose>
-       <if type="article-journal article-magazine article-newspaper review review-book" match="any">
-         <group suffix=";" delimiter=" ">
--          <date variable="issued" form="text"/>
-+          <date variable="issued" form="text" date-parts="year"/>
+       <if match="any" type="article-journal article-magazine article-newspaper review review-book">
+         <group delimiter=" " suffix=";">
+-          <date form="text" variable="issued"/>
++          <date date-parts="year" form="text" variable="issued"/>
            <text macro="accessed-date"/>
          </group>
        </if>
 @@ -345,7 +346,6 @@
      <choose>
-       <if type="article-journal article-magazine review review-book" match="any">
+       <if match="any" type="article-journal article-magazine review review-book">
          <text variable="volume"/>
--        <text variable="issue" prefix="(" suffix=")"/>
+-        <text prefix="(" suffix=")" variable="issue"/>
        </if>
      </choose>
    </macro>
@@ -46,7 +46,7 @@
      <sort>
        <key variable="citation-number"/>
      </sort>
--    <layout prefix="(" suffix=")" delimiter=",">
+-    <layout delimiter="," prefix="(" suffix=")">
 +    <layout delimiter="," vertical-align="sup">
        <text variable="citation-number"/>
      </layout>
