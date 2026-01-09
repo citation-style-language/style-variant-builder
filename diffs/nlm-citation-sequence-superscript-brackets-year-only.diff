@@ -30,7 +30,7 @@
            <group delimiter=":">
              <group delimiter=" ">
 -              <date form="text" variable="issued"/>
-+              <date date-parts="year" form="text" variable="issued"/>
++              <date date-parts="year" form="numeric" variable="issued"/>
                <text macro="date-accessed"/>
              </group>
              <choose>

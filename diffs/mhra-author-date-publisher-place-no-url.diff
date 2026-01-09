@@ -94,7 +94,7 @@
          </group>
        </if>
 @@ -3194,9 +3179,7 @@
-         <date date-parts="year" form="text" variable="available-date"/>
+         <date date-parts="year" form="numeric" variable="available-date"/>
        </if>
        <else>
 -        <text macro="source-date-issued-or-status"/>

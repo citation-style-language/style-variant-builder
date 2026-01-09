@@ -300,7 +300,7 @@
          </group>
        </if>
 @@ -5484,9 +5433,7 @@
-         <date date-parts="year" form="text" variable="available-date"/>
+         <date date-parts="year" form="numeric" variable="available-date"/>
        </else-if>
        <else>
 -        <text macro="source-date-issued-month-day"/>
