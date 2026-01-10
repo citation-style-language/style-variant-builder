@@ -142,7 +142,7 @@
            <text macro="source-serial-locator"/>
          </else>
          <!-- TODO: If CSL adds `date-part` detection, add two further conditions to address CMOS18 14.74: delimiting with ":" if there is a `volume` and no month or `issue` or `supplement number`; delimiting with ", " or there is an `issue` or `supplement number` and no month -->
-@@ -4057,9 +4031,7 @@
+@@ -4065,9 +4039,7 @@
        </choose>
        <group delimiter=" ">
          <text macro="source-date-status-bib"/>
@@ -153,7 +153,7 @@
        </group>
      </group>
    </macro>
-@@ -4120,9 +4092,7 @@
+@@ -4128,9 +4100,7 @@
                    <text macro="source-monographic-preposition-bib"/>
                  </if>
                </choose>
@@ -164,7 +164,7 @@
              </group>
              <text macro="source-monographic-description-bib"/>
              <text macro="source-monographic-identifier-bib"/>
-@@ -4180,11 +4150,9 @@
+@@ -4188,11 +4158,9 @@
            </if>
          </choose>
        </else-if>
@@ -176,7 +176,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number-capitalized"/>
-@@ -4219,11 +4187,9 @@
+@@ -4227,11 +4195,9 @@
            </if>
          </choose>
        </else-if>
@@ -188,7 +188,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number"/>
-@@ -4297,9 +4263,7 @@
+@@ -4305,9 +4271,7 @@
            <text macro="label-version"/>
            <!-- use note form as `edition` is not capitalized here -->
            <text macro="identifier-edition-note"/>
@@ -199,7 +199,7 @@
          </group>
        </if>
      </choose>
-@@ -4592,10 +4556,6 @@
+@@ -4600,10 +4564,6 @@
          <else-if is-numeric="volume" match="none">
            <text macro="label-volume"/>
          </else-if>
@@ -210,7 +210,7 @@
          <else-if is-numeric="volume" variable="page">
            <choose>
              <!-- check for variables that might come between the volume and page number -->
-@@ -4622,9 +4582,7 @@
+@@ -4630,9 +4590,7 @@
          <group delimiter=":">
            <choose>
              <if match="any" variable="part-number part-title volume-title"/>
@@ -221,7 +221,7 @@
              <else>
                <text variable="volume"/>
              </else>
-@@ -4635,17 +4593,13 @@
+@@ -4643,17 +4601,13 @@
        <else-if variable="locator">
          <text macro="label-locator"/>
        </else-if>
@@ -240,7 +240,7 @@
              <else>
                <text variable="volume"/>
              </else>
-@@ -5171,9 +5125,7 @@
+@@ -5179,9 +5133,7 @@
        </choose>
        <group delimiter=" ">
          <text macro="source-date-status-bib"/>
@@ -251,7 +251,7 @@
        </group>
        <choose>
          <if type="broadcast" variable="URL"/>
-@@ -5401,7 +5353,7 @@
+@@ -5409,7 +5361,7 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -260,7 +260,7 @@
              <text text-case="capitalize-first" variable="publisher"/>
            </group>
          </else-if>
-@@ -5427,7 +5379,7 @@
+@@ -5435,7 +5387,7 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -269,7 +269,7 @@
              <text variable="publisher"/>
            </group>
          </else-if>
-@@ -5449,7 +5401,7 @@
+@@ -5457,7 +5409,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -278,7 +278,7 @@
            <text text-case="capitalize-first" variable="original-publisher"/>
          </group>
        </if>
-@@ -5462,7 +5414,7 @@
+@@ -5470,7 +5422,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -287,7 +287,7 @@
            <text variable="original-publisher"/>
          </group>
        </if>
-@@ -5651,9 +5603,7 @@
+@@ -5659,9 +5611,7 @@
      </choose>
    </macro>
    <macro name="source-date-original">
@@ -298,7 +298,7 @@
    </macro>
    <macro name="source-date-original-full">
      <!-- Give full date for more ephemeral types -->
-@@ -6046,7 +5996,7 @@
+@@ -6054,7 +6004,7 @@
            </group>
          </else-if>
        </choose>
@@ -307,7 +307,7 @@
      </group>
    </macro>
    <macro name="source-date-accessed-DOI-URL-note">
-@@ -6061,7 +6011,7 @@
+@@ -6069,7 +6019,7 @@
            </group>
          </else-if>
        </choose>
@@ -316,7 +316,7 @@
      </group>
    </macro>
    <macro name="source-DOI-URL">
-@@ -6748,9 +6698,9 @@
+@@ -6756,9 +6706,9 @@
        </else>
      </choose>
    </macro>
@@ -329,7 +329,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -6883,19 +6833,22 @@
+@@ -6891,19 +6841,22 @@
        </else>
      </choose>
    </macro>

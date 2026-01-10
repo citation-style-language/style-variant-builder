@@ -133,7 +133,7 @@
            <text macro="source-serial-locator"/>
          </else>
          <!-- TODO: If CSL adds `date-part` detection, add two further conditions to address CMOS18 14.74: delimiting with ":" if there is a `volume` and no month or `issue` or `supplement number`; delimiting with ", " or there is an `issue` or `supplement number` and no month -->
-@@ -4057,9 +4035,7 @@
+@@ -4065,9 +4043,7 @@
        </choose>
        <group delimiter=" ">
          <text macro="source-date-status-bib"/>
@@ -144,7 +144,7 @@
        </group>
      </group>
    </macro>
-@@ -4120,9 +4096,7 @@
+@@ -4128,9 +4104,7 @@
                    <text macro="source-monographic-preposition-bib"/>
                  </if>
                </choose>
@@ -155,7 +155,7 @@
              </group>
              <text macro="source-monographic-description-bib"/>
              <text macro="source-monographic-identifier-bib"/>
-@@ -4297,9 +4271,7 @@
+@@ -4305,9 +4279,7 @@
            <text macro="label-version"/>
            <!-- use note form as `edition` is not capitalized here -->
            <text macro="identifier-edition-note"/>
@@ -166,7 +166,7 @@
          </group>
        </if>
      </choose>
-@@ -4622,9 +4594,7 @@
+@@ -4630,9 +4602,7 @@
          <group delimiter=":">
            <choose>
              <if match="any" variable="part-number part-title volume-title"/>
@@ -177,7 +177,7 @@
              <else>
                <text variable="volume"/>
              </else>
-@@ -4643,9 +4613,7 @@
+@@ -4651,9 +4621,7 @@
            <choose>
              <!-- check for variables that might come between the volume and page number -->
              <if match="any" variable="part-number part-title volume-title"/>
@@ -188,7 +188,7 @@
              <else>
                <text variable="volume"/>
              </else>
-@@ -5171,9 +5139,7 @@
+@@ -5179,9 +5147,7 @@
        </choose>
        <group delimiter=" ">
          <text macro="source-date-status-bib"/>
@@ -199,7 +199,7 @@
        </group>
        <choose>
          <if type="broadcast" variable="URL"/>
-@@ -5651,9 +5617,7 @@
+@@ -5659,9 +5625,7 @@
      </choose>
    </macro>
    <macro name="source-date-original">
@@ -210,7 +210,7 @@
    </macro>
    <macro name="source-date-original-full">
      <!-- Give full date for more ephemeral types -->
-@@ -5928,7 +5892,7 @@
+@@ -5936,7 +5900,7 @@
            <text macro="source-archive-reference-institution-first"/>
          </if>
          <else>
@@ -219,7 +219,7 @@
          </else>
        </choose>
        <text macro="source-archive-database-number" prefix="(" suffix=")"/>
-@@ -5941,7 +5905,7 @@
+@@ -5949,7 +5913,7 @@
            <text macro="source-archive-reference-institution-first"/>
          </if>
          <else>
@@ -228,7 +228,7 @@
          </else>
        </choose>
        <text macro="source-archive-database-number" prefix="(" suffix=")"/>
-@@ -6748,9 +6712,9 @@
+@@ -6756,9 +6720,9 @@
        </else>
      </choose>
    </macro>
@@ -241,7 +241,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -6886,16 +6850,19 @@
+@@ -6894,16 +6858,19 @@
    <bibliography et-al-min="7" et-al-use-first="3" hanging-indent="true">
      <sort>
        <key macro="author-sort"/>

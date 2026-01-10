@@ -3878,7 +3878,7 @@
         <else>
           <text variable="collection-title"/>
           <choose>
-            <if match="any" type="interview" variable="interviewer">
+            <if type="interview">
               <!-- publisher possible with `interview` (cf. CMOS18 14.110) -->
               <text variable="publisher"/>
             </if>
@@ -3947,8 +3947,12 @@
         </else-if>
         <else>
           <text variable="collection-title"/>
-          <!-- publisher possible with `interview` (CMOS18 14.110) -->
-          <text variable="publisher"/>
+          <choose>
+            <if type="interview">
+              <!-- publisher possible with `interview` (CMOS18 14.110) -->
+              <text variable="publisher"/>
+            </if>
+          </choose>
           <text macro="source-serial-volume-status-bib"/>
         </else>
       </choose>
@@ -4036,8 +4040,12 @@
         </else-if>
         <else>
           <text variable="collection-title"/>
-          <!-- publisher possible with `interview` (CMOS18 14.110) -->
-          <text variable="publisher"/>
+          <choose>
+            <if type="interview">
+              <!-- publisher possible with `interview` (CMOS18 14.110) -->
+              <text variable="publisher"/>
+            </if>
+          </choose>
           <text macro="source-serial-volume-status-note"/>
         </else>
       </choose>

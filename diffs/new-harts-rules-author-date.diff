@@ -35,7 +35,7 @@
      <updated>2025-11-05T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -2283,38 +2284,32 @@
+@@ -2283,29 +2284,25 @@
          <if type="article-newspaper">
            <group delimiter=" ">
              <text macro="source-serial-title"/>
@@ -59,16 +59,6 @@
 +            <text macro="source-serial-identifier-author-date"/>
            </group>
          </else-if>
-         <else-if variable="interviewer publisher">
-           <text macro="source-serial-title"/>
-           <group delimiter=" ">
-             <text variable="publisher"/>
--            <text macro="source-serial-identifier"/>
--            <!-- for author-date: -->
--            <!-- <text macro="source-serial-identifier-author-date"/> -->
-+            <text macro="source-serial-identifier-author-date"/>
-           </group>
-         </else-if>
          <else>
            <group delimiter=" ">
              <text macro="source-serial-title"/>
@@ -79,7 +69,7 @@
            </group>
          </else>
        </choose>
-@@ -3269,9 +3264,7 @@
+@@ -3260,9 +3257,7 @@
    </macro>
    <!-- 4.6. Date -->
    <macro name="source-date">
@@ -90,7 +80,7 @@
    </macro>
    <!-- Date elements -->
    <macro name="source-date-issued-full">
-@@ -3403,9 +3396,7 @@
+@@ -3394,9 +3389,7 @@
      </choose>
    </macro>
    <macro name="source-date-original">
@@ -101,7 +91,7 @@
    </macro>
    <macro name="source-date-original-full">
      <!-- Give full date for more ephemeral types; reflected in `date-year-sort` -->
-@@ -3928,9 +3919,9 @@
+@@ -3919,9 +3912,9 @@
        </choose>
      </group>
    </macro>
@@ -114,7 +104,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -4062,17 +4053,16 @@
+@@ -4053,17 +4046,16 @@
    <bibliography hanging-indent="true">
      <sort>
        <key macro="author-bib"/>

@@ -74,7 +74,7 @@
            </choose>
          </else-if>
          <else-if variable="volume">
-@@ -6748,7 +6746,7 @@
+@@ -6756,7 +6754,7 @@
        </else>
      </choose>
    </macro>
@@ -83,7 +83,7 @@
      <layout delimiter="; " suffix=".">
        <text macro="citation-notes-full-subsequent-author-title"/>
      </layout>
-@@ -6883,19 +6881,4 @@
+@@ -6891,19 +6889,4 @@
        </else>
      </choose>
    </macro>
