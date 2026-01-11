@@ -14,7 +14,7 @@
 +    <id>http://www.zotero.org/styles/apa-single-spaced</id>
 +    <link href="http://www.zotero.org/styles/apa-single-spaced" rel="self"/>
 +    <link href="http://www.zotero.org/styles/apa" rel="template"/>
-     <link href="https://apastyle.apa.org/style-grammar-guidelines/references/examples" rel="documentation"/>
+     <link href="https://apastyle.apa.org/style-grammar-guidelines/references" rel="documentation"/>
      <author>
        <name>Brenton M. Wiernik</name>
 @@ -29,7 +29,7 @@
@@ -26,7 +26,7 @@
      <updated>2025-04-14T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -2274,7 +2274,7 @@
+@@ -2272,7 +2272,7 @@
        </else>
      </choose>
    </macro>

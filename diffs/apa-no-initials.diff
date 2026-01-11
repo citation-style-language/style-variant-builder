@@ -17,7 +17,7 @@
 +    <id>http://www.zotero.org/styles/apa-no-initials</id>
 +    <link href="http://www.zotero.org/styles/apa-no-initials" rel="self"/>
 +    <link href="http://www.zotero.org/styles/apa" rel="template"/>
-     <link href="https://apastyle.apa.org/style-grammar-guidelines/references/examples" rel="documentation"/>
+     <link href="https://apastyle.apa.org/style-grammar-guidelines/references" rel="documentation"/>
      <author>
        <name>Brenton M. Wiernik</name>
 @@ -29,7 +29,7 @@
