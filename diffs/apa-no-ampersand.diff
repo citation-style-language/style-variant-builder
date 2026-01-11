@@ -41,7 +41,7 @@
        <term name="guest">
          <single>guest expert</single>
          <multiple>guest experts</multiple>
-@@ -352,7 +360,7 @@
+@@ -329,7 +337,7 @@
    <macro name="author">
      <!-- Substitutes for missing authors: order prioritizes primary creators (e.g., composer, author) over secondary roles (e.g., editor, curator), with title as the final fallback. -->
      <names variable="composer">
@@ -50,7 +50,7 @@
        <label form="short" prefix=" (" suffix=")" text-case="title"/>
        <substitute>
          <names variable="author"/>
-@@ -362,24 +370,24 @@
+@@ -339,24 +347,24 @@
            <if type="broadcast">
              <names variable="script-writer director">
                <!-- Actors/performers and producers [not executive] not cited in APA style. -->
@@ -79,7 +79,7 @@
            <label prefix=" (" suffix=")" text-case="title"/>
          </names>
          <choose>
-@@ -395,11 +403,11 @@
+@@ -372,11 +380,11 @@
            </else-if>
          </choose>
          <names variable="executive-producer">
@@ -93,7 +93,7 @@
            <label prefix=" (" suffix=")" text-case="title"/>
          </names>
          <names variable="editor-translator"/>
-@@ -407,23 +415,23 @@
+@@ -384,23 +392,23 @@
          <names variable="editor"/>
          <names variable="editorial-director"/>
          <names variable="compiler">
@@ -121,7 +121,7 @@
            <label prefix=" (" suffix=")" text-case="title"/>
          </names>
          <names variable="collection-editor"/>
-@@ -445,7 +453,7 @@
+@@ -422,7 +430,7 @@
          <else-if match="any" type="book musical_score pamphlet report standard">
            <names prefix="(" suffix=")" variable="contributor">
              <label form="verb" suffix=" "/>
@@ -130,7 +130,7 @@
            </names>
          </else-if>
        </choose>
-@@ -461,7 +469,7 @@
+@@ -438,7 +446,7 @@
            <!-- These variables indicate that the letter is retrievable by the reader. If not, use the APA in-text-only personal communication format. -->
            <if match="any" variable="archive archive-place container-title DOI number publisher references URL">
              <names variable="author">
@@ -139,7 +139,7 @@
                <substitute>
                  <text macro="title-and-descriptions-short"/>
                </substitute>
-@@ -481,7 +489,7 @@
+@@ -458,7 +466,7 @@
        </else-if>
        <else>
          <names variable="composer">
@@ -148,7 +148,7 @@
            <substitute>
              <names variable="author"/>
              <names variable="illustrator"/>
-@@ -1017,7 +1025,7 @@
+@@ -991,7 +999,7 @@
        <choose>
          <if variable="title">
            <names variable="interviewer">
@@ -157,7 +157,7 @@
              <label form="short" prefix=", " text-case="title"/>
            </names>
          </if>
-@@ -1027,24 +1035,24 @@
+@@ -1001,24 +1009,24 @@
            <!-- Handle `container-title` on `post` or `webpage` akin to `publisher` -->
            <names variable="container-author">
              <label form="verb-short" suffix=" " text-case="title"/>
@@ -187,7 +187,7 @@
              <label form="short" prefix=", " text-case="title"/>
            </names>
            <choose>
-@@ -1052,21 +1060,21 @@
+@@ -1026,21 +1034,21 @@
              <else-if variable="container-title">
                <!-- TODO: Check logic once processors start to automatically populate `editor-translator` -->
                <names delimiter="; " variable="translator">
@@ -213,7 +213,7 @@
                  <label prefix=", " text-case="title"/>
                </names>
              </else>
-@@ -1080,13 +1088,13 @@
+@@ -1054,13 +1062,13 @@
        <choose>
          <if variable="title">
            <names delimiter="; " variable="interviewer">
@@ -229,7 +229,7 @@
          <label form="short" prefix=", " text-case="title"/>
        </names>
      </group>
-@@ -1410,7 +1418,7 @@
+@@ -1384,7 +1392,7 @@
          <else-if variable="interviewer">
            <names variable="interviewer">
              <label form="verb" suffix=" " text-case="capitalize-first"/>
@@ -238,7 +238,7 @@
            </names>
            <text text-case="capitalize-first" variable="medium"/>
          </else-if>
-@@ -1423,7 +1431,7 @@
+@@ -1397,7 +1405,7 @@
    <macro name="description-interview-short">
      <names variable="interviewer">
        <label form="verb" suffix=" " text-case="capitalize-first"/>
@@ -247,7 +247,7 @@
        <substitute>
          <text macro="description-format-short"/>
        </substitute>
-@@ -1437,7 +1445,7 @@
+@@ -1411,7 +1419,7 @@
              <text macro="description-format"/>
              <names variable="recipient">
                <label form="verb" suffix=" "/>
@@ -256,7 +256,7 @@
              </names>
            </group>
            <text macro="description-medium"/>
-@@ -1455,7 +1463,7 @@
+@@ -1429,7 +1437,7 @@
            <text macro="description-format-short"/>
            <names variable="recipient">
              <label form="verb" suffix=" "/>
@@ -265,7 +265,7 @@
            </names>
          </group>
        </if>
-@@ -1504,7 +1512,7 @@
+@@ -1478,7 +1486,7 @@
          </group>
          <names variable="reviewed-author">
            <label form="verb-short" suffix=" "/>
@@ -274,7 +274,7 @@
          </names>
        </group>
        <text macro="description-medium"/>
-@@ -1690,22 +1698,22 @@
+@@ -1664,22 +1672,22 @@
    <!-- Monographic source author -->
    <macro name="source-monographic-author">
      <names variable="container-author">
@@ -301,7 +301,7 @@
            <label form="short" prefix=" (" suffix=")" text-case="title"/>
          </names>
          <names variable="compiler"/>
-@@ -1717,7 +1725,7 @@
+@@ -1691,7 +1699,7 @@
          </choose>
          <names variable="curator"/>
          <names variable="collection-editor">
