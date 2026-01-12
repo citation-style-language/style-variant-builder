@@ -211,13 +211,14 @@
          </group>
          <choose>
            <!-- Locator for monographic types only; serial locator handled in `source-serial-locator` -->
-@@ -1142,9 +1196,7 @@
+@@ -1142,9 +1196,8 @@
          </choose>
          <text macro="source-medium"/>
          <text macro="source-archive"/>
 -        <text prefix="doi:" variable="DOI"/>
        </group>
 -      <text macro="source-URL"/>
++      <text macro="source-accessed"/>
      </group>
    </macro>
    <!-- 3.1. Title -->
@@ -953,7 +954,7 @@
            <text variable="original-publisher"/>
          </group>
        </if>
-@@ -3740,7 +3838,8 @@
+@@ -3753,7 +3851,8 @@
          <if disambiguate="true">
            <names variable="editor-translator">
              <label form="verb-short" suffix=" "/>
@@ -963,7 +964,7 @@
              <substitute>
                <names variable="editor"/>
                <names variable="translator"/>
-@@ -3888,7 +3987,7 @@
+@@ -3901,7 +4000,7 @@
        <key macro="source-archive"/>
      </sort>
      <layout>

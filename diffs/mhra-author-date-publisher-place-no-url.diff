@@ -46,17 +46,18 @@
            <text macro="identifier"/>
          </else>
        </choose>
-@@ -1142,9 +1141,7 @@
+@@ -1142,9 +1141,8 @@
          </choose>
          <text macro="source-medium"/>
          <text macro="source-archive"/>
 -        <text prefix="doi:" variable="DOI"/>
        </group>
 -      <text macro="source-URL"/>
++      <text macro="source-accessed"/>
      </group>
    </macro>
    <!-- 3.1. Title -->
-@@ -2760,18 +2757,6 @@
+@@ -2760,18 +2758,6 @@
            </else-if>
          </choose>
        </group>
@@ -75,7 +76,7 @@
      </group>
    </macro>
    <!-- 4.3. Series -->
-@@ -3156,7 +3141,7 @@
+@@ -3156,7 +3142,7 @@
          </else-if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -84,7 +85,7 @@
              <text variable="publisher"/>
            </group>
          </else-if>
-@@ -3178,7 +3163,7 @@
+@@ -3178,7 +3164,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -93,7 +94,7 @@
            <text variable="original-publisher"/>
          </group>
        </if>
-@@ -3194,9 +3179,7 @@
+@@ -3194,9 +3180,7 @@
          <date date-parts="year" form="numeric" variable="available-date"/>
        </if>
        <else>
@@ -104,7 +105,7 @@
        </else>
      </choose>
    </macro>
-@@ -3340,9 +3323,7 @@
+@@ -3340,9 +3324,7 @@
      </choose>
    </macro>
    <macro name="source-date-original">
@@ -115,7 +116,7 @@
    </macro>
    <macro name="source-date-original-full">
      <!-- Give full date for more ephemeral types; reflected in `date-sort` -->
-@@ -3756,9 +3737,9 @@
+@@ -3769,9 +3751,9 @@
        </choose>
      </group>
    </macro>
@@ -128,7 +129,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -3878,17 +3859,19 @@
+@@ -3891,17 +3873,19 @@
    <bibliography hanging-indent="true" subsequent-author-substitute="&#8212;&#8212;" subsequent-author-substitute-rule="partial-first">
      <sort>
        <key macro="author-bib"/>

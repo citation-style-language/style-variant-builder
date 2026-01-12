@@ -3605,6 +3605,19 @@
       </else-if>
     </choose>
   </macro>
+  <macro name="source-accessed">
+    <!-- provide an access date when URLs are not printed and no other date is available -->
+    <choose>
+      <if variable="DOI"/>
+      <else-if match="any" variable="available-date event-date issued status"/>
+      <else-if variable="URL">
+        <group delimiter=" " prefix="[" suffix="]">
+          <text term="accessed"/>
+          <date form="text" variable="accessed"/>
+        </group>
+      </else-if>
+    </choose>
+  </macro>
   <!-- Citation -->
   <macro name="citation-author-date">
     <!-- MHRA's approach to author-date (sect. 7.13) is a simplification of the Oxford Guide to Style, sect. 15.19 -->
