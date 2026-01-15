@@ -413,14 +413,20 @@
           </choose>
           <names variable="curator"/>
           <choose>
-            <if type="software">
-              <!-- `software` listed under the name of the publisher or developer (NHR 18.8.5) -->
+            <if match="any" type="software webpage">
+              <!-- list under a publisher, developer, or owner/sponsor name (NHR 18.8.5) -->
               <text variable="publisher"/>
             </if>
             <else-if type="standard">
               <!-- `standard` listed in bibliography under organization, but note omits this (cf. CMOS18 14.159) -->
               <text variable="authority"/>
             </else-if>
+          </choose>
+          <choose>
+            <if type="webpage">
+              <!-- website title substituted if no `publisher` (NHR 18.8.5) -->
+              <text text-case="title" variable="container-title"/>
+            </if>
           </choose>
           <text macro="author-title-substitute"/>
           <choose>
@@ -479,14 +485,20 @@
             </choose>
             <names variable="curator"/>
             <choose>
-              <if type="software">
-                <!-- `software` listed under the name of the publisher or developer (NHR 18.8.5) -->
-                <text variable="publisher"/>
+              <if match="any" type="software webpage">
+                <!-- list under a publisher, developer, or owner/sponsor name (NHR 18.8.5) -->
+                <text form="short" variable="publisher"/>
               </if>
               <else-if type="standard">
                 <!-- `standard` listed in bibliography under organization, but note omits this (cf. CMOS18 14.159) -->
-                <text variable="authority"/>
+                <text form="short" variable="authority"/>
               </else-if>
+            </choose>
+            <choose>
+              <if type="webpage">
+                <!-- website title substituted if no `publisher` (NHR 18.8.5) -->
+                <text form="short" text-case="title" variable="container-title"/>
+              </if>
             </choose>
             <text macro="author-title-substitute-short"/>
             <choose>
@@ -556,14 +568,20 @@
           </choose>
           <names variable="curator"/>
           <choose>
-            <if type="software">
-              <!-- `software` listed under the name of the publisher or developer (NHR 18.8.5) -->
+            <if match="any" type="software webpage">
+              <!-- list under a publisher, developer, or owner/sponsor name (NHR 18.8.5) -->
               <text variable="publisher"/>
             </if>
             <else-if type="standard">
               <!-- `standard` listed in bibliography under organization (cf. CMOS18 14.159) -->
               <text variable="authority"/>
             </else-if>
+          </choose>
+          <choose>
+            <if type="webpage">
+              <!-- website title substituted if no `publisher` (NHR 18.8.5) -->
+              <text text-case="title" variable="container-title"/>
+            </if>
           </choose>
           <choose>
             <if match="any" variable="container-title event-date event-place event-title genre title publisher publisher-place"/>
@@ -632,14 +650,20 @@
             </choose>
             <names variable="curator"/>
             <choose>
-              <if type="software">
-                <!-- `software` listed under the name of the publisher or developer (NHR 18.8.5) -->
-                <text variable="publisher"/>
+              <if match="any" type="software webpage">
+                <!-- list under a publisher, developer, or owner/sponsor name (NHR 18.8.5) -->
+                <text form="short" variable="publisher"/>
               </if>
               <else-if type="standard">
                 <!-- `standard` listed in bibliography under organization, but note omits this (cf. CMOS18 14.159) -->
-                <text variable="authority"/>
+                <text form="short" variable="authority"/>
               </else-if>
+            </choose>
+            <choose>
+              <if type="webpage">
+                <!-- website title substituted if no `publisher` (NHR 18.8.5) -->
+                <text form="short" text-case="title" variable="container-title"/>
+              </if>
             </choose>
             <choose>
               <if match="any" variable="container-title event-date event-place event-title genre title publisher publisher-place"/>
@@ -768,56 +792,6 @@
         <text macro="title-and-descriptions"/>
       </else>
     </choose>
-  </macro>
-  <macro name="author-title-substitute-container">
-    <choose>
-      <if type="webpage">
-        <!-- Website title substituted in bibliography only (cf. CMOS18 14.104) -->
-        <text text-case="title" variable="container-title"/>
-      </if>
-      <else-if match="any" type="entry entry-dictionary entry-encyclopedia">
-        <!-- Anonymous entries in reference works (cf. CMOS18 14.130) -->
-        <text font-style="italic" text-case="title" variable="container-title"/>
-      </else-if>
-    </choose>
-  </macro>
-  <macro name="author-title-substitute-container-short">
-    <choose>
-      <if type="webpage">
-        <!-- Website title substituted in bibliography only (cf. CMOS18 14.104) -->
-        <text form="short" text-case="title" variable="container-title"/>
-      </if>
-      <else-if match="any" type="entry entry-dictionary entry-encyclopedia">
-        <!-- Anonymous entries in reference works (cf. CMOS18 14.130) -->
-        <text font-style="italic" form="short" text-case="title" variable="container-title"/>
-      </else-if>
-    </choose>
-  </macro>
-  <macro name="author-title-substitute-reference-note">
-    <!-- unsigned reference entries treat `title` as a locator (cf. CMOS18 14.130) -->
-    <group delimiter=", ">
-      <group delimiter=" ">
-        <group delimiter=", ">
-          <text macro="author-title-substitute-container"/>
-          <text macro="source"/>
-        </group>
-        <text macro="source-monographic-publication-bracketed"/>
-      </group>
-      <group delimiter=" ">
-        <choose>
-          <if locator="sub-verbo"/>
-          <else-if variable="container-title title">
-            <choose>
-              <if match="none" variable="DOI URL">
-                <!-- Only print reference entries use `sub-verbo` (cf. CMOS18 14.131) -->
-                <text form="short" term="sub-verbo"/>
-              </if>
-            </choose>
-            <text macro="title-primary"/>
-          </else-if>
-        </choose>
-      </group>
-    </group>
   </macro>
   <!-- 2. Date -->
   <macro name="date">
@@ -1224,7 +1198,7 @@
   <macro name="title">
     <choose>
       <if match="any" type="post webpage">
-        <!-- Handle `container-title` on `post` or `webpage` in manner of `publisher` -->
+        <!-- print `container-title` on `post` or `webpage` in the same way as `publisher` -->
         <text macro="title-and-part-filter-review"/>
       </if>
       <else-if match="any" type="article-journal article-magazine article-newspaper periodical post-weblog review review-book">
@@ -1880,7 +1854,7 @@
           <text macro="identifier-report"/>
         </else-if>
         <else-if match="any" type="post webpage">
-          <!-- Handle `container-title` on `post` or `webpage` akin to `publisher` -->
+          <!-- print `container-title` on `post` or `webpage` in the same way as `publisher` -->
           <text macro="identifier-number"/>
           <text macro="label-version"/>
           <text macro="identifier-edition"/>
@@ -2015,7 +1989,7 @@
           </choose>
         </if>
         <else>
-          <!-- Handle `container-title` on `post` or `webpage` akin to `publisher` -->
+          <!-- print `container-title` on `post` or `webpage` in the same way as `publisher` -->
           <choose>
             <if match="none" variable="container-title">
               <names variable="container-author">

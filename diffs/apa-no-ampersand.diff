@@ -121,7 +121,7 @@
            <label prefix=" (" suffix=")" text-case="title"/>
          </names>
          <names variable="collection-editor"/>
-@@ -422,7 +430,7 @@
+@@ -426,7 +434,7 @@
          <else-if match="any" type="book musical_score pamphlet report standard">
            <names prefix="(" suffix=")" variable="contributor">
              <label form="verb" suffix=" "/>
@@ -130,7 +130,7 @@
            </names>
          </else-if>
        </choose>
-@@ -438,7 +446,7 @@
+@@ -442,7 +450,7 @@
            <!-- These variables indicate that the letter is retrievable by the reader. If not, use the APA in-text-only personal communication format. -->
            <if match="any" variable="archive archive-place container-title DOI number publisher references URL">
              <names variable="author">
@@ -139,7 +139,7 @@
                <substitute>
                  <text macro="title-and-descriptions-short"/>
                </substitute>
-@@ -458,7 +466,7 @@
+@@ -462,7 +470,7 @@
        </else-if>
        <else>
          <names variable="composer">
@@ -148,7 +148,7 @@
            <substitute>
              <names variable="author"/>
              <names variable="illustrator"/>
-@@ -991,7 +999,7 @@
+@@ -999,7 +1007,7 @@
        <choose>
          <if variable="title">
            <names variable="interviewer">
@@ -157,8 +157,8 @@
              <label form="short" prefix=", " text-case="title"/>
            </names>
          </if>
-@@ -1001,24 +1009,24 @@
-           <!-- Handle `container-title` on `post` or `webpage` akin to `publisher` -->
+@@ -1009,24 +1017,24 @@
+           <!-- print `container-title` on `post` or `webpage` in the same way as `publisher` -->
            <names variable="container-author">
              <label form="verb-short" suffix=" " text-case="title"/>
 -            <name and="symbol"/>
@@ -187,7 +187,7 @@
              <label form="short" prefix=", " text-case="title"/>
            </names>
            <choose>
-@@ -1026,21 +1034,21 @@
+@@ -1034,21 +1042,21 @@
              <else-if variable="container-title">
                <!-- TODO: Check logic once processors start to automatically populate `editor-translator` -->
                <names delimiter="; " variable="translator">
@@ -213,7 +213,7 @@
                  <label prefix=", " text-case="title"/>
                </names>
              </else>
-@@ -1054,13 +1062,13 @@
+@@ -1062,13 +1070,13 @@
        <choose>
          <if variable="title">
            <names delimiter="; " variable="interviewer">
@@ -229,7 +229,7 @@
          <label form="short" prefix=", " text-case="title"/>
        </names>
      </group>
-@@ -1384,7 +1392,7 @@
+@@ -1392,7 +1400,7 @@
          <else-if variable="interviewer">
            <names variable="interviewer">
              <label form="verb" suffix=" " text-case="capitalize-first"/>
@@ -238,7 +238,7 @@
            </names>
            <text text-case="capitalize-first" variable="medium"/>
          </else-if>
-@@ -1397,7 +1405,7 @@
+@@ -1405,7 +1413,7 @@
    <macro name="description-interview-short">
      <names variable="interviewer">
        <label form="verb" suffix=" " text-case="capitalize-first"/>
@@ -247,7 +247,7 @@
        <substitute>
          <text macro="description-format-short"/>
        </substitute>
-@@ -1411,7 +1419,7 @@
+@@ -1419,7 +1427,7 @@
              <text macro="description-format"/>
              <names variable="recipient">
                <label form="verb" suffix=" "/>
@@ -256,7 +256,7 @@
              </names>
            </group>
            <text macro="description-medium"/>
-@@ -1429,7 +1437,7 @@
+@@ -1437,7 +1445,7 @@
            <text macro="description-format-short"/>
            <names variable="recipient">
              <label form="verb" suffix=" "/>
@@ -265,7 +265,7 @@
            </names>
          </group>
        </if>
-@@ -1478,7 +1486,7 @@
+@@ -1486,7 +1494,7 @@
          </group>
          <names variable="reviewed-author">
            <label form="verb-short" suffix=" "/>
@@ -274,7 +274,7 @@
          </names>
        </group>
        <text macro="description-medium"/>
-@@ -1664,22 +1672,22 @@
+@@ -1672,22 +1680,22 @@
    <!-- Monographic source author -->
    <macro name="source-monographic-author">
      <names variable="container-author">
@@ -301,7 +301,7 @@
            <label form="short" prefix=" (" suffix=")" text-case="title"/>
          </names>
          <names variable="compiler"/>
-@@ -1691,7 +1699,7 @@
+@@ -1699,7 +1707,7 @@
          </choose>
          <names variable="curator"/>
          <names variable="collection-editor">

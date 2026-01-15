@@ -25,7 +25,7 @@
      <updated>2025-11-05T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -3230,7 +3231,7 @@
+@@ -3204,7 +3205,7 @@
                  <text form="short" term="no-place"/>
                </else>
              </choose>
@@ -34,7 +34,7 @@
            </group>
          </if>
          <else>
-@@ -3250,7 +3251,7 @@
+@@ -3224,7 +3225,7 @@
        <if match="any" type="book chapter classic entry entry-dictionary entry-encyclopedia interview musical_score pamphlet paper-conference report">
          <group delimiter=": ">
            <text variable="original-publisher-place"/>

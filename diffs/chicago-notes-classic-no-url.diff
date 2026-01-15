@@ -40,7 +40,7 @@
      </group>
    </macro>
    <macro name="label-volume-capitalized">
-@@ -3268,9 +3269,6 @@
+@@ -3264,9 +3265,6 @@
        <choose>
          <!-- notes only show the number of volumes if there is no physical locator, which should include a volume number, e.g. 4:243; except when using notes without bibliography (CMOS18 14.20) -->
          <if match="any" variable="part-number part-title volume volume-title"/>
@@ -50,7 +50,7 @@
          <else>
            <text macro="label-number-of-volumes"/>
          </else>
-@@ -3506,9 +3504,9 @@
+@@ -3502,9 +3500,9 @@
                <text macro="label-volume"/>
              </else-if>
              <!-- always display number of volumes in notes without bibliography (CMOS18 14.20): -->
@@ -62,7 +62,7 @@
            </choose>
          </else-if>
          <else-if is-numeric="volume" variable="page">
-@@ -3519,14 +3517,10 @@
+@@ -3515,14 +3513,10 @@
              <else-if match="any" variable="container-author editor editor-translator translator">
                <text macro="label-volume"/>
              </else-if>
@@ -79,7 +79,7 @@
            </choose>
          </else-if>
          <else-if variable="volume">
-@@ -4188,11 +4182,9 @@
+@@ -4184,11 +4178,9 @@
            </if>
          </choose>
        </else-if>
@@ -91,7 +91,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number-capitalized"/>
-@@ -4227,11 +4219,9 @@
+@@ -4223,11 +4215,9 @@
            </if>
          </choose>
        </else-if>
@@ -103,7 +103,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number"/>
-@@ -4544,10 +4534,6 @@
+@@ -4540,10 +4530,6 @@
        <choose>
          <!-- notes only show the number of volumes if there is no physical locator, which should include a volume number, e.g. 4:243; except when using notes without bibliography (CMOS18 14.20) -->
          <if match="any" variable="part-number part-title volume volume-title"/>
@@ -114,7 +114,7 @@
          <else>
            <text macro="label-number-of-volumes"/>
          </else>
-@@ -4600,10 +4586,6 @@
+@@ -4596,10 +4582,6 @@
          <else-if is-numeric="volume" match="none">
            <text macro="label-volume"/>
          </else-if>
@@ -125,7 +125,7 @@
          <else-if is-numeric="volume" variable="page">
            <choose>
              <!-- check for variables that might come between the volume and page number -->
-@@ -4643,8 +4625,6 @@
+@@ -4639,8 +4621,6 @@
        <else-if variable="locator">
          <text macro="label-locator"/>
        </else-if>
@@ -134,7 +134,7 @@
        <else-if is-numeric="volume" variable="page">
          <!-- collapse the volume and page number if adjacent (CMOS18 14.18) -->
          <group delimiter=":">
-@@ -5409,7 +5389,7 @@
+@@ -5405,7 +5385,7 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -143,7 +143,7 @@
              <text text-case="capitalize-first" variable="publisher"/>
            </group>
          </else-if>
-@@ -5435,7 +5415,7 @@
+@@ -5431,7 +5411,7 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -152,7 +152,7 @@
              <text variable="publisher"/>
            </group>
          </else-if>
-@@ -5457,7 +5437,7 @@
+@@ -5453,7 +5433,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -161,7 +161,7 @@
            <text text-case="capitalize-first" variable="original-publisher"/>
          </group>
        </if>
-@@ -5470,7 +5450,7 @@
+@@ -5466,7 +5446,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -170,7 +170,7 @@
            <text variable="original-publisher"/>
          </group>
        </if>
-@@ -6054,7 +6034,7 @@
+@@ -6063,7 +6043,7 @@
            </group>
          </else-if>
        </choose>
@@ -179,7 +179,7 @@
      </group>
    </macro>
    <macro name="source-date-accessed-DOI-URL-note">
-@@ -6069,7 +6049,7 @@
+@@ -6078,7 +6058,7 @@
            </group>
          </else-if>
        </choose>
@@ -188,7 +188,7 @@
      </group>
    </macro>
    <macro name="source-DOI-URL">
-@@ -6756,7 +6736,7 @@
+@@ -6765,7 +6745,7 @@
        </else>
      </choose>
    </macro>
@@ -197,7 +197,7 @@
      <layout delimiter="; " suffix=".">
        <text macro="citation-notes-full-subsequent-author-title"/>
      </layout>
-@@ -6891,19 +6871,4 @@
+@@ -6900,19 +6880,4 @@
        </else>
      </choose>
    </macro>

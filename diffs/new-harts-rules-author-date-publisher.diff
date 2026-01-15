@@ -35,7 +35,7 @@
      <updated>2025-11-05T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -2283,29 +2284,25 @@
+@@ -2257,29 +2258,25 @@
          <if type="article-newspaper">
            <group delimiter=" ">
              <text macro="source-serial-title"/>
@@ -69,7 +69,7 @@
            </group>
          </else>
        </choose>
-@@ -3230,7 +3227,7 @@
+@@ -3204,7 +3201,7 @@
                  <text form="short" term="no-place"/>
                </else>
              </choose>
@@ -78,7 +78,7 @@
            </group>
          </if>
          <else>
-@@ -3250,7 +3247,7 @@
+@@ -3224,7 +3221,7 @@
        <if match="any" type="book chapter classic entry entry-dictionary entry-encyclopedia interview musical_score pamphlet paper-conference report">
          <group delimiter=": ">
            <text variable="original-publisher-place"/>
@@ -87,7 +87,7 @@
          </group>
        </if>
        <else>
-@@ -3260,9 +3257,7 @@
+@@ -3234,9 +3231,7 @@
    </macro>
    <!-- 4.6. Date -->
    <macro name="source-date">
@@ -98,7 +98,7 @@
    </macro>
    <!-- Date elements -->
    <macro name="source-date-issued-full">
-@@ -3394,9 +3389,7 @@
+@@ -3368,9 +3363,7 @@
      </choose>
    </macro>
    <macro name="source-date-original">
@@ -109,7 +109,7 @@
    </macro>
    <macro name="source-date-original-full">
      <!-- Give full date for more ephemeral types; reflected in `date-year-sort` -->
-@@ -3919,9 +3912,9 @@
+@@ -3893,9 +3886,9 @@
        </choose>
      </group>
    </macro>
@@ -122,7 +122,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -4053,17 +4046,16 @@
+@@ -4027,17 +4020,16 @@
    <bibliography hanging-indent="true">
      <sort>
        <key macro="author-bib"/>

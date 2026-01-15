@@ -283,7 +283,7 @@
   <macro name="title">
     <choose>
       <if match="any" type="post webpage">
-        <!-- Handle `container-title` on `post` or `webpage` in manner of `publisher` -->
+        <!-- print `container-title` on `post` or `webpage` in the same way as `publisher` -->
         <text macro="title-and-part-filter-review"/>
       </if>
       <else-if match="any" type="article-journal article-magazine article-newspaper periodical post-weblog review review-book">

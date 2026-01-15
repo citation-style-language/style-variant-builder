@@ -39,7 +39,7 @@
          <substitute>
            <names variable="author"/>
            <names variable="guest"/>
-@@ -504,9 +503,7 @@
+@@ -516,9 +515,7 @@
      <group delimiter=", ">
        <names variable="composer">
          <name delimiter-precedes-last="contextual"/>
@@ -50,7 +50,7 @@
          <substitute>
            <names variable="author"/>
            <names variable="guest"/>
-@@ -1197,20 +1194,12 @@
+@@ -1171,20 +1168,12 @@
              <if match="any" type="article-journal article-magazine article-newspaper periodical post-weblog review review-book"/>
              <else-if match="any" variable="collection-editor compiler editor editorial-director">
                <!-- monographic types -->
@@ -73,7 +73,7 @@
              </else>
            </choose>
          </group>
-@@ -2378,9 +2367,7 @@
+@@ -2352,9 +2341,7 @@
        <text macro="source-serial-identifier-volume"/>
        <!-- periodical edition always capitalized (cf. CMOS18 14.89) -->
        <text macro="label-edition-capitalized"/>
@@ -84,7 +84,7 @@
      </group>
    </macro>
    <macro name="source-serial-identifier-author-date">
-@@ -2564,9 +2551,7 @@
+@@ -2538,9 +2525,7 @@
      <!-- based on `author-note` -->
      <names variable="container-author">
        <name delimiter-precedes-last="contextual"/>
@@ -95,7 +95,7 @@
        <substitute>
          <names variable="author"/>
          <names variable="guest"/>
-@@ -2791,9 +2776,7 @@
+@@ -2765,9 +2750,7 @@
      </group>
    </macro>
    <macro name="source-monographic-locator-range">
@@ -106,7 +106,7 @@
        <choose>
          <if match="any" variable="part-number part-title volume-title"/>
          <else-if match="any" variable="locator page">
-@@ -3622,9 +3605,7 @@
+@@ -3596,9 +3579,7 @@
        <!-- usually `archive`, `archive-place` but sometimes also `archive-place`, `archive` (NHR 18.6.5); the latter is more common elsewhere (OGS 15.11.1 and MHRA4 7.7) -->
        <text variable="archive_collection"/>
        <text variable="archive_location"/>
