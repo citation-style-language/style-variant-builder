@@ -175,9 +175,9 @@
      </group>
    </macro>
 @@ -4124,9 +4078,7 @@
-                   <text macro="source-monographic-preposition-bib"/>
-                 </if>
-               </choose>
+           <group delimiter=", ">
+             <group delimiter=" ">
+               <text macro="source-monographic-preposition-bib"/>
 -              <text font-style="italic" text-case="title" variable="container-title"/>
 -              <!-- for author-date or notes and bibliography leading with volume title (CMOS18 14.21): -->
 -              <!-- <text macro="source-monographic-title-specific-title-first"/> -->

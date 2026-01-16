@@ -4123,11 +4123,7 @@
         <if variable="container-title">
           <group delimiter=", ">
             <group delimiter=" ">
-              <choose>
-                <if match="none" type="broadcast motion_picture">
-                  <text macro="source-monographic-preposition-bib"/>
-                </if>
-              </choose>
+              <text macro="source-monographic-preposition-bib"/>
               <text font-style="italic" text-case="title" variable="container-title"/>
               <!-- for author-date or notes and bibliography leading with volume title (CMOS18 14.21): -->
               <!-- <text macro="source-monographic-title-specific-title-first"/> -->
@@ -4154,11 +4150,7 @@
         <if variable="container-title">
           <group delimiter=", ">
             <group delimiter=" ">
-              <choose>
-                <if match="none" type="broadcast motion_picture">
-                  <text macro="source-monographic-preposition-note"/>
-                </if>
-              </choose>
+              <text macro="source-monographic-preposition-note"/>
               <text font-style="italic" text-case="title" variable="container-title"/>
             </group>
             <text macro="source-monographic-description-note"/>
@@ -4174,9 +4166,10 @@
   <!-- Monographic source title -->
   <macro name="source-monographic-preposition-bib">
     <choose>
-      <if type="chapter" variable="container-title genre">
+      <if match="any" type="broadcast motion_picture"/>
+      <else-if type="chapter" variable="container-title genre">
         <text value="to"/>
-      </if>
+      </else-if>
       <else-if type="article-journal" variable="container-title genre volume-title">
         <text value="to"/>
       </else-if>
@@ -4213,9 +4206,10 @@
   </macro>
   <macro name="source-monographic-preposition-note">
     <choose>
-      <if type="chapter" variable="container-title genre">
+      <if match="any" type="broadcast motion_picture"/>
+      <else-if type="chapter" variable="container-title genre">
         <text value="to"/>
-      </if>
+      </else-if>
       <else-if type="article-journal" variable="container-title genre volume-title">
         <text value="to"/>
       </else-if>

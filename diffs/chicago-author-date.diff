@@ -81,7 +81,7 @@
        </else>
      </choose>
    </macro>
-@@ -3163,9 +3151,7 @@
+@@ -3167,9 +3155,7 @@
        </if>
        <else-if match="any" variable="collection-editor compiler editor editorial-director">
          <!-- monographic types -->
@@ -92,7 +92,7 @@
        </else-if>
        <else-if match="any" type="interview paper-conference">
          <!-- serial types -->
-@@ -3173,9 +3159,7 @@
+@@ -3177,9 +3163,7 @@
        </else-if>
        <else>
          <!-- monographic types -->
@@ -103,7 +103,7 @@
        </else>
      </choose>
    </macro>
-@@ -3737,9 +3721,7 @@
+@@ -3741,9 +3725,7 @@
        <choose>
          <if match="any" type="article-magazine article-newspaper">
            <group delimiter=". ">
@@ -114,7 +114,7 @@
              <!-- newspaper edition always capitalized (CMOS18 14.89) -->
              <text macro="label-edition-capitalized"/>
            </group>
-@@ -3747,16 +3729,12 @@
+@@ -3751,16 +3733,12 @@
          </if>
          <else-if match="any" variable="issue supplement-number volume">
            <group delimiter=": ">
@@ -133,7 +133,7 @@
            <text macro="source-serial-locator"/>
          </else>
          <!-- TODO: If CSL adds `date-part` detection, add two further conditions to address CMOS18 14.74: delimiting with ":" if there is a `volume` and no month or `issue` or `supplement number`; delimiting with ", " or there is an `issue` or `supplement number` and no month -->
-@@ -4061,9 +4039,7 @@
+@@ -4065,9 +4043,7 @@
        </choose>
        <group delimiter=" ">
          <text macro="source-date-status-bib"/>
@@ -145,9 +145,9 @@
      </group>
    </macro>
 @@ -4124,9 +4100,7 @@
-                   <text macro="source-monographic-preposition-bib"/>
-                 </if>
-               </choose>
+           <group delimiter=", ">
+             <group delimiter=" ">
+               <text macro="source-monographic-preposition-bib"/>
 -              <text font-style="italic" text-case="title" variable="container-title"/>
 -              <!-- for author-date or notes and bibliography leading with volume title (CMOS18 14.21): -->
 -              <!-- <text macro="source-monographic-title-specific-title-first"/> -->
@@ -155,7 +155,7 @@
              </group>
              <text macro="source-monographic-description-bib"/>
              <text macro="source-monographic-identifier-bib"/>
-@@ -4301,9 +4275,7 @@
+@@ -4299,9 +4273,7 @@
            <text macro="label-version"/>
            <!-- use note form as `edition` is not capitalized here -->
            <text macro="identifier-edition-note"/>
@@ -166,7 +166,7 @@
          </group>
        </if>
      </choose>
-@@ -4626,9 +4598,7 @@
+@@ -4624,9 +4596,7 @@
          <group delimiter=":">
            <choose>
              <if match="any" variable="part-number part-title volume-title"/>
@@ -177,7 +177,7 @@
              <else>
                <text variable="volume"/>
              </else>
-@@ -4647,9 +4617,7 @@
+@@ -4645,9 +4615,7 @@
            <choose>
              <!-- check for variables that might come between the volume and page number -->
              <if match="any" variable="part-number part-title volume-title"/>
@@ -188,7 +188,7 @@
              <else>
                <text variable="volume"/>
              </else>
-@@ -5175,9 +5143,7 @@
+@@ -5173,9 +5141,7 @@
        </choose>
        <group delimiter=" ">
          <text macro="source-date-status-bib"/>
@@ -199,7 +199,7 @@
        </group>
        <choose>
          <if type="broadcast" variable="URL"/>
-@@ -5655,9 +5621,7 @@
+@@ -5653,9 +5619,7 @@
      </choose>
    </macro>
    <macro name="source-date-original">
@@ -210,7 +210,7 @@
    </macro>
    <macro name="source-date-original-full">
      <!-- Give full date for more ephemeral types -->
-@@ -6765,9 +6729,9 @@
+@@ -6763,9 +6727,9 @@
        </else>
      </choose>
    </macro>
@@ -223,7 +223,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -6903,16 +6867,19 @@
+@@ -6901,16 +6865,19 @@
    <bibliography et-al-min="7" et-al-use-first="3" hanging-indent="true">
      <sort>
        <key macro="author-sort"/>
