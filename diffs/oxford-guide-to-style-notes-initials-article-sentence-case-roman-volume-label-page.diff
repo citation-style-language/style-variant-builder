@@ -241,7 +241,7 @@
        </else-if>
        <else-if type="entry-dictionary" variable="container-title">
          <!-- Quotes, sentence case -->
-@@ -1317,8 +1351,8 @@
+@@ -1321,8 +1355,8 @@
          <choose>
            <if match="any" type="article-journal article-magazine article-newspaper periodical post-weblog review review-book">
              <!-- serial types -->
@@ -252,7 +252,7 @@
            </if>
            <else-if match="any" variable="collection-editor compiler editor editorial-director">
              <!-- monographic types -->
-@@ -1327,8 +1361,8 @@
+@@ -1331,8 +1365,8 @@
            </else-if>
            <else-if match="any" type="interview paper-conference">
              <!-- serial types -->
@@ -263,7 +263,7 @@
            </else-if>
            <else>
              <!-- monographic types -->
-@@ -1339,8 +1373,8 @@
+@@ -1343,8 +1377,8 @@
        </else-if>
        <else-if match="any" type="article dataset document interview manuscript paper-conference personal_communication speech thesis webpage">
          <!-- Container-like but not necessarily with `container-title` -->
@@ -274,7 +274,7 @@
        </else-if>
        <else>
          <!-- Italicized, title case (default) -->
-@@ -1355,16 +1389,16 @@
+@@ -1359,16 +1393,16 @@
          <text form="short" text-case="capitalize-first" variable="title"/>
        </if>
        <else-if match="any" type="bill collection legislation regulation treaty">
@@ -295,7 +295,7 @@
        </else-if>
        <else-if type="entry-dictionary" variable="container-title">
          <!-- Quotes, sentence case -->
-@@ -1380,13 +1414,13 @@
+@@ -1384,13 +1418,13 @@
        </else-if>
        <!-- Other types are formatted based on presence of `container-title` -->
        <else-if variable="container-title">
@@ -313,7 +313,7 @@
        </else-if>
        <else>
          <!-- Italicized, title case (default) -->
-@@ -1401,38 +1435,38 @@
+@@ -1405,38 +1439,38 @@
          <text form="short" text-case="capitalize-first" variable="title"/>
        </if>
        <else-if match="any" type="bill collection legislation regulation treaty">
@@ -363,7 +363,7 @@
        </else-if>
        <else>
          <!-- Italicized, title case (default) -->
-@@ -1449,10 +1483,6 @@
+@@ -1453,10 +1487,6 @@
              <text macro="label-volume"/>
            </if>
            <else-if locator="column page" match="any"/>
@@ -374,7 +374,7 @@
            <else-if variable="page"/>
            <else>
              <text macro="label-volume"/>
-@@ -2352,9 +2382,7 @@
+@@ -2360,9 +2390,7 @@
        <text macro="source-serial-identifier-volume"/>
        <!-- periodical edition always capitalized (cf. CMOS18 14.89) -->
        <text macro="label-edition-capitalized"/>
@@ -385,7 +385,7 @@
      </group>
    </macro>
    <macro name="source-serial-identifier-author-date">
-@@ -2395,16 +2423,12 @@
+@@ -2403,16 +2431,12 @@
                <choose>
                  <if variable="issue volume">
                    <group delimiter="/">
@@ -404,7 +404,7 @@
                    <text macro="label-issue"/>
                  </else>
                </choose>
-@@ -2471,8 +2495,8 @@
+@@ -2479,8 +2503,8 @@
      <choose>
        <if match="any" variable="locator number">
          <group delimiter=", ">
@@ -415,7 +415,7 @@
              <choose>
                <if variable="locator page">
                  <text term="at"/>
-@@ -2488,7 +2512,7 @@
+@@ -2496,7 +2520,7 @@
          </group>
        </if>
        <else>
@@ -424,7 +424,7 @@
        </else>
      </choose>
    </macro>
-@@ -2511,8 +2535,6 @@
+@@ -2519,8 +2543,6 @@
            </group>
          </if>
        </choose>
@@ -433,7 +433,7 @@
        <text macro="source-event"/>
      </group>
    </macro>
-@@ -2538,9 +2560,7 @@
+@@ -2546,9 +2568,7 @@
      <!-- based on `author-note` -->
      <names variable="container-author">
        <name delimiter-precedes-last="contextual"/>
@@ -444,7 +444,7 @@
        <substitute>
          <names variable="author"/>
          <names variable="guest"/>
-@@ -2783,8 +2803,8 @@
+@@ -2791,8 +2811,8 @@
            <text macro="label-locator"/>
          </else-if>
          <else-if variable="page">
@@ -455,7 +455,7 @@
              <choose>
                <if variable="locator page">
                  <text term="at"/>
-@@ -2823,7 +2843,7 @@
+@@ -2831,7 +2851,7 @@
          </else-if>
          <else-if variable="archive archive_location page"/>
          <else>
@@ -464,7 +464,7 @@
          </else>
        </choose>
      </group>
-@@ -2832,9 +2852,7 @@
+@@ -2840,9 +2860,7 @@
    <macro name="source-series">
      <group delimiter=", ">
        <text text-case="title" variable="collection-title"/>
@@ -475,7 +475,7 @@
        <text macro="label-issue"/>
      </group>
    </macro>
-@@ -2958,16 +2976,14 @@
+@@ -2966,16 +2984,14 @@
          <else-if match="any" type="article-journal article-magazine article-newspaper periodical post-weblog review review-book"/>
          <else-if match="any" variable="collection-editor compiler editor editorial-director">
            <!-- monographic types -->
@@ -494,7 +494,7 @@
            <text macro="source-publication-and-date"/>
          </else>
        </choose>
-@@ -3493,17 +3509,13 @@
+@@ -3495,17 +3511,13 @@
          <text macro="source-locator-subsequent-serial"/>
        </if>
        <else-if match="any" variable="collection-editor compiler editor editorial-director">
@@ -514,7 +514,7 @@
        </else>
      </choose>
    </macro>
-@@ -3549,8 +3561,7 @@
+@@ -3551,8 +3563,7 @@
            <!-- Do not provide `volume` or `part-number` for defined section -->
            <text macro="label-locator"/>
          </if>
@@ -524,7 +524,7 @@
            <text macro="label-volume"/>
            <text macro="label-part-number"/>
            <text macro="label-locator"/>
-@@ -3560,7 +3571,7 @@
+@@ -3562,7 +3573,7 @@
              <text macro="label-volume"/>
              <text macro="label-locator"/>
            </group>
@@ -533,7 +533,7 @@
          <else-if variable="part-number">
            <text macro="label-volume"/>
            <text macro="label-part-number"/>
-@@ -3596,9 +3607,7 @@
+@@ -3598,9 +3609,7 @@
        <!-- usually `archive`, `archive-place` but sometimes also `archive-place`, `archive` (NHR 18.6.5); the latter is more common elsewhere (OGS 15.11.1 and MHRA4 7.7) -->
        <text variable="archive_collection"/>
        <text variable="archive_location"/>

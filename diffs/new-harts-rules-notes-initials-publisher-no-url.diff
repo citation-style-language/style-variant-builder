@@ -37,7 +37,7 @@
      </group>
    </macro>
    <!-- 3.1. Title -->
-@@ -3204,7 +3205,7 @@
+@@ -3206,7 +3207,7 @@
                  <text form="short" term="no-place"/>
                </else>
              </choose>
@@ -46,7 +46,7 @@
            </group>
          </if>
          <else>
-@@ -3224,7 +3225,7 @@
+@@ -3226,7 +3227,7 @@
        <if match="any" type="book chapter classic entry entry-dictionary entry-encyclopedia interview musical_score pamphlet paper-conference report">
          <group delimiter=": ">
            <text variable="original-publisher-place"/>

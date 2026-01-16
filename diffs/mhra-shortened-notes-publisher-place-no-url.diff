@@ -36,7 +36,7 @@
      </group>
    </macro>
    <!-- 3.1. Title -->
-@@ -3194,7 +3194,7 @@
+@@ -3201,7 +3201,7 @@
          </else-if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -45,7 +45,7 @@
              <text variable="publisher"/>
            </group>
          </else-if>
-@@ -3216,7 +3216,7 @@
+@@ -3223,7 +3223,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -54,7 +54,7 @@
            <text variable="original-publisher"/>
          </group>
        </if>
-@@ -3809,7 +3809,7 @@
+@@ -3816,7 +3816,7 @@
    </macro>
    <citation disambiguate-add-givenname="true" disambiguate-add-names="true">
      <layout delimiter="; " suffix=".">
@@ -63,7 +63,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -3939,7 +3939,7 @@
+@@ -3946,7 +3946,7 @@
        <key macro="source-archive"/>
      </sort>
      <layout>
