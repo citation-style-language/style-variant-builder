@@ -763,7 +763,7 @@
   <macro name="title">
     <choose>
       <if match="any" type="post webpage">
-        <!-- print `container-title` on `post` or `webpage` in the same way as `publisher` -->
+        <!-- part number/title always at the analytic level -->
         <text font-style="italic" macro="title-and-part-filter-review"/>
       </if>
       <!-- Other types are italicized based on presence of `container-title`. Assume that `review` and `review-book` are published either in a serial or on a webpage (APA example 69) -->
