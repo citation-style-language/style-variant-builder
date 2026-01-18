@@ -73,7 +73,7 @@
                </else>
              </choose>
            </group>
-@@ -4986,32 +4986,32 @@
+@@ -4973,32 +4973,32 @@
      <!-- Facts of publication with brackets for print monographic formats -->
      <choose>
        <if match="any" type="book chapter classic interview musical_score pamphlet paper-conference report thesis">
@@ -112,7 +112,7 @@
            </if>
          </choose>
        </else-if>
-@@ -5052,7 +5052,7 @@
+@@ -5039,7 +5039,7 @@
    </macro>
    <macro name="source-monographic-publication-short-bracketed">
      <!-- mirrors `source-monographic-publication-note-bracketed` -->
@@ -121,7 +121,7 @@
        <choose>
          <if disambiguate="true" match="none"/>
          <!-- Facts of publication with brackets for print monographic formats -->
-@@ -5387,7 +5387,7 @@
+@@ -5374,7 +5374,7 @@
              </names>
              <text font-style="italic" text-case="title" variable="original-title"/>
            </group>
@@ -130,7 +130,7 @@
              <text macro="source-publication-publisher-original-note"/>
              <text macro="source-date-original"/>
            </group>
-@@ -6061,7 +6061,7 @@
+@@ -6048,7 +6048,7 @@
            </group>
          </else-if>
        </choose>
@@ -139,7 +139,7 @@
      </group>
    </macro>
    <macro name="source-date-accessed-DOI-URL-note">
-@@ -6076,7 +6076,7 @@
+@@ -6063,7 +6063,7 @@
            </group>
          </else-if>
        </choose>
@@ -148,7 +148,7 @@
      </group>
    </macro>
    <macro name="source-DOI-URL">
-@@ -6764,8 +6764,8 @@
+@@ -6751,8 +6751,8 @@
      </choose>
    </macro>
    <citation disambiguate-add-givenname="true" disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">

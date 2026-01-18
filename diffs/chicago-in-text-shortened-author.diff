@@ -35,7 +35,7 @@
      <updated>2025-10-27T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -6764,8 +6765,8 @@
+@@ -6751,8 +6752,8 @@
      </choose>
    </macro>
    <citation disambiguate-add-givenname="true" disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
@@ -46,7 +46,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -6910,7 +6911,7 @@
+@@ -6897,7 +6898,7 @@
        <key macro="source-archive-bib"/>
      </sort>
      <layout suffix=".">
