@@ -28,7 +28,7 @@
      <updated>2025-11-05T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -372,9 +373,7 @@
+@@ -385,9 +386,7 @@
          <!-- for OGS: -->
          <!-- <name delimiter-precedes-et-al="after-inverted-name" delimiter-precedes-last="always" font-variant="small-caps" name-as-sort-order="first"/>
          <et-al font-variant="normal"/> -->
@@ -39,7 +39,7 @@
          <substitute>
            <names variable="author"/>
            <names variable="guest"/>
-@@ -516,9 +515,7 @@
+@@ -529,9 +528,7 @@
      <group delimiter=", ">
        <names variable="composer">
          <name delimiter-precedes-last="contextual"/>
@@ -50,7 +50,7 @@
          <substitute>
            <names variable="author"/>
            <names variable="guest"/>
-@@ -1171,20 +1168,12 @@
+@@ -1191,20 +1188,12 @@
              <if match="any" type="article-journal article-magazine article-newspaper periodical post-weblog review review-book"/>
              <else-if match="any" variable="collection-editor compiler editor editorial-director">
                <!-- monographic types -->
@@ -73,7 +73,7 @@
              </else>
            </choose>
          </group>
-@@ -2360,9 +2349,7 @@
+@@ -2579,9 +2568,7 @@
        <text macro="source-serial-identifier-volume"/>
        <!-- periodical edition always capitalized (cf. CMOS18 14.89) -->
        <text macro="label-edition-capitalized"/>
@@ -84,7 +84,7 @@
      </group>
    </macro>
    <macro name="source-serial-identifier-author-date">
-@@ -2546,9 +2533,7 @@
+@@ -2765,9 +2752,7 @@
      <!-- based on `author-note` -->
      <names variable="container-author">
        <name delimiter-precedes-last="contextual"/>
@@ -95,7 +95,7 @@
        <substitute>
          <names variable="author"/>
          <names variable="guest"/>
-@@ -2773,9 +2758,7 @@
+@@ -2992,9 +2977,7 @@
      </group>
    </macro>
    <macro name="source-monographic-locator-range">
@@ -106,7 +106,7 @@
        <choose>
          <if match="any" variable="part-number part-title volume-title"/>
          <else-if match="any" variable="locator page">
-@@ -3598,9 +3581,7 @@
+@@ -3817,9 +3800,7 @@
        <!-- usually `archive`, `archive-place` but sometimes also `archive-place`, `archive` (NHR 18.6.5); the latter is more common elsewhere (OGS 15.11.1 and MHRA4 7.7) -->
        <text variable="archive_collection"/>
        <text variable="archive_location"/>

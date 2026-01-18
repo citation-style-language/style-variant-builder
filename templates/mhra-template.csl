@@ -557,6 +557,13 @@
             </else-if>
           </choose>
           <text macro="author-review-unsigned"/>
+          <text macro="author-title-substitute"/>
+          <choose>
+            <if match="any" variable="container-title event-date event-place event-title genre title publisher publisher-place"/>
+            <else-if type="manuscript">
+              <text macro="source-archive"/>
+            </else-if>
+          </choose>
         </substitute>
       </names>
       <text macro="author-contributors"/>
@@ -767,8 +774,11 @@
         <text macro="title"/>
       </else-if>
       <else>
-        <!-- If an item has no `title`, substitute with descriptions. -->
-        <text macro="title-and-descriptions"/>
+        <!-- if an item has no `title`, substitute with descriptions and capitalize -->
+        <group delimiter=", ">
+          <text macro="description-capitalized"/>
+          <text macro="identifier"/>
+        </group>
       </else>
     </choose>
   </macro>
@@ -792,8 +802,11 @@
         <text macro="title-short"/>
       </else-if>
       <else>
-        <!-- If an item has no `title`, substitute with descriptions and capitalize -->
-        <text macro="title-and-descriptions"/>
+        <!-- if an item has no `title`, substitute with descriptions and capitalize -->
+        <group delimiter=", ">
+          <text macro="description-capitalized"/>
+          <text macro="identifier"/>
+        </group>
       </else>
     </choose>
   </macro>

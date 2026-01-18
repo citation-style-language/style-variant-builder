@@ -24,7 +24,7 @@
      <updated>2025-11-05T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -218,10 +218,9 @@
+@@ -231,10 +231,9 @@
    <macro name="label-locator">
      <group delimiter=" ">
        <choose>
@@ -37,7 +37,7 @@
          <!-- a non-numeric canonical reference is described by its formatting and does not need a label, similar to a timestamp (NHR 17.2.5) -->
          <else-if locator="chapter line verse" match="any"/>
          <else>
-@@ -1191,7 +1190,7 @@
+@@ -1211,7 +1210,7 @@
          <text macro="source-medium" prefix="[" suffix="]"/>
        </group>
        <text macro="source-archive"/>
@@ -46,7 +46,7 @@
      </group>
    </macro>
    <!-- 3.1. Title -->
-@@ -2496,7 +2495,7 @@
+@@ -2690,7 +2689,7 @@
          </group>
        </if>
        <else>
@@ -55,7 +55,7 @@
        </else>
      </choose>
    </macro>
-@@ -2760,14 +2759,17 @@
+@@ -2979,14 +2978,17 @@
              <!-- check for variables that might come between the volume and page number -->
              <if match="none" variable="part-number part-title volume-title">
                <text variable="volume"/>
@@ -76,7 +76,7 @@
          </else>
        </choose>
      </group>
-@@ -2831,7 +2833,7 @@
+@@ -3050,7 +3052,7 @@
          </else-if>
          <else-if variable="archive archive_location page"/>
          <else>

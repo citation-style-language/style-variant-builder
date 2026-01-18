@@ -35,7 +35,7 @@
      <updated>2025-11-05T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -2265,29 +2266,25 @@
+@@ -2484,29 +2485,25 @@
          <if type="article-newspaper">
            <group delimiter=" ">
              <text macro="source-serial-title"/>
@@ -69,7 +69,7 @@
            </group>
          </else>
        </choose>
-@@ -3236,9 +3233,7 @@
+@@ -3455,9 +3452,7 @@
    </macro>
    <!-- 4.6. Date -->
    <macro name="source-date">
@@ -80,7 +80,7 @@
    </macro>
    <!-- Date elements -->
    <macro name="source-date-issued-full">
-@@ -3370,9 +3365,7 @@
+@@ -3589,9 +3584,7 @@
      </choose>
    </macro>
    <macro name="source-date-original">
@@ -91,7 +91,7 @@
    </macro>
    <macro name="source-date-original-full">
      <!-- Give full date for more ephemeral types; reflected in `date-year-sort` -->
-@@ -3895,9 +3888,9 @@
+@@ -4114,9 +4107,9 @@
        </choose>
      </group>
    </macro>
@@ -104,7 +104,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -4029,17 +4022,16 @@
+@@ -4248,17 +4241,16 @@
    <bibliography hanging-indent="true">
      <sort>
        <key macro="author-bib"/>
