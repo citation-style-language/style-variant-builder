@@ -60,7 +60,7 @@
 +      <key variable="title"/>
 +    </sort>
      <layout>
--      <text suffix="." variable="citation-number"/>
+-      <text suffix=". " variable="citation-number"/>
        <text macro="bibliography"/>
      </layout>
    </bibliography>
