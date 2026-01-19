@@ -1,8 +1,8 @@
 --- templates/american-medical-association-template.csl
 +++ development/american-medical-association.csl
-@@ -1,7 +1,7 @@
- <?xml version="1.0" encoding="utf-8"?>
- <style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="sort-only" page-range-format="expanded" initialize-with-hyphen="false" default-locale="en-US">
+@@ -5,7 +5,7 @@
+   type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+ <style class="in-text" default-locale="en-US" delimiter-precedes-last="always" demote-non-dropping-particle="sort-only" initialize-with="" initialize-with-hyphen="false" name-as-sort-order="all" name-delimiter=", " page-range-format="expanded" sort-separator=" " version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>AMA Manual of Style 11th edition (template)</title>
 +    <title>AMA Manual of Style 11th edition</title>

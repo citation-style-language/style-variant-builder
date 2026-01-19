@@ -1,8 +1,8 @@
 --- templates/american-medical-association-template.csl
 +++ development/american-medical-association-no-url-alphabetical.csl
-@@ -1,11 +1,11 @@
- <?xml version="1.0" encoding="utf-8"?>
- <style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="sort-only" page-range-format="expanded" initialize-with-hyphen="false" default-locale="en-US">
+@@ -5,11 +5,11 @@
+   type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+ <style class="in-text" default-locale="en-US" delimiter-precedes-last="always" demote-non-dropping-particle="sort-only" initialize-with="" initialize-with-hyphen="false" name-as-sort-order="all" name-delimiter=", " page-range-format="expanded" sort-separator=" " version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>AMA Manual of Style 11th edition (template)</title>
 -    <title-short>American Medical Association (numeric/Vancouver/citation-sequence)</title-short>
@@ -10,39 +10,39 @@
 -    <link href="http://www.zotero.org/styles/american-medical-association" rel="self"/>
 -    <link href="http://www.zotero.org/styles/american-medical-association-10th-edition" rel="template"/>
 +    <title>AMA Manual of Style 11th edition (sorted alphabetically, without URLs)</title>
-+    <title-short>American Medical Association (numeric/citation-name/Vancouver, no URLs)</title-short>
++    <title-short>American Medical Association (numeric/Vancouver/citation-name, no URLs)</title-short>
 +    <id>http://www.zotero.org/styles/american-medical-association-no-url-alphabetical</id>
 +    <link href="http://www.zotero.org/styles/american-medical-association-no-url-alphabetical" rel="self"/>
 +    <link href="http://www.zotero.org/styles/american-medical-association-no-url" rel="template"/>
      <link href="https://academic.oup.com/amamanualofstyle" rel="documentation"/>
-     <link href="https://owl.purdue.edu/owl/research_and_citation/ama_style/index.html" rel="documentation"/>
      <author>
-@@ -26,7 +26,7 @@
+       <name>Julian Onions</name>
+@@ -33,7 +33,7 @@
      </contributor>
      <category citation-format="numeric"/>
      <category field="medicine"/>
--    <summary>The American Medical Association style as used in JAMA. Version 11 as per November-2019.</summary>
-+    <summary>The American Medical Association style as used in JAMA, without the URL. Version 11 as per November-2019.</summary>
-     <updated>2025-08-21T13:58:10+00:00</updated>
+-    <summary>AMA Manual of Style: A Guide for Authors and Editors (11th ed.)</summary>
++    <summary>AMA Manual of Style: A Guide for Authors and Editors (11th ed.), with alphabetically sorted bibliography, without URLs.</summary>
+     <updated>2026-01-19T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -123,6 +123,11 @@
+@@ -146,6 +146,11 @@
      </layout>
    </citation>
-   <bibliography hanging-indent="false" et-al-min="7" et-al-use-first="3" second-field-align="flush">
+   <bibliography et-al-min="7" et-al-use-first="3" hanging-indent="false" second-field-align="flush">
 +    <sort>
 +      <key macro="author"/>
 +      <key macro="title"/>
 +      <key variable="issued"/>
 +    </sort>
      <layout>
-       <text variable="citation-number" suffix="."/>
-       <text macro="author"/>
-@@ -295,7 +300,6 @@
-           </group>
-         </else>
-       </choose>
--      <text prefix=" " macro="access"/>
+       <text suffix="." variable="citation-number"/>
+       <group delimiter=". ">
+@@ -286,7 +291,6 @@
+             </else>
+           </choose>
+         </group>
+-        <text macro="access"/>
+       </group>
      </layout>
    </bibliography>
- </style>

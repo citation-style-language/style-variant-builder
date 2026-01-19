@@ -1,8 +1,8 @@
 --- templates/american-medical-association-template.csl
 +++ development/american-medical-association-brackets.csl
-@@ -1,11 +1,11 @@
- <?xml version="1.0" encoding="utf-8"?>
- <style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="sort-only" page-range-format="expanded" initialize-with-hyphen="false" default-locale="en-US">
+@@ -5,11 +5,11 @@
+   type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+ <style class="in-text" default-locale="en-US" delimiter-precedes-last="always" demote-non-dropping-particle="sort-only" initialize-with="" initialize-with-hyphen="false" name-as-sort-order="all" name-delimiter=", " page-range-format="expanded" sort-separator=" " version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>AMA Manual of Style 11th edition (template)</title>
 -    <title-short>American Medical Association (numeric/Vancouver/citation-sequence)</title-short>
@@ -15,9 +15,9 @@
 +    <link href="http://www.zotero.org/styles/american-medical-association-brackets" rel="self"/>
 +    <link href="http://www.zotero.org/styles/american-medical-association" rel="template"/>
      <link href="https://academic.oup.com/amamanualofstyle" rel="documentation"/>
-     <link href="https://owl.purdue.edu/owl/research_and_citation/ama_style/index.html" rel="documentation"/>
      <author>
-@@ -114,9 +114,9 @@
+       <name>Julian Onions</name>
+@@ -137,9 +137,9 @@
      <sort>
        <key variable="citation-number"/>
      </sort>
@@ -26,6 +26,6 @@
        <text variable="citation-number"/>
 -      <group prefix="(" suffix=")">
 +      <group prefix=", ">
-         <label variable="locator" form="short" strip-periods="true"/>
+         <label form="short" strip-periods="true" variable="locator"/>
          <text variable="locator"/>
        </group>
