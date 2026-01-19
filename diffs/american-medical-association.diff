@@ -1,0 +1,11 @@
+--- templates/american-medical-association-template.csl
++++ development/american-medical-association.csl
+@@ -1,7 +1,7 @@
+ <?xml version="1.0" encoding="utf-8"?>
+ <style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="sort-only" page-range-format="expanded" initialize-with-hyphen="false" default-locale="en-US">
+   <info>
+-    <title>AMA Manual of Style 11th edition (template)</title>
++    <title>AMA Manual of Style 11th edition</title>
+     <title-short>American Medical Association (numeric/Vancouver/citation-sequence)</title-short>
+     <id>http://www.zotero.org/styles/american-medical-association</id>
+     <link href="http://www.zotero.org/styles/american-medical-association" rel="self"/>

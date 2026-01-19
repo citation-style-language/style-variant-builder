@@ -1,0 +1,39 @@
+--- templates/american-medical-association-template.csl
++++ development/american-medical-association-no-et-al.csl
+@@ -1,11 +1,11 @@
+ <?xml version="1.0" encoding="utf-8"?>
+ <style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="sort-only" page-range-format="expanded" initialize-with-hyphen="false" default-locale="en-US">
+   <info>
+-    <title>AMA Manual of Style 11th edition (template)</title>
+-    <title-short>American Medical Association (numeric/Vancouver/citation-sequence)</title-short>
+-    <id>http://www.zotero.org/styles/american-medical-association</id>
+-    <link href="http://www.zotero.org/styles/american-medical-association" rel="self"/>
+-    <link href="http://www.zotero.org/styles/american-medical-association-10th-edition" rel="template"/>
++    <title>AMA Manual of Style 11th edition (no "et al.")</title>
++    <title-short>American Medical Association (numeric/Vancouver/citation-sequence, no "et al.")</title-short>
++    <id>http://www.zotero.org/styles/american-medical-association-no-et-al</id>
++    <link href="http://www.zotero.org/styles/american-medical-association-no-et-al" rel="self"/>
++    <link href="http://www.zotero.org/styles/american-medical-association" rel="template"/>
+     <link href="https://academic.oup.com/amamanualofstyle" rel="documentation"/>
+     <link href="https://owl.purdue.edu/owl/research_and_citation/ama_style/index.html" rel="documentation"/>
+     <author>
+@@ -26,8 +26,8 @@
+     </contributor>
+     <category citation-format="numeric"/>
+     <category field="medicine"/>
+-    <summary>The American Medical Association style as used in JAMA. Version 11 as per November-2019.</summary>
+-    <updated>2025-08-21T13:58:10+00:00</updated>
++    <summary>The American Medical Association style as used in JAMA, without et al. Version 11 as per November-2019.</summary>
++    <updated>2022-03-17T13:38:04+00:00</updated>
+     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
+   </info>
+   <locale xml:lang="en">
+@@ -122,7 +122,7 @@
+       </group>
+     </layout>
+   </citation>
+-  <bibliography hanging-indent="false" et-al-min="7" et-al-use-first="3" second-field-align="flush">
++  <bibliography hanging-indent="false" et-al-min="99" et-al-use-first="98" second-field-align="flush">
+     <layout>
+       <text variable="citation-number" suffix="."/>
+       <text macro="author"/>
