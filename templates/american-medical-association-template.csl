@@ -147,7 +147,7 @@
   </citation>
   <bibliography et-al-min="7" et-al-use-first="3" second-field-align="flush">
     <layout>
-      <text suffix=". " variable="citation-number"/>
+      <text suffix="." variable="citation-number"/>
       <group delimiter=". ">
         <group delimiter=". " suffix=".">
           <text macro="author"/>

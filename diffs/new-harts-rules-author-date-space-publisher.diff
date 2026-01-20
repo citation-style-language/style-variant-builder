@@ -131,7 +131,7 @@
            <text macro="date"/>
            <text macro="title-and-source"/>
          </group>
-@@ -4260,17 +4253,16 @@
+@@ -4250,17 +4243,16 @@
    <bibliography hanging-indent="true">
      <sort>
        <key macro="author-bib"/>

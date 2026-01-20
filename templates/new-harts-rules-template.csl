@@ -4153,16 +4153,6 @@
       <text variable="references"/>
     </group>
   </macro>
-  <macro name="bibliography-numbered">
-    <group delimiter=". ">
-      <text variable="citation-number"/>
-      <group delimiter=", ">
-        <text macro="author-bib"/>
-        <text macro="title-and-source"/>
-      </group>
-      <text variable="references"/>
-    </group>
-  </macro>
   <macro name="bibliography-filtered-author-date">
     <choose>
       <if type="classic">

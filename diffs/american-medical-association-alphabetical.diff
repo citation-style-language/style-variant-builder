@@ -36,5 +36,5 @@
 +      <key variable="issued"/>
 +    </sort>
      <layout>
-       <text suffix=". " variable="citation-number"/>
+       <text suffix="." variable="citation-number"/>
        <group delimiter=". ">

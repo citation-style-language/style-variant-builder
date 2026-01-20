@@ -51,21 +51,22 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -4257,7 +4261,7 @@
+@@ -4247,7 +4251,7 @@
        </else>
      </choose>
    </macro>
 -  <bibliography hanging-indent="true">
-+  <bibliography hanging-indent="true" second-field-align="flush">
++  <bibliography second-field-align="flush">
      <sort>
        <key macro="author-bib"/>
        <key macro="title-and-descriptions"/>
-@@ -4270,7 +4274,7 @@
+@@ -4260,7 +4264,8 @@
        <key macro="source-archive"/>
      </sort>
      <layout suffix=".">
 -      <text macro="bibliography-filtered-notes"/>
-+      <text macro="bibliography-numbered"/>
++      <text suffix="." variable="citation-number"/>
++      <text macro="bibliography-notes"/>
      </layout>
    </bibliography>
  </style>

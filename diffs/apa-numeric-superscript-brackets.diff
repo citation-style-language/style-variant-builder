@@ -60,10 +60,11 @@
        </group>
      </layout>
    </citation>
-@@ -2255,20 +2251,11 @@
+@@ -2254,21 +2250,10 @@
+       </else>
      </choose>
    </macro>
-   <bibliography entry-spacing="0" et-al-min="21" et-al-use-first="19" et-al-use-last="true" hanging-indent="true" line-spacing="2">
+-  <bibliography entry-spacing="0" et-al-min="21" et-al-use-first="19" et-al-use-last="true" hanging-indent="true" line-spacing="2">
 -    <sort>
 -      <key macro="author-sort"/>
 -      <key macro="date-sort-group"/>
@@ -76,12 +77,11 @@
 -      <key variable="original-date"/>
 -      <key macro="source-archive"/>
 -    </sort>
++  <bibliography entry-spacing="0" et-al-min="21" et-al-use-first="19" et-al-use-last="true" line-spacing="2" second-field-align="flush">
      <layout>
 -      <text macro="bibliography-filtered"/>
-+      <group delimiter=". ">
-+        <text variable="citation-number"/>
-+        <text macro="bibliography"/>
-+      </group>
++      <text suffix="." variable="citation-number"/>
++      <text macro="bibliography"/>
      </layout>
    </bibliography>
  </style>
