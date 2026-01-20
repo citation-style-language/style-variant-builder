@@ -382,7 +382,14 @@
               <text macro="label-supplement-number"/>
             </group>
           </group>
-          <text variable="page"/>
+          <choose>
+            <if variable="number">
+              <text variable="number"/>
+            </if>
+            <else>
+              <text variable="page"/>
+            </else>
+          </choose>
         </group>
       </if>
     </choose>

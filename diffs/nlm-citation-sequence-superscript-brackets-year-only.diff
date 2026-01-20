@@ -34,7 +34,7 @@
                <text macro="date-accessed"/>
              </group>
              <choose>
-@@ -482,7 +483,7 @@
+@@ -489,7 +490,7 @@
      <sort>
        <key variable="citation-number"/>
      </sort>

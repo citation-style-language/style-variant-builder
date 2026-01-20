@@ -38,7 +38,7 @@
      <layout>
        <text suffix=". " variable="citation-number"/>
        <group delimiter=". ">
-@@ -286,7 +291,6 @@
+@@ -293,7 +298,6 @@
              </else>
            </choose>
          </group>
