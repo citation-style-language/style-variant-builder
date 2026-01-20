@@ -50,7 +50,7 @@
      </group>
    </macro>
    <!-- 3.1. Title -->
-@@ -2690,7 +2690,7 @@
+@@ -2702,7 +2702,7 @@
          </group>
        </if>
        <else>
@@ -59,7 +59,7 @@
        </else>
      </choose>
    </macro>
-@@ -2979,14 +2979,17 @@
+@@ -2991,14 +2991,17 @@
              <!-- check for variables that might come between the volume and page number -->
              <if match="none" variable="part-number part-title volume-title">
                <text variable="volume"/>
@@ -80,7 +80,7 @@
          </else>
        </choose>
      </group>
-@@ -3050,7 +3053,7 @@
+@@ -3062,7 +3065,7 @@
          </else-if>
          <else-if variable="archive archive_location page"/>
          <else>

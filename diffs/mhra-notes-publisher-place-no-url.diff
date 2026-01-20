@@ -36,7 +36,7 @@
      </group>
    </macro>
    <!-- 3.1. Title -->
-@@ -3214,7 +3214,7 @@
+@@ -3221,7 +3221,7 @@
          </else-if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -45,7 +45,7 @@
              <text variable="publisher"/>
            </group>
          </else-if>
-@@ -3236,7 +3236,7 @@
+@@ -3243,7 +3243,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">

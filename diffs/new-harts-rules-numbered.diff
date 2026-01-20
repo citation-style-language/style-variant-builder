@@ -35,7 +35,7 @@
      <updated>2025-11-05T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -4114,9 +4115,12 @@
+@@ -4126,9 +4127,12 @@
        </choose>
      </group>
    </macro>
@@ -51,7 +51,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -4245,7 +4249,7 @@
+@@ -4257,7 +4261,7 @@
        </else>
      </choose>
    </macro>
@@ -60,7 +60,7 @@
      <sort>
        <key macro="author-bib"/>
        <key macro="title-and-descriptions"/>
-@@ -4258,7 +4262,7 @@
+@@ -4270,7 +4274,7 @@
        <key macro="source-archive"/>
      </sort>
      <layout suffix=".">

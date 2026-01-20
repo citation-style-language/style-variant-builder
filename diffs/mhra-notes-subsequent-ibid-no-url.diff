@@ -36,7 +36,7 @@
      </group>
    </macro>
    <!-- 3.1. Title -->
-@@ -3829,7 +3829,7 @@
+@@ -3836,7 +3836,7 @@
    </macro>
    <citation disambiguate-add-givenname="true" disambiguate-add-names="true">
      <layout delimiter="; " suffix=".">
