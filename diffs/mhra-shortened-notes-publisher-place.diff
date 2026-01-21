@@ -25,7 +25,7 @@
      <updated>2025-11-23T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -3221,7 +3222,7 @@
+@@ -3241,7 +3242,7 @@
          </else-if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -34,7 +34,7 @@
              <text variable="publisher"/>
            </group>
          </else-if>
-@@ -3243,7 +3244,7 @@
+@@ -3263,7 +3264,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -43,7 +43,7 @@
            <text variable="original-publisher"/>
          </group>
        </if>
-@@ -3836,7 +3837,7 @@
+@@ -3856,7 +3857,7 @@
    </macro>
    <citation disambiguate-add-givenname="true" disambiguate-add-names="true">
      <layout delimiter="; " suffix=".">
@@ -52,7 +52,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -3966,7 +3967,7 @@
+@@ -3986,7 +3987,7 @@
        <key macro="source-archive"/>
      </sort>
      <layout>
