@@ -33,7 +33,7 @@
      </group>
    </macro>
    <!-- 3.1. Title -->
-@@ -4128,7 +4128,7 @@
+@@ -4136,7 +4136,7 @@
    </macro>
    <citation disambiguate-add-givenname="true" disambiguate-add-names="true">
      <layout delimiter="; " suffix=".">
@@ -42,7 +42,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -4260,7 +4260,7 @@
+@@ -4268,7 +4268,7 @@
        <key macro="source-archive"/>
      </sort>
      <layout suffix=".">

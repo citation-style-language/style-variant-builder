@@ -109,7 +109,7 @@
    </macro>
    <macro name="source-date-original-full">
      <!-- Give full date for more ephemeral types; reflected in `date-year-sort` -->
-@@ -4126,9 +4119,9 @@
+@@ -4134,9 +4127,9 @@
        </choose>
      </group>
    </macro>
@@ -122,7 +122,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -4250,17 +4243,16 @@
+@@ -4258,17 +4251,16 @@
    <bibliography hanging-indent="true">
      <sort>
        <key macro="author-bib"/>

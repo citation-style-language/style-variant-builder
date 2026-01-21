@@ -718,7 +718,7 @@
          <else-if variable="part-number">
            <text macro="label-volume"/>
            <text macro="label-part-number"/>
-@@ -3824,14 +3777,12 @@
+@@ -3832,14 +3785,12 @@
    <!-- 4.9. Archival location -->
    <macro name="source-archive">
      <group delimiter=", ">
@@ -735,7 +735,7 @@
        <choose>
          <!-- database identifier, if not included elsewhere (cf. CMOS18 14.113) -->
          <if match="any" variable="archive_collection archive_location archive-place"/>
-@@ -4043,8 +3994,32 @@
+@@ -4051,8 +4002,32 @@
      <group delimiter=", ">
        <choose>
          <if position="subsequent">
@@ -770,7 +770,7 @@
          </if>
          <else>
            <text macro="author-note"/>
-@@ -4098,9 +4073,12 @@
+@@ -4106,9 +4081,12 @@
              <text macro="source-medium"/>
            </else-if>
          </choose>
