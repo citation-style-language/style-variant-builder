@@ -209,17 +209,17 @@
     </choose>
   </macro>
   <macro name="content-type">
-    <text prefix="[" suffix="]" variable="genre"/>
+    <text variable="genre"/>
   </macro>
   <macro name="type-of-medium">
     <choose>
       <if variable="medium">
-        <text prefix="[" suffix="]" text-case="capitalize-first" variable="medium"/>
+        <text text-case="capitalize-first" variable="medium"/>
       </if>
       <else-if match="any" type="article-journal article-magazine article-newspaper periodical post-weblog review review-book"/>
       <else-if match="any" type="chapter entry-dictionary entry-encyclopedia paper-conference"/>
       <else-if variable="URL">
-        <text prefix="[" suffix="]" term="internet" text-case="capitalize-first"/>
+        <text term="internet" text-case="capitalize-first"/>
       </else-if>
     </choose>
   </macro>
@@ -250,11 +250,7 @@
                   <text variable="container-title"/>
                 </else>
               </choose>
-              <choose>
-                <if variable="URL">
-                  <text prefix="[" suffix="]" term="internet" text-case="capitalize-first"/>
-                </if>
-              </choose>
+              <text macro="type-of-medium" prefix="[" suffix="]"/>
             </group>
             <text macro="label-edition"/>
           </group>
@@ -493,14 +489,14 @@
         <group delimiter=" ">
           <group delimiter=". ">
             <text macro="title"/>
+            <text macro="content-type" prefix="[" suffix="]"/>
             <choose>
               <if match="none" variable="container-title">
+                <text macro="type-of-medium" prefix="[" suffix="]"/>
                 <text macro="label-edition"/>
               </if>
             </choose>
           </group>
-          <text macro="content-type"/>
-          <text macro="type-of-medium"/>
         </group>
         <group delimiter=": ">
           <text macro="container-preposition"/>
