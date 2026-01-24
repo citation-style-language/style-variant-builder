@@ -8,8 +8,8 @@
 -    <title-short>NHR (template)</title-short>
 -    <id>http://www.zotero.org/styles/new-harts-rules-notes</id>
 -    <link href="http://www.zotero.org/styles/new-harts-rules-notes" rel="self"/>
-+    <title>New Hart's Rules: The Oxford Style Guide 2nd edition (author and short-title notes)</title>
-+    <title-short>NHR (shortened notes [17.2.5])</title-short>
++    <title>New Hart's Rules: The Oxford Style Guide 2nd edition (shortened notes)</title>
++    <title-short>NHR (author and short-title notes [17.2.5])</title-short>
 +    <id>http://www.zotero.org/styles/new-harts-rules-short-notes</id>
 +    <link href="http://www.zotero.org/styles/new-harts-rules-short-notes" rel="self"/>
      <link href="https://en.wikipedia.org/wiki/Hart's_Rules" rel="documentation"/>
