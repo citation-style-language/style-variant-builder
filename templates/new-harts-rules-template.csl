@@ -427,7 +427,7 @@
           <names variable="curator"/>
           <choose>
             <if match="any" type="software webpage">
-              <!-- list under a publisher, developer, or owner/sponsor name (NHR 18.8.5) -->
+              <!-- list under a publisher, developer, or owner/sponsor name (NHR 18.8.1-5) -->
               <text variable="publisher"/>
             </if>
             <else-if type="standard">
@@ -437,7 +437,7 @@
           </choose>
           <choose>
             <if type="webpage">
-              <!-- website title substituted if no `publisher` (NHR 18.8.5) -->
+              <!-- website title substituted if no `publisher` (NHR 18.8.1-5) -->
               <text text-case="title" variable="container-title"/>
             </if>
           </choose>
@@ -499,7 +499,7 @@
             <names variable="curator"/>
             <choose>
               <if match="any" type="software webpage">
-                <!-- list under a publisher, developer, or owner/sponsor name (NHR 18.8.5) -->
+                <!-- list under a publisher, developer, or owner/sponsor name (NHR 18.8.1-5) -->
                 <text form="short" variable="publisher"/>
               </if>
               <else-if type="standard">
@@ -509,7 +509,7 @@
             </choose>
             <choose>
               <if type="webpage">
-                <!-- website title substituted if no `publisher` (NHR 18.8.5) -->
+                <!-- website title substituted if no `publisher` (NHR 18.8.1-5) -->
                 <text form="short" text-case="title" variable="container-title"/>
               </if>
             </choose>
@@ -582,7 +582,7 @@
           <names variable="curator"/>
           <choose>
             <if match="any" type="software webpage">
-              <!-- list under a publisher, developer, or owner/sponsor name (NHR 18.8.5) -->
+              <!-- list under a publisher, developer, or owner/sponsor name (NHR 18.8.1-5) -->
               <text variable="publisher"/>
             </if>
             <else-if type="standard">
@@ -592,7 +592,7 @@
           </choose>
           <choose>
             <if type="webpage">
-              <!-- website title substituted if no `publisher` (NHR 18.8.5) -->
+              <!-- website title substituted if no `publisher` (NHR 18.8.1-5) -->
               <text text-case="title" variable="container-title"/>
             </if>
           </choose>
@@ -665,7 +665,7 @@
             <names variable="curator"/>
             <choose>
               <if match="any" type="software webpage">
-                <!-- list under a publisher, developer, or owner/sponsor name (NHR 18.8.5) -->
+                <!-- list under a publisher, developer, or owner/sponsor name (NHR 18.8.1-5) -->
                 <text form="short" variable="publisher"/>
               </if>
               <else-if type="standard">
@@ -675,7 +675,7 @@
             </choose>
             <choose>
               <if type="webpage">
-                <!-- website title substituted if no `publisher` (NHR 18.8.5) -->
+                <!-- website title substituted if no `publisher` (NHR 18.8.1-5) -->
                 <text form="short" text-case="title" variable="container-title"/>
               </if>
             </choose>
