@@ -30,7 +30,7 @@
      <updated>2026-01-07T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -478,12 +479,13 @@
+@@ -487,12 +488,13 @@
        <text macro="label-locator"/>
      </group>
    </macro>
@@ -38,17 +38,17 @@
 +  <citation collapse="year" disambiguate-add-year-suffix="true" et-al-min="3" et-al-use-first="1">
      <sort>
 -      <key variable="citation-number"/>
-+      <key macro="date-short"/>
++      <key variable="issued"/>
 +      <key macro="author-short"/>
      </sort>
 -    <layout delimiter="," prefix="(" suffix=")">
 -      <text variable="citation-number"/>
 +    <layout delimiter="; " prefix="(" suffix=")">
-+      <text variable="citation-name-year"/>
++      <text macro="citation-name-year"/>
      </layout>
    </citation>
    <macro name="bibliography">
-@@ -525,9 +527,13 @@
+@@ -539,9 +541,13 @@
        <text macro="notes"/>
      </group>
    </macro>
@@ -56,7 +56,7 @@
 +  <bibliography et-al-min="7" et-al-use-first="6" hanging-indent="true">
 +    <sort>
 +      <key macro="author"/>
-+      <key macro="date"/>
++      <key variable="issued"/>
 +      <key variable="title"/>
 +    </sort>
      <layout>

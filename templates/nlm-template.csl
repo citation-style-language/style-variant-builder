@@ -107,12 +107,6 @@
       <text variable="locator"/>
     </group>
   </macro>
-  <macro name="label-number">
-    <group delimiter=" ">
-      <label form="short" text-case="capitalize-first" variable="number"/>
-      <text variable="number"/>
-    </group>
-  </macro>
   <macro name="label-number-of-pages">
     <group delimiter=" ">
       <text variable="number-of-pages"/>
@@ -190,7 +184,6 @@
         <names variable="editor translator"/>
         <names variable="editor"/>
         <names variable="collection-editor"/>
-        <text macro="title"/>
       </substitute>
     </names>
   </macro>
@@ -198,8 +191,18 @@
     <names variable="author">
       <name and="text" form="short"/>
       <substitute>
+        <names variable="editor-translator"/>
+        <names variable="editor translator"/>
         <names variable="editor"/>
-        <text form="short" variable="title"/>
+        <names variable="collection-editor"/>
+        <choose>
+          <if type="webpage" variable="container-title">
+            <text form="short" variable="container-title"/>
+          </if>
+          <else>
+            <text form="short" variable="title"/>
+          </else>
+        </choose>
       </substitute>
     </names>
   </macro>
@@ -222,7 +225,6 @@
       <if variable="medium">
         <text text-case="capitalize-first" variable="medium"/>
       </if>
-      <else-if match="any" type="article-journal article-magazine article-newspaper periodical post-weblog review review-book"/>
       <else-if match="any" type="chapter entry-dictionary entry-encyclopedia paper-conference"/>
       <else-if variable="URL">
         <text term="internet" text-case="capitalize-first"/>
@@ -256,7 +258,11 @@
                   <text variable="container-title"/>
                 </else>
               </choose>
-              <text macro="type-of-medium" prefix="[" suffix="]"/>
+              <choose>
+                <if variable="URL">
+                  <text prefix="[" suffix="]" term="internet" text-case="capitalize-first"/>
+                </if>
+              </choose>
             </group>
             <text macro="label-edition"/>
           </group>
@@ -438,9 +444,12 @@
   <macro name="report-number">
     <choose>
       <if type="report">
-        <group delimiter=" ">
-          <text term="report" text-case="capitalize-first"/>
-          <text macro="label-number"/>
+        <group delimiter=": ">
+          <group delimiter=" ">
+            <text term="report" text-case="capitalize-first"/>
+            <label form="short" text-case="capitalize-first" variable="number"/>
+          </group>
+          <text variable="number"/>
         </group>
       </if>
     </choose>
@@ -491,17 +500,22 @@
       <group delimiter=". " suffix=".">
         <text macro="author"/>
         <group delimiter=" ">
-          <group delimiter=". ">
-            <text macro="title"/>
-            <text macro="content-type" prefix="[" suffix="]"/>
-            <choose>
-              <if match="none" variable="container-title">
-                <text macro="type-of-medium" prefix="[" suffix="]"/>
-                <text macro="label-edition"/>
-              </if>
-            </choose>
-          </group>
+          <text macro="title"/>
+          <text macro="content-type" prefix="[" suffix="]"/>
+          <choose>
+            <if type="webpage" variable="container-title">
+              <text macro="type-of-medium" prefix="[" suffix="]"/>
+            </if>
+            <else-if match="none" variable="container-title">
+              <text macro="type-of-medium" prefix="[" suffix="]"/>
+            </else-if>
+          </choose>
         </group>
+        <choose>
+          <if match="none" variable="container-title">
+            <text macro="label-edition"/>
+          </if>
+        </choose>
         <group delimiter=": ">
           <text macro="container-preposition"/>
           <group delimiter=". ">
