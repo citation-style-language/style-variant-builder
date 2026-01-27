@@ -16,7 +16,7 @@
      <link href="https://www.nlm.nih.gov/citingmedicine" rel="documentation"/>
      <link href="https://www.nlm.nih.gov/bsd/uniform_requirements.html" rel="documentation"/>
      <link href="https://www.icmje.org/recommendations/" rel="documentation"/>
-@@ -43,7 +44,7 @@
+@@ -40,7 +41,7 @@
      <category field="generic-base"/>
      <category field="medicine"/>
      <category field="science"/>
@@ -25,7 +25,7 @@
      <updated>2026-01-07T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -522,6 +523,10 @@
+@@ -526,6 +527,10 @@
      </group>
    </macro>
    <bibliography et-al-min="7" et-al-use-first="6" second-field-align="flush">

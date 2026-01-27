@@ -29,9 +29,6 @@
       <uri>https://orcid.org/0000-0001-8249-7388</uri>
     </contributor>
     <contributor>
-      <name>Paul Lin</name>
-    </contributor>
-    <contributor>
       <name>Charles Parnot</name>
       <uri>https://orcid.org/0000-0002-7346-5883</uri>
     </contributor>
@@ -63,7 +60,10 @@
       <term form="short" name="month-07">Jul.</term>
       <term form="short" name="month-09">Sep.</term>
       <term name="presented at">presented at</term>
-      <term form="short" name="section">sect.</term>
+      <term form="short" name="section">
+        <single>sect.</single>
+        <multiple>sects.</multiple>
+      </term>
       <term form="short" name="supplement">
         <single>suppl.</single>
         <multiple>suppls.</multiple>
@@ -105,6 +105,12 @@
     <group delimiter=" ">
       <label form="short" plural="never" variable="locator"/>
       <text variable="locator"/>
+    </group>
+  </macro>
+  <macro name="label-number">
+    <group delimiter=" ">
+      <label form="short" text-case="capitalize-first" variable="number"/>
+      <text variable="number"/>
     </group>
   </macro>
   <macro name="label-number-of-pages">
@@ -435,8 +441,6 @@
         <group delimiter=" ">
           <text term="report" text-case="capitalize-first"/>
           <text macro="label-number"/>
-          <label form="short" text-case="capitalize-first" variable="number"/>
-          <text variable="number"/>
         </group>
       </if>
     </choose>
@@ -446,7 +450,7 @@
       <text term="available at" text-case="capitalize-first"/>
       <group delimiter=" ">
         <text variable="URL"/>
-        <text prefix="doi: " variable="DOI"/>
+        <text prefix="doi:" variable="DOI"/>
       </group>
     </group>
   </macro>
