@@ -25,7 +25,7 @@
      <updated>2026-01-07T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -328,7 +329,7 @@
+@@ -331,7 +332,7 @@
          <if match="any" type="article-journal article-magazine article-newspaper periodical post-weblog review review-book">
            <group delimiter=":">
              <group delimiter=" ">
@@ -34,7 +34,7 @@
                <text macro="date-of-citation"/>
              </group>
              <choose>
-@@ -376,7 +377,7 @@
+@@ -379,7 +380,7 @@
              <text variable="collection-title"/>
              <text variable="volume"/>
              <group delimiter=" " prefix="(" suffix=")">
@@ -43,7 +43,7 @@
                <text macro="label-supplement-number"/>
              </group>
            </group>
-@@ -511,7 +512,7 @@
+@@ -514,7 +515,7 @@
      <sort>
        <key variable="citation-number"/>
      </sort>
