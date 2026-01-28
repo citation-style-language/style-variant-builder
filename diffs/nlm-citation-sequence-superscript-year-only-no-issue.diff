@@ -31,10 +31,10 @@
              <group delimiter=" ">
 -              <date form="text" variable="issued"/>
 +              <date date-parts="year" form="numeric" variable="issued"/>
-               <text macro="date-of-citation"/>
-             </group>
-             <choose>
-@@ -379,7 +380,7 @@
+               <choose>
+                 <if type="article-journal" variable="DOI"/>
+                 <else-if type="article-journal" variable="PMID"/>
+@@ -386,7 +387,7 @@
              <text variable="collection-title"/>
              <text variable="volume"/>
              <group delimiter=" " prefix="(" suffix=")">
@@ -43,7 +43,7 @@
                <text macro="label-supplement-number"/>
              </group>
            </group>
-@@ -514,7 +515,7 @@
+@@ -521,7 +522,7 @@
      <sort>
        <key variable="citation-number"/>
      </sort>

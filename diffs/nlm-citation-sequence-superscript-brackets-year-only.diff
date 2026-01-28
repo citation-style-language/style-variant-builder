@@ -31,10 +31,10 @@
              <group delimiter=" ">
 -              <date form="text" variable="issued"/>
 +              <date date-parts="year" form="numeric" variable="issued"/>
-               <text macro="date-of-citation"/>
-             </group>
-             <choose>
-@@ -514,7 +515,7 @@
+               <choose>
+                 <if type="article-journal" variable="DOI"/>
+                 <else-if type="article-journal" variable="PMID"/>
+@@ -521,7 +522,7 @@
      <sort>
        <key variable="citation-number"/>
      </sort>

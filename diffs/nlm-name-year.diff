@@ -30,7 +30,7 @@
      <updated>2026-01-07T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -510,12 +511,13 @@
+@@ -517,12 +518,13 @@
        <text macro="label-locator"/>
      </group>
    </macro>
@@ -48,7 +48,7 @@
      </layout>
    </citation>
    <macro name="bibliography">
-@@ -562,9 +564,13 @@
+@@ -569,9 +571,13 @@
        <text macro="notes"/>
      </group>
    </macro>
