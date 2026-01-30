@@ -60,7 +60,7 @@
            <group delimiter=", ">
              <text macro="identifier-number-bib"/>
              <text macro="title-bib"/>
-@@ -1565,18 +1557,14 @@
+@@ -1566,18 +1558,14 @@
        </else-if>
        <else-if match="any" variable="collection-editor compiler editor editorial-director">
          <!-- monographic types -->
@@ -81,7 +81,7 @@
        </else>
      </choose>
    </macro>
-@@ -3211,9 +3199,7 @@
+@@ -3212,9 +3200,7 @@
        </if>
        <else-if match="any" variable="collection-editor compiler editor editorial-director">
          <!-- monographic types -->
@@ -92,7 +92,7 @@
        </else-if>
        <else-if match="any" type="interview paper-conference">
          <!-- serial types -->
-@@ -3221,9 +3207,7 @@
+@@ -3222,9 +3208,7 @@
        </else-if>
        <else>
          <!-- monographic types -->
@@ -103,7 +103,7 @@
        </else>
      </choose>
    </macro>
-@@ -3785,9 +3769,7 @@
+@@ -3786,9 +3770,7 @@
        <choose>
          <if match="any" type="article-magazine article-newspaper">
            <group delimiter=". ">
@@ -114,7 +114,7 @@
              <!-- newspaper edition always capitalized (CMOS18 14.89) -->
              <text macro="label-edition-capitalized"/>
            </group>
-@@ -3795,16 +3777,12 @@
+@@ -3796,16 +3778,12 @@
          </if>
          <else-if match="any" variable="issue supplement-number volume">
            <group delimiter=": ">
@@ -133,7 +133,7 @@
            <text macro="source-serial-locator"/>
          </else>
          <!-- TODO: If CSL adds `date-part` detection, add two further conditions to address CMOS18 14.74: delimiting with ":" if there is a `volume` and no month or `issue` or `supplement number`; delimiting with ", " or there is an `issue` or `supplement number` and no month -->
-@@ -4109,9 +4087,7 @@
+@@ -4110,9 +4088,7 @@
        </choose>
        <group delimiter=" ">
          <text macro="source-date-status-bib"/>
@@ -144,7 +144,7 @@
        </group>
      </group>
    </macro>
-@@ -4168,9 +4144,7 @@
+@@ -4169,9 +4145,7 @@
            <group delimiter=", ">
              <group delimiter=" ">
                <text macro="source-monographic-preposition-bib"/>
@@ -155,7 +155,7 @@
              </group>
              <text macro="source-monographic-description"/>
              <text macro="source-monographic-identifier-bib"/>
-@@ -4330,9 +4304,7 @@
+@@ -4332,9 +4306,7 @@
            <text macro="label-version"/>
            <!-- use note form as `edition` is not capitalized here -->
            <text macro="identifier-edition-note"/>
@@ -166,7 +166,7 @@
          </group>
        </if>
      </choose>
-@@ -4655,9 +4627,7 @@
+@@ -4735,9 +4707,7 @@
          <group delimiter=":">
            <choose>
              <if match="any" variable="part-number part-title volume-title"/>
@@ -177,7 +177,7 @@
              <else>
                <text variable="volume"/>
              </else>
-@@ -4676,9 +4646,7 @@
+@@ -4756,9 +4726,7 @@
            <choose>
              <!-- check for variables that might come between the volume and page number -->
              <if match="any" variable="part-number part-title volume-title"/>
@@ -188,7 +188,7 @@
              <else>
                <text variable="volume"/>
              </else>
-@@ -5204,9 +5172,7 @@
+@@ -5284,9 +5252,7 @@
        </choose>
        <group delimiter=" ">
          <text macro="source-date-status-bib"/>
@@ -199,7 +199,7 @@
        </group>
        <choose>
          <if type="broadcast" variable="URL"/>
-@@ -5684,9 +5650,7 @@
+@@ -5764,9 +5730,7 @@
      </choose>
    </macro>
    <macro name="source-date-original">
@@ -210,7 +210,7 @@
    </macro>
    <macro name="source-date-original-full">
      <!-- Give full date for more ephemeral types -->
-@@ -6794,9 +6758,9 @@
+@@ -6874,9 +6838,9 @@
        </else>
      </choose>
    </macro>
@@ -223,7 +223,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -6932,16 +6896,19 @@
+@@ -7012,16 +6976,19 @@
    <bibliography et-al-min="7" et-al-use-first="3" hanging-indent="true">
      <sort>
        <key macro="author-sort"/>
