@@ -17,15 +17,22 @@
      <link href="https://academic.oup.com/amamanualofstyle" rel="documentation"/>
      <author>
        <name>Julian Onions</name>
-@@ -137,9 +137,9 @@
+@@ -137,11 +137,13 @@
      <sort>
        <key variable="citation-number"/>
      </sort>
 -    <layout delimiter="," vertical-align="sup">
-+    <layout delimiter="," prefix="[" suffix="]">
-       <text variable="citation-number"/>
+-      <text variable="citation-number"/>
 -      <group prefix="(" suffix=")">
-+      <group prefix=", ">
-         <label form="short" strip-periods="true" variable="locator"/>
-         <text variable="locator"/>
+-        <label form="short" strip-periods="true" variable="locator"/>
+-        <text variable="locator"/>
++    <layout delimiter="," prefix="[" suffix="]">
++      <group delimiter=", ">
++        <text variable="citation-number"/>
++        <group>
++          <label form="short" strip-periods="true" variable="locator"/>
++          <text variable="locator"/>
++        </group>
        </group>
+     </layout>
+   </citation>
