@@ -25,7 +25,7 @@
      <category field="theology"/>
 -    <summary>Oxford source citations, template</summary>
 +    <summary>Oxford source citations, notes system, author forenames reduced to initials (NHR 18.2.2), page abbreviations with locator (NHR 17.2.5), without URLs</summary>
-     <updated>2025-11-05T00:00:00+00:00</updated>
+     <updated>2026-02-05T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
 @@ -231,10 +232,9 @@
@@ -50,7 +50,7 @@
      </group>
    </macro>
    <!-- 3.1. Title -->
-@@ -2714,7 +2714,7 @@
+@@ -2741,7 +2741,7 @@
          </group>
        </if>
        <else>
@@ -59,7 +59,7 @@
        </else>
      </choose>
    </macro>
-@@ -3003,14 +3003,17 @@
+@@ -3047,14 +3047,17 @@
              <!-- check for variables that might come between the volume and page number -->
              <if match="none" variable="part-number part-title volume-title">
                <text variable="volume"/>
@@ -80,7 +80,7 @@
          </else>
        </choose>
      </group>
-@@ -3074,7 +3077,7 @@
+@@ -3118,7 +3121,7 @@
          </else-if>
          <else-if variable="archive archive_location page"/>
          <else>

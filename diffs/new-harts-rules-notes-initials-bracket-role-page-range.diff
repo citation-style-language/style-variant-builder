@@ -25,7 +25,7 @@
      <category field="theology"/>
 -    <summary>Oxford source citations, template</summary>
 +    <summary>Oxford source citations, notes system, author forenames reduced to initials (NHR 18.2.2), bracketed contributor roles in bibliography (NHR 18.2.3), chapter and journal article page ranges</summary>
-     <updated>2025-11-05T00:00:00+00:00</updated>
+     <updated>2026-02-05T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
 @@ -385,9 +386,7 @@
@@ -84,7 +84,7 @@
      </group>
    </macro>
    <macro name="source-serial-identifier-author-date">
-@@ -2789,9 +2776,7 @@
+@@ -2833,9 +2820,7 @@
      <!-- based on `author-note` -->
      <names variable="container-author">
        <name delimiter-precedes-last="contextual"/>
@@ -95,7 +95,7 @@
        <substitute>
          <names variable="author"/>
          <names variable="guest"/>
-@@ -3016,9 +3001,7 @@
+@@ -3060,9 +3045,7 @@
      </group>
    </macro>
    <macro name="source-monographic-locator-range">
@@ -106,7 +106,7 @@
        <choose>
          <if match="any" variable="part-number part-title volume-title"/>
          <else-if match="any" variable="locator page">
-@@ -3849,9 +3832,7 @@
+@@ -3893,9 +3876,7 @@
        <!-- usually `archive`, `archive-place` but sometimes also `archive-place`, `archive` (NHR 18.6.5); the latter is more common elsewhere (OGS 15.11.1 and MHRA4 7.7) -->
        <text variable="archive_collection"/>
        <text variable="archive_location"/>

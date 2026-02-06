@@ -22,7 +22,7 @@
      <category field="theology"/>
 -    <summary>Oxford source citations, template</summary>
 +    <summary>Oxford source citations, notes system</summary>
-     <updated>2025-11-05T00:00:00+00:00</updated>
+     <updated>2026-02-05T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
 @@ -43,26 +44,83 @@
@@ -209,7 +209,7 @@
      </group>
    </macro>
    <macro name="source-serial-identifier-author-date">
-@@ -2762,8 +2791,6 @@
+@@ -2789,8 +2818,6 @@
            </group>
          </if>
        </choose>
@@ -218,7 +218,7 @@
        <text macro="source-event"/>
      </group>
    </macro>
-@@ -2789,9 +2816,7 @@
+@@ -2833,9 +2860,7 @@
      <!-- based on `author-note` -->
      <names variable="container-author">
        <name delimiter-precedes-last="contextual"/>
@@ -229,7 +229,7 @@
        <substitute>
          <names variable="author"/>
          <names variable="guest"/>
-@@ -3209,16 +3234,14 @@
+@@ -3253,16 +3278,14 @@
          <else-if match="any" type="article-journal article-magazine article-newspaper periodical post-weblog review review-book"/>
          <else-if match="any" variable="collection-editor compiler editor editorial-director">
            <!-- monographic types -->
@@ -248,7 +248,7 @@
            <text macro="source-publication-and-date"/>
          </else>
        </choose>
-@@ -3738,17 +3761,13 @@
+@@ -3782,17 +3805,13 @@
          <text macro="source-locator-subsequent-serial"/>
        </if>
        <else-if match="any" variable="collection-editor compiler editor editorial-director">
@@ -268,7 +268,7 @@
        </else>
      </choose>
    </macro>
-@@ -3794,8 +3813,7 @@
+@@ -3838,8 +3857,7 @@
            <!-- Do not provide `volume` or `part-number` for defined section -->
            <text macro="label-locator"/>
          </if>
@@ -278,7 +278,7 @@
            <text macro="label-volume"/>
            <text macro="label-part-number"/>
            <text macro="label-locator"/>
-@@ -3805,7 +3823,7 @@
+@@ -3849,7 +3867,7 @@
              <text macro="label-volume"/>
              <text macro="label-locator"/>
            </group>
@@ -287,7 +287,7 @@
          <else-if variable="part-number">
            <text macro="label-volume"/>
            <text macro="label-part-number"/>
-@@ -3849,9 +3867,7 @@
+@@ -3893,9 +3911,7 @@
        <!-- usually `archive`, `archive-place` but sometimes also `archive-place`, `archive` (NHR 18.6.5); the latter is more common elsewhere (OGS 15.11.1 and MHRA4 7.7) -->
        <text variable="archive_collection"/>
        <text variable="archive_location"/>

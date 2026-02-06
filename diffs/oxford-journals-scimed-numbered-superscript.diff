@@ -1,0 +1,430 @@
+--- templates/new-harts-rules-template.csl
++++ development/oxford-journals-scimed-numbered-superscript.csl
+@@ -3,34 +3,23 @@
+   type="application/relax-ng-compact-syntax" schematypens="http://relaxng.org/ns/compatibility/annotations/1.0"?>
+ <?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl-repository.rnc"
+   type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+-<style and="text" class="note" default-locale="en-GB" demote-non-dropping-particle="display-and-sort" et-al-min="4" et-al-use-first="1" page-range-format="minimal" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
++<style class="in-text" default-locale="en-GB" delimiter-precedes-et-al="never" delimiter-precedes-last="always" demote-non-dropping-particle="display-and-sort" et-al-min="4" et-al-use-first="3" initialize-with="" name-as-sort-order="all" name-delimiter=", " names-delimiter=", " page-range-format="minimal" sort-separator=" " version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
+   <info>
+-    <title>New Hart's Rules: The Oxford Style Guide 2nd edition (template)</title>
+-    <title-short>NHR (template)</title-short>
+-    <id>http://www.zotero.org/styles/new-harts-rules-notes</id>
+-    <link href="http://www.zotero.org/styles/new-harts-rules-notes" rel="self"/>
++    <title>Oxford University Press - Science and Medicine Journals (numbered, superscript)</title>
++    <title-short>OUP SciMed (author-number/numeric/citation-sequence/Vancouver), based on New Hart's Rules/NHR</title-short>
++    <id>http://www.zotero.org/styles/oxford-journals-scimed-numbered-superscript</id>
++    <link href="http://www.zotero.org/styles/oxford-journals-scimed-numbered-superscript" rel="self"/>
++    <link href="http://www.zotero.org/styles/new-harts-rules-notes" rel="template"/>
+     <link href="https://en.wikipedia.org/wiki/Hart's_Rules" rel="documentation"/>
++    <link href="https://academic.oup.com/emph/pages/Manuscript_Preparation" rel="documentation"/>
+     <author>
+       <name>Andrew Dunning</name>
+       <uri>https://orcid.org/0000-0003-0464-5036</uri>
+     </author>
+-    <category citation-format="note"/>
+-    <category field="anthropology"/>
+-    <category field="communications"/>
+-    <category field="generic-base"/>
+-    <category field="geography"/>
+-    <category field="history"/>
+-    <category field="humanities"/>
+-    <category field="linguistics"/>
+-    <category field="literature"/>
+-    <category field="philosophy"/>
+-    <category field="political_science"/>
+-    <category field="psychology"/>
++    <category citation-format="numeric"/>
++    <category field="medicine"/>
+     <category field="science"/>
+-    <category field="social_science"/>
+-    <category field="sociology"/>
+-    <category field="theology"/>
+-    <summary>Oxford source citations, template</summary>
++    <summary>Oxford source citations, numbered system, with superscript in-text references: Oxford Journals customization using bibliography entries punctuated with full stops with unspaced initials, bracketed roles, article titles in sentence case without quotes, short journal titles, abbreviated journal identification, publisher name.</summary>
+     <updated>2026-02-05T00:00:00+00:00</updated>
+     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
+   </info>
+@@ -42,6 +31,7 @@
+     </date>
+     <terms>
+       <!-- Like Chicago, Oxford omits 'by' from `verb-short` forms; it abbreviates only the most common roles -->
++      <term name="accessed">date last accessed</term>
+       <term name="advance-online-publication">published online</term>
+       <term form="verb-short" name="collection-editor">ed.</term>
+       <term form="verb-short" name="compiler">comp.</term>
+@@ -381,13 +371,11 @@
+   <macro name="author-bib">
+     <group delimiter=", ">
+       <names variable="composer">
+-        <name delimiter-precedes-et-al="after-inverted-name" delimiter-precedes-last="always" name-as-sort-order="first"/>
+         <!-- for OGS: -->
+         <!-- <name delimiter-precedes-et-al="after-inverted-name" delimiter-precedes-last="always" font-variant="small-caps" name-as-sort-order="first"/>
+         <et-al font-variant="normal"/> -->
+-        <label form="short" prefix=", "/>
+-        <!-- for OGS or variants with bracketed roles: -->
+-        <!-- <label form="short" prefix=" (" suffix=")"/> -->
++        <et-al font-style="italic"/>
++        <label form="short" prefix=" (" suffix=")"/>
+         <substitute>
+           <names variable="author"/>
+           <names variable="guest"/>
+@@ -529,9 +517,7 @@
+     <group delimiter=", ">
+       <names variable="composer">
+         <name delimiter-precedes-last="contextual"/>
+-        <label form="short" prefix=", "/>
+-        <!-- for OGS or variants with bracketed roles: -->
+-        <!-- <label form="short" prefix=" (" suffix=")"/> -->
++        <label form="short" prefix=" (" suffix=")"/>
+         <substitute>
+           <names variable="author"/>
+           <names variable="guest"/>
+@@ -1152,11 +1138,11 @@
+     </choose>
+   </macro>
+   <macro name="title-and-source">
+-    <group delimiter=", ">
++    <group delimiter=". ">
+       <group delimiter=" ">
+         <group delimiter=", ">
+-          <group delimiter=" ">
+-            <group delimiter=", ">
++          <group delimiter=". ">
++            <group delimiter=". ">
+               <choose>
+                 <if type="chapter" variable="container-title genre title">
+                   <text macro="title-and-descriptions"/>
+@@ -1246,11 +1232,11 @@
+         <choose>
+           <if variable="reviewed-genre title">
+             <!-- Quotes, title case -->
+-            <text form="short" quotes="true" text-case="title" variable="title"/>
++            <text form="short" variable="title"/>
+           </if>
+           <else-if variable="reviewed-genre reviewed-title title">
+             <!-- Quotes, title case -->
+-            <text form="short" quotes="true" text-case="title" variable="title"/>
++            <text form="short" variable="title"/>
+           </else-if>
+           <else>
+             <text macro="description-short"/>
+@@ -1318,7 +1304,7 @@
+       </else-if>
+       <else-if type="entry-encyclopedia" variable="author container-title">
+         <!-- Signed encyclopedia entry in quotes, title case (cf. CMOS18 14.132) -->
+-        <text quotes="true" text-case="title" variable="part-title"/>
++        <text variable="part-title"/>
+       </else-if>
+       <else-if type="entry-dictionary" variable="container-title">
+         <!-- Quotes, sentence case -->
+@@ -1334,7 +1320,7 @@
+       </else-if>
+       <else-if type="webpage">
+         <!-- Quotes, title case -->
+-        <text quotes="true" text-case="title" variable="part-title"/>
++        <text variable="part-title"/>
+       </else-if>
+       <!-- Other types are formatted based on presence of `container-title` -->
+       <else-if variable="container-title">
+@@ -1342,7 +1328,7 @@
+           <if match="any" type="article-journal article-magazine article-newspaper periodical post-weblog review review-book">
+             <!-- serial types -->
+             <!-- Quotes, title case -->
+-            <text quotes="true" text-case="title" variable="part-title"/>
++            <text variable="part-title"/>
+           </if>
+           <else-if match="any" variable="collection-editor compiler editor editorial-director">
+             <!-- monographic types -->
+@@ -1352,7 +1338,7 @@
+           <else-if match="any" type="interview paper-conference">
+             <!-- serial types -->
+             <!-- Quotes, title case -->
+-            <text quotes="true" text-case="title" variable="part-title"/>
++            <text variable="part-title"/>
+           </else-if>
+           <else>
+             <!-- monographic types -->
+@@ -1364,7 +1350,7 @@
+       <else-if match="any" type="article dataset document interview manuscript paper-conference personal_communication speech thesis webpage">
+         <!-- Container-like but not necessarily with `container-title` -->
+         <!-- Quotes, title case -->
+-        <text quotes="true" text-case="title" variable="part-title"/>
++        <text variable="part-title"/>
+       </else-if>
+       <else>
+         <!-- Italicized, title case (default) -->
+@@ -1388,7 +1374,7 @@
+       </else-if>
+       <else-if type="entry-encyclopedia" variable="author container-title">
+         <!-- Signed encyclopedia entry in quotes, title case (cf. CMOS18 14.132) -->
+-        <text quotes="true" text-case="title" variable="title"/>
++        <text variable="title"/>
+       </else-if>
+       <else-if type="entry-dictionary" variable="container-title">
+         <!-- Quotes, sentence case -->
+@@ -1405,12 +1391,12 @@
+       <!-- Other types are formatted based on presence of `container-title` -->
+       <else-if variable="container-title">
+         <!-- Quotes, title case -->
+-        <text quotes="true" text-case="title" variable="title"/>
++        <text variable="title"/>
+       </else-if>
+       <else-if match="any" type="article dataset document interview manuscript paper-conference personal_communication speech thesis webpage">
+         <!-- Container-like but not necessarily with `container-title` -->
+         <!-- Quotes, title case -->
+-        <text quotes="true" text-case="title" variable="title"/>
++        <text variable="title"/>
+       </else-if>
+       <else>
+         <!-- Italicized, title case (default) -->
+@@ -1434,7 +1420,7 @@
+       </else-if>
+       <else-if type="entry-encyclopedia" variable="author container-title">
+         <!-- Signed encyclopedia entry in quotes, title case (cf. CMOS18 14.132) -->
+-        <text form="short" quotes="true" text-case="title" variable="title"/>
++        <text form="short" variable="title"/>
+       </else-if>
+       <else-if type="entry-dictionary" variable="container-title">
+         <!-- Quotes, sentence case -->
+@@ -1451,12 +1437,12 @@
+       <!-- Other types are formatted based on presence of `container-title` -->
+       <else-if variable="container-title">
+         <!-- Quotes, title case -->
+-        <text form="short" quotes="true" text-case="title" variable="title"/>
++        <text form="short" variable="title"/>
+       </else-if>
+       <else-if match="any" type="article dataset document interview manuscript paper-conference personal_communication speech thesis webpage">
+         <!-- Container-like but not necessarily with `container-title` -->
+         <!-- Quotes, title case -->
+-        <text form="short" quotes="true" text-case="title" variable="title"/>
++        <text form="short" variable="title"/>
+       </else-if>
+       <else>
+         <!-- Italicized, title case (default) -->
+@@ -1468,7 +1454,7 @@
+     <choose>
+       <if type="manuscript">
+         <!-- Quotes, title case -->
+-        <text quotes="true" text-case="title" variable="volume-title"/>
++        <text variable="volume-title"/>
+       </if>
+       <else>
+         <!-- Italics, title case -->
+@@ -2512,8 +2498,10 @@
+           </group>
+         </if>
+         <else-if match="any" variable="collection-title issue supplement-number volume">
+-          <text macro="source-serial-title"/>
+-          <text macro="source-serial-identifier"/>
++          <group delimiter=" ">
++            <text macro="source-serial-title"/>
++            <text macro="source-serial-identifier"/>
++          </group>
+         </else-if>
+         <else-if type="interview" variable="publisher">
+           <!-- publisher possible with `interview` (NHR 18.7.3) -->
+@@ -2539,7 +2527,7 @@
+   <!-- Serial source title -->
+   <macro name="source-serial-name">
+     <group delimiter=" ">
+-      <text font-style="italic" text-case="title" variable="container-title"/>
++      <text font-style="italic" form="short" strip-periods="true" text-case="title" variable="container-title"/>
+       <choose>
+         <!-- TODO: remove conditional when Zotero stops double-mapping `event-place` and `publisher-place` -->
+         <if match="none" variable="event-date event-title">
+@@ -2568,13 +2556,13 @@
+           <text term="special-issue"/>
+         </else-if>
+       </choose>
+-      <group delimiter=" ">
++      <group delimiter=": ">
+         <choose>
+           <!-- 'in' for reviews only (NHR 18.3.5) -->
+           <if match="none" variable="container-title"/>
+           <else-if match="any" type="periodical" variable="supplement-number volume-title"/>
+           <else-if match="any" type="review review-book" variable="reviewed-author reviewed-genre reviewed-title">
+-            <text term="in"/>
++            <text term="in" text-case="capitalize-first"/>
+           </else-if>
+         </choose>
+         <text macro="source-serial-name"/>
+@@ -2586,8 +2574,8 @@
+       <if variable="volume-title">
+         <!-- Journal special issues (cf. CMOS18 14.77) and supplements (cf. CMOS18 14.78) -->
+         <group delimiter=", ">
+-          <group delimiter=" ">
+-            <text term="in"/>
++          <group delimiter=": ">
++            <text term="in" text-case="capitalize-first"/>
+             <group delimiter=", ">
+               <text macro="source-monographic-author"/>
+               <text macro="title-volume"/>
+@@ -2599,8 +2587,8 @@
+   </macro>
+   <!-- Serial source identifier -->
+   <macro name="source-serial-identifier">
+-    <group delimiter=", ">
+-      <text macro="source-serial-identifier-volume"/>
++    <group delimiter=":">
++      <text macro="source-serial-identifier-volume-abbreviated"/>
+       <!-- periodical edition always capitalized (cf. CMOS18 14.89) -->
+       <text macro="label-edition-capitalized"/>
+       <text macro="source-serial-locator"/>
+@@ -2777,8 +2765,8 @@
+       <choose>
+         <if variable="container-title">
+           <group delimiter=", ">
+-            <group delimiter=" ">
+-              <text macro="source-monographic-preposition"/>
++            <group delimiter=": ">
++              <text macro="source-monographic-preposition-capitalized"/>
+               <group delimiter=", ">
+                 <text macro="source-monographic-author"/>
+                 <text macro="source-monographic-title"/>
+@@ -2832,10 +2820,8 @@
+   <macro name="source-monographic-author">
+     <!-- based on `author-note` -->
+     <names variable="container-author">
+-      <name delimiter-precedes-last="contextual"/>
+-      <label form="short" prefix=", "/>
+-      <!-- for OGS or variants with bracketed roles: -->
+-      <!-- <label form="short" prefix=" (" suffix=")"/> -->
++      <et-al font-style="italic"/>
++      <label form="short" prefix=" (" suffix=")"/>
+       <substitute>
+         <names variable="author"/>
+         <names variable="guest"/>
+@@ -3273,24 +3259,24 @@
+     <!-- Facts of publication with brackets for print monographic formats -->
+     <choose>
+       <if match="any" type="book broadcast chapter classic entry interview motion_picture musical_score pamphlet paper-conference post report software song standard webpage">
+-        <text macro="source-monographic-publication" prefix="(" suffix=")"/>
++        <text macro="source-monographic-publication"/>
+       </if>
+       <else-if type="article" variable="genre publisher">
+         <!-- without brackets for a preprint in a repository (cf. CMOS18 14.76), with brackets for a working paper (cf. CMOS18 14.116) -->
+-        <text macro="source-monographic-publication" prefix="(" suffix=")"/>
++        <text macro="source-monographic-publication"/>
+       </else-if>
+       <!-- dictionary/encyclopedia entries probably are bracketed only with publisher (cf. MHRA4 7.5) -->
+       <else-if type="entry-dictionary" variable="publisher">
+-        <text macro="source-monographic-publication" prefix="(" suffix=")"/>
++        <text macro="source-monographic-publication"/>
+       </else-if>
+       <else-if type="entry-encyclopedia" variable="publisher">
+-        <text macro="source-monographic-publication" prefix="(" suffix=")"/>
++        <text macro="source-monographic-publication"/>
+       </else-if>
+       <else-if type="personal_communication">
+         <choose>
+           <if match="any" variable="collection-editor compiler editor editorial-director issue page supplement-number volume">
+             <!-- in an edited collection -->
+-            <text macro="source-monographic-publication" prefix="(" suffix=")"/>
++            <text macro="source-monographic-publication"/>
+           </if>
+         </choose>
+       </else-if>
+@@ -3394,11 +3380,11 @@
+       <if type="article" variable="genre"/>
+       <else-if type="article">
+         <!-- `preprint` term attached to repository name, but specific working paper descriptors appear in description (cf. CMOS18 14.76, 14.116) -->
+-        <text term="preprint"/>
++        <text term="preprint" text-case="capitalize-first"/>
+       </else-if>
+       <else-if type="thesis">
+         <!-- thesis type appears with university name (cf. MHRA4 7.10) -->
+-        <text variable="genre"/>
++        <text variable="genre" text-case="capitalize-first"/>
+       </else-if>
+       <else-if match="any" variable="original-publisher original-publisher-place">
+         <choose>
+@@ -3493,7 +3479,7 @@
+                 <text form="short" term="no-place"/>
+               </else>
+             </choose>
+-            <!-- <text variable="publisher"/> -->
++            <text variable="publisher"/>
+           </group>
+         </if>
+         <else>
+@@ -3513,7 +3499,7 @@
+       <if match="any" type="book chapter classic entry entry-dictionary entry-encyclopedia interview musical_score pamphlet paper-conference report">
+         <group delimiter=": ">
+           <text variable="original-publisher-place"/>
+-          <!-- <text variable="original-publisher"/> -->
++          <text variable="original-publisher"/>
+         </group>
+       </if>
+       <else>
+@@ -4017,14 +4003,14 @@
+     </choose>
+   </macro>
+   <macro name="source-date-accessed-DOI-URL">
+-    <group delimiter=", ">
++    <group delimiter=" ">
+       <text macro="source-DOI-URL"/>
+       <choose>
+         <if variable="DOI"/>
+         <else-if variable="URL">
+-          <group delimiter=" ">
++          <group delimiter=", " prefix="(" suffix=")">
++            <date form="text" variable="accessed"/>
+             <text term="accessed"/>
+-            <date form="text" variable="accessed"/>
+           </group>
+         </else-if>
+       </choose>
+@@ -4190,9 +4176,16 @@
+       </choose>
+     </group>
+   </macro>
+-  <citation disambiguate-add-givenname="true" disambiguate-add-names="true">
+-    <layout delimiter="; " suffix=".">
+-      <text macro="citation-notes-full-subsequent-author-title"/>
++  <citation collapse="citation-number">
++    <sort>
++      <key variable="citation-number"/>
++    </sort>
++    <layout delimiter="," vertical-align="sup">
++      <text variable="citation-number"/>
++      <group prefix="(" suffix=")">
++        <label form="short" strip-periods="true" variable="locator"/>
++        <text variable="locator"/>
++      </group>
+     </layout>
+   </citation>
+   <!-- Bibliography -->
+@@ -4210,7 +4203,7 @@
+   </macro>
+   <macro name="bibliography-notes">
+     <group delimiter=". ">
+-      <group delimiter=", ">
++      <group delimiter=". ">
+         <text macro="author-bib"/>
+         <text macro="title-and-source"/>
+       </group>
+@@ -4311,20 +4304,10 @@
+       </else>
+     </choose>
+   </macro>
+-  <bibliography hanging-indent="true">
+-    <sort>
+-      <key macro="author-bib"/>
+-      <key macro="title-and-descriptions"/>
+-      <key macro="source"/>
+-      <key variable="volume"/>
+-      <key variable="part-number"/>
+-      <key variable="event-date"/>
+-      <key variable="original-date"/>
+-      <key macro="source-date-issued-or-status"/>
+-      <key macro="source-archive"/>
+-    </sort>
++  <bibliography second-field-align="flush">
+     <layout suffix=".">
+-      <text macro="bibliography-filtered-notes"/>
++      <text suffix="." variable="citation-number"/>
++      <text macro="bibliography-notes"/>
+     </layout>
+   </bibliography>
+ </style>

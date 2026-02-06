@@ -31,7 +31,7 @@
     <category field="sociology"/>
     <category field="theology"/>
     <summary>Oxford source citations, template</summary>
-    <updated>2025-11-05T00:00:00+00:00</updated>
+    <updated>2026-02-05T00:00:00+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <locale xml:lang="en">
@@ -2676,6 +2676,33 @@
       </choose>
     </group>
   </macro>
+  <macro name="source-serial-identifier-volume-abbreviated">
+    <group delimiter=", ">
+      <!-- `collection-title` is for any serial with multiple series (e.g. 'second series') -->
+      <text variable="collection-title"/>
+      <choose>
+        <if type="article-newspaper">
+          <!-- newspapers cited by date (NHR 18.3.3) -->
+          <text macro="source-serial-volume-status"/>
+        </if>
+        <else-if match="any" variable="issue supplement-number volume">
+          <group delimiter=";">
+            <text macro="source-date"/>
+            <group>
+              <text font-weight="bold" variable="volume"/>
+              <group delimiter=", " prefix="(" suffix=")">
+                <text variable="issue"/>
+                <text macro="label-supplement-number"/>
+              </group>
+            </group>
+          </group>
+        </else-if>
+        <else>
+          <text macro="source-serial-volume-status"/>
+        </else>
+      </choose>
+    </group>
+  </macro>
   <macro name="source-serial-volume-status">
     <group delimiter=", ">
       <choose>
@@ -2782,6 +2809,23 @@
       </else-if>
       <else>
         <text term="in"/>
+      </else>
+    </choose>
+  </macro>
+  <macro name="source-monographic-preposition-capitalized">
+    <choose>
+      <if match="any" type="broadcast motion_picture"/>
+      <else-if variable="chapter-number page title">
+        <text term="in" text-case="capitalize-first"/>
+      </else-if>
+      <else-if variable="chapter-number title">
+        <group delimiter=" ">
+          <text macro="label-chapter-number"/>
+          <text term="in"/>
+        </group>
+      </else-if>
+      <else>
+        <text term="in" text-case="capitalize-first"/>
       </else>
     </choose>
   </macro>

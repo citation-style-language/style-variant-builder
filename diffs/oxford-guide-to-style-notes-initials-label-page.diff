@@ -25,7 +25,7 @@
      <category field="theology"/>
 -    <summary>Oxford source citations, template</summary>
 +    <summary>Oxford source citations, notes system, author forenames reduced to initials, page abbreviations with locator</summary>
-     <updated>2025-11-05T00:00:00+00:00</updated>
+     <updated>2026-02-05T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
 @@ -43,26 +44,83 @@
@@ -225,7 +225,7 @@
      </group>
    </macro>
    <macro name="source-serial-identifier-author-date">
-@@ -2722,8 +2750,8 @@
+@@ -2749,8 +2777,8 @@
      <choose>
        <if match="any" variable="locator number">
          <group delimiter=", ">
@@ -236,7 +236,7 @@
              <choose>
                <if variable="locator page">
                  <text term="at"/>
-@@ -2739,7 +2767,7 @@
+@@ -2766,7 +2794,7 @@
          </group>
        </if>
        <else>
@@ -245,7 +245,7 @@
        </else>
      </choose>
    </macro>
-@@ -2762,8 +2790,6 @@
+@@ -2789,8 +2817,6 @@
            </group>
          </if>
        </choose>
@@ -254,7 +254,7 @@
        <text macro="source-event"/>
      </group>
    </macro>
-@@ -2789,9 +2815,7 @@
+@@ -2833,9 +2859,7 @@
      <!-- based on `author-note` -->
      <names variable="container-author">
        <name delimiter-precedes-last="contextual"/>
@@ -265,7 +265,7 @@
        <substitute>
          <names variable="author"/>
          <names variable="guest"/>
-@@ -3034,8 +3058,8 @@
+@@ -3078,8 +3102,8 @@
            <text macro="label-locator"/>
          </else-if>
          <else-if variable="page">
@@ -276,7 +276,7 @@
              <choose>
                <if variable="locator page">
                  <text term="at"/>
-@@ -3074,7 +3098,7 @@
+@@ -3118,7 +3142,7 @@
          </else-if>
          <else-if variable="archive archive_location page"/>
          <else>
@@ -285,7 +285,7 @@
          </else>
        </choose>
      </group>
-@@ -3209,16 +3233,14 @@
+@@ -3253,16 +3277,14 @@
          <else-if match="any" type="article-journal article-magazine article-newspaper periodical post-weblog review review-book"/>
          <else-if match="any" variable="collection-editor compiler editor editorial-director">
            <!-- monographic types -->
@@ -304,7 +304,7 @@
            <text macro="source-publication-and-date"/>
          </else>
        </choose>
-@@ -3738,17 +3760,13 @@
+@@ -3782,17 +3804,13 @@
          <text macro="source-locator-subsequent-serial"/>
        </if>
        <else-if match="any" variable="collection-editor compiler editor editorial-director">
@@ -324,7 +324,7 @@
        </else>
      </choose>
    </macro>
-@@ -3794,8 +3812,7 @@
+@@ -3838,8 +3856,7 @@
            <!-- Do not provide `volume` or `part-number` for defined section -->
            <text macro="label-locator"/>
          </if>
@@ -334,7 +334,7 @@
            <text macro="label-volume"/>
            <text macro="label-part-number"/>
            <text macro="label-locator"/>
-@@ -3805,7 +3822,7 @@
+@@ -3849,7 +3866,7 @@
              <text macro="label-volume"/>
              <text macro="label-locator"/>
            </group>
@@ -343,7 +343,7 @@
          <else-if variable="part-number">
            <text macro="label-volume"/>
            <text macro="label-part-number"/>
-@@ -3849,9 +3866,7 @@
+@@ -3893,9 +3910,7 @@
        <!-- usually `archive`, `archive-place` but sometimes also `archive-place`, `archive` (NHR 18.6.5); the latter is more common elsewhere (OGS 15.11.1 and MHRA4 7.7) -->
        <text variable="archive_collection"/>
        <text variable="archive_location"/>
@@ -354,7 +354,7 @@
        <choose>
          <!-- database identifier, if not included elsewhere (cf. CMOS18 14.113) -->
          <if match="any" variable="archive_collection archive_location archive-place"/>
-@@ -3891,7 +3906,7 @@
+@@ -3935,7 +3950,7 @@
      </choose>
    </macro>
    <macro name="source-archive-locator-page">

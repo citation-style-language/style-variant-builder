@@ -21,7 +21,7 @@
      <category field="theology"/>
 -    <summary>Oxford source citations, template</summary>
 +    <summary>Oxford source citations, author and short-title notes system (New Hart's Rules, 17.2.5)</summary>
-     <updated>2025-11-05T00:00:00+00:00</updated>
+     <updated>2026-02-05T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
 @@ -1211,7 +1211,7 @@
@@ -33,7 +33,7 @@
      </group>
    </macro>
    <!-- 3.1. Title -->
-@@ -4148,7 +4148,7 @@
+@@ -4192,7 +4192,7 @@
    </macro>
    <citation disambiguate-add-givenname="true" disambiguate-add-names="true">
      <layout delimiter="; " suffix=".">
@@ -42,7 +42,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -4280,7 +4280,7 @@
+@@ -4324,7 +4324,7 @@
        <key macro="source-archive"/>
      </sort>
      <layout suffix=".">

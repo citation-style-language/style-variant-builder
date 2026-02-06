@@ -12,7 +12,7 @@
 -    <id>http://www.zotero.org/styles/new-harts-rules-notes</id>
 -    <link href="http://www.zotero.org/styles/new-harts-rules-notes" rel="self"/>
 +    <title>New Hart's Rules: The Oxford Style Guide 2nd edition (numbered)</title>
-+    <title-short>NHR (author-number/Vancouver [17.4])</title-short>
++    <title-short>NHR (author-number/numeric/citation-sequence/Vancouver [17.4])</title-short>
 +    <id>http://www.zotero.org/styles/new-harts-rules-numbered</id>
 +    <link href="http://www.zotero.org/styles/new-harts-rules-numbered" rel="self"/>
 +    <link href="http://www.zotero.org/styles/new-harts-rules-notes" rel="template"/>
@@ -32,10 +32,10 @@
      <category field="theology"/>
 -    <summary>Oxford source citations, template</summary>
 +    <summary>Oxford source citations, numbered system</summary>
-     <updated>2025-11-05T00:00:00+00:00</updated>
+     <updated>2026-02-05T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -4146,9 +4147,12 @@
+@@ -4190,9 +4191,16 @@
        </choose>
      </group>
    </macro>
@@ -48,10 +48,14 @@
 +    </sort>
 +    <layout delimiter="," vertical-align="sup">
 +      <text variable="citation-number"/>
++      <group prefix="(" suffix=")">
++        <label form="short" strip-periods="true" variable="locator"/>
++        <text variable="locator"/>
++      </group>
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -4267,20 +4271,10 @@
+@@ -4311,20 +4319,10 @@
        </else>
      </choose>
    </macro>

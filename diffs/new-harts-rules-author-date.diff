@@ -32,7 +32,7 @@
      <category field="theology"/>
 -    <summary>Oxford source citations, template</summary>
 +    <summary>Oxford source citations, author-date system</summary>
-     <updated>2025-11-05T00:00:00+00:00</updated>
+     <updated>2026-02-05T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
 @@ -2508,29 +2509,25 @@
@@ -69,7 +69,7 @@
            </group>
          </else>
        </choose>
-@@ -3479,9 +3476,7 @@
+@@ -3523,9 +3520,7 @@
    </macro>
    <!-- 4.6. Date -->
    <macro name="source-date">
@@ -80,7 +80,7 @@
    </macro>
    <!-- Date elements -->
    <macro name="source-date-issued-full">
-@@ -3613,9 +3608,7 @@
+@@ -3657,9 +3652,7 @@
      </choose>
    </macro>
    <macro name="source-date-original">
@@ -91,20 +91,20 @@
    </macro>
    <macro name="source-date-original-full">
      <!-- Give full date for more ephemeral types; reflected in `date-year-sort` -->
-@@ -4146,9 +4139,9 @@
+@@ -4190,9 +4183,9 @@
        </choose>
      </group>
    </macro>
 -  <citation disambiguate-add-givenname="true" disambiguate-add-names="true">
 -    <layout delimiter="; " suffix=".">
 -      <text macro="citation-notes-full-subsequent-author-title"/>
-+  <citation after-collapse-delimiter="; " collapse="year" disambiguate-add-givenname="true" disambiguate-add-names="true" disambiguate-add-year-suffix="true">
++  <citation collapse="year" disambiguate-add-givenname="true" disambiguate-add-names="true" disambiguate-add-year-suffix="true">
 +    <layout delimiter="; " prefix="(" suffix=")">
 +      <text macro="citation-author-date"/>
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -4270,17 +4263,16 @@
+@@ -4314,17 +4307,16 @@
    <bibliography hanging-indent="true">
      <sort>
        <key macro="author-bib"/>
