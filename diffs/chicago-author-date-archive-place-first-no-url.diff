@@ -253,7 +253,7 @@
 -  <citation disambiguate-add-givenname="true" disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
 -    <layout delimiter="; " suffix=".">
 -      <text macro="citation-notes-full-subsequent-author-title"/>
-+  <citation after-collapse-delimiter="; " collapse="year" disambiguate-add-givenname="true" disambiguate-add-names="true" disambiguate-add-year-suffix="true" et-al-min="3" et-al-use-first="1">
++  <citation collapse="year" disambiguate-add-givenname="true" disambiguate-add-names="true" disambiguate-add-year-suffix="true" et-al-min="3" et-al-use-first="1">
 +    <layout delimiter="; " prefix="(" suffix=")">
 +      <text macro="citation-author-date"/>
      </layout>
