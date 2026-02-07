@@ -3,7 +3,7 @@
   type="application/relax-ng-compact-syntax" schematypens="http://relaxng.org/ns/compatibility/annotations/1.0"?>
 <?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl-repository.rnc"
   type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<style class="note" default-locale="en-GB" demote-non-dropping-particle="never" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
+<style class="note" default-locale="en-GB" demote-non-dropping-particle="never" initialize-with="" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
   <info>
     <title>OSCOLA 4th edition (template)</title>
     <title-short>Oxford University Standard for Citation of Legal Authorities</title-short>
@@ -95,13 +95,13 @@
       <if type="interview">
         <group delimiter=", ">
           <names variable="interviewer">
-            <name and="text" delimiter=", " delimiter-precedes-last="never" initialize="false" initialize-with=""/>
+            <name and="text" delimiter=", " delimiter-precedes-last="never" initialize="false"/>
           </names>
           <group delimiter=" ">
             <text term="interview" text-case="capitalize-first"/>
             <text form="verb" term="contributor"/>
             <names variable="author">
-              <name and="text" delimiter=", " delimiter-precedes-last="never" initialize="false" initialize-with=""/>
+              <name and="text" delimiter=", " delimiter-precedes-last="never" initialize="false"/>
             </names>
           </group>
         </group>
@@ -111,11 +111,11 @@
           <text variable="genre"/>
           <text term="from"/>
           <names variable="author">
-            <name and="text" delimiter=", " delimiter-precedes-last="never" initialize="false" initialize-with=""/>
+            <name and="text" delimiter=", " delimiter-precedes-last="never" initialize="false"/>
           </names>
           <names variable="recipient">
             <label form="verb" suffix=" "/>
-            <name and="text" delimiter=", " delimiter-precedes-last="never" initialize="false" initialize-with=""/>
+            <name and="text" delimiter=", " delimiter-precedes-last="never" initialize="false"/>
           </names>
         </group>
       </else-if>
@@ -125,7 +125,7 @@
       <else-if match="any" type="legal_case legislation"/>
       <else>
         <names variable="author">
-          <name and="text" delimiter=", " delimiter-precedes-last="never" initialize="false" initialize-with=""/>
+          <name and="text" delimiter=", " delimiter-precedes-last="never" initialize="false"/>
           <label form="short" prefix=" (" strip-periods="true" suffix=")"/>
           <substitute>
             <names variable="editor"/>
@@ -141,13 +141,13 @@
       <if type="interview">
         <group delimiter=", ">
           <names variable="interviewer">
-            <name and="text" delimiter=", " delimiter-precedes-last="never" form="short" initialize="false" initialize-with=""/>
+            <name and="text" delimiter=", " delimiter-precedes-last="never" form="short"/>
           </names>
           <group delimiter=" ">
             <text term="interview" text-case="capitalize-first"/>
             <text form="verb" term="contributor"/>
             <names variable="author">
-              <name and="text" delimiter=", " delimiter-precedes-last="never" form="short" initialize="false" initialize-with=""/>
+              <name and="text" delimiter=", " delimiter-precedes-last="never" form="short"/>
             </names>
           </group>
         </group>
@@ -158,12 +158,12 @@
             <text variable="genre"/>
             <text term="from"/>
             <names variable="author">
-              <name and="text" delimiter=", " delimiter-precedes-last="never" form="short" initialize="false" initialize-with=""/>
+              <name and="text" delimiter=", " delimiter-precedes-last="never" form="short"/>
             </names>
           </group>
           <names variable="recipient">
             <label form="verb" suffix=" "/>
-            <name and="text" delimiter=", " delimiter-precedes-last="never" form="short" initialize="false" initialize-with=""/>
+            <name and="text" delimiter=", " delimiter-precedes-last="never" form="short"/>
           </names>
         </group>
       </else-if>
@@ -172,7 +172,7 @@
       </else-if>
       <else>
         <names variable="author">
-          <name and="text" delimiter=", " delimiter-precedes-last="never" form="short" initialize="false" initialize-with=""/>
+          <name and="text" delimiter=", " delimiter-precedes-last="never" form="short"/>
           <substitute>
             <names variable="editor"/>
             <names variable="translator"/>
@@ -182,19 +182,19 @@
       </else>
     </choose>
   </macro>
-  <macro name="author">
+  <macro name="author-bib">
     <!--for bills & hearing this should start with jurisdiction once available-->
     <choose>
       <if type="interview">
         <group delimiter=", ">
           <names variable="interviewer">
-            <name and="text" delimiter=", " delimiter-precedes-last="never" initialize-with="" name-as-sort-order="all" sort-separator=" "/>
+            <name and="text" delimiter=", " delimiter-precedes-last="never" name-as-sort-order="all" sort-separator=" "/>
           </names>
           <group delimiter=" ">
             <text term="interview" text-case="capitalize-first"/>
             <text form="verb" term="contributor"/>
             <names variable="author">
-              <name and="text" delimiter=", " delimiter-precedes-last="never" initialize="false" initialize-with=""/>
+              <name and="text" delimiter=", " delimiter-precedes-last="never"/>
             </names>
           </group>
         </group>
@@ -203,13 +203,13 @@
         <group delimiter=" ">
           <group delimiter=", ">
             <names variable="author">
-              <name and="text" delimiter=", " delimiter-precedes-last="never" initialize-with="" name-as-sort-order="all" sort-separator=" "/>
+              <name and="text" delimiter=", " delimiter-precedes-last="never" name-as-sort-order="all" sort-separator=" "/>
             </names>
             <text variable="genre"/>
           </group>
           <names variable="recipient">
             <label form="verb" suffix=" "/>
-            <name and="text" delimiter=", " delimiter-precedes-last="never" initialize="false" initialize-with=""/>
+            <name and="text" delimiter=", " delimiter-precedes-last="never"/>
           </names>
         </group>
       </else-if>
@@ -219,7 +219,7 @@
       <else-if match="any" type="legal_case legislation"/>
       <else>
         <names variable="author">
-          <name and="text" delimiter=", " delimiter-precedes-last="never" initialize-with="" name-as-sort-order="all" sort-separator=" "/>
+          <name and="text" delimiter=", " delimiter-precedes-last="never" name-as-sort-order="all" sort-separator=" "/>
           <label form="short" prefix=" (" strip-periods="true" suffix=")"/>
           <substitute>
             <names variable="editor"/>
@@ -234,7 +234,7 @@
     <choose>
       <if match="none" type="chapter entry-encyclopedia paper-conference">
         <names delimiter=", " variable="container-author editor translator">
-          <name and="text" delimiter=", " delimiter-precedes-last="never" initialize="false" initialize-with=""/>
+          <name and="text" delimiter=", " delimiter-precedes-last="never" initialize="false"/>
           <label form="short" prefix=" " strip-periods="true"/>
         </names>
       </if>
@@ -244,7 +244,7 @@
     <group delimiter=" ">
       <text term="in"/>
       <names delimiter=", " variable="container-author editor translator">
-        <name and="text" delimiter=", " delimiter-precedes-last="never" initialize="false" initialize-with=""/>
+        <name and="text" delimiter=", " delimiter-precedes-last="never" initialize="false"/>
         <label form="short" prefix=" (" strip-periods="true" suffix=")"/>
       </names>
     </group>
@@ -326,7 +326,7 @@
           <else-if match="any" type="article book chapter entry-encyclopedia interview manuscript motion_picture paper-conference post-weblog report speech thesis webpage">
             <names variable="director">
               <label form="verb" suffix=" " text-case="capitalize-first"/>
-              <name and="text" delimiter=", " delimiter-precedes-last="never" initialize="false" initialize-with=""/>
+              <name and="text" delimiter=", " delimiter-precedes-last="never" initialize="false"/>
             </names>
             <text macro="editor"/>
             <choose>
@@ -526,9 +526,17 @@
   <macro name="URL">
     <choose>
       <if match="any" type="bill legal_case legislation"/>
-      <else-if variable="URL">
+      <else-if match="any" variable="DOI URL">
+        <!-- OSCOLA does not distinguish between DOIs and URLs; used here as a permalink -->
         <group delimiter=" ">
-          <text prefix="&lt;" suffix="&gt;" variable="URL"/>
+          <choose>
+            <if variable="DOI">
+              <text prefix="&lt;https://doi.org/" suffix="&gt;" variable="DOI"/>
+            </if>
+            <else>
+              <text prefix="&lt;" suffix="&gt;" variable="URL"/>
+            </else>
+          </choose>
           <group delimiter=" ">
             <text term="accessed"/>
             <date form="text" variable="accessed"/>
@@ -641,9 +649,9 @@
   <bibliography et-al-min="4" et-al-use-first="1" subsequent-author-substitute="&#8212;&#8212;">
     <sort>
       <key macro="sort-type"/>
-      <key macro="author" names-min="1" names-use-first="1"/>
+      <key macro="author-bib" names-min="1" names-use-first="1"/>
       <key macro="author-count" names-min="2" names-use-first="2"/>
-      <key macro="author"/>
+      <key macro="author-bib"/>
       <key variable="issued"/>
       <key variable="title"/>
     </sort>
@@ -652,7 +660,7 @@
         <group delimiter=", ">
           <group delimiter=" ">
             <group delimiter=", ">
-              <text macro="author"/>
+              <text macro="author-bib"/>
               <group delimiter=" ">
                 <text macro="title"/>
                 <text macro="book-container"/>

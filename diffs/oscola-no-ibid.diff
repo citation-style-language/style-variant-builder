@@ -2,7 +2,7 @@
 +++ development/oscola-no-ibid.csl
 @@ -5,10 +5,11 @@
    type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
- <style class="note" default-locale="en-GB" demote-non-dropping-particle="never" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
+ <style class="note" default-locale="en-GB" demote-non-dropping-particle="never" initialize-with="" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>OSCOLA 4th edition (template)</title>
 +    <title>OSCOLA 4th edition (no ibid.)</title>
@@ -24,7 +24,7 @@
      <updated>2025-07-08T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -559,16 +560,7 @@
+@@ -567,16 +568,7 @@
    <citation et-al-min="4" et-al-use-first="1">
      <layout delimiter="; " suffix=".">
        <choose>
@@ -42,7 +42,7 @@
            <choose>
              <if match="any" type="bill hearing legal_case legislation regulation treaty">
                <!--don't use short form and above note for legal citations -->
-@@ -600,7 +592,7 @@
+@@ -608,7 +600,7 @@
                </group>
              </else>
            </choose>
