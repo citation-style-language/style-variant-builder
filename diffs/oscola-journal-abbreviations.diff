@@ -2,7 +2,7 @@
 +++ development/oscola-journal-abbreviations.csl
 @@ -5,10 +5,11 @@
    type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
- <style class="note" default-locale="en-GB" demote-non-dropping-particle="never" initialize-with="" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
+ <style and="text" class="note" default-locale="en-GB" delimiter-precedes-last="never" demote-non-dropping-particle="never" et-al-min="4" et-al-use-first="1" initialize-with="" name-delimiter=", " version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>OSCOLA 4th edition (template)</title>
 +    <title>OSCOLA 4th edition (journal abbreviations)</title>
@@ -29,7 +29,7 @@
      <category field="law"/>
 -    <summary>Oxford University Standard for Citation of Legal Authorities, notes system. For a Zotero group showing data entry: https://zotero.org/groups/2205533/collections/AC7ETLN4</summary>
 +    <summary>Oxford University Standard for Citation of Legal Authorities, notes system, with journal abbreviations. For a Zotero group showing data entry: https://zotero.org/groups/2205533/collections/AC7ETLN4</summary>
-     <updated>2025-07-08T00:00:00+00:00</updated>
+     <updated>2026-02-07T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
 @@ -438,6 +445,16 @@
