@@ -1,5 +1,5 @@
 --- templates/new-harts-rules-template.csl
-+++ development/oxford-journals-scimed-numbered-superscript.csl
++++ development/oxford-journals-scimed-numeric-superscript.csl
 @@ -3,35 +3,24 @@
    type="application/relax-ng-compact-syntax" schematypens="http://relaxng.org/ns/compatibility/annotations/1.0"?>
  <?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl-repository.rnc"
@@ -13,8 +13,8 @@
 -    <link href="http://www.zotero.org/styles/new-harts-rules-notes" rel="self"/>
 +    <title>Oxford University Press - Science and Medicine Journals (numbered, superscript)</title>
 +    <title-short>OUP SciMed (author-number/numeric/citation-sequence/Vancouver), based on New Hart's Rules/NHR</title-short>
-+    <id>http://www.zotero.org/styles/oxford-journals-scimed-numbered-superscript</id>
-+    <link href="http://www.zotero.org/styles/oxford-journals-scimed-numbered-superscript" rel="self"/>
++    <id>http://www.zotero.org/styles/oxford-journals-scimed-numeric-superscript</id>
++    <link href="http://www.zotero.org/styles/oxford-journals-scimed-numeric-superscript" rel="self"/>
 +    <link href="http://www.zotero.org/styles/new-harts-rules-notes" rel="template"/>
      <link href="https://en.wikipedia.org/wiki/Hart's_Rules" rel="documentation"/>
      <link href="http://zotero.org/groups/2205533/collections/499SCKUW" rel="documentation"/>

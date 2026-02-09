@@ -1,5 +1,5 @@
 --- templates/new-harts-rules-template.csl
-+++ development/oxford-journals-scimed-numbered-parentheses.csl
++++ development/oxford-journals-scimed-numeric.csl
 @@ -3,35 +3,24 @@
    type="application/relax-ng-compact-syntax" schematypens="http://relaxng.org/ns/compatibility/annotations/1.0"?>
  <?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl-repository.rnc"
@@ -11,10 +11,10 @@
 -    <title-short>NHR (template)</title-short>
 -    <id>http://www.zotero.org/styles/new-harts-rules-notes</id>
 -    <link href="http://www.zotero.org/styles/new-harts-rules-notes" rel="self"/>
-+    <title>Oxford University Press - Science and Medicine Journals (numbered, parentheses)</title>
++    <title>Oxford University Press - Science and Medicine Journals (numbered, square brackets)</title>
 +    <title-short>OUP SciMed (author-number/numeric/citation-sequence/Vancouver), based on New Hart's Rules/NHR</title-short>
-+    <id>http://www.zotero.org/styles/oxford-journals-scimed-numbered-parentheses</id>
-+    <link href="http://www.zotero.org/styles/oxford-journals-scimed-numbered-parentheses" rel="self"/>
++    <id>http://www.zotero.org/styles/oxford-journals-scimed-numeric</id>
++    <link href="http://www.zotero.org/styles/oxford-journals-scimed-numeric" rel="self"/>
 +    <link href="http://www.zotero.org/styles/new-harts-rules-notes" rel="template"/>
      <link href="https://en.wikipedia.org/wiki/Hart's_Rules" rel="documentation"/>
      <link href="http://zotero.org/groups/2205533/collections/499SCKUW" rel="documentation"/>
@@ -42,7 +42,7 @@
 -    <category field="sociology"/>
 -    <category field="theology"/>
 -    <summary>Oxford source citations, template</summary>
-+    <summary>Oxford source citations, numbered system, with in-text references in parentheses: Oxford Journals customization using bibliography entries punctuated with full stops with unspaced initials, bracketed roles, article titles in sentence case without quotes, short journal titles, abbreviated journal identification, publisher name.</summary>
++    <summary>Oxford source citations, numbered system, with in-text references in square brackets: Oxford Journals customization using bibliography entries punctuated with full stops with unspaced initials, bracketed roles, article titles in sentence case without quotes, short journal titles, abbreviated journal identification, publisher name.</summary>
      <updated>2026-02-05T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
@@ -894,7 +894,7 @@
 +    <sort>
 +      <key variable="citation-number"/>
 +    </sort>
-+    <layout delimiter="," prefix="(" suffix=")">
++    <layout delimiter="," prefix="[" suffix="]">
 +      <group delimiter=", ">
 +        <text variable="citation-number"/>
 +        <group>
