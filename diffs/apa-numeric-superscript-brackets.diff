@@ -35,7 +35,7 @@
      <updated>2025-04-14T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -2204,18 +2204,14 @@
+@@ -2208,18 +2208,14 @@
      </group>
    </macro>
    <!-- Citation -->
@@ -60,7 +60,7 @@
        </group>
      </layout>
    </citation>
-@@ -2254,21 +2250,10 @@
+@@ -2258,21 +2254,10 @@
        </else>
      </choose>
    </macro>
