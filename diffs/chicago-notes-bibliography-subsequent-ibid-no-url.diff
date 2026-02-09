@@ -2,7 +2,7 @@
 +++ development/chicago-notes-bibliography-subsequent-ibid-no-url.csl
 @@ -5,10 +5,10 @@
    type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
- <style class="note" demote-non-dropping-particle="display-and-sort" page-range-format="chicago-16" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
+ <style class="note" demote-non-dropping-particle="display-and-sort" initialize-with=". " page-range-format="chicago-16" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>Chicago Manual of Style 18th edition (template)</title>
 -    <title-short>CMOS with Bluebook</title-short>
@@ -24,7 +24,7 @@
      <updated>2025-10-27T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -6172,7 +6172,7 @@
+@@ -6193,7 +6193,7 @@
            </group>
          </else-if>
        </choose>
@@ -33,7 +33,7 @@
      </group>
    </macro>
    <macro name="source-date-accessed-DOI-URL-note">
-@@ -6187,7 +6187,7 @@
+@@ -6208,7 +6208,7 @@
            </group>
          </else-if>
        </choose>
@@ -42,7 +42,7 @@
      </group>
    </macro>
    <macro name="source-DOI-URL">
-@@ -6876,7 +6876,7 @@
+@@ -6897,7 +6897,7 @@
    </macro>
    <citation disambiguate-add-givenname="true" disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
      <layout delimiter="; " suffix=".">

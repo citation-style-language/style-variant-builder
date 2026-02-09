@@ -2,7 +2,7 @@
 +++ development/mhra-notes-no-url.csl
 @@ -5,10 +5,10 @@
    type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
- <style and="text" class="note" default-locale="en-GB" demote-non-dropping-particle="display-and-sort" et-al-min="4" et-al-use-first="1" page-range-format="minimal-two" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
+ <style and="text" class="note" default-locale="en-GB" demote-non-dropping-particle="display-and-sort" et-al-min="4" et-al-use-first="1" initialize-with=". " page-range-format="minimal-two" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>MHRA Style Guide 4th edition (template)</title>
 -    <title-short>Modern Humanities Research Association</title-short>
@@ -24,7 +24,7 @@
      <updated>2025-11-23T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -1193,9 +1193,8 @@
+@@ -1195,9 +1195,8 @@
          </choose>
          <text macro="source-medium"/>
          <text macro="source-archive"/>

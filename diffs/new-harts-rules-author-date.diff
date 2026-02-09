@@ -4,8 +4,8 @@
    type="application/relax-ng-compact-syntax" schematypens="http://relaxng.org/ns/compatibility/annotations/1.0"?>
  <?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl-repository.rnc"
    type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
--<style and="text" class="note" default-locale="en-GB" demote-non-dropping-particle="display-and-sort" et-al-min="4" et-al-use-first="1" page-range-format="minimal" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
-+<style and="text" class="in-text" default-locale="en-GB" demote-non-dropping-particle="display-and-sort" et-al-min="4" et-al-use-first="1" page-range-format="minimal" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
+-<style and="text" class="note" default-locale="en-GB" demote-non-dropping-particle="display-and-sort" et-al-min="4" et-al-use-first="1" initialize-with=". " page-range-format="minimal" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
++<style and="text" class="in-text" default-locale="en-GB" demote-non-dropping-particle="display-and-sort" et-al-min="4" et-al-use-first="1" initialize-with=". " page-range-format="minimal" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>New Hart's Rules: The Oxford Style Guide 2nd edition (template)</title>
 -    <title-short>NHR (template)</title-short>
@@ -35,7 +35,7 @@
      <updated>2026-02-05T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -2508,29 +2509,25 @@
+@@ -2518,29 +2519,25 @@
          <if type="article-newspaper">
            <group delimiter=" ">
              <text macro="source-serial-title"/>
@@ -69,7 +69,7 @@
            </group>
          </else>
        </choose>
-@@ -3523,9 +3520,7 @@
+@@ -3535,9 +3532,7 @@
    </macro>
    <!-- 4.6. Date -->
    <macro name="source-date">
@@ -80,7 +80,7 @@
    </macro>
    <!-- Date elements -->
    <macro name="source-date-issued-full">
-@@ -3657,9 +3652,7 @@
+@@ -3669,9 +3664,7 @@
      </choose>
    </macro>
    <macro name="source-date-original">
@@ -91,7 +91,7 @@
    </macro>
    <macro name="source-date-original-full">
      <!-- Give full date for more ephemeral types; reflected in `date-year-sort` -->
-@@ -4190,9 +4183,9 @@
+@@ -4202,9 +4195,9 @@
        </choose>
      </group>
    </macro>
@@ -104,7 +104,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -4314,17 +4307,16 @@
+@@ -4326,17 +4319,16 @@
    <bibliography hanging-indent="true">
      <sort>
        <key macro="author-bib"/>

@@ -4,8 +4,8 @@
    type="application/relax-ng-compact-syntax" schematypens="http://relaxng.org/ns/compatibility/annotations/1.0"?>
  <?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl-repository.rnc"
    type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
--<style and="text" class="in-text" demote-non-dropping-particle="never" page-range-format="minimal-two" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
-+<style and="text" class="note" demote-non-dropping-particle="never" page-range-format="minimal-two" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
+-<style and="text" class="in-text" demote-non-dropping-particle="never" initialize-with=". " page-range-format="minimal-two" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
++<style and="text" class="note" demote-non-dropping-particle="never" initialize-with=". " page-range-format="minimal-two" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>MLA Handbook 9th edition</title>
 -    <title-short>Modern Language Association</title-short>

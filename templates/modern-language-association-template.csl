@@ -3,7 +3,7 @@
   type="application/relax-ng-compact-syntax" schematypens="http://relaxng.org/ns/compatibility/annotations/1.0"?>
 <?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl-repository.rnc"
   type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<style and="text" class="in-text" demote-non-dropping-particle="never" page-range-format="minimal-two" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
+<style and="text" class="in-text" demote-non-dropping-particle="never" initialize-with=". " page-range-format="minimal-two" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
   <info>
     <title>MLA Handbook 9th edition</title>
     <title-short>Modern Language Association</title-short>
@@ -234,12 +234,12 @@
   <!-- 1. Author (MLA 5.3-22) -->
   <macro name="author">
     <names variable="composer">
-      <name delimiter-precedes-et-al="always" delimiter-precedes-last="always" name-as-sort-order="first"/>
+      <name delimiter-precedes-et-al="always" delimiter-precedes-last="always" initialize="false" name-as-sort-order="first"/>
       <label prefix=", "/>
       <substitute>
         <names variable="author"/>
         <names variable="guest">
-          <name delimiter-precedes-et-al="always" delimiter-precedes-last="always" name-as-sort-order="first"/>
+          <name delimiter-precedes-et-al="always" delimiter-precedes-last="always" initialize="false" name-as-sort-order="first"/>
           <!-- `guest` has no label (see MLA 'Interview by podcast host') -->
         </names>
         <names variable="editor-translator"/>
@@ -257,7 +257,7 @@
   <macro name="author-short">
     <group delimiter=", ">
       <names variable="composer">
-        <name form="short" initialize-with=". "/>
+        <name form="short" initialize="true"/>
         <substitute>
           <names variable="author"/>
           <names variable="guest"/>
@@ -468,7 +468,7 @@
   <macro name="supplemental-contributor">
     <names delimiter=", " variable="interviewer">
       <label form="verb" suffix=" " text-case="capitalize-first"/>
-      <name/>
+      <name initialize="false"/>
     </names>
   </macro>
   <!-- 3.2. Original publication date (MLA 5.108) -->
@@ -521,7 +521,7 @@
             <if match="none" variable="reviewed-title">
               <names variable="reviewed-author">
                 <label form="verb" suffix=" "/>
-                <name/>
+                <name initialize="false"/>
               </names>
             </if>
           </choose>
@@ -553,14 +553,14 @@
       <if variable="reviewed-genre reviewed-title title">
         <names variable="reviewed-author">
           <label form="verb" suffix=" "/>
-          <name/>
+          <name initialize="false"/>
         </names>
       </if>
       <else-if variable="reviewed-genre"/>
       <else>
         <names variable="reviewed-author">
           <label form="verb" suffix=" "/>
-          <name/>
+          <name initialize="false"/>
         </names>
       </else>
     </choose>
@@ -665,35 +665,35 @@
     <group delimiter=", ">
       <names delimiter=", " variable="container-author">
         <label form="verb" suffix=" "/>
-        <name/>
+        <name initialize="false"/>
       </names>
       <choose>
         <if variable="container-title">
           <names delimiter=", " variable="editor-translator">
             <label form="verb" suffix=" "/>
-            <name/>
+            <name initialize="false"/>
           </names>
           <names delimiter=", " variable="editor translator">
             <label form="verb" suffix=" "/>
-            <name/>
+            <name initialize="false"/>
           </names>
           <names delimiter=", " variable="director series-creator illustrator host narrator contributor">
             <label form="verb" suffix=" "/>
-            <name/>
+            <name initialize="false"/>
           </names>
         </if>
         <else>
           <names delimiter=", " variable="editor-translator">
             <label form="verb" suffix=" " text-case="capitalize-first"/>
-            <name/>
+            <name initialize="false"/>
           </names>
           <names delimiter=", " variable="editor translator">
             <label form="verb" suffix=" " text-case="capitalize-first"/>
-            <name/>
+            <name initialize="false"/>
           </names>
           <names delimiter=", " variable="director series-creator illustrator host narrator contributor">
             <label form="verb" suffix=" " text-case="capitalize-first"/>
-            <name/>
+            <name initialize="false"/>
           </names>
         </else>
       </choose>
@@ -1092,7 +1092,7 @@
                 </else>
               </choose>
               <names variable="collection-editor">
-                <name/>
+                <name initialize="false"/>
                 <label prefix=", "/>
               </names>
             </group>
@@ -1127,7 +1127,7 @@
                 </else>
               </choose>
               <names variable="collection-editor">
-                <name/>
+                <name initialize="false"/>
                 <label prefix=", "/>
               </names>
             </group>

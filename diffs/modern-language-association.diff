@@ -2,7 +2,7 @@
 +++ development/modern-language-association.csl
 @@ -5,8 +5,8 @@
    type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
- <style and="text" class="in-text" demote-non-dropping-particle="never" page-range-format="minimal-two" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
+ <style and="text" class="in-text" demote-non-dropping-particle="never" initialize-with=". " page-range-format="minimal-two" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>MLA Handbook 9th edition</title>
 -    <title-short>Modern Language Association</title-short>

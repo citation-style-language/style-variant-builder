@@ -4,8 +4,8 @@
    type="application/relax-ng-compact-syntax" schematypens="http://relaxng.org/ns/compatibility/annotations/1.0"?>
  <?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl-repository.rnc"
    type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
--<style and="text" class="note" default-locale="en-GB" demote-non-dropping-particle="display-and-sort" et-al-min="4" et-al-use-first="1" page-range-format="minimal-two" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
-+<style and="text" class="in-text" default-locale="en-GB" demote-non-dropping-particle="display-and-sort" et-al-min="4" et-al-use-first="1" page-range-format="minimal-two" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
+-<style and="text" class="note" default-locale="en-GB" demote-non-dropping-particle="display-and-sort" et-al-min="4" et-al-use-first="1" initialize-with=". " page-range-format="minimal-two" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
++<style and="text" class="in-text" default-locale="en-GB" demote-non-dropping-particle="display-and-sort" et-al-min="4" et-al-use-first="1" initialize-with=". " page-range-format="minimal-two" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>MHRA Style Guide 4th edition (template)</title>
 -    <title-short>Modern Humanities Research Association</title-short>
@@ -35,7 +35,7 @@
      <updated>2025-11-23T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -1120,9 +1121,7 @@
+@@ -1122,9 +1123,7 @@
            <text macro="identifier"/>
          </if>
          <else>
@@ -46,7 +46,7 @@
            <text macro="identifier"/>
          </else>
        </choose>
-@@ -1193,9 +1192,8 @@
+@@ -1195,9 +1194,8 @@
          </choose>
          <text macro="source-medium"/>
          <text macro="source-archive"/>
@@ -57,7 +57,7 @@
      </group>
    </macro>
    <!-- 3.1. Title -->
-@@ -2851,18 +2849,6 @@
+@@ -2883,18 +2881,6 @@
            </else-if>
          </choose>
        </group>
@@ -76,7 +76,7 @@
      </group>
    </macro>
    <!-- 4.3. Series -->
-@@ -3241,7 +3227,7 @@
+@@ -3275,7 +3261,7 @@
          </else-if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -85,7 +85,7 @@
              <text variable="publisher"/>
            </group>
          </else-if>
-@@ -3263,7 +3249,7 @@
+@@ -3297,7 +3283,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -94,7 +94,7 @@
            <text variable="original-publisher"/>
          </group>
        </if>
-@@ -3279,9 +3265,7 @@
+@@ -3313,9 +3299,7 @@
          <date date-parts="year" form="numeric" variable="available-date"/>
        </if>
        <else>
@@ -105,7 +105,7 @@
        </else>
      </choose>
    </macro>
-@@ -3425,9 +3409,7 @@
+@@ -3459,9 +3443,7 @@
      </choose>
    </macro>
    <macro name="source-date-original">
@@ -116,7 +116,7 @@
    </macro>
    <macro name="source-date-original-full">
      <!-- Give full date for more ephemeral types; reflected in `date-sort` -->
-@@ -3854,9 +3836,9 @@
+@@ -3888,9 +3870,9 @@
        </choose>
      </group>
    </macro>
@@ -129,7 +129,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -3976,17 +3958,19 @@
+@@ -4010,17 +3992,19 @@
    <bibliography hanging-indent="true" subsequent-author-substitute="&#8212;&#8212;" subsequent-author-substitute-rule="partial-first">
      <sort>
        <key macro="author-bib"/>

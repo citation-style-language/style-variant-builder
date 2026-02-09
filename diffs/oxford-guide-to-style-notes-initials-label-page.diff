@@ -1,11 +1,8 @@
 --- templates/new-harts-rules-template.csl
 +++ development/oxford-guide-to-style-notes-initials-label-page.csl
-@@ -3,12 +3,13 @@
-   type="application/relax-ng-compact-syntax" schematypens="http://relaxng.org/ns/compatibility/annotations/1.0"?>
- <?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl-repository.rnc"
+@@ -5,10 +5,11 @@
    type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
--<style and="text" class="note" default-locale="en-GB" demote-non-dropping-particle="display-and-sort" et-al-min="4" et-al-use-first="1" page-range-format="minimal" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
-+<style and="text" class="note" default-locale="en-GB" demote-non-dropping-particle="display-and-sort" et-al-min="4" et-al-use-first="1" initialize-with=". " page-range-format="minimal" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
+ <style and="text" class="note" default-locale="en-GB" demote-non-dropping-particle="display-and-sort" et-al-min="4" et-al-use-first="1" initialize-with=". " page-range-format="minimal" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>New Hart's Rules: The Oxford Style Guide 2nd edition (template)</title>
 -    <title-short>NHR (template)</title-short>
@@ -156,9 +153,9 @@
    <macro name="author-bib">
      <group delimiter=", ">
        <names variable="composer">
--        <name delimiter-precedes-et-al="after-inverted-name" delimiter-precedes-last="always" name-as-sort-order="first"/>
+-        <name delimiter-precedes-et-al="after-inverted-name" delimiter-precedes-last="always" initialize="false" name-as-sort-order="first"/>
 -        <!-- for OGS: -->
--        <!-- <name delimiter-precedes-et-al="after-inverted-name" delimiter-precedes-last="always" font-variant="small-caps" name-as-sort-order="first"/>
+-        <!-- <name delimiter-precedes-et-al="after-inverted-name" delimiter-precedes-last="always" font-variant="small-caps" initialize="false" name-as-sort-order="first"/>
 -        <et-al font-variant="normal"/> -->
 -        <label form="short" prefix=", "/>
 -        <!-- for OGS or variants with bracketed roles: -->
@@ -169,18 +166,20 @@
          <substitute>
            <names variable="author"/>
            <names variable="guest"/>
-@@ -529,9 +573,7 @@
+@@ -528,10 +572,8 @@
+   <macro name="author-note">
      <group delimiter=", ">
        <names variable="composer">
-         <name delimiter-precedes-last="contextual"/>
+-        <name initialize="false"/>
 -        <label form="short" prefix=", "/>
 -        <!-- for OGS or variants with bracketed roles: -->
 -        <!-- <label form="short" prefix=" (" suffix=")"/> -->
++        <name initialize="true"/>
 +        <label form="short" prefix=" (" suffix=")"/>
          <substitute>
            <names variable="author"/>
            <names variable="guest"/>
-@@ -1191,20 +1233,12 @@
+@@ -1193,20 +1235,12 @@
              <if match="any" type="article-journal article-magazine article-newspaper periodical post-weblog review review-book"/>
              <else-if match="any" variable="collection-editor compiler editor editorial-director">
                <!-- monographic types -->
@@ -203,7 +202,7 @@
              </else>
            </choose>
          </group>
-@@ -1485,10 +1519,6 @@
+@@ -1487,10 +1521,6 @@
              <text macro="label-volume"/>
            </if>
            <else-if locator="column page" match="any"/>
@@ -214,7 +213,400 @@
            <else-if variable="page"/>
            <else>
              <text macro="label-volume"/>
-@@ -2603,9 +2633,7 @@
+@@ -1741,7 +1771,7 @@
+           <!-- `genre` printed with `number` -->
+           <names variable="interviewer">
+             <label form="verb" suffix=" "/>
+-            <name initialize="false"/>
++            <name initialize="true"/>
+           </names>
+         </if>
+         <else-if variable="genre">
+@@ -1750,7 +1780,7 @@
+             <group delimiter=" ">
+               <text form="verb" term="container-author"/>
+               <names variable="interviewer">
+-                <name initialize="false"/>
++                <name initialize="true"/>
+               </names>
+             </group>
+           </group>
+@@ -1758,7 +1788,7 @@
+         <else-if variable="interviewer">
+           <names variable="interviewer">
+             <label form="verb" suffix=" "/>
+-            <name initialize="false"/>
++            <name initialize="true"/>
+           </names>
+         </else-if>
+         <else>
+@@ -1775,7 +1805,7 @@
+           <!-- `genre` printed with `number` -->
+           <names variable="interviewer">
+             <label form="verb" suffix=" " text-case="capitalize-first"/>
+-            <name initialize="false"/>
++            <name initialize="true"/>
+           </names>
+         </if>
+         <else-if variable="genre">
+@@ -1784,7 +1814,7 @@
+             <group delimiter=" ">
+               <text form="verb" term="container-author"/>
+               <names variable="interviewer">
+-                <name initialize="false"/>
++                <name initialize="true"/>
+               </names>
+             </group>
+           </group>
+@@ -1792,7 +1822,7 @@
+         <else-if variable="interviewer">
+           <names variable="interviewer">
+             <label form="verb" suffix=" " text-case="capitalize-first"/>
+-            <name initialize="false"/>
++            <name initialize="true"/>
+           </names>
+         </else-if>
+         <else>
+@@ -1839,7 +1869,7 @@
+               <!-- `genre` appears with `number` -->
+               <names variable="recipient">
+                 <label form="verb" suffix=" "/>
+-                <name initialize="false"/>
++                <name initialize="true"/>
+               </names>
+             </if>
+             <else>
+@@ -1847,7 +1877,7 @@
+                 <text macro="description-format"/>
+                 <names variable="recipient">
+                   <label form="verb" suffix=" "/>
+-                  <name initialize="false"/>
++                  <name initialize="true"/>
+                 </names>
+               </group>
+             </else>
+@@ -1870,7 +1900,7 @@
+               <!-- `genre` appears with `number` -->
+               <names variable="recipient">
+                 <label form="verb" suffix=" " text-case="capitalize-first"/>
+-                <name initialize="false"/>
++                <name initialize="true"/>
+               </names>
+             </if>
+             <else>
+@@ -1878,7 +1908,7 @@
+                 <text macro="description-format-capitalized"/>
+                 <names variable="recipient">
+                   <label form="verb" suffix=" "/>
+-                  <name initialize="false"/>
++                  <name initialize="true"/>
+                 </names>
+               </group>
+             </else>
+@@ -1964,7 +1994,7 @@
+         </choose>
+         <group delimiter=", ">
+           <names variable="reviewed-author">
+-            <name initialize="false"/>
++            <name initialize="true"/>
+           </names>
+           <text macro="description-review-title"/>
+           <text variable="reviewed-genre"/>
+@@ -1988,7 +2018,7 @@
+         </choose>
+         <group delimiter=", ">
+           <names variable="reviewed-author">
+-            <name initialize="false"/>
++            <name initialize="true"/>
+           </names>
+           <text macro="description-review-title"/>
+           <text variable="reviewed-genre"/>
+@@ -2074,7 +2104,7 @@
+         </if>
+       </choose>
+       <names variable="author">
+-        <name delimiter-precedes-last="always" initialize="false"/>
++        <name delimiter-precedes-last="always" initialize="true"/>
+         <substitute>
+           <names variable="performer"/>
+         </substitute>
+@@ -2093,7 +2123,7 @@
+         </if>
+       </choose>
+       <names variable="author">
+-        <name delimiter-precedes-last="always" initialize="false"/>
++        <name delimiter-precedes-last="always" initialize="true"/>
+         <substitute>
+           <names variable="performer"/>
+         </substitute>
+@@ -2164,15 +2194,15 @@
+         <if match="any" type="post webpage">
+           <names variable="container-author">
+             <label form="verb" suffix=" "/>
+-            <name initialize="false"/>
++            <name initialize="true"/>
+           </names>
+           <names variable="editor-translator">
+             <label form="verb-short" suffix=" "/>
+-            <name initialize="false"/>
++            <name initialize="true"/>
+           </names>
+           <names delimiter=", " variable="editor translator">
+             <label form="verb-short" suffix=" "/>
+-            <name initialize="false"/>
++            <name initialize="true"/>
+           </names>
+           <choose>
+             <if variable="collection-editor editor"/>
+@@ -2180,67 +2210,67 @@
+             <else-if match="any" variable="number-of-volumes part-number part-title volume volume-title">
+               <names variable="collection-editor">
+                 <label form="verb-short" suffix=" "/>
+-                <name initialize="false"/>
++                <name initialize="true"/>
+               </names>
+             </else-if>
+           </choose>
+           <names variable="editorial-director">
+             <label form="verb-short" suffix=" "/>
+-            <name initialize="false"/>
++            <name initialize="true"/>
+           </names>
+           <names variable="guest">
+             <label form="verb" suffix=" "/>
+-            <name initialize="false"/>
++            <name initialize="true"/>
+           </names>
+           <names variable="host">
+             <label form="verb" suffix=" "/>
+-            <name initialize="false"/>
++            <name initialize="true"/>
+           </names>
+           <names variable="illustrator">
+             <label form="verb-short" suffix=" "/>
+-            <name initialize="false"/>
++            <name initialize="true"/>
+           </names>
+           <names variable="narrator">
+             <label form="verb" suffix=" "/>
+-            <name initialize="false"/>
++            <name initialize="true"/>
+           </names>
+           <names variable="compiler">
+             <label form="verb-short" suffix=" "/>
+-            <name initialize="false"/>
++            <name initialize="true"/>
+           </names>
+           <names delimiter=", " variable="chair organizer curator">
+             <label form="verb" suffix=" "/>
+-            <name initialize="false"/>
++            <name initialize="true"/>
+           </names>
+           <names delimiter=", " variable="series-creator executive-producer">
+             <label form="verb" suffix=" "/>
+-            <name initialize="false"/>
++            <name initialize="true"/>
+           </names>
+           <names variable="producer">
+             <label form="verb" suffix=" "/>
+-            <name initialize="false"/>
++            <name initialize="true"/>
+           </names>
+           <names variable="director">
+             <label form="verb" suffix=" "/>
+-            <name initialize="false"/>
++            <name initialize="true"/>
+           </names>
+           <choose>
+             <if match="any" type="broadcast performance">
+               <names variable="script-writer">
+                 <label form="verb" suffix=" "/>
+-                <name initialize="false"/>
++                <name initialize="true"/>
+               </names>
+             </if>
+           </choose>
+           <names variable="performer">
+             <label form="verb" suffix=" "/>
+-            <name initialize="false"/>
++            <name initialize="true"/>
+           </names>
+           <choose>
+             <if match="none" type="thesis">
+               <names variable="contributor">
+                 <label form="verb" suffix=" "/>
+-                <name initialize="false"/>
++                <name initialize="true"/>
+               </names>
+             </if>
+           </choose>
+@@ -2251,15 +2281,15 @@
+             <if match="none" variable="container-title">
+               <names variable="container-author">
+                 <label form="verb" suffix=" "/>
+-                <name initialize="false"/>
++                <name initialize="true"/>
+               </names>
+               <names variable="editor-translator">
+                 <label form="verb-short" suffix=" "/>
+-                <name initialize="false"/>
++                <name initialize="true"/>
+               </names>
+               <names delimiter=", " variable="editor translator">
+                 <label form="verb-short" suffix=" "/>
+-                <name initialize="false"/>
++                <name initialize="true"/>
+               </names>
+               <choose>
+                 <if variable="collection-editor editor"/>
+@@ -2267,71 +2297,71 @@
+                 <else-if match="any" variable="number-of-volumes part-number part-title volume volume-title">
+                   <names variable="collection-editor">
+                     <label form="verb-short" suffix=" "/>
+-                    <name initialize="false"/>
++                    <name initialize="true"/>
+                   </names>
+                 </else-if>
+               </choose>
+               <names variable="editorial-director">
+                 <label form="verb-short" suffix=" "/>
+-                <name initialize="false"/>
++                <name initialize="true"/>
+               </names>
+               <names variable="guest">
+                 <label form="verb" suffix=" "/>
+-                <name initialize="false"/>
++                <name initialize="true"/>
+               </names>
+               <names variable="host">
+                 <label form="verb" suffix=" "/>
+-                <name initialize="false"/>
++                <name initialize="true"/>
+               </names>
+             </if>
+           </choose>
+           <names variable="illustrator">
+             <label form="verb-short" suffix=" "/>
+-            <name initialize="false"/>
++            <name initialize="true"/>
+           </names>
+           <names variable="narrator">
+             <label form="verb" suffix=" "/>
+-            <name initialize="false"/>
++            <name initialize="true"/>
+           </names>
+           <choose>
+             <if match="none" variable="container-title">
+               <names variable="compiler">
+                 <label form="verb-short" suffix=" "/>
+-                <name initialize="false"/>
++                <name initialize="true"/>
+               </names>
+               <names delimiter=", " variable="chair organizer curator">
+                 <label form="verb" suffix=" "/>
+-                <name initialize="false"/>
++                <name initialize="true"/>
+               </names>
+               <names delimiter=", " variable="series-creator executive-producer">
+                 <label form="verb" suffix=" "/>
+-                <name initialize="false"/>
++                <name initialize="true"/>
+               </names>
+               <names variable="producer">
+                 <label form="verb" suffix=" "/>
+-                <name initialize="false"/>
++                <name initialize="true"/>
+               </names>
+               <names variable="director">
+                 <label form="verb" suffix=" "/>
+-                <name initialize="false"/>
++                <name initialize="true"/>
+               </names>
+               <choose>
+                 <if match="any" type="broadcast performance">
+                   <names variable="script-writer">
+                     <label form="verb" suffix=" "/>
+-                    <name initialize="false"/>
++                    <name initialize="true"/>
+                   </names>
+                 </if>
+               </choose>
+               <names variable="performer">
+                 <label form="verb" suffix=" "/>
+-                <name initialize="false"/>
++                <name initialize="true"/>
+               </names>
+               <choose>
+                 <if match="none" type="song thesis">
+                   <names variable="contributor">
+                     <label form="verb" suffix=" "/>
+-                    <name initialize="false"/>
++                    <name initialize="true"/>
+                   </names>
+                 </if>
+               </choose>
+@@ -2342,7 +2372,7 @@
+               <!-- Song contributors attached to album (cf. CMOS18 14.163) -->
+               <names variable="contributor">
+                 <label form="verb" suffix=" "/>
+-                <name initialize="false"/>
++                <name initialize="true"/>
+               </names>
+             </if>
+           </choose>
+@@ -2356,42 +2386,42 @@
+         <if type="periodical">
+           <names variable="editor">
+             <label form="verb-short" suffix=" "/>
+-            <name initialize="false"/>
++            <name initialize="true"/>
+           </names>
+         </if>
+       </choose>
+       <names variable="translator">
+         <label form="verb-short" suffix=" "/>
+-        <name initialize="false"/>
++        <name initialize="true"/>
+       </names>
+       <names variable="narrator">
+         <label form="verb" suffix=" "/>
+-        <name initialize="false"/>
++        <name initialize="true"/>
+       </names>
+       <names variable="compiler">
+         <label form="verb-short" suffix=" "/>
+-        <name initialize="false"/>
++        <name initialize="true"/>
+       </names>
+       <names delimiter=", " variable="chair organizer curator">
+         <label form="verb" suffix=" "/>
+-        <name initialize="false"/>
++        <name initialize="true"/>
+       </names>
+       <names delimiter=", " variable="series-creator executive-producer">
+         <label form="verb" suffix=" "/>
+-        <name initialize="false"/>
++        <name initialize="true"/>
+       </names>
+       <names variable="producer">
+         <!-- not abbreviated (cf. CMOS18 14.168) -->
+         <label form="verb" suffix=" "/>
+-        <name initialize="false"/>
++        <name initialize="true"/>
+       </names>
+       <names variable="director">
+         <label form="verb" suffix=" "/>
+-        <name initialize="false"/>
++        <name initialize="true"/>
+       </names>
+       <names variable="performer">
+         <label form="verb" suffix=" "/>
+-        <name initialize="false"/>
++        <name initialize="true"/>
+       </names>
+     </group>
+   </macro>
+@@ -2613,9 +2643,7 @@
        <text macro="source-serial-identifier-volume"/>
        <!-- periodical edition always capitalized (cf. CMOS18 14.89) -->
        <text macro="label-edition-capitalized"/>
@@ -225,7 +617,7 @@
      </group>
    </macro>
    <macro name="source-serial-identifier-author-date">
-@@ -2749,8 +2777,8 @@
+@@ -2759,8 +2787,8 @@
      <choose>
        <if match="any" variable="locator number">
          <group delimiter=", ">
@@ -236,7 +628,7 @@
              <choose>
                <if variable="locator page">
                  <text term="at"/>
-@@ -2766,7 +2794,7 @@
+@@ -2776,7 +2804,7 @@
          </group>
        </if>
        <else>
@@ -245,7 +637,7 @@
        </else>
      </choose>
    </macro>
-@@ -2789,8 +2817,6 @@
+@@ -2799,8 +2827,6 @@
            </group>
          </if>
        </choose>
@@ -254,18 +646,122 @@
        <text macro="source-event"/>
      </group>
    </macro>
-@@ -2833,9 +2859,7 @@
+@@ -2842,10 +2868,8 @@
+   <macro name="source-monographic-author">
      <!-- based on `author-note` -->
      <names variable="container-author">
-       <name delimiter-precedes-last="contextual"/>
+-      <name initialize="false"/>
 -      <label form="short" prefix=", "/>
 -      <!-- for OGS or variants with bracketed roles: -->
 -      <!-- <label form="short" prefix=" (" suffix=")"/> -->
++      <name initialize="true"/>
 +      <label form="short" prefix=" (" suffix=")"/>
        <substitute>
          <names variable="author"/>
          <names variable="guest"/>
-@@ -3078,8 +3102,8 @@
+@@ -2939,11 +2963,11 @@
+     <group delimiter=", ">
+       <names variable="editor-translator">
+         <label form="verb-short" suffix=" "/>
+-        <name initialize="false"/>
++        <name initialize="true"/>
+       </names>
+       <names delimiter=", " variable="editor translator">
+         <label form="verb-short" suffix=" "/>
+-        <name initialize="false"/>
++        <name initialize="true"/>
+       </names>
+       <choose>
+         <if variable="collection-editor editor"/>
+@@ -2951,72 +2975,72 @@
+         <else-if match="any" variable="number-of-volumes part-number part-title volume volume-title">
+           <names variable="collection-editor">
+             <label form="verb-short" suffix=" "/>
+-            <name initialize="false"/>
++            <name initialize="true"/>
+           </names>
+         </else-if>
+       </choose>
+       <names variable="guest">
+         <label form="verb" suffix=" "/>
+-        <name initialize="false"/>
++        <name initialize="true"/>
+       </names>
+       <names variable="host">
+         <label form="verb" suffix=" "/>
+-        <name initialize="false"/>
++        <name initialize="true"/>
+       </names>
+       <names delimiter=", " variable="chair organizer">
+         <label form="verb" suffix=" "/>
+-        <name initialize="false"/>
++        <name initialize="true"/>
+       </names>
+       <names variable="illustrator">
+         <label form="verb-short" suffix=" "/>
+-        <name initialize="false"/>
++        <name initialize="true"/>
+       </names>
+       <names variable="narrator">
+         <label form="verb" suffix=" "/>
+-        <name initialize="false"/>
++        <name initialize="true"/>
+       </names>
+       <names variable="compiler">
+         <label form="verb-short" suffix=" "/>
+-        <name initialize="false"/>
++        <name initialize="true"/>
+       </names>
+       <names variable="curator">
+         <label form="verb" suffix=" "/>
+-        <name initialize="false"/>
++        <name initialize="true"/>
+       </names>
+       <names delimiter=", " variable="series-creator executive-producer">
+         <label form="verb" suffix=" "/>
+-        <name initialize="false"/>
++        <name initialize="true"/>
+       </names>
+       <names variable="producer">
+         <label form="verb" suffix=" "/>
+-        <name initialize="false"/>
++        <name initialize="true"/>
+       </names>
+       <names variable="editorial-director">
+         <label form="verb-short" suffix=" "/>
+-        <name initialize="false"/>
++        <name initialize="true"/>
+       </names>
+       <choose>
+         <if match="any" type="broadcast performance">
+           <names variable="script-writer">
+             <label form="verb" suffix=" "/>
+-            <name initialize="false"/>
++            <name initialize="true"/>
+           </names>
+         </if>
+       </choose>
+       <names variable="director">
+         <label form="verb" suffix=" "/>
+-        <name initialize="false"/>
++        <name initialize="true"/>
+       </names>
+       <names variable="performer">
+         <label form="verb" suffix=" "/>
+-        <name initialize="false"/>
++        <name initialize="true"/>
+       </names>
+       <choose>
+         <if match="none" type="song thesis">
+           <!-- Song contributors attached to album (cf. CMOS18 14.163) -->
+           <names variable="contributor">
+             <label form="verb" suffix=" "/>
+-            <name initialize="false"/>
++            <name initialize="true"/>
+           </names>
+         </if>
+       </choose>
+@@ -3088,8 +3112,8 @@
            <text macro="label-locator"/>
          </else-if>
          <else-if variable="page">
@@ -276,7 +772,7 @@
              <choose>
                <if variable="locator page">
                  <text term="at"/>
-@@ -3118,7 +3142,7 @@
+@@ -3128,7 +3152,7 @@
          </else-if>
          <else-if variable="archive archive_location page"/>
          <else>
@@ -285,7 +781,7 @@
          </else>
        </choose>
      </group>
-@@ -3253,16 +3277,14 @@
+@@ -3263,16 +3287,14 @@
          <else-if match="any" type="article-journal article-magazine article-newspaper periodical post-weblog review review-book"/>
          <else-if match="any" variable="collection-editor compiler editor editorial-director">
            <!-- monographic types -->
@@ -304,7 +800,16 @@
            <text macro="source-publication-and-date"/>
          </else>
        </choose>
-@@ -3782,17 +3804,13 @@
+@@ -3476,7 +3498,7 @@
+           </choose>
+           <group delimiter=", ">
+             <names variable="original-author">
+-              <name initialize="false"/>
++              <name initialize="true"/>
+             </names>
+             <text font-style="italic" text-case="title" variable="original-title"/>
+           </group>
+@@ -3794,17 +3816,13 @@
          <text macro="source-locator-subsequent-serial"/>
        </if>
        <else-if match="any" variable="collection-editor compiler editor editorial-director">
@@ -324,7 +829,7 @@
        </else>
      </choose>
    </macro>
-@@ -3838,8 +3856,7 @@
+@@ -3850,8 +3868,7 @@
            <!-- Do not provide `volume` or `part-number` for defined section -->
            <text macro="label-locator"/>
          </if>
@@ -334,7 +839,7 @@
            <text macro="label-volume"/>
            <text macro="label-part-number"/>
            <text macro="label-locator"/>
-@@ -3849,7 +3866,7 @@
+@@ -3861,7 +3878,7 @@
              <text macro="label-volume"/>
              <text macro="label-locator"/>
            </group>
@@ -343,7 +848,7 @@
          <else-if variable="part-number">
            <text macro="label-volume"/>
            <text macro="label-part-number"/>
-@@ -3893,9 +3910,7 @@
+@@ -3905,9 +3922,7 @@
        <!-- usually `archive`, `archive-place` but sometimes also `archive-place`, `archive` (NHR 18.6.5); the latter is more common elsewhere (OGS 15.11.1 and MHRA4 7.7) -->
        <text variable="archive_collection"/>
        <text variable="archive_location"/>
@@ -354,7 +859,7 @@
        <choose>
          <!-- database identifier, if not included elsewhere (cf. CMOS18 14.113) -->
          <if match="any" variable="archive_collection archive_location archive-place"/>
-@@ -3935,7 +3950,7 @@
+@@ -3947,7 +3962,7 @@
      </choose>
    </macro>
    <macro name="source-archive-locator-page">

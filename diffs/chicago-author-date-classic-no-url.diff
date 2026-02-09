@@ -4,8 +4,8 @@
    type="application/relax-ng-compact-syntax" schematypens="http://relaxng.org/ns/compatibility/annotations/1.0"?>
  <?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl-repository.rnc"
    type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
--<style class="note" demote-non-dropping-particle="display-and-sort" page-range-format="chicago-16" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
-+<style class="in-text" demote-non-dropping-particle="display-and-sort" page-range-format="chicago-16" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
+-<style class="note" demote-non-dropping-particle="display-and-sort" initialize-with=". " page-range-format="chicago-16" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
++<style class="in-text" demote-non-dropping-particle="display-and-sort" initialize-with=". " page-range-format="chicago-16" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>Chicago Manual of Style 18th edition (template)</title>
 -    <title-short>CMOS with Bluebook</title-short>
@@ -49,7 +49,7 @@
            <if match="none" type="standard">
              <names variable="editor-translator"/>
              <names variable="editor"/>
-@@ -1432,9 +1426,7 @@
+@@ -1433,9 +1427,7 @@
        <choose>
          <if type="broadcast" variable="container-title number title">
            <!-- Bespoke `broadcast` format (CMOS18 14.165, 14.168) -->
@@ -60,7 +60,7 @@
            <group delimiter=", ">
              <text macro="identifier-number-bib"/>
              <text macro="title-bib"/>
-@@ -1566,18 +1558,14 @@
+@@ -1567,18 +1559,14 @@
        </else-if>
        <else-if match="any" variable="collection-editor compiler editor editorial-director">
          <!-- monographic types -->
@@ -81,7 +81,7 @@
        </else>
      </choose>
    </macro>
-@@ -3212,8 +3200,6 @@
+@@ -3213,8 +3201,6 @@
        </if>
        <else-if match="any" variable="collection-editor compiler editor editorial-director">
          <!-- monographic types -->
@@ -90,7 +90,7 @@
          <!-- <text macro="identifier-contributors-and-volume-monographic-bib-specific-title-first"/> -->
        </else-if>
        <else-if match="any" type="interview paper-conference">
-@@ -3222,9 +3208,7 @@
+@@ -3223,9 +3209,7 @@
        </else-if>
        <else>
          <!-- monographic types -->
@@ -101,7 +101,7 @@
        </else>
      </choose>
    </macro>
-@@ -3564,10 +3548,6 @@
+@@ -3565,10 +3549,6 @@
              <else-if match="any" variable="container-author editor editor-translator translator">
                <text macro="label-volume"/>
              </else-if>
@@ -112,7 +112,7 @@
              <!-- always display number of volumes in notes without bibliography (CMOS18 14.20): -->
              <!-- <else>
                <text macro="label-number-of-volumes"/>
-@@ -3786,9 +3766,7 @@
+@@ -3787,9 +3767,7 @@
        <choose>
          <if match="any" type="article-magazine article-newspaper">
            <group delimiter=". ">
@@ -123,7 +123,7 @@
              <!-- newspaper edition always capitalized (CMOS18 14.89) -->
              <text macro="label-edition-capitalized"/>
            </group>
-@@ -3796,16 +3774,12 @@
+@@ -3797,16 +3775,12 @@
          </if>
          <else-if match="any" variable="issue supplement-number volume">
            <group delimiter=": ">
@@ -142,18 +142,18 @@
            <text macro="source-serial-locator"/>
          </else>
          <!-- TODO: If CSL adds `date-part` detection, add two further conditions to address CMOS18 14.74: delimiting with ":" if there is a `volume` and no month or `issue` or `supplement number`; delimiting with ", " or there is an `issue` or `supplement number` and no month -->
-@@ -4110,9 +4084,7 @@
+@@ -4111,9 +4085,7 @@
        </choose>
        <group delimiter=" ">
          <text macro="source-date-status-bib"/>
 -        <text macro="source-date-issued-or-status"/>
 -        <!-- for author-date or notes and bibliography leading with volume title (CMOS18 14.21): -->
--        <!-- <text macro="source-date-bib-specific-title-first"/> -->
-+        <text macro="source-date-bib-specific-title-first"/>
+-        <!-- <text macro="source-date-specific-title-first"/> -->
++        <text macro="source-date-specific-title-first"/>
        </group>
      </group>
    </macro>
-@@ -4169,9 +4141,7 @@
+@@ -4170,9 +4142,7 @@
            <group delimiter=", ">
              <group delimiter=" ">
                <text macro="source-monographic-preposition-bib"/>
@@ -164,7 +164,7 @@
              </group>
              <text macro="source-monographic-description"/>
              <text macro="source-monographic-identifier-bib"/>
-@@ -4227,11 +4197,9 @@
+@@ -4228,11 +4198,9 @@
            </if>
          </choose>
        </else-if>
@@ -176,7 +176,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number-capitalized"/>
-@@ -4267,11 +4235,9 @@
+@@ -4268,11 +4236,9 @@
            </if>
          </choose>
        </else-if>
@@ -188,7 +188,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number"/>
-@@ -4332,9 +4298,7 @@
+@@ -4333,9 +4299,7 @@
            <text macro="label-version"/>
            <!-- use note form as `edition` is not capitalized here -->
            <text macro="identifier-edition-note"/>
@@ -199,7 +199,7 @@
          </group>
        </if>
      </choose>
-@@ -4705,10 +4669,6 @@
+@@ -4706,10 +4670,6 @@
          <else-if is-numeric="volume" match="none">
            <text macro="label-volume"/>
          </else-if>
@@ -210,7 +210,7 @@
          <else-if is-numeric="volume" variable="page">
            <choose>
              <!-- check for variables that might come between the volume and page number -->
-@@ -4735,9 +4695,7 @@
+@@ -4736,9 +4696,7 @@
          <group delimiter=":">
            <choose>
              <if match="any" variable="part-number part-title volume-title"/>
@@ -221,7 +221,7 @@
              <else>
                <text variable="volume"/>
              </else>
-@@ -4748,17 +4706,13 @@
+@@ -4749,17 +4707,13 @@
        <else-if variable="locator">
          <text macro="label-locator"/>
        </else-if>
@@ -240,18 +240,18 @@
              <else>
                <text variable="volume"/>
              </else>
-@@ -5284,9 +5238,7 @@
+@@ -5285,9 +5239,7 @@
        </choose>
        <group delimiter=" ">
          <text macro="source-date-status-bib"/>
 -        <text macro="source-date-issued-or-status"/>
 -        <!-- for author-date or notes and bibliography leading with volume title (CMOS18 14.21): -->
--        <!-- <text macro="source-date-bib-specific-title-first"/> -->
-+        <text macro="source-date-bib-specific-title-first"/>
+-        <!-- <text macro="source-date-specific-title-first"/> -->
++        <text macro="source-date-specific-title-first"/>
        </group>
        <choose>
          <if type="broadcast" variable="URL"/>
-@@ -5514,7 +5466,7 @@
+@@ -5515,7 +5467,7 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -260,7 +260,7 @@
              <text text-case="capitalize-first" variable="publisher"/>
            </group>
          </else-if>
-@@ -5540,7 +5492,7 @@
+@@ -5541,7 +5493,7 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -269,7 +269,7 @@
              <text variable="publisher"/>
            </group>
          </else-if>
-@@ -5562,7 +5514,7 @@
+@@ -5563,7 +5515,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -278,7 +278,7 @@
            <text text-case="capitalize-first" variable="original-publisher"/>
          </group>
        </if>
-@@ -5575,7 +5527,7 @@
+@@ -5576,7 +5528,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -287,7 +287,7 @@
            <text variable="original-publisher"/>
          </group>
        </if>
-@@ -5764,9 +5716,7 @@
+@@ -5785,9 +5737,7 @@
      </choose>
    </macro>
    <macro name="source-date-original">
@@ -298,7 +298,7 @@
    </macro>
    <macro name="source-date-original-full">
      <!-- Give full date for more ephemeral types -->
-@@ -6172,7 +6122,7 @@
+@@ -6193,7 +6143,7 @@
            </group>
          </else-if>
        </choose>
@@ -307,7 +307,7 @@
      </group>
    </macro>
    <macro name="source-date-accessed-DOI-URL-note">
-@@ -6187,7 +6137,7 @@
+@@ -6208,7 +6158,7 @@
            </group>
          </else-if>
        </choose>
@@ -316,7 +316,7 @@
      </group>
    </macro>
    <macro name="source-DOI-URL">
-@@ -6874,9 +6824,9 @@
+@@ -6895,9 +6845,9 @@
        </else>
      </choose>
    </macro>
@@ -329,7 +329,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -7009,19 +6959,22 @@
+@@ -7030,19 +6980,22 @@
        </else>
      </choose>
    </macro>
