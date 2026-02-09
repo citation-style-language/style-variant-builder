@@ -1,6 +1,6 @@
 --- templates/new-harts-rules-template.csl
 +++ development/the-journal-of-ecclesiastical-history.csl
-@@ -5,34 +5,24 @@
+@@ -5,33 +5,23 @@
    type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
  <style and="text" class="note" default-locale="en-GB" demote-non-dropping-particle="display-and-sort" et-al-min="4" et-al-use-first="1" initialize-with=". " page-range-format="minimal" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
@@ -37,14 +37,12 @@
 -    <category field="sociology"/>
      <category field="theology"/>
 -    <summary>Oxford source citations, template</summary>
--    <updated>2026-02-05T00:00:00+00:00</updated>
 +    <issn>0022-0469</issn>
 +    <eissn>1469-7637</eissn>
 +    <summary>Oxford Guide to Style derivative, with all titles in sentence case, bracketed roles, unbracketed publication details except with series, space after shortened citation of `classic`.</summary>
-+    <updated>2025-11-11T00:00:00+00:00</updated>
+     <updated>2026-02-05T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-   <locale xml:lang="en">
 @@ -57,6 +47,11 @@
        </term>
        <term form="verb-short" name="editor-translator">ed. and trans.</term>
