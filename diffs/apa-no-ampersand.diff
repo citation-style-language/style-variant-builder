@@ -139,6 +139,15 @@
                <substitute>
                  <text macro="title-and-descriptions-short"/>
                </substitute>
+@@ -452,7 +460,7 @@
+           <else>
+             <group delimiter=", ">
+               <names variable="author">
+-                <name and="symbol"/>
++                <name and="text"/>
+                 <substitute>
+                   <text macro="title-and-descriptions-short"/>
+                 </substitute>
 @@ -464,7 +472,7 @@
        </else-if>
        <else>
@@ -229,6 +238,15 @@
          <label form="short" prefix=", " text-case="title"/>
        </names>
      </group>
+@@ -1387,7 +1395,7 @@
+               <if variable="interviewer">
+                 <text form="verb" term="container-author"/>
+                 <names variable="interviewer">
+-                  <name and="symbol"/>
++                  <name and="text"/>
+                 </names>
+               </if>
+             </choose>
 @@ -1396,7 +1404,7 @@
          <else-if variable="interviewer">
            <names variable="interviewer">
@@ -274,6 +292,15 @@
          </names>
        </group>
        <text macro="description-medium"/>
+@@ -1569,7 +1577,7 @@
+           </else>
+         </choose>
+         <names variable="author">
+-          <name and="symbol"/>
++          <name and="text"/>
+           <substitute>
+             <names variable="performer"/>
+           </substitute>
 @@ -1677,22 +1685,22 @@
    <!-- Monographic source author -->
    <macro name="source-monographic-author">
