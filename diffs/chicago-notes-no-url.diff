@@ -5,18 +5,18 @@
  <style class="note" demote-non-dropping-particle="display-and-sort" initialize-with=". " page-range-format="chicago-16" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>Chicago Manual of Style 18th edition (template)</title>
--    <title-short>CMOS with Bluebook</title-short>
+-    <title-short>CMOS/CMS with Bluebook</title-short>
 -    <id>http://www.zotero.org/styles/chicago-notes-bibliography</id>
 -    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="self"/>
 +    <title>Chicago Manual of Style 18th edition (notes without bibliography, without URLs)</title>
-+    <title-short>CMOS with Bluebook (notes only [13.23, 14.20], no URLs [13.6])</title-short>
++    <title-short>CMOS/CMS with Bluebook (notes only [13.23, 14.20], no URLs [13.6])</title-short>
 +    <id>http://www.zotero.org/styles/chicago-notes-no-url</id>
 +    <link href="http://www.zotero.org/styles/chicago-notes-no-url" rel="self"/>
 +    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="template"/>
      <link href="https://www.chicagomanualofstyle.org/" rel="documentation"/>
+     <link href="https://zotero.org/groups/2205533/collections/5V67EPX3" rel="documentation"/>
      <author>
-       <name>Andrew Dunning</name>
-@@ -30,7 +31,7 @@
+@@ -31,7 +32,7 @@
      <category field="social_science"/>
      <category field="sociology"/>
      <category field="theology"/>
@@ -25,7 +25,7 @@
      <updated>2025-02-09T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -426,12 +427,12 @@
+@@ -427,12 +428,12 @@
        </choose>
        <text variable="volume"/>
        <!-- always display number of volumes in notes without bibliography (CMOS18 14.20): -->
@@ -40,7 +40,7 @@
      </group>
    </macro>
    <macro name="label-volume-capitalized">
-@@ -3314,9 +3315,6 @@
+@@ -3315,9 +3316,6 @@
        <choose>
          <!-- notes only show the number of volumes if there is no physical locator, which should include a volume number, e.g. 4:243; except when using notes without bibliography (CMOS18 14.20) -->
          <if match="any" variable="part-number part-title volume volume-title"/>
@@ -50,7 +50,7 @@
          <else>
            <text macro="label-number-of-volumes"/>
          </else>
-@@ -3552,9 +3550,9 @@
+@@ -3553,9 +3551,9 @@
                <text macro="label-volume"/>
              </else-if>
              <!-- always display number of volumes in notes without bibliography (CMOS18 14.20): -->
@@ -62,7 +62,7 @@
            </choose>
          </else-if>
          <else-if is-numeric="volume" variable="page">
-@@ -3570,9 +3568,9 @@
+@@ -3571,9 +3569,9 @@
                <text macro="label-volume"/>
              </else-if>
              <!-- always display number of volumes in notes without bibliography (CMOS18 14.20): -->
@@ -74,7 +74,7 @@
            </choose>
          </else-if>
          <else-if variable="volume">
-@@ -4650,10 +4648,6 @@
+@@ -4651,10 +4649,6 @@
        <choose>
          <!-- notes only show the number of volumes if there is no physical locator, which should include a volume number, e.g. 4:243; except when using notes without bibliography (CMOS18 14.20) -->
          <if match="any" variable="part-number part-title volume volume-title"/>
@@ -85,7 +85,7 @@
          <else>
            <text macro="label-number-of-volumes"/>
          </else>
-@@ -6193,7 +6187,7 @@
+@@ -6194,7 +6188,7 @@
            </group>
          </else-if>
        </choose>
@@ -94,7 +94,7 @@
      </group>
    </macro>
    <macro name="source-date-accessed-DOI-URL-note">
-@@ -6208,7 +6202,7 @@
+@@ -6209,7 +6203,7 @@
            </group>
          </else-if>
        </choose>
@@ -103,7 +103,7 @@
      </group>
    </macro>
    <macro name="source-DOI-URL">
-@@ -6895,7 +6889,7 @@
+@@ -6896,7 +6890,7 @@
        </else>
      </choose>
    </macro>
@@ -112,7 +112,7 @@
      <layout delimiter="; " suffix=".">
        <text macro="citation-notes-full-subsequent-author-title"/>
      </layout>
-@@ -7030,19 +7024,4 @@
+@@ -7031,19 +7025,4 @@
        </else>
      </choose>
    </macro>

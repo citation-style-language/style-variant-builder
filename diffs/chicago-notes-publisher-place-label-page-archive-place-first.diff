@@ -5,18 +5,18 @@
  <style class="note" demote-non-dropping-particle="display-and-sort" initialize-with=". " page-range-format="chicago-16" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>Chicago Manual of Style 18th edition (template)</title>
--    <title-short>CMOS with Bluebook</title-short>
+-    <title-short>CMOS/CMS with Bluebook</title-short>
 -    <id>http://www.zotero.org/styles/chicago-notes-bibliography</id>
 -    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="self"/>
 +    <title>Chicago Manual of Style 18th edition (notes without bibliography, place of publication substituted for publisher, page abbreviations, archival references with place first)</title>
-+    <title-short>CMOS with Bluebook (notes without bibliography [13.23], chapter page numbers [14.8], publisher place for name [14.31], label page locator [14.50], archive place first [14.205])</title-short>
++    <title-short>CMOS/CMS with Bluebook (notes without bibliography [13.23], chapter page numbers [14.8], publisher place for name [14.31], label page locator [14.50], archive place first [14.205])</title-short>
 +    <id>http://www.zotero.org/styles/chicago-notes-publisher-place-label-page-archive-place-first</id>
 +    <link href="http://www.zotero.org/styles/chicago-notes-publisher-place-label-page-archive-place-first" rel="self"/>
 +    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="template"/>
      <link href="https://www.chicagomanualofstyle.org/" rel="documentation"/>
+     <link href="https://zotero.org/groups/2205533/collections/5V67EPX3" rel="documentation"/>
      <author>
-       <name>Andrew Dunning</name>
-@@ -30,7 +31,7 @@
+@@ -31,7 +32,7 @@
      <category field="social_science"/>
      <category field="sociology"/>
      <category field="theology"/>
@@ -25,7 +25,7 @@
      <updated>2025-02-09T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -248,8 +249,7 @@
+@@ -249,8 +250,7 @@
    <macro name="label-locator">
      <group delimiter=" ">
        <choose>
@@ -35,7 +35,7 @@
            <!-- Bluebook-style labels for legal types (CMOS18 14.174) -->
            <choose>
              <if locator="chapter paragraph section" match="any">
-@@ -259,7 +259,7 @@
+@@ -260,7 +260,7 @@
                <label form="short" variable="locator"/>
              </else>
            </choose>
@@ -44,7 +44,7 @@
          <else-if is-numeric="locator" locator="line">
            <label variable="locator"/>
          </else-if>
-@@ -426,12 +426,12 @@
+@@ -427,12 +427,12 @@
        </choose>
        <text variable="volume"/>
        <!-- always display number of volumes in notes without bibliography (CMOS18 14.20): -->
@@ -59,7 +59,7 @@
      </group>
    </macro>
    <macro name="label-volume-capitalized">
-@@ -3314,9 +3314,6 @@
+@@ -3315,9 +3315,6 @@
        <choose>
          <!-- notes only show the number of volumes if there is no physical locator, which should include a volume number, e.g. 4:243; except when using notes without bibliography (CMOS18 14.20) -->
          <if match="any" variable="part-number part-title volume volume-title"/>
@@ -69,7 +69,7 @@
          <else>
            <text macro="label-number-of-volumes"/>
          </else>
-@@ -3552,9 +3549,9 @@
+@@ -3553,9 +3550,9 @@
                <text macro="label-volume"/>
              </else-if>
              <!-- always display number of volumes in notes without bibliography (CMOS18 14.20): -->
@@ -81,7 +81,7 @@
            </choose>
          </else-if>
          <else-if is-numeric="volume" variable="page">
-@@ -3565,14 +3562,10 @@
+@@ -3566,14 +3563,10 @@
              <else-if match="any" variable="container-author editor editor-translator translator">
                <text macro="label-volume"/>
              </else-if>
@@ -98,7 +98,7 @@
            </choose>
          </else-if>
          <else-if variable="volume">
-@@ -4228,11 +4221,9 @@
+@@ -4229,11 +4222,9 @@
            </if>
          </choose>
        </else-if>
@@ -110,7 +110,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number-capitalized"/>
-@@ -4268,11 +4259,9 @@
+@@ -4269,11 +4260,9 @@
            </if>
          </choose>
        </else-if>
@@ -122,7 +122,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number"/>
-@@ -4650,10 +4639,6 @@
+@@ -4651,10 +4640,6 @@
        <choose>
          <!-- notes only show the number of volumes if there is no physical locator, which should include a volume number, e.g. 4:243; except when using notes without bibliography (CMOS18 14.20) -->
          <if match="any" variable="part-number part-title volume volume-title"/>
@@ -133,7 +133,7 @@
          <else>
            <text macro="label-number-of-volumes"/>
          </else>
-@@ -4706,10 +4691,6 @@
+@@ -4707,10 +4692,6 @@
          <else-if is-numeric="volume" match="none">
            <text macro="label-volume"/>
          </else-if>
@@ -144,7 +144,7 @@
          <else-if is-numeric="volume" variable="page">
            <choose>
              <!-- check for variables that might come between the volume and page number -->
-@@ -4749,28 +4730,30 @@
+@@ -4750,28 +4731,30 @@
        <else-if variable="locator">
          <text macro="label-locator"/>
        </else-if>
@@ -181,7 +181,7 @@
        </else>
      </choose>
    </macro>
-@@ -5515,8 +5498,8 @@
+@@ -5516,8 +5499,8 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -192,7 +192,7 @@
            </group>
          </else-if>
          <!-- TODO: remove conditional when Zotero fixes double-mapping of `event-place` -->
-@@ -5541,8 +5524,8 @@
+@@ -5542,8 +5525,8 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -203,7 +203,7 @@
            </group>
          </else-if>
          <!-- TODO: remove conditional when Zotero fixes double-mapping of `event-place` -->
-@@ -5563,8 +5546,8 @@
+@@ -5564,8 +5547,8 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -214,7 +214,7 @@
          </group>
        </if>
        <else>
-@@ -5576,8 +5559,8 @@
+@@ -5577,8 +5560,8 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -225,7 +225,7 @@
          </group>
        </if>
        <else>
-@@ -6075,7 +6058,7 @@
+@@ -6076,7 +6059,7 @@
            <text macro="source-archive-reference-institution-first"/>
          </if>
          <else>
@@ -234,7 +234,7 @@
          </else>
        </choose>
        <text macro="source-archive-database-number" prefix="(" suffix=")"/>
-@@ -6088,7 +6071,7 @@
+@@ -6089,7 +6072,7 @@
            <text macro="source-archive-reference-institution-first"/>
          </if>
          <else>
@@ -243,7 +243,7 @@
          </else>
        </choose>
        <text macro="source-archive-database-number" prefix="(" suffix=")"/>
-@@ -6895,7 +6878,7 @@
+@@ -6896,7 +6879,7 @@
        </else>
      </choose>
    </macro>
@@ -252,7 +252,7 @@
      <layout delimiter="; " suffix=".">
        <text macro="citation-notes-full-subsequent-author-title"/>
      </layout>
-@@ -7030,19 +7013,4 @@
+@@ -7031,19 +7014,4 @@
        </else>
      </choose>
    </macro>

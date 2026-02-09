@@ -15,9 +15,9 @@
 +    <link href="http://www.zotero.org/styles/american-medical-association-no-url-alphabetical" rel="self"/>
 +    <link href="http://www.zotero.org/styles/american-medical-association-no-url" rel="template"/>
      <link href="https://doi.org/10.1093/jama/9780190246556.003.0003" rel="documentation"/>
+     <link href="https://zotero.org/groups/2205533/collections/QW4JGG9G" rel="documentation"/>
      <author>
-       <name>Julian Onions</name>
-@@ -33,7 +33,7 @@
+@@ -34,7 +34,7 @@
      </contributor>
      <category citation-format="numeric"/>
      <category field="medicine"/>
@@ -26,7 +26,7 @@
      <updated>2026-02-06T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -146,6 +146,11 @@
+@@ -147,6 +147,11 @@
      </layout>
    </citation>
    <bibliography et-al-min="7" et-al-use-first="3" second-field-align="flush">
@@ -38,7 +38,7 @@
      <layout>
        <text suffix="." variable="citation-number"/>
        <group delimiter=". ">
-@@ -293,7 +298,6 @@
+@@ -294,7 +299,6 @@
              </else>
            </choose>
          </group>

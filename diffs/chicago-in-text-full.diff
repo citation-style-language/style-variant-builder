@@ -1,6 +1,6 @@
 --- templates/chicago-template.csl
 +++ development/chicago-in-text-full.csl
-@@ -3,18 +3,18 @@
+@@ -3,19 +3,19 @@
    type="application/relax-ng-compact-syntax" schematypens="http://relaxng.org/ns/compatibility/annotations/1.0"?>
  <?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl-repository.rnc"
    type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
@@ -8,14 +8,15 @@
 +<style class="in-text" demote-non-dropping-particle="display-and-sort" initialize-with=". " page-range-format="chicago-16" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>Chicago Manual of Style 18th edition (template)</title>
--    <title-short>CMOS with Bluebook</title-short>
+-    <title-short>CMOS/CMS with Bluebook</title-short>
 -    <id>http://www.zotero.org/styles/chicago-notes-bibliography</id>
 -    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="self"/>
 +    <title>Chicago Manual of Style 18th edition (in-text full citations)</title>
-+    <title-short>CMOS with Bluebook (parenthetical full citations [12.76])</title-short>
++    <title-short>CMOS/CMS with Bluebook (parenthetical full citations [12.76])</title-short>
 +    <id>http://www.zotero.org/styles/chicago-in-text-full</id>
 +    <link href="http://www.zotero.org/styles/chicago-in-text-full" rel="self"/>
      <link href="https://www.chicagomanualofstyle.org/" rel="documentation"/>
+     <link href="https://zotero.org/groups/2205533/collections/5V67EPX3" rel="documentation"/>
      <author>
        <name>Andrew Dunning</name>
        <uri>https://orcid.org/0000-0003-0464-5036</uri>
@@ -25,7 +26,7 @@
      <category field="anthropology"/>
      <category field="communications"/>
      <category field="generic-base"/>
-@@ -30,7 +30,7 @@
+@@ -31,7 +31,7 @@
      <category field="social_science"/>
      <category field="sociology"/>
      <category field="theology"/>
@@ -34,7 +35,7 @@
      <updated>2025-02-09T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -3981,12 +3981,12 @@
+@@ -3982,12 +3982,12 @@
                  <!-- date for unsigned reviews only appears here if it did not earlier (CMOS18 14.102) -->
                  <choose>
                    <if match="any" variable="author chair collection-editor compiler composer curator director editor editor-translator editorial-director executive-producer guest host illustrator organizer producer series-creator translator">
@@ -49,7 +50,7 @@
                </else>
              </choose>
            </group>
-@@ -4067,19 +4067,19 @@
+@@ -4068,19 +4068,19 @@
                  <!-- date appears first if a review `container-title` has been substituted for a missing author (CMOS18 14.89) -->
                  <choose>
                    <if match="any" variable="author chair collection-editor compiler composer curator director editor editor-translator editorial-director executive-producer guest host illustrator organizer producer series-creator translator">
@@ -73,7 +74,7 @@
                </else>
              </choose>
            </group>
-@@ -5098,32 +5098,32 @@
+@@ -5099,32 +5099,32 @@
      <!-- Facts of publication with brackets for print monographic formats -->
      <choose>
        <if match="any" type="book chapter classic interview musical_score pamphlet paper-conference report thesis">
@@ -112,7 +113,7 @@
            </if>
          </choose>
        </else-if>
-@@ -5164,7 +5164,7 @@
+@@ -5165,7 +5165,7 @@
    </macro>
    <macro name="source-monographic-publication-short-bracketed">
      <!-- mirrors `source-monographic-publication-note-bracketed` -->
@@ -121,7 +122,7 @@
        <choose>
          <if disambiguate="true" match="none"/>
          <!-- Facts of publication with brackets for print monographic formats -->
-@@ -5499,7 +5499,7 @@
+@@ -5500,7 +5500,7 @@
              </names>
              <text font-style="italic" text-case="title" variable="original-title"/>
            </group>
@@ -130,7 +131,7 @@
              <text macro="source-publication-publisher-original-note"/>
              <text macro="source-date-original"/>
            </group>
-@@ -6896,8 +6896,8 @@
+@@ -6897,8 +6897,8 @@
      </choose>
    </macro>
    <citation disambiguate-add-givenname="true" disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">

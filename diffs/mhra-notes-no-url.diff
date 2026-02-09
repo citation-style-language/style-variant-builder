@@ -13,9 +13,9 @@
 +    <id>http://www.zotero.org/styles/mhra-notes-no-url</id>
 +    <link href="http://www.zotero.org/styles/mhra-notes-no-url" rel="self"/>
      <link href="https://www.mhra.org.uk/style/" rel="documentation"/>
+     <link href="https://zotero.org/groups/2205533/collections/D9MVMAFF" rel="documentation"/>
      <author>
-       <name>Andrew Dunning</name>
-@@ -22,7 +22,7 @@
+@@ -23,7 +23,7 @@
      <category field="literature"/>
      <category field="philosophy"/>
      <category field="theology"/>
@@ -24,7 +24,7 @@
      <updated>2025-02-04T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -1195,9 +1195,8 @@
+@@ -1196,9 +1196,8 @@
          </choose>
          <text macro="source-medium"/>
          <text macro="source-archive"/>

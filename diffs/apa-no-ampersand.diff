@@ -15,9 +15,9 @@
 +    <link href="http://www.zotero.org/styles/apa-no-ampersand" rel="self"/>
 +    <link href="http://www.zotero.org/styles/apa" rel="template"/>
      <link href="https://apastyle.apa.org/style-grammar-guidelines/references" rel="documentation"/>
+     <link href="https://zotero.org/groups/2205533/collections/MR2N872S" rel="documentation"/>
      <author>
-       <name>Brenton M. Wiernik</name>
-@@ -29,7 +29,7 @@
+@@ -30,7 +30,7 @@
      <category field="psychology"/>
      <category field="social_science"/>
      <category field="sociology"/>
@@ -26,7 +26,7 @@
      <updated>2026-02-07T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -38,6 +38,14 @@
+@@ -39,6 +39,14 @@
        <term name="ad"> C.E.</term>
        <term name="bc"> B.C.E.</term>
        <term form="short" name="circa">ca.</term>
@@ -41,7 +41,7 @@
        <term name="guest">
          <single>guest expert</single>
          <multiple>guest experts</multiple>
-@@ -329,7 +337,7 @@
+@@ -330,7 +338,7 @@
    <macro name="author">
      <!-- Substitutes for missing authors: order prioritizes primary creators (e.g., composer, author) over secondary roles (e.g., editor, curator), with title as the final fallback. -->
      <names variable="composer">
@@ -50,7 +50,7 @@
        <label form="short" prefix=" (" suffix=")" text-case="title"/>
        <substitute>
          <names variable="author"/>
-@@ -339,24 +347,24 @@
+@@ -340,24 +348,24 @@
            <if type="broadcast">
              <names variable="script-writer director">
                <!-- Actors/performers and producers [not executive] not cited in APA style. -->
@@ -79,7 +79,7 @@
            <label prefix=" (" suffix=")" text-case="title"/>
          </names>
          <choose>
-@@ -372,11 +380,11 @@
+@@ -373,11 +381,11 @@
            </else-if>
          </choose>
          <names variable="executive-producer">
@@ -93,7 +93,7 @@
            <label prefix=" (" suffix=")" text-case="title"/>
          </names>
          <names variable="editor-translator"/>
-@@ -384,23 +392,23 @@
+@@ -385,23 +393,23 @@
          <names variable="editor"/>
          <names variable="editorial-director"/>
          <names variable="compiler">
@@ -121,7 +121,7 @@
            <label prefix=" (" suffix=")" text-case="title"/>
          </names>
          <names variable="collection-editor"/>
-@@ -426,7 +434,7 @@
+@@ -427,7 +435,7 @@
          <else-if match="any" type="book musical_score pamphlet report standard">
            <names prefix="(" suffix=")" variable="contributor">
              <label form="verb" suffix=" "/>
@@ -130,7 +130,7 @@
            </names>
          </else-if>
        </choose>
-@@ -442,7 +450,7 @@
+@@ -443,7 +451,7 @@
            <!-- These variables indicate that the letter is retrievable by the reader. If not, use the APA in-text-only personal communication format. -->
            <if match="any" variable="archive archive-place container-title DOI number publisher references URL">
              <names variable="author">
@@ -139,7 +139,7 @@
                <substitute>
                  <text macro="title-and-descriptions-short"/>
                </substitute>
-@@ -463,7 +471,7 @@
+@@ -464,7 +472,7 @@
        </else-if>
        <else>
          <names variable="composer">
@@ -148,7 +148,7 @@
            <substitute>
              <names variable="author"/>
              <names variable="illustrator"/>
-@@ -1000,7 +1008,7 @@
+@@ -1001,7 +1009,7 @@
        <choose>
          <if variable="title">
            <names variable="interviewer">
@@ -157,7 +157,7 @@
              <label form="short" prefix=", " text-case="title"/>
            </names>
          </if>
-@@ -1010,24 +1018,24 @@
+@@ -1011,24 +1019,24 @@
            <!-- print `container-title` on `post` or `webpage` in the same way as `publisher` -->
            <names variable="container-author">
              <label form="verb-short" suffix=" " text-case="title"/>
@@ -187,7 +187,7 @@
              <label form="short" prefix=", " text-case="title"/>
            </names>
            <choose>
-@@ -1035,21 +1043,21 @@
+@@ -1036,21 +1044,21 @@
              <else-if variable="container-title">
                <!-- TODO: Check logic once processors start to automatically populate `editor-translator` -->
                <names delimiter="; " variable="translator">
@@ -213,7 +213,7 @@
                  <label prefix=", " text-case="title"/>
                </names>
              </else>
-@@ -1063,13 +1071,13 @@
+@@ -1064,13 +1072,13 @@
        <choose>
          <if variable="title">
            <names delimiter="; " variable="interviewer">
@@ -229,7 +229,7 @@
          <label form="short" prefix=", " text-case="title"/>
        </names>
      </group>
-@@ -1395,7 +1403,7 @@
+@@ -1396,7 +1404,7 @@
          <else-if variable="interviewer">
            <names variable="interviewer">
              <label form="verb" suffix=" " text-case="capitalize-first"/>
@@ -238,7 +238,7 @@
            </names>
            <text text-case="capitalize-first" variable="medium"/>
          </else-if>
-@@ -1408,7 +1416,7 @@
+@@ -1409,7 +1417,7 @@
    <macro name="description-interview-short">
      <names variable="interviewer">
        <label form="verb" suffix=" " text-case="capitalize-first"/>
@@ -247,7 +247,7 @@
        <substitute>
          <text macro="description-format-short"/>
        </substitute>
-@@ -1422,7 +1430,7 @@
+@@ -1423,7 +1431,7 @@
              <text macro="description-format"/>
              <names variable="recipient">
                <label form="verb" suffix=" "/>
@@ -256,7 +256,7 @@
              </names>
            </group>
            <text macro="description-medium"/>
-@@ -1440,7 +1448,7 @@
+@@ -1441,7 +1449,7 @@
            <text macro="description-format-short"/>
            <names variable="recipient">
              <label form="verb" suffix=" "/>
@@ -265,7 +265,7 @@
            </names>
          </group>
        </if>
-@@ -1489,7 +1497,7 @@
+@@ -1490,7 +1498,7 @@
          </group>
          <names variable="reviewed-author">
            <label form="verb-short" suffix=" "/>
@@ -274,7 +274,7 @@
          </names>
        </group>
        <text macro="description-medium"/>
-@@ -1676,22 +1684,22 @@
+@@ -1677,22 +1685,22 @@
    <!-- Monographic source author -->
    <macro name="source-monographic-author">
      <names variable="container-author">
@@ -301,7 +301,7 @@
            <label form="short" prefix=" (" suffix=")" text-case="title"/>
          </names>
          <names variable="compiler"/>
-@@ -1703,7 +1711,7 @@
+@@ -1704,7 +1712,7 @@
          </choose>
          <names variable="curator"/>
          <names variable="collection-editor">

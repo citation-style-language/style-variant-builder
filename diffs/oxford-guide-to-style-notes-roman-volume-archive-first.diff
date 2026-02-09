@@ -14,9 +14,9 @@
 +    <link href="http://www.zotero.org/styles/oxford-guide-to-style-notes-roman-volume-archive-first" rel="self"/>
 +    <link href="http://www.zotero.org/styles/new-harts-rules-notes" rel="template"/>
      <link href="https://en.wikipedia.org/wiki/Hart's_Rules" rel="documentation"/>
+     <link href="http://zotero.org/groups/2205533/collections/499SCKUW" rel="documentation"/>
      <author>
-       <name>Andrew Dunning</name>
-@@ -30,7 +31,7 @@
+@@ -31,7 +32,7 @@
      <category field="social_science"/>
      <category field="sociology"/>
      <category field="theology"/>
@@ -25,7 +25,7 @@
      <updated>2026-02-05T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -43,26 +44,83 @@
+@@ -44,26 +45,83 @@
      <terms>
        <!-- Like Chicago, Oxford omits 'by' from `verb-short` forms; it abbreviates only the most common roles -->
        <term name="advance-online-publication">published online</term>
@@ -112,7 +112,7 @@
    <!-- Contents:
      
         This file interprets Oxford style using APA's four basic reference elements:
-@@ -359,35 +417,22 @@
+@@ -360,35 +418,22 @@
      </group>
    </macro>
    <macro name="label-volume">
@@ -153,7 +153,7 @@
          <substitute>
            <names variable="author"/>
            <names variable="guest"/>
-@@ -529,9 +574,7 @@
+@@ -530,9 +575,7 @@
      <group delimiter=", ">
        <names variable="composer">
          <name initialize="false"/>
@@ -164,7 +164,7 @@
          <substitute>
            <names variable="author"/>
            <names variable="guest"/>
-@@ -1193,20 +1236,12 @@
+@@ -1194,20 +1237,12 @@
              <if match="any" type="article-journal article-magazine article-newspaper periodical post-weblog review review-book"/>
              <else-if match="any" variable="collection-editor compiler editor editorial-director">
                <!-- monographic types -->
@@ -187,7 +187,7 @@
              </else>
            </choose>
          </group>
-@@ -1487,10 +1522,6 @@
+@@ -1488,10 +1523,6 @@
              <text macro="label-volume"/>
            </if>
            <else-if locator="column page" match="any"/>
@@ -198,7 +198,7 @@
            <else-if variable="page"/>
            <else>
              <text macro="label-volume"/>
-@@ -2613,9 +2644,7 @@
+@@ -2614,9 +2645,7 @@
        <text macro="source-serial-identifier-volume"/>
        <!-- periodical edition always capitalized (cf. CMOS18 14.89) -->
        <text macro="label-edition-capitalized"/>
@@ -209,7 +209,7 @@
      </group>
    </macro>
    <macro name="source-serial-identifier-author-date">
-@@ -2656,16 +2685,12 @@
+@@ -2657,16 +2686,12 @@
                <choose>
                  <if variable="issue volume">
                    <group delimiter="/">
@@ -228,7 +228,7 @@
                    <text macro="label-issue"/>
                  </else>
                </choose>
-@@ -2799,8 +2824,6 @@
+@@ -2800,8 +2825,6 @@
            </group>
          </if>
        </choose>
@@ -237,7 +237,7 @@
        <text macro="source-event"/>
      </group>
    </macro>
-@@ -2843,9 +2866,7 @@
+@@ -2844,9 +2867,7 @@
      <!-- based on `author-note` -->
      <names variable="container-author">
        <name initialize="false"/>
@@ -248,7 +248,7 @@
        <substitute>
          <names variable="author"/>
          <names variable="guest"/>
-@@ -3137,9 +3158,7 @@
+@@ -3138,9 +3159,7 @@
    <macro name="source-series">
      <group delimiter=", ">
        <text text-case="title" variable="collection-title"/>
@@ -259,7 +259,7 @@
        <text macro="label-issue"/>
      </group>
    </macro>
-@@ -3263,16 +3282,14 @@
+@@ -3264,16 +3283,14 @@
          <else-if match="any" type="article-journal article-magazine article-newspaper periodical post-weblog review review-book"/>
          <else-if match="any" variable="collection-editor compiler editor editorial-director">
            <!-- monographic types -->
@@ -278,7 +278,7 @@
            <text macro="source-publication-and-date"/>
          </else>
        </choose>
-@@ -3794,17 +3811,13 @@
+@@ -3795,17 +3812,13 @@
          <text macro="source-locator-subsequent-serial"/>
        </if>
        <else-if match="any" variable="collection-editor compiler editor editorial-director">
@@ -298,7 +298,7 @@
        </else>
      </choose>
    </macro>
-@@ -3850,8 +3863,7 @@
+@@ -3851,8 +3864,7 @@
            <!-- Do not provide `volume` or `part-number` for defined section -->
            <text macro="label-locator"/>
          </if>
@@ -308,7 +308,7 @@
            <text macro="label-volume"/>
            <text macro="label-part-number"/>
            <text macro="label-locator"/>
-@@ -3861,7 +3873,7 @@
+@@ -3862,7 +3874,7 @@
              <text macro="label-volume"/>
              <text macro="label-locator"/>
            </group>
@@ -317,7 +317,7 @@
          <else-if variable="part-number">
            <text macro="label-volume"/>
            <text macro="label-part-number"/>
-@@ -3900,14 +3912,12 @@
+@@ -3901,14 +3913,12 @@
    <!-- 4.9. Archival location -->
    <macro name="source-archive">
      <group delimiter=", ">

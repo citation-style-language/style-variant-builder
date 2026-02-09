@@ -6,10 +6,11 @@
 <style class="note" demote-non-dropping-particle="display-and-sort" initialize-with=". " page-range-format="chicago-16" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
   <info>
     <title>Chicago Manual of Style 18th edition (template)</title>
-    <title-short>CMOS with Bluebook</title-short>
+    <title-short>CMOS/CMS with Bluebook</title-short>
     <id>http://www.zotero.org/styles/chicago-notes-bibliography</id>
     <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="self"/>
     <link href="https://www.chicagomanualofstyle.org/" rel="documentation"/>
+    <link href="https://zotero.org/groups/2205533/collections/5V67EPX3" rel="documentation"/>
     <author>
       <name>Andrew Dunning</name>
       <uri>https://orcid.org/0000-0003-0464-5036</uri>

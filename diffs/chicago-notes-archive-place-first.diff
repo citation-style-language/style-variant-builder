@@ -5,18 +5,18 @@
  <style class="note" demote-non-dropping-particle="display-and-sort" initialize-with=". " page-range-format="chicago-16" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>Chicago Manual of Style 18th edition (template)</title>
--    <title-short>CMOS with Bluebook</title-short>
+-    <title-short>CMOS/CMS with Bluebook</title-short>
 -    <id>http://www.zotero.org/styles/chicago-notes-bibliography</id>
 -    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="self"/>
 +    <title>Chicago Manual of Style 18th edition (notes without bibliography, archival references with place first)</title>
-+    <title-short>CMOS with Bluebook (notes only [13.23, 14.20], archive place first [14.205])</title-short>
++    <title-short>CMOS/CMS with Bluebook (notes only [13.23, 14.20], archive place first [14.205])</title-short>
 +    <id>http://www.zotero.org/styles/chicago-notes-archive-place-first</id>
 +    <link href="http://www.zotero.org/styles/chicago-notes-archive-place-first" rel="self"/>
 +    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="template"/>
      <link href="https://www.chicagomanualofstyle.org/" rel="documentation"/>
+     <link href="https://zotero.org/groups/2205533/collections/5V67EPX3" rel="documentation"/>
      <author>
-       <name>Andrew Dunning</name>
-@@ -30,7 +31,7 @@
+@@ -31,7 +32,7 @@
      <category field="social_science"/>
      <category field="sociology"/>
      <category field="theology"/>
@@ -25,7 +25,7 @@
      <updated>2025-02-09T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -6075,7 +6076,7 @@
+@@ -6076,7 +6077,7 @@
            <text macro="source-archive-reference-institution-first"/>
          </if>
          <else>
@@ -34,7 +34,7 @@
          </else>
        </choose>
        <text macro="source-archive-database-number" prefix="(" suffix=")"/>
-@@ -6088,7 +6089,7 @@
+@@ -6089,7 +6090,7 @@
            <text macro="source-archive-reference-institution-first"/>
          </if>
          <else>
@@ -43,7 +43,7 @@
          </else>
        </choose>
        <text macro="source-archive-database-number" prefix="(" suffix=")"/>
-@@ -6895,7 +6896,7 @@
+@@ -6896,7 +6897,7 @@
        </else>
      </choose>
    </macro>
@@ -52,7 +52,7 @@
      <layout delimiter="; " suffix=".">
        <text macro="citation-notes-full-subsequent-author-title"/>
      </layout>
-@@ -7030,19 +7031,4 @@
+@@ -7031,19 +7032,4 @@
        </else>
      </choose>
    </macro>

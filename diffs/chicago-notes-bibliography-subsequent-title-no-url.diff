@@ -5,17 +5,17 @@
  <style class="note" demote-non-dropping-particle="display-and-sort" initialize-with=". " page-range-format="chicago-16" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>Chicago Manual of Style 18th edition (template)</title>
--    <title-short>CMOS with Bluebook</title-short>
+-    <title-short>CMOS/CMS with Bluebook</title-short>
 -    <id>http://www.zotero.org/styles/chicago-notes-bibliography</id>
 -    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="self"/>
 +    <title>Chicago Manual of Style 18th edition (notes and bibliography, subsequent title-only citations, without URLs)</title>
-+    <title-short>CMOS with Bluebook (full notes and bibliography/NB [13.18], subsequent title-only [13.37], no URLs [13.6]</title-short>
++    <title-short>CMOS/CMS with Bluebook (full notes and bibliography/NB [13.18], subsequent title-only [13.37], no URLs [13.6]</title-short>
 +    <id>http://www.zotero.org/styles/chicago-notes-bibliography-subsequent-title-no-url</id>
 +    <link href="http://www.zotero.org/styles/chicago-notes-bibliography-subsequent-title-no-url" rel="self"/>
      <link href="https://www.chicagomanualofstyle.org/" rel="documentation"/>
+     <link href="https://zotero.org/groups/2205533/collections/5V67EPX3" rel="documentation"/>
      <author>
-       <name>Andrew Dunning</name>
-@@ -30,7 +30,7 @@
+@@ -31,7 +31,7 @@
      <category field="social_science"/>
      <category field="sociology"/>
      <category field="theology"/>
@@ -24,7 +24,7 @@
      <updated>2025-02-09T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -6193,7 +6193,7 @@
+@@ -6194,7 +6194,7 @@
            </group>
          </else-if>
        </choose>
@@ -33,7 +33,7 @@
      </group>
    </macro>
    <macro name="source-date-accessed-DOI-URL-note">
-@@ -6208,7 +6208,7 @@
+@@ -6209,7 +6209,7 @@
            </group>
          </else-if>
        </choose>
@@ -42,7 +42,7 @@
      </group>
    </macro>
    <macro name="source-DOI-URL">
-@@ -6897,7 +6897,7 @@
+@@ -6898,7 +6898,7 @@
    </macro>
    <citation disambiguate-add-givenname="true" disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
      <layout delimiter="; " suffix=".">

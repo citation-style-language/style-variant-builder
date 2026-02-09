@@ -14,9 +14,9 @@
 +    <link href="http://www.zotero.org/styles/mhra-shortened-notes-publisher-place" rel="self"/>
 +    <link href="http://www.zotero.org/styles/mhra-notes" rel="template"/>
      <link href="https://www.mhra.org.uk/style/" rel="documentation"/>
+     <link href="https://zotero.org/groups/2205533/collections/D9MVMAFF" rel="documentation"/>
      <author>
-       <name>Andrew Dunning</name>
-@@ -22,7 +23,7 @@
+@@ -23,7 +24,7 @@
      <category field="literature"/>
      <category field="philosophy"/>
      <category field="theology"/>
@@ -25,7 +25,7 @@
      <updated>2025-02-04T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -3275,7 +3276,7 @@
+@@ -3276,7 +3277,7 @@
          </else-if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -34,7 +34,7 @@
              <text variable="publisher"/>
            </group>
          </else-if>
-@@ -3297,7 +3298,7 @@
+@@ -3298,7 +3299,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -43,7 +43,7 @@
            <text variable="original-publisher"/>
          </group>
        </if>
-@@ -3890,7 +3891,7 @@
+@@ -3891,7 +3892,7 @@
    </macro>
    <citation disambiguate-add-givenname="true" disambiguate-add-names="true">
      <layout delimiter="; " suffix=".">
@@ -52,7 +52,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -4020,7 +4021,7 @@
+@@ -4021,7 +4022,7 @@
        <key macro="source-archive"/>
      </sort>
      <layout>

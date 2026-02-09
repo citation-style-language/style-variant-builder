@@ -1,6 +1,6 @@
 --- templates/new-harts-rules-template.csl
 +++ development/new-harts-rules-author-date-space-publisher.csl
-@@ -3,18 +3,19 @@
+@@ -3,19 +3,20 @@
    type="application/relax-ng-compact-syntax" schematypens="http://relaxng.org/ns/compatibility/annotations/1.0"?>
  <?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl-repository.rnc"
    type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
@@ -17,6 +17,7 @@
 +    <link href="http://www.zotero.org/styles/new-harts-rules-author-date-space-publisher" rel="self"/>
 +    <link href="http://www.zotero.org/styles/new-harts-rules-notes" rel="template"/>
      <link href="https://en.wikipedia.org/wiki/Hart's_Rules" rel="documentation"/>
+     <link href="http://zotero.org/groups/2205533/collections/499SCKUW" rel="documentation"/>
      <author>
        <name>Andrew Dunning</name>
        <uri>https://orcid.org/0000-0003-0464-5036</uri>
@@ -26,7 +27,7 @@
      <category field="anthropology"/>
      <category field="communications"/>
      <category field="generic-base"/>
-@@ -30,7 +31,7 @@
+@@ -31,7 +32,7 @@
      <category field="social_science"/>
      <category field="sociology"/>
      <category field="theology"/>
@@ -35,7 +36,7 @@
      <updated>2026-02-05T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -2518,29 +2519,25 @@
+@@ -2519,29 +2520,25 @@
          <if type="article-newspaper">
            <group delimiter=" ">
              <text macro="source-serial-title"/>
@@ -69,7 +70,7 @@
            </group>
          </else>
        </choose>
-@@ -3505,7 +3502,7 @@
+@@ -3506,7 +3503,7 @@
                  <text form="short" term="no-place"/>
                </else>
              </choose>
@@ -78,7 +79,7 @@
            </group>
          </if>
          <else>
-@@ -3525,7 +3522,7 @@
+@@ -3526,7 +3523,7 @@
        <if match="any" type="book chapter classic entry entry-dictionary entry-encyclopedia interview musical_score pamphlet paper-conference report">
          <group delimiter=": ">
            <text variable="original-publisher-place"/>
@@ -87,7 +88,7 @@
          </group>
        </if>
        <else>
-@@ -3535,9 +3532,7 @@
+@@ -3536,9 +3533,7 @@
    </macro>
    <!-- 4.6. Date -->
    <macro name="source-date">
@@ -98,7 +99,7 @@
    </macro>
    <!-- Date elements -->
    <macro name="source-date-issued-full">
-@@ -3669,9 +3664,7 @@
+@@ -3670,9 +3665,7 @@
      </choose>
    </macro>
    <macro name="source-date-original">
@@ -109,7 +110,7 @@
    </macro>
    <macro name="source-date-original-full">
      <!-- Give full date for more ephemeral types; reflected in `date-year-sort` -->
-@@ -4202,9 +4195,9 @@
+@@ -4203,9 +4196,9 @@
        </choose>
      </group>
    </macro>
@@ -122,7 +123,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -4212,7 +4205,7 @@
+@@ -4213,7 +4206,7 @@
      <group delimiter=". ">
        <group delimiter=" ">
          <text macro="author-bib"/>
@@ -131,7 +132,7 @@
            <text macro="date"/>
            <text macro="title-and-source"/>
          </group>
-@@ -4326,17 +4319,16 @@
+@@ -4327,17 +4320,16 @@
    <bibliography hanging-indent="true">
      <sort>
        <key macro="author-bib"/>

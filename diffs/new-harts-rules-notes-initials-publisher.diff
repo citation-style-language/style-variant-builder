@@ -14,9 +14,9 @@
 +    <link href="http://www.zotero.org/styles/new-harts-rules-notes-initials-publisher" rel="self"/>
 +    <link href="http://www.zotero.org/styles/new-harts-rules-notes" rel="template"/>
      <link href="https://en.wikipedia.org/wiki/Hart's_Rules" rel="documentation"/>
+     <link href="http://zotero.org/groups/2205533/collections/499SCKUW" rel="documentation"/>
      <author>
-       <name>Andrew Dunning</name>
-@@ -30,7 +31,7 @@
+@@ -31,7 +32,7 @@
      <category field="social_science"/>
      <category field="sociology"/>
      <category field="theology"/>
@@ -25,7 +25,7 @@
      <updated>2026-02-05T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -381,9 +382,9 @@
+@@ -382,9 +383,9 @@
    <macro name="author-bib">
      <group delimiter=", ">
        <names variable="composer">
@@ -37,7 +37,7 @@
          <et-al font-variant="normal"/> -->
          <label form="short" prefix=", "/>
          <!-- for OGS or variants with bracketed roles: -->
-@@ -528,7 +529,7 @@
+@@ -529,7 +530,7 @@
    <macro name="author-note">
      <group delimiter=", ">
        <names variable="composer">
@@ -46,7 +46,7 @@
          <label form="short" prefix=", "/>
          <!-- for OGS or variants with bracketed roles: -->
          <!-- <label form="short" prefix=" (" suffix=")"/> -->
-@@ -1741,7 +1742,7 @@
+@@ -1742,7 +1743,7 @@
            <!-- `genre` printed with `number` -->
            <names variable="interviewer">
              <label form="verb" suffix=" "/>
@@ -55,7 +55,7 @@
            </names>
          </if>
          <else-if variable="genre">
-@@ -1750,7 +1751,7 @@
+@@ -1751,7 +1752,7 @@
              <group delimiter=" ">
                <text form="verb" term="container-author"/>
                <names variable="interviewer">
@@ -64,7 +64,7 @@
                </names>
              </group>
            </group>
-@@ -1758,7 +1759,7 @@
+@@ -1759,7 +1760,7 @@
          <else-if variable="interviewer">
            <names variable="interviewer">
              <label form="verb" suffix=" "/>
@@ -73,7 +73,7 @@
            </names>
          </else-if>
          <else>
-@@ -1775,7 +1776,7 @@
+@@ -1776,7 +1777,7 @@
            <!-- `genre` printed with `number` -->
            <names variable="interviewer">
              <label form="verb" suffix=" " text-case="capitalize-first"/>
@@ -82,7 +82,7 @@
            </names>
          </if>
          <else-if variable="genre">
-@@ -1784,7 +1785,7 @@
+@@ -1785,7 +1786,7 @@
              <group delimiter=" ">
                <text form="verb" term="container-author"/>
                <names variable="interviewer">
@@ -91,7 +91,7 @@
                </names>
              </group>
            </group>
-@@ -1792,7 +1793,7 @@
+@@ -1793,7 +1794,7 @@
          <else-if variable="interviewer">
            <names variable="interviewer">
              <label form="verb" suffix=" " text-case="capitalize-first"/>
@@ -100,7 +100,7 @@
            </names>
          </else-if>
          <else>
-@@ -1839,7 +1840,7 @@
+@@ -1840,7 +1841,7 @@
                <!-- `genre` appears with `number` -->
                <names variable="recipient">
                  <label form="verb" suffix=" "/>
@@ -109,7 +109,7 @@
                </names>
              </if>
              <else>
-@@ -1847,7 +1848,7 @@
+@@ -1848,7 +1849,7 @@
                  <text macro="description-format"/>
                  <names variable="recipient">
                    <label form="verb" suffix=" "/>
@@ -118,7 +118,7 @@
                  </names>
                </group>
              </else>
-@@ -1870,7 +1871,7 @@
+@@ -1871,7 +1872,7 @@
                <!-- `genre` appears with `number` -->
                <names variable="recipient">
                  <label form="verb" suffix=" " text-case="capitalize-first"/>
@@ -127,7 +127,7 @@
                </names>
              </if>
              <else>
-@@ -1878,7 +1879,7 @@
+@@ -1879,7 +1880,7 @@
                  <text macro="description-format-capitalized"/>
                  <names variable="recipient">
                    <label form="verb" suffix=" "/>
@@ -136,7 +136,7 @@
                  </names>
                </group>
              </else>
-@@ -1964,7 +1965,7 @@
+@@ -1965,7 +1966,7 @@
          </choose>
          <group delimiter=", ">
            <names variable="reviewed-author">
@@ -145,7 +145,7 @@
            </names>
            <text macro="description-review-title"/>
            <text variable="reviewed-genre"/>
-@@ -1988,7 +1989,7 @@
+@@ -1989,7 +1990,7 @@
          </choose>
          <group delimiter=", ">
            <names variable="reviewed-author">
@@ -154,7 +154,7 @@
            </names>
            <text macro="description-review-title"/>
            <text variable="reviewed-genre"/>
-@@ -2074,7 +2075,7 @@
+@@ -2075,7 +2076,7 @@
          </if>
        </choose>
        <names variable="author">
@@ -163,7 +163,7 @@
          <substitute>
            <names variable="performer"/>
          </substitute>
-@@ -2093,7 +2094,7 @@
+@@ -2094,7 +2095,7 @@
          </if>
        </choose>
        <names variable="author">
@@ -172,7 +172,7 @@
          <substitute>
            <names variable="performer"/>
          </substitute>
-@@ -2164,15 +2165,15 @@
+@@ -2165,15 +2166,15 @@
          <if match="any" type="post webpage">
            <names variable="container-author">
              <label form="verb" suffix=" "/>
@@ -191,7 +191,7 @@
            </names>
            <choose>
              <if variable="collection-editor editor"/>
-@@ -2180,67 +2181,67 @@
+@@ -2181,67 +2182,67 @@
              <else-if match="any" variable="number-of-volumes part-number part-title volume volume-title">
                <names variable="collection-editor">
                  <label form="verb-short" suffix=" "/>
@@ -273,7 +273,7 @@
                </names>
              </if>
            </choose>
-@@ -2251,15 +2252,15 @@
+@@ -2252,15 +2253,15 @@
              <if match="none" variable="container-title">
                <names variable="container-author">
                  <label form="verb" suffix=" "/>
@@ -292,7 +292,7 @@
                </names>
                <choose>
                  <if variable="collection-editor editor"/>
-@@ -2267,71 +2268,71 @@
+@@ -2268,71 +2269,71 @@
                  <else-if match="any" variable="number-of-volumes part-number part-title volume volume-title">
                    <names variable="collection-editor">
                      <label form="verb-short" suffix=" "/>
@@ -378,7 +378,7 @@
                    </names>
                  </if>
                </choose>
-@@ -2342,7 +2343,7 @@
+@@ -2343,7 +2344,7 @@
                <!-- Song contributors attached to album (cf. CMOS18 14.163) -->
                <names variable="contributor">
                  <label form="verb" suffix=" "/>
@@ -387,7 +387,7 @@
                </names>
              </if>
            </choose>
-@@ -2356,42 +2357,42 @@
+@@ -2357,42 +2358,42 @@
          <if type="periodical">
            <names variable="editor">
              <label form="verb-short" suffix=" "/>
@@ -439,7 +439,7 @@
        </names>
      </group>
    </macro>
-@@ -2842,7 +2843,7 @@
+@@ -2843,7 +2844,7 @@
    <macro name="source-monographic-author">
      <!-- based on `author-note` -->
      <names variable="container-author">
@@ -448,7 +448,7 @@
        <label form="short" prefix=", "/>
        <!-- for OGS or variants with bracketed roles: -->
        <!-- <label form="short" prefix=" (" suffix=")"/> -->
-@@ -2939,11 +2940,11 @@
+@@ -2940,11 +2941,11 @@
      <group delimiter=", ">
        <names variable="editor-translator">
          <label form="verb-short" suffix=" "/>
@@ -462,7 +462,7 @@
        </names>
        <choose>
          <if variable="collection-editor editor"/>
-@@ -2951,72 +2952,72 @@
+@@ -2952,72 +2953,72 @@
          <else-if match="any" variable="number-of-volumes part-number part-title volume volume-title">
            <names variable="collection-editor">
              <label form="verb-short" suffix=" "/>
@@ -550,7 +550,7 @@
            </names>
          </if>
        </choose>
-@@ -3476,7 +3477,7 @@
+@@ -3477,7 +3478,7 @@
            </choose>
            <group delimiter=", ">
              <names variable="original-author">
@@ -559,7 +559,7 @@
              </names>
              <text font-style="italic" text-case="title" variable="original-title"/>
            </group>
-@@ -3505,7 +3506,7 @@
+@@ -3506,7 +3507,7 @@
                  <text form="short" term="no-place"/>
                </else>
              </choose>
@@ -568,7 +568,7 @@
            </group>
          </if>
          <else>
-@@ -3525,7 +3526,7 @@
+@@ -3526,7 +3527,7 @@
        <if match="any" type="book chapter classic entry entry-dictionary entry-encyclopedia interview musical_score pamphlet paper-conference report">
          <group delimiter=": ">
            <text variable="original-publisher-place"/>

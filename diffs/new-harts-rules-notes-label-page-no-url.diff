@@ -13,9 +13,9 @@
 +    <id>http://www.zotero.org/styles/new-harts-rules-notes-label-page-no-url</id>
 +    <link href="http://www.zotero.org/styles/new-harts-rules-notes-label-page-no-url" rel="self"/>
      <link href="https://en.wikipedia.org/wiki/Hart's_Rules" rel="documentation"/>
+     <link href="http://zotero.org/groups/2205533/collections/499SCKUW" rel="documentation"/>
      <author>
-       <name>Andrew Dunning</name>
-@@ -30,7 +30,7 @@
+@@ -31,7 +31,7 @@
      <category field="social_science"/>
      <category field="sociology"/>
      <category field="theology"/>
@@ -24,7 +24,7 @@
      <updated>2026-02-05T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -231,10 +231,9 @@
+@@ -232,10 +232,9 @@
    <macro name="label-locator">
      <group delimiter=" ">
        <choose>
@@ -37,7 +37,7 @@
          <!-- a non-numeric canonical reference is described by its formatting and does not need a label, similar to a timestamp (NHR 17.2.5) -->
          <else-if locator="chapter line verse" match="any"/>
          <else>
-@@ -1213,7 +1212,7 @@
+@@ -1214,7 +1213,7 @@
          <text macro="source-medium" prefix="[" suffix="]"/>
        </group>
        <text macro="source-archive"/>
@@ -46,7 +46,7 @@
      </group>
    </macro>
    <!-- 3.1. Title -->
-@@ -2751,7 +2750,7 @@
+@@ -2752,7 +2751,7 @@
          </group>
        </if>
        <else>
@@ -55,7 +55,7 @@
        </else>
      </choose>
    </macro>
-@@ -3057,14 +3056,17 @@
+@@ -3058,14 +3057,17 @@
              <!-- check for variables that might come between the volume and page number -->
              <if match="none" variable="part-number part-title volume-title">
                <text variable="volume"/>
@@ -76,7 +76,7 @@
          </else>
        </choose>
      </group>
-@@ -3128,7 +3130,7 @@
+@@ -3129,7 +3131,7 @@
          </else-if>
          <else-if variable="archive archive_location page"/>
          <else>

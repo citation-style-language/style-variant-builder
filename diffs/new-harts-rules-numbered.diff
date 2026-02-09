@@ -1,6 +1,6 @@
 --- templates/new-harts-rules-template.csl
 +++ development/new-harts-rules-numbered.csl
-@@ -3,18 +3,19 @@
+@@ -3,19 +3,20 @@
    type="application/relax-ng-compact-syntax" schematypens="http://relaxng.org/ns/compatibility/annotations/1.0"?>
  <?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl-repository.rnc"
    type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
@@ -17,6 +17,7 @@
 +    <link href="http://www.zotero.org/styles/new-harts-rules-numbered" rel="self"/>
 +    <link href="http://www.zotero.org/styles/new-harts-rules-notes" rel="template"/>
      <link href="https://en.wikipedia.org/wiki/Hart's_Rules" rel="documentation"/>
+     <link href="http://zotero.org/groups/2205533/collections/499SCKUW" rel="documentation"/>
      <author>
        <name>Andrew Dunning</name>
        <uri>https://orcid.org/0000-0003-0464-5036</uri>
@@ -26,7 +27,7 @@
      <category field="anthropology"/>
      <category field="communications"/>
      <category field="generic-base"/>
-@@ -30,7 +31,7 @@
+@@ -31,7 +32,7 @@
      <category field="social_science"/>
      <category field="sociology"/>
      <category field="theology"/>
@@ -35,7 +36,7 @@
      <updated>2026-02-05T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -4202,9 +4203,16 @@
+@@ -4203,9 +4204,16 @@
        </choose>
      </group>
    </macro>
@@ -55,7 +56,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -4323,20 +4331,10 @@
+@@ -4324,20 +4332,10 @@
        </else>
      </choose>
    </macro>

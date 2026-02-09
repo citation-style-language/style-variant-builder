@@ -1,6 +1,6 @@
 --- templates/mhra-template.csl
 +++ development/mhra-author-date-publisher-place-no-url.csl
-@@ -3,18 +3,19 @@
+@@ -3,19 +3,20 @@
    type="application/relax-ng-compact-syntax" schematypens="http://relaxng.org/ns/compatibility/annotations/1.0"?>
  <?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl-repository.rnc"
    type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
@@ -17,6 +17,7 @@
 +    <link href="http://www.zotero.org/styles/mhra-author-date-publisher-place-no-url" rel="self"/>
 +    <link href="http://www.zotero.org/styles/mhra-notes" rel="template"/>
      <link href="https://www.mhra.org.uk/style/" rel="documentation"/>
+     <link href="https://zotero.org/groups/2205533/collections/D9MVMAFF" rel="documentation"/>
      <author>
        <name>Andrew Dunning</name>
        <uri>https://orcid.org/0000-0003-0464-5036</uri>
@@ -26,7 +27,7 @@
      <category field="generic-base"/>
      <category field="history"/>
      <category field="humanities"/>
-@@ -22,7 +23,7 @@
+@@ -23,7 +24,7 @@
      <category field="literature"/>
      <category field="philosophy"/>
      <category field="theology"/>
@@ -35,7 +36,7 @@
      <updated>2025-02-04T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -1122,9 +1123,7 @@
+@@ -1123,9 +1124,7 @@
            <text macro="identifier"/>
          </if>
          <else>
@@ -46,7 +47,7 @@
            <text macro="identifier"/>
          </else>
        </choose>
-@@ -1195,9 +1194,8 @@
+@@ -1196,9 +1195,8 @@
          </choose>
          <text macro="source-medium"/>
          <text macro="source-archive"/>
@@ -57,7 +58,7 @@
      </group>
    </macro>
    <!-- 3.1. Title -->
-@@ -2883,18 +2881,6 @@
+@@ -2884,18 +2882,6 @@
            </else-if>
          </choose>
        </group>
@@ -76,7 +77,7 @@
      </group>
    </macro>
    <!-- 4.3. Series -->
-@@ -3275,7 +3261,7 @@
+@@ -3276,7 +3262,7 @@
          </else-if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -85,7 +86,7 @@
              <text variable="publisher"/>
            </group>
          </else-if>
-@@ -3297,7 +3283,7 @@
+@@ -3298,7 +3284,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -94,7 +95,7 @@
            <text variable="original-publisher"/>
          </group>
        </if>
-@@ -3313,9 +3299,7 @@
+@@ -3314,9 +3300,7 @@
          <date date-parts="year" form="numeric" variable="available-date"/>
        </if>
        <else>
@@ -105,7 +106,7 @@
        </else>
      </choose>
    </macro>
-@@ -3459,9 +3443,7 @@
+@@ -3460,9 +3444,7 @@
      </choose>
    </macro>
    <macro name="source-date-original">
@@ -116,7 +117,7 @@
    </macro>
    <macro name="source-date-original-full">
      <!-- Give full date for more ephemeral types; reflected in `date-sort` -->
-@@ -3888,9 +3870,9 @@
+@@ -3889,9 +3871,9 @@
        </choose>
      </group>
    </macro>
@@ -129,7 +130,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -4010,17 +3992,19 @@
+@@ -4011,17 +3993,19 @@
    <bibliography hanging-indent="true" subsequent-author-substitute="&#8212;&#8212;" subsequent-author-substitute-rule="partial-first">
      <sort>
        <key macro="author-bib"/>

@@ -14,9 +14,9 @@
 +    <link href="http://www.zotero.org/styles/modern-language-association-no-url" rel="self"/>
 +    <link href="http://www.zotero.org/styles/modern-language-association" rel="template"/>
      <link href="https://style.mla.org/" rel="documentation"/>
+     <link href="https://zotero.org/groups/2205533/collections/L96HMJXY" rel="documentation"/>
      <author>
-       <name>Sebastian Karcher</name>
-@@ -25,7 +26,7 @@
+@@ -26,7 +27,7 @@
      <category field="generic-base"/>
      <category field="humanities"/>
      <category field="literature"/>
@@ -25,7 +25,7 @@
      <updated>2026-02-03T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -867,11 +868,6 @@
+@@ -868,11 +869,6 @@
        <text variable="archive_collection"/>
        <text variable="archive_location"/>
        <text macro="label-page"/>
@@ -37,7 +37,7 @@
      </group>
    </macro>
    <macro name="container1-location-event">
-@@ -1168,7 +1164,6 @@
+@@ -1169,7 +1165,6 @@
        <key macro="supplemental-element-after-title"/>
        <key macro="container1"/>
        <key macro="supplemental-element-between"/>
@@ -45,7 +45,7 @@
        <key macro="supplemental-element-end"/>
      </sort>
      <layout suffix=".">
-@@ -1178,7 +1173,6 @@
+@@ -1179,7 +1174,6 @@
          <text macro="supplemental-element-after-title"/>
          <text macro="container1"/>
          <text macro="supplemental-element-between"/>
