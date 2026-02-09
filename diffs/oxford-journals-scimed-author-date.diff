@@ -75,7 +75,7 @@
        <else>
          <names variable="composer">
 -          <name form="short" initialize="true"/>
-+          <name and="text" form="short" initialize="true"/>
++          <name and="text" delimiter-precedes-last="contextual" form="short" initialize="true"/>
 +          <et-al font-style="italic"/>
            <substitute>
              <names variable="author"/>

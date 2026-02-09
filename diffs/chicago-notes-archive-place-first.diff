@@ -22,7 +22,7 @@
      <category field="theology"/>
 -    <summary>Chicago-style source citations (with Bluebook for legal citations), template</summary>
 +    <summary>Chicago-style source citations (with Bluebook for legal citations), notes system without bibliography, listing up to six authors in a full citation (CMOS18 13.23), displaying number of volumes (CMOS18 14.20), archival references with place first (CMOS18 14.205)</summary>
-     <updated>2025-10-27T00:00:00+00:00</updated>
+     <updated>2025-02-09T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
 @@ -6075,7 +6076,7 @@
