@@ -900,7 +900,7 @@
 -  <citation disambiguate-add-givenname="true" disambiguate-add-names="true">
 -    <layout delimiter="; " suffix=".">
 -      <text macro="citation-notes-full-subsequent-author-title"/>
-+  <citation collapse="year" disambiguate-add-givenname="true" disambiguate-add-names="true" disambiguate-add-year-suffix="true" et-al-use-first="1">
++  <citation collapse="year" disambiguate-add-givenname="true" disambiguate-add-names="true" disambiguate-add-year-suffix="true" et-al-use-first="1" givenname-disambiguation-rule="primary-name">
 +    <sort>
 +      <key macro="date-sort-year"/>
 +      <key variable="status"/>
