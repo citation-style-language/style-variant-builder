@@ -25,7 +25,7 @@
      <updated>2025-02-09T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -6076,7 +6077,7 @@
+@@ -6078,7 +6079,7 @@
            <text macro="source-archive-reference-institution-first"/>
          </if>
          <else>
@@ -34,7 +34,7 @@
          </else>
        </choose>
        <text macro="source-archive-database-number" prefix="(" suffix=")"/>
-@@ -6089,7 +6090,7 @@
+@@ -6091,7 +6092,7 @@
            <text macro="source-archive-reference-institution-first"/>
          </if>
          <else>
@@ -43,7 +43,7 @@
          </else>
        </choose>
        <text macro="source-archive-database-number" prefix="(" suffix=")"/>
-@@ -6194,7 +6195,7 @@
+@@ -6196,7 +6197,7 @@
            </group>
          </else-if>
        </choose>
@@ -52,7 +52,7 @@
      </group>
    </macro>
    <macro name="source-date-accessed-DOI-URL-note">
-@@ -6209,7 +6210,7 @@
+@@ -6211,7 +6212,7 @@
            </group>
          </else-if>
        </choose>
@@ -61,7 +61,7 @@
      </group>
    </macro>
    <macro name="source-DOI-URL">
-@@ -6898,7 +6899,7 @@
+@@ -6900,7 +6901,7 @@
    </macro>
    <citation disambiguate-add-givenname="true" disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
      <layout delimiter="; " suffix=".">
@@ -70,7 +70,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -7043,7 +7044,7 @@
+@@ -7054,7 +7055,7 @@
        <key macro="source-archive-bib"/>
      </sort>
      <layout suffix=".">

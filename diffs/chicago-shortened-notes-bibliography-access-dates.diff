@@ -25,7 +25,7 @@
      <updated>2025-02-09T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -6185,9 +6186,8 @@
+@@ -6187,9 +6188,8 @@
    <macro name="source-date-accessed-DOI-URL-bib">
      <group delimiter=". ">
        <choose>
@@ -37,7 +37,7 @@
            <group delimiter=" ">
              <text term="accessed" text-case="capitalize-first"/>
              <date form="text" variable="accessed"/>
-@@ -6898,7 +6898,7 @@
+@@ -6900,7 +6900,7 @@
    </macro>
    <citation disambiguate-add-givenname="true" disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
      <layout delimiter="; " suffix=".">
@@ -46,7 +46,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -7043,7 +7043,7 @@
+@@ -7054,7 +7054,7 @@
        <key macro="source-archive-bib"/>
      </sort>
      <layout suffix=".">

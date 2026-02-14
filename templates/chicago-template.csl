@@ -1063,6 +1063,8 @@
       <else-if type="webpage">
         <!-- list a webpage under the website title if there is no owner or sponsor (CMOS18 14.104) -->
         <text text-case="title" variable="container-title"/>
+        <!-- for author-date: -->
+        <!-- <text text-case="title" variable="container-title-short"/> -->
       </else-if>
     </choose>
   </macro>
@@ -6912,7 +6914,16 @@
           <text variable="references"/>
         </if>
         <else>
-          <text macro="author-bib"/>
+          <group delimiter=" ">
+            <text macro="author-bib"/>
+            <choose>
+              <!-- give key to abbreviations (CMOS18 13.127, 14.104) -->
+              <!-- TODO: add `authority` and `publisher` if it becomes possible to test for short forms -->
+              <if type="webpage" variable="container-title container-title-short">
+                <text prefix="(" suffix=")" text-case="title" variable="container-title"/>
+              </if>
+            </choose>
+          </group>
           <text macro="date"/>
           <text macro="title-and-source-bib"/>
           <text variable="references"/>
