@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata from this file."
+title: "CSL Style Variant Builder"
+type: software
+authors:
+  - family-names: Dunning
+    given-names: Andrew
+    orcid: https://orcid.org/0000-0003-0464-5036
+license: MIT
+version: 0.1.0
+repository-code: "https://github.com/citation-style-language/style-variant-builder"
+abstract: "Create Citation Style Language (CSL) variants from template styles and diff patches."
+date-released: 2025-02-09
