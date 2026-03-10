@@ -1,0 +1,20 @@
+--- templates/norsk-henvisningsstandard-for-rettsvitenskapelige-tekster-template.csl
++++ development/norsk-henvisningsstandard-for-rettsvitenskapelige-tekster.csl
+@@ -2,7 +2,7 @@
+ <style xmlns="http://purl.org/net/xbiblio/csl" class="note" version="1.0" demote-non-dropping-particle="sort-only" page-range-format="expanded">
+   <!-- Polyglot; this citation style supports both Norwegian dialects, i.e. bokmål (nb-NO) and nynorsk (nn-NO) -->
+   <info>
+-    <title>Norsk henvisningsstandard for rettsvitenskapelige tekster (Norsk - Bokmål | Norsk - Nynorsk) [template]</title>
++    <title>Norsk henvisningsstandard for rettsvitenskapelige tekster – kortnoter (Norsk - Bokmål | Norsk - Nynorsk)</title>
+     <id>http://www.zotero.org/styles/norsk-henvisningsstandard-for-rettsvitenskapelige-tekster</id>
+     <link href="http://www.zotero.org/styles/norsk-henvisningsstandard-for-rettsvitenskapelige-tekster" rel="self"/>
+     <link href="http://www.zotero.org/styles/universitetet-i-oslo-rettsvitenskap" rel="template"/>
+@@ -18,7 +18,7 @@
+     </contributor>
+     <category citation-format="note"/>
+     <category field="law"/>
+-    <summary>Norwegian legal citation style based on "Veiledning for henvisninger i juridiske tekster" (February 2019).</summary>
++    <summary>Norwegian legal citation style based on "Veiledning for henvisninger i juridiske tekster" (February 2019). Variant with short form notes (bibliography required).</summary>
+     <updated>2026-03-10T22:12:00+00:00</updated>
+     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
+   </info>
