@@ -621,9 +621,9 @@
           <text macro="nor-prepworks" suffix="."/>
         </else-if>
         <else-if type="treaty">
-          <group delimiter=", ">
+          <group delimiter=", " suffix=".">
             <text macro="title"/>
-            <text macro="treaty-details" suffix="."/>
+            <text macro="treaty-details"/>
           </group>
         </else-if>
         <else-if type="legal_case">
