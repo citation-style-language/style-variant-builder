@@ -424,7 +424,7 @@
         <text macro="DOI"/>
       </if>
       <else-if variable="URL">
-        <group delimiter=" " prefix=", ">
+        <group prefix=", ">
           <text variable="URL"/>
           <text macro="accessed-date"/>
         </group>
