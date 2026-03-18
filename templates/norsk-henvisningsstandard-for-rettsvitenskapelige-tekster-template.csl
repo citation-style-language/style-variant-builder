@@ -97,7 +97,7 @@
   </macro>
   <macro name="author-short">
     <names variable="author">
-      <name form="short" delimiter-precedes-last="never" name-as-sort-order="first" and="text"/>
+      <name form="short" delimiter-precedes-last="never" and="text"/>
       <et-al term="and others"/>
       <substitute>
         <names variable="editor"/>
