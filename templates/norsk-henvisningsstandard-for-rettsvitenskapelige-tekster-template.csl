@@ -352,24 +352,26 @@
           <text macro="issued-full-date"/>
         </if>
       </choose>
-      <group delimiter=" ">
-        <choose>
-          <if variable="page">
+      <choose>
+        <if variable="page">
+          <group delimiter=" ">
             <label variable="page" form="short"/>
             <text variable="page"/>
-          </if>
-        </choose>
-        <choose>
-          <if variable="DOI">
-            <text macro="DOI"/>
-          </if>
-          <else-if variable="URL">
-            <text variable="URL"/>
-            <text macro="accessed-date"/>
-          </else-if>
-        </choose>
-      </group>
+          </group>
+        </if>
+      </choose>
     </group>
+    <choose>
+      <if variable="DOI">
+        <text macro="DOI"/>
+      </if>
+      <else-if variable="URL">
+        <group prefix=", ">
+          <text variable="URL"/>
+          <text macro="accessed-date"/>
+        </group>
+      </else-if>
+    </choose>
   </macro>
   <macro name="webpage-post-bib">
     <group delimiter=", ">
