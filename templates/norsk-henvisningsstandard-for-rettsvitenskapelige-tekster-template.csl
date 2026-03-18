@@ -160,7 +160,7 @@
           <date-part name="year"/>
         </date>
       </if>
-      <else-if type="personal_communication" match="all">
+      <else-if type="personal_communication">
         <date variable="accessed" prefix="(" suffix=")">
           <date-part name="year"/>
         </date>
@@ -608,7 +608,7 @@
         <else-if type="article-newspaper article-magazine post-weblog" match="any">
           <text macro="article-newspaper-magazine-weblog-bib" suffix="."/>
         </else-if>
-        <else-if type="thesis" match="any">
+        <else-if type="thesis">
           <text macro="thesis-bib" suffix="."/>
         </else-if>
         <else-if type="chapter entry-encyclopedia paper-conference" match="any">
