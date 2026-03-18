@@ -512,7 +512,7 @@
     <sort>
       <key macro="author-short"/>
       <key macro="title-short"/>
-      <key macro="issued"/>
+      <key macro="issued-no-parenthesis"/>
     </sort>
     <layout delimiter="; ">
       <group delimiter=" ">
