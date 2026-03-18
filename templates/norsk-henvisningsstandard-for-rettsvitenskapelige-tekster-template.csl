@@ -50,10 +50,10 @@
       <else-if type="webpage">
         <text value="2"/>
       </else-if>
-      <else-if type="legislation">
+      <else-if type="regulation">
         <text value="3"/>
       </else-if>
-      <else-if type="regulation">
+      <else-if type="legisla<tion">
         <text value="4"/>
       </else-if>
       <else-if type="bill">
@@ -65,9 +65,6 @@
       <else-if type="treaty">
         <text value="7"/>
       </else-if>
-      <else>
-        <text value="8"/>
-      </else>
     </choose>
   </macro>
   <macro name="legal_case-authority">
