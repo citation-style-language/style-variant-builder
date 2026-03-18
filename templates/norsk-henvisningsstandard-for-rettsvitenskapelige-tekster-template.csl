@@ -338,7 +338,6 @@
           </group>
         </if>
       </choose>
-      </group>
       <group delimiter=" ">
         <label variable="page" form="short"/>
         <text variable="page"/>
