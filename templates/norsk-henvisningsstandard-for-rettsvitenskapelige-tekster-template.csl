@@ -44,16 +44,16 @@
   </locale>
   <macro name="type-sorting">
     <choose>
-      <if type="webpage regulation legislation bill legal_case treaty" match="none">
+      <if type="webpage legislation regulation bill legal_case treaty" match="none">
         <text value="1"/>
       </if>
       <else-if type="webpage">
         <text value="2"/>
       </else-if>
-      <else-if type="regulation">
+      <else-if type="legislation">
         <text value="3"/>
       </else-if>
-      <else-if type="legislation">
+      <else-if type="regulation">
         <text value="4"/>
       </else-if>
       <else-if type="bill">
