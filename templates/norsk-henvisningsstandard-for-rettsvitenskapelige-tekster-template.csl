@@ -329,14 +329,15 @@
         <text variable="container-title" font-style="italic"/>
         <text macro="issued-no-parenthesis"/>
       </group>
-      <group delimiter=" ">
-        <choose>
-          <!-- For journals with continuous issue numbers, with page numbers restarting for each issue (MarIus etc.) -->
-          <if variable="number">
+      <choose>
+        <!-- For journals with continuous issue numbers, with page numbers restarting for each issue (MarIus etc.) -->
+        <if variable="number">
+          <group delimiter=" ">
             <label variable="number" form="short"/>
             <text variable="number"/>
-          </if>
-        </choose>
+          </group>
+        </if>
+      </choose>
       </group>
       <group delimiter=" ">
         <label variable="page" form="short"/>
