@@ -445,7 +445,7 @@
           <!-- Hack (see <locale> for details) -->
           <text term="henceforth"/>
           <names variable="author">
-            <name delimiter-precedes-last="never" name-as-sort-order="first" et-al-min="99" and="text"/>
+            <name delimiter-precedes-last="never" et-al-min="99" and="text"/>
             <et-al term="and others"/>
           </names>
         </group>
