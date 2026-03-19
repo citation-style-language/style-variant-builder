@@ -150,6 +150,11 @@ class CSLBuilder:
                 shutil.copy(template_path, tmp_file.name)
                 tmp_file_path = Path(tmp_file.name)
 
+            # Normalize to LF so patch works regardless of platform line endings
+            tmp_file_path.write_bytes(
+                tmp_file_path.read_bytes().replace(b"\r\n", b"\n")
+            )
+
             patched_file = tmp_file_path
             result = subprocess.run(
                 ["patch", "-N", str(patched_file), str(diff_path)],
