@@ -19,3 +19,12 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+---
+
+Note: The CSL template files in the `templates/` directory and diff files in
+the `diffs/` directory are licensed under the Creative Commons
+Attribution-ShareAlike 3.0 License
+(https://creativecommons.org/licenses/by-sa/3.0/), as indicated in the
+`<rights>` element of each file. This license is required for submission to the
+CSL styles repository (https://github.com/citation-style-language/styles).

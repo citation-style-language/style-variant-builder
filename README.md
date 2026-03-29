@@ -81,3 +81,10 @@ Suppose you want to create a new style family called `example-style`:
 3. Copy `example-style-template.csl` to `development/example-style-note.csl` and modify it for the "note" variant.
 4. Run `make diffs` to generate `diffs/example-style-note.diff`.
 5. Run `make` to generate the final pruned style in `output/example-style-note.csl`.
+
+## Licensing
+
+This repository contains files under two different licenses:
+
+- **Python source code** (files in `src/` and `tests/`): [MIT License](LICENSE)
+- **CSL template files** (files in `templates/`) and **diff files** (files in `diffs/`): [Creative Commons Attribution-ShareAlike 3.0 License](https://creativecommons.org/licenses/by-sa/3.0/), consistent with the [CSL styles repository](https://github.com/citation-style-language/styles) requirements for submission.
