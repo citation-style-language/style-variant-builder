@@ -25,7 +25,7 @@
      <updated>2025-02-09T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -4216,11 +4217,9 @@
+@@ -4223,11 +4224,9 @@
            </if>
          </choose>
        </else-if>
@@ -37,7 +37,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number-capitalized"/>
-@@ -4256,11 +4255,9 @@
+@@ -4263,11 +4262,9 @@
            </if>
          </choose>
        </else-if>
@@ -49,7 +49,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number"/>
-@@ -4694,10 +4691,6 @@
+@@ -4701,10 +4698,6 @@
          <else-if is-numeric="volume" match="none">
            <text macro="label-volume"/>
          </else-if>
@@ -60,7 +60,7 @@
          <else-if is-numeric="volume" variable="page">
            <choose>
              <!-- check for variables that might come between the volume and page number -->
-@@ -4737,8 +4730,6 @@
+@@ -4744,8 +4737,6 @@
        <else-if variable="locator">
          <text macro="label-locator"/>
        </else-if>
@@ -69,7 +69,7 @@
        <else-if is-numeric="volume" variable="page">
          <!-- collapse the volume and page number if adjacent (CMOS18 14.18) -->
          <group delimiter=":">
-@@ -5503,7 +5494,7 @@
+@@ -5517,7 +5508,7 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -78,7 +78,7 @@
              <text text-case="capitalize-first" variable="publisher"/>
            </group>
          </else-if>
-@@ -5529,7 +5520,7 @@
+@@ -5543,7 +5534,7 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -87,7 +87,7 @@
              <text variable="publisher"/>
            </group>
          </else-if>
-@@ -5551,7 +5542,7 @@
+@@ -5565,7 +5556,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -96,7 +96,7 @@
            <text text-case="capitalize-first" variable="original-publisher"/>
          </group>
        </if>
-@@ -5564,7 +5555,7 @@
+@@ -5578,7 +5569,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -105,7 +105,7 @@
            <text variable="original-publisher"/>
          </group>
        </if>
-@@ -6076,7 +6067,7 @@
+@@ -6090,7 +6081,7 @@
            <text macro="source-archive-reference-institution-first"/>
          </if>
          <else>
@@ -114,7 +114,7 @@
          </else>
        </choose>
        <text macro="source-archive-database-number" prefix="(" suffix=")"/>
-@@ -6883,7 +6874,7 @@
+@@ -6897,7 +6888,7 @@
        </else>
      </choose>
    </macro>
@@ -123,7 +123,7 @@
      <layout delimiter="; " suffix=".">
        <text macro="citation-notes-full-subsequent-author-title"/>
      </layout>
-@@ -7027,19 +7018,4 @@
+@@ -7041,19 +7032,4 @@
        </else>
      </choose>
    </macro>

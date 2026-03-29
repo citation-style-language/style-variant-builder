@@ -1056,8 +1056,15 @@
       <else-if type="webpage">
         <!-- list a webpage under the website title if there is no owner or sponsor (CMOS18 14.104) -->
         <text text-case="title" variable="container-title"/>
-        <!-- for author-date: -->
-        <!-- <text text-case="title" variable="container-title-short"/> -->
+        <!-- for author-date:
+        <choose>
+          <if variable="container-title-short">
+            <text text-case="title" variable="container-title-short"/>
+          </if>
+          <else>
+            <text text-case="title" variable="container-title"/>
+          </else>
+        </choose> -->
       </else-if>
     </choose>
   </macro>
@@ -5255,6 +5262,13 @@
         <if match="any" type="post webpage">
           <!-- print `container-title` on `post` or `webpage` in the same way as `publisher` (CMOS18 14.104-106) -->
           <text text-case="title" variable="container-title"/>
+          <!-- avoid possible repetition of `container-title` with author-date: -->
+          <!-- <choose>
+            <if type="webpage" variable="container-title container-title-short"/>
+            <else>
+              <text text-case="title" variable="container-title"/>
+            </else>
+          </choose> -->
         </if>
       </choose>
       <choose>
