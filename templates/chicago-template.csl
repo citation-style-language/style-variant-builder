@@ -90,7 +90,7 @@
     </terms>
   </locale>
   <!-- Contents:
-    
+
        This file interprets Chicago using APA's four basic reference elements
        (cf. CMOS18 14.2, 14.64, 14.161):
 
@@ -111,11 +111,11 @@
             4.8. Medium
             4.9. Archival location
             4.10. URL or persistent identifier
-      
-       Freeform annotations to bibliography entries: 
-        
+
+       Freeform annotations to bibliography entries:
+
         5. Notes
-       
+
        Chicago also provides parallel rules for legal references following
        The Bluebook: A Uniform System of Citation (code shared with APA):
 
@@ -426,13 +426,6 @@
         </if>
       </choose>
       <text variable="volume"/>
-      <!-- always display number of volumes in notes without bibliography (CMOS18 14.20): -->
-      <!-- <choose>
-        <if is-numeric="number-of-volumes" variable="volume">
-          <text value="of"/>
-          <text variable="number-of-volumes"/>
-        </if>
-      </choose> -->
     </group>
   </macro>
   <macro name="label-volume-capitalized">
@@ -3315,7 +3308,7 @@
       <text macro="identifier-volume-note"/>
       <text macro="identifier-contributors-note"/>
       <choose>
-        <!-- notes only show the number of volumes if there is no physical locator, which should include a volume number, e.g. 4:243; except when using notes without bibliography (CMOS18 14.20) -->
+        <!-- notes only show the number of volumes if there is no physical locator, which should include a volume number, e.g. 4:243 -->
         <if match="any" variable="part-number part-title volume volume-title"/>
         <else-if locator="column"/>
         <else-if locator="folio"/>
@@ -3554,10 +3547,6 @@
             <else-if match="any" variable="container-author editor editor-translator translator">
               <text macro="label-volume"/>
             </else-if>
-            <!-- always display number of volumes in notes without bibliography (CMOS18 14.20): -->
-            <!-- <else>
-              <text macro="label-number-of-volumes"/>
-            </else> -->
           </choose>
         </else-if>
         <else-if is-numeric="volume" variable="page">
@@ -3572,10 +3561,6 @@
               <!-- remove condition in styles that print chapter page numbers (CMOS17/classic) -->
               <text macro="label-volume"/>
             </else-if>
-            <!-- always display number of volumes in notes without bibliography (CMOS18 14.20): -->
-            <!-- <else>
-              <text macro="label-number-of-volumes"/>
-            </else> -->
           </choose>
         </else-if>
         <else-if variable="volume">
@@ -4651,7 +4636,7 @@
       <text macro="identifier-volume-note"/>
       <text macro="source-monographic-identifier-contributors-note"/>
       <choose>
-        <!-- notes only show the number of volumes if there is no physical locator, which should include a volume number, e.g. 4:243; except when using notes without bibliography (CMOS18 14.20) -->
+        <!-- notes only show the number of volumes if there is no physical locator, which should include a volume number, e.g. 4:243 -->
         <if match="any" variable="part-number part-title volume volume-title"/>
         <else-if locator="column"/>
         <else-if locator="folio"/>

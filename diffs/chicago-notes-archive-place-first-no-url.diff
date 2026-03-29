@@ -9,7 +9,7 @@
 -    <id>http://www.zotero.org/styles/chicago-notes-bibliography</id>
 -    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="self"/>
 +    <title>Chicago Manual of Style 18th edition (notes without bibliography, archival references with place first, without URLs)</title>
-+    <title-short>CMOS/CMS with Bluebook (notes only [13.23, 14.20], archive place first [14.205], no URLs [13.6])</title-short>
++    <title-short>CMOS/CMS with Bluebook (notes only [13.23], archive place first [14.205], no URLs [13.6])</title-short>
 +    <id>http://www.zotero.org/styles/chicago-notes-archive-place-first-no-url</id>
 +    <link href="http://www.zotero.org/styles/chicago-notes-archive-place-first-no-url" rel="self"/>
 +    <link href="http://www.zotero.org/styles/chicago-notes-bibliography" rel="template"/>
@@ -21,11 +21,11 @@
      <category field="sociology"/>
      <category field="theology"/>
 -    <summary>Chicago-style source citations (with Bluebook for legal citations), template</summary>
-+    <summary>Chicago-style source citations (with Bluebook for legal citations), notes system without bibliography, listing up to six authors in a full citation (CMOS18 13.23), displaying number of volumes (CMOS18 14.20), archival references with place first (CMOS18 14.205), without URLs (CMOS18 13.6)</summary>
++    <summary>Chicago-style source citations (with Bluebook for legal citations), notes system without bibliography, listing up to six authors in a full citation (CMOS18 13.23), archival references with place first (CMOS18 14.205), without URLs (CMOS18 13.6)</summary>
      <updated>2025-02-09T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -6078,7 +6079,7 @@
+@@ -6063,7 +6064,7 @@
            <text macro="source-archive-reference-institution-first"/>
          </if>
          <else>
@@ -34,7 +34,7 @@
          </else>
        </choose>
        <text macro="source-archive-database-number" prefix="(" suffix=")"/>
-@@ -6091,7 +6092,7 @@
+@@ -6076,7 +6077,7 @@
            <text macro="source-archive-reference-institution-first"/>
          </if>
          <else>
@@ -43,7 +43,7 @@
          </else>
        </choose>
        <text macro="source-archive-database-number" prefix="(" suffix=")"/>
-@@ -6196,7 +6197,7 @@
+@@ -6181,7 +6182,7 @@
            </group>
          </else-if>
        </choose>
@@ -52,7 +52,7 @@
      </group>
    </macro>
    <macro name="source-date-accessed-DOI-URL-note">
-@@ -6211,7 +6212,7 @@
+@@ -6196,7 +6197,7 @@
            </group>
          </else-if>
        </choose>
@@ -61,7 +61,7 @@
      </group>
    </macro>
    <macro name="source-DOI-URL">
-@@ -6898,7 +6899,7 @@
+@@ -6883,7 +6884,7 @@
        </else>
      </choose>
    </macro>
@@ -70,7 +70,7 @@
      <layout delimiter="; " suffix=".">
        <text macro="citation-notes-full-subsequent-author-title"/>
      </layout>
-@@ -7042,19 +7043,4 @@
+@@ -7027,19 +7028,4 @@
        </else>
      </choose>
    </macro>
