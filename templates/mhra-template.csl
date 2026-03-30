@@ -7,7 +7,6 @@
   <info>
     <title>MHRA Style Guide 4th edition (template)</title>
     <title-short>Modern Humanities Research Association</title-short>
-  </info>
     <id>http://www.zotero.org/styles/mhra-notes</id>
     <link href="http://www.zotero.org/styles/mhra-notes" rel="self"/>
     <link href="https://www.mhra.org.uk/style/" rel="documentation"/>
@@ -27,6 +26,7 @@
     <summary>MHRA source citations, template</summary>
     <updated>2025-02-04T00:00:00+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
+  </info>
   <locale xml:lang="en">
     <terms>
       <term name="advance-online-publication">published online</term>
