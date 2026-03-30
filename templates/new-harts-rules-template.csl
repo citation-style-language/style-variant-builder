@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl-repository.rnc"
-  type="application/relax-ng-compact-syntax" schematypens="http://relaxng.org/ns/compatibility/annotations/1.0"?>
-<?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl-repository.rnc"
-  type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+  type="application/relax-ng-compact-syntax">
+<?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl.sch"
+  schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <style and="text" class="note" default-locale="en-GB" demote-non-dropping-particle="display-and-sort" et-al-min="4" et-al-use-first="1" initialize-with=". " page-range-format="minimal" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
   <info>
     <title>New Hart's Rules: The Oxford Style Guide 2nd edition (template)</title>
@@ -65,7 +65,7 @@
   </locale>
   <!-- This file's main source is the New Oxford Style Manual (2016), with reference also to the Oxford Style Manual (2003) <https://archive.org/details/oxfordstylemanua0000unse>, which provides more detailed guidance on many points. -->
   <!-- Contents:
-    
+
        This file interprets Oxford style using APA's four basic reference elements:
 
         1. Author
@@ -85,11 +85,11 @@
             4.8. Medium
             4.9. Archival location
             4.10. URL or persistent identifier
-       
-       Freeform annotations to bibliography entries: 
-        
+
+       Freeform annotations to bibliography entries:
+
         5. Notes
-       
+
        Legal references (NHR 13) use OSCOLA:
 
         6. Legal references
