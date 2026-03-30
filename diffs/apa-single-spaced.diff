@@ -1,7 +1,7 @@
 --- templates/apa-template.csl
 +++ development/apa-single-spaced.csl
 @@ -5,11 +5,11 @@
-   type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+   schematypens="http://purl.oclc.org/dsdl/schematron"?>
  <style class="in-text" demote-non-dropping-particle="never" initialize-with=". " names-delimiter=", " page-range-format="expanded" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>APA Style 7th edition (template)</title>
