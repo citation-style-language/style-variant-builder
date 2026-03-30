@@ -33,8 +33,8 @@ jobs:
           xml_model_rule_mode: fallback
           xml_model_rule_extension: csl
           xml_model_declarations: |
-            href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl-repository.rnc" type="application/relax-ng-compact-syntax" schematypens="http://relaxng.org/ns/compatibility/annotations/1.0"
-            href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl-repository.rnc" type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"
+            href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl-repository.rnc" type="application/relax-ng-compact-syntax"
+            href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl.sch" schematypens="http://purl.oclc.org/dsdl/schematron"
 
       - name: Validate full CSL repository
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
@@ -43,5 +43,5 @@ jobs:
           xml_model_rule_mode: fallback
           xml_model_rule_extension: csl
           xml_model_declarations: |
-            href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl-repository.rnc" type="application/relax-ng-compact-syntax" schematypens="http://relaxng.org/ns/compatibility/annotations/1.0"
-            href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl-repository.rnc" type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"
+            href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl-repository.rnc" type="application/relax-ng-compact-syntax"
+            href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl.sch" schematypens="http://purl.oclc.org/dsdl/schematron"
