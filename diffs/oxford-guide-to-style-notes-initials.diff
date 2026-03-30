@@ -1,7 +1,7 @@
 --- templates/new-harts-rules-template.csl
 +++ development/oxford-guide-to-style-notes-initials.csl
 @@ -5,10 +5,11 @@
-   type="application/relax-ng-compact-syntax" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+   schematypens="http://purl.oclc.org/dsdl/schematron"?>
  <style and="text" class="note" default-locale="en-GB" demote-non-dropping-particle="display-and-sort" et-al-min="4" et-al-use-first="1" initialize-with=". " page-range-format="minimal" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
    <info>
 -    <title>New Hart's Rules: The Oxford Style Guide 2nd edition (template)</title>
@@ -110,7 +110,7 @@
 -  <!-- This file's main source is the New Oxford Style Manual (2016), with reference also to the Oxford Style Manual (2003) <https://archive.org/details/oxfordstylemanua0000unse>, which provides more detailed guidance on many points. -->
 +  <!-- This file follows the Oxford Style Manual (2003) <https://archive.org/details/oxfordstylemanua0000unse>. -->
    <!-- Contents:
-     
+
         This file interprets Oxford style using APA's four basic reference elements:
 @@ -360,35 +418,22 @@
      </group>
