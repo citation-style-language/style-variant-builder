@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl-repository.rnc"
+<?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/v1.0.2/schemas/styles/csl-repository.rnc"
   type="application/relax-ng-compact-syntax">
-<?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl.sch"
+<?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/v1.0.2/schemas/styles/csl.sch"
   schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <style and="text" class="note" default-locale="en-GB" delimiter-precedes-last="never" demote-non-dropping-particle="never" et-al-min="4" et-al-use-first="1" initialize-with="" name-delimiter=", " version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
   <info>

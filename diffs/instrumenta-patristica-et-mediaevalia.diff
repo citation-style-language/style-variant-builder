@@ -2,7 +2,7 @@
 +++ development/instrumenta-patristica-et-mediaevalia.csl
 @@ -3,32 +3,36 @@
    type="application/relax-ng-compact-syntax" schematypens="http://relaxng.org/ns/compatibility/annotations/1.0"?>
- <?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/refs/heads/master/schemas/styles/csl-repository.rnc"
+ <?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/v1.0.2/schemas/styles/csl-repository.rnc"
    schematypens="http://purl.oclc.org/dsdl/schematron"?>
 -<style and="text" class="note" default-locale="en-GB" demote-non-dropping-particle="display-and-sort" et-al-min="4" et-al-use-first="1" initialize-with=". " page-range-format="minimal-two" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
 +<style class="note" default-locale="en-GB" demote-non-dropping-particle="display-and-sort" et-al-min="4" et-al-use-first="1" initialize-with=". " page-range-format="expanded" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
