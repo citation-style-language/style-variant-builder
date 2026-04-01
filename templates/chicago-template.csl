@@ -3711,7 +3711,8 @@
       <text macro="source-serial-name"/>
       <choose>
         <!-- 'ahead of print' is placed akin to a series (CMOS18 14.75) -->
-        <if match="any" variable="available-date collection-title issue number page status supplement-number volume volume-title"/>
+        <if match="any" variable="collection-title issue number page supplement-number volume volume-title"/>
+        <else-if match="any" variable="available-date status"/>
         <else-if type="article-journal" variable="DOI issued">
           <text term="advance-online-publication"/>
         </else-if>
@@ -3741,7 +3742,8 @@
       <text macro="source-serial-name"/>
       <choose>
         <!-- 'ahead of print' is placed akin to a series (CMOS18 14.75) -->
-        <if match="any" variable="available-date collection-title issue number page status supplement-number volume volume-title"/>
+        <if match="any" variable="collection-title issue number page supplement-number volume volume-title"/>
+        <else-if match="any" variable="available-date status"/>
         <else-if type="article-journal" variable="DOI issued">
           <text term="advance-online-publication"/>
         </else-if>
@@ -4095,7 +4097,8 @@
   <macro name="source-serial-volume-status-bib">
     <group delimiter=", ">
       <choose>
-        <if match="any" variable="collection-title issue number page supplement-number volume"/>
+        <if match="any" variable="collection-title issue number page supplement-number volume volume-title"/>
+        <else-if variable="issued"/>
         <else-if variable="available-date">
           <group delimiter=" ">
             <!-- article accepted for publication and available on publisher website (CMOS18 14.75) -->
@@ -4116,7 +4119,8 @@
   <macro name="source-serial-volume-status-note">
     <group delimiter=", ">
       <choose>
-        <if match="any" variable="collection-title issue number page supplement-number volume"/>
+        <if match="any" variable="collection-title issue number page supplement-number volume volume-title"/>
+        <else-if variable="issued"/>
         <else-if variable="available-date">
           <group delimiter=" ">
             <!-- article accepted for publication and available on publisher website (CMOS18 14.75) -->
