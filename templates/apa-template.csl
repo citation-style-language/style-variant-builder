@@ -1642,7 +1642,7 @@
         </choose>
       </group>
       <choose>
-        <if match="any" variable="collection-title issue number page supplement-number volume"/>
+        <if match="any" variable="collection-title issue number page supplement-number volume volume-title"/>
         <else-if variable="issued status">
           <!-- Print the status variable rather than use generic CSL terms (`in press`, etc.) -->
           <text text-case="capitalize-first" variable="status"/>
