@@ -1,6 +1,6 @@
 --- templates/norsk-henvisningsstandard-for-rettsvitenskapelige-tekster-template.csl
 +++ development/norsk-henvisningsstandard-for-rettsvitenskapelige-tekster-full-firstnote.csl
-@@ -2,9 +2,9 @@
+@@ -6,9 +6,9 @@
  <style xmlns="http://purl.org/net/xbiblio/csl" class="note" version="1.0" demote-non-dropping-particle="sort-only" page-range-format="expanded">
    <!-- Polyglot; this citation style supports both Norwegian dialects, i.e. bokmål (nb-NO) and nynorsk (nn-NO) -->
    <info>
@@ -13,7 +13,7 @@
      <link href="http://www.zotero.org/styles/universitetet-i-oslo-rettsvitenskap" rel="template"/>
      <link href="https://www.uib.no/sites/w3.uib.no/files/attachments/veiledning_for_henvisning_i_juridiske_tekster.pdf" rel="documentation"/>
      <link href="https://obykanalen.no/zotero/" rel="documentation"/>
-@@ -18,7 +18,7 @@
+@@ -22,7 +22,7 @@
      </contributor>
      <category citation-format="note"/>
      <category field="law"/>
@@ -22,7 +22,7 @@
      <updated>2026-03-10T22:12:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -517,10 +517,61 @@
+@@ -520,10 +520,61 @@
      <layout delimiter="; ">
        <group delimiter=" ">
          <choose>

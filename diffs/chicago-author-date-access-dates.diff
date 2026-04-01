@@ -1,8 +1,8 @@
 --- templates/chicago-template.csl
 +++ development/chicago-author-date-access-dates.csl
 @@ -3,19 +3,20 @@
-   type="application/relax-ng-compact-syntax" schematypens="http://relaxng.org/ns/compatibility/annotations/1.0"?>
- <?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/v1.0.2/schemas/styles/csl-repository.rnc"
+   type="application/relax-ng-compact-syntax">
+ <?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/v1.0.2/schemas/styles/csl.sch"
    schematypens="http://purl.oclc.org/dsdl/schematron"?>
 -<style class="note" demote-non-dropping-particle="display-and-sort" initialize-with=". " page-range-format="chicago-16" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
 +<style class="in-text" demote-non-dropping-particle="display-and-sort" initialize-with=". " page-range-format="chicago-16" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
@@ -152,7 +152,7 @@
            <text macro="source-serial-locator"/>
          </else>
          <!-- TODO: If CSL adds `date-part` detection, add two further conditions to address CMOS18 14.74: delimiting with ":" if there is a `volume` and no month or `issue` or `supplement number`; delimiting with ", " or there is an `issue` or `supplement number` and no month -->
-@@ -4106,9 +4082,7 @@
+@@ -4107,9 +4083,7 @@
        </choose>
        <group delimiter=" ">
          <text macro="source-date-status-bib"/>
@@ -163,7 +163,7 @@
        </group>
      </group>
    </macro>
-@@ -4165,9 +4139,7 @@
+@@ -4167,9 +4141,7 @@
            <group delimiter=", ">
              <group delimiter=" ">
                <text macro="source-monographic-preposition-bib"/>
@@ -174,7 +174,7 @@
              </group>
              <text macro="source-monographic-description"/>
              <text macro="source-monographic-identifier-bib"/>
-@@ -4328,9 +4300,7 @@
+@@ -4330,9 +4302,7 @@
            <text macro="label-version"/>
            <!-- use note form as `edition` is not capitalized here -->
            <text macro="identifier-edition-note"/>
@@ -185,7 +185,7 @@
          </group>
        </if>
      </choose>
-@@ -4731,9 +4701,7 @@
+@@ -4733,9 +4703,7 @@
          <group delimiter=":">
            <choose>
              <if match="any" variable="part-number part-title volume-title"/>
@@ -196,7 +196,7 @@
              <else>
                <text variable="volume"/>
              </else>
-@@ -4752,9 +4720,7 @@
+@@ -4754,9 +4722,7 @@
            <choose>
              <!-- check for variables that might come between the volume and page number -->
              <if match="any" variable="part-number part-title volume-title"/>
@@ -207,7 +207,7 @@
              <else>
                <text variable="volume"/>
              </else>
-@@ -5261,14 +5227,13 @@
+@@ -5263,14 +5229,13 @@
        <choose>
          <if match="any" type="post webpage">
            <!-- print `container-title` on `post` or `webpage` in the same way as `publisher` (CMOS18 14.104-106) -->
@@ -224,7 +224,7 @@
          </if>
        </choose>
        <choose>
-@@ -5287,9 +5252,7 @@
+@@ -5289,9 +5254,7 @@
        </choose>
        <group delimiter=" ">
          <text macro="source-date-status-bib"/>
@@ -235,7 +235,7 @@
        </group>
        <choose>
          <if type="broadcast" variable="URL"/>
-@@ -5787,9 +5750,7 @@
+@@ -5789,9 +5752,7 @@
      </choose>
    </macro>
    <macro name="source-date-original">
@@ -246,7 +246,7 @@
    </macro>
    <macro name="source-date-original-full">
      <!-- Give full date for more ephemeral types -->
-@@ -6186,9 +6147,8 @@
+@@ -6188,9 +6149,8 @@
    <macro name="source-date-accessed-DOI-URL-bib">
      <group delimiter=". ">
        <choose>
@@ -258,7 +258,7 @@
            <group delimiter=" ">
              <text term="accessed" text-case="capitalize-first"/>
              <date form="text" variable="accessed"/>
-@@ -6897,9 +6857,9 @@
+@@ -6899,9 +6859,9 @@
        </else>
      </choose>
    </macro>
@@ -271,7 +271,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -7044,16 +7004,19 @@
+@@ -7046,16 +7006,19 @@
    <bibliography et-al-min="7" et-al-use-first="3" hanging-indent="true">
      <sort>
        <key macro="author-sort"/>

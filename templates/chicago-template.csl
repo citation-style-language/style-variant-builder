@@ -4095,14 +4095,15 @@
   <macro name="source-serial-volume-status-bib">
     <group delimiter=", ">
       <choose>
-        <if match="none" variable="collection-title issue number page supplement-number volume">
+        <if match="any" variable="collection-title issue number page supplement-number volume"/>
+        <else-if variable="available-date">
           <group delimiter=" ">
             <!-- article accepted for publication and available on publisher website (CMOS18 14.75) -->
             <!-- TODO: use CSL term for `available-date` when available -->
             <text value="accepted"/>
             <date form="text" variable="available-date"/>
           </group>
-        </if>
+        </else-if>
       </choose>
       <group delimiter=" ">
         <text macro="source-date-status-bib"/>
@@ -4115,14 +4116,15 @@
   <macro name="source-serial-volume-status-note">
     <group delimiter=", ">
       <choose>
-        <if match="none" variable="collection-title issue number page supplement-number volume">
+        <if match="any" variable="collection-title issue number page supplement-number volume"/>
+        <else-if variable="available-date">
           <group delimiter=" ">
             <!-- article accepted for publication and available on publisher website (CMOS18 14.75) -->
             <!-- TODO: use CSL term for `available-date` when available -->
             <text value="accepted"/>
             <date form="text" variable="available-date"/>
           </group>
-        </if>
+        </else-if>
       </choose>
       <group delimiter=" ">
         <text macro="source-date-status-note"/>

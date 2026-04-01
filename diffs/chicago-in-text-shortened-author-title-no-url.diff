@@ -1,8 +1,8 @@
 --- templates/chicago-template.csl
 +++ development/chicago-in-text-shortened-author-title-no-url.csl
 @@ -3,19 +3,20 @@
-   type="application/relax-ng-compact-syntax" schematypens="http://relaxng.org/ns/compatibility/annotations/1.0"?>
- <?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/v1.0.2/schemas/styles/csl-repository.rnc"
+   type="application/relax-ng-compact-syntax">
+ <?xml-model href="https://raw.githubusercontent.com/citation-style-language/schema/v1.0.2/schemas/styles/csl.sch"
    schematypens="http://purl.oclc.org/dsdl/schematron"?>
 -<style class="note" demote-non-dropping-particle="display-and-sort" initialize-with=". " page-range-format="chicago-16" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
 +<style class="in-text" demote-non-dropping-particle="display-and-sort" initialize-with=". " page-range-format="chicago-16" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
@@ -36,7 +36,7 @@
      <updated>2025-02-09T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -6195,7 +6196,7 @@
+@@ -6197,7 +6198,7 @@
            </group>
          </else-if>
        </choose>
@@ -45,7 +45,7 @@
      </group>
    </macro>
    <macro name="source-date-accessed-DOI-URL-note">
-@@ -6210,7 +6211,7 @@
+@@ -6212,7 +6213,7 @@
            </group>
          </else-if>
        </choose>
@@ -54,7 +54,7 @@
      </group>
    </macro>
    <macro name="source-DOI-URL">
-@@ -6898,8 +6899,8 @@
+@@ -6900,8 +6901,8 @@
      </choose>
    </macro>
    <citation disambiguate-add-givenname="true" disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
@@ -65,7 +65,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -7053,7 +7054,7 @@
+@@ -7055,7 +7056,7 @@
        <key macro="source-archive-bib"/>
      </sort>
      <layout suffix=".">
