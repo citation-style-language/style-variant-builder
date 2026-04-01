@@ -25,7 +25,7 @@
      <updated>2025-02-09T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -6901,7 +6902,7 @@
+@@ -6904,7 +6905,7 @@
    </macro>
    <citation disambiguate-add-givenname="true" disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
      <layout delimiter="; " suffix=".">
@@ -34,7 +34,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -7055,7 +7056,7 @@
+@@ -7059,7 +7060,7 @@
        <key macro="source-archive-bib"/>
      </sort>
      <layout suffix=".">

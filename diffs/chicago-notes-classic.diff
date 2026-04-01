@@ -69,7 +69,7 @@
        <else-if is-numeric="volume" variable="page">
          <!-- collapse the volume and page number if adjacent (CMOS18 14.18) -->
          <group delimiter=":">
-@@ -5519,7 +5510,7 @@
+@@ -5522,7 +5513,7 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -78,7 +78,7 @@
              <text text-case="capitalize-first" variable="publisher"/>
            </group>
          </else-if>
-@@ -5545,7 +5536,7 @@
+@@ -5548,7 +5539,7 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -87,7 +87,7 @@
              <text variable="publisher"/>
            </group>
          </else-if>
-@@ -5567,7 +5558,7 @@
+@@ -5570,7 +5561,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -96,7 +96,7 @@
            <text text-case="capitalize-first" variable="original-publisher"/>
          </group>
        </if>
-@@ -5580,7 +5571,7 @@
+@@ -5583,7 +5574,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -105,7 +105,7 @@
            <text variable="original-publisher"/>
          </group>
        </if>
-@@ -6899,7 +6890,7 @@
+@@ -6902,7 +6893,7 @@
        </else>
      </choose>
    </macro>
@@ -114,7 +114,7 @@
      <layout delimiter="; " suffix=".">
        <text macro="citation-notes-full-subsequent-author-title"/>
      </layout>
-@@ -7043,19 +7034,4 @@
+@@ -7047,19 +7038,4 @@
        </else>
      </choose>
    </macro>

@@ -259,7 +259,7 @@
              <else>
                <text variable="volume"/>
              </else>
-@@ -5263,14 +5215,13 @@
+@@ -5263,9 +5215,8 @@
        <choose>
          <if match="any" type="post webpage">
            <!-- print `container-title` on `post` or `webpage` in the same way as `publisher` (CMOS18 14.104-106) -->
@@ -267,7 +267,10 @@
            <!-- avoid possible repetition of `container-title` with author-date: -->
 -          <!-- <choose>
 +          <choose>
-             <if type="webpage" variable="container-title container-title-short"/>
+             <if variable="publisher">
+               <text text-case="title" variable="container-title"/>
+             </if>
+@@ -5273,7 +5224,7 @@
              <else>
                <text text-case="title" variable="container-title"/>
              </else>
@@ -276,7 +279,7 @@
          </if>
        </choose>
        <choose>
-@@ -5289,9 +5240,7 @@
+@@ -5292,9 +5243,7 @@
        </choose>
        <group delimiter=" ">
          <text macro="source-date-status-bib"/>
@@ -287,7 +290,7 @@
        </group>
        <choose>
          <if type="broadcast" variable="URL"/>
-@@ -5519,7 +5468,7 @@
+@@ -5522,7 +5471,7 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -296,7 +299,7 @@
              <text text-case="capitalize-first" variable="publisher"/>
            </group>
          </else-if>
-@@ -5545,7 +5494,7 @@
+@@ -5548,7 +5497,7 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -305,7 +308,7 @@
              <text variable="publisher"/>
            </group>
          </else-if>
-@@ -5567,7 +5516,7 @@
+@@ -5570,7 +5519,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -314,7 +317,7 @@
            <text text-case="capitalize-first" variable="original-publisher"/>
          </group>
        </if>
-@@ -5580,7 +5529,7 @@
+@@ -5583,7 +5532,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -323,7 +326,7 @@
            <text variable="original-publisher"/>
          </group>
        </if>
-@@ -5789,9 +5738,7 @@
+@@ -5792,9 +5741,7 @@
      </choose>
    </macro>
    <macro name="source-date-original">
@@ -334,7 +337,7 @@
    </macro>
    <macro name="source-date-original-full">
      <!-- Give full date for more ephemeral types -->
-@@ -6197,7 +6144,7 @@
+@@ -6200,7 +6147,7 @@
            </group>
          </else-if>
        </choose>
@@ -343,7 +346,7 @@
      </group>
    </macro>
    <macro name="source-date-accessed-DOI-URL-note">
-@@ -6212,7 +6159,7 @@
+@@ -6215,7 +6162,7 @@
            </group>
          </else-if>
        </choose>
@@ -352,7 +355,7 @@
      </group>
    </macro>
    <macro name="source-DOI-URL">
-@@ -6899,9 +6846,9 @@
+@@ -6902,9 +6849,9 @@
        </else>
      </choose>
    </macro>
@@ -365,7 +368,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -7043,19 +6990,22 @@
+@@ -7047,19 +6994,22 @@
        </else>
      </choose>
    </macro>

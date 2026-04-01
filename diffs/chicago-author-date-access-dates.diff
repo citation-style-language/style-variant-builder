@@ -207,7 +207,7 @@
              <else>
                <text variable="volume"/>
              </else>
-@@ -5263,14 +5229,13 @@
+@@ -5263,9 +5229,8 @@
        <choose>
          <if match="any" type="post webpage">
            <!-- print `container-title` on `post` or `webpage` in the same way as `publisher` (CMOS18 14.104-106) -->
@@ -215,7 +215,10 @@
            <!-- avoid possible repetition of `container-title` with author-date: -->
 -          <!-- <choose>
 +          <choose>
-             <if type="webpage" variable="container-title container-title-short"/>
+             <if variable="publisher">
+               <text text-case="title" variable="container-title"/>
+             </if>
+@@ -5273,7 +5238,7 @@
              <else>
                <text text-case="title" variable="container-title"/>
              </else>
@@ -224,7 +227,7 @@
          </if>
        </choose>
        <choose>
-@@ -5289,9 +5254,7 @@
+@@ -5292,9 +5257,7 @@
        </choose>
        <group delimiter=" ">
          <text macro="source-date-status-bib"/>
@@ -235,7 +238,7 @@
        </group>
        <choose>
          <if type="broadcast" variable="URL"/>
-@@ -5789,9 +5752,7 @@
+@@ -5792,9 +5755,7 @@
      </choose>
    </macro>
    <macro name="source-date-original">
@@ -246,7 +249,7 @@
    </macro>
    <macro name="source-date-original-full">
      <!-- Give full date for more ephemeral types -->
-@@ -6188,9 +6149,8 @@
+@@ -6191,9 +6152,8 @@
    <macro name="source-date-accessed-DOI-URL-bib">
      <group delimiter=". ">
        <choose>
@@ -258,7 +261,7 @@
            <group delimiter=" ">
              <text term="accessed" text-case="capitalize-first"/>
              <date form="text" variable="accessed"/>
-@@ -6899,9 +6859,9 @@
+@@ -6902,9 +6862,9 @@
        </else>
      </choose>
    </macro>
@@ -271,7 +274,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -7046,16 +7006,19 @@
+@@ -7050,16 +7010,19 @@
    <bibliography et-al-min="7" et-al-use-first="3" hanging-indent="true">
      <sort>
        <key macro="author-sort"/>

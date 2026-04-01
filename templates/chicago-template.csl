@@ -5266,7 +5266,10 @@
           <text text-case="title" variable="container-title"/>
           <!-- avoid possible repetition of `container-title` with author-date: -->
           <!-- <choose>
-            <if type="webpage" variable="container-title container-title-short"/>
+            <if variable="publisher">
+              <text text-case="title" variable="container-title"/>
+            </if>
+            <else-if type="webpage" variable="container-title container-title-short"/>
             <else>
               <text text-case="title" variable="container-title"/>
             </else>
@@ -6920,9 +6923,10 @@
             <choose>
               <!-- give key to abbreviations (CMOS18 13.127, 14.104) -->
               <!-- TODO: add `authority` and `publisher` if it becomes possible to test for short forms -->
-              <if type="webpage" variable="container-title container-title-short">
+              <if type="webpage" variable="publisher"/>
+              <else-if type="webpage" variable="container-title container-title-short">
                 <text prefix="(" suffix=")" text-case="title" variable="container-title"/>
-              </if>
+              </else-if>
             </choose>
           </group>
           <text macro="date"/>
