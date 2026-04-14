@@ -207,7 +207,7 @@
      </group>
    </macro>
    <macro name="source-DOI-URL">
-@@ -6906,7 +6896,7 @@
+@@ -6920,7 +6910,7 @@
        </else>
      </choose>
    </macro>
@@ -216,7 +216,7 @@
      <layout delimiter="; " suffix=".">
        <text macro="citation-notes-full-subsequent-author-title"/>
      </layout>
-@@ -7051,19 +7041,4 @@
+@@ -7065,19 +7055,4 @@
        </else>
      </choose>
    </macro>

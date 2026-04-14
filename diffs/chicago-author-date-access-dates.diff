@@ -261,7 +261,7 @@
            <group delimiter=" ">
              <text term="accessed" text-case="capitalize-first"/>
              <date form="text" variable="accessed"/>
-@@ -6906,9 +6866,9 @@
+@@ -6920,9 +6880,9 @@
        </else>
      </choose>
    </macro>
@@ -274,7 +274,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -7054,16 +7014,19 @@
+@@ -7068,16 +7028,19 @@
    <bibliography et-al-min="7" et-al-use-first="3" hanging-indent="true">
      <sort>
        <key macro="author-sort"/>

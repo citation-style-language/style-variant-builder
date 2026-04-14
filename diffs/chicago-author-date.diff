@@ -249,7 +249,7 @@
    </macro>
    <macro name="source-date-original-full">
      <!-- Give full date for more ephemeral types -->
-@@ -6906,9 +6867,9 @@
+@@ -6920,9 +6881,9 @@
        </else>
      </choose>
    </macro>
@@ -262,7 +262,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -7054,16 +7015,19 @@
+@@ -7068,16 +7029,19 @@
    <bibliography et-al-min="7" et-al-use-first="3" hanging-indent="true">
      <sort>
        <key macro="author-sort"/>

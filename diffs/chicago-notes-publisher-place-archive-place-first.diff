@@ -131,7 +131,7 @@
          </else>
        </choose>
        <text macro="source-archive-database-number" prefix="(" suffix=")"/>
-@@ -6906,7 +6897,7 @@
+@@ -6920,7 +6911,7 @@
        </else>
      </choose>
    </macro>
@@ -140,7 +140,7 @@
      <layout delimiter="; " suffix=".">
        <text macro="citation-notes-full-subsequent-author-title"/>
      </layout>
-@@ -7051,19 +7042,4 @@
+@@ -7065,19 +7056,4 @@
        </else>
      </choose>
    </macro>

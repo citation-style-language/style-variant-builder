@@ -37,7 +37,7 @@
            <group delimiter=" ">
              <text term="accessed" text-case="capitalize-first"/>
              <date form="text" variable="accessed"/>
-@@ -6908,7 +6908,7 @@
+@@ -6922,7 +6922,7 @@
    </macro>
    <citation disambiguate-add-givenname="true" disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
      <layout delimiter="; " suffix=".">
@@ -46,7 +46,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -7063,7 +7063,7 @@
+@@ -7077,7 +7077,7 @@
        <key macro="source-archive-bib"/>
      </sort>
      <layout suffix=".">

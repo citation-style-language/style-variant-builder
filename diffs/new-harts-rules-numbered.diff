@@ -36,7 +36,7 @@
      <updated>2026-02-05T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -4203,9 +4204,16 @@
+@@ -4222,9 +4223,16 @@
        </choose>
      </group>
    </macro>
@@ -56,7 +56,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -4324,20 +4332,10 @@
+@@ -4343,20 +4351,10 @@
        </else>
      </choose>
    </macro>

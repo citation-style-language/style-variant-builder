@@ -110,7 +110,7 @@
 -  <!-- This file's main source is the New Oxford Style Manual (2016), with reference also to the Oxford Style Manual (2003) <https://archive.org/details/oxfordstylemanua0000unse>, which provides more detailed guidance on many points. -->
 +  <!-- This file follows the Oxford Style Manual (2003) <https://archive.org/details/oxfordstylemanua0000unse>. -->
    <!-- Contents:
-
+ 
         This file interprets Oxford style using APA's four basic reference elements:
 @@ -360,35 +418,22 @@
      </group>
@@ -164,7 +164,7 @@
          <substitute>
            <names variable="author"/>
            <names variable="guest"/>
-@@ -1194,27 +1237,19 @@
+@@ -1198,27 +1241,19 @@
              <if match="any" type="article-journal article-magazine article-newspaper periodical post-weblog review review-book"/>
              <else-if match="any" variable="collection-editor compiler editor editorial-director">
                <!-- monographic types -->
@@ -195,7 +195,7 @@
      </group>
    </macro>
    <!-- 3.1. Title -->
-@@ -1488,10 +1523,6 @@
+@@ -1492,10 +1527,6 @@
              <text macro="label-volume"/>
            </if>
            <else-if locator="column page" match="any"/>
@@ -206,7 +206,7 @@
            <else-if variable="page"/>
            <else>
              <text macro="label-volume"/>
-@@ -2614,9 +2645,7 @@
+@@ -2618,9 +2649,7 @@
        <text macro="source-serial-identifier-volume"/>
        <!-- periodical edition always capitalized (cf. CMOS18 14.89) -->
        <text macro="label-edition-capitalized"/>
@@ -217,7 +217,7 @@
      </group>
    </macro>
    <macro name="source-serial-identifier-author-date">
-@@ -2657,16 +2686,12 @@
+@@ -2661,16 +2690,12 @@
                <choose>
                  <if variable="issue volume">
                    <group delimiter="/">
@@ -236,7 +236,7 @@
                    <text macro="label-issue"/>
                  </else>
                </choose>
-@@ -2800,8 +2825,6 @@
+@@ -2804,8 +2829,6 @@
            </group>
          </if>
        </choose>
@@ -245,7 +245,7 @@
        <text macro="source-event"/>
      </group>
    </macro>
-@@ -2844,9 +2867,7 @@
+@@ -2848,9 +2871,7 @@
      <!-- based on `author-note` -->
      <names variable="container-author">
        <name initialize="false"/>
@@ -256,7 +256,7 @@
        <substitute>
          <names variable="author"/>
          <names variable="guest"/>
-@@ -3138,9 +3159,7 @@
+@@ -3142,9 +3163,7 @@
    <macro name="source-series">
      <group delimiter=", ">
        <text text-case="title" variable="collection-title"/>
@@ -267,7 +267,7 @@
        <text macro="label-issue"/>
      </group>
    </macro>
-@@ -3264,16 +3283,14 @@
+@@ -3268,16 +3287,14 @@
          <else-if match="any" type="article-journal article-magazine article-newspaper periodical post-weblog review review-book"/>
          <else-if match="any" variable="collection-editor compiler editor editorial-director">
            <!-- monographic types -->
@@ -286,7 +286,7 @@
            <text macro="source-publication-and-date"/>
          </else>
        </choose>
-@@ -3795,17 +3812,13 @@
+@@ -3799,17 +3816,13 @@
          <text macro="source-locator-subsequent-serial"/>
        </if>
        <else-if match="any" variable="collection-editor compiler editor editorial-director">
@@ -306,7 +306,7 @@
        </else>
      </choose>
    </macro>
-@@ -3851,8 +3864,7 @@
+@@ -3855,8 +3868,7 @@
            <!-- Do not provide `volume` or `part-number` for defined section -->
            <text macro="label-locator"/>
          </if>
@@ -316,7 +316,7 @@
            <text macro="label-volume"/>
            <text macro="label-part-number"/>
            <text macro="label-locator"/>
-@@ -3862,7 +3874,7 @@
+@@ -3866,7 +3878,7 @@
              <text macro="label-volume"/>
              <text macro="label-locator"/>
            </group>
@@ -325,7 +325,7 @@
          <else-if variable="part-number">
            <text macro="label-volume"/>
            <text macro="label-part-number"/>
-@@ -3901,14 +3913,12 @@
+@@ -3905,14 +3917,12 @@
    <!-- 4.9. Archival location -->
    <macro name="source-archive">
      <group delimiter=", ">

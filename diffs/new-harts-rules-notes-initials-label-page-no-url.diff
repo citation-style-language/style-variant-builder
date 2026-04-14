@@ -59,7 +59,7 @@
          <label form="short" prefix=", "/>
          <!-- for OGS or variants with bracketed roles: -->
          <!-- <label form="short" prefix=" (" suffix=")"/> -->
-@@ -1214,7 +1214,7 @@
+@@ -1218,7 +1218,7 @@
          <text macro="source-medium" prefix="[" suffix="]"/>
        </group>
        <text macro="source-archive"/>
@@ -68,7 +68,7 @@
      </group>
    </macro>
    <!-- 3.1. Title -->
-@@ -1742,7 +1742,7 @@
+@@ -1746,7 +1746,7 @@
            <!-- `genre` printed with `number` -->
            <names variable="interviewer">
              <label form="verb" suffix=" "/>
@@ -77,7 +77,7 @@
            </names>
          </if>
          <else-if variable="genre">
-@@ -1751,7 +1751,7 @@
+@@ -1755,7 +1755,7 @@
              <group delimiter=" ">
                <text form="verb" term="container-author"/>
                <names variable="interviewer">
@@ -86,7 +86,7 @@
                </names>
              </group>
            </group>
-@@ -1759,7 +1759,7 @@
+@@ -1763,7 +1763,7 @@
          <else-if variable="interviewer">
            <names variable="interviewer">
              <label form="verb" suffix=" "/>
@@ -95,7 +95,7 @@
            </names>
          </else-if>
          <else>
-@@ -1776,7 +1776,7 @@
+@@ -1780,7 +1780,7 @@
            <!-- `genre` printed with `number` -->
            <names variable="interviewer">
              <label form="verb" suffix=" " text-case="capitalize-first"/>
@@ -104,7 +104,7 @@
            </names>
          </if>
          <else-if variable="genre">
-@@ -1785,7 +1785,7 @@
+@@ -1789,7 +1789,7 @@
              <group delimiter=" ">
                <text form="verb" term="container-author"/>
                <names variable="interviewer">
@@ -113,7 +113,7 @@
                </names>
              </group>
            </group>
-@@ -1793,7 +1793,7 @@
+@@ -1797,7 +1797,7 @@
          <else-if variable="interviewer">
            <names variable="interviewer">
              <label form="verb" suffix=" " text-case="capitalize-first"/>
@@ -122,7 +122,7 @@
            </names>
          </else-if>
          <else>
-@@ -1840,7 +1840,7 @@
+@@ -1844,7 +1844,7 @@
                <!-- `genre` appears with `number` -->
                <names variable="recipient">
                  <label form="verb" suffix=" "/>
@@ -131,7 +131,7 @@
                </names>
              </if>
              <else>
-@@ -1848,7 +1848,7 @@
+@@ -1852,7 +1852,7 @@
                  <text macro="description-format"/>
                  <names variable="recipient">
                    <label form="verb" suffix=" "/>
@@ -140,7 +140,7 @@
                  </names>
                </group>
              </else>
-@@ -1871,7 +1871,7 @@
+@@ -1875,7 +1875,7 @@
                <!-- `genre` appears with `number` -->
                <names variable="recipient">
                  <label form="verb" suffix=" " text-case="capitalize-first"/>
@@ -149,7 +149,7 @@
                </names>
              </if>
              <else>
-@@ -1879,7 +1879,7 @@
+@@ -1883,7 +1883,7 @@
                  <text macro="description-format-capitalized"/>
                  <names variable="recipient">
                    <label form="verb" suffix=" "/>
@@ -158,7 +158,7 @@
                  </names>
                </group>
              </else>
-@@ -1965,7 +1965,7 @@
+@@ -1969,7 +1969,7 @@
          </choose>
          <group delimiter=", ">
            <names variable="reviewed-author">
@@ -167,7 +167,7 @@
            </names>
            <text macro="description-review-title"/>
            <text variable="reviewed-genre"/>
-@@ -1989,7 +1989,7 @@
+@@ -1993,7 +1993,7 @@
          </choose>
          <group delimiter=", ">
            <names variable="reviewed-author">
@@ -176,7 +176,7 @@
            </names>
            <text macro="description-review-title"/>
            <text variable="reviewed-genre"/>
-@@ -2075,7 +2075,7 @@
+@@ -2079,7 +2079,7 @@
          </if>
        </choose>
        <names variable="author">
@@ -185,7 +185,7 @@
          <substitute>
            <names variable="performer"/>
          </substitute>
-@@ -2094,7 +2094,7 @@
+@@ -2098,7 +2098,7 @@
          </if>
        </choose>
        <names variable="author">
@@ -194,7 +194,7 @@
          <substitute>
            <names variable="performer"/>
          </substitute>
-@@ -2165,15 +2165,15 @@
+@@ -2169,15 +2169,15 @@
          <if match="any" type="post webpage">
            <names variable="container-author">
              <label form="verb" suffix=" "/>
@@ -213,7 +213,7 @@
            </names>
            <choose>
              <if variable="collection-editor editor"/>
-@@ -2181,67 +2181,67 @@
+@@ -2185,67 +2185,67 @@
              <else-if match="any" variable="number-of-volumes part-number part-title volume volume-title">
                <names variable="collection-editor">
                  <label form="verb-short" suffix=" "/>
@@ -295,7 +295,7 @@
                </names>
              </if>
            </choose>
-@@ -2252,15 +2252,15 @@
+@@ -2256,15 +2256,15 @@
              <if match="none" variable="container-title">
                <names variable="container-author">
                  <label form="verb" suffix=" "/>
@@ -314,7 +314,7 @@
                </names>
                <choose>
                  <if variable="collection-editor editor"/>
-@@ -2268,71 +2268,71 @@
+@@ -2272,71 +2272,71 @@
                  <else-if match="any" variable="number-of-volumes part-number part-title volume volume-title">
                    <names variable="collection-editor">
                      <label form="verb-short" suffix=" "/>
@@ -400,7 +400,7 @@
                    </names>
                  </if>
                </choose>
-@@ -2343,7 +2343,7 @@
+@@ -2347,7 +2347,7 @@
                <!-- Song contributors attached to album (cf. CMOS18 14.163) -->
                <names variable="contributor">
                  <label form="verb" suffix=" "/>
@@ -409,7 +409,7 @@
                </names>
              </if>
            </choose>
-@@ -2357,42 +2357,42 @@
+@@ -2361,42 +2361,42 @@
          <if type="periodical">
            <names variable="editor">
              <label form="verb-short" suffix=" "/>
@@ -461,7 +461,7 @@
        </names>
      </group>
    </macro>
-@@ -2752,7 +2752,7 @@
+@@ -2756,7 +2756,7 @@
          </group>
        </if>
        <else>
@@ -470,7 +470,7 @@
        </else>
      </choose>
    </macro>
-@@ -2843,7 +2843,7 @@
+@@ -2847,7 +2847,7 @@
    <macro name="source-monographic-author">
      <!-- based on `author-note` -->
      <names variable="container-author">
@@ -479,7 +479,7 @@
        <label form="short" prefix=", "/>
        <!-- for OGS or variants with bracketed roles: -->
        <!-- <label form="short" prefix=" (" suffix=")"/> -->
-@@ -2940,11 +2940,11 @@
+@@ -2944,11 +2944,11 @@
      <group delimiter=", ">
        <names variable="editor-translator">
          <label form="verb-short" suffix=" "/>
@@ -493,7 +493,7 @@
        </names>
        <choose>
          <if variable="collection-editor editor"/>
-@@ -2952,72 +2952,72 @@
+@@ -2956,72 +2956,72 @@
          <else-if match="any" variable="number-of-volumes part-number part-title volume volume-title">
            <names variable="collection-editor">
              <label form="verb-short" suffix=" "/>
@@ -581,7 +581,7 @@
            </names>
          </if>
        </choose>
-@@ -3058,14 +3058,17 @@
+@@ -3062,14 +3062,17 @@
              <!-- check for variables that might come between the volume and page number -->
              <if match="none" variable="part-number part-title volume-title">
                <text variable="volume"/>
@@ -602,7 +602,7 @@
          </else>
        </choose>
      </group>
-@@ -3129,7 +3132,7 @@
+@@ -3133,7 +3136,7 @@
          </else-if>
          <else-if variable="archive archive_location page"/>
          <else>
@@ -611,7 +611,7 @@
          </else>
        </choose>
      </group>
-@@ -3477,7 +3480,7 @@
+@@ -3481,7 +3484,7 @@
            </choose>
            <group delimiter=", ">
              <names variable="original-author">

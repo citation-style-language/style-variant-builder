@@ -355,7 +355,7 @@
      </group>
    </macro>
    <macro name="source-DOI-URL">
-@@ -6906,9 +6853,9 @@
+@@ -6920,9 +6867,9 @@
        </else>
      </choose>
    </macro>
@@ -368,7 +368,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -7051,19 +6998,22 @@
+@@ -7065,19 +7012,22 @@
        </else>
      </choose>
    </macro>

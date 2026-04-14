@@ -6798,9 +6798,23 @@
       <group delimiter=", ">
         <text macro="author-short"/>
         <choose>
-          <if match="none" type="bill hearing legal_case legislation regulation treaty">
+          <if match="any" type="bill hearing legal_case legislation regulation treaty"/>
+          <else-if match="any" type="entry entry-dictionary entry-encyclopedia">
+            <group delimiter=" ">
+              <choose>
+                <if locator="sub-verbo"/>
+                <!-- Only print reference entries use `sub-verbo` (CMOS18 14.131) -->
+                <else-if match="any" variable="DOI URL"/>
+                <else-if variable="container-title title">
+                  <text form="short" term="sub-verbo"/>
+                </else-if>
+              </choose>
+              <text macro="title-and-descriptions-short"/>
+            </group>
+          </else-if>
+          <else>
             <text macro="title-and-descriptions-short"/>
-          </if>
+          </else>
         </choose>
         <text macro="citation-notes-shortened-author-title-disambiguate"/>
         <choose>

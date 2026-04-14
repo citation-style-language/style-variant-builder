@@ -630,6 +630,10 @@
                 <!-- note contributors fall after the title of `classic` (cf. CMOS18 14.147), `performance` (cf. CMOS18 14.166) -->
                 <text macro="author-title-substitute-short"/>
               </if>
+              <!-- unsigned reference articles consulted in physical formats list `title` in the manner of a `sub-verbo` locator (cf. CMOS18 14.130) -->
+              <else-if match="any" type="entry entry-dictionary entry-encyclopedia">
+                <text font-style="italic" form="short" text-case="title" variable="container-title"/>
+              </else-if>
             </choose>
             <names variable="illustrator"/>
             <choose>
@@ -1144,7 +1148,7 @@
             <if variable="author"/>
             <else-if match="any" type="entry entry-dictionary entry-encyclopedia">
               <!-- give container title to distinguish an unsigned reference entry -->
-              <text font-style="italic" form="short" variable="container-title"/>
+              <text font-style="italic" form="short" text-case="title" variable="container-title"/>
             </else-if>
           </choose>
         </group>
@@ -4162,7 +4166,22 @@
     <group delimiter=" ">
       <group delimiter=", ">
         <text macro="author-short"/>
-        <text macro="title-and-descriptions-short"/>
+        <choose>
+          <if match="any" type="entry entry-dictionary entry-encyclopedia">
+            <group delimiter=" ">
+              <choose>
+                <if locator="sub-verbo"/>
+                <else-if variable="container-title title">
+                  <text form="short" term="sub-verbo"/>
+                </else-if>
+              </choose>
+              <text macro="title-and-descriptions-short"/>
+            </group>
+          </if>
+          <else>
+            <text macro="title-and-descriptions-short"/>
+          </else>
+        </choose>
         <text macro="citation-notes-shortened-author-title-disambiguate"/>
         <choose>
           <!-- inaccessible `interview` or `personal_communication` uses in-text format (cf. NHR 17.3.2, CMOS18 14.111): give the date at the first citation in shortened notes -->

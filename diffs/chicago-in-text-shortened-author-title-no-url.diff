@@ -54,7 +54,7 @@
      </group>
    </macro>
    <macro name="source-DOI-URL">
-@@ -6907,8 +6908,8 @@
+@@ -6921,8 +6922,8 @@
      </choose>
    </macro>
    <citation disambiguate-add-givenname="true" disambiguate-add-names="true" et-al-min="3" et-al-use-first="1">
@@ -65,7 +65,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -7063,7 +7064,7 @@
+@@ -7077,7 +7078,7 @@
        <key macro="source-archive-bib"/>
      </sort>
      <layout suffix=".">

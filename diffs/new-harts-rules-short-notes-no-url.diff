@@ -24,7 +24,7 @@
      <updated>2026-02-05T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -1214,7 +1214,7 @@
+@@ -1218,7 +1218,7 @@
          <text macro="source-medium" prefix="[" suffix="]"/>
        </group>
        <text macro="source-archive"/>
@@ -33,7 +33,7 @@
      </group>
    </macro>
    <!-- 3.1. Title -->
-@@ -4205,7 +4205,7 @@
+@@ -4224,7 +4224,7 @@
    </macro>
    <citation disambiguate-add-givenname="true" disambiguate-add-names="true">
      <layout delimiter="; " suffix=".">
@@ -42,7 +42,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -4337,7 +4337,7 @@
+@@ -4356,7 +4356,7 @@
        <key macro="source-archive"/>
      </sort>
      <layout suffix=".">
