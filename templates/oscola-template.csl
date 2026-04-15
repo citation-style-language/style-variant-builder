@@ -22,7 +22,7 @@
     <category citation-format="note"/>
     <category field="law"/>
     <summary>Oxford University Standard for Citation of Legal Authorities, notes system.</summary>
-    <updated>2026-02-02T00:00:00+00:00</updated>
+    <updated>2026-04-15T00:00:00+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <locale>
@@ -526,7 +526,10 @@
   </macro>
   <macro name="URL">
     <choose>
+      <!-- display URLs only for online-only works -->
       <if match="any" type="bill legal_case legislation"/>
+      <else-if match="any" variable="page"/>
+      <else-if match="any" type="book chapter classic pamphlet"/>
       <else-if match="any" variable="DOI URL">
         <!-- OSCOLA does not distinguish between DOIs and URLs; used here as a permalink -->
         <group delimiter=" ">

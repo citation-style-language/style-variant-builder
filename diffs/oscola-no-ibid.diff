@@ -21,10 +21,10 @@
      <category field="law"/>
 -    <summary>Oxford University Standard for Citation of Legal Authorities, notes system.</summary>
 +    <summary>Oxford University Standard for Citation of Legal Authorities, notes system, no ibid.</summary>
-     <updated>2026-02-02T00:00:00+00:00</updated>
+     <updated>2026-04-15T00:00:00+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -568,16 +569,7 @@
+@@ -571,16 +572,7 @@
    <citation>
      <layout delimiter="; " suffix=".">
        <choose>
@@ -42,7 +42,7 @@
            <choose>
              <if match="any" type="bill hearing legal_case legislation regulation treaty">
                <!--don't use short form and above note for legal citations -->
-@@ -609,7 +601,7 @@
+@@ -612,7 +604,7 @@
                </group>
              </else>
            </choose>
