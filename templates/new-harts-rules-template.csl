@@ -1662,7 +1662,7 @@
       </else-if>
       <else-if type="personal_communication">
         <!-- 'personal communication' if no `genre` (cf. CMOS18 14.111) -->
-        <text term="personal-communication" text-case="capitalize-first"/>
+        <text term="personal-communication"/>
       </else-if>
     </choose>
   </macro>
