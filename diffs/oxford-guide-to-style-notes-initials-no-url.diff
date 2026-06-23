@@ -764,7 +764,7 @@
              </names>
              <text font-style="italic" text-case="title" variable="original-title"/>
            </group>
-@@ -3799,17 +3822,13 @@
+@@ -3803,17 +3826,13 @@
          <text macro="source-locator-subsequent-serial"/>
        </if>
        <else-if match="any" variable="collection-editor compiler editor editorial-director">
@@ -784,7 +784,7 @@
        </else>
      </choose>
    </macro>
-@@ -3855,8 +3874,7 @@
+@@ -3859,8 +3878,7 @@
            <!-- Do not provide `volume` or `part-number` for defined section -->
            <text macro="label-locator"/>
          </if>
@@ -794,7 +794,7 @@
            <text macro="label-volume"/>
            <text macro="label-part-number"/>
            <text macro="label-locator"/>
-@@ -3866,7 +3884,7 @@
+@@ -3870,7 +3888,7 @@
              <text macro="label-volume"/>
              <text macro="label-locator"/>
            </group>
@@ -803,7 +803,7 @@
          <else-if variable="part-number">
            <text macro="label-volume"/>
            <text macro="label-part-number"/>
-@@ -3910,9 +3928,7 @@
+@@ -3914,9 +3932,7 @@
        <!-- usually `archive`, `archive-place` but sometimes also `archive-place`, `archive` (NHR 18.6.5); the latter is more common elsewhere (OGS 15.11.1 and MHRA4 7.7) -->
        <text variable="archive_collection"/>
        <text variable="archive_location"/>

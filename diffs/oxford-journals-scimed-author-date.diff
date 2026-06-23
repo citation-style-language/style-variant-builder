@@ -865,8 +865,8 @@
 +            <text variable="publisher"/>
            </group>
          </if>
-         <else>
-@@ -3530,7 +3517,7 @@
+         <!-- non-print types such as `webpage` use publisher first -->
+@@ -3534,7 +3521,7 @@
        <if match="any" type="book chapter classic entry entry-dictionary entry-encyclopedia interview musical_score pamphlet paper-conference report">
          <group delimiter=": ">
            <text variable="original-publisher-place"/>
@@ -875,7 +875,7 @@
          </group>
        </if>
        <else>
-@@ -4034,14 +4021,14 @@
+@@ -4038,14 +4025,14 @@
      </choose>
    </macro>
    <macro name="source-date-accessed-DOI-URL">
@@ -893,7 +893,7 @@
            </group>
          </else-if>
        </choose>
-@@ -4222,9 +4209,14 @@
+@@ -4226,9 +4213,14 @@
        </choose>
      </group>
    </macro>
@@ -911,7 +911,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -4242,7 +4234,7 @@
+@@ -4246,7 +4238,7 @@
    </macro>
    <macro name="bibliography-notes">
      <group delimiter=". ">
@@ -920,7 +920,7 @@
          <text macro="author-bib"/>
          <text macro="title-and-source"/>
        </group>
-@@ -4346,17 +4338,16 @@
+@@ -4350,17 +4342,16 @@
    <bibliography hanging-indent="true">
      <sort>
        <key macro="author-bib"/>

@@ -705,7 +705,7 @@
                <else-if type="report">
                  <text variable="publisher"/>
                </else-if>
-@@ -3799,17 +3755,13 @@
+@@ -3803,17 +3759,13 @@
          <text macro="source-locator-subsequent-serial"/>
        </if>
        <else-if match="any" variable="collection-editor compiler editor editorial-director">
@@ -725,7 +725,7 @@
        </else>
      </choose>
    </macro>
-@@ -3856,7 +3808,7 @@
+@@ -3860,7 +3812,7 @@
            <text macro="label-locator"/>
          </if>
          <!-- for OGS: -->
@@ -734,7 +734,7 @@
            <text macro="label-volume"/>
            <text macro="label-part-number"/>
            <text macro="label-locator"/>
-@@ -3866,7 +3818,7 @@
+@@ -3870,7 +3822,7 @@
              <text macro="label-volume"/>
              <text macro="label-locator"/>
            </group>
@@ -743,7 +743,7 @@
          <else-if variable="part-number">
            <text macro="label-volume"/>
            <text macro="label-part-number"/>
-@@ -3905,14 +3857,12 @@
+@@ -3909,14 +3861,12 @@
    <!-- 4.9. Archival location -->
    <macro name="source-archive">
      <group delimiter=", ">
@@ -760,7 +760,7 @@
        <choose>
          <!-- database identifier, if not included elsewhere (cf. CMOS18 14.113) -->
          <if match="any" variable="archive_collection archive_location archive-place"/>
-@@ -4124,8 +4074,32 @@
+@@ -4128,8 +4078,32 @@
      <group delimiter=", ">
        <choose>
          <if position="subsequent">
@@ -795,7 +795,7 @@
          </if>
          <else>
            <text macro="author-note"/>
-@@ -4194,9 +4168,12 @@
+@@ -4198,9 +4172,12 @@
              <text macro="source-medium"/>
            </else-if>
          </choose>

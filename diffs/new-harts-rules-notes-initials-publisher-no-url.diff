@@ -576,8 +576,8 @@
 +            <text variable="publisher"/>
            </group>
          </if>
-         <else>
-@@ -3530,7 +3531,7 @@
+         <!-- non-print types such as `webpage` use publisher first -->
+@@ -3534,7 +3535,7 @@
        <if match="any" type="book chapter classic entry entry-dictionary entry-encyclopedia interview musical_score pamphlet paper-conference report">
          <group delimiter=": ">
            <text variable="original-publisher-place"/>

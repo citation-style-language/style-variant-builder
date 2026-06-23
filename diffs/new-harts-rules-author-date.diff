@@ -70,7 +70,7 @@
            </group>
          </else>
        </choose>
-@@ -3540,9 +3537,7 @@
+@@ -3544,9 +3541,7 @@
    </macro>
    <!-- 4.6. Date -->
    <macro name="source-date">
@@ -81,7 +81,7 @@
    </macro>
    <!-- Date elements -->
    <macro name="source-date-issued-full">
-@@ -3674,9 +3669,7 @@
+@@ -3678,9 +3673,7 @@
      </choose>
    </macro>
    <macro name="source-date-original">
@@ -92,7 +92,7 @@
    </macro>
    <macro name="source-date-original-full">
      <!-- Give full date for more ephemeral types; reflected in `date-year-sort` -->
-@@ -4222,9 +4215,9 @@
+@@ -4226,9 +4219,9 @@
        </choose>
      </group>
    </macro>
@@ -105,7 +105,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -4346,17 +4339,16 @@
+@@ -4350,17 +4343,16 @@
    <bibliography hanging-indent="true">
      <sort>
        <key macro="author-bib"/>

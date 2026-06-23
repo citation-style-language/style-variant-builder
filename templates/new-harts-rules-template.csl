@@ -3513,8 +3513,12 @@
             <!-- <text variable="publisher"/> -->
           </group>
         </if>
-        <else>
+        <!-- non-print types such as `webpage` use publisher first -->
+        <else-if variable="publisher">
           <text variable="publisher"/>
+        </else-if>
+        <else>
+          <text variable="publisher-place"/>
         </else>
       </choose>
       <choose>
