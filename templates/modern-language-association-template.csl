@@ -747,6 +747,9 @@
             <if match="any" variable="container-author contributor director editor editor-translator illustrator interviewer translator">
               <text macro="label-volume"/>
             </if>
+            <else>
+              <text macro="label-volume-capitalized"/>
+            </else>
           </choose>
         </else-if>
         <else>
