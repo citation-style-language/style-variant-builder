@@ -23,7 +23,7 @@
     <category citation-format="note"/>
     <category field="law"/>
     <summary>Norwegian legal citation style based on "Veiledning for henvisninger i juridiske tekster" (February 2019).</summary>
-    <updated>2026-11-06T21:49:54+00:00</updated>
+    <updated>2026-11-06T22:04:34+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <locale xml:lang="nb">
@@ -93,11 +93,23 @@
         </date>
       </if>
       <else-if type="treaty">
-        <date variable="available-date">
-          <date-part name="year"/>
-          <date-part name="month" form="numeric"/>
-          <date-part name="day" form="numeric-leading-zeros"/>
-        </date>
+        <choose>
+          <if variable="available-date">
+            <date variable="available-date">
+              <date-part name="year"/>
+              <date-part name="month" form="numeric"/>
+              <date-part name="day" form="numeric-leading-zeros"/>
+            </date>
+          </if>
+          <!-- EU treaties without a signature date, such as a corrigendum, sort by the OJ date -->
+          <else>
+            <date variable="event-date">
+              <date-part name="year"/>
+              <date-part name="month" form="numeric"/>
+              <date-part name="day" form="numeric-leading-zeros"/>
+            </date>
+          </else>
+        </choose>
       </else-if>
     </choose>
   </macro>
