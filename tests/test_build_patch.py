@@ -13,7 +13,7 @@ def test_apply_patch_success(tmp_path):
     output_dir.mkdir()
 
     # Test the static worker method directly
-    diff_name, success, message = CSLBuilder._process_single_diff(
+    diff_name, success, _message = CSLBuilder._process_single_diff(
         diff_path=diff,
         template_path=template,
         target_output_dir=output_dir,
@@ -42,7 +42,7 @@ def test_apply_patch_failure(tmp_path):
     output_dir.mkdir()
 
     # Test the static worker method directly
-    diff_name, success, message = CSLBuilder._process_single_diff(
+    _diff_name, success, message = CSLBuilder._process_single_diff(
         diff_path=diff,
         template_path=template,
         target_output_dir=output_dir,

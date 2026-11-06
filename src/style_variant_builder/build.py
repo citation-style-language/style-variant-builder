@@ -158,8 +158,7 @@ class CSLBuilder:
             patched_file = tmp_file_path
             result = subprocess.run(
                 ["patch", "-N", str(patched_file), str(diff_path)],
-                stdout=subprocess.PIPE,
-                stderr=subprocess.PIPE,
+                capture_output=True,
                 text=True,
             )
 

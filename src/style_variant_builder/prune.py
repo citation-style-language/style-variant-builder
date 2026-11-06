@@ -52,12 +52,12 @@ class CSLPruner:
             if self.tree is None:
                 raise ValueError("Parsed XML tree is None.")
             self.root = self.tree.getroot()
-        except Exception as e:
+        except Exception:
             logging.error(
                 "Unable to parse the XML file. Please ensure the file is valid XML.",
                 exc_info=True,
             )
-            raise e
+            raise
         if self.root is None:
             msg = "The XML file appears to be empty or malformed. Please verify its contents."
             logging.error(msg)
@@ -311,12 +311,12 @@ class CSLPruner:
                 # lxml will decode character entities during reparse; restore em-dashes as numeric entities
                 xml_text = self._escape_em_dashes(xml_text)
                 self.output_path.write_text(xml_text, encoding="utf-8")
-            except Exception as e:
+            except Exception:
                 logging.error(
                     "Failed to save the pruned XML file. Please ensure the output path is valid and writable.",
                     exc_info=True,
                 )
-                raise e
+                raise
         else:
             msg = (
                 "Cannot save file because the XML was not successfully loaded."
