@@ -23,7 +23,7 @@
     <category citation-format="note"/>
     <category field="law"/>
     <summary>Norwegian legal citation style based on "Veiledning for henvisninger i juridiske tekster" (February 2019).</summary>
-    <updated>2026-11-06T14:43:39+00:00</updated>
+    <updated>2026-11-06T20:48:29+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <locale xml:lang="nb">
@@ -351,13 +351,11 @@
             </group>
           </group>
         </if>
-        <!-- From October 2023, e.g. "EUT L, 2024/1689" (the year is part of the number) -->
+        <!-- From October 2023, e.g. "EUT L 2024/1689" (the year is part of the number) -->
         <else>
-          <group delimiter=", ">
-            <group delimiter=" ">
-              <text value="EUT"/>
-              <text value="L"/>
-            </group>
+          <group delimiter=" ">
+            <text value="EUT"/>
+            <text value="L"/>
             <text variable="page"/>
           </group>
         </else>
