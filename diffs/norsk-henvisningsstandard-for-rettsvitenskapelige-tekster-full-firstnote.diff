@@ -19,17 +19,28 @@
      <category field="law"/>
 -    <summary>Norwegian legal citation style based on "Veiledning for henvisninger i juridiske tekster" (February 2019).</summary>
 +    <summary>Norwegian legal citation style based on "Veiledning for henvisninger i juridiske tekster" (February 2019). Variant with full note on first citation, subsequent notes in short form (bibliography optional).</summary>
-     <updated>2026-09-30T08:58:28+00:00</updated>
+     <updated>2026-11-06T09:19:38+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -520,10 +520,61 @@
+@@ -583,10 +583,72 @@
      <layout delimiter="; ">
        <group delimiter=" ">
          <choose>
 -          <if type="book thesis chapter entry-encyclopedia paper-conference article-journal article-newspaper article-magazine post-weblog" match="any">
 -            <text macro="author-short"/>
 -            <text macro="issued"/>
-+          <if type="book">
++          <if type="entry-encyclopedia" variable="archive">
++            <choose>
++              <if position="first">
++                <text macro="commentary-bib"/>
++              </if>
++              <else>
++                <text macro="author-short"/>
++                <text macro="issued"/>
++              </else>
++            </choose>
+           </if>
++          <else-if type="book">
 +            <choose>
 +              <if position="first">
 +                <text macro="default-bib"/>
@@ -39,7 +50,7 @@
 +                <text macro="issued"/>
 +              </else>
 +            </choose>
-           </if>
++          </else-if>
 +          <else-if type="thesis">
 +            <choose>
 +              <if position="first">
@@ -87,3 +98,24 @@
            <else-if type="legislation regulation">
              <choose>
                <if position="first">
+@@ -653,7 +715,19 @@
+             <text variable="title"/>
+           </else>
+         </choose>
+-        <text macro="locator"/>
++        <choose>
++          <if type="entry-encyclopedia" variable="archive">
++            <choose>
++              <!-- commentary-bib places the locator itself in a first note -->
++              <if position="first" match="none">
++                <text macro="locator"/>
++              </if>
++            </choose>
++          </if>
++          <else>
++            <text macro="locator"/>
++          </else>
++        </choose>
+       </group>
+     </layout>
+   </citation>
