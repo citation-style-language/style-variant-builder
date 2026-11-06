@@ -23,7 +23,7 @@
     <category citation-format="note"/>
     <category field="law"/>
     <summary>Norwegian legal citation style based on "Veiledning for henvisninger i juridiske tekster" (February 2019).</summary>
-    <updated>2026-11-06T20:48:29+00:00</updated>
+    <updated>2026-11-06T21:49:54+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <locale xml:lang="nb">
@@ -319,44 +319,26 @@
       </else>
     </choose>
   </macro>
-  <macro name="eu-oj-year">
-    <!-- The year of the OJ issue is usually the year of the act. Where it is not, the publication date is given through "available-date" in Extra. -->
-    <choose>
-      <if variable="available-date">
-        <date variable="available-date">
-          <date-part name="year"/>
-        </date>
-      </if>
-      <else>
-        <date variable="issued">
-          <date-part name="year"/>
-        </date>
-      </else>
-    </choose>
-  </macro>
   <macro name="eu-legislation">
-    <!-- A Statute with Pages is an EU act: Norwegian laws have no page reference. Acts from October 2023 have no issue or page number, so their act number goes in Pages, like an article number. "Code" is not printed, so that the name of the Official Journal can follow the locale. -->
+    <!-- A Statute with Pages is an EU act: Norwegian laws have no page reference. "Code" holds year and series, such as "OJ 2019 L". Acts from October 2023 have no issue or page number, so their "Code" is "OJ L" and their act number goes in Pages, like an article number. -->
     <group delimiter=", ">
       <text variable="title"/>
       <choose>
-        <!-- Up to September 2023: year, OJ issue and first page, e.g. "EUT 2019 L 178/1" -->
+        <!-- Up to September 2023: year, OJ issue and first page, e.g. "OJ 2019 L 178/1" -->
         <if variable="volume">
           <group delimiter=" ">
-            <text value="EUT"/>
-            <text macro="eu-oj-year"/>
-            <text value="L"/>
+            <text variable="container-title"/>
             <group delimiter="/">
               <text variable="volume"/>
               <text variable="page-first"/>
             </group>
           </group>
         </if>
-        <!-- From October 2023, e.g. "EUT L 2024/1689" (the year is part of the number) -->
+        <!-- From October 2023, e.g. "OJ L 2024/1689" (the year is part of the number), and special editions, which have the name of the edition in "Code", e.g. "English Special Edition: Series I Volume 1968(II) 475" -->
         <else>
           <group delimiter=" ">
-            <text value="EUT"/>
-            <text value="L"/>
-            <text variable="page"/>
+            <text variable="container-title"/>
+            <text variable="page-first"/>
           </group>
         </else>
       </choose>
@@ -566,11 +548,25 @@
         </group>
       </group>
       <group delimiter=", ">
-        <group delimiter=" ">
-          <text variable="volume"/>
-          <text variable="container-title"/>
-          <text variable="page"/>
-        </group>
+        <choose>
+          <!-- Treaties published in the EU Official Journal up to September 2023: "container-title" (Zotero "Code") holds year and series, such as "OJ 2000 L", and "volume" (Zotero "Code Number") the OJ issue. "event-date" (Extra in Zotero, the OJ date) is only a signal, which tells these treaties apart from others such as those in UNTS or ETS. All other treaties use the general form, including EU treaties from October 2023 and special editions. -->
+          <if variable="event-date volume" match="all">
+            <group delimiter=" ">
+              <text variable="container-title"/>
+              <group delimiter="/">
+                <text variable="volume"/>
+                <text variable="page-first"/>
+              </group>
+            </group>
+          </if>
+          <else>
+            <group delimiter=" ">
+              <text variable="volume"/>
+              <text variable="container-title"/>
+              <text variable="page-first"/>
+            </group>
+          </else>
+        </choose>
         <group>
           <!-- "number" = "Public Law Number" in Zotero -->
           <text variable="number"/>

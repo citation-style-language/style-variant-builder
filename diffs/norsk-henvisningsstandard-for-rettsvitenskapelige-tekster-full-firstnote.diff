@@ -19,10 +19,10 @@
      <category field="law"/>
 -    <summary>Norwegian legal citation style based on "Veiledning for henvisninger i juridiske tekster" (February 2019).</summary>
 +    <summary>Norwegian legal citation style based on "Veiledning for henvisninger i juridiske tekster" (February 2019). Variant with full note on first citation, subsequent notes in short form (bibliography optional).</summary>
-     <updated>2026-11-06T20:48:29+00:00</updated>
+     <updated>2026-11-06T21:49:54+00:00</updated>
      <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
    </info>
-@@ -631,10 +631,72 @@
+@@ -627,10 +627,72 @@
      <layout delimiter="; ">
        <group delimiter=" ">
          <choose>
@@ -98,7 +98,7 @@
            <!-- EU acts: Statute with Pages, see the macro "eu-legislation" -->
            <else-if type="legislation" variable="page" match="all">
              <choose>
-@@ -719,7 +781,19 @@
+@@ -715,7 +777,19 @@
              <text variable="title"/>
            </else>
          </choose>
