@@ -30,6 +30,7 @@ def test_cli_main_builds_and_errors(tmp_path):
         ],
         capture_output=True,
         text=True,
+        check=False,
     )
     assert result.returncode == 0
     combined = result.stdout + result.stderr
@@ -50,6 +51,7 @@ def test_cli_main_builds_and_errors(tmp_path):
         ],
         capture_output=True,
         text=True,
+        check=False,
     )
     assert result2.returncode != 0
     combined2 = result2.stdout + result2.stderr

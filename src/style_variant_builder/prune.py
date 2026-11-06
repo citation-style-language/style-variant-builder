@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 Remove unused macros from a CSL file.
 """
@@ -13,6 +14,7 @@ from pathlib import Path
 from lxml import etree
 
 logging.basicConfig(level=logging.INFO, format="%(message)s")
+logger = logging.getLogger(__name__)
 
 NSMAP = {"csl": "http://purl.org/net/xbiblio/csl"}
 
@@ -52,15 +54,14 @@ class CSLPruner:
             if self.tree is None:
                 raise ValueError("Parsed XML tree is None.")
             self.root = self.tree.getroot()
-        except Exception:
-            logging.error(
+        except (OSError, etree.LxmlError, ValueError):
+            logger.exception(
                 "Unable to parse the XML file. Please ensure the file is valid XML.",
-                exc_info=True,
             )
             raise
         if self.root is None:
             msg = "The XML file appears to be empty or malformed. Please verify its contents."
-            logging.error(msg)
+            logger.error(msg)
             raise ValueError(msg)
         self.collect_macro_definitions()
 
@@ -68,7 +69,7 @@ class CSLPruner:
         """Collect <macro> elements keyed on their 'name' attribute."""
         if self.root is None:
             msg = "Cannot collect macros because the XML root is missing. Ensure the file has valid XML content."
-            logging.error(msg)
+            logger.error(msg)
             raise ValueError(msg)
         self.macro_defs = {}
         for elem in self.root.iter(_tag("macro")):
@@ -87,7 +88,7 @@ class CSLPruner:
         """
         if self.root is None:
             msg = "Root is None. Ensure parse_xml() is called successfully."
-            logging.error(msg)
+            logger.error(msg)
             raise ValueError(msg)
 
         updated = 0
@@ -141,7 +142,7 @@ class CSLPruner:
     def build_used_macros(self) -> set[str]:
         if self.root is None:
             msg = "Root is None. Ensure parse_xml() is called successfully."
-            logging.error(msg)
+            logger.error(msg)
             raise ValueError(msg)
         used_macros: set[str] = set()
 
@@ -173,24 +174,25 @@ class CSLPruner:
             used_macros = self.build_used_macros()
             removed = []
             for name, macro in list(self.macro_defs.items()):
-                if name not in used_macros:
-                    if (parent := macro.getparent()) is not None:
-                        parent.remove(macro)
-                        removed.append(name)
-                        logging.debug(f"Removed macro: {name}")
+                if name not in used_macros and (
+                    parent := macro.getparent()
+                ) is not None:
+                    parent.remove(macro)
+                    removed.append(name)
+                    logger.debug(f"Removed macro: {name}")
             if removed:
                 self.modified = True
                 total_removed_count += len(removed)
                 self.collect_macro_definitions()
             else:
-                logging.debug("No unused macros found.")
+                logger.debug("No unused macros found.")
                 break
         if total_removed_count > 0:
-            logging.debug(
+            logger.debug(
                 f"Removed a total of {total_removed_count} unused macros."
             )
         else:
-            logging.debug("No macros pruned.")
+            logger.debug("No macros pruned.")
 
     def _normalize_xml_declaration(self, text: str) -> str:
         """Ensure XML declaration uses double quotes."""
@@ -277,9 +279,9 @@ class CSLPruner:
                 xml_declaration=True,
                 pretty_print=True,
             )
-        except Exception:
+        except (etree.LxmlError, ValueError):
             # If reindent fails for any reason, fall back to the original bytes
-            logging.warning(
+            logger.warning(
                 "Reindent step failed; writing original formatted XML.",
                 exc_info=True,
             )
@@ -311,17 +313,16 @@ class CSLPruner:
                 # lxml will decode character entities during reparse; restore em-dashes as numeric entities
                 xml_text = self._escape_em_dashes(xml_text)
                 self.output_path.write_text(xml_text, encoding="utf-8")
-            except Exception:
-                logging.error(
+            except (OSError, etree.LxmlError, UnicodeError, ValueError):
+                logger.exception(
                     "Failed to save the pruned XML file. Please ensure the output path is valid and writable.",
-                    exc_info=True,
                 )
                 raise
         else:
             msg = (
                 "Cannot save file because the XML was not successfully loaded."
             )
-            logging.error(msg)
+            logger.error(msg)
             raise ValueError(msg)
 
 
@@ -346,12 +347,12 @@ def main() -> int:
         pruner.prune_macros()
         pruner.save()
         if pruner.modified:
-            logging.info(f"Pruned {args.output_path}")
+            logger.info(f"Pruned {args.output_path}")
         else:
-            logging.info(f"No macros pruned in {args.input_path}")
+            logger.info(f"No macros pruned in {args.input_path}")
         return 0
     except Exception:
-        logging.error("An error occurred during processing.", exc_info=True)
+        logger.exception("An error occurred during processing.")
         return 1
 
 

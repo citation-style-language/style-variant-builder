@@ -30,6 +30,7 @@ def test_full_build_outputs_are_valid(tmp_path):
         ],
         capture_output=True,
         text=True,
+        check=False,
     )
     assert result.returncode == 0, f"Build failed: {result.stderr or result.stdout}"
     # Recursively check all .csl files in output for XML validity
@@ -40,6 +41,6 @@ def test_full_build_outputs_are_valid(tmp_path):
                 fpath = Path(dirpath) / fn
                 try:
                     etree.parse(str(fpath))
-                except Exception as e:
+                except (OSError, etree.LxmlError) as e:
                     broken.append((str(fpath), str(e)))
     assert not broken, f"Broken output styles: {broken}"

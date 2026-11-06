@@ -14,17 +14,21 @@ from contextlib import suppress
 from dataclasses import dataclass, field
 from itertools import chain
 from pathlib import Path
+from typing import ClassVar
+
+from lxml import etree
 
 from style_variant_builder.prune import CSLPruner
 
 logging.basicConfig(level=logging.INFO, format="%(message)s")
+logger = logging.getLogger(__name__)
 TEMPLATE_SUFFIX = "-template.csl"
 
 
 class ColourFormatter(logging.Formatter):
     """Custom formatter to add colours to log messages."""
 
-    COLOURS = {
+    COLOURS: ClassVar[dict[str, str]] = {
         "WARNING": "\033[1;33m",  # Bright Yellow
         "ERROR": "\033[1;31m",  # Bright Red
     }
@@ -60,7 +64,7 @@ class ErrorCountingFilter(logging.Filter):
 
 # Global instance to track error count across the entire run
 _error_count_filter = ErrorCountingFilter()
-logging.getLogger().addFilter(_error_count_filter)
+logger.addFilter(_error_count_filter)
 
 
 @dataclass(slots=True)
@@ -118,7 +122,7 @@ class CSLBuilder:
             diff_path.write_text("".join(diff), encoding="utf-8")
             return (dev_file.name, True, f"  ✓ {diff_path.name}")
 
-        except Exception as e:
+        except OSError as e:
             return (dev_file.name, False, f"Error generating diff: {e}")
 
     @staticmethod
@@ -160,6 +164,7 @@ class CSLBuilder:
                 ["patch", "-N", str(patched_file), str(diff_path)],
                 capture_output=True,
                 text=True,
+                check=False,
             )
 
             if result.returncode != 0:
@@ -213,7 +218,7 @@ class CSLBuilder:
                     f"  ✓ {output_variant.stem}",
                 )
 
-        except Exception as e:
+        except (OSError, subprocess.SubprocessError, ValueError, etree.LxmlError) as e:
             return (diff_path.name, False, f"Error processing diff: {e}")
 
         finally:
@@ -244,10 +249,10 @@ class CSLBuilder:
                     and f"/{self.style_family}" in content
                 ):
                     reference_diffs.append(diff_file)
-            except Exception as e:
-                logging.error(
-                    f"Error reading diff file {diff_file.name}: {e}",
-                    exc_info=True,
+            except OSError:
+                logger.exception(
+                    "Error reading diff file %s",
+                    diff_file.name,
                 )
         all_diffs = sorted(chain(filename_diffs, reference_diffs))
         if not all_diffs:
@@ -260,13 +265,13 @@ class CSLBuilder:
         try:
             template_path = self._get_template_path()
         except FileNotFoundError as e:
-            logging.warning(f"Skipping style family '{self.style_family}': {e}")
+            logger.warning(f"Skipping style family '{self.style_family}': {e}")
             self.failure_messages.append(f"{self.style_family}: {e}")
             return (0, 0)
         try:
             diff_files = self._get_diff_files()
         except FileNotFoundError as e:
-            logging.warning(f"Skipping style family '{self.style_family}': {e}")
+            logger.warning(f"Skipping style family '{self.style_family}': {e}")
             self.failure_messages.append(f"{self.style_family}: {e}")
             return (0, 0)
 
@@ -297,10 +302,10 @@ class CSLBuilder:
             for future in as_completed(futures):
                 diff_name, success, message = future.result()
                 if success:
-                    logging.info(message)
+                    logger.info(message)
                     self.successful_variants += 1
                 else:
-                    logging.error(f"  ✗ {diff_name}: {message}")
+                    logger.error(f"  ✗ {diff_name}: {message}")
                     self.failed_variants += 1
                     variant_name = Path(diff_name).stem
                     self.failure_messages.append(
@@ -313,7 +318,7 @@ class CSLBuilder:
         try:
             template_path = self._get_template_path()
         except FileNotFoundError as e:
-            logging.warning(
+            logger.warning(
                 f"Skipping diff generation for style family '{self.style_family}': {e}"
             )
             return
@@ -335,15 +340,15 @@ class CSLBuilder:
                     and f"/{self.style_family}" in content
                 ):
                     additional_dev_files.append(dev_file)
-            except Exception as e:
-                logging.error(
-                    f"Error reading development file {dev_file.name}: {e}",
-                    exc_info=True,
+            except OSError:
+                logger.exception(
+                    "Error reading development file %s",
+                    dev_file.name,
                 )
         dev_files = sorted(chain(expected_dev_files, additional_dev_files))
 
         if not dev_files:
-            logging.warning(
+            logger.warning(
                 f"Skipping diff generation: No development CSL files found for style family '{self.style_family}' in {self.development_dir}"
             )
             return
@@ -367,9 +372,9 @@ class CSLBuilder:
             for future in as_completed(futures):
                 filename, success, message = future.result()
                 if success:
-                    logging.info(message)
+                    logger.info(message)
                 else:
-                    logging.error(f"  ✗ {filename}: {message}")
+                    logger.error(f"  ✗ {filename}: {message}")
 
 
 def main() -> int:
@@ -436,7 +441,7 @@ def main() -> int:
     # Automatically determine style families by scanning template files.
     template_files = list(args.templates_path.glob(f"*{TEMPLATE_SUFFIX}"))
     if not template_files:
-        logging.error(f"No template files found in {args.templates_path}.")
+        logger.error(f"No template files found in {args.templates_path}.")
         return 1
     style_families = [
         template.stem.removesuffix(TEMPLATE_SUFFIX.removesuffix(".csl"))
@@ -445,20 +450,20 @@ def main() -> int:
 
     # Print mode indicator
     if args.diffs:
-        logging.info("Mode: \033[1;35mGenerating diff files\033[0m\n")
+        logger.info("Mode: \033[1;35mGenerating diff files\033[0m\n")
     elif args.development:
-        logging.info(
+        logger.info(
             "Mode: \033[1;35mBuilding development variants (unpruned)\033[0m\n"
         )
     else:
-        logging.info("Mode: \033[1;35mBuilding production variants\033[0m\n")
+        logger.info("Mode: \033[1;35mBuilding production variants\033[0m\n")
 
     overall_success = True
     family_results = {}  # Track results per family
     failure_summaries: list[str] = []
 
     for style_family in style_families:
-        logging.info(
+        logger.info(
             f"Processing style family: \033[1;36m{style_family}\033[0m"
         )  # Cyan for style family
         builder = CSLBuilder(
@@ -489,10 +494,7 @@ def main() -> int:
         except Exception as e:
             overall_success = False
             family_results[style_family] = (0, 1)  # Mark as failed
-            logging.error(
-                f"Error processing style family {style_family}: {e}",
-                exc_info=True,
-            )
+            logger.exception("Error processing style family %s", style_family)
             failure_summaries.append(f"{style_family}: {e}")
     # Summary reporting
     if not args.diffs:  # Only report variant stats for build mode
@@ -509,24 +511,24 @@ def main() -> int:
         ]
 
         if failed_families:
-            logging.error(
+            logger.error(
                 f"Style families with no successful builds: {', '.join(failed_families)}",
                 extra={"count_error": False},
             )
 
         if total_successful > 0:
-            logging.info(
+            logger.info(
                 f"Successfully built {total_successful} variants across {len(style_families)} style families."
             )
 
         if total_failed > 0:
-            logging.error(
+            logger.error(
                 f"Failed to build {total_failed} variants.",
                 extra={"count_error": False},
             )
 
         if failure_summaries:
-            logging.error(
+            logger.error(
                 "Failed variants and errors:\n  "
                 + "\n  ".join(failure_summaries),
                 extra={"count_error": False},
@@ -537,7 +539,7 @@ def main() -> int:
         error_word: str = (
             "error" if _error_count_filter.error_count == 1 else "errors"
         )
-        logging.error(
+        logger.error(
             f"Run completed with {_error_count_filter.error_count} {error_word}.",
             extra={"count_error": False},
         )
