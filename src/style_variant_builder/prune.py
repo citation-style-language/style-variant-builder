@@ -18,6 +18,19 @@ logger = logging.getLogger(__name__)
 
 NSMAP = {"csl": "http://purl.org/net/xbiblio/csl"}
 
+# Characters the CSL styles repository writes as numeric entities
+_SPECIAL_CHARACTERS_RE = re.compile(
+    "["
+    "\u00a0"  # no-break space
+    "\u2003"  # em space
+    "\u2009"  # thin space
+    "\u2011"  # non-breaking hyphen
+    "\u2013"  # en dash
+    "\u2014"  # em dash
+    "\u202f"  # narrow no-break space
+    "]"
+)
+
 
 def _tag(local_name: str) -> str:
     """Helper to construct fully-qualified tag names."""
@@ -202,15 +215,19 @@ class CSLPruner:
             text,
         )
 
-    def _escape_em_dashes(self, text: str) -> str:
-        """Replace em-dashes with numeric entities."""
-        return re.sub(r"—+", lambda m: "&#8212;" * len(m.group(0)), text)
+    def _escape_special_characters(self, text: str) -> str:
+        """Replace special spaces and dashes with numeric entities.
+
+        lxml decodes character references when parsing, but the CSL styles
+        repository keeps these characters as numeric entities.
+        """
+        return _SPECIAL_CHARACTERS_RE.sub(lambda m: f"&#{ord(m.group(0))};", text)
 
     def normalize_xml_content(self, xml_data: bytes) -> bytes:
         """Revert Python changes to XML content and reorder the default-locale attribute in <style> tags."""
         text = xml_data.decode("utf-8")
         text = self._normalize_xml_declaration(text)
-        text = self._escape_em_dashes(text)
+        text = self._escape_special_characters(text)
 
         # Collapse XML fragments inside multi-line comments to match CSL repository indentation
         # Pattern captures the entire comment body (non-greedy) so we can post-process line breaks
@@ -310,8 +327,8 @@ class CSLPruner:
                 # Ensure XML declaration uses double quotes
                 xml_text = xml_data.decode("utf-8")
                 xml_text = self._normalize_xml_declaration(xml_text)
-                # lxml will decode character entities during reparse; restore em-dashes as numeric entities
-                xml_text = self._escape_em_dashes(xml_text)
+                # lxml will decode character entities during reparse; restore them as numeric entities
+                xml_text = self._escape_special_characters(xml_text)
                 self.output_path.write_text(xml_text, encoding="utf-8")
             except (OSError, etree.LxmlError, UnicodeError, ValueError):
                 logger.exception(

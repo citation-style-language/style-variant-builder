@@ -52,6 +52,41 @@ def test_prune_keeps_used_macros(tmp_path):
     assert "used-macro" in macros
 
 
+EXAMPLE_WITH_ENTITIES = """<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl">
+  <citation>
+    <layout>
+      <group delimiter="&#160;">
+        <text value="1&#8211;2"/>
+        <text value="a&#8212;b"/>
+        <text value="c&#8239;d"/>
+      </group>
+    </layout>
+  </citation>
+</style>
+"""
+
+
+def test_special_characters_saved_as_entities(tmp_path):
+    """Test that special spaces and dashes stay numeric entities in output."""
+    input_path = tmp_path / "input.csl"
+    output_path = tmp_path / "output.csl"
+    input_path.write_text(EXAMPLE_WITH_ENTITIES, encoding="utf-8")
+
+    pruner = CSLPruner(input_path, output_path)
+    pruner.parse_xml()
+    pruner.prune_macros()
+    pruner.save()
+
+    output_content = output_path.read_text(encoding="utf-8")
+    assert 'delimiter="&#160;"' in output_content
+    assert 'value="1&#8211;2"' in output_content
+    assert 'value="a&#8212;b"' in output_content
+    assert 'value="c&#8239;d"' in output_content
+    for char in "\u00a0\u2013\u2014\u202f":
+        assert char not in output_content
+
+
 def test_xml_model_pi_excluded_from_output(tmp_path):
     """Test that xml-model processing instructions are excluded from saved output."""
     input_path = tmp_path / "input.csl"
