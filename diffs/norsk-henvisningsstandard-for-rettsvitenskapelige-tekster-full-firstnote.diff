@@ -106,7 +106,7 @@
 +        <choose>
 +          <if type="book thesis chapter entry-encyclopedia paper-conference article-journal article-newspaper article-magazine post-weblog" match="any">
 +            <choose>
-+              <!-- In a first note, the full reference places the locator itself (macros "commentary-bib" and "locator-first-note") -->
++              <!-- In a first note, the full reference places the locator itself (macro "locator-first-note") -->
 +              <if position="first" match="none">
 +                <text macro="locator"/>
 +              </if>
