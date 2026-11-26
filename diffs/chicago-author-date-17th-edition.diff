@@ -78,7 +78,228 @@
        </else-if>
      </choose>
    </macro>
-@@ -1436,9 +1425,7 @@
+@@ -1120,119 +1109,115 @@
+   </macro>
+   <!-- 2. Date (CMOS18 13.102) -->
+   <macro name="date">
+-    <group delimiter="-">
+-      <choose>
+-        <if variable="issued">
+-          <group delimiter=" ">
+-            <!-- reprints and earlier editions may give original year in brackets (CMOS18 14.16) -->
+-            <text macro="date-original-year" prefix="(" suffix=")"/>
+-            <group>
+-              <text macro="date-issued-year"/>
+-              <text variable="year-suffix"/>
+-            </group>
++    <choose>
++      <if variable="issued">
++        <group delimiter=" ">
++          <!-- reprints and earlier editions may give original year in brackets (CMOS18 14.16) -->
++          <text macro="date-original-year" prefix="(" suffix=")"/>
++          <group>
++            <text macro="date-issued-year"/>
++            <text variable="year-suffix"/>
+           </group>
+-        </if>
+-        <else-if variable="event-date">
+-          <text macro="date-event-year"/>
+-        </else-if>
+-        <else-if variable="available-date">
+-          <date date-parts="year" form="numeric" variable="available-date"/>
+-        </else-if>
+-        <else-if variable="status">
+-          <!-- Print the status variable rather than use generic CSL terms (`in press`, etc.) -->
+-          <text text-case="capitalize-first" variable="status"/>
+-          <text variable="year-suffix"/>
+-        </else-if>
+-        <else-if type="collection">
+-          <!-- do not give n.d. for archival collections (CMOS18 14.128) -->
+-          <text variable="year-suffix"/>
+-        </else-if>
+-        <else-if type="manuscript">
+-          <!-- do not give n.d. with a bare shelfmark -->
+-          <choose>
+-            <if match="any" variable="container-title event-date event-place event-title genre title publisher publisher-place">
+-              <text form="short" term="no date"/>
+-              <text variable="year-suffix"/>
++        </group>
++      </if>
++      <else-if variable="event-date">
++        <text macro="date-event-year"/>
++      </else-if>
++      <else-if variable="available-date">
++        <date date-parts="year" form="numeric" variable="available-date"/>
++      </else-if>
++      <else-if variable="status">
++        <!-- Print the status variable rather than use generic CSL terms (`in press`, etc.) -->
++        <text text-case="capitalize-first" variable="status"/>
++        <text variable="year-suffix" prefix="-"/>
++      </else-if>
++      <else-if type="collection">
++        <!-- do not give n.d. for archival collections (CMOS18 14.128) -->
++        <text variable="year-suffix"/>
++      </else-if>
++      <else-if type="manuscript">
++        <!-- do not give n.d. with a bare shelfmark -->
++        <choose>
++          <if match="any" variable="container-title event-date event-place event-title genre title publisher publisher-place">
++            <text form="short" term="no date"/>
++            <text variable="year-suffix" prefix="-"/>
++          </if>
++        </choose>
++      </else-if>
++      <else>
++        <text form="short" term="no date"/>
++        <text variable="year-suffix" prefix="-"/>
++      </else>
++    </choose>
++  </macro>
++  <macro name="date-short">
++    <choose>
++      <if variable="issued">
++        <group delimiter=" ">
++          <choose>
++            <if is-uncertain-date="original-date">
++              <!-- Uncertain date already has square brackets -->
++              <text macro="date-original-year"/>
+             </if>
+-          </choose>
+-        </else-if>
+-        <else>
+-          <text form="short" term="no date"/>
+-          <text variable="year-suffix"/>
+-        </else>
+-      </choose>
+-    </group>
+-  </macro>
+-  <macro name="date-short">
+-    <group delimiter="-">
+-      <choose>
+-        <if variable="issued">
+-          <group delimiter=" ">
++            <else>
++              <text macro="date-original-year" prefix="[" suffix="]"/>
++            </else>
++          </choose>
++          <group>
+             <choose>
+-              <if is-uncertain-date="original-date">
+-                <!-- Uncertain date already has square brackets -->
+-                <text macro="date-original-year"/>
++              <if match="none" type="interview personal_communication">
++                <text macro="date-issued-year"/>
+               </if>
++              <!-- accessible `interview` or `personal_communication` items appear in the bibliography; inaccessible items are in-text only -->
++              <else-if match="any" variable="archive archive-place container-title DOI number publisher references URL">
++                <text macro="date-issued-year"/>
++              </else-if>
+               <else>
+-                <text macro="date-original-year" prefix="[" suffix="]"/>
++                <text macro="date-issued-full"/>
+               </else>
+             </choose>
+-            <group>
+-              <choose>
+-                <if match="none" type="interview personal_communication">
+-                  <text macro="date-issued-year"/>
+-                </if>
+-                <!-- accessible `interview` or `personal_communication` items appear in the bibliography; inaccessible items are in-text only -->
+-                <else-if match="any" variable="archive archive-place container-title DOI number publisher references URL">
+-                  <text macro="date-issued-year"/>
+-                </else-if>
+-                <else>
+-                  <text macro="date-issued-full"/>
+-                </else>
+-              </choose>
+-              <text variable="year-suffix"/>
+-            </group>
++            <text variable="year-suffix"/>
+           </group>
+-        </if>
+-        <else-if variable="event-date">
+-          <text macro="date-event-year"/>
+-        </else-if>
+-        <else-if variable="available-date">
+-          <date date-parts="year" form="numeric" variable="available-date"/>
+-        </else-if>
+-        <else-if variable="status">
+-          <!-- Print the status variable rather than use generic CSL terms (`in press`, etc.) -->
+-          <text text-case="lowercase" variable="status"/>
+-          <text variable="year-suffix"/>
+-        </else-if>
+-        <else-if match="any" type="interview personal_communication">
+-          <choose>
+-            <if match="any" variable="archive archive-place container-title DOI number publisher references URL">
+-              <!-- only give n.d. for accessible personal communication (CMOS18 14.111)-->
+-              <text form="short" term="no date"/>
+-              <text variable="year-suffix"/>
+-            </if>
+-          </choose>
+-        </else-if>
+-        <else-if match="any" type="classic collection entry entry-dictionary entry-encyclopedia">
+-          <!-- do not give n.d. for archival collections (CMOS18 14.128), `classic` (CMOS18 14.143), or reference entries (CMOS18 14.131) -->
+-          <text variable="year-suffix"/>
+-        </else-if>
+-        <else-if type="manuscript">
+-          <!-- do not give n.d. with a bare shelfmark -->
+-          <choose>
+-            <if match="any" variable="container-title event-date event-place event-title genre title publisher publisher-place">
+-              <text form="short" term="no date"/>
+-              <text variable="year-suffix"/>
+-            </if>
+-          </choose>
+-        </else-if>
+-        <else>
+-          <text form="short" term="no date"/>
+-          <text variable="year-suffix"/>
+-        </else>
+-      </choose>
+-    </group>
++        </group>
++      </if>
++      <else-if variable="event-date">
++        <text macro="date-event-year"/>
++      </else-if>
++      <else-if variable="available-date">
++        <date date-parts="year" form="numeric" variable="available-date"/>
++      </else-if>
++      <else-if variable="status">
++        <!-- Print the status variable rather than use generic CSL terms (`in press`, etc.) -->
++        <text text-case="lowercase" variable="status"/>
++        <text variable="year-suffix" prefix="-"/>
++      </else-if>
++      <else-if match="any" type="interview personal_communication">
++        <choose>
++          <if match="any" variable="archive archive-place container-title DOI number publisher references URL">
++            <!-- only give n.d. for accessible personal communication (CMOS18 14.111)-->
++            <text form="short" term="no date"/>
++            <text variable="year-suffix" prefix="-"/>
++          </if>
++        </choose>
++      </else-if>
++      <else-if match="any" type="classic collection entry entry-dictionary entry-encyclopedia">
++        <!-- do not give n.d. for archival collections (CMOS18 14.128), `classic` (CMOS18 14.143), or reference entries (CMOS18 14.131) -->
++        <text variable="year-suffix"/>
++      </else-if>
++      <else-if type="manuscript">
++        <!-- do not give n.d. with a bare shelfmark -->
++        <choose>
++          <if match="any" variable="container-title event-date event-place event-title genre title publisher publisher-place">
++            <text form="short" term="no date"/>
++            <text variable="year-suffix" prefix="-"/>
++          </if>
++        </choose>
++      </else-if>
++      <else>
++        <text form="short" term="no date"/>
++        <text variable="year-suffix" prefix="-"/>
++      </else>
++    </choose>
+   </macro>
+   <macro name="date-sort-group">
+     <!-- Sort items with and without dates (CMOS18 14.44):
+@@ -1436,9 +1421,7 @@
        <choose>
          <if type="broadcast" variable="container-title number title">
            <!-- Bespoke `broadcast` format (CMOS18 14.165, 14.168) -->
@@ -89,7 +310,7 @@
            <group delimiter=", ">
              <text macro="identifier-number-bib"/>
              <text macro="title-bib"/>
-@@ -1570,18 +1557,14 @@
+@@ -1570,18 +1553,14 @@
        </else-if>
        <else-if match="any" variable="collection-editor compiler editor editorial-director">
          <!-- monographic types -->
@@ -110,7 +331,7 @@
        </else>
      </choose>
    </macro>
-@@ -3216,9 +3199,7 @@
+@@ -3216,9 +3195,7 @@
        </if>
        <else-if match="any" variable="collection-editor compiler editor editorial-director">
          <!-- monographic types -->
@@ -121,7 +342,7 @@
        </else-if>
        <else-if match="any" type="interview paper-conference">
          <!-- serial types -->
-@@ -3226,9 +3207,7 @@
+@@ -3226,9 +3203,7 @@
        </else-if>
        <else>
          <!-- monographic types -->
@@ -132,7 +353,7 @@
        </else>
      </choose>
    </macro>
-@@ -3564,10 +3543,6 @@
+@@ -3564,10 +3539,6 @@
              <else-if match="any" variable="container-author editor editor-translator translator">
                <text macro="label-volume"/>
              </else-if>
@@ -143,7 +364,7 @@
            </choose>
          </else-if>
          <else-if variable="volume">
-@@ -3784,9 +3759,7 @@
+@@ -3784,9 +3755,7 @@
        <choose>
          <if match="any" type="article-magazine article-newspaper">
            <group delimiter=". ">
@@ -154,7 +375,7 @@
              <!-- newspaper edition always capitalized (CMOS18 14.89) -->
              <text macro="label-edition-capitalized"/>
            </group>
-@@ -3794,16 +3767,12 @@
+@@ -3794,16 +3763,12 @@
          </if>
          <else-if match="any" variable="issue supplement-number volume">
            <group delimiter=": ">
@@ -173,7 +394,7 @@
            <text macro="source-serial-locator"/>
          </else>
          <!-- TODO: If CSL adds `date-part` detection, add two further conditions to address CMOS18 14.74: delimiting with ":" if there is a `volume` and no month or `issue` or `supplement number`; delimiting with ", " or there is an `issue` or `supplement number` and no month -->
-@@ -4110,9 +4079,7 @@
+@@ -4110,9 +4075,7 @@
        </choose>
        <group delimiter=" ">
          <text macro="source-date-status-bib"/>
@@ -184,7 +405,7 @@
        </group>
      </group>
    </macro>
-@@ -4171,9 +4138,7 @@
+@@ -4171,9 +4134,7 @@
            <group delimiter=", ">
              <group delimiter=" ">
                <text macro="source-monographic-preposition-bib"/>
@@ -195,7 +416,7 @@
              </group>
              <text macro="source-monographic-description"/>
              <text macro="source-monographic-identifier-bib"/>
-@@ -4229,11 +4194,9 @@
+@@ -4229,11 +4190,9 @@
            </if>
          </choose>
        </else-if>
@@ -207,7 +428,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number-capitalized"/>
-@@ -4269,11 +4232,9 @@
+@@ -4269,11 +4228,9 @@
            </if>
          </choose>
        </else-if>
@@ -219,7 +440,7 @@
        <else-if variable="chapter-number">
          <group delimiter=" ">
            <text macro="label-chapter-number"/>
-@@ -4334,9 +4295,7 @@
+@@ -4334,9 +4291,7 @@
            <text macro="label-version"/>
            <!-- use note form as `edition` is not capitalized here -->
            <text macro="identifier-edition-note"/>
@@ -230,7 +451,7 @@
          </group>
        </if>
      </choose>
-@@ -4707,10 +4666,6 @@
+@@ -4707,10 +4662,6 @@
          <else-if is-numeric="volume" match="none">
            <text macro="label-volume"/>
          </else-if>
@@ -241,7 +462,7 @@
          <else-if is-numeric="volume" variable="page">
            <choose>
              <!-- check for variables that might come between the volume and page number -->
-@@ -4737,9 +4692,7 @@
+@@ -4737,9 +4688,7 @@
          <group delimiter=":">
            <choose>
              <if match="any" variable="part-number part-title volume-title"/>
@@ -252,7 +473,7 @@
              <else>
                <text variable="volume"/>
              </else>
-@@ -4750,17 +4703,13 @@
+@@ -4750,17 +4699,13 @@
        <else-if variable="locator">
          <text macro="label-locator"/>
        </else-if>
@@ -271,7 +492,7 @@
              <else>
                <text variable="volume"/>
              </else>
-@@ -5267,9 +5216,8 @@
+@@ -5267,9 +5212,8 @@
        <choose>
          <if match="any" type="post webpage">
            <!-- print `container-title` on `post` or `webpage` in the same way as `publisher` (CMOS18 14.104-106) -->
@@ -282,7 +503,7 @@
              <if variable="publisher">
                <text text-case="title" variable="container-title"/>
              </if>
-@@ -5277,7 +5225,7 @@
+@@ -5277,7 +5221,7 @@
              <else>
                <text text-case="title" variable="container-title"/>
              </else>
@@ -291,7 +512,7 @@
          </if>
        </choose>
        <choose>
-@@ -5296,9 +5244,7 @@
+@@ -5296,9 +5240,7 @@
        </choose>
        <group delimiter=" ">
          <text macro="source-date-status-bib"/>
@@ -302,7 +523,7 @@
        </group>
        <choose>
          <if type="broadcast" variable="URL"/>
-@@ -5526,7 +5472,7 @@
+@@ -5526,7 +5468,7 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -311,7 +532,7 @@
              <text text-case="capitalize-first" variable="publisher"/>
            </group>
          </else-if>
-@@ -5552,7 +5498,7 @@
+@@ -5552,7 +5494,7 @@
          </if>
          <else-if variable="publisher">
            <group delimiter=": ">
@@ -320,7 +541,7 @@
              <text variable="publisher"/>
            </group>
          </else-if>
-@@ -5574,7 +5520,7 @@
+@@ -5574,7 +5516,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -329,7 +550,7 @@
            <text text-case="capitalize-first" variable="original-publisher"/>
          </group>
        </if>
-@@ -5587,7 +5533,7 @@
+@@ -5587,7 +5529,7 @@
      <choose>
        <if variable="original-publisher">
          <group delimiter=": ">
@@ -338,7 +559,7 @@
            <text variable="original-publisher"/>
          </group>
        </if>
-@@ -5609,9 +5555,7 @@
+@@ -5609,9 +5551,7 @@
        </else-if>
        <else-if match="any" type="article-journal article-magazine article-newspaper periodical post-weblog review review-book">
          <!-- serial types -->
@@ -349,7 +570,7 @@
          <!-- for notes and bibliography leading with volume title (CMOS18 14.21): -->
          <!-- <text macro="source-date-issued-or-status"/> -->
        </else-if>
-@@ -5623,9 +5567,7 @@
+@@ -5623,9 +5563,7 @@
        </else-if>
        <else-if match="any" type="interview paper-conference">
          <!-- serial types -->
@@ -360,7 +581,7 @@
          <!-- for notes and bibliography leading with volume title (CMOS18 14.21): -->
          <!-- <text macro="source-date-issued-or-status"/> -->
        </else-if>
-@@ -5691,14 +5633,10 @@
+@@ -5691,14 +5629,10 @@
          <text macro="date-issued-full"/>
        </if>
        <else-if variable="issue volume">
@@ -377,7 +598,7 @@
        </else-if>
        <else-if match="any" variable="issue volume">
          <text macro="date-issued-year-month"/>
-@@ -5843,14 +5781,10 @@
+@@ -5843,14 +5777,10 @@
    <macro name="source-date-original-full-serial">
      <choose>
        <if variable="issue volume">
@@ -394,7 +615,7 @@
        </else-if>
        <else-if match="any" variable="issue volume">
          <text macro="date-original-year-month"/>
-@@ -6920,9 +6854,9 @@
+@@ -6920,9 +6850,9 @@
        </else>
      </choose>
    </macro>
@@ -407,7 +628,7 @@
      </layout>
    </citation>
    <!-- Bibliography -->
-@@ -7065,19 +6999,22 @@
+@@ -7065,19 +6995,22 @@
        </else>
      </choose>
    </macro>
